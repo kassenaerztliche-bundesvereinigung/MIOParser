@@ -1,0 +1,154 @@
+/*
+ * Licensed to the Kassenärztliche Bundesvereinigung (KBV) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The KBV licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { ContextEntry } from "io-ts";
+
+export type ErrorMessageLanguage = "de" | "en";
+
+export default class ErrorMessage {
+    public static Language: ErrorMessageLanguage = "en";
+
+    static ContextEntry(
+        context: ContextEntry,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        const actual =
+            typeof context.actual === "string" ? `"${context.actual}"` : context.actual;
+        const tag = (context.type as any)._tag ? (context.type as any)._tag : "";
+
+        if (lang === "de") {
+            return `Wert ist ${actual} aber sollte ${context.type.name} sein (${tag})`;
+        } else {
+            return `Value is ${actual} but should be ${context.type.name} (${tag})`;
+        }
+    }
+
+    static Scalar(
+        name: string,
+        value: any,
+        regex: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            let msg = `${name} hat ein falsches Format (${regex})`;
+            if (value === undefined)
+                msg = `Der Wert ist nicht definiert, sollte aber ${name} entsprechen (${regex})`;
+            return msg;
+        } else {
+            let msg = `${name} has wrong format (${regex})`;
+            if (value === undefined)
+                msg = `Value is undefined but should be a ${name} (${regex})`;
+            return msg;
+        }
+    }
+
+    static MinArray(
+        min: number,
+        actual: number,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Das Array enthält ${actual} sollte aber mindestens ${min} ${
+                min > 1 ? "Elemente" : "Element"
+            } enthalten`;
+        } else {
+            return `Array has length of ${actual} but should have at least ${min} ${
+                min > 1 ? "elements" : "element"
+            }`;
+        }
+    }
+
+    static MaxArray(
+        max: number,
+        actual: number,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Das Array enthält ${actual} sollte aber maximal ${max} ${
+                max > 1 ? "Elemente" : "Element"
+            } enthalten`;
+        } else {
+            return `Array has length of ${actual} but should have a maximum of ${max} ${
+                max > 1 ? "elements" : "element"
+            }`;
+        }
+    }
+
+    static Slice(
+        name: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Slice für Codec ${name} falsch`;
+        } else {
+            return `Wrong slice for Codec ${name} `;
+        }
+    }
+
+    static Literal(
+        is: unknown,
+        should: string | boolean | number,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Es wurde der Wert ${should} erwartet. Angegeben wurde ${is}`;
+        } else {
+            return `Expected literal ${should}, but received ${is}`;
+        }
+    }
+
+    static Codec(
+        name: string,
+        min: string,
+        max: string,
+        actual: number,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Fehler für Codec: ${name}. Sollte ${min} bis ${max} mal vorkommen. Codec kam allerdings ${actual} mal vor.`;
+        } else {
+            return `Error for Codec: ${name}. Should occur ${min} to ${max} times but occurs ${actual} times.`;
+        }
+    }
+
+    static Excess(
+        key: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Überflüssiges Element "${key}" gefunden`;
+        } else {
+            return `Excess key "${key}" found`;
+        }
+    }
+
+    static Extensible(
+        valueSet: string,
+        value: any,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Der Wert "${value}" ist nicht im extensible ValueSet "${valueSet}" enthalten. Nach Möglichkeit sollte ein Wert aus dem korrekten ValueSet verwendet werden.`;
+        } else {
+            return `Value "${value}" is not contained in extensible ValueSet "${valueSet}". If possible, a value from within that ValueSet is preferred.`;
+        }
+    }
+}

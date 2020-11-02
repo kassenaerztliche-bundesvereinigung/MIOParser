@@ -1,0 +1,51 @@
+/*
+ * Licensed to the Kassenärztliche Bundesvereinigung (KBV) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The KBV licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import { Type, success, failure, identity } from "io-ts";
+
+import ErrorMessage from "../../../ErrorMessage";
+
+/**
+ *Base StructureDefinition for id type: Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
+ */
+class SCALARIdType extends Type<string> {
+    private static regexExp = /^[A-Za-z0-9\-.]{1,64}$/;
+
+    constructor() {
+        super(
+            "SCALARIdType",
+
+            (s): s is string =>
+                typeof s === "string" && SCALARIdType.regexExp.test(s.toString()),
+
+            (s, c) => {
+                return this.is(s)
+                    ? success(s)
+                    : failure(
+                          s,
+                          c,
+                          ErrorMessage.Scalar("Id", s, "^[A-Za-z0-9-.]{1,64}$")
+                      );
+            },
+            identity
+        );
+    }
+}
+const SCALARId = new SCALARIdType();
+export default SCALARId;

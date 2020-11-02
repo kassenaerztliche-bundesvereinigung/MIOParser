@@ -1,0 +1,5 @@
+KBV MIO Parser
+Copyright 2020 Kassenärztliche Bundesvereinigung
+
+This product includes software developed at
+Kassenärztliche Bundesvereinigung, KBV (https://www.kbv.de/).
