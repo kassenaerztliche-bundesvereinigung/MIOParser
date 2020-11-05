@@ -189,7 +189,7 @@ Derzeit ist keine Mitwirkung von externen Entwicklern vorgesehen. Dies kann sich
 
 Softwarefehler können über die [GitHub Issues](https://github.com/kassenaerztliche-bundesvereinigung/MIOParser/issues) Seite gemeldet werden.
 
-Über GitHub oder die Mail-Adresse mio-viewer@kbv.de können Fragen gestellt werden, nach dem das FAQ konsultiert wurde.
+Über GitHub oder die Mail-Adresse support.mio@kbv.de können Fragen gestellt werden, nach dem das FAQ konsultiert wurde.
 
 ### Lizenz 
 
