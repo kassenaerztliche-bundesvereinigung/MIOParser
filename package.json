@@ -1,7 +1,7 @@
 {
     "author": "KBV",
     "name": "@kbv/mioparser",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "license": "Apache-2.0",
     "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
     "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
@@ -33,7 +33,6 @@
         "build:ts": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir dist-js --extensions \".ts,.tsx\" --source-maps inline",
         "rollup": "rollup ./dist/index.js --format cjs --file rolledup.js",
-        "postinstall": "npm unlink miotestdata && npm link miotestdata",
         "prepare": "npm run build",
         "prepublishOnly": "npm test && npm run lint",
         "sonar:mac": "export SONAR_SCANNER_OPTS=\"-Djavax.net.ssl.trustStore=\"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib/security/cacerts\" -Djavax.net.ssl.keyStore=\"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib/security/cacerts\"\" && sonar-scanner",
