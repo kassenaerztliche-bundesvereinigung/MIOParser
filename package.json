@@ -1,7 +1,7 @@
 {
     "author": "KBV",
     "name": "@kbv/mioparser",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "Apache-2.0",
     "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
     "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
@@ -19,25 +19,18 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
+        "pretest": "npm unlink miotestdata && npm link miotestdata",
         "test": "jest --silent --testPathIgnorePatterns=test/Benchmark",
-        "test:coverage": "jest --silent --collectCoverage --testPathIgnorePatterns=test/Benchmark --coveragePathIgnorePatterns=src/Definitions --testResultsProcessor jest-sonar-reporter",
-        "test:benchmark": "jest  --silent --testPathPattern=test/Benchmark",
+        "test:coverage": "npm run pretest && jest --silent --collectCoverage --testPathIgnorePatterns=test/Benchmark --coveragePathIgnorePatterns=src/Definitions --testResultsProcessor jest-sonar-reporter",
+        "test:benchmark": "npm run pretest && jest  --silent --testPathPattern=test/Benchmark",
         "lint": "eslint src/*.ts src/Interfaces/*.ts test/**/*.ts",
         "lint-errors-only": "eslint src/** test/** --quiet",
         "prettier": "prettier --write src/**/*.ts test/**/*.ts",
         "ts-check": "tsc --noEmit",
         "ts-check:watch": "npm run type-check -- --watch",
         "build": "tsc",
-        "scratch": "ts-node src/scratch.ts",
-        "build:min": "ncc build ./src/index.ts -o ./dist_min -m",
-        "build:ts": "tsc --emitDeclarationOnly",
-        "build:js": "babel src --out-dir dist-js --extensions \".ts,.tsx\" --source-maps inline",
-        "rollup": "rollup ./dist/index.js --format cjs --file rolledup.js",
         "prepare": "npm run build",
-        "prepublishOnly": "npm test && npm run lint",
-        "sonar:mac": "export SONAR_SCANNER_OPTS=\"-Djavax.net.ssl.trustStore=\"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib/security/cacerts\" -Djavax.net.ssl.keyStore=\"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib/security/cacerts\"\" && sonar-scanner",
-        "sonar:jenkins": "export SONAR_SCANNER_OPTS=\"-Djavax.net.ssl.trustStore=\"$(readlink -f /usr/bin/java | sed \"s:bin/java::\")lib/security/cacerts\" -Djavax.net.ssl.keyStore=\"$(readlink -f /usr/bin/java | sed \"s:bin/java::\")lib/security/cacerts\"\" && sonar-scanner",
-        "sonar:windows": "npm run test:coverage && set SONAR_SCANNER_OPTS=-Djavax.net.ssl.trustStore=\"%JAVA_HOME%/lib/security/cacerts/\" -Djavax.net.ssl.keyStore=\"%JAVA_HOME%/lib/security/cacerts\" && sonar-scanner"
+        "prepublishOnly": "npm test && npm run lint"
     },
     "jest": {
         "collectCoverageFrom": [
@@ -59,37 +52,23 @@
         "preset": "ts-jest",
         "verbose": true
     },
-    "jestSonar": {
-        "reportPath": "reports",
-        "reportFile": "test-report.xml",
-        "indent": 4
-    },
     "dependencies": {
-        "@types/uuid": "^8.3.0",
         "fhir": "^4.7.10",
         "fp-ts": "^2.8.1",
         "io-ts": "^2.2.9",
         "uuid": "^8.3.0"
     },
     "devDependencies": {
-        "@babel/cli": "^7.10.5",
-        "@babel/core": "^7.11.1",
-        "@babel/plugin-proposal-class-properties": "^7.10.4",
-        "@babel/preset-env": "^7.11.0",
-        "@babel/preset-typescript": "^7.10.4",
         "@types/jest": "^25.2.1",
         "@types/node": "^14.0.27",
+        "@types/uuid": "^8.3.0",
         "@typescript-eslint/eslint-plugin": "^2.29.0",
         "@typescript-eslint/parser": "^2.29.0",
-        "@vercel/ncc": "^0.24.0",
         "eslint": "^7.6.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-prettier": "^3.1.4",
         "jest": "^26.3.0",
-        "jest-sonar-reporter": "^2.0.0",
         "prettier": "^2.0.5",
-        "rollup": "^2.26.9",
-        "sonarqube-scanner": "^2.7.0",
         "ts-jest": "^26.2.0",
         "ts-node": "^9.0.0",
         "typescript": "^3.9.7"

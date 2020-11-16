@@ -167,7 +167,7 @@ const persons = ParserUtil.getEntries(mio, [
 
 ## Tests 
 
-Zum Ausführen der Tests muss das Paket [Mio-TestData](https://github.com/kassenaerztliche-bundesvereinigung/MIOTestData) installiert sein. 
+Zum Ausführen der Tests muss das Paket [MIO Test Data](https://github.com/kassenaerztliche-bundesvereinigung/MIOTestData) installiert sein. 
 Es stellt Funktionalitäten und Test-Datensätze bereit. 
 
 ### Setup der Tests 
