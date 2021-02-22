@@ -109,7 +109,7 @@ if (ZAEB.V1_00_000.Profile.Patient.is(mio)) {
 }
 ```
 
-#### MIO's 
+#### MIOs 
 
 Folgende MIOs können bisher vom Parser verarbeitet werden:
 
@@ -194,7 +194,7 @@ Softwarefehler können über die [GitHub Issues](https://github.com/kassenaerztl
 ### Lizenz 
 
 Diese Software ist unter der Apache-2.0 Lizenz lizensiert worden - siehe <a href="./LICENSE">LICENSE</a> Datei für mehr Details. 
-(c) 2020 Kassenärztliche Bundesvereinigung KdöR
+(c) 2020 - 2021 Kassenärztliche Bundesvereinigung KdöR
 
 ### Bekannte Fehler 
 * Felder, die eine Kardinalität von 1..1 haben und eine extension erlauben (wie z.B. family bei Patient-> Name) sind optional, da derzeit eine Validierung im Sinne von "entweder das eine Feld oder das andere oder beide" nicht implementiert ist. Somit wird derzeit ein Dokument mit fehlendem "family" Feld als falsch positiv validiert.

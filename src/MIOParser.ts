@@ -1,20 +1,21 @@
 /*
- * Licensed to the Kassenärztliche Bundesvereinigung (KBV) under one
- * or more contributor license agreements. See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership. The KBV licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *  http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
  */
 
 import * as FHIR from "fhir/fhir";
@@ -22,8 +23,6 @@ import {
     MIOParserResult,
     ValidationResult,
     KBVEntry,
-    PatientMap,
-    MatchPatient,
     MIOError,
     GeneralError
 } from "./Interfaces/AppInternals";
@@ -33,7 +32,6 @@ import ErrorMessage, { ErrorMessageLanguage } from "./Definitions/ErrorMessage";
 import { MIOTypes, KBVBundleResource } from "./Definitions/ProfileMap";
 import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
 import Validator from "./Validator";
-import { v4 as uuidv4 } from "uuid";
 import { EXTENSIBLE_WARNING, warningEmitter } from "./Definitions/util";
 
 /**
@@ -46,11 +44,9 @@ export default class MIOParser {
      * @protected
      */
     protected fhirParser: FHIR.Fhir;
-    private patientsFromResults: PatientMap[];
 
     constructor() {
         this.fhirParser = new FHIR.Fhir();
-        this.patientsFromResults = [];
     }
 
     /**
@@ -105,7 +101,6 @@ export default class MIOParser {
      */
     public async parseFiles(files: Blob[]): Promise<MIOParserResult[]> {
         const promises: Promise<MIOParserResult>[] = [];
-        this.patientsFromResults = [];
 
         files.forEach((file) => {
             promises.push(this.parseFile(file));
@@ -149,7 +144,6 @@ export default class MIOParser {
         fileType?: string
     ): Promise<MIOParserResult[]> {
         const promises: Promise<MIOParserResult>[] = [];
-        this.patientsFromResults = [];
 
         values.forEach((value) => {
             promises.push(this.parseString(value, fileType));
@@ -215,6 +209,33 @@ export default class MIOParser {
     }
 
     /**
+     * This function cleans the json object of any null entries.
+     * @param obj the json object to be cleaned
+     * @protected
+     */
+    protected cleanEmpty(obj: any): void {
+        for (const key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                if (obj[key] !== null) {
+                    if (typeof obj[key] === "object") {
+                        this.cleanEmpty(obj[key]);
+                    }
+                } else {
+                    if (Array.isArray(obj)) {
+                        let index = obj.indexOf(null);
+                        while (index > 0) {
+                            obj.splice(index, 1);
+                            index = obj.indexOf(null);
+                        }
+                    } else {
+                        delete obj[key];
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * This function takes the input object and tries to map that to a Typescript object and will either resolve or reject the promise
      *
      * @param input {object} the parsed object of type object that now needs to be mapped to a Resource Type
@@ -228,6 +249,7 @@ export default class MIOParser {
     ): void => {
         let warnings: MIOError[] = [];
         this.setupListeners(warnings);
+        this.cleanEmpty(input);
 
         // Tries to get the resource for the object, meta and id must be present
         const result = getResource(
@@ -262,23 +284,7 @@ export default class MIOParser {
                     warnings: Validator.getUnresolvedReferences(value).concat(warnings)
                 };
 
-                const patientResult = value.entry.find(
-                    (e: any) => e.resource.resourceType === "Patient"
-                );
-
-                if (patientResult) {
-                    const patient = patientResult.resource;
-                    const patientMatch = this.findMatchForPatient(patient);
-                    if (patientMatch) returnMioResult.patient = patientMatch[1];
-                    else {
-                        const newUuid = uuidv4();
-                        this.patientsFromResults.push([
-                            this.getPatient(patient),
-                            newUuid
-                        ]);
-                        returnMioResult.patient = newUuid;
-                    }
-                }
+                // this.consolidatePatient(value, returnMioResult);
 
                 resolve(returnMioResult);
             } else {
@@ -291,96 +297,6 @@ export default class MIOParser {
             }
         }
     };
-
-    private getPatient(patient: any): MatchPatient {
-        let lastName;
-        let firstName;
-        if (patient.name && patient.name[0]) {
-            lastName = patient.name[0]._family
-                ? patient.name[0]._family.extension.find(
-                      (e: any) =>
-                          e.url ===
-                          "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
-                  )
-                : undefined;
-            if (lastName) lastName = lastName.valueString;
-            else lastName = patient.name[0].family;
-
-            firstName = patient.name[0].given;
-        }
-
-        const birthDate = patient.birthDate;
-        return {
-            lastName: lastName,
-            firstName: firstName,
-            birthDate: birthDate
-        };
-    }
-
-    private findMatchForPatient(patient: any): PatientMap | undefined {
-        return this.patientsFromResults.find((e: [MatchPatient, string]) => {
-            return (
-                this.checkLastName(e, patient) &&
-                this.checkFirstName(e, patient) &&
-                this.checkBirthDate(e, patient)
-            );
-        });
-    }
-
-    private checkLastName(
-        patientFromResultArray: [MatchPatient, string],
-        patient: any
-    ): boolean {
-        const patientFromResultLastName = patientFromResultArray[0].lastName;
-        if (patient.name) {
-            const primitiveLastName = patient.name.some(
-                (nameField: any) => nameField.family === patientFromResultLastName
-            );
-            if (primitiveLastName) return primitiveLastName;
-            else {
-                return patient.name.some((nameField: any) => {
-                    if (nameField._family) {
-                        return nameField._family.extension.some(
-                            (extensionField: any) =>
-                                extensionField.url ===
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name" &&
-                                extensionField.valueString === patientFromResultLastName
-                        );
-                    } else return false;
-                });
-            }
-        } else return false;
-    }
-
-    private checkFirstName(
-        patientFromResultArray: [MatchPatient, string],
-        patient: any
-    ): boolean {
-        const patientFromResultFirstName = patientFromResultArray[0].firstName;
-        const firstNameExists = patient.name.some((nameField: any) => {
-            const patientsFirstNames = nameField.given;
-            if (patientsFirstNames.length === patientFromResultFirstName.length) {
-                for (let i = 0; i < patientsFirstNames.length; i++) {
-                    if (
-                        !patientsFirstNames.some(
-                            (e: string) => e === patientFromResultFirstName[i]
-                        )
-                    )
-                        return false;
-                }
-                return true;
-            } else return false;
-        });
-        return firstNameExists;
-    }
-
-    private checkBirthDate(
-        patientFromResultArray: [MatchPatient, string],
-        patient: any
-    ): boolean {
-        const patientFromResultBirthDate = patientFromResultArray[0].birthDate;
-        return patient.birthDate === patientFromResultBirthDate;
-    }
 
     private setupListeners = (warnings: MIOError[]): void => {
         warningEmitter.on(

@@ -1,7 +1,7 @@
 {
     "author": "KBV",
     "name": "@kbv/mioparser",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "license": "Apache-2.0",
     "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
     "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
@@ -55,13 +55,11 @@
     "dependencies": {
         "fhir": "^4.7.10",
         "fp-ts": "^2.8.1",
-        "io-ts": "^2.2.9",
-        "uuid": "^8.3.0"
+        "io-ts": "^2.2.9"
     },
     "devDependencies": {
         "@types/jest": "^25.2.1",
         "@types/node": "^14.0.27",
-        "@types/uuid": "^8.3.0",
         "@typescript-eslint/eslint-plugin": "^2.29.0",
         "@typescript-eslint/parser": "^2.29.0",
         "eslint": "^7.6.0",
