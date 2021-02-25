@@ -1,7 +1,7 @@
 {
     "author": "KBV",
     "name": "@kbv/mioparser",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": "Apache-2.0",
     "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
     "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",

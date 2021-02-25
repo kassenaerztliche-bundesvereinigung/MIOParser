@@ -1,0 +1,11 @@
+dist/
+dist_min/
+node_modules/
+coverage/
+reports/
+.scannerwork
+
+.DS_Store
+.vscode
+.idea/
+.vscode/settings.json
