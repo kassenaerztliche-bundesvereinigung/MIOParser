@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray, ReqArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray, ReqArray } from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDate from "../../../../../Definitions/FHIR/4.0.1/Scalar/Date";
@@ -159,10 +159,10 @@ export const MRPatientChildIdentifier: t.Type<MRPatientChildIdentifier> = t.recu
 );
 
 interface MRPatientChild {
+    resourceType: "Patient";
     meta: MRPatientChildMeta;
     identifier: Array<MRPatientChildIdentifier>;
     birthDate: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRPatientChildErgaenzendeAngaben)[];
@@ -175,12 +175,12 @@ const MRPatientChild: t.Type<MRPatientChild> = t.recursion("MRPatientChild", () 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Patient"),
                 meta: MRPatientChildMeta,
                 identifier: MinMaxArray(1, 1, MRPatientChildIdentifier),
                 birthDate: SCALARDate
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 text: Narrative,
                 extension: ReqArray<

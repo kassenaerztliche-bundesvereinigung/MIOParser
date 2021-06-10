@@ -26,14 +26,16 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for uuid type: A UUID, represented as a URI
  */
 class SCALARUuidType extends Type<string> {
-    private static regexExp = /^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+    readonly _tag = "SCALARUuidType";
+
+    public static regex = /^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 
     constructor() {
         super(
             "SCALARUuidType",
 
             (s): s is string =>
-                typeof s === "string" && SCALARUuidType.regexExp.test(s.toString()),
+                typeof s === "string" && SCALARUuidType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
@@ -41,16 +43,13 @@ class SCALARUuidType extends Type<string> {
                     : failure(
                           s,
                           c,
-                          ErrorMessage.Scalar(
-                              "Uuid",
-                              s,
-                              "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-                          )
+                          ErrorMessage.Scalar("Uuid", s, SCALARUuidType.regex.toString())
                       );
             },
             identity
         );
     }
 }
+export { SCALARUuidType };
 const SCALARUuid = new SCALARUuidType();
 export default SCALARUuid;

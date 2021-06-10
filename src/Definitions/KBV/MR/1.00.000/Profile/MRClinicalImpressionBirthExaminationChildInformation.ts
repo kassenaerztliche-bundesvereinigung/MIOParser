@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -238,7 +245,17 @@ export const MRClinicalImpressionBirthExaminationChildInformationInvestigationIt
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Live_Birth|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Birth_Mode|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Position|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Weight_Child|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Head_Circumference|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Birth_Height|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Apgar_Score|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_pH_Value_Umbilical_Artery|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Malformation|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -319,7 +336,9 @@ export const MRClinicalImpressionBirthExaminationChildInformationSubject: t.Type
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -342,7 +361,9 @@ export const MRClinicalImpressionBirthExaminationChildInformationEncounter: t.Ty
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -365,7 +386,9 @@ export const MRClinicalImpressionBirthExaminationChildInformationAssessor: t.Typ
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -402,13 +425,13 @@ export const MRClinicalImpressionBirthExaminationChildInformationInvestigation: 
 );
 
 interface MRClinicalImpressionBirthExaminationChildInformation {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionBirthExaminationChildInformationMeta;
     status: "completed";
     code: MRClinicalImpressionBirthExaminationChildInformationCode;
     subject: MRClinicalImpressionBirthExaminationChildInformationSubject;
     encounter: MRClinicalImpressionBirthExaminationChildInformationEncounter;
     effectiveDateTime: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     assessor?: MRClinicalImpressionBirthExaminationChildInformationAssessor;
@@ -423,6 +446,7 @@ const MRClinicalImpressionBirthExaminationChildInformation: t.Type<MRClinicalImp
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionBirthExaminationChildInformationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionBirthExaminationChildInformationCode,
@@ -431,7 +455,6 @@ const MRClinicalImpressionBirthExaminationChildInformation: t.Type<MRClinicalImp
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     assessor: MRClinicalImpressionBirthExaminationChildInformationAssessor,

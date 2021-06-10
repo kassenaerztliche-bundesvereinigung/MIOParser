@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -788,7 +795,9 @@ export const MRObservationTimelyDevelopmentSubject: t.Type<MRObservationTimelyDe
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -811,7 +820,9 @@ export const MRObservationTimelyDevelopmentEncounter: t.Type<MRObservationTimely
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -834,7 +845,10 @@ export const MRObservationTimelyDevelopmentPerformer: t.Type<MRObservationTimely
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -907,6 +921,7 @@ export const MRObservationTimelyDevelopmentBodySite: t.Type<MRObservationTimelyD
 );
 
 interface MRObservationTimelyDevelopment {
+    resourceType: "Observation";
     meta: MRObservationTimelyDevelopmentMeta;
     status: "final";
     code: MRObservationTimelyDevelopmentCode;
@@ -914,7 +929,6 @@ interface MRObservationTimelyDevelopment {
     encounter: MRObservationTimelyDevelopmentEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRObservationTimelyDevelopmentKontrollbeduerftig)[];
@@ -928,6 +942,7 @@ const MRObservationTimelyDevelopment: t.Type<MRObservationTimelyDevelopment> = t
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationTimelyDevelopmentMeta,
                     status: Literal("final"),
                     code: MRObservationTimelyDevelopmentCode,
@@ -937,7 +952,6 @@ const MRObservationTimelyDevelopment: t.Type<MRObservationTimelyDevelopment> = t
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     extension: ReqArray<

@@ -26,7 +26,9 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for decimal Type: A rational number with implicit precision
  */
 class SCALARDecimalType extends Type<number> {
-    private static regexExp = /^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$/;
+    readonly _tag = "SCALARDecimalType";
+
+    public static regex = /^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?$/;
 
     constructor() {
         super(
@@ -34,7 +36,7 @@ class SCALARDecimalType extends Type<number> {
 
             (s): s is number =>
                 (typeof s === "number" || typeof s === "string") &&
-                SCALARDecimalType.regexExp.test(s.toString()),
+                SCALARDecimalType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
@@ -45,7 +47,7 @@ class SCALARDecimalType extends Type<number> {
                           ErrorMessage.Scalar(
                               "Decimal",
                               s,
-                              "^-?(0|[1-9][0-9]*)(.[0-9]+)?([eE][+-]?[0-9]+)?$"
+                              SCALARDecimalType.regex.toString()
                           )
                       );
             },
@@ -53,5 +55,6 @@ class SCALARDecimalType extends Type<number> {
         );
     }
 }
+export { SCALARDecimalType };
 const SCALARDecimal = new SCALARDecimalType();
 export default SCALARDecimal;

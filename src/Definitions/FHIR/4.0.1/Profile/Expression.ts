@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { ExtensibleCheck } from "../../../util";
+import { Literal, ExtensibleCheck } from "../../../CustomTypes";
 
 import SCALARId from "../../../../Definitions/FHIR/4.0.1/Scalar/Id";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -30,7 +30,7 @@ import ExpressionlanguageVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Ex
 
 interface Expression {
     language: ExpressionlanguageVS;
-    resourceType?: string;
+    resourceType?: "Expression";
     id?: string;
     description?: string;
     name?: string;
@@ -44,7 +44,7 @@ const Expression: t.Type<Expression> = t.recursion("Expression", () =>
             language: ExtensibleCheck<t.Type<ExpressionlanguageVS>>(ExpressionlanguageVS)
         }),
         t.partial({
-            resourceType: t.string,
+            resourceType: Literal("Expression"),
             id: SCALARString,
             description: SCALARString,
             name: SCALARId,

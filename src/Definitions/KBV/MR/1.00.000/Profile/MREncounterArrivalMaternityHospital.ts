@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -239,7 +239,9 @@ export const MREncounterArrivalMaternityHospitalSubject: t.Type<MREncounterArriv
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -285,7 +287,9 @@ export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncoun
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -295,6 +299,7 @@ export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncoun
 );
 
 interface MREncounterArrivalMaternityHospital {
+    resourceType: "Encounter";
     meta: MREncounterArrivalMaternityHospitalMeta;
     status: "arrived";
     class: MREncounterArrivalMaternityHospitalClass;
@@ -302,7 +307,6 @@ interface MREncounterArrivalMaternityHospital {
     subject: MREncounterArrivalMaternityHospitalSubject;
     period: MREncounterArrivalMaternityHospitalPeriod;
     serviceProvider: MREncounterArrivalMaternityHospitalServiceProvider;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
 }
@@ -313,6 +317,7 @@ const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHos
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Encounter"),
                     meta: MREncounterArrivalMaternityHospitalMeta,
                     status: Literal("arrived"),
                     class: MREncounterArrivalMaternityHospitalClass,
@@ -322,7 +327,6 @@ const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHos
                     serviceProvider: MREncounterArrivalMaternityHospitalServiceProvider
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative
                 })

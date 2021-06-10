@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MinMaxArray,
     ReqArray,
-    ExtensibleCheck
-} from "../../../../util";
+    ExtensibleCheck,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -362,7 +363,9 @@ export const ZAEBOrganizationBetriebsstaettennummerAssigner: t.Type<ZAEBOrganiza
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: ZAEBOrganizationBetriebsstaettennummerAssignerIdentifier
                 })
@@ -416,7 +419,9 @@ export const ZAEBOrganizationKZVAbrechnungsnummerAssigner: t.Type<ZAEBOrganizati
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: ZAEBOrganizationKZVAbrechnungsnummerAssignerIdentifier
                 })
@@ -724,6 +729,7 @@ export const ZAEBOrganizationTelecom: t.Type<ZAEBOrganizationTelecom> = t.recurs
 );
 
 interface ZAEBOrganization {
+    resourceType: "Organization";
     meta: ZAEBOrganizationMeta;
     identifier: Array<
         | ZAEBOrganizationInstitutionskennzeichen
@@ -732,7 +738,6 @@ interface ZAEBOrganization {
     >;
     name: string;
     address: Array<ZAEBOrganizationStrassenanschrift>;
-    resourceType?: string;
     id?: string;
     extension?: Extension[];
     telecom?: ZAEBOrganizationTelecom[];
@@ -742,6 +747,7 @@ const ZAEBOrganization: t.Type<ZAEBOrganization> = t.recursion("ZAEBOrganization
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Organization"),
                 meta: ZAEBOrganizationMeta,
                 identifier: ReqArray<
                     t.UnionC<
@@ -781,7 +787,6 @@ const ZAEBOrganization: t.Type<ZAEBOrganization> = t.recursion("ZAEBOrganization
                 address: MinMaxArray(1, 1, ZAEBOrganizationStrassenanschrift)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 extension: t.array(Extension),
                 telecom: t.array(ZAEBOrganizationTelecom)

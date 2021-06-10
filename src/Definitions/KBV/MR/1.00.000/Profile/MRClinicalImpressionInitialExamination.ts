@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
-    ReqArray
-} from "../../../../util";
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -251,7 +252,9 @@ export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRC
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Catalogue_A|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -274,7 +277,9 @@ export const MRClinicalImpressionInitialExaminationFindingItemReference: t.Type<
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Risk|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -355,7 +360,9 @@ export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -378,7 +385,9 @@ export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalI
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -401,7 +410,9 @@ export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalIm
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -462,13 +473,13 @@ export const MRClinicalImpressionInitialExaminationFinding: t.Type<MRClinicalImp
 );
 
 interface MRClinicalImpressionInitialExamination {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionInitialExaminationMeta;
     status: "completed";
     code: MRClinicalImpressionInitialExaminationCode;
     subject: MRClinicalImpressionInitialExaminationSubject;
     encounter: MRClinicalImpressionInitialExaminationEncounter;
     effectiveDateTime: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     assessor?: MRClinicalImpressionInitialExaminationAssessor;
@@ -483,6 +494,7 @@ const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitial
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionInitialExaminationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionInitialExaminationCode,
@@ -491,7 +503,6 @@ const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitial
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     assessor: MRClinicalImpressionInitialExaminationAssessor,

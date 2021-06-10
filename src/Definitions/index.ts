@@ -18,6 +18,8 @@
  *
  */
 
+import * as CustomTypes from "./CustomTypes";
+export { CustomTypes };
 import * as FHIR from "./FHIR";
 export { FHIR };
 import * as HL7DE from "./HL7DE";

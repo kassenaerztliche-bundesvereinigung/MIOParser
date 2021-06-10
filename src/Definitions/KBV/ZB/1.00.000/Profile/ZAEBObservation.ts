@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -132,7 +132,9 @@ export const ZAEBObservationSubject: t.Type<ZAEBObservationSubject> = t.recursio
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -142,13 +144,13 @@ export const ZAEBObservationSubject: t.Type<ZAEBObservationSubject> = t.recursio
 );
 
 interface ZAEBObservation {
+    resourceType: "Observation";
     meta: ZAEBObservationMeta;
     status: "final";
     code: ZAEBObservationCode;
     subject: ZAEBObservationSubject;
     effectiveDateTime: string;
     valueBoolean: true;
-    resourceType?: string;
     id?: string;
 }
 
@@ -156,6 +158,7 @@ const ZAEBObservation: t.Type<ZAEBObservation> = t.recursion("ZAEBObservation", 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Observation"),
                 meta: ZAEBObservationMeta,
                 status: Literal("final"),
                 code: ZAEBObservationCode,
@@ -164,7 +167,6 @@ const ZAEBObservation: t.Type<ZAEBObservation> = t.recursion("ZAEBObservation", 
                 valueBoolean: Literal(true)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString
             })
         ])

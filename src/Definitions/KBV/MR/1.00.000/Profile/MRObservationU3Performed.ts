@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -270,7 +277,9 @@ export const MRObservationU3PerformedSubject: t.Type<MRObservationU3PerformedSub
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -293,7 +302,9 @@ export const MRObservationU3PerformedEncounter: t.Type<MRObservationU3PerformedE
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -316,7 +327,10 @@ export const MRObservationU3PerformedPerformer: t.Type<MRObservationU3PerformedP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -326,6 +340,7 @@ export const MRObservationU3PerformedPerformer: t.Type<MRObservationU3PerformedP
 );
 
 interface MRObservationU3Performed {
+    resourceType: "Observation";
     meta: MRObservationU3PerformedMeta;
     status: "final";
     code: MRObservationU3PerformedCode;
@@ -333,7 +348,6 @@ interface MRObservationU3Performed {
     encounter: MRObservationU3PerformedEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationU3PerformedPerformer>;
@@ -345,6 +359,7 @@ const MRObservationU3Performed: t.Type<MRObservationU3Performed> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationU3PerformedMeta,
                     status: Literal("final"),
                     code: MRObservationU3PerformedCode,
@@ -354,7 +369,6 @@ const MRObservationU3Performed: t.Type<MRObservationU3Performed> = t.recursion(
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationU3PerformedPerformer)

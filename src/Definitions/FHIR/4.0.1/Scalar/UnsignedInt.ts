@@ -26,7 +26,9 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for unsignedInt type: An integer with a value that is not negative (e.g. >= 0)
  */
 class SCALARUnsignedIntType extends Type<number> {
-    private static regexExp = /^[0]|([1-9][0-9]*)$/;
+    readonly _tag = "SCALARUnsignedIntType";
+
+    public static regex = /^[0]|([1-9][0-9]*)$/;
 
     constructor() {
         super(
@@ -34,7 +36,7 @@ class SCALARUnsignedIntType extends Type<number> {
 
             (s): s is number =>
                 (typeof s === "number" || typeof s === "string") &&
-                SCALARUnsignedIntType.regexExp.test(s.toString()),
+                SCALARUnsignedIntType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
@@ -42,12 +44,17 @@ class SCALARUnsignedIntType extends Type<number> {
                     : failure(
                           s,
                           c,
-                          ErrorMessage.Scalar("UnsignedInt", s, "^[0]|([1-9][0-9]*)$")
+                          ErrorMessage.Scalar(
+                              "UnsignedInt",
+                              s,
+                              SCALARUnsignedIntType.regex.toString()
+                          )
                       );
             },
             identity
         );
     }
 }
+export { SCALARUnsignedIntType };
 const SCALARUnsignedInt = new SCALARUnsignedIntType();
 export default SCALARUnsignedInt;

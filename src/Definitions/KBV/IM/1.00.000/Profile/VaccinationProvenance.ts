@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MinArray,
+    MinMaxArray,
+    CustomReference,
+    ReqArray
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARInstant from "../../../../../Definitions/FHIR/4.0.1/Scalar/Instant";
@@ -206,7 +213,9 @@ export const VaccinationProvenanceTarget: t.Type<VaccinationProvenanceTarget> = 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -241,12 +250,12 @@ export const VaccinationProvenanceAgent: t.Type<VaccinationProvenanceAgent> = t.
 );
 
 interface VaccinationProvenance {
+    resourceType: "Provenance";
     id: string;
     meta: VaccinationProvenanceMeta;
     target: Array<VaccinationProvenanceTarget>;
     recorded: string;
     agent: Array<VaccinationProvenanceAgent>;
-    resourceType?: string;
     text?: Narrative;
 }
 
@@ -256,6 +265,7 @@ const VaccinationProvenance: t.Type<VaccinationProvenance> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Provenance"),
                     id: SCALARString,
                     meta: VaccinationProvenanceMeta,
                     target: MinArray(1, VaccinationProvenanceTarget),
@@ -263,7 +273,6 @@ const VaccinationProvenance: t.Type<VaccinationProvenance> = t.recursion(
                     agent: MinMaxArray(1, 1, VaccinationProvenanceAgent)
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative
                 })
             ])

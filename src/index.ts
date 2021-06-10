@@ -23,8 +23,11 @@ export * from "./Interfaces/AppInternals";
 import * as Vaccination from "./Definitions/KBV/IM";
 import * as ZAEB from "./Definitions/KBV/ZB";
 import * as MR from "./Definitions/KBV/MR";
+import * as CMR from "./Definitions/KBV/CMR";
 
-export { Vaccination, ZAEB, MR };
+import * as FHIR from "./Definitions/FHIR";
+
+export { Vaccination, ZAEB, MR, CMR, FHIR };
 
 export {
     KBVBundleResource,
@@ -32,6 +35,9 @@ export {
     VaccinationResource,
     ZAEBResource,
     MRResource,
+    CMRResource,
+    PCResource,
+    PNResource,
     BundleTypes,
     MIOTypes,
     MIOTypeList

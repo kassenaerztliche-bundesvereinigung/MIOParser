@@ -19,12 +19,21 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
+import ApgarScoreIdentifierLoincVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/ApgarScoreIdentifierLoinc";
+import ApgarScoreIdentifierSnomedVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/ApgarScoreIdentifierSnomed";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
 
@@ -453,7 +462,7 @@ export const MRObservationApgarScoreValueCodeableConceptCodingDisplay: t.Type<MR
 export interface MRObservationApgarScoreCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: string;
-    code: string;
+    code: ApgarScoreIdentifierSnomedVS;
     id?: string;
     _display?: MRObservationApgarScoreCodeCodeSnomedDisplay;
     display?: string;
@@ -467,7 +476,7 @@ export const MRObservationApgarScoreCodeCodeSnomed: t.Type<MRObservationApgarSco
                 t.type({
                     system: Literal("http://snomed.info/sct"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: ApgarScoreIdentifierSnomedVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -484,7 +493,7 @@ export const MRObservationApgarScoreCodeCodeSnomed: t.Type<MRObservationApgarSco
 export interface MRObservationApgarScoreCodeCodeLoinc {
     system: "http://loinc.org";
     version: string;
-    code: string;
+    code: ApgarScoreIdentifierLoincVS;
     id?: string;
     _display?: MRObservationApgarScoreCodeCodeLoincDisplay;
     display?: string;
@@ -498,7 +507,7 @@ export const MRObservationApgarScoreCodeCodeLoinc: t.Type<MRObservationApgarScor
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: ApgarScoreIdentifierLoincVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -668,7 +677,9 @@ export const MRObservationApgarScoreSubject: t.Type<MRObservationApgarScoreSubje
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -691,7 +702,9 @@ export const MRObservationApgarScoreEncounter: t.Type<MRObservationApgarScoreEnc
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -714,7 +727,10 @@ export const MRObservationApgarScorePerformer: t.Type<MRObservationApgarScorePer
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -724,6 +740,7 @@ export const MRObservationApgarScorePerformer: t.Type<MRObservationApgarScorePer
 );
 
 interface MRObservationApgarScore {
+    resourceType: "Observation";
     meta: MRObservationApgarScoreMeta;
     status: "final";
     code: MRObservationApgarScoreCode;
@@ -731,7 +748,6 @@ interface MRObservationApgarScore {
     encounter: MRObservationApgarScoreEncounter;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationApgarScoreValueCodeableConcept;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationApgarScorePerformer>;
@@ -743,6 +759,7 @@ const MRObservationApgarScore: t.Type<MRObservationApgarScore> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationApgarScoreMeta,
                     status: Literal("final"),
                     code: MRObservationApgarScoreCode,
@@ -752,7 +769,6 @@ const MRObservationApgarScore: t.Type<MRObservationApgarScore> = t.recursion(
                     valueCodeableConcept: MRObservationApgarScoreValueCodeableConcept
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationApgarScorePerformer)

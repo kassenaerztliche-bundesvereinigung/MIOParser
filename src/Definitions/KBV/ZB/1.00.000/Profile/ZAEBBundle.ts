@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray } from "../../../../CustomTypes";
 
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARInstant from "../../../../../Definitions/FHIR/4.0.1/Scalar/Instant";
@@ -110,12 +110,12 @@ export const ZAEBBundleEntry: t.Type<ZAEBBundleEntry> = t.recursion(
 );
 
 interface ZAEBBundle {
+    resourceType: "Bundle";
     meta: ZAEBBundleMeta;
     identifier: ZAEBBundleIdentifier;
     type: "document";
     timestamp: string;
     entry: Array<ZAEBBundleEntry>;
-    resourceType?: string;
     id?: string;
     implicitRules?: string;
     language?: string;
@@ -125,6 +125,7 @@ const ZAEBBundle: t.Type<ZAEBBundle> = t.recursion("ZAEBBundle", () =>
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Bundle"),
                 meta: ZAEBBundleMeta,
                 identifier: ZAEBBundleIdentifier,
                 type: Literal("document"),
@@ -132,7 +133,6 @@ const ZAEBBundle: t.Type<ZAEBBundle> = t.recursion("ZAEBBundle", () =>
                 entry: MinMaxArray(4, 5, ZAEBBundleEntry)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 implicitRules: SCALARUri,
                 language: SCALARCode

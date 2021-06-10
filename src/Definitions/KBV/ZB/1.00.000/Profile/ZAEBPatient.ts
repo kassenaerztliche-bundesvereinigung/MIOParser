@@ -20,14 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
     ExtensibleCheck
-} from "../../../../util";
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDate from "../../../../../Definitions/FHIR/4.0.1/Scalar/Date";
@@ -806,11 +806,11 @@ export const ZAEBPatientBirthDate: t.Type<ZAEBPatientBirthDate> = t.recursion(
 );
 
 interface ZAEBPatient {
+    resourceType: "Patient";
     meta: ZAEBPatientMeta;
     identifier: Array<ZAEBPatientPid | ZAEBPatientVersichertenIdGKV>;
     name: Array<ZAEBPatientName>;
     address: Array<ZAEBPatientStrassenanschrift>;
-    resourceType?: string;
     id?: string;
     _birthDate?: ZAEBPatientBirthDate;
     birthDate?: string;
@@ -820,6 +820,7 @@ const ZAEBPatient: t.Type<ZAEBPatient> = t.recursion("ZAEBPatient", () =>
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Patient"),
                 meta: ZAEBPatientMeta,
                 identifier: ReqArray<
                     t.UnionC<
@@ -846,7 +847,6 @@ const ZAEBPatient: t.Type<ZAEBPatient> = t.recursion("ZAEBPatient", () =>
                 address: MinMaxArray(1, 1, ZAEBPatientStrassenanschrift)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 _birthDate: ZAEBPatientBirthDate,
                 birthDate: SCALARDate

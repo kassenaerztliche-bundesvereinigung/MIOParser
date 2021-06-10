@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -667,7 +674,9 @@ export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocal
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -690,7 +699,9 @@ export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLoc
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -713,7 +724,10 @@ export const MRObservationLocalisationPlacentaPerformer: t.Type<MRObservationLoc
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -786,6 +800,7 @@ export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLoca
 );
 
 interface MRObservationLocalisationPlacenta {
+    resourceType: "Observation";
     meta: MRObservationLocalisationPlacentaMeta;
     status: "final";
     code: MRObservationLocalisationPlacentaCode;
@@ -793,7 +808,6 @@ interface MRObservationLocalisationPlacenta {
     encounter: MRObservationLocalisationPlacentaEncounter;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationLocalisationPlacentaValueCodeableConcept;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationLocalisationPlacentaPerformer>;
@@ -807,6 +821,7 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationLocalisationPlacentaMeta,
                     status: Literal("final"),
                     code: MRObservationLocalisationPlacentaCode,
@@ -816,7 +831,6 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
                     valueCodeableConcept: MRObservationLocalisationPlacentaValueCodeableConcept
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationLocalisationPlacentaPerformer),

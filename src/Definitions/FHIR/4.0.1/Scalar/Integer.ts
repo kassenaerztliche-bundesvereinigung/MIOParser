@@ -26,7 +26,9 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for integer Type: A whole number
  */
 class SCALARIntegerType extends Type<number> {
-    private static regexExp = /^-?([0]|([1-9][0-9]*))$/;
+    readonly _tag = "SCALARIntegerType";
+
+    public static regex = /^-?([0]|([1-9][0-9]*))$/;
 
     constructor() {
         super(
@@ -34,7 +36,7 @@ class SCALARIntegerType extends Type<number> {
 
             (s): s is number =>
                 (typeof s === "number" || typeof s === "string") &&
-                SCALARIntegerType.regexExp.test(s.toString()),
+                SCALARIntegerType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
@@ -42,12 +44,17 @@ class SCALARIntegerType extends Type<number> {
                     : failure(
                           s,
                           c,
-                          ErrorMessage.Scalar("Integer", s, "^-?([0]|([1-9][0-9]*))$")
+                          ErrorMessage.Scalar(
+                              "Integer",
+                              s,
+                              SCALARIntegerType.regex.toString()
+                          )
                       );
             },
             identity
         );
     }
 }
+export { SCALARIntegerType };
 const SCALARInteger = new SCALARIntegerType();
 export default SCALARInteger;

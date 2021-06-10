@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -274,7 +281,9 @@ export const MRObservationAntiDProphylaxisPostPartumSubject: t.Type<MRObservatio
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -297,7 +306,9 @@ export const MRObservationAntiDProphylaxisPostPartumEncounter: t.Type<MRObservat
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -320,7 +331,10 @@ export const MRObservationAntiDProphylaxisPostPartumPerformer: t.Type<MRObservat
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -330,6 +344,7 @@ export const MRObservationAntiDProphylaxisPostPartumPerformer: t.Type<MRObservat
 );
 
 interface MRObservationAntiDProphylaxisPostPartum {
+    resourceType: "Observation";
     meta: MRObservationAntiDProphylaxisPostPartumMeta;
     status: "final";
     code: MRObservationAntiDProphylaxisPostPartumCode;
@@ -337,7 +352,6 @@ interface MRObservationAntiDProphylaxisPostPartum {
     encounter: MRObservationAntiDProphylaxisPostPartumEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationAntiDProphylaxisPostPartumPerformer>;
@@ -349,6 +363,7 @@ const MRObservationAntiDProphylaxisPostPartum: t.Type<MRObservationAntiDProphyla
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationAntiDProphylaxisPostPartumMeta,
                     status: Literal("final"),
                     code: MRObservationAntiDProphylaxisPostPartumCode,
@@ -358,7 +373,6 @@ const MRObservationAntiDProphylaxisPostPartum: t.Type<MRObservationAntiDProphyla
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(

@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -468,7 +475,9 @@ export const MRObservationSpecialFindingsSubject: t.Type<MRObservationSpecialFin
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -491,7 +500,9 @@ export const MRObservationSpecialFindingsEncounter: t.Type<MRObservationSpecialF
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -514,7 +525,10 @@ export const MRObservationSpecialFindingsPerformer: t.Type<MRObservationSpecialF
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -524,6 +538,7 @@ export const MRObservationSpecialFindingsPerformer: t.Type<MRObservationSpecialF
 );
 
 interface MRObservationSpecialFindings {
+    resourceType: "Observation";
     meta: MRObservationSpecialFindingsMeta;
     status: "final";
     code: MRObservationSpecialFindingsCode;
@@ -531,7 +546,6 @@ interface MRObservationSpecialFindings {
     encounter: MRObservationSpecialFindingsEncounter;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationSpecialFindingsValueCodeableConcept;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationSpecialFindingsPerformer>;
@@ -544,6 +558,7 @@ const MRObservationSpecialFindings: t.Type<MRObservationSpecialFindings> = t.rec
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationSpecialFindingsMeta,
                     status: Literal("final"),
                     code: MRObservationSpecialFindingsCode,
@@ -553,7 +568,6 @@ const MRObservationSpecialFindings: t.Type<MRObservationSpecialFindings> = t.rec
                     valueCodeableConcept: MRObservationSpecialFindingsValueCodeableConcept
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationSpecialFindingsPerformer),

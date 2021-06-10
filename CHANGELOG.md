@@ -1,7 +1,10 @@
 # Changelog MIO Parser
 
+## 1.3.0 
+* Parsen von Kinderuntersuchungsheft, Version 1.0.0
+
 ## 1.2.0
-* Changelog hinzugefügt
+* Interne Anpassungen
 
 ## 1.1.0
 * Parsen von Mutterpass, Version 1.0.0

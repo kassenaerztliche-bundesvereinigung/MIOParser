@@ -20,14 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
     ExtensibleCheck
-} from "../../../../util";
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -646,13 +646,13 @@ export const VaccinationOrganizationTelecom: t.Type<VaccinationOrganizationTelec
 );
 
 interface VaccinationOrganization {
+    resourceType: "Organization";
     id: string;
     meta: VaccinationOrganizationMeta;
     name: string;
     address: Array<
         VaccinationOrganizationStrassenanschrift | VaccinationOrganizationPostfach
     >;
-    resourceType?: string;
     text?: Narrative;
     extension?: (Extension | VaccinationAdditionalComment)[];
     identifier?: Array<
@@ -668,6 +668,7 @@ const VaccinationOrganization: t.Type<VaccinationOrganization> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Organization"),
                     id: SCALARString,
                     meta: VaccinationOrganizationMeta,
                     name: SCALARString,
@@ -700,7 +701,6 @@ const VaccinationOrganization: t.Type<VaccinationOrganization> = t.recursion(
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative,
                     extension: ReqArray<
                         t.UnionC<

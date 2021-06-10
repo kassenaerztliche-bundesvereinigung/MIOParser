@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
-    ReqArray
-} from "../../../../util";
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
@@ -156,7 +157,9 @@ export const VaccinationRecordAddendumVerantwortlichePersonPartyValueReference: 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitionerrole_Addendum|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -208,7 +211,9 @@ export const VaccinationRecordAddendumEintragendePersonPartyValueReference: t.Ty
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitionerrole|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -604,10 +609,10 @@ export const VaccinationRecordAddendumProtocolAppliedDoseNumberString: t.Type<Va
 );
 
 /**
-* In diesem Profil soll der Typ des Impfeintrages in der Abstufung von nur digital bis digital und als Impfausweis definiert werden. 
+* In diesem Profil soll der Typ des Impfeintrages in der Abstufung von nur digital bis digital und als Impfausweis definiert werden.
 
-Eintrag nur digital 
-Eintrag digital und als Impfbescheinigung 
+Eintrag nur digital
+Eintrag digital und als Impfbescheinigung
 Eintrag digital und im Impfausweis
 */
 export interface VaccinationRecordAddendumTypdesEintrages {
@@ -967,7 +972,9 @@ export const VaccinationRecordAddendumPatient: t.Type<VaccinationRecordAddendumP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1125,6 +1132,7 @@ export const VaccinationRecordAddendumProtocolApplied: t.Type<VaccinationRecordA
 );
 
 interface VaccinationRecordAddendum {
+    resourceType: "Immunization";
     id: string;
     meta: VaccinationRecordAddendumMeta;
     text: Narrative;
@@ -1135,7 +1143,6 @@ interface VaccinationRecordAddendum {
     primarySource: false;
     reportOrigin: VaccinationRecordAddendumReportOrigin;
     protocolApplied: Array<VaccinationRecordAddendumProtocolApplied>;
-    resourceType?: string;
     extension?: (
         | Extension
         | VaccinationRecordAddendumTypdesEintrages
@@ -1153,6 +1160,7 @@ const VaccinationRecordAddendum: t.Type<VaccinationRecordAddendum> = t.recursion
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Immunization"),
                     id: SCALARString,
                     meta: VaccinationRecordAddendumMeta,
                     text: Narrative,
@@ -1169,7 +1177,6 @@ const VaccinationRecordAddendum: t.Type<VaccinationRecordAddendum> = t.recursion
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     extension: ReqArray<
                         t.UnionC<
                             [

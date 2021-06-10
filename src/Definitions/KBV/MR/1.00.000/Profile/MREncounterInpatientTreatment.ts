@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
@@ -376,7 +383,9 @@ export const MREncounterInpatientTreatmentSubject: t.Type<MREncounterInpatientTr
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -468,7 +477,9 @@ export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -478,6 +489,7 @@ export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInp
 );
 
 interface MREncounterInpatientTreatment {
+    resourceType: "Encounter";
     meta: MREncounterInpatientTreatmentMeta;
     status: "finished";
     class: MREncounterInpatientTreatmentClass;
@@ -485,7 +497,6 @@ interface MREncounterInpatientTreatment {
     subject: MREncounterInpatientTreatmentSubject;
     period: MREncounterInpatientTreatmentPeriod;
     serviceProvider: MREncounterInpatientTreatmentServiceProvider;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MREncounterInpatientTreatmentTherapie)[];
@@ -498,6 +509,7 @@ const MREncounterInpatientTreatment: t.Type<MREncounterInpatientTreatment> = t.r
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Encounter"),
                     meta: MREncounterInpatientTreatmentMeta,
                     status: Literal("finished"),
                     class: MREncounterInpatientTreatmentClass,
@@ -507,7 +519,6 @@ const MREncounterInpatientTreatment: t.Type<MREncounterInpatientTreatment> = t.r
                     serviceProvider: MREncounterInpatientTreatmentServiceProvider
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     extension: ReqArray<

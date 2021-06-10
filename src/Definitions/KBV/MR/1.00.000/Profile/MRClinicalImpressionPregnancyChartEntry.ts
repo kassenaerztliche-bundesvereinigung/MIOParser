@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
-    ReqArray
-} from "../../../../util";
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -1472,7 +1473,22 @@ export const MRClinicalImpressionPregnancyChartEntryInvestigationItem: t.Type<MR
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Weight_Mother|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Fundus_Height|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Varicosis|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Edema|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Nitrite|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Blood|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Vaginal_Examination|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Heart_Sounds_Child|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Position|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Movement|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1633,7 +1649,9 @@ export const MRClinicalImpressionPregnancyChartEntrySubject: t.Type<MRClinicalIm
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1656,7 +1674,9 @@ export const MRClinicalImpressionPregnancyChartEntryEncounter: t.Type<MRClinical
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1679,7 +1699,10 @@ export const MRClinicalImpressionPregnancyChartEntryAssessor: t.Type<MRClinicalI
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1740,13 +1763,13 @@ export const MRClinicalImpressionPregnancyChartEntryFinding: t.Type<MRClinicalIm
 );
 
 interface MRClinicalImpressionPregnancyChartEntry {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionPregnancyChartEntryMeta;
     status: "completed";
     code: MRClinicalImpressionPregnancyChartEntryCode;
     subject: MRClinicalImpressionPregnancyChartEntrySubject;
     encounter: MRClinicalImpressionPregnancyChartEntryEncounter;
     investigation: Array<MRClinicalImpressionPregnancyChartEntryInvestigation>;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     identifier?: Array<MRClinicalImpressionPregnancyChartEntryIdentifier>;
@@ -1763,6 +1786,7 @@ const MRClinicalImpressionPregnancyChartEntry: t.Type<MRClinicalImpressionPregna
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionPregnancyChartEntryMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionPregnancyChartEntryCode,
@@ -1775,7 +1799,6 @@ const MRClinicalImpressionPregnancyChartEntry: t.Type<MRClinicalImpressionPregna
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     identifier: MaxArray(

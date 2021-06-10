@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -242,7 +249,17 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationIt
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sediment|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_U3_Performed|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Need_Of_Treatment_U3|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -323,7 +340,9 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthSubject: t.Type
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -346,7 +365,9 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthEncounter: t.Ty
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -369,7 +390,9 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthAssessor: t.Typ
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -406,13 +429,13 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation: 
 );
 
 interface MRClinicalImpressionSecondExaminationAfterChildbirth {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionSecondExaminationAfterChildbirthMeta;
     status: "completed";
     code: MRClinicalImpressionSecondExaminationAfterChildbirthCode;
     subject: MRClinicalImpressionSecondExaminationAfterChildbirthSubject;
     encounter: MRClinicalImpressionSecondExaminationAfterChildbirthEncounter;
     effectiveDateTime: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     assessor?: MRClinicalImpressionSecondExaminationAfterChildbirthAssessor;
@@ -428,6 +451,7 @@ const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImp
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionSecondExaminationAfterChildbirthMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionSecondExaminationAfterChildbirthCode,
@@ -436,7 +460,6 @@ const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImp
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     assessor: MRClinicalImpressionSecondExaminationAfterChildbirthAssessor,

@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../util";
+import { Literal } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"

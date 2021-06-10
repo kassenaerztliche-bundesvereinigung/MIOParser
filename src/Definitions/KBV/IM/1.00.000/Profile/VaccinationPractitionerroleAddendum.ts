@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
@@ -71,7 +71,9 @@ export const VaccinationPractitionerroleAddendumPractitioner: t.Type<Vaccination
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -94,7 +96,9 @@ export const VaccinationPractitionerroleAddendumOrganization: t.Type<Vaccination
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Organization|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -104,11 +108,11 @@ export const VaccinationPractitionerroleAddendumOrganization: t.Type<Vaccination
 );
 
 interface VaccinationPractitionerroleAddendum {
+    resourceType: "PractitionerRole";
     id: string;
     meta: VaccinationPractitionerroleAddendumMeta;
     practitioner: VaccinationPractitionerroleAddendumPractitioner;
     organization: VaccinationPractitionerroleAddendumOrganization;
-    resourceType?: string;
     text?: Narrative;
 }
 
@@ -118,13 +122,13 @@ const VaccinationPractitionerroleAddendum: t.Type<VaccinationPractitionerroleAdd
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("PractitionerRole"),
                     id: SCALARString,
                     meta: VaccinationPractitionerroleAddendumMeta,
                     practitioner: VaccinationPractitionerroleAddendumPractitioner,
                     organization: VaccinationPractitionerroleAddendumOrganization
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative
                 })
             ])

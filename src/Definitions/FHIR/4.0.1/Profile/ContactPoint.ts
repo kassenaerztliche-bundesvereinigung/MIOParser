@@ -19,6 +19,7 @@
  */
 
 import * as t from "io-ts";
+import { Literal } from "../../../CustomTypes";
 
 import SCALARPositiveInt from "../../../../Definitions/FHIR/4.0.1/Scalar/PositiveInt";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -29,7 +30,7 @@ import Period from "../../../../Definitions/FHIR/4.0.1/Profile/Period";
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/ContactPoint"
 
 interface ContactPoint {
-    resourceType?: string;
+    resourceType?: "ContactPoint";
     id?: string;
     system?: ContactpointsystemVS;
     value?: string;
@@ -40,7 +41,7 @@ interface ContactPoint {
 
 const ContactPoint: t.Type<ContactPoint> = t.recursion("ContactPoint", () =>
     t.partial({
-        resourceType: t.string,
+        resourceType: Literal("ContactPoint"),
         id: SCALARString,
         system: ContactpointsystemVS,
         value: SCALARString,

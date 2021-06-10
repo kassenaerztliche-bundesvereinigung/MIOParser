@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -503,7 +510,9 @@ export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHV
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -526,7 +535,9 @@ export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -549,7 +560,10 @@ export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -559,6 +573,7 @@ export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationp
 );
 
 interface MRObservationpHValueUmbilicalArtery {
+    resourceType: "Observation";
     meta: MRObservationpHValueUmbilicalArteryMeta;
     status: "final";
     code: MRObservationpHValueUmbilicalArteryCode;
@@ -566,7 +581,6 @@ interface MRObservationpHValueUmbilicalArtery {
     encounter: MRObservationpHValueUmbilicalArteryEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationpHValueUmbilicalArteryValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationpHValueUmbilicalArteryPerformer>;
@@ -578,6 +592,7 @@ const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalA
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationpHValueUmbilicalArteryMeta,
                     status: Literal("final"),
                     code: MRObservationpHValueUmbilicalArteryCode,
@@ -587,7 +602,6 @@ const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalA
                     valueQuantity: MRObservationpHValueUmbilicalArteryValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationpHValueUmbilicalArteryPerformer)

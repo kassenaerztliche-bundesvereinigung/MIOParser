@@ -20,13 +20,13 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray
-} from "../../../../util";
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -897,6 +897,7 @@ export const VaccinationPractitionerTelecom: t.Type<VaccinationPractitionerTelec
 );
 
 interface VaccinationPractitioner {
+    resourceType: "Practitioner";
     id: string;
     meta: VaccinationPractitionerMeta;
     identifier: Array<
@@ -906,7 +907,6 @@ interface VaccinationPractitioner {
     >;
     name: Array<VaccinationPractitionerName | VaccinationPractitionerGeburtsname>;
     qualification: Array<VaccinationPractitionerPractitionerspeciality>;
-    resourceType?: string;
     text?: Narrative;
     extension?: (Extension | VaccinationAdditionalComment)[];
     telecom?: VaccinationPractitionerTelecom[];
@@ -918,6 +918,7 @@ const VaccinationPractitioner: t.Type<VaccinationPractitioner> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Practitioner"),
                     id: SCALARString,
                     meta: VaccinationPractitionerMeta,
                     identifier: ReqArray<
@@ -988,7 +989,6 @@ const VaccinationPractitioner: t.Type<VaccinationPractitioner> = t.recursion(
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative,
                     extension: ReqArray<
                         t.UnionC<

@@ -18,7 +18,7 @@
  *
  */
 
-import { Vaccination, ZAEB } from "./../";
+import { AnyType, Vaccination, ZAEB } from "./../";
 
 type Bundle =
     | typeof Vaccination.V1_00_000.Profile.BundleEntry
@@ -38,8 +38,8 @@ export type CompositionDefinition = {
     compositions: {
         profile: Composition;
         requiredFields: string[];
-        required: any[];
-        exclude: any[];
+        required: AnyType[];
+        exclude: AnyType[];
     }[];
 };
 

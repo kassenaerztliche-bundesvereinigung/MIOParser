@@ -19,13 +19,21 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
-import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
+import BodyHeightLoincVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/BodyHeightLoinc";
+import BodyHeightSnomedVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/BodyHeightSnomed";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
 
@@ -315,7 +323,7 @@ export const MRObservationBirthHeightCodeCodeLoincDisplay: t.Type<MRObservationB
 export interface MRObservationBirthHeightCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: string;
-    code: string;
+    code: BodyHeightSnomedVS;
     id?: string;
     _display?: MRObservationBirthHeightCodeCodeSnomedDisplay;
     display?: string;
@@ -329,7 +337,7 @@ export const MRObservationBirthHeightCodeCodeSnomed: t.Type<MRObservationBirthHe
                 t.type({
                     system: Literal("http://snomed.info/sct"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: BodyHeightSnomedVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -346,7 +354,7 @@ export const MRObservationBirthHeightCodeCodeSnomed: t.Type<MRObservationBirthHe
 export interface MRObservationBirthHeightCodeCodeLoinc {
     system: "http://loinc.org";
     version: string;
-    code: string;
+    code: BodyHeightLoincVS;
     id?: string;
     _display?: MRObservationBirthHeightCodeCodeLoincDisplay;
     display?: string;
@@ -360,7 +368,7 @@ export const MRObservationBirthHeightCodeCodeLoinc: t.Type<MRObservationBirthHei
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: BodyHeightLoincVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -499,7 +507,9 @@ export const MRObservationBirthHeightSubject: t.Type<MRObservationBirthHeightSub
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -522,7 +532,9 @@ export const MRObservationBirthHeightEncounter: t.Type<MRObservationBirthHeightE
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -545,7 +557,10 @@ export const MRObservationBirthHeightPerformer: t.Type<MRObservationBirthHeightP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -555,6 +570,7 @@ export const MRObservationBirthHeightPerformer: t.Type<MRObservationBirthHeightP
 );
 
 interface MRObservationBirthHeight {
+    resourceType: "Observation";
     meta: MRObservationBirthHeightMeta;
     status: "final";
     code: MRObservationBirthHeightCode;
@@ -562,7 +578,6 @@ interface MRObservationBirthHeight {
     encounter: MRObservationBirthHeightEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationBirthHeightValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationBirthHeightPerformer>;
@@ -574,6 +589,7 @@ const MRObservationBirthHeight: t.Type<MRObservationBirthHeight> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationBirthHeightMeta,
                     status: Literal("final"),
                     code: MRObservationBirthHeightCode,
@@ -583,7 +599,6 @@ const MRObservationBirthHeight: t.Type<MRObservationBirthHeight> = t.recursion(
                     valueQuantity: MRObservationBirthHeightValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationBirthHeightPerformer)

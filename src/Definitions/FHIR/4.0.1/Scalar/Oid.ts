@@ -26,14 +26,16 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for oid type: An OID represented as a URI
  */
 class SCALAROidType extends Type<string> {
-    private static regexExp = /^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$/;
+    readonly _tag = "SCALAROidType";
+
+    public static regex = /^urn:oid:[0-2](\.(0|[1-9][0-9]*))+$/;
 
     constructor() {
         super(
             "SCALAROidType",
 
             (s): s is string =>
-                typeof s === "string" && SCALAROidType.regexExp.test(s.toString()),
+                typeof s === "string" && SCALAROidType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
@@ -41,16 +43,13 @@ class SCALAROidType extends Type<string> {
                     : failure(
                           s,
                           c,
-                          ErrorMessage.Scalar(
-                              "Oid",
-                              s,
-                              "^urn:oid:[0-2](.(0|[1-9][0-9]*))+$"
-                          )
+                          ErrorMessage.Scalar("Oid", s, SCALAROidType.regex.toString())
                       );
             },
             identity
         );
     }
 }
+export { SCALAROidType };
 const SCALAROid = new SCALAROidType();
 export default SCALAROid;

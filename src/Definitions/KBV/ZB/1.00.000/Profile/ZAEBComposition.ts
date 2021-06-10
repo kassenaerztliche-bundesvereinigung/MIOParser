@@ -19,7 +19,13 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -100,7 +106,10 @@ export const ZAEBCompositionSectionEntry: t.Type<ZAEBCompositionSectionEntry> = 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation|1.00.000",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Gapless_Documentation|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -203,7 +212,9 @@ export const ZAEBCompositionSubject: t.Type<ZAEBCompositionSubject> = t.recursio
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -226,7 +237,9 @@ export const ZAEBCompositionAuthor: t.Type<ZAEBCompositionAuthor> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Organization|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -259,6 +272,7 @@ export const ZAEBCompositionSection: t.Type<ZAEBCompositionSection> = t.recursio
 );
 
 interface ZAEBComposition {
+    resourceType: "Composition";
     meta: ZAEBCompositionMeta;
     status: "final";
     type: ZAEBCompositionType;
@@ -267,7 +281,6 @@ interface ZAEBComposition {
     author: Array<ZAEBCompositionAuthor>;
     title: "Bonushefteintrag";
     section: Array<ZAEBCompositionSection>;
-    resourceType?: string;
     id?: string;
 }
 
@@ -275,6 +288,7 @@ const ZAEBComposition: t.Type<ZAEBComposition> = t.recursion("ZAEBComposition", 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Composition"),
                 meta: ZAEBCompositionMeta,
                 status: Literal("final"),
                 type: ZAEBCompositionType,
@@ -285,7 +299,6 @@ const ZAEBComposition: t.Type<ZAEBComposition> = t.recursion("ZAEBComposition", 
                 section: MinMaxArray(1, 1, ZAEBCompositionSection)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString
             })
         ])

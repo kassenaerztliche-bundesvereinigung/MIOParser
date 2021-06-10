@@ -111,11 +111,7 @@ if (ZAEB.V1_00_000.Profile.Patient.is(mio)) {
 
 #### MIOs 
 
-Folgende MIOs können vom Parser verarbeitet werden:
-
--   Impfpass
--   Zahnärztliches Bonusheft
--   Mutterpass
+Welche MIOs verarbeitet werden können kann dem [Changelog](https://github.com/kassenaerztliche-bundesvereinigung/MIOParser/blob/master/CHANGELOG.md) entnommen werden.
 
 ```typescript
 import { Vaccination, ZAEB, MR } from "mioparser";

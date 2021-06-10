@@ -20,14 +20,15 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
-    ExtensibleCheck
-} from "../../../../util";
+    ExtensibleCheck,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDate from "../../../../../Definitions/FHIR/4.0.1/Scalar/Date";
@@ -36,6 +37,7 @@ import SCALARUri from "../../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
 
 import AddressuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Addressuse";
 
+import GemRSAnlage8VS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/GemRSAnlage8";
 import IdentifiertypeVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifiertype";
 import IdentifieruseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifieruse";
 
@@ -607,7 +609,9 @@ export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMothe
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: MRPatientMotherVersichertennummerpkvAssignerIdentifier
                 })
@@ -1107,7 +1111,7 @@ Insbesondere bei ausländischen Adresse oder Adressen, die nicht durch Einlesen 
 export interface MRPatientMotherStrassenanschrift {
     type: "both";
     city: string;
-    country: string;
+    country: GemRSAnlage8VS;
     id?: string;
     extension?: MRPatientMotherStrassenanschriftStadtteil[];
     use?: AddressuseVS;
@@ -1125,7 +1129,7 @@ export const MRPatientMotherStrassenanschrift: t.Type<MRPatientMotherStrassenans
                 t.type({
                     type: Literal("both"),
                     city: SCALARString,
-                    country: SCALARString
+                    country: ExtensibleCheck<t.Type<GemRSAnlage8VS>>(GemRSAnlage8VS)
                 }),
                 t.partial({
                     id: SCALARString,
@@ -1193,6 +1197,7 @@ export const MRPatientMotherBirthDate: t.Type<MRPatientMotherBirthDate> = t.recu
 );
 
 interface MRPatientMother {
+    resourceType: "Patient";
     meta: MRPatientMotherMeta;
     identifier: Array<
         | MRPatientMotherPid
@@ -1202,7 +1207,6 @@ interface MRPatientMother {
     >;
     name: Array<MRPatientMotherName | MRPatientMotherGeburtsname>;
     address: Array<MRPatientMotherStrassenanschrift>;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     _birthDate?: MRPatientMotherBirthDate;
@@ -1213,6 +1217,7 @@ const MRPatientMother: t.Type<MRPatientMother> = t.recursion("MRPatientMother", 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Patient"),
                 meta: MRPatientMotherMeta,
                 identifier: ReqArray<
                     t.UnionC<
@@ -1279,7 +1284,6 @@ const MRPatientMother: t.Type<MRPatientMother> = t.recursion("MRPatientMother", 
                 address: MinMaxArray(1, 1, MRPatientMotherStrassenanschrift)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 text: Narrative,
                 _birthDate: MRPatientMotherBirthDate,

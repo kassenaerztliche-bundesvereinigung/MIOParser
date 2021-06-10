@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -297,7 +304,9 @@ export const MRObservationNumberOfCheckupsSubject: t.Type<MRObservationNumberOfC
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -320,7 +329,9 @@ export const MRObservationNumberOfCheckupsEncounter: t.Type<MRObservationNumberO
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -343,7 +354,10 @@ export const MRObservationNumberOfCheckupsPerformer: t.Type<MRObservationNumberO
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -353,6 +367,7 @@ export const MRObservationNumberOfCheckupsPerformer: t.Type<MRObservationNumberO
 );
 
 interface MRObservationNumberOfCheckups {
+    resourceType: "Observation";
     meta: MRObservationNumberOfCheckupsMeta;
     status: "final";
     code: MRObservationNumberOfCheckupsCode;
@@ -360,7 +375,6 @@ interface MRObservationNumberOfCheckups {
     encounter: MRObservationNumberOfCheckupsEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationNumberOfCheckupsValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationNumberOfCheckupsPerformer>;
@@ -372,6 +386,7 @@ const MRObservationNumberOfCheckups: t.Type<MRObservationNumberOfCheckups> = t.r
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationNumberOfCheckupsMeta,
                     status: Literal("final"),
                     code: MRObservationNumberOfCheckupsCode,
@@ -381,7 +396,6 @@ const MRObservationNumberOfCheckups: t.Type<MRObservationNumberOfCheckups> = t.r
                     valueQuantity: MRObservationNumberOfCheckupsValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationNumberOfCheckupsPerformer)

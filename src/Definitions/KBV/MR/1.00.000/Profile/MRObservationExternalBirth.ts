@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -270,7 +277,9 @@ export const MRObservationExternalBirthSubject: t.Type<MRObservationExternalBirt
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -293,7 +302,9 @@ export const MRObservationExternalBirthEncounter: t.Type<MRObservationExternalBi
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -316,7 +327,10 @@ export const MRObservationExternalBirthPerformer: t.Type<MRObservationExternalBi
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -326,6 +340,7 @@ export const MRObservationExternalBirthPerformer: t.Type<MRObservationExternalBi
 );
 
 interface MRObservationExternalBirth {
+    resourceType: "Observation";
     meta: MRObservationExternalBirthMeta;
     status: "final";
     code: MRObservationExternalBirthCode;
@@ -333,7 +348,6 @@ interface MRObservationExternalBirth {
     encounter: MRObservationExternalBirthEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationExternalBirthPerformer>;
@@ -345,6 +359,7 @@ const MRObservationExternalBirth: t.Type<MRObservationExternalBirth> = t.recursi
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationExternalBirthMeta,
                     status: Literal("final"),
                     code: MRObservationExternalBirthCode,
@@ -354,7 +369,6 @@ const MRObservationExternalBirth: t.Type<MRObservationExternalBirth> = t.recursi
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationExternalBirthPerformer)

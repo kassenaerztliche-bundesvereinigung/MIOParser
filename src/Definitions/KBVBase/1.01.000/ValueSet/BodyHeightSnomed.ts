@@ -23,11 +23,14 @@ import { ValueSet } from "../../../Interfaces";
 
 // Canonical URL for ValueSet: https://fhir.kbv.de/ValueSet/KBV_VS_Base_Body_Height_Snomed
 
-type BodyHeightSnomed = "169886007";
+type BodyHeightSnomed = "248334005" | "169886007";
 
-const BodyHeightSnomed: t.Type<BodyHeightSnomed> = t.literal("169886007");
+const BodyHeightSnomed: t.Type<BodyHeightSnomed> = t.union(
+    [t.literal("248334005"), t.literal("169886007")],
+    "BodyHeightSnomed"
+);
 
-export const BodyHeightSnomedArray: string[] = ["169886007"];
+export const BodyHeightSnomedArray: string[] = ["248334005", "169886007"];
 
 export const BodyHeightSnomedValueSet: ValueSet = [
     {

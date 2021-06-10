@@ -55,28 +55,10 @@ export {
 } from "./BodyWeightLoinc";
 
 export {
-    default as BodyWeightMethodSnomed,
-    BodyWeightMethodSnomedArray,
-    BodyWeightMethodSnomedValueSet
-} from "./BodyWeightMethodSnomed";
-
-export {
     default as BodyWeightSnomed,
     BodyWeightSnomedArray,
     BodyWeightSnomedValueSet
 } from "./BodyWeightSnomed";
-
-export {
-    default as BodyWeightUnit,
-    BodyWeightUnitArray,
-    BodyWeightUnitValueSet
-} from "./BodyWeightUnit";
-
-export {
-    default as DiagnoseSnomedCT,
-    DiagnoseSnomedCTArray,
-    DiagnoseSnomedCTValueSet
-} from "./DiagnoseSnomedCT";
 
 export {
     default as GemRSAnlage8,
@@ -85,33 +67,7 @@ export {
 } from "./GemRSAnlage8";
 
 export {
-    default as HeadCircumferenceBodySiteSnomed,
-    HeadCircumferenceBodySiteSnomedArray,
-    HeadCircumferenceBodySiteSnomedValueSet
-} from "./HeadCircumferenceBodySiteSnomed";
-
-export {
     default as HeadCircumferenceSnomed,
     HeadCircumferenceSnomedArray,
     HeadCircumferenceSnomedValueSet
 } from "./HeadCircumferenceSnomed";
-
-export {
-    default as IHEXDSAuthorSpecialityRestricted,
-    IHEXDSAuthorSpecialityRestrictedArray,
-    IHEXDSAuthorSpecialityRestrictedValueSet
-} from "./IHEXDSAuthorSpecialityRestricted";
-
-export {
-    default as PractitionerSpeciality,
-    PractitionerSpecialityArray,
-    PractitionerSpecialityValueSet
-} from "./PractitionerSpeciality";
-
-export {
-    default as PractitionerSpecialityAddendum,
-    PractitionerSpecialityAddendumArray,
-    PractitionerSpecialityAddendumValueSet
-} from "./PractitionerSpecialityAddendum";
-
-export { default as StageLife, StageLifeArray, StageLifeValueSet } from "./StageLife";

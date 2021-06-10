@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -272,7 +279,9 @@ export const MRObservationAdviceOnIodineIntakeSubject: t.Type<MRObservationAdvic
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -295,7 +304,9 @@ export const MRObservationAdviceOnIodineIntakeEncounter: t.Type<MRObservationAdv
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -318,7 +329,10 @@ export const MRObservationAdviceOnIodineIntakePerformer: t.Type<MRObservationAdv
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -328,6 +342,7 @@ export const MRObservationAdviceOnIodineIntakePerformer: t.Type<MRObservationAdv
 );
 
 interface MRObservationAdviceOnIodineIntake {
+    resourceType: "Observation";
     meta: MRObservationAdviceOnIodineIntakeMeta;
     status: "final";
     code: MRObservationAdviceOnIodineIntakeCode;
@@ -335,7 +350,6 @@ interface MRObservationAdviceOnIodineIntake {
     encounter: MRObservationAdviceOnIodineIntakeEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationAdviceOnIodineIntakePerformer>;
@@ -347,6 +361,7 @@ const MRObservationAdviceOnIodineIntake: t.Type<MRObservationAdviceOnIodineIntak
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationAdviceOnIodineIntakeMeta,
                     status: Literal("final"),
                     code: MRObservationAdviceOnIodineIntakeCode,
@@ -356,7 +371,6 @@ const MRObservationAdviceOnIodineIntake: t.Type<MRObservationAdviceOnIodineIntak
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationAdviceOnIodineIntakePerformer)

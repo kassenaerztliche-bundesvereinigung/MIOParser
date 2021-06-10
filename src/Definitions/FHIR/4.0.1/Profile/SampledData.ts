@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-
+import { Literal } from "../../../CustomTypes";
 import SCALARDecimal from "../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARPositiveInt from "../../../../Definitions/FHIR/4.0.1/Scalar/PositiveInt";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -31,7 +31,7 @@ interface SampledData {
     origin: SimpleQuantity;
     period: number;
     dimensions: number;
-    resourceType?: string;
+    resourceType?: "SampledData";
     id?: string;
     factor?: number;
     lowerLimit?: number;
@@ -47,7 +47,7 @@ const SampledData: t.Type<SampledData> = t.recursion("SampledData", () =>
             dimensions: SCALARPositiveInt
         }),
         t.partial({
-            resourceType: t.string,
+            resourceType: Literal("SampledData"),
             id: SCALARString,
             factor: SCALARDecimal,
             lowerLimit: SCALARDecimal,

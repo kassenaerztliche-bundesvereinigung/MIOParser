@@ -20,14 +20,15 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
-    ExtensibleCheck
-} from "../../../../util";
+    ExtensibleCheck,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -38,6 +39,7 @@ import AddressuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Address
 import ContactpointsystemVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Contactpointsystem";
 import ContactpointuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Contactpointuse";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
+import GemRSAnlage8VS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/GemRSAnlage8";
 import Identifier from "../../../../../Definitions/FHIR/4.0.1/Profile/Identifier";
 import IdentifiertypeVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifiertype";
 import IdentifieruseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifieruse";
@@ -643,7 +645,9 @@ export const MRPractitionerANRAssigner: t.Type<MRPractitionerANRAssigner> = t.re
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: MRPractitionerANRAssignerIdentifier
                 })
@@ -697,7 +701,9 @@ export const MRPractitionerEFNAssigner: t.Type<MRPractitionerEFNAssigner> = t.re
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: MRPractitionerEFNAssignerIdentifier
                 })
@@ -1140,7 +1146,7 @@ export interface MRPractitionerStrassenanschrift {
     line?: Array<string>;
     city?: string;
     postalCode?: string;
-    country?: string;
+    country?: GemRSAnlage8VS;
 }
 
 export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenanschrift> = t.recursion(
@@ -1187,7 +1193,7 @@ export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenansch
                     line: MaxArray(2, SCALARString),
                     city: SCALARString,
                     postalCode: SCALARString,
-                    country: SCALARString
+                    country: ExtensibleCheck<t.Type<GemRSAnlage8VS>>(GemRSAnlage8VS)
                 })
             ])
         )
@@ -1277,10 +1283,10 @@ export const MRPractitionerTelecom: t.Type<MRPractitionerTelecom> = t.recursion(
 );
 
 interface MRPractitioner {
+    resourceType: "Practitioner";
     meta: MRPractitionerMeta;
     identifier: Array<MRPractitionerANR | MRPractitionerEFN | MRPractitionerHebammenIK>;
     name: Array<MRPractitionerName>;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRPractitionerErgaenzendeAngaben)[];
@@ -1293,6 +1299,7 @@ const MRPractitioner: t.Type<MRPractitioner> = t.recursion("MRPractitioner", () 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Practitioner"),
                 meta: MRPractitionerMeta,
                 identifier: ReqArray<
                     t.UnionC<
@@ -1331,7 +1338,6 @@ const MRPractitioner: t.Type<MRPractitioner> = t.recursion("MRPractitioner", () 
                 name: MinMaxArray(1, 1, MRPractitionerName)
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 text: Narrative,
                 extension: ReqArray<

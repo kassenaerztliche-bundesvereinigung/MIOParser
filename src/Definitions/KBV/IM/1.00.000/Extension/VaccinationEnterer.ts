@@ -19,7 +19,13 @@
  */
 
 import * as t from "io-ts";
-import { Excess, ReqArray, MinMaxArray, Literal } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    ReqArray,
+    MinMaxArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
@@ -99,7 +105,10 @@ export const VaccinationEntererPartyValueReference: t.Type<VaccinationEntererPar
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitionerrole",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitionerrole_Addendum"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString

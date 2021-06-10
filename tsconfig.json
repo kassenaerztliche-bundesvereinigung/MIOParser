@@ -3,6 +3,9 @@
     "exclude": ["test/**/*", "src/runFile.ts"],
     "compilerOptions": {
         "target": "es5",
+        "typeRoots": [
+            "src/@types", "node_modules/@types"],
+        "moduleResolution": "Node",
         "module": "commonjs",
         "declaration": true,
         "outDir": "./dist",

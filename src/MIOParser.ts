@@ -32,7 +32,7 @@ import ErrorMessage, { ErrorMessageLanguage } from "./Definitions/ErrorMessage";
 import { MIOTypes, KBVBundleResource } from "./Definitions/ProfileMap";
 import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
 import Validator from "./Validator";
-import { EXTENSIBLE_WARNING, warningEmitter } from "./Definitions/util";
+import { EXTENSIBLE_WARNING, warningEmitter } from "./Definitions/CustomTypes";
 
 /**
  * MIOParser class to parse MIOs
@@ -159,7 +159,7 @@ export default class MIOParser {
      * @param fileType {string | undefined} File type that the string originates
      * @returns {object} a JSON-representation of the string
      */
-    protected stringToObject(str: string, fileType?: string): object {
+    protected stringToObject(str: string, fileType?: string): Record<string, unknown> {
         // Checks for file type and transforms accordingly
         if (!fileType) {
             switch (str[0]) {
@@ -213,12 +213,12 @@ export default class MIOParser {
      * @param obj the json object to be cleaned
      * @protected
      */
-    protected cleanEmpty(obj: any): void {
+    protected cleanEmpty(obj: Record<string, unknown>): void {
         for (const key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
                 if (obj[key] !== null) {
                     if (typeof obj[key] === "object") {
-                        this.cleanEmpty(obj[key]);
+                        this.cleanEmpty(obj[key] as Record<string, unknown>);
                     }
                 } else {
                     if (Array.isArray(obj)) {
@@ -242,14 +242,14 @@ export default class MIOParser {
      * @param resolve from the upper level promise
      */
     protected handleResult = (
-        input: object,
+        input: Record<string, unknown>,
         resolve: (
             value?: MIOParserResult | PromiseLike<MIOParserResult> | undefined
         ) => void
     ): void => {
-        let warnings: MIOError[] = [];
+        const warnings: MIOError[] = [];
         this.setupListeners(warnings);
-        this.cleanEmpty(input);
+        this.cleanEmpty(input as Record<string, unknown>);
 
         // Tries to get the resource for the object, meta and id must be present
         const result = getResource(
@@ -270,10 +270,10 @@ export default class MIOParser {
         else {
             const value = result.value as KBVBundleResource;
             if (isBundle(value)) {
-                const entries = getAllEntries(value.entry as KBVEntry[]);
+                const entries = getAllEntries(value.entry as KBVEntry[], value);
                 value.entry = entries.values;
 
-                warnings = Array.from(new Set(warnings));
+                result.warnings.push(...Array.from(new Set(warnings)));
                 const returnMioResult: MIOParserResult = {
                     value: value,
                     errors: [
@@ -281,18 +281,17 @@ export default class MIOParser {
                         ...entries.errors,
                         ...Validator.validateComposition(value)
                     ],
-                    warnings: Validator.getUnresolvedReferences(value).concat(warnings)
+                    warnings: Validator.getUnresolvedReferences(value).concat(
+                        result.warnings
+                    )
                 };
-
-                // this.consolidatePatient(value, returnMioResult);
-
                 resolve(returnMioResult);
             } else {
-                warnings = Array.from(new Set(warnings));
+                result.warnings.push(...Array.from(new Set(warnings)));
                 resolve({
                     value: value,
                     errors: result.errors,
-                    warnings: warnings
+                    warnings: result.warnings
                 });
             }
         }

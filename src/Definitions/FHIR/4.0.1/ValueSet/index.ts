@@ -35,6 +35,18 @@ export {
 export { default as Alltypes, AlltypesArray, AlltypesValueSet } from "./Alltypes";
 
 export {
+    default as Careplanactivitykind,
+    CareplanactivitykindArray,
+    CareplanactivitykindValueSet
+} from "./Careplanactivitykind";
+
+export {
+    default as Careplanactivitystatus,
+    CareplanactivitystatusArray,
+    CareplanactivitystatusValueSet
+} from "./Careplanactivitystatus";
+
+export {
     default as Contactpointsystem,
     ContactpointsystemArray,
     ContactpointsystemValueSet

@@ -20,14 +20,15 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
-    ExtensibleCheck
-} from "../../../../util";
+    ExtensibleCheck,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDate from "../../../../../Definitions/FHIR/4.0.1/Scalar/Date";
@@ -518,7 +519,9 @@ export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<Vaccination
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: VaccinationPatientVersichertennummerpkvAssignerIdentifier
                 })
@@ -1149,6 +1152,7 @@ export const VaccinationPatientBirthDate: t.Type<VaccinationPatientBirthDate> = 
 );
 
 interface VaccinationPatient {
+    resourceType: "Patient";
     id: string;
     meta: VaccinationPatientMeta;
     identifier: Array<
@@ -1159,7 +1163,6 @@ interface VaccinationPatient {
         | VaccinationPatientVersichertennummerkvk
     >;
     name: Array<VaccinationPatientName | VaccinationPatientGeburtsname>;
-    resourceType?: string;
     text?: Narrative;
     _gender?: VaccinationPatientGender;
     gender?: string;
@@ -1173,6 +1176,7 @@ const VaccinationPatient: t.Type<VaccinationPatient> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Patient"),
                     id: SCALARString,
                     meta: VaccinationPatientMeta,
                     identifier: ReqArray<
@@ -1249,7 +1253,6 @@ const VaccinationPatient: t.Type<VaccinationPatient> = t.recursion(
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative,
                     _gender: VaccinationPatientGender,
                     gender: SCALARCode,

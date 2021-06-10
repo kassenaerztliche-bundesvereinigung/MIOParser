@@ -77,6 +77,17 @@ export default class Messages {
         }
     }
 
+    static Orphan(
+        fullUrl: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Verwaiste Ressource mit der fullUrl "${fullUrl}" gefunden.`;
+        } else {
+            return `Found orphan resource with fullUrl "${fullUrl}".`;
+        }
+    }
+
     static ReferenceNotFound(
         fieldName: string,
         ref: string,

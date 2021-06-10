@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { ExtensibleCheck } from "../../../util";
+import { Literal, ExtensibleCheck } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import CodeableConcept from "../../../../Definitions/FHIR/4.0.1/Profile/CodeableConcept";
 
@@ -32,7 +32,7 @@ import UsagecontexttypeVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Usag
 
 interface UsageContext {
     code: UsagecontexttypeVS;
-    resourceType?: string;
+    resourceType?: "UsageContext";
     id?: string;
     valueCodeableConcept?: CodeableConcept;
     valueQuantity?: Quantity;
@@ -46,7 +46,7 @@ const UsageContext: t.Type<UsageContext> = t.recursion("UsageContext", () =>
             code: ExtensibleCheck<t.Type<UsagecontexttypeVS>>(UsagecontexttypeVS)
         }),
         t.partial({
-            resourceType: t.string,
+            resourceType: Literal("UsageContext"),
             id: SCALARString,
             valueCodeableConcept: CodeableConcept,
             valueQuantity: Quantity,

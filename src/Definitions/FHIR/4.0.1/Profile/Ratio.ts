@@ -19,14 +19,14 @@
  */
 
 import * as t from "io-ts";
-
+import { Literal } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import Quantity from "../../../../Definitions/FHIR/4.0.1/Quantity/Quantity";
 
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/Ratio"
 
 interface Ratio {
-    resourceType?: string;
+    resourceType?: "Ratio";
     id?: string;
     numerator?: Quantity;
     denominator?: Quantity;
@@ -34,7 +34,7 @@ interface Ratio {
 
 const Ratio: t.Type<Ratio> = t.recursion("Ratio", () =>
     t.partial({
-        resourceType: t.string,
+        resourceType: Literal("Ratio"),
         id: SCALARString,
         numerator: Quantity,
         denominator: Quantity

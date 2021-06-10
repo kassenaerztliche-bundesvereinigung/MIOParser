@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 
@@ -1589,7 +1596,9 @@ export const MRObservationBloodGroupSerologyChildSubject: t.Type<MRObservationBl
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1612,7 +1621,9 @@ export const MRObservationBloodGroupSerologyChildEncounter: t.Type<MRObservation
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1635,7 +1646,10 @@ export const MRObservationBloodGroupSerologyChildPerformer: t.Type<MRObservation
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1645,13 +1659,13 @@ export const MRObservationBloodGroupSerologyChildPerformer: t.Type<MRObservation
 );
 
 interface MRObservationBloodGroupSerologyChild {
+    resourceType: "Observation";
     meta: MRObservationBloodGroupSerologyChildMeta;
     status: "final";
     code: MRObservationBloodGroupSerologyChildCode;
     subject: MRObservationBloodGroupSerologyChildSubject;
     encounter: MRObservationBloodGroupSerologyChildEncounter;
     effectiveDateTime: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (
@@ -1673,6 +1687,7 @@ const MRObservationBloodGroupSerologyChild: t.Type<MRObservationBloodGroupSerolo
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationBloodGroupSerologyChildMeta,
                     status: Literal("final"),
                     code: MRObservationBloodGroupSerologyChildCode,
@@ -1681,7 +1696,6 @@ const MRObservationBloodGroupSerologyChild: t.Type<MRObservationBloodGroupSerolo
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     extension: ReqArray<

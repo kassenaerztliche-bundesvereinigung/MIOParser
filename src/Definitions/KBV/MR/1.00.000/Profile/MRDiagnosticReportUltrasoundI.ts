@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -1323,7 +1330,9 @@ export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltr
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1346,7 +1355,9 @@ export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUl
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1369,7 +1380,10 @@ export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUl
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1392,7 +1406,15 @@ export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltra
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Information|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_General_Information|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_I|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Percentile|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Timely_Development|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Abnormalities|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Consultation_Initiated|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1402,12 +1424,12 @@ export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltra
 );
 
 interface MRDiagnosticReportUltrasoundI {
+    resourceType: "DiagnosticReport";
     meta: MRDiagnosticReportUltrasoundIMeta;
     status: "final";
     code: MRDiagnosticReportUltrasoundICode;
     subject: MRDiagnosticReportUltrasoundISubject;
     encounter: MRDiagnosticReportUltrasoundIEncounter;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRDiagnosticReportUltrasoundIErgaenzendeAngaben)[];
@@ -1423,6 +1445,7 @@ const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.r
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("DiagnosticReport"),
                     meta: MRDiagnosticReportUltrasoundIMeta,
                     status: Literal("final"),
                     code: MRDiagnosticReportUltrasoundICode,
@@ -1430,7 +1453,6 @@ const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.r
                     encounter: MRDiagnosticReportUltrasoundIEncounter
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     extension: ReqArray<

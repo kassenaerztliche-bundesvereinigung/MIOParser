@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../util";
+import { Literal } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import GenderamtlichdeVS from "../../../../Definitions/HL7DE/0.9.7/ValueSet/Genderamtlichde";

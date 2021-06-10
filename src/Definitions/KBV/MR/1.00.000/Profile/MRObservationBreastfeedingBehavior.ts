@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -471,7 +478,9 @@ export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBrea
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -494,7 +503,9 @@ export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBr
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -517,7 +528,10 @@ export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBr
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -527,6 +541,7 @@ export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBr
 );
 
 interface MRObservationBreastfeedingBehavior {
+    resourceType: "Observation";
     meta: MRObservationBreastfeedingBehaviorMeta;
     status: "final";
     code: MRObservationBreastfeedingBehaviorCode;
@@ -534,7 +549,6 @@ interface MRObservationBreastfeedingBehavior {
     encounter: MRObservationBreastfeedingBehaviorEncounter;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationBreastfeedingBehaviorValueCodeableConcept;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationBreastfeedingBehaviorPerformer>;
@@ -546,6 +560,7 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationBreastfeedingBehaviorMeta,
                     status: Literal("final"),
                     code: MRObservationBreastfeedingBehaviorCode,
@@ -555,7 +570,6 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
                     valueCodeableConcept: MRObservationBreastfeedingBehaviorValueCodeableConcept
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationBreastfeedingBehaviorPerformer)

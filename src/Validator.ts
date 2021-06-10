@@ -45,7 +45,7 @@ export default class Validator {
         errors: MIOError[]
     ): MIOError[] {
         const resource = composition.resource;
-        const field = (resource as any)[fieldName];
+        const field = (resource as any)[fieldName]; // eslint-disable-line
 
         if (Array.isArray(field)) {
             field.forEach((value) => {
@@ -182,6 +182,20 @@ export default class Validator {
         return errors;
     }
 
+    public static getOrphans(
+        bundle: KBVBundleResource,
+        allReferences?: Reference[]
+    ): string[] {
+        const references = (allReferences ?? this.listReferences(bundle)).map((ref) =>
+            Util.getUuid(ref.id)
+        );
+        const fullUrls = bundle.entry
+            .filter((e) => e.resource.resourceType !== "Composition")
+            .map((e) => e.fullUrl);
+
+        return fullUrls.filter((ref) => !references.includes(Util.getUuid(ref)));
+    }
+
     /**
      * Evaluates whether references in bundle are resolved or not.
      * Every unresolved reference is returned as a MIOError.
@@ -190,18 +204,31 @@ export default class Validator {
      * @returns {MIOError[]} Array of MIOErrors containing the unresolved references
      */
     public static getUnresolvedReferences(bundle: KBVBundleResource): MIOError[] {
-        const unresolvedReferences = this.listReferences(bundle).filter(
+        const allReferences = this.listReferences(bundle);
+
+        const unresolvedReferences = allReferences.filter(
             (reference) => !this.findReference(bundle, reference.id)
         );
 
-        return unresolvedReferences.map((reference) => {
+        const orphans = Validator.getOrphans(bundle, allReferences).map((orphan) => {
+            return {
+                message: Messages.Orphan(orphan),
+                resource: bundle.identifier.value,
+                path: "bundle.entry",
+                value: orphan
+            };
+        });
+
+        const unresolved = unresolvedReferences.map((reference) => {
             return {
                 message: Messages.Reference(reference.id),
                 resource: "",
                 path: reference.path,
-                value: ""
+                value: reference.id
             };
         });
+
+        return [...unresolved, ...orphans];
     }
 
     /**
@@ -212,7 +239,7 @@ export default class Validator {
      * @param path {string} Current path within the object
      */
     public static listReferences = (
-        obj: any,
+        obj: any, // eslint-disable-line
         references: Reference[] = [],
         path = ""
     ): Reference[] => {
@@ -244,7 +271,7 @@ export default class Validator {
      * @param found {boolean} Whether the uuid was found or not
      */
     public static findReference = (
-        obj: any,
+        obj: any, // eslint-disable-line
         reference: string,
         found = false
     ): boolean => {

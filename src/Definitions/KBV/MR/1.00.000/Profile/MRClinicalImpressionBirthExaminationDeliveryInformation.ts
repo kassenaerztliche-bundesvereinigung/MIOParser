@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -803,7 +810,9 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigatio
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_External_Birth|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -884,7 +893,9 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationSubject: t.T
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -907,7 +918,9 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationEncounter: t
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -930,7 +943,9 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationAssessor: t.
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -970,12 +985,12 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigatio
 );
 
 interface MRClinicalImpressionBirthExaminationDeliveryInformation {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionBirthExaminationDeliveryInformationMeta;
     status: "completed";
     code: MRClinicalImpressionBirthExaminationDeliveryInformationCode;
     subject: MRClinicalImpressionBirthExaminationDeliveryInformationSubject;
     encounter: MRClinicalImpressionBirthExaminationDeliveryInformationEncounter;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     _effectiveDateTime?: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime;
@@ -993,6 +1008,7 @@ const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinical
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionBirthExaminationDeliveryInformationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionBirthExaminationDeliveryInformationCode,
@@ -1000,7 +1016,6 @@ const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinical
                     encounter: MRClinicalImpressionBirthExaminationDeliveryInformationEncounter
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     _effectiveDateTime: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime,

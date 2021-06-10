@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinArray, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinArray, MinMaxArray } from "../../../../CustomTypes";
 
 import SCALARInstant from "../../../../../Definitions/FHIR/4.0.1/Scalar/Instant";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -113,32 +113,28 @@ export const VaccinationBundleEntryEntry: t.Type<VaccinationBundleEntryEntry> = 
 );
 
 interface VaccinationBundleEntry {
+    resourceType: "Bundle";
     id: string;
     meta: VaccinationBundleEntryMeta;
     identifier: VaccinationBundleEntryIdentifier;
     type: "document";
     timestamp: string;
     entry: Array<VaccinationBundleEntryEntry>;
-    resourceType?: string;
 }
 
 const VaccinationBundleEntry: t.Type<VaccinationBundleEntry> = t.recursion(
     "VaccinationBundleEntry",
     () =>
         Excess(
-            t.intersection([
-                t.type({
-                    id: SCALARString,
-                    meta: VaccinationBundleEntryMeta,
-                    identifier: VaccinationBundleEntryIdentifier,
-                    type: Literal("document"),
-                    timestamp: SCALARInstant,
-                    entry: MinArray(1, VaccinationBundleEntryEntry)
-                }),
-                t.partial({
-                    resourceType: t.string
-                })
-            ])
+            t.type({
+                resourceType: Literal("Bundle"),
+                id: SCALARString,
+                meta: VaccinationBundleEntryMeta,
+                identifier: VaccinationBundleEntryIdentifier,
+                type: Literal("document"),
+                timestamp: SCALARInstant,
+                entry: MinArray(1, VaccinationBundleEntryEntry)
+            })
         )
 );
 

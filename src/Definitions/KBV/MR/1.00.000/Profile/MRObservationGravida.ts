@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -299,7 +306,9 @@ export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> = 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -322,7 +331,9 @@ export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -345,7 +356,10 @@ export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -355,6 +369,7 @@ export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer
 );
 
 interface MRObservationGravida {
+    resourceType: "Observation";
     meta: MRObservationGravidaMeta;
     status: "final";
     code: MRObservationGravidaCode;
@@ -362,7 +377,6 @@ interface MRObservationGravida {
     encounter: MRObservationGravidaEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationGravidaValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationGravidaPerformer>;
@@ -374,6 +388,7 @@ const MRObservationGravida: t.Type<MRObservationGravida> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationGravidaMeta,
                     status: Literal("final"),
                     code: MRObservationGravidaCode,
@@ -383,7 +398,6 @@ const MRObservationGravida: t.Type<MRObservationGravida> = t.recursion(
                     valueQuantity: MRObservationGravidaValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationGravidaPerformer)

@@ -31,7 +31,8 @@ import {
     MIOType,
     MIOTypeList,
     KBVResource,
-    BundleTypes
+    BundleTypes,
+    KBVBundleResource
 } from "./Definitions/ProfileMap";
 
 import { Validation, ValidationError, Errors } from "io-ts";
@@ -39,7 +40,31 @@ import { pipe } from "fp-ts/lib/pipeable";
 import { fold } from "fp-ts/lib/Either";
 import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
 
+import fhirpath from "fhirpath";
+import fhirpathR4Model from "fhirpath/fhir-context/r4";
+
+import * as t from "io-ts";
+import { validateCompositionReferences } from "./Interfaces/CompositionReferenceValidator";
+
 export type HasMeta = { meta: Meta };
+
+export type HasMetaAndId = {
+    id: string;
+} & HasMeta;
+
+export type Resource = {
+    resourceType?: string;
+    entry?: KBVEntry[];
+} & HasMetaAndId;
+
+function getProfile(resource: Resource | KBVResource | HasMeta): string {
+    const profile = resource.meta.profile;
+    return profile && profile.length ? profile[0] ?? "" : "";
+}
+
+function getProfileWithoutVersion(resource: Resource | KBVResource | HasMeta): string {
+    return getProfile(resource).split("|")[0];
+}
 
 /**
  * Evaluated the resource type of a MIO by its meta profile.
@@ -52,7 +77,7 @@ export function defineResourceType(resource: HasMeta): ResourceType {
 
     if (meta && meta.profile) {
         if (meta.profile.length >= 1) {
-            const profile = meta.profile[0].toString();
+            const profile = getProfile(resource);
             const profileParts = profile.split("|");
             const profileType = profileParts[0];
 
@@ -161,49 +186,142 @@ export function isBundle(resource: HasMeta): boolean {
     return BundleTypes.some((T: MIOType) => T.profile === type.profile);
 }
 
-export type HasMetaAndId = {
-    id: string;
-} & HasMeta;
+const excludingBundlesForUUIDConstraint = [
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.00.000",
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.00.000",
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PN_Bundle|1.0.0",
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PC_Bundle|1.0.0"
+];
+
+function checkConstraints(
+    resource: Resource,
+    constraints: { severity: string; expression: string; human: string; key: string }[],
+    parserResult: MIOParserResult
+): void {
+    constraints.forEach((constraint) => {
+        // key dom-3 wirft einen merkwuerdigen fehler... ist aber auch kein kritischer constraint, daher wird der ausgelassen
+        if (resource && constraint.expression && constraint.key !== "dom-3") {
+            let constraintResult: boolean[] = [];
+            try {
+                // einige constraints haben einen typo, dieser wird hier ersetzt
+                let expression = constraint.expression.replace("identifer", "identifier");
+                expression = expression.replace("is string", "is String");
+                // ZAEB 1.00.000 hat einen constraint der aufgrund eines fixvalues nicht gelöst werden kann... daher ueberspringen
+                if (
+                    constraint.key === "UUID" &&
+                    excludingBundlesForUUIDConstraint.includes(getProfile(resource))
+                ) {
+                    return;
+                }
+                //bug in FhirPath implementation
+                if (
+                    expression ===
+                    "dosage.text.empty().not() xor (dosage.route.empty().not() and dosage.doseAndRate.dose.empty().not())"
+                )
+                    expression =
+                        "dosage.text.empty().not() xor (dosage.route.empty().not() and dosage.doseAndRate.doseQuantity.empty().not())";
+                constraintResult = fhirpath.evaluate(
+                    resource,
+                    expression,
+                    {
+                        resource: resource
+                    },
+                    fhirpathR4Model
+                );
+            } catch (error) {
+                // hasValue is not implemented in fhirpath by now
+                if (constraint.expression.includes(".hasValue()")) return;
+                parserResult.warnings.push({
+                    resource: getProfile(resource),
+                    value: resource.id,
+                    path: constraint.key,
+                    message: ErrorMessage.NotResolveConstraint(
+                        constraint.expression,
+                        constraint.key,
+                        error
+                    )
+                });
+            }
+
+            if (constraintResult.includes(false)) {
+                const parserError = {
+                    resource: getProfile(resource) + " -> " + resource.id,
+                    value: constraint.key,
+                    path: constraint.expression,
+                    message: ErrorMessage.Constraint(constraint.human, constraint.key)
+                };
+                if (constraint.severity === "error") {
+                    parserResult.errors.push(parserError);
+                } else if (constraint.severity === "warning") {
+                    parserResult.warnings.push(parserError);
+                }
+            }
+        }
+    });
+}
 
 /**
  * Evaluates an object and tries to return a MIO instance according to its profile.
  *
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
  * @param list {MIOTypeList} List of MioTypes to be tested with
+ * @param bundle {KBVBundleResource | undefined} TODO
  * @returns {MIOParserResult} a Result for the finding of the resource in the given MioTypeList
  */
 export default function getResource(
-    resource: HasMetaAndId,
-    list: MIOTypeList
+    resource: Resource,
+    list: MIOTypeList,
+    bundle: KBVBundleResource | undefined = undefined
 ): MIOParserResult {
     const type = defineResourceType(resource);
 
     // Unknown resource..
     const parserResult: MIOParserResult = {
         value: resource as KBVResource,
-        errors: [
-            {
-                message: "Unknown MIO",
-                resource: type.profile,
-                path: "",
-                value: "Undefined"
-            }
-        ],
+        errors: [],
         warnings: []
     };
+    let entryUrlMap: string[] = [];
+
+    if (resource.resourceType === "Bundle") {
+        entryUrlMap =
+            resource.entry?.map((entry: KBVEntry) =>
+                getProfileWithoutVersion(entry.resource)
+            ) ?? [];
+
+        validateCompositionReferences(resource, parserResult);
+    }
+
+    // returns the parserresult prematurely if compositionReferences are erroneus.
+    // These Errors should be fixed first
+    if (parserResult.errors.length) {
+        return parserResult;
+    }
+
+    let foundResource = false;
 
     // Try to match profiles an create instance of matching class
     list.forEach((T: MIOType) => {
         if (T.profile === type.profile) {
+            foundResource = true;
             const resourceId = resource.id;
-            const resourceResult = T.type.decode(resource);
+            const context: t.ContextEntry[] = [];
+            context.push({
+                key: "bundleForReferenceValidation",
+                actual: bundle,
+                type: t.type({})
+            });
+            const resourceResult = bundle
+                ? T.type.validate(resource, context)
+                : T.type.decode(resource);
 
             // Callback for decoding failure
+            // eslint-disable-next-line
             const onLeft = (errors: Errors): string => {
                 /*
                 errors.forEach((error) => {
                     if (error.message) parserLogging.warn(error.message);
-                });             
+                });
                  */
                 return "";
             };
@@ -214,23 +332,43 @@ export default function getResource(
                 return "";
             };
 
-            parserResult.errors = getPaths(resourceResult, resourceId);
+            parserResult.errors.push(...getPaths(resourceResult, resourceId));
+            checkConstraints(resource, T.constraints, parserResult);
 
             pipe(resourceResult, fold(onLeft, onRight));
+        } else if (entryUrlMap.includes(T.profile)) {
+            const checkResource = resource.entry?.filter(
+                (entry: KBVEntry) =>
+                    getProfileWithoutVersion(entry.resource) === T.profile
+            );
+
+            checkResource?.forEach((entry: KBVEntry) => {
+                checkConstraints(entry.resource as Resource, T.constraints, parserResult);
+            });
         }
     });
 
+    if (!foundResource) {
+        parserResult.errors.push({
+            message: "Unknown MIO",
+            resource: type.profile,
+            path: "",
+            value: "Undefined"
+        });
+    }
     return parserResult;
 }
 
 /**
- * Maps the entries in a bundle to Typescript objects
+ * Maps the entries in a gibundle to Typescript objects
  *
  * @param entryArray {KBVEntry} An array of entries contained by a bundle
+ * @param bundle {KBVBundleResource} TODO
  * @return valueErrorArray {values: KBVEntry[]; errors: MIOError[];} values and errors contained in the bundle
  */
 export function getAllEntries(
-    entryArray: KBVEntry[]
+    entryArray: KBVEntry[],
+    bundle: KBVBundleResource
 ): {
     values: KBVEntry[];
     errors: MIOError[];
@@ -243,7 +381,8 @@ export function getAllEntries(
                 meta: Meta;
                 id: string;
             },
-            MIOTypes
+            MIOTypes,
+            bundle
         );
         kbvResources.push({
             fullUrl: e.fullUrl,

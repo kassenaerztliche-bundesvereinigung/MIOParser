@@ -1,29 +1,31 @@
 /*
- * Licensed to the Kassenärztliche Bundesvereinigung (KBV) under one
- * or more contributor license agreements. See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership. The KBV licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *  http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
  */
 
-import MIOParser, { ParserUtil, KBVBundleResource, Vaccination, ZAEB } from "../src";
+import MIOParser, { ParserUtil, KBVBundleResource, Vaccination, ZAEB, MR } from "../src";
 import fs from "fs";
 import * as TestUtil from "miotestdata";
 import { ConceptMap } from "../src/Interfaces/Util";
+import { AnyType } from "../src/";
 
 async function getMIOAs<T extends KBVBundleResource>(
-    T: any,
+    T: AnyType,
     filePath: string
 ): Promise<T | undefined> {
     const bundleFile = fs.readFileSync(filePath);
@@ -42,9 +44,9 @@ describe("Parser Util", () => {
     const mioParser = new MIOParser();
 
     type GetEntry = {
-        bundleType: any;
+        bundleType: any; // eslint-disable-line
         todos: {
-            profile: any;
+            profile: AnyType;
             result: boolean;
         }[];
     } & TestUtil.HasMioString;
@@ -77,6 +79,16 @@ describe("Parser Util", () => {
                 },
                 {
                     profile: ZAEB.V1_00_000.Profile.Composition,
+                    result: true
+                }
+            ]
+        },
+        {
+            bundleType: MR.V1_00_000.Profile.Bundle,
+            mioString: "MR",
+            todos: [
+                {
+                    profile: MR.V1_00_000.Profile.PatientMother,
                     result: true
                 }
             ]
@@ -118,15 +130,16 @@ describe("Parser Util", () => {
     );
 
     type GetEntries = {
-        bundleType: any;
+        bundleType: any[]; // eslint-disable-line
         todos: {
-            profiles: any[];
+            profiles: AnyType[];
             result: number;
         }[];
     } & TestUtil.HasMioString;
+
     const getEntriesList: GetEntries[] = [
         {
-            bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
+            bundleType: [Vaccination.V1_00_000.Profile.BundleEntry],
             mioString: "IM",
             todos: [
                 {
@@ -146,7 +159,7 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: ZAEB.V1_00_000.Profile.Bundle,
+            bundleType: [ZAEB.V1_00_000.Profile.Bundle],
             mioString: "ZB",
             todos: [
                 {
@@ -168,6 +181,20 @@ describe("Parser Util", () => {
                     result: 1
                 }
             ]
+        },
+        {
+            bundleType: [MR.V1_00_000.Profile.Bundle],
+            mioString: "MR",
+            todos: [
+                {
+                    profiles: [MR.V1_00_000.Profile.Composition],
+                    result: 1
+                },
+                {
+                    profiles: [MR.V1_00_000.Profile.PatientMother],
+                    result: 1
+                }
+            ]
         }
     ];
 
@@ -179,11 +206,14 @@ describe("Parser Util", () => {
                 test(`${todo.profiles.map((profile) => profile.name).join(", ")}: to be ${
                     todo.result
                 }`, async (done) => {
-                    const mio = await getMIOAs<typeof value.bundleType>(
-                        value.bundleType,
-                        file
-                    );
+                    let mio = undefined;
+                    value.bundleType.some(async (bundleType) => {
+                        mio = await getMIOAs<typeof bundleType>(bundleType, file);
+                        return !!mio;
+                    });
+
                     if (mio) {
+                        // eslint-disable-next-line
                         const PROFILES = (<T extends any[]>(...o: T): T => o)(
                             todo.profiles
                         );
@@ -202,15 +232,16 @@ describe("Parser Util", () => {
     );
 
     type GetSlice = {
-        bundleType: any;
+        bundleType: any; // eslint-disable-line
         todos: {
-            profile: any;
+            profile: any; // eslint-disable-line
             slices: {
-                type: any;
+                type: any; // eslint-disable-line
                 field: string;
             }[];
         }[];
     } & TestUtil.HasMioString;
+
     const getSliceList: GetSlice[] = [
         {
             bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
@@ -250,15 +281,31 @@ describe("Parser Util", () => {
                     ]
                 }
             ]
+        },
+        {
+            bundleType: MR.V1_00_000.Profile.Bundle,
+            mioString: "MR",
+            todos: [
+                {
+                    profile: MR.V1_00_000.Profile.PatientMother,
+                    slices: [
+                        {
+                            type: MR.V1_00_000.Profile.PatientMotherName,
+                            field: "name"
+                        }
+                    ]
+                }
+            ]
         }
     ];
+
     TestUtil.runAllFiles<GetSlice>(
         "getSlice",
         getSliceList,
         (file, value) => {
             value.todos.forEach((todo) => {
                 const slices = todo.slices.map((slice) => slice.type.name).join(", ");
-                test(`Get ${slices} from ${todo.profile.name} `, async (done) => {
+                test(`Get ${slices} from ${todo.profile.name} "${file}"`, async (done) => {
                     const mio = await getMIOAs<typeof value.bundleType>(
                         value.bundleType,
                         file
@@ -287,6 +334,7 @@ describe("Parser Util", () => {
         "Bundles",
         true
     );
+
     test("getSlice (no value)", (done) => {
         expect(
             ParserUtil.getSlice<Vaccination.V1_00_000.Profile.PatientPid>(
@@ -305,16 +353,17 @@ describe("Parser Util", () => {
     });
 
     type GetSlices = {
-        bundleType: any;
+        bundleType: any; // eslint-disable-line
         todos: {
-            profile: any;
+            profile: any; // eslint-disable-line
             slice: {
-                types: any[];
+                types: AnyType[];
                 field: string;
                 min: number;
             };
         }[];
     } & TestUtil.HasMioString;
+
     const getSlicesList: GetSlices[] = [
         {
             bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
@@ -337,6 +386,7 @@ describe("Parser Util", () => {
             ]
         }
     ];
+
     TestUtil.runAllFiles<GetSlices>(
         "getSlices",
         getSlicesList,
@@ -356,6 +406,7 @@ describe("Parser Util", () => {
                         expect(p).toBeDefined();
                         if (p) {
                             expect(todo.profile.is(p.resource)).toBeTruthy();
+                            // eslint-disable-next-line
                             const PROFILES = (<T extends any[]>(...o: T): T => o)(
                                 todo.slice.types
                             );
@@ -373,6 +424,7 @@ describe("Parser Util", () => {
         "Bundles",
         true
     );
+
     test("getSlices (no value)", (done) => {
         expect(
             ParserUtil.getSlices<Vaccination.V1_00_000.Profile.PatientPid>(
@@ -423,20 +475,25 @@ describe("Parser Util", () => {
             ).toBeTruthy();
         });
     };
+
     TestUtil.runAllFiles(
         "findEntryByProfile",
         [{ mioString: "IM" }],
         testByProfile,
         "Bundles"
     );
+
     test("findEntryByProfile (no value)", (done) => {
         expect(ParserUtil.findEntryByProfile(undefined, "fullUrl")).toEqual(undefined);
         done();
     });
+
     test("findEntryByProfile (entry no meta)", (done) => {
         expect(
             ParserUtil.findEntryByProfile(
-                { entry: [{ resource: {} }] } as KBVBundleResource,
+                {
+                    entry: [{ resource: {} }]
+                } as KBVBundleResource,
                 "fullUrl"
             )
         ).toEqual(undefined);
@@ -456,20 +513,25 @@ describe("Parser Util", () => {
             expect(composition).toBeDefined();
         });
     };
+
     TestUtil.runAllFiles(
         "findEntryByProfiles",
         [{ mioString: "IM" }],
         testByProfiles,
         "Bundles"
     );
+
     test("findEntryByProfiles (no value)", (done) => {
         expect(ParserUtil.findEntryByProfiles(undefined, ["fullUrl"])).toEqual(undefined);
         done();
     });
+
     test("findEntryByProfiles (entry with no meta)", (done) => {
         expect(
             ParserUtil.findEntryByProfiles(
-                { entry: [{ resource: {} }] } as KBVBundleResource,
+                {
+                    entry: [{ resource: {} }]
+                } as KBVBundleResource,
                 ["fullUrl"]
             )
         ).toEqual(undefined);
@@ -509,6 +571,7 @@ describe("Parser Util", () => {
     });
 
     test("getUuidFromBundle", (done) => {
+        // eslint-disable-next-line
         const values: { in: any; out: string }[] = [
             {
                 in: { identifier: { value: "A" } },
@@ -516,7 +579,9 @@ describe("Parser Util", () => {
             },
             {
                 in: {
-                    identifier: { value: "urn:uuid:6d92d417-8a0d-42b9-959f-567ab2f4650f" }
+                    identifier: {
+                        value: "urn:uuid:6d92d417-8a0d-42b9-959f-567ab2f4650f"
+                    }
                 },
                 out: "6d92d417-8a0d-42b9-959f-567ab2f4650f"
             }
@@ -531,8 +596,9 @@ describe("Parser Util", () => {
     });
 
     type FindEntryByFullUrl = {
-        profile: any;
+        profile: AnyType;
     } & TestUtil.HasMioString;
+
     const findEntryByFullUrlList: FindEntryByFullUrl[] = [
         {
             mioString: "IM",
@@ -541,8 +607,13 @@ describe("Parser Util", () => {
         {
             mioString: "ZB",
             profile: ZAEB.V1_00_000.Profile.Patient
+        },
+        {
+            mioString: "MR",
+            profile: MR.V1_00_000.Profile.PatientMother
         }
     ];
+
     const findEntryByFullUrlTest = (file: string, value: FindEntryByFullUrl): void => {
         it(file, async (done) => {
             const blob = new Blob([fs.readFileSync(file)]);
@@ -564,20 +635,25 @@ describe("Parser Util", () => {
             done();
         });
     };
+
     TestUtil.runAllFiles(
         "findEntryByFullUrl",
         findEntryByFullUrlList,
         findEntryByFullUrlTest,
         "Bundles"
     );
+
     test("findEntryByFullUrl (no value)", (done) => {
         expect(ParserUtil.findEntryByFullUrl(undefined, "fullUrl")).toEqual(undefined);
         done();
     });
+
     test("findEntryByFullUrl (entry false fullUrl)", (done) => {
         expect(
             ParserUtil.findEntryByFullUrl(
-                { entry: [{ fullUrl: "0", resource: {} }] } as KBVBundleResource,
+                {
+                    entry: [{ fullUrl: "0", resource: {} }]
+                } as KBVBundleResource,
                 "fullUrl"
             )
         ).toEqual(undefined);
@@ -585,8 +661,9 @@ describe("Parser Util", () => {
     });
 
     type GetEntryWithRef = {
-        profile: any;
+        profile: AnyType;
     } & TestUtil.HasMioString;
+
     const getEntryWithRefList: GetEntryWithRef[] = [
         {
             mioString: "IM",
@@ -595,8 +672,13 @@ describe("Parser Util", () => {
         {
             mioString: "ZB",
             profile: ZAEB.V1_00_000.Profile.Patient
+        },
+        {
+            mioString: "MR",
+            profile: MR.V1_00_000.Profile.PatientMother
         }
     ];
+
     const getEntryWithRefTest = (file: string, value: GetEntryWithRef): void => {
         it(file, async (done) => {
             const blob = new Blob([fs.readFileSync(file)]);
@@ -629,6 +711,7 @@ describe("Parser Util", () => {
             done();
         });
     };
+
     TestUtil.runAllFiles(
         "getEntryWithRef",
         getEntryWithRefList,

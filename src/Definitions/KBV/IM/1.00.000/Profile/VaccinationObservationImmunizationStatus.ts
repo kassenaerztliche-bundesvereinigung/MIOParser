@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
@@ -318,7 +325,9 @@ export const VaccinationObservationImmunizationStatusSubject: t.Type<Vaccination
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -342,7 +351,9 @@ export const VaccinationObservationImmunizationStatusPerformer: t.Type<Vaccinati
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString,
@@ -437,6 +448,7 @@ export const VaccinationObservationImmunizationStatusNote: t.Type<VaccinationObs
 );
 
 interface VaccinationObservationImmunizationStatus {
+    resourceType: "Observation";
     id: string;
     meta: VaccinationObservationImmunizationStatusMeta;
     text: Narrative;
@@ -445,7 +457,6 @@ interface VaccinationObservationImmunizationStatus {
     subject: VaccinationObservationImmunizationStatusSubject;
     issued: string;
     interpretation: Array<VaccinationObservationImmunizationStatusInterpretation>;
-    resourceType?: string;
     performer?: Array<VaccinationObservationImmunizationStatusPerformer>;
     note?: Array<VaccinationObservationImmunizationStatusNote>;
 }
@@ -456,6 +467,7 @@ const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImm
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     id: SCALARString,
                     meta: VaccinationObservationImmunizationStatusMeta,
                     text: Narrative,
@@ -470,7 +482,6 @@ const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImm
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     performer: MaxArray(
                         1,
                         VaccinationObservationImmunizationStatusPerformer

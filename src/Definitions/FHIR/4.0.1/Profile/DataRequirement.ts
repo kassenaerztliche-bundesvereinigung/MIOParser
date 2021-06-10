@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { ExtensibleCheck } from "../../../util";
+import { Literal, ExtensibleCheck } from "../../../CustomTypes";
 import SCALARCanonical from "../../../../Definitions/FHIR/4.0.1/Scalar/Canonical";
 
 import SCALARDateTime from "../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -109,7 +109,7 @@ export const DataRequirementSort: t.Type<DataRequirementSort> = t.recursion(
 
 interface DataRequirement {
     type: AlltypesVS;
-    resourceType?: string;
+    resourceType?: "DataRequirement";
     id?: string;
     profile?: string[];
     subjectCodeableConcept?: SubjecttypeVS;
@@ -126,7 +126,7 @@ const DataRequirement: t.Type<DataRequirement> = t.recursion("DataRequirement", 
             type: AlltypesVS
         }),
         t.partial({
-            resourceType: t.string,
+            resourceType: Literal("DataRequirement"),
             id: SCALARString,
             profile: t.array(SCALARCanonical),
             subjectCodeableConcept: ExtensibleCheck<t.Type<SubjecttypeVS>>(SubjecttypeVS),

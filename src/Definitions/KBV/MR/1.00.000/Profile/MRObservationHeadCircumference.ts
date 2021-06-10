@@ -19,14 +19,21 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
-import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
+import HeadCircumferenceSnomedVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/HeadCircumferenceSnomed";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
 
 // Definition for URL: "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Head_Circumference"
@@ -315,7 +322,7 @@ export const MRObservationHeadCircumferenceCodeCodeLoincDisplay: t.Type<MRObserv
 export interface MRObservationHeadCircumferenceCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: string;
-    code: string;
+    code: HeadCircumferenceSnomedVS;
     id?: string;
     _display?: MRObservationHeadCircumferenceCodeCodeSnomedDisplay;
     display?: string;
@@ -329,7 +336,7 @@ export const MRObservationHeadCircumferenceCodeCodeSnomed: t.Type<MRObservationH
                 t.type({
                     system: Literal("http://snomed.info/sct"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: HeadCircumferenceSnomedVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -500,7 +507,9 @@ export const MRObservationHeadCircumferenceSubject: t.Type<MRObservationHeadCirc
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -523,7 +532,9 @@ export const MRObservationHeadCircumferenceEncounter: t.Type<MRObservationHeadCi
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -546,7 +557,10 @@ export const MRObservationHeadCircumferencePerformer: t.Type<MRObservationHeadCi
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -556,6 +570,7 @@ export const MRObservationHeadCircumferencePerformer: t.Type<MRObservationHeadCi
 );
 
 interface MRObservationHeadCircumference {
+    resourceType: "Observation";
     meta: MRObservationHeadCircumferenceMeta;
     status: "final";
     code: MRObservationHeadCircumferenceCode;
@@ -563,7 +578,6 @@ interface MRObservationHeadCircumference {
     encounter: MRObservationHeadCircumferenceEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationHeadCircumferenceValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationHeadCircumferencePerformer>;
@@ -575,6 +589,7 @@ const MRObservationHeadCircumference: t.Type<MRObservationHeadCircumference> = t
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationHeadCircumferenceMeta,
                     status: Literal("final"),
                     code: MRObservationHeadCircumferenceCode,
@@ -584,7 +599,6 @@ const MRObservationHeadCircumference: t.Type<MRObservationHeadCircumference> = t
                     valueQuantity: MRObservationHeadCircumferenceValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationHeadCircumferencePerformer)

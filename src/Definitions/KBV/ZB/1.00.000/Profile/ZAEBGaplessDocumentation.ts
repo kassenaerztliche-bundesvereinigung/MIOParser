@@ -19,7 +19,13 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -127,7 +133,9 @@ export const ZAEBGaplessDocumentationSubject: t.Type<ZAEBGaplessDocumentationSub
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -137,12 +145,12 @@ export const ZAEBGaplessDocumentationSubject: t.Type<ZAEBGaplessDocumentationSub
 );
 
 interface ZAEBGaplessDocumentation {
+    resourceType: "Observation";
     meta: ZAEBGaplessDocumentationMeta;
     status: ObservationstatusVS;
     code: ZAEBGaplessDocumentationCode;
     subject: ZAEBGaplessDocumentationSubject;
     valueDateTime: string;
-    resourceType?: string;
     id?: string;
     extension?: (Extension | ZAEBGaplessDocumentationDisclaimer)[];
 }
@@ -153,6 +161,7 @@ const ZAEBGaplessDocumentation: t.Type<ZAEBGaplessDocumentation> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: ZAEBGaplessDocumentationMeta,
                     status: ObservationstatusVS,
                     code: ZAEBGaplessDocumentationCode,
@@ -160,7 +169,6 @@ const ZAEBGaplessDocumentation: t.Type<ZAEBGaplessDocumentation> = t.recursion(
                     valueDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     extension: ReqArray<
                         t.UnionC<

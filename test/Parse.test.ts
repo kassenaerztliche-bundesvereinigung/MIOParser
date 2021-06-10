@@ -1,20 +1,21 @@
 /*
- * Licensed to the Kassenärztliche Bundesvereinigung (KBV) under one
- * or more contributor license agreements. See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership. The KBV licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *  http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
  */
 
 import MIOParser from "../src";
@@ -25,7 +26,7 @@ import * as TestUtil from "miotestdata";
 describe("Parse", () => {
     const mioParser = new MIOParser();
 
-    TestUtil.runAllBundleFiles("parseFile", (file: any) => {
+    TestUtil.runAllBundleFiles("parseFile", (file) => {
         test(`"${file}"`, async (done) => {
             const blob = new Blob([fs.readFileSync(file)]);
             const result = await mioParser.parseFile(blob);
@@ -35,31 +36,35 @@ describe("Parse", () => {
         });
     });
 
-    TestUtil.runAllBundles("parseFiles", (bundles: any, value: any) => {
+    TestUtil.runAllBundles("parseFiles", (bundles, value) => {
         test(`all ${value.mioString} Bundles`, async (done) => {
             const blobs: Blob[] = [];
-            bundles.forEach((file: any) => blobs.push(new Blob([fs.readFileSync(file)])));
+            bundles.forEach((file) => blobs.push(new Blob([fs.readFileSync(file)])));
             const results = await mioParser.parseFiles(blobs);
             const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
+            if (numErrors > 0) console.log(results.map((r) => r.errors));
             expect(numErrors).toBe(0);
             done();
         });
     });
 
-    TestUtil.runAllBundleFiles("parseString", (file: any) => {
+    TestUtil.runAllBundleFiles("parseString", (file) => {
         test(`"${file}" `, async (done) => {
             const str = fs.readFileSync(file).toString();
             const result = await mioParser.parseString(str);
-            expect(result.errors.length).toBe(0);
+            const numErrors = result.errors.length;
+            if (numErrors > 0) console.log(result.errors);
+            expect(numErrors).toBe(0);
             done();
         });
     });
 
-    TestUtil.runAllBundles("parseStrings", (bundles: any, value: any) => {
+    TestUtil.runAllBundles("parseStrings", (bundles, value) => {
         test(`all ${value.mioString} Bundles`, async (done) => {
-            const strings = bundles.map((file: any) => fs.readFileSync(file).toString());
+            const strings = bundles.map((file) => fs.readFileSync(file).toString());
             const results = await mioParser.parseStrings(strings);
             const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
+            if (numErrors > 0) console.log(results.map((r) => r.errors));
             expect(numErrors).toBe(0);
             done();
         });
@@ -67,11 +72,9 @@ describe("Parse", () => {
 
     TestUtil.runAllBundles(
         "parseStrings (Invalid)",
-        (bundles: any, value: any) => {
+        (bundles, value) => {
             test(`all ${value.mioString} Bundles`, async (done) => {
-                const strings = bundles.map((file: any) =>
-                    fs.readFileSync(file).toString()
-                );
+                const strings = bundles.map((file) => fs.readFileSync(file).toString());
                 const results = await mioParser.parseStrings(strings);
                 results.forEach((result) =>
                     expect(result.errors.length).toBeGreaterThan(0)
@@ -83,7 +86,7 @@ describe("Parse", () => {
         false
     );
 
-    TestUtil.runAllProfileFiles("parseFile (Profiles)", (file: any, value: any) => {
+    TestUtil.runAllProfileFiles("parseFile (Profiles)", (file, value) => {
         test(`${value.mioString} Profile "${file}"`, async (done) => {
             const blob = new Blob([fs.readFileSync(file)]);
             const result = await mioParser.parseFile(blob);

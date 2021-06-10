@@ -98,7 +98,7 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Slice für Codec ${name} falsch`;
+            return `Der Slice für Codec ${name} konnte nicht validiert werden`;
         } else {
             return `Wrong slice for Codec ${name} `;
         }
@@ -150,6 +150,80 @@ export default class ErrorMessage {
             return `Der Wert "${value}" ist nicht im extensible ValueSet "${valueSet}" enthalten. Nach Möglichkeit sollte ein Wert aus dem korrekten ValueSet verwendet werden.`;
         } else {
             return `Value "${value}" is not contained in extensible ValueSet "${valueSet}". If possible, a value from within that ValueSet is preferred.`;
+        }
+    }
+
+    static Constraint(
+        humanMessage: string,
+        key: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Folgender Constraint (${key}) wurde nicht eingehalten: ${humanMessage}`;
+        } else {
+            return `The following constraint (${key}) was not satisfied: ${humanMessage}`;
+        }
+    }
+
+    static NotResolveConstraint(
+        humanMessage: string,
+        key: string,
+        error: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Folgender Constraint (${key}) konnte nicht aufgelöst werden: ${humanMessage} \n ${error}`;
+        } else {
+            return `The following constraint (${key}) could not be resolved: ${humanMessage} \n ${error}`;
+        }
+    }
+
+    static NoTargetWithinBundle(
+        ref: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Die Referenz ${ref} verweist nicht auf eine Ressource innerhalb des Bundles`;
+        } else {
+            return `Reference ${ref} not targeting a resource within the bundle`;
+        }
+    }
+
+    static WrongTarget(
+        ref: string,
+        targetProfile: string[],
+        actualProfile: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Die Referenz ${ref} verweist auf ein nicht korrektes Profil. ${
+                targetProfile.length > 1 ? "Erwartetes Profil" : "Erwartete Profile"
+            }: ${targetProfile}, Referenziertes Profil: ${actualProfile}`;
+        } else {
+            return `Reference ${ref} does not target a correct profile. Expected ${
+                targetProfile.length > 1 ? "Profiles" : "Profile"
+            }: ${targetProfile}, Received Profile: ${actualProfile}`;
+        }
+    }
+
+    static NoCompositionForUrl(
+        ref: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Die Composition mit Url: ${ref} konnte nicht zur Validierung gefunden werden`;
+        } else {
+            return `The composition with url: ${ref} could not be found for validation`;
+        }
+    }
+
+    static NoCompositionInBundle(
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return "Im Bundle konnte keine Composition gefunden werden.";
+        } else {
+            return "No composition was found within the bundle.";
         }
     }
 }

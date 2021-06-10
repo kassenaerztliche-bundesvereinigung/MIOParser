@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -269,7 +276,9 @@ export const MRObservationImmunizationStatusSubject: t.Type<MRObservationImmuniz
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -292,7 +301,9 @@ export const MRObservationImmunizationStatusEncounter: t.Type<MRObservationImmun
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -315,7 +326,9 @@ export const MRObservationImmunizationStatusPerformer: t.Type<MRObservationImmun
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -325,6 +338,7 @@ export const MRObservationImmunizationStatusPerformer: t.Type<MRObservationImmun
 );
 
 interface MRObservationImmunizationStatus {
+    resourceType: "Observation";
     id: string;
     meta: MRObservationImmunizationStatusMeta;
     status: "final";
@@ -333,7 +347,6 @@ interface MRObservationImmunizationStatus {
     encounter: MRObservationImmunizationStatusEncounter;
     effectiveDateTime: string;
     valueBoolean: boolean;
-    resourceType?: string;
     text?: Narrative;
     performer?: Array<MRObservationImmunizationStatusPerformer>;
 }
@@ -344,6 +357,7 @@ const MRObservationImmunizationStatus: t.Type<MRObservationImmunizationStatus> =
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     id: SCALARString,
                     meta: MRObservationImmunizationStatusMeta,
                     status: Literal("final"),
@@ -354,7 +368,6 @@ const MRObservationImmunizationStatus: t.Type<MRObservationImmunizationStatus> =
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationImmunizationStatusPerformer)
                 })

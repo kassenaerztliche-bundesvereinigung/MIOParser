@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -272,7 +279,9 @@ export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOth
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -295,7 +304,9 @@ export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationO
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -318,7 +329,10 @@ export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationO
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -328,6 +342,7 @@ export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationO
 );
 
 interface MRObservationOtherUltrasoundStudies {
+    resourceType: "Observation";
     meta: MRObservationOtherUltrasoundStudiesMeta;
     status: "final";
     code: MRObservationOtherUltrasoundStudiesCode;
@@ -335,7 +350,6 @@ interface MRObservationOtherUltrasoundStudies {
     encounter: MRObservationOtherUltrasoundStudiesEncounter;
     effectiveDateTime: string;
     valueString: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationOtherUltrasoundStudiesPerformer>;
@@ -347,6 +361,7 @@ const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundSt
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationOtherUltrasoundStudiesMeta,
                     status: Literal("final"),
                     code: MRObservationOtherUltrasoundStudiesCode,
@@ -356,7 +371,6 @@ const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundSt
                     valueString: SCALARString
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationOtherUltrasoundStudiesPerformer)

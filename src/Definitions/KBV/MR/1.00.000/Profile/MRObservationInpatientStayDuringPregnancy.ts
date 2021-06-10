@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -301,7 +308,9 @@ export const MRObservationInpatientStayDuringPregnancySubject: t.Type<MRObservat
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -324,7 +333,9 @@ export const MRObservationInpatientStayDuringPregnancyEncounter: t.Type<MRObserv
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -347,7 +358,10 @@ export const MRObservationInpatientStayDuringPregnancyPerformer: t.Type<MRObserv
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -357,6 +371,7 @@ export const MRObservationInpatientStayDuringPregnancyPerformer: t.Type<MRObserv
 );
 
 interface MRObservationInpatientStayDuringPregnancy {
+    resourceType: "Observation";
     meta: MRObservationInpatientStayDuringPregnancyMeta;
     status: "final";
     code: MRObservationInpatientStayDuringPregnancyCode;
@@ -364,7 +379,6 @@ interface MRObservationInpatientStayDuringPregnancy {
     encounter: MRObservationInpatientStayDuringPregnancyEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationInpatientStayDuringPregnancyValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationInpatientStayDuringPregnancyPerformer>;
@@ -376,6 +390,7 @@ const MRObservationInpatientStayDuringPregnancy: t.Type<MRObservationInpatientSt
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationInpatientStayDuringPregnancyMeta,
                     status: Literal("final"),
                     code: MRObservationInpatientStayDuringPregnancyCode,
@@ -385,7 +400,6 @@ const MRObservationInpatientStayDuringPregnancy: t.Type<MRObservationInpatientSt
                     valueQuantity: MRObservationInpatientStayDuringPregnancyValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(

@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -972,7 +979,14 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigati
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Age|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gravida|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Para|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Number_Of_Checkups|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Presentation_At_Birth_Clinic|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Inpatient_Stay_During_Pregnancy|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1082,7 +1096,9 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubject: t.
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1105,7 +1121,9 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter: 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1128,7 +1146,9 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1188,12 +1208,12 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding: t.
 );
 
 interface MRClinicalImpressionPregnancyExaminationDischargeSummary {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta;
     status: "completed";
     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryCode;
     subject: MRClinicalImpressionPregnancyExaminationDischargeSummarySubject;
     encounter: MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     _effectiveDateTime?: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime;
@@ -1211,6 +1231,7 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryCode,
@@ -1218,7 +1239,6 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
                     encounter: MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     _effectiveDateTime: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime,

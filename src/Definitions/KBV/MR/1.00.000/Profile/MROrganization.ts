@@ -20,14 +20,15 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
     ReqArray,
-    ExtensibleCheck
-} from "../../../../util";
+    ExtensibleCheck,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -36,6 +37,7 @@ import AddressuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Address
 
 import ContactpointsystemVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Contactpointsystem";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
+import GemRSAnlage8VS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/GemRSAnlage8";
 import IdentifiertypeVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifiertype";
 import IdentifieruseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Identifieruse";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
@@ -378,7 +380,9 @@ export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganization
                 }),
                 t.partial({
                     id: SCALARString,
-                    reference: SCALARString,
+                    reference: CustomReference(SCALARString, [
+                        "http://hl7.org/fhir/StructureDefinition/Organization"
+                    ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
                     identifier: MROrganizationBetriebsstaettennummerAssignerIdentifier
                 })
@@ -615,7 +619,7 @@ export interface MROrganizationStrassenanschrift {
     type: "both";
     city: string;
     postalCode: string;
-    country: string;
+    country: GemRSAnlage8VS;
     id?: string;
     extension?: (Extension | MROrganizationStrassenanschriftStadtteil)[];
     use?: AddressuseVS;
@@ -633,7 +637,7 @@ export const MROrganizationStrassenanschrift: t.Type<MROrganizationStrassenansch
                     type: Literal("both"),
                     city: SCALARString,
                     postalCode: SCALARString,
-                    country: SCALARString
+                    country: ExtensibleCheck<t.Type<GemRSAnlage8VS>>(GemRSAnlage8VS)
                 }),
                 t.partial({
                     id: SCALARString,
@@ -691,7 +695,7 @@ export interface MROrganizationPostfach {
     line?: Array<string>;
     city?: string;
     postalCode?: string;
-    country?: string;
+    country?: GemRSAnlage8VS;
 }
 
 export const MROrganizationPostfach: t.Type<MROrganizationPostfach> = t.recursion(
@@ -735,7 +739,7 @@ export const MROrganizationPostfach: t.Type<MROrganizationPostfach> = t.recursio
                     line: MaxArray(2, SCALARString),
                     city: SCALARString,
                     postalCode: SCALARString,
-                    country: SCALARString
+                    country: ExtensibleCheck<t.Type<GemRSAnlage8VS>>(GemRSAnlage8VS)
                 })
             ])
         )
@@ -798,8 +802,8 @@ export const MROrganizationTelecom: t.Type<MROrganizationTelecom> = t.recursion(
 );
 
 interface MROrganization {
+    resourceType: "Organization";
     meta: MROrganizationMeta;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MROrganizationErgaenzendeAngaben)[];
@@ -816,10 +820,10 @@ const MROrganization: t.Type<MROrganization> = t.recursion("MROrganization", () 
     Excess(
         t.intersection([
             t.type({
+                resourceType: Literal("Organization"),
                 meta: MROrganizationMeta
             }),
             t.partial({
-                resourceType: t.string,
                 id: SCALARString,
                 text: Narrative,
                 extension: ReqArray<

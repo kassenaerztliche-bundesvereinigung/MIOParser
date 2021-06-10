@@ -19,6 +19,7 @@
  */
 
 import { KBVResource } from "..";
+import * as t from "io-ts";
 
 /**
  * Describes an entry in a bundle which always contains a fullUrl which may have any resourceType
@@ -102,3 +103,8 @@ export type Reference = {
     id: string;
     path: string;
 };
+
+/**
+ * Any io-ts type
+ */
+export type AnyType = t.Any;

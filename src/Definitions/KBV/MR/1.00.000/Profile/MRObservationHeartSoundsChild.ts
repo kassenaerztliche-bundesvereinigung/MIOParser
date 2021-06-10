@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -468,7 +475,9 @@ export const MRObservationHeartSoundsChildSubject: t.Type<MRObservationHeartSoun
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -491,7 +500,9 @@ export const MRObservationHeartSoundsChildEncounter: t.Type<MRObservationHeartSo
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -514,7 +525,10 @@ export const MRObservationHeartSoundsChildPerformer: t.Type<MRObservationHeartSo
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -581,6 +595,7 @@ export const MRObservationHeartSoundsChildBodySite: t.Type<MRObservationHeartSou
 );
 
 interface MRObservationHeartSoundsChild {
+    resourceType: "Observation";
     meta: MRObservationHeartSoundsChildMeta;
     status: "final";
     code: MRObservationHeartSoundsChildCode;
@@ -588,7 +603,6 @@ interface MRObservationHeartSoundsChild {
     encounter: MRObservationHeartSoundsChildEncounter;
     effectiveDateTime: string;
     valueString: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationHeartSoundsChildPerformer>;
@@ -601,6 +615,7 @@ const MRObservationHeartSoundsChild: t.Type<MRObservationHeartSoundsChild> = t.r
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationHeartSoundsChildMeta,
                     status: Literal("final"),
                     code: MRObservationHeartSoundsChildCode,
@@ -610,7 +625,6 @@ const MRObservationHeartSoundsChild: t.Type<MRObservationHeartSoundsChild> = t.r
                     valueString: SCALARString
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationHeartSoundsChildPerformer),

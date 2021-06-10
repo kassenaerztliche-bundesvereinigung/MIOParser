@@ -158,6 +158,7 @@ export const uuidSplitRegex = /[.:/ ]/;
 /**
  * Extracts only the uuid from a given identifier
  * @param value{string} the full identifier of a resource
+ * @param separator{string | RegExp} separator to split the uuid
  */
 export function getUuid(
     value: string,
@@ -272,4 +273,18 @@ export function translateCode(
     });
 
     return results.length ? results : [code];
+}
+
+export function multiTranslateCode(
+    code: string,
+    translations: ConceptMap[],
+    target = "http://snomed.info/sct"
+): string[] {
+    const results: string[] = [];
+
+    translations.forEach((cm) => {
+        results.push(...translateCode(code, cm, target).filter((c) => c !== code));
+    });
+
+    return results.length ? results : [];
 }

@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
-    ReqArray
-} from "../../../../util";
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -951,7 +952,15 @@ export const MRClinicalImpressionFirstExaminationAfterChildbirthInvestigationIte
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Puerperium_Normal|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Anti_D_Prophylaxis_Post_Partum|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Advice_On_Iodine_Intake|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology_Child|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Direct_Coombstest|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1032,7 +1041,9 @@ export const MRClinicalImpressionFirstExaminationAfterChildbirthSubject: t.Type<
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1055,7 +1066,9 @@ export const MRClinicalImpressionFirstExaminationAfterChildbirthEncounter: t.Typ
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1078,7 +1091,9 @@ export const MRClinicalImpressionFirstExaminationAfterChildbirthAssessor: t.Type
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -1116,13 +1131,13 @@ export const MRClinicalImpressionFirstExaminationAfterChildbirthInvestigation: t
 );
 
 interface MRClinicalImpressionFirstExaminationAfterChildbirth {
+    resourceType: "ClinicalImpression";
     meta: MRClinicalImpressionFirstExaminationAfterChildbirthMeta;
     status: "completed";
     code: MRClinicalImpressionFirstExaminationAfterChildbirthCode;
     subject: MRClinicalImpressionFirstExaminationAfterChildbirthSubject;
     encounter: MRClinicalImpressionFirstExaminationAfterChildbirthEncounter;
     effectiveDateTime: string;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     extension?: (
@@ -1142,6 +1157,7 @@ const MRClinicalImpressionFirstExaminationAfterChildbirth: t.Type<MRClinicalImpr
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("ClinicalImpression"),
                     meta: MRClinicalImpressionFirstExaminationAfterChildbirthMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionFirstExaminationAfterChildbirthCode,
@@ -1150,7 +1166,6 @@ const MRClinicalImpressionFirstExaminationAfterChildbirth: t.Type<MRClinicalImpr
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     extension: ReqArray<

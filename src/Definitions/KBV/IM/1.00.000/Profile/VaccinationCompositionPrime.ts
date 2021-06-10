@@ -20,13 +20,14 @@
 
 import * as t from "io-ts";
 import {
-    Excess,
     Literal,
+    Excess,
     MinArray,
     MaxArray,
     MinMaxArray,
+    CustomReference,
     ReqArray
-} from "../../../../util";
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -132,7 +133,9 @@ export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<Vaccinatio
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Provenance|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -182,7 +185,9 @@ export const VaccinationCompositionPrimeRecordPrimeEntry: t.Type<VaccinationComp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -232,7 +237,9 @@ export const VaccinationCompositionPrimeObservationEntry: t.Type<VaccinationComp
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -286,7 +293,9 @@ export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompos
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Condition|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -517,7 +526,9 @@ export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPr
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -540,7 +551,9 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitionerrole|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -550,6 +563,7 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
 );
 
 interface VaccinationCompositionPrime {
+    resourceType: "Composition";
     id: string;
     meta: VaccinationCompositionPrimeMeta;
     status: "final";
@@ -563,7 +577,6 @@ interface VaccinationCompositionPrime {
         | VaccinationCompositionPrimeObservation
         | VaccinationCompositionPrimeCondition
     >;
-    resourceType?: string;
     text?: VaccinationCompositionPrimeText;
 }
 
@@ -573,6 +586,7 @@ const VaccinationCompositionPrime: t.Type<VaccinationCompositionPrime> = t.recur
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Composition"),
                     id: SCALARString,
                     meta: VaccinationCompositionPrimeMeta,
                     status: Literal("final"),
@@ -617,7 +631,6 @@ const VaccinationCompositionPrime: t.Type<VaccinationCompositionPrime> = t.recur
                     )
                 }),
                 t.partial({
-                    resourceType: t.string,
                     text: VaccinationCompositionPrimeText
                 })
             ])

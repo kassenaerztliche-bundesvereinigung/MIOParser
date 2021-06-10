@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinMaxArray } from "../../../../util";
+import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -42,7 +42,9 @@ export const MREncounterGeneralParticipantIndividual: t.Type<MREncounterGeneralP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -125,7 +127,9 @@ export const MREncounterGeneralSubject: t.Type<MREncounterGeneralSubject> = t.re
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -196,7 +200,9 @@ export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralService
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -206,12 +212,12 @@ export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralService
 );
 
 interface MREncounterGeneral {
+    resourceType: "Encounter";
     meta: MREncounterGeneralMeta;
     status: "finished";
     class: MREncounterGeneralClass;
     subject: MREncounterGeneralSubject;
     period: MREncounterGeneralPeriod;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     participant?: MREncounterGeneralParticipant[];
@@ -224,6 +230,7 @@ const MREncounterGeneral: t.Type<MREncounterGeneral> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Encounter"),
                     meta: MREncounterGeneralMeta,
                     status: Literal("finished"),
                     class: MREncounterGeneralClass,
@@ -231,7 +238,6 @@ const MREncounterGeneral: t.Type<MREncounterGeneral> = t.recursion(
                     period: MREncounterGeneralPeriod
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     participant: t.array(MREncounterGeneralParticipant),

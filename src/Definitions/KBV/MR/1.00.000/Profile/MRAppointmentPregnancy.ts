@@ -19,7 +19,13 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MinArray, MinMaxArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MinArray,
+    MinMaxArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARInstant from "../../../../../Definitions/FHIR/4.0.1/Scalar/Instant";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -42,7 +48,11 @@ export const MRAppointmentPregnancyParticipantActor: t.Type<MRAppointmentPregnan
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -110,12 +120,12 @@ export const MRAppointmentPregnancyParticipant: t.Type<MRAppointmentPregnancyPar
 );
 
 interface MRAppointmentPregnancy {
+    resourceType: "Appointment";
     meta: MRAppointmentPregnancyMeta;
     status: "booked";
     start: string;
     end: string;
     participant: Array<MRAppointmentPregnancyParticipant>;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
 }
@@ -126,6 +136,7 @@ const MRAppointmentPregnancy: t.Type<MRAppointmentPregnancy> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Appointment"),
                     meta: MRAppointmentPregnancyMeta,
                     status: Literal("booked"),
                     start: SCALARInstant,
@@ -133,7 +144,6 @@ const MRAppointmentPregnancy: t.Type<MRAppointmentPregnancy> = t.recursion(
                     participant: MinArray(1, MRAppointmentPregnancyParticipant)
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative
                 })

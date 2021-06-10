@@ -19,12 +19,21 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
-import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
+
+import BodyWeightLoincVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/BodyWeightLoinc";
+import BodyWeightSnomedVS from "../../../../../Definitions/KBVBase/1.01.000/ValueSet/BodyWeightSnomed";
 
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
 import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
@@ -315,7 +324,7 @@ export const MRObservationWeightChildCodeCodeLoincDisplay: t.Type<MRObservationW
 export interface MRObservationWeightChildCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: string;
-    code: string;
+    code: BodyWeightSnomedVS;
     id?: string;
     _display?: MRObservationWeightChildCodeCodeSnomedDisplay;
     display?: string;
@@ -329,7 +338,7 @@ export const MRObservationWeightChildCodeCodeSnomed: t.Type<MRObservationWeightC
                 t.type({
                     system: Literal("http://snomed.info/sct"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: BodyWeightSnomedVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -346,7 +355,7 @@ export const MRObservationWeightChildCodeCodeSnomed: t.Type<MRObservationWeightC
 export interface MRObservationWeightChildCodeCodeLoinc {
     system: "http://loinc.org";
     version: string;
-    code: string;
+    code: BodyWeightLoincVS;
     id?: string;
     _display?: MRObservationWeightChildCodeCodeLoincDisplay;
     display?: string;
@@ -360,7 +369,7 @@ export const MRObservationWeightChildCodeCodeLoinc: t.Type<MRObservationWeightCh
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: SCALARString,
-                    code: SCALARCode
+                    code: BodyWeightLoincVS
                 }),
                 t.partial({
                     id: SCALARString,
@@ -499,7 +508,9 @@ export const MRObservationWeightChildSubject: t.Type<MRObservationWeightChildSub
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -522,7 +533,9 @@ export const MRObservationWeightChildEncounter: t.Type<MRObservationWeightChildE
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -545,7 +558,10 @@ export const MRObservationWeightChildPerformer: t.Type<MRObservationWeightChildP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -555,6 +571,7 @@ export const MRObservationWeightChildPerformer: t.Type<MRObservationWeightChildP
 );
 
 interface MRObservationWeightChild {
+    resourceType: "Observation";
     meta: MRObservationWeightChildMeta;
     status: "final";
     code: MRObservationWeightChildCode;
@@ -562,7 +579,6 @@ interface MRObservationWeightChild {
     encounter: MRObservationWeightChildEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationWeightChildValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationWeightChildPerformer>;
@@ -574,6 +590,7 @@ const MRObservationWeightChild: t.Type<MRObservationWeightChild> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationWeightChildMeta,
                     status: Literal("final"),
                     code: MRObservationWeightChildCode,
@@ -583,7 +600,6 @@ const MRObservationWeightChild: t.Type<MRObservationWeightChild> = t.recursion(
                     valueQuantity: MRObservationWeightChildValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationWeightChildPerformer)

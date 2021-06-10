@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, ReqArray, MinMaxArray, Literal } from "../../../../util";
+import { Literal, Excess, ReqArray, MinMaxArray } from "../../../../CustomTypes";
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";

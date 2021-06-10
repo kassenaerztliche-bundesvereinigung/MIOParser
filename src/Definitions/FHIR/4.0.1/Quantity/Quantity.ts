@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-
+import { Literal } from "../../../CustomTypes";
 import SCALARCode from "../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDecimal from "../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -29,7 +29,7 @@ import QuantitycomparatorVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Qu
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/Quantity"
 
 interface Quantity {
-    resourceType?: string;
+    resourceType?: "Quantity";
     id?: string;
     value?: number;
     comparator?: QuantitycomparatorVS;
@@ -40,7 +40,7 @@ interface Quantity {
 
 const Quantity: t.Type<Quantity> = t.recursion("Quantity", () =>
     t.partial({
-        resourceType: t.string,
+        resourceType: Literal("Quantity"),
         id: SCALARString,
         value: SCALARDecimal,
         comparator: QuantitycomparatorVS,

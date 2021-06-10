@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal } from "../../../../util";
+import { Literal, Excess } from "../../../../CustomTypes";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 // Definition for URL: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_Vaccination_Additional_Comment"

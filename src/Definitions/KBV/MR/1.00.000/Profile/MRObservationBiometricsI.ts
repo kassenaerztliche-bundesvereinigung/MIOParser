@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -470,7 +477,9 @@ export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISub
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -493,7 +502,9 @@ export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIE
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -516,7 +527,10 @@ export const MRObservationBiometricsIPerformer: t.Type<MRObservationBiometricsIP
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -553,6 +567,7 @@ export const MRObservationBiometricsIBodySite: t.Type<MRObservationBiometricsIBo
 );
 
 interface MRObservationBiometricsI {
+    resourceType: "Observation";
     meta: MRObservationBiometricsIMeta;
     status: "final";
     code: MRObservationBiometricsICode;
@@ -560,7 +575,6 @@ interface MRObservationBiometricsI {
     encounter: MRObservationBiometricsIEncounter;
     effectiveDateTime: string;
     valueQuantity: MRObservationBiometricsIValueQuantity;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationBiometricsIPerformer>;
@@ -573,6 +587,7 @@ const MRObservationBiometricsI: t.Type<MRObservationBiometricsI> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationBiometricsIMeta,
                     status: Literal("final"),
                     code: MRObservationBiometricsICode,
@@ -582,7 +597,6 @@ const MRObservationBiometricsI: t.Type<MRObservationBiometricsI> = t.recursion(
                     valueQuantity: MRObservationBiometricsIValueQuantity
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationBiometricsIPerformer),

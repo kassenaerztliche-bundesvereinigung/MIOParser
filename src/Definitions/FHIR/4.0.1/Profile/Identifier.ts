@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { ExtensibleCheck } from "../../../util";
+import { Literal, ExtensibleCheck } from "../../../CustomTypes";
 
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import SCALARUri from "../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
@@ -32,7 +32,7 @@ import Reference from "../../../../Definitions/FHIR/4.0.1/Profile/Reference";
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/Identifier"
 
 interface Identifier {
-    resourceType?: string;
+    resourceType?: "Identifier";
     id?: string;
     use?: IdentifieruseVS;
     type?: IdentifiertypeVS;
@@ -44,7 +44,7 @@ interface Identifier {
 
 const Identifier: t.Type<Identifier> = t.recursion("Identifier", () =>
     t.partial({
-        resourceType: t.string,
+        resourceType: Literal("Identifier"),
         id: SCALARString,
         use: IdentifieruseVS,
         type: ExtensibleCheck<t.Type<IdentifiertypeVS>>(IdentifiertypeVS),

@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-
+import { Literal } from "../../../CustomTypes";
 import SCALARBoolean from "../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 import SCALARInteger from "../../../../Definitions/FHIR/4.0.1/Scalar/Integer";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -59,7 +59,7 @@ export const DosageDoseAndRate: t.Type<DosageDoseAndRate> = t.recursion(
 );
 
 interface Dosage {
-    resourceType?: string;
+    resourceType?: "Dosage";
     id?: string;
     sequence?: number;
     text?: string;
@@ -79,7 +79,7 @@ interface Dosage {
 
 const Dosage: t.Type<Dosage> = t.recursion("Dosage", () =>
     t.partial({
-        resourceType: t.string,
+        resourceType: Literal("Dosage"),
         id: SCALARString,
         sequence: SCALARInteger,
         text: SCALARString,

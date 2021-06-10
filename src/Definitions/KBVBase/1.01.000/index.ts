@@ -18,11 +18,5 @@
  *
  */
 
-import * as CodeSystem from "./CodeSystem";
-export { CodeSystem };
-
-import * as ConceptMap from "./ConceptMap";
-export { ConceptMap };
-
 import * as ValueSet from "./ValueSet";
 export { ValueSet };

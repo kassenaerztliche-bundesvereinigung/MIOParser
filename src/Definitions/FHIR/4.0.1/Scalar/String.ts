@@ -26,23 +26,34 @@ import ErrorMessage from "../../../ErrorMessage";
  *Base StructureDefinition for string Type: A sequence of Unicode characters
  */
 class SCALARStringType extends Type<string> {
-    private static regexExp = /[ \r\n\t\S]+/;
+    readonly _tag = "SCALARStringType";
+
+    public static regex = /[ \r\n\t\S]+/;
 
     constructor() {
         super(
             "SCALARStringType",
 
             (s): s is string =>
-                typeof s === "string" && SCALARStringType.regexExp.test(s.toString()),
+                typeof s === "string" && SCALARStringType.regex.test(s.toString()),
 
             (s, c) => {
                 return this.is(s)
                     ? success(s)
-                    : failure(s, c, ErrorMessage.Scalar("String", s, "[ \r\n\tS]+"));
+                    : failure(
+                          s,
+                          c,
+                          ErrorMessage.Scalar(
+                              "String",
+                              s,
+                              SCALARStringType.regex.toString()
+                          )
+                      );
             },
             identity
         );
     }
 }
+export { SCALARStringType };
 const SCALARString = new SCALARStringType();
 export default SCALARString;

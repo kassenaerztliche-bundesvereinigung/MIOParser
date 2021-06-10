@@ -19,6 +19,7 @@
  */
 
 import * as t from "io-ts";
+import { Literal } from "../../../CustomTypes";
 
 import SCALARDate from "../../../../Definitions/FHIR/4.0.1/Scalar/Date";
 import SCALARDateTime from "../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -33,7 +34,7 @@ import TriggertypeVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Triggerty
 
 interface TriggerDefinition {
     type: TriggertypeVS;
-    resourceType?: string;
+    resourceType?: "TriggerDefinition";
     id?: string;
     name?: string;
     timingTiming?: Timing;
@@ -52,7 +53,7 @@ const TriggerDefinition: t.Type<TriggerDefinition> = t.recursion(
                 type: TriggertypeVS
             }),
             t.partial({
-                resourceType: t.string,
+                resourceType: Literal("TriggerDefinition"),
                 id: SCALARString,
                 name: SCALARString,
                 timingTiming: Timing,

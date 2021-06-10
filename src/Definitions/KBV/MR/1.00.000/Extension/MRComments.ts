@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Excess, ReqArray, Literal } from "../../../../util";
+import { Literal, Excess, ReqArray } from "../../../../CustomTypes";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 // Definition for URL: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Comments"

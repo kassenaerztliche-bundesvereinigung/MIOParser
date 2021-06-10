@@ -19,7 +19,13 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    CustomReference
+} from "../../../../CustomTypes";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -342,7 +348,9 @@ export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -365,7 +373,9 @@ export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncou
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -388,7 +398,10 @@ export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerfo
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0",
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -398,6 +411,7 @@ export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerfo
 );
 
 interface MRObservationBirthMode {
+    resourceType: "Observation";
     meta: MRObservationBirthModeMeta;
     status: "final";
     code: MRObservationBirthModeCode;
@@ -405,7 +419,6 @@ interface MRObservationBirthMode {
     encounter: MRObservationBirthModeEncounter;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationBirthModeValueCodeableConcept;
-    resourceType?: string;
     id?: string;
     text?: Narrative;
     performer?: Array<MRObservationBirthModePerformer>;
@@ -417,6 +430,7 @@ const MRObservationBirthMode: t.Type<MRObservationBirthMode> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Observation"),
                     meta: MRObservationBirthModeMeta,
                     status: Literal("final"),
                     code: MRObservationBirthModeCode,
@@ -426,7 +440,6 @@ const MRObservationBirthMode: t.Type<MRObservationBirthMode> = t.recursion(
                     valueCodeableConcept: MRObservationBirthModeValueCodeableConcept
                 }),
                 t.partial({
-                    resourceType: t.string,
                     id: SCALARString,
                     text: Narrative,
                     performer: MaxArray(1, MRObservationBirthModePerformer)

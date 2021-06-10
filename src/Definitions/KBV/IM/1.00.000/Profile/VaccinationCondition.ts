@@ -19,7 +19,14 @@
  */
 
 import * as t from "io-ts";
-import { Excess, Literal, MaxArray, MinMaxArray, ReqArray } from "../../../../util";
+import {
+    Literal,
+    Excess,
+    MaxArray,
+    MinMaxArray,
+    ReqArray,
+    CustomReference
+} from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARDateTime from "../../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
@@ -438,7 +445,9 @@ export const VaccinationConditionSubject: t.Type<VaccinationConditionSubject> = 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -461,7 +470,9 @@ export const VaccinationConditionRecorder: t.Type<VaccinationConditionRecorder> 
         Excess(
             t.intersection([
                 t.type({
-                    reference: SCALARString
+                    reference: CustomReference(SCALARString, [
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.00.000"
+                    ])
                 }),
                 t.partial({
                     id: SCALARString
@@ -494,6 +505,7 @@ export const VaccinationConditionNote: t.Type<VaccinationConditionNote> = t.recu
 );
 
 interface VaccinationCondition {
+    resourceType: "Condition";
     id: string;
     meta: VaccinationConditionMeta;
     text: Narrative;
@@ -502,7 +514,6 @@ interface VaccinationCondition {
     code: VaccinationConditionCode;
     subject: VaccinationConditionSubject;
     recordedDate: string;
-    resourceType?: string;
     _onsetString?: VaccinationConditionOnsetString;
     onsetString?: string;
     recorder?: VaccinationConditionRecorder;
@@ -515,6 +526,7 @@ const VaccinationCondition: t.Type<VaccinationCondition> = t.recursion(
         Excess(
             t.intersection([
                 t.type({
+                    resourceType: Literal("Condition"),
                     id: SCALARString,
                     meta: VaccinationConditionMeta,
                     text: Narrative,
@@ -525,7 +537,6 @@ const VaccinationCondition: t.Type<VaccinationCondition> = t.recursion(
                     recordedDate: SCALARDateTime
                 }),
                 t.partial({
-                    resourceType: t.string,
                     _onsetString: VaccinationConditionOnsetString,
                     onsetString: SCALARString,
                     recorder: VaccinationConditionRecorder,
