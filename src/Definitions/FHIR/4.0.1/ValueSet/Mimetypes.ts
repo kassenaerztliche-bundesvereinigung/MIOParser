@@ -29,11 +29,6 @@ const Mimetypes: t.Type<Mimetypes> = t.string;
 
 export const MimetypesArray: string[] = [];
 
-export const MimetypesValueSet: ValueSet = [
-    {
-        system: "urn:ietf:bcp:13",
-        concept: []
-    }
-];
+export const MimetypesValueSet: ValueSet = [];
 
 export default Mimetypes;

@@ -26,10 +26,10 @@ import { ValueSet } from "../../../Interfaces";
 type Triggertype =
     | "named-event"
     | "periodic"
+    | "data-changed"
     | "data-added"
     | "data-modified"
     | "data-removed"
-    | "data-changed"
     | "data-accessed"
     | "data-access-ended";
 
@@ -37,10 +37,10 @@ const Triggertype: t.Type<Triggertype> = t.union(
     [
         t.literal("named-event"),
         t.literal("periodic"),
+        t.literal("data-changed"),
         t.literal("data-added"),
         t.literal("data-modified"),
         t.literal("data-removed"),
-        t.literal("data-changed"),
         t.literal("data-accessed"),
         t.literal("data-access-ended")
     ],
@@ -50,10 +50,10 @@ const Triggertype: t.Type<Triggertype> = t.union(
 export const TriggertypeArray: string[] = [
     "named-event",
     "periodic",
+    "data-changed",
     "data-added",
     "data-modified",
     "data-removed",
-    "data-changed",
     "data-accessed",
     "data-access-ended"
 ];
@@ -61,7 +61,15 @@ export const TriggertypeArray: string[] = [
 export const TriggertypeValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/trigger-type",
-        concept: []
+        concept: [
+            { code: "named-event", display: "Named Event" },
+            { code: "periodic", display: "Periodic" },
+            { code: "data-added", display: "Data Added" },
+            { code: "data-modified", display: "Data Updated" },
+            { code: "data-removed", display: "Data Removed" },
+            { code: "data-accessed", display: "Data Accessed" },
+            { code: "data-access-ended", display: "Data Access Ended" }
+        ]
     }
 ];
 

@@ -43,7 +43,11 @@ export const ExpressionlanguageArray: string[] = [
 export const ExpressionlanguageValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/expression-language",
-        concept: []
+        concept: [
+            { code: "text/cql", display: "CQL" },
+            { code: "text/fhirpath", display: "FHIRPath" },
+            { code: "application/x-fhir-query", display: "FHIR Query" }
+        ]
     }
 ];
 

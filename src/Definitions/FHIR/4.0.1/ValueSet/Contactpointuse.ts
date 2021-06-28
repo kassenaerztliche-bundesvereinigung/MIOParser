@@ -41,7 +41,13 @@ export const ContactpointuseArray: string[] = ["home", "work", "temp", "old", "m
 export const ContactpointuseValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/contact-point-use",
-        concept: []
+        concept: [
+            { code: "home", display: "Home" },
+            { code: "work", display: "Work" },
+            { code: "temp", display: "Temp" },
+            { code: "old", display: "Old" },
+            { code: "mobile", display: "Mobile" }
+        ]
     }
 ];
 

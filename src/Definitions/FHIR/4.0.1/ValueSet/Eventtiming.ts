@@ -115,7 +115,20 @@ export const EventtimingArray: string[] = [
 export const EventtimingValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/event-timing",
-        concept: []
+        concept: [
+            { code: "MORN", display: "Morning" },
+            { code: "MORN.early", display: "Early Morning" },
+            { code: "MORN.late", display: "Late Morning" },
+            { code: "NOON", display: "Noon" },
+            { code: "AFT", display: "Afternoon" },
+            { code: "AFT.early", display: "Early Afternoon" },
+            { code: "AFT.late", display: "Late Afternoon" },
+            { code: "EVE", display: "Evening" },
+            { code: "EVE.early", display: "Early Evening" },
+            { code: "EVE.late", display: "Late Evening" },
+            { code: "NIGHT", display: "Night" },
+            { code: "PHS", display: "After Sleep" }
+        ]
     },
     {
         system: "http://terminology.hl7.org/CodeSystem/v3-TimingEvent",
@@ -176,6 +189,28 @@ export const EventtimingValueSet: ValueSet = [
                 code: "PCV",
                 display: "undefined"
             }
+        ]
+    },
+    {
+        system: "http://terminology.hl7.org/CodeSystem/v3-TimingEvent",
+        concept: [
+            { code: "AC", display: "AC" },
+            { code: "ACD", display: "ACD" },
+            { code: "ACM", display: "ACM" },
+            { code: "ACV", display: "ACV" },
+            { code: "CD", display: "CD" },
+            { code: "CM", display: "CM" },
+            { code: "CV", display: "CV" },
+            { code: "HS", display: "HS" },
+            { code: "IC", display: "IC" },
+            { code: "ICD", display: "ICD" },
+            { code: "ICM", display: "ICM" },
+            { code: "ICV", display: "ICV" },
+            { code: "PC", display: "PC" },
+            { code: "PCD", display: "PCD" },
+            { code: "PCM", display: "PCM" },
+            { code: "PCV", display: "PCV" },
+            { code: "WAKE", display: "WAKE" }
         ]
     }
 ];

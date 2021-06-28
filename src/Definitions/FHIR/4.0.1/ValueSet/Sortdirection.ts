@@ -35,7 +35,10 @@ export const SortdirectionArray: string[] = ["ascending", "descending"];
 export const SortdirectionValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/sort-direction",
-        concept: []
+        concept: [
+            { code: "ascending", display: "Ascending" },
+            { code: "descending", display: "Descending" }
+        ]
     }
 ];
 

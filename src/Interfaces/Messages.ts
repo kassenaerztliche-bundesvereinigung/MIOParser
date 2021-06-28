@@ -47,6 +47,15 @@ export default class Messages {
             : `Unknown profile: ${profile}.`;
     }
 
+    static ProfileWithoutVersion(
+        profile: string | undefined,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        return lang === "de"
+            ? `Profil ohne Versionierung: ${profile}.`
+            : `Profile without versioning: ${profile}.`;
+    }
+
     static FileType(
         fileType: string | undefined,
         lang: ErrorMessageLanguage = ErrorMessage.Language

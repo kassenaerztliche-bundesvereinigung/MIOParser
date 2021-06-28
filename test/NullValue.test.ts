@@ -26,31 +26,23 @@ describe("Null Test", () => {
     it("loads mio with null", (done) => {
         const mioParser = new MIOParser();
         // eslint-disable-next-line no-undef
-        fs.readdir(path.join(__dirname, "Resources", "NullTest"), (error, files) => {
-            const filesToParse = files.length;
-            let parsedFies = 0;
-            if (!error) {
-                files.forEach((file) => {
-                    const nullFile = fs.readFileSync(
-                        // eslint-disable-next-line no-undef
-                        path.join(__dirname, "Resources", "NullTest", file)
-                    );
-                    mioParser.parseFile(new Blob([nullFile])).then((result) => {
-                        parsedFies++;
-                        if (file.includes("Error")) {
-                            expect(result.errors.length).toBeGreaterThan(0);
-                            if (result.errors.length === 0)
-                                console.error(
-                                    nullFile + " should have Errors, but doesn't"
-                                );
-                        } else {
-                            if (result.errors.length !== 0) console.error(result.errors);
-                            expect(result.errors.length).toBe(0);
-                        }
-                        if (parsedFies === filesToParse) done();
-                    });
-                });
-            } else throw new Error(error.message);
+        const files = fs.readdirSync(path.join(__dirname, "Resources", "NullTest"));
+        const filesToParse = files.length;
+        let parsedFies = 0;
+
+        files.forEach((file) => {
+            const nullFile = fs.readFileSync(
+                // eslint-disable-next-line no-undef
+                path.join(__dirname, "Resources", "NullTest", file)
+            );
+
+            mioParser.parseFile(new Blob([nullFile])).then((result) => {
+                if (result.errors.length !== 0) console.error(result.errors);
+                expect(result.errors.length).toBe(0);
+
+                parsedFies++;
+                if (parsedFies === filesToParse) done();
+            });
         });
     });
 });

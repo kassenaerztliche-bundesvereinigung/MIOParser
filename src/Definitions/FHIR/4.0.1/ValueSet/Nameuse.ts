@@ -29,8 +29,8 @@ type Nameuse =
     | "temp"
     | "nickname"
     | "anonymous"
-    | "maiden"
-    | "old";
+    | "old"
+    | "maiden";
 
 const Nameuse: t.Type<Nameuse> = t.union(
     [
@@ -39,8 +39,8 @@ const Nameuse: t.Type<Nameuse> = t.union(
         t.literal("temp"),
         t.literal("nickname"),
         t.literal("anonymous"),
-        t.literal("maiden"),
-        t.literal("old")
+        t.literal("old"),
+        t.literal("maiden")
     ],
     "Nameuse"
 );
@@ -51,14 +51,21 @@ export const NameuseArray: string[] = [
     "temp",
     "nickname",
     "anonymous",
-    "maiden",
-    "old"
+    "old",
+    "maiden"
 ];
 
 export const NameuseValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/name-use",
-        concept: []
+        concept: [
+            { code: "usual", display: "Usual" },
+            { code: "official", display: "Official" },
+            { code: "temp", display: "Temp" },
+            { code: "nickname", display: "Nickname" },
+            { code: "anonymous", display: "Anonymous" },
+            { code: "maiden", display: "Name changed for Marriage" }
+        ]
     }
 ];
 

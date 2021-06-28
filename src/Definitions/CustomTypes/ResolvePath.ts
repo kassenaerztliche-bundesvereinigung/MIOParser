@@ -18,7 +18,10 @@
  *
  */
 
-const resolvePath = (object: any, path: string, defaultValue?: any) => {
+import { AnyType } from "../Interfaces";
+
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+const resolvePath = (object: any, path: string, defaultValue?: AnyType): any => {
     return path.split(".").reduce((o, p) => {
         if (o) {
             if (Object.keys(o).includes("0")) return o[0][p];

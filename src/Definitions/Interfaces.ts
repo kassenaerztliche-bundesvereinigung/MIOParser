@@ -18,6 +18,8 @@
  *
  */
 
+import * as t from "io-ts";
+
 export type Concept = {
     source: string;
     target: string;
@@ -33,12 +35,14 @@ export type Concept = {
 };
 export type ConceptMap = Concept[];
 
-type Include = {
+export type Include = {
     system: string;
     concept: {
         code: string;
-        display: string;
+        display?: string;
     }[];
 };
 
 export type ValueSet = Include[];
+
+export type AnyType = t.Any;

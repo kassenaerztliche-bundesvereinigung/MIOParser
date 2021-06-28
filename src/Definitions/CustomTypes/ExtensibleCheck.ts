@@ -21,15 +21,17 @@
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
 import { EXTENSIBLE_WARNING, warningEmitter } from "./index";
+import { AnyType } from "../Interfaces";
 
-export class ExtensibleCheckType extends t.Type<any> {
+export class ExtensibleCheckType extends t.Type<AnyType> {
     readonly _tag = "ExtensibleCheckType";
     constructor(
         name: string,
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
-        encode: (a: any) => any,
-        readonly valueSet: any
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        encode: (a: AnyType) => AnyType,
+        readonly valueSet: AnyType
     ) {
         super(name, is, validate, encode);
     }
@@ -45,7 +47,8 @@ export default function ExtensibleCheck<C extends t.Any>(
         (i, c) => {
             const valueSetResult = valueSet.decode(i);
             if (valueSetResult._tag === "Right" || !i) {
-                return t.success(i);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return t.success<any>(i);
             } else {
                 // signify warning
                 const warningPath: string[] = [];
@@ -65,7 +68,8 @@ export default function ExtensibleCheck<C extends t.Any>(
                     resource,
                     i
                 );
-                return t.success(i);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return t.success<any>(i);
             }
         },
         (a) => t.identity(a),

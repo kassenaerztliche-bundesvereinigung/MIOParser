@@ -45,7 +45,12 @@ export const ContributortypeArray: string[] = [
 export const ContributortypeValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/contributor-type",
-        concept: []
+        concept: [
+            { code: "author", display: "Author" },
+            { code: "editor", display: "Editor" },
+            { code: "reviewer", display: "Reviewer" },
+            { code: "endorser", display: "Endorser" }
+        ]
     }
 ];
 

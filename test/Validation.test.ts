@@ -19,10 +19,9 @@
  */
 
 import fs from "fs";
-import MIOParser, { KBVBundleResource } from "../src";
+import MIOParser from "../src";
 import * as TestUtil from "miotestdata";
 import Messages from "../src/Interfaces/Messages";
-import Validator from "../src/Validator";
 
 describe("Validation", () => {
     const mioParser = new MIOParser();
@@ -72,58 +71,6 @@ describe("Validation", () => {
         expect(resultEn).toBeDefined();
         if (resultEn) {
             expect(resultEn.message).toBe("Die Ressource hat kein Meta-Element.");
-        }
-
-        done();
-    });
-
-    const testCompositionValid = (file: string): void => {
-        test(file, async (done) => {
-            const result = await mioParser.parseFile(new Blob([fs.readFileSync(file)]));
-            const errors = Validator.validateComposition(
-                result.value as KBVBundleResource
-            );
-
-            if (errors.length) {
-                console.log(errors);
-            }
-
-            expect(errors.length).toBe(0);
-            done();
-        });
-    };
-
-    describe("validateComposition", () => {
-        TestUtil.runAllFiles(
-            "validateComposition",
-            [
-                { mioString: "IM" },
-                { mioString: "ZB" },
-                { mioString: "MR" },
-                { mioString: "UH" }
-            ],
-            testCompositionValid,
-            "Bundles"
-        );
-    });
-
-    test("validateComposition (invalid)", async (done) => {
-        const files = [
-            "/data/bundles/IM/error/Bundle-example-multiple-compositions.json",
-            "/data/bundles/IM/error/Bundle-example-composition-false-reference.json",
-            "/data/bundles/IM/error/Bundle-example-no-composition.json"
-        ];
-
-        for (const path of files) {
-            const file = TestUtil.getExample(path);
-            expect(file).toBeDefined();
-            if (file) {
-                const result = await mioParser.parseFile(new Blob([file]));
-                const errors = Validator.validateComposition(
-                    result.value as KBVBundleResource
-                );
-                expect(errors.length).toBeGreaterThan(0);
-            }
         }
 
         done();

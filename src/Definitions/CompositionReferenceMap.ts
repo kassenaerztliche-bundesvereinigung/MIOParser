@@ -30,58 +30,58 @@ export type CompositionReference = {
     sections: CompositionReferenceSection[];
 };
 
-const VaccinationCompositionAddendumV100000: CompositionReference = {
+const VaccinationCompositionAddendumV110: CompositionReference = {
     sliceBy: "code.coding.code",
     sections: [
         {
             name: "Record_Addendum",
-            sliceByValue: "IMMUCAT",
+            sliceByValue: "713404003",
             entry: [
-                "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.1.0"
             ]
         }
     ]
 };
-const VaccinationCompositionPrimeV100000: CompositionReference = {
+const VaccinationCompositionPrimeV110: CompositionReference = {
     sliceBy: "code.coding.code",
     sections: [
         {
             name: "Record_Prime",
-            sliceByValue: "IMMUNIZ",
+            sliceByValue: "713404003",
             entry: [
-                "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.1.0"
             ]
         },
         {
             name: "Observation",
-            sliceByValue: "COBSCAT",
+            sliceByValue: "243796009:363589002=121258006",
             entry: [
-                "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0"
             ]
         },
         {
             name: "Condition",
-            sliceByValue: "11348-0",
+            sliceByValue: "161413004:363589002=35123003",
             entry: [
-                "https://fhir.kbv.de/Structuredefinition/KBV_PR_MIO_Vaccination_Condition|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.1.0"
             ],
             sections: [
                 {
                     entry: [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Provenance|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Provenance|1.1.0"
                     ]
                 }
             ]
         }
     ]
 };
-const ZAEBCompositionV100000: CompositionReference = {
+const ZAEBCompositionV110: CompositionReference = {
     sliceBy: "",
     sections: [
         {
             entry: [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Gapless_Documentation|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Dental_Check_Up|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Gapless_Documentation|1.1.0"
             ]
         }
     ]
@@ -1595,18 +1595,18 @@ export const CompositionReferenceMap: {
 }[] = [
     {
         profile:
-            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.00.000",
-        compositionReference: VaccinationCompositionAddendumV100000
+            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0",
+        compositionReference: VaccinationCompositionAddendumV110
     },
     {
         profile:
-            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.00.000",
-        compositionReference: VaccinationCompositionPrimeV100000
+            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0",
+        compositionReference: VaccinationCompositionPrimeV110
     },
     {
         profile:
-            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Composition|1.00.000",
-        compositionReference: ZAEBCompositionV100000
+            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Composition|1.1.0",
+        compositionReference: ZAEBCompositionV110
     },
     {
         profile:

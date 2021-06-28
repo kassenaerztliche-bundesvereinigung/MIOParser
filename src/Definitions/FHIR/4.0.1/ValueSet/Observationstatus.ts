@@ -27,8 +27,8 @@ type Observationstatus =
     | "registered"
     | "preliminary"
     | "final"
-    | "corrected"
     | "amended"
+    | "corrected"
     | "cancelled"
     | "entered-in-error"
     | "unknown";
@@ -38,8 +38,8 @@ const Observationstatus: t.Type<Observationstatus> = t.union(
         t.literal("registered"),
         t.literal("preliminary"),
         t.literal("final"),
-        t.literal("corrected"),
         t.literal("amended"),
+        t.literal("corrected"),
         t.literal("cancelled"),
         t.literal("entered-in-error"),
         t.literal("unknown")
@@ -51,8 +51,8 @@ export const ObservationstatusArray: string[] = [
     "registered",
     "preliminary",
     "final",
-    "corrected",
     "amended",
+    "corrected",
     "cancelled",
     "entered-in-error",
     "unknown"
@@ -61,7 +61,15 @@ export const ObservationstatusArray: string[] = [
 export const ObservationstatusValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/observation-status",
-        concept: []
+        concept: [
+            { code: "registered", display: "Registered" },
+            { code: "preliminary", display: "Preliminary" },
+            { code: "final", display: "Final" },
+            { code: "corrected", display: "Corrected" },
+            { code: "cancelled", display: "Cancelled" },
+            { code: "entered-in-error", display: "Entered in Error" },
+            { code: "unknown", display: "Unknown" }
+        ]
     }
 ];
 

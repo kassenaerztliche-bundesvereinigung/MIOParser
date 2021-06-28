@@ -35,7 +35,11 @@ export const AddresstypeArray: string[] = ["postal", "physical", "both"];
 export const AddresstypeValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/address-type",
-        concept: []
+        concept: [
+            { code: "postal", display: "Postal" },
+            { code: "physical", display: "Physical" },
+            { code: "both", display: "Postal & Physical" }
+        ]
     }
 ];
 

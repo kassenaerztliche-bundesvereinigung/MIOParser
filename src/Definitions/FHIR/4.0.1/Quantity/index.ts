@@ -1,3 +1,4 @@
+
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -18,6 +19,6 @@
  *
  */
 
-export { default as Quantity } from "./Quantity";
+export {default as Quantity,} from "./Quantity"
 
-export { default as SimpleQuantity } from "./SimpleQuantity";
+export {default as SimpleQuantity,} from "./SimpleQuantity"

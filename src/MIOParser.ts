@@ -19,6 +19,7 @@
  */
 
 import * as FHIR from "fhir/fhir";
+
 import {
     MIOParserResult,
     ValidationResult,
@@ -27,11 +28,13 @@ import {
     GeneralError
 } from "./Interfaces/AppInternals";
 import Messages from "./Interfaces/Messages";
+import * as Util from "./Interfaces/Util";
+
 import getResource, { getAllEntries, isBundle } from "./Resources";
 import ErrorMessage, { ErrorMessageLanguage } from "./Definitions/ErrorMessage";
-import { MIOTypes, KBVBundleResource } from "./Definitions/ProfileMap";
+import { MIOTypes, KBVBundleResource } from "./Definitions/ProfileMaps/ProfileMap";
 import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
-import Validator from "./Validator";
+
 import { EXTENSIBLE_WARNING, warningEmitter } from "./Definitions/CustomTypes";
 
 /**
@@ -249,7 +252,7 @@ export default class MIOParser {
     ): void => {
         const warnings: MIOError[] = [];
         this.setupListeners(warnings);
-        this.cleanEmpty(input as Record<string, unknown>);
+        this.cleanEmpty(input);
 
         // Tries to get the resource for the object, meta and id must be present
         const result = getResource(
@@ -276,14 +279,8 @@ export default class MIOParser {
                 result.warnings.push(...Array.from(new Set(warnings)));
                 const returnMioResult: MIOParserResult = {
                     value: value,
-                    errors: [
-                        ...result.errors,
-                        ...entries.errors,
-                        ...Validator.validateComposition(value)
-                    ],
-                    warnings: Validator.getUnresolvedReferences(value).concat(
-                        result.warnings
-                    )
+                    errors: [...result.errors, ...entries.errors],
+                    warnings: Util.getUnresolvedReferences(value).concat(result.warnings)
                 };
                 resolve(returnMioResult);
             } else {

@@ -28,3 +28,5 @@ import * as KBV from "./KBV";
 export { KBV };
 import * as KBVBase from "./KBVBase";
 export { KBVBase };
+import * as ProfileMaps from "./ProfileMaps";
+export { ProfileMaps };

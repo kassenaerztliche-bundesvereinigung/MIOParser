@@ -61,7 +61,16 @@ export const EventstatusArray: string[] = [
 export const EventstatusValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/event-status",
-        concept: []
+        concept: [
+            { code: "preparation", display: "Preparation" },
+            { code: "in-progress", display: "In Progress" },
+            { code: "not-done", display: "Not Done" },
+            { code: "on-hold", display: "On Hold" },
+            { code: "stopped", display: "Stopped" },
+            { code: "completed", display: "Completed" },
+            { code: "entered-in-error", display: "Entered in Error" },
+            { code: "unknown", display: "Unknown" }
+        ]
     }
 ];
 

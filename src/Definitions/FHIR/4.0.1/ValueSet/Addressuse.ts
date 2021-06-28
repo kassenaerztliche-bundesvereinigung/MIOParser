@@ -41,7 +41,13 @@ export const AddressuseArray: string[] = ["home", "work", "temp", "old", "billin
 export const AddressuseValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/address-use",
-        concept: []
+        concept: [
+            { code: "home", display: "Home" },
+            { code: "work", display: "Work" },
+            { code: "temp", display: "Temporary" },
+            { code: "old", display: "Old / Incorrect" },
+            { code: "billing", display: "Billing" }
+        ]
     }
 ];
 

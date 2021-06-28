@@ -22,7 +22,7 @@ import {
     KBVEntry,
     MIOError,
     MIOParserResult,
-    ResourceType
+    ResourceMeta
 } from "./Interfaces/AppInternals";
 import ErrorMessage from "./Definitions/ErrorMessage";
 import Messages from "./Interfaces/Messages";
@@ -33,7 +33,7 @@ import {
     KBVResource,
     BundleTypes,
     KBVBundleResource
-} from "./Definitions/ProfileMap";
+} from "./Definitions/ProfileMaps/ProfileMap";
 
 import { Validation, ValidationError, Errors } from "io-ts";
 import { pipe } from "fp-ts/lib/pipeable";
@@ -46,24 +46,24 @@ import fhirpathR4Model from "fhirpath/fhir-context/r4";
 import * as t from "io-ts";
 import { validateCompositionReferences } from "./Interfaces/CompositionReferenceValidator";
 
-export type HasMeta = { meta: Meta };
+// TODO: Pls comment + Move to AppInternals?
+export type HasMeta = { meta?: Meta };
 
+// TODO: Pls comment + Move to AppInternals?
 export type HasMetaAndId = {
     id: string;
 } & HasMeta;
 
+// TODO: Pls comment
 export type Resource = {
     resourceType?: string;
     entry?: KBVEntry[];
 } & HasMetaAndId;
 
+// TODO: Pls comment
 function getProfile(resource: Resource | KBVResource | HasMeta): string {
-    const profile = resource.meta.profile;
+    const profile = resource.meta?.profile;
     return profile && profile.length ? profile[0] ?? "" : "";
-}
-
-function getProfileWithoutVersion(resource: Resource | KBVResource | HasMeta): string {
-    return getProfile(resource).split("|")[0];
 }
 
 /**
@@ -72,7 +72,7 @@ function getProfileWithoutVersion(resource: Resource | KBVResource | HasMeta): s
  * @param resource {HasMeta} The MIO resource to be evaluated
  * @retuns {ResourceType} The source type of the MIO
  */
-export function defineResourceType(resource: HasMeta): ResourceType {
+export function defineResourceMeta(resource: HasMeta): ResourceMeta {
     const meta = resource.meta;
 
     if (meta && meta.profile) {
@@ -92,10 +92,7 @@ export function defineResourceType(resource: HasMeta): ResourceType {
                     profileVersion = profileParts[1];
                 }
 
-                return {
-                    profile: profileType,
-                    version: profileVersion
-                };
+                return new ResourceMeta(profileType, profileVersion);
             }
         }
 
@@ -182,17 +179,20 @@ export const getPaths = <A>(
  * @returns {boolean} Whether the resource is a bundle or not
  */
 export function isBundle(resource: HasMeta): boolean {
-    const type = defineResourceType(resource);
-    return BundleTypes.some((T: MIOType) => T.profile === type.profile);
+    const type = defineResourceMeta(resource);
+    return BundleTypes.some((T: MIOType) => type.isEqual(T.profile, T.version, true));
 }
 
+// TODO: Pls comment
 const excludingBundlesForUUIDConstraint = [
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.00.000",
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.00.000",
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.1.0",
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PN_Bundle|1.0.0",
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PC_Bundle|1.0.0"
 ];
 
+// TODO: Pls comment
 function checkConstraints(
     resource: Resource,
     constraints: { severity: string; expression: string; human: string; key: string }[],
@@ -266,14 +266,16 @@ function checkConstraints(
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
  * @param list {MIOTypeList} List of MioTypes to be tested with
  * @param bundle {KBVBundleResource | undefined} TODO
+ * @param versioned {boolean} TODO
  * @returns {MIOParserResult} a Result for the finding of the resource in the given MioTypeList
  */
 export default function getResource(
     resource: Resource,
     list: MIOTypeList,
-    bundle: KBVBundleResource | undefined = undefined
+    bundle: KBVBundleResource | undefined = undefined,
+    versioned = true
 ): MIOParserResult {
-    const type = defineResourceType(resource);
+    const type = defineResourceMeta(resource);
 
     // Unknown resource..
     const parserResult: MIOParserResult = {
@@ -281,12 +283,13 @@ export default function getResource(
         errors: [],
         warnings: []
     };
+
     let entryUrlMap: string[] = [];
 
     if (resource.resourceType === "Bundle") {
         entryUrlMap =
-            resource.entry?.map((entry: KBVEntry) =>
-                getProfileWithoutVersion(entry.resource)
+            resource.entry?.map(
+                (entry: KBVEntry) => defineResourceMeta(entry.resource).profile
             ) ?? [];
 
         validateCompositionReferences(resource, parserResult);
@@ -302,7 +305,7 @@ export default function getResource(
 
     // Try to match profiles an create instance of matching class
     list.forEach((T: MIOType) => {
-        if (T.profile === type.profile) {
+        if (type.equals(new ResourceMeta(T.profile, T.version), versioned)) {
             foundResource = true;
             const resourceId = resource.id;
             const context: t.ContextEntry[] = [];
@@ -337,10 +340,13 @@ export default function getResource(
 
             pipe(resourceResult, fold(onLeft, onRight));
         } else if (entryUrlMap.includes(T.profile)) {
-            const checkResource = resource.entry?.filter(
-                (entry: KBVEntry) =>
-                    getProfileWithoutVersion(entry.resource) === T.profile
-            );
+            const checkResource = resource.entry?.filter((entry: KBVEntry) => {
+                const entryType = defineResourceMeta(entry.resource);
+                return entryType.equals(
+                    new ResourceMeta(T.profile, T.version),
+                    versioned
+                );
+            });
 
             checkResource?.forEach((entry: KBVEntry) => {
                 checkConstraints(entry.resource as Resource, T.constraints, parserResult);
@@ -349,13 +355,23 @@ export default function getResource(
     });
 
     if (!foundResource) {
-        parserResult.errors.push({
-            message: "Unknown MIO",
-            resource: type.profile,
+        if (!versioned) {
+            throw new Error(Messages.UnknownProfile(type.toString()));
+        } else {
+            // TODO: should be removed when MR is fixed
+            return getResource(resource, list, bundle, false);
+        }
+    }
+
+    if (!versioned) {
+        parserResult.warnings.push({
+            message: Messages.ProfileWithoutVersion(type.profile),
+            resource: resource.id,
             path: "",
-            value: "Undefined"
+            value: JSON.stringify(resource)
         });
     }
+
     return parserResult;
 }
 

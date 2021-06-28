@@ -47,7 +47,13 @@ export const IdentifieruseArray: string[] = [
 export const IdentifieruseValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/identifier-use",
-        concept: []
+        concept: [
+            { code: "usual", display: "Usual" },
+            { code: "official", display: "Official" },
+            { code: "temp", display: "Temp" },
+            { code: "secondary", display: "Secondary" },
+            { code: "old", display: "Old" }
+        ]
     }
 ];
 

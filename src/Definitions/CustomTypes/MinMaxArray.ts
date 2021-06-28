@@ -21,15 +21,18 @@
 import * as t from "io-ts";
 import { either } from "fp-ts/Either";
 import ErrorMessage from "../ErrorMessage";
+import { AnyType } from "../Interfaces";
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class MinArrayType extends t.Type<any> {
     readonly _tag = "MinArrayType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
+        is: t.Is<t.TypeOf<AnyType>>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         encode: (a: any) => any,
-        readonly codec: any,
+        readonly codec: AnyType,
         readonly minLength: number
     ) {
         super(name, is, validate, encode);
@@ -40,7 +43,7 @@ export function MinArray<C extends t.Mixed>(
     minLength: number,
     codec: C,
     name = `MinArray<${codec.name}>(${minLength})`
-): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>, unknown> {
+): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>> {
     const arr = t.array(codec);
     return new MinArrayType(
         name,
@@ -53,7 +56,8 @@ export function MinArray<C extends t.Mixed>(
                 const min = minLength;
                 const len = tempArr.length;
                 const message = ErrorMessage.MinArray(min, len);
-                return len < min ? t.failure(u, c, message) : t.success(tempArr);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return len < min ? t.failure(u, c, message) : t.success<any>(tempArr);
             }),
         (a) => [...a],
         codec,
@@ -61,14 +65,16 @@ export function MinArray<C extends t.Mixed>(
     );
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class MaxArrayType extends t.Type<any> {
     readonly _tag = "MaxArrayType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
+        is: t.Is<t.TypeOf<AnyType>>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         encode: (a: any) => any,
-        readonly codec: any,
+        readonly codec: AnyType,
         readonly maxLength: number
     ) {
         super(name, is, validate, encode);
@@ -78,7 +84,7 @@ export function MaxArray<C extends t.Mixed>(
     maxLength: number,
     codec: C,
     name = `MaxArray<${codec.name}>(${maxLength})`
-): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>, unknown> {
+): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>> {
     const arr = t.array(codec);
     return new MaxArrayType(
         name,
@@ -91,7 +97,8 @@ export function MaxArray<C extends t.Mixed>(
                 const max = maxLength;
                 const len = tempArr.length;
                 const message = ErrorMessage.MaxArray(max, len);
-                return len > max ? t.failure(u, c, message) : t.success(tempArr);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return len > max ? t.failure(u, c, message) : t.success<any>(tempArr);
             }),
         (a) => [...a],
         codec,
@@ -99,14 +106,16 @@ export function MaxArray<C extends t.Mixed>(
     );
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class MinMaxArrayType extends t.Type<any> {
     readonly _tag = "MinMaxArrayType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
+        is: t.Is<t.TypeOf<AnyType>>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         encode: (a: any) => any,
-        readonly codec: any,
+        readonly codec: AnyType,
         readonly minLength: number,
         readonly maxLength: number
     ) {
@@ -118,7 +127,7 @@ export function MinMaxArray<C extends t.Mixed>(
     maxLength: number,
     codec: C,
     name = `MinMaxArray<${codec.name}>(${minLength}, ${maxLength})`
-): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>, unknown> {
+): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>> {
     const arr = t.array(codec);
     return new MinMaxArrayType(
         name,
@@ -137,7 +146,8 @@ export function MinMaxArray<C extends t.Mixed>(
                     return t.failure(u, c, `${maxError}, ${minError}`);
                 else if (len > max) return t.failure(u, c, `${maxError}`);
                 else if (len < min) return t.failure(u, c, `${minError}`);
-                else return t.success(tempArr);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                else return t.success<any>(tempArr);
             }),
         (a) => [...a],
         codec,

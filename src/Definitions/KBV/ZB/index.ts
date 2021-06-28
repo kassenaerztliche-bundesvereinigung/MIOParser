@@ -18,5 +18,5 @@
  *
  */
 
-import * as V1_00_000 from "./1.00.000";
-export { V1_00_000 };
+import * as V1_1_0 from "./1.1.0";
+export { V1_1_0 };

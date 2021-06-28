@@ -97,14 +97,14 @@ const mio = result.value;
 const errors = result.errors;
 
 // Bundle
-if (ZAEB.V1_00_000.Profile.Bundle.is(mio)) {
-    const zaeb = mio as ZAEB.V1_00_000.Profile.Bundle;
+if (ZAEB.V1_1_0.Profile.Bundle.is(mio)) {
+    const zaeb = mio as ZAEB.V1_1_0.Profile.Bundle;
     // ...
 }
 
 // Single Profile
-if (ZAEB.V1_00_000.Profile.Patient.is(mio)) {
-    const patient = mio as ZAEB.V1_00_000.Profile.Patient;
+if (ZAEB.V1_1_0.Profile.Patient.is(mio)) {
+    const patient = mio as ZAEB.V1_1_0.Profile.Patient;
     // ...
 }
 ```
@@ -131,7 +131,7 @@ import { ParserUtil, ZAEB } from "mioparser";
 // ...
 
 // Get patient from MIO
-const patient = ParserUtil.getEntry(mio, [ZAEB.V1_00_000.Profile.Patient]);
+const patient = ParserUtil.getEntry(mio, [ZAEB.V1_1_0.Profile.Patient]);
 ```
 
 Slices aus einem Array gemischter Typen
@@ -140,7 +140,7 @@ Slices aus einem Array gemischter Typen
 // Get patient identifier gkv
 if (patient) {
     const gkv = ParserUtil.getSlice(
-        ZAEB.V1_00_000.Profile.PatientVersichertenIdGKV,
+        ZAEB.V1_1_0.Profile.PatientVersichertenIdGKV,
         patient.resource.identifier
     );
 }
@@ -151,14 +151,14 @@ Mehrere Einträge nach Profilen
 ```typescript
 // Get records from MIO
 const records = ParserUtil.getEntries(mio, [
-    ZAEB.V1_00_000.Profile.Observation,
-    ZAEB.V1_00_000.Profile.GaplessDocumentation
+    ZAEB.V1_1_0.Profile.Observation,
+    ZAEB.V1_1_0.Profile.GaplessDocumentation
 ]);
 
 // Get persons from MIO
 const persons = ParserUtil.getEntries(mio, [
-    ZAEB.V1_00_000.Profile.Patient,
-    ZAEB.V1_00_000.Profile.Organization
+    ZAEB.V1_1_0.Profile.Patient,
+    ZAEB.V1_1_0.Profile.Organization
 ]);
 ```
 

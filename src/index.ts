@@ -24,24 +24,30 @@ import * as Vaccination from "./Definitions/KBV/IM";
 import * as ZAEB from "./Definitions/KBV/ZB";
 import * as MR from "./Definitions/KBV/MR";
 import * as CMR from "./Definitions/KBV/CMR";
-
+import * as KBVBase from "./Definitions/KBVBase";
 import * as FHIR from "./Definitions/FHIR";
 
-export { Vaccination, ZAEB, MR, CMR, FHIR };
+export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR };
 
 export {
     KBVBundleResource,
     KBVResource,
-    VaccinationResource,
-    ZAEBResource,
-    MRResource,
-    CMRResource,
-    PCResource,
-    PNResource,
     BundleTypes,
     MIOTypes,
     MIOTypeList
-} from "./Definitions/ProfileMap";
+} from "./Definitions/ProfileMaps/ProfileMap";
+
+export { VaccinationResource } from "./Definitions/ProfileMaps/VaccinationResource";
+
+export { ZAEBResource } from "./Definitions/ProfileMaps/ZAEBResource";
+
+export { MRResource } from "./Definitions/ProfileMaps/MRResource";
+
+export { CMRResource } from "./Definitions/ProfileMaps/CMRResource";
+
+export { PCResource } from "./Definitions/ProfileMaps/PCResource";
+
+export { PNResource } from "./Definitions/ProfileMaps/PNResource";
 
 export * as ParserUtil from "./Interfaces/Util";
 

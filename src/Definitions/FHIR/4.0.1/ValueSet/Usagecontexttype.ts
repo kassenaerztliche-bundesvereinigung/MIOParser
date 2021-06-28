@@ -64,7 +64,17 @@ export const UsagecontexttypeArray: string[] = [
 export const UsagecontexttypeValueSet: ValueSet = [
     {
         system: "http://terminology.hl7.org/CodeSystem/usage-context-type",
-        concept: []
+        concept: [
+            { code: "gender", display: "Gender" },
+            { code: "age", display: "Age Range" },
+            { code: "focus", display: "Clinical Focus" },
+            { code: "user", display: "User Type" },
+            { code: "workflow", display: "Workflow Setting" },
+            { code: "task", display: "Workflow Task" },
+            { code: "venue", display: "Clinical Venue" },
+            { code: "species", display: "Species" },
+            { code: "program", display: "Program" }
+        ]
     }
 ];
 

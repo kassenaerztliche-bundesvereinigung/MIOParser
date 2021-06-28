@@ -19,16 +19,13 @@
  */
 
 import * as Extension from "./Extension";
-export { Extension };
 
 import * as Profile from "./Profile";
-export { Profile };
 
 import * as Quantity from "./Quantity";
-export { Quantity };
 
 import * as Scalar from "./Scalar";
-export { Scalar };
 
 import * as ValueSet from "./ValueSet";
-export { ValueSet };
+
+export { Extension,Profile,Quantity,Scalar,ValueSet };

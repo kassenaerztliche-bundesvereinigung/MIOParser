@@ -51,7 +51,15 @@ export const ContactpointsystemArray: string[] = [
 export const ContactpointsystemValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/contact-point-system",
-        concept: []
+        concept: [
+            { code: "phone", display: "Phone" },
+            { code: "fax", display: "Fax" },
+            { code: "email", display: "Email" },
+            { code: "pager", display: "Pager" },
+            { code: "url", display: "URL" },
+            { code: "sms", display: "SMS" },
+            { code: "other", display: "Other" }
+        ]
     }
 ];
 

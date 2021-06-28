@@ -29,8 +29,8 @@ type Careplanactivitystatus =
     | "in-progress"
     | "on-hold"
     | "completed"
-    | "stopped"
     | "cancelled"
+    | "stopped"
     | "unknown"
     | "entered-in-error";
 
@@ -41,8 +41,8 @@ const Careplanactivitystatus: t.Type<Careplanactivitystatus> = t.union(
         t.literal("in-progress"),
         t.literal("on-hold"),
         t.literal("completed"),
-        t.literal("stopped"),
         t.literal("cancelled"),
+        t.literal("stopped"),
         t.literal("unknown"),
         t.literal("entered-in-error")
     ],
@@ -55,8 +55,8 @@ export const CareplanactivitystatusArray: string[] = [
     "in-progress",
     "on-hold",
     "completed",
-    "stopped",
     "cancelled",
+    "stopped",
     "unknown",
     "entered-in-error"
 ];
@@ -64,7 +64,16 @@ export const CareplanactivitystatusArray: string[] = [
 export const CareplanactivitystatusValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/care-plan-activity-status",
-        concept: []
+        concept: [
+            { code: "not-started", display: "Not Started" },
+            { code: "scheduled", display: "Scheduled" },
+            { code: "in-progress", display: "In Progress" },
+            { code: "on-hold", display: "On Hold" },
+            { code: "completed", display: "Completed" },
+            { code: "stopped", display: "Stopped" },
+            { code: "unknown", display: "Unknown" },
+            { code: "entered-in-error", display: "Entered in Error" }
+        ]
     }
 ];
 

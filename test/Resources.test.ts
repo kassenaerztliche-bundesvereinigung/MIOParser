@@ -18,12 +18,72 @@
  *
  */
 
-import { defineResourceType, HasMeta } from "../src/Resources";
-import { ResourceType } from "../src";
+import { defineResourceMeta, HasMeta } from "../src/Resources";
+import { VersionNumber } from "../src";
 
 describe("Resources", () => {
+    test("VersionNumber", (done) => {
+        const values: { in: string; out: string }[] = [
+            { in: "1.00.000", out: "1.0.0" },
+            { in: "5.01.2", out: "5.1.2" },
+            { in: "1.0", out: "1.0" },
+            { in: "0.0.0025", out: "0.0.25" },
+            { in: "0", out: "0" },
+            { in: "7", out: "7" },
+            { in: "", out: "" }
+        ];
+
+        values.forEach((value) => {
+            expect(new VersionNumber(value.in).toString()).toEqual(value.out);
+        });
+
+        done();
+    });
+
     test("defineResourceType", (done) => {
-        const values: { in: HasMeta; out: ResourceType }[] = [
+        const values: { in: HasMeta; out: { profile: string; version: string } }[] = [
+            {
+                in: {
+                    meta: {
+                        profile: [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.00.000"
+                        ]
+                    }
+                },
+                out: {
+                    profile:
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry",
+                    version: "1.0.0"
+                }
+            },
+            {
+                in: {
+                    meta: {
+                        profile: [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.0.00"
+                        ]
+                    }
+                },
+                out: {
+                    profile:
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry",
+                    version: "1.0.0"
+                }
+            },
+            {
+                in: {
+                    meta: {
+                        profile: [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.0.0"
+                        ]
+                    }
+                },
+                out: {
+                    profile:
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry",
+                    version: "1.0.0"
+                }
+            },
             {
                 in: {
                     meta: {
@@ -34,7 +94,8 @@ describe("Resources", () => {
                 },
                 out: {
                     profile:
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Provenance"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Provenance",
+                    version: ""
                 }
             },
             {
@@ -69,8 +130,8 @@ describe("Resources", () => {
         ];
 
         values.forEach((value) => {
-            const result = defineResourceType(value.in);
-            expect(result).toEqual(value.out);
+            const result = defineResourceMeta(value.in);
+            expect(result.isEqual(value.out.profile, value.out.version)).toBeTruthy();
         });
 
         done();

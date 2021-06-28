@@ -35,7 +35,12 @@ export const AdministrativegenderArray: string[] = ["male", "female", "other", "
 export const AdministrativegenderValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/administrative-gender",
-        concept: []
+        concept: [
+            { code: "male", display: "Male" },
+            { code: "female", display: "Female" },
+            { code: "other", display: "Other" },
+            { code: "unknown", display: "Unknown" }
+        ]
     }
 ];
 

@@ -3,7 +3,7 @@
     "id": "0edd23bb-fbba-41e1-a66a-b6fa02375ef0",
     "meta": {
         "profile": [
-            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.00.000"
+            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.1.0"
         ]
     },
     "identifier": {
@@ -20,20 +20,15 @@
                 "id": "2c3a4aa6-cbea-4ac1-a6e5-865b93424e0a",
                 "meta": {
                     "profile": [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Composition|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Composition|1.1.0"
                     ]
                 },
                 "status": "final",
                 "type": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
-                            "code": "28618-7",
-                            "display": "Dentistry Note"
-                        },
-                        {
                             "system": "http://snomed.info/sct",
-                            "version": "http://snomed.info/sct/900000000000207008/version/20200309",
+                            "version": "http://snomed.info/sct/900000000000207008/version/20210131",
                             "code": "371525003",
                             "display": "Clinical procedure report (record artifact)"
                         }
@@ -67,7 +62,7 @@
                 "id": "ba5f36ef-84e9-4a83-852b-e74dac4014ed",
                 "meta": {
                     "profile": [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.1.0"
                     ]
                 },
                 "identifier": [
@@ -152,7 +147,7 @@
                 "id": "d6259485-ec02-43a9-a476-dc1b7baa05bf",
                 "meta": {
                     "profile": [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Organization|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Organization|1.1.0"
                     ]
                 },
                 "identifier": [
@@ -161,11 +156,11 @@
                             "coding": [
                                 {
                                     "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
-                                    "code": "ZANR"
+                                    "code": "KZVA"
                                 }
                             ]
                         },
-                        "system": "http://fhir.de/NamingSystem/kzbv/zahnarztnummer",
+                        "system": "http://fhir.de/NamingSystem/kzbv/kzvabrechnungsnummer",
                         "value": "12345678"
                     }
                 ],
@@ -203,7 +198,7 @@
                 "id": "321c66be-ea2e-4559-9e3d-b6f2326f2dcf",
                 "meta": {
                     "profile": [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Dental_Check_Up|1.1.0"
                     ]
                 },
                 "status": "final",
@@ -211,7 +206,7 @@
                     "coding": [
                         {
                             "system": "http://snomed.info/sct",
-                            "version": "http://snomed.info/sct/900000000000207008/version/20200309",
+                            "version": "http://snomed.info/sct/900000000000207008/version/20210131",
                             "code": "63963009",
                             "display": "Dental prophylaxis, adult (procedure)"
                         }
@@ -232,7 +227,7 @@
                 "id": "2071b7f6-6574-46c1-b3a9-e4ef8a93500e",
                 "meta": {
                     "profile": [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Gapless_Documentation|1.00.000"
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Gapless_Documentation|1.1.0"
                     ]
                 },
                 "extension": [

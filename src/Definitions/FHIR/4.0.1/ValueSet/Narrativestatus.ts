@@ -45,7 +45,12 @@ export const NarrativestatusArray: string[] = [
 export const NarrativestatusValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/narrative-status",
-        concept: []
+        concept: [
+            { code: "generated", display: "Generated" },
+            { code: "extensions", display: "Extensions" },
+            { code: "additional", display: "Additional" },
+            { code: "empty", display: "Empty" }
+        ]
     }
 ];
 

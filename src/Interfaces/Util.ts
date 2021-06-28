@@ -20,11 +20,12 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { MIOEntry } from "./AppInternals";
+import { MIOEntry, MIOError, Reference } from "./AppInternals";
 import { KBVBundleResource, KBVResource } from "..";
-import { Concept, ConceptMap } from "../Definitions/Interfaces";
+import { Concept, ConceptMap, Include, ValueSet } from "../Definitions/Interfaces";
+import Messages from "./Messages";
 
-export type { Concept, ConceptMap };
+export type { Concept, ConceptMap, Include, ValueSet };
 
 function getEntryBase<T>(
     mio: KBVBundleResource,
@@ -56,7 +57,7 @@ function getEntryBase<T>(
             console.log(results);
         }
          */
-        return results.map((r) => {
+        return results.map((r: any) => {
             return {
                 fullUrl: r.fullUrl,
                 resource: r.resource as T
@@ -187,7 +188,8 @@ export function findEntryByFullUrl(
 ): MIOEntry<KBVResource> | undefined {
     if (bundle) {
         const results = bundle.entry.filter(
-            (e) => getUuid(e.fullUrl) === getUuid(reference)
+            // TODO VaccinationBundleEntryEntry for all
+            (e: any) => getUuid(e.fullUrl) === getUuid(reference)
         );
         if (results.length > 0) {
             const result = results[0];
@@ -211,7 +213,8 @@ export function findEntryByProfile(
     profile: string
 ): KBVResource | undefined {
     if (bundle) {
-        const result = bundle.entry.filter((e) =>
+        // TODO VaccinationBundleEntryEntry for all
+        const result = bundle.entry.filter((e: any) =>
             e.resource.meta &&
             e.resource.meta.profile &&
             e.resource.meta.profile.length > 0
@@ -235,7 +238,8 @@ export function findEntryByProfiles(
     profiles: string[]
 ): KBVResource | undefined {
     if (bundle) {
-        const result = bundle.entry.filter((e) => {
+        // TODO VaccinationBundleEntryEntry for all
+        const result = bundle.entry.filter((e: any) => {
             if (
                 e.resource.meta &&
                 e.resource.meta.profile &&
@@ -287,4 +291,123 @@ export function multiTranslateCode(
     });
 
     return results.length ? results : [];
+}
+
+/**
+ * Walks through a objecThe object to be evaluatedt and tries to find a uuid within the fields "reference" and "fullUrl".
+ *
+ * @param obj {any} The object to be evaluated
+ * @param reference {string} The uuid to be found
+ * @param found {boolean} Whether the uuid was found or not
+ */
+const findReference = (
+    obj: any, // eslint-disable-line
+    reference: string,
+    found = false
+): boolean => {
+    reference = getUuid(reference);
+    if (!found && obj) {
+        Object.keys(obj).forEach((key) => {
+            const value = obj[key];
+
+            if (value instanceof Array) {
+                value.forEach((e) => {
+                    found = found || findReference(e, reference, found);
+                });
+            } else if (typeof value === "object") {
+                found = found || findReference(value, reference, found);
+            } else if (key === "id") {
+                found = found || getUuid(value as string) === reference;
+            } else if (key === "fullUrl") {
+                found = found || getUuid(value as string) === reference;
+            }
+        });
+    }
+
+    return found;
+};
+
+export { findReference };
+
+/**
+ * Walks a object and lists its references (fields called "reference" and "fullUrl").
+ *
+ * @param obj {any} The object to be evaluated
+ * @param references {Reference[]} Array of references containing a value and the path of the reference
+ * @param path {string} Current path within the object
+ */
+const listReferences = (
+    obj: any, // eslint-disable-line
+    references: Reference[] = [],
+    path = ""
+): Reference[] => {
+    if (obj) {
+        Object.keys(obj).forEach((key) => {
+            const currentPath = (path ? path + "." : "") + key;
+            const value = obj[key];
+            if (value instanceof Array) {
+                value.forEach((e) => {
+                    listReferences(e, references, currentPath);
+                });
+            } else if (typeof value === "object") {
+                listReferences(value, references, currentPath);
+            } else if (key === "reference") {
+                references.push({ id: value, path: currentPath });
+            }
+        });
+        return references;
+    }
+
+    return [];
+};
+
+export { listReferences };
+
+export function getOrphans(
+    bundle: KBVBundleResource,
+    allReferences?: Reference[]
+): string[] {
+    const references = (allReferences ?? listReferences(bundle)).map((ref) =>
+        getUuid(ref.id)
+    );
+    const fullUrls = bundle.entry
+        .filter((e) => e.resource.resourceType !== "Composition")
+        .map((e) => e.fullUrl);
+
+    return fullUrls.filter((ref) => !references.includes(getUuid(ref)));
+}
+
+/**
+ * Evaluates whether references in bundle are resolved or not.
+ * Every unresolved reference is returned as a MIOError.
+ *
+ * @param bundle {KBVBundleResource} The bundle to be evaluated
+ * @returns {MIOError[]} Array of MIOErrors containing the unresolved references
+ */
+export function getUnresolvedReferences(bundle: KBVBundleResource): MIOError[] {
+    const allReferences = listReferences(bundle);
+
+    const unresolvedReferences = allReferences.filter(
+        (reference) => !findReference(bundle, reference.id)
+    );
+
+    const orphans = getOrphans(bundle, allReferences).map((orphan) => {
+        return {
+            message: Messages.Orphan(orphan),
+            resource: bundle.identifier.value,
+            path: "bundle.entry",
+            value: orphan
+        };
+    });
+
+    const unresolved = unresolvedReferences.map((reference) => {
+        return {
+            message: Messages.Reference(reference.id),
+            resource: "",
+            path: reference.path,
+            value: reference.id
+        };
+    });
+
+    return [...unresolved, ...orphans];
 }

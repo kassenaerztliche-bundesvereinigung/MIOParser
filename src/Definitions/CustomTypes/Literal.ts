@@ -20,15 +20,17 @@
 
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
+import { AnyType } from "../Interfaces";
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class CustomLiteralType extends t.Type<any> {
     readonly _tag = "CustomLiteralType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
-        encode: (a: any) => any,
-        readonly literal: any
+        is: t.Is<string | number | boolean>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        encode: (a: AnyType) => AnyType,
+        readonly literal: string | number | boolean
     ) {
         super(name, is, validate, encode);
     }
@@ -37,7 +39,7 @@ export class CustomLiteralType extends t.Type<any> {
 export default function Literal<V extends string | number | boolean>(
     literal: V,
     name = "LiteralCheck"
-): t.Type<t.TypeOf<any>> {
+): t.Type<t.TypeOf<AnyType>> {
     return new CustomLiteralType(
         name,
         (i): i is V => {
@@ -45,7 +47,8 @@ export default function Literal<V extends string | number | boolean>(
         },
         (i, c) => {
             if (i == literal) {
-                return t.success(i);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return t.success<any>(i);
             } else {
                 return t.failure(i, c, ErrorMessage.Literal(i, literal));
             }

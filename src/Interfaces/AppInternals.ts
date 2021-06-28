@@ -38,11 +38,65 @@ export type KBVEntry = {
 };
 
 /**
- * Describes the profile and version of a given resource
+ * Representation of a MIO version number e.g. 1.0.0, 1.02.003
  */
-export interface ResourceType {
-    readonly profile: string;
-    readonly version?: string;
+export class VersionNumber {
+    readonly major: number = NaN;
+    readonly minor: number = NaN;
+    readonly patch: number = NaN;
+
+    constructor(readonly value?: string) {
+        const parts = value ? value.split(".") : [];
+
+        this.major = parseInt(parts[0]);
+        this.minor = parseInt(parts[1]);
+        this.patch = parseInt(parts[2]);
+    }
+
+    public equal(value?: string): boolean {
+        const version = new VersionNumber(value);
+
+        return (
+            this.partEquals(this.major, version.major) &&
+            this.partEquals(this.minor, version.minor) &&
+            this.partEquals(this.patch, version.patch)
+        );
+    }
+
+    public toString(): string {
+        return [this.major, this.minor, this.patch].filter((n) => !isNaN(n)).join(".");
+    }
+
+    protected partEquals(a: number, b: number): boolean {
+        return a === b || (isNaN(a) && isNaN(b));
+    }
+}
+
+/**
+ * Describes the profile and version of a given resource (resource.meta.profile)
+ */
+export class ResourceMeta {
+    readonly version: VersionNumber;
+
+    constructor(readonly profile: string, version?: string) {
+        this.version = new VersionNumber(version);
+    }
+
+    public isEqual(profile: string, version?: string, versioned = true): boolean {
+        return this.profile === profile && (!versioned || this.version.equal(version));
+    }
+
+    public equals(value: ResourceMeta, versioned = true): boolean {
+        return (
+            this.profile === value.profile &&
+            (!versioned || this.version.equal(value.version.value))
+        );
+    }
+
+    public toString(): string {
+        const version = this.version.toString();
+        return this.profile + (version ? "|" + version : "");
+    }
 }
 
 /**

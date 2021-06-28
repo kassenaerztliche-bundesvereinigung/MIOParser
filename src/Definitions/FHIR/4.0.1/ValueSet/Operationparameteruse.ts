@@ -35,7 +35,10 @@ export const OperationparameteruseArray: string[] = ["in", "out"];
 export const OperationparameteruseValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/operation-parameter-use",
-        concept: []
+        concept: [
+            { code: "in", display: "In" },
+            { code: "out", display: "Out" }
+        ]
     }
 ];
 

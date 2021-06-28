@@ -29,11 +29,6 @@ const Currencies: t.Type<Currencies> = t.string;
 
 export const CurrenciesArray: string[] = [];
 
-export const CurrenciesValueSet: ValueSet = [
-    {
-        system: "urn:iso:std:iso:4217",
-        concept: []
-    }
-];
+export const CurrenciesValueSet: ValueSet = [];
 
 export default Currencies;

@@ -35,7 +35,12 @@ export const QuantitycomparatorArray: string[] = ["<", "<=", ">=", ">"];
 export const QuantitycomparatorValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/quantity-comparator",
-        concept: []
+        concept: [
+            { code: "<", display: "Less than" },
+            { code: "<=", display: "Less or Equal to" },
+            { code: ">=", display: "Greater or Equal to" },
+            { code: ">", display: "Greater than" }
+        ]
     }
 ];
 

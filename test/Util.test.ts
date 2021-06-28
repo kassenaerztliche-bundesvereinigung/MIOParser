@@ -52,43 +52,43 @@ describe("Parser Util", () => {
     } & TestUtil.HasMioString;
     const getEntryList: GetEntry[] = [
         {
-            bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
+            bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
             mioString: "IM",
             todos: [
                 {
-                    profile: Vaccination.V1_00_000.Profile.Patient,
+                    profile: Vaccination.V1_1_0.Profile.Patient,
                     result: true
                 },
                 {
-                    profile: ZAEB.V1_00_000.Profile.Observation,
+                    profile: ZAEB.V1_1_0.Profile.ObservationDentalCheckUp,
                     result: false
                 }
             ]
         },
         {
-            bundleType: ZAEB.V1_00_000.Profile.Bundle,
+            bundleType: ZAEB.V1_1_0.Profile.Bundle,
             mioString: "ZB",
             todos: [
                 {
-                    profile: ZAEB.V1_00_000.Profile.Patient,
+                    profile: ZAEB.V1_1_0.Profile.Patient,
                     result: true
                 },
                 {
-                    profile: ZAEB.V1_00_000.Profile.Organization,
+                    profile: ZAEB.V1_1_0.Profile.Organization,
                     result: true
                 },
                 {
-                    profile: ZAEB.V1_00_000.Profile.Composition,
+                    profile: ZAEB.V1_1_0.Profile.Composition,
                     result: true
                 }
             ]
         },
         {
-            bundleType: MR.V1_00_000.Profile.Bundle,
+            bundleType: MR.V1_0_0.Profile.Bundle,
             mioString: "MR",
             todos: [
                 {
-                    profile: MR.V1_00_000.Profile.PatientMother,
+                    profile: MR.V1_0_0.Profile.PatientMother,
                     result: true
                 }
             ]
@@ -139,59 +139,59 @@ describe("Parser Util", () => {
 
     const getEntriesList: GetEntries[] = [
         {
-            bundleType: [Vaccination.V1_00_000.Profile.BundleEntry],
+            bundleType: [Vaccination.V1_1_0.Profile.BundleEntry],
             mioString: "IM",
             todos: [
                 {
                     profiles: [
-                        Vaccination.V1_00_000.Profile.Patient,
-                        Vaccination.V1_00_000.Profile.Organization
+                        Vaccination.V1_1_0.Profile.Patient,
+                        Vaccination.V1_1_0.Profile.Organization
                     ],
                     result: 1
                 },
                 {
                     profiles: [
-                        Vaccination.V1_00_000.Profile.CompositionPrime,
-                        Vaccination.V1_00_000.Profile.CompositionAddendum
+                        Vaccination.V1_1_0.Profile.CompositionPrime,
+                        Vaccination.V1_1_0.Profile.CompositionAddendum
                     ],
                     result: 1
                 }
             ]
         },
         {
-            bundleType: [ZAEB.V1_00_000.Profile.Bundle],
+            bundleType: [ZAEB.V1_1_0.Profile.Bundle],
             mioString: "ZB",
             todos: [
                 {
-                    profiles: [ZAEB.V1_00_000.Profile.Composition],
+                    profiles: [ZAEB.V1_1_0.Profile.Composition],
                     result: 1
                 },
                 {
                     profiles: [
-                        ZAEB.V1_00_000.Profile.Patient,
-                        ZAEB.V1_00_000.Profile.Organization
+                        ZAEB.V1_1_0.Profile.Patient,
+                        ZAEB.V1_1_0.Profile.Organization
                     ],
                     result: 2
                 },
                 {
                     profiles: [
-                        ZAEB.V1_00_000.Profile.Observation,
-                        ZAEB.V1_00_000.Profile.GaplessDocumentation
+                        ZAEB.V1_1_0.Profile.ObservationDentalCheckUp,
+                        ZAEB.V1_1_0.Profile.ObservationGaplessDocumentation
                     ],
                     result: 1
                 }
             ]
         },
         {
-            bundleType: [MR.V1_00_000.Profile.Bundle],
+            bundleType: [MR.V1_0_0.Profile.Bundle],
             mioString: "MR",
             todos: [
                 {
-                    profiles: [MR.V1_00_000.Profile.Composition],
+                    profiles: [MR.V1_0_0.Profile.Composition],
                     result: 1
                 },
                 {
-                    profiles: [MR.V1_00_000.Profile.PatientMother],
+                    profiles: [MR.V1_0_0.Profile.PatientMother],
                     result: 1
                 }
             ]
@@ -244,14 +244,14 @@ describe("Parser Util", () => {
 
     const getSliceList: GetSlice[] = [
         {
-            bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
+            bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
             mioString: "IM",
             todos: [
                 {
-                    profile: Vaccination.V1_00_000.Profile.Patient,
+                    profile: Vaccination.V1_1_0.Profile.Patient,
                     slices: [
                         {
-                            type: Vaccination.V1_00_000.Profile.PatientName,
+                            type: Vaccination.V1_1_0.Profile.PatientName,
                             field: "name"
                         }
                     ]
@@ -259,23 +259,23 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: ZAEB.V1_00_000.Profile.Bundle,
+            bundleType: ZAEB.V1_1_0.Profile.Bundle,
             mioString: "ZB",
             todos: [
                 {
-                    profile: ZAEB.V1_00_000.Profile.Patient,
+                    profile: ZAEB.V1_1_0.Profile.Patient,
                     slices: [
                         {
-                            type: ZAEB.V1_00_000.Profile.PatientName,
+                            type: ZAEB.V1_1_0.Profile.PatientName,
                             field: "name"
                         }
                     ]
                 },
                 {
-                    profile: ZAEB.V1_00_000.Profile.Organization,
+                    profile: ZAEB.V1_1_0.Profile.Organization,
                     slices: [
                         {
-                            type: ZAEB.V1_00_000.Profile.OrganizationStrassenanschrift,
+                            type: ZAEB.V1_1_0.Profile.OrganizationStrassenanschrift,
                             field: "address"
                         }
                     ]
@@ -283,14 +283,14 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: MR.V1_00_000.Profile.Bundle,
+            bundleType: MR.V1_0_0.Profile.Bundle,
             mioString: "MR",
             todos: [
                 {
-                    profile: MR.V1_00_000.Profile.PatientMother,
+                    profile: MR.V1_0_0.Profile.PatientMother,
                     slices: [
                         {
-                            type: MR.V1_00_000.Profile.PatientMotherName,
+                            type: MR.V1_0_0.Profile.PatientMotherName,
                             field: "name"
                         }
                     ]
@@ -337,14 +337,14 @@ describe("Parser Util", () => {
 
     test("getSlice (no value)", (done) => {
         expect(
-            ParserUtil.getSlice<Vaccination.V1_00_000.Profile.PatientPid>(
-                [Vaccination.V1_00_000.Profile.PatientPid],
+            ParserUtil.getSlice<Vaccination.V1_1_0.Profile.PatientPid>(
+                [Vaccination.V1_1_0.Profile.PatientPid],
                 undefined
             )
         ).toEqual(undefined);
         expect(
-            ParserUtil.getSlice<Vaccination.V1_00_000.Profile.PatientPid>(
-                [Vaccination.V1_00_000.Profile.PatientPid],
+            ParserUtil.getSlice<Vaccination.V1_1_0.Profile.PatientPid>(
+                [Vaccination.V1_1_0.Profile.PatientPid],
                 []
             )
         ).toEqual(undefined);
@@ -366,18 +366,18 @@ describe("Parser Util", () => {
 
     const getSlicesList: GetSlices[] = [
         {
-            bundleType: Vaccination.V1_00_000.Profile.BundleEntry,
+            bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
             mioString: "IM",
             todos: [
                 {
-                    profile: Vaccination.V1_00_000.Profile.Patient,
+                    profile: Vaccination.V1_1_0.Profile.Patient,
                     slice: {
                         types: [
-                            Vaccination.V1_00_000.Profile.PatientVersichertenIdGKV,
-                            Vaccination.V1_00_000.Profile.PatientVersichertennummerpkv,
-                            Vaccination.V1_00_000.Profile.PatientVersichertennummerkvk,
-                            Vaccination.V1_00_000.Profile.PatientReisepassnummer,
-                            Vaccination.V1_00_000.Profile.PatientPid
+                            Vaccination.V1_1_0.Profile.PatientVersichertenIdGKV,
+                            Vaccination.V1_1_0.Profile.PatientVersichertennummerpkv,
+                            Vaccination.V1_1_0.Profile.PatientVersichertennummerkvk,
+                            Vaccination.V1_1_0.Profile.PatientReisepassnummer,
+                            Vaccination.V1_1_0.Profile.PatientPid
                         ],
                         field: "identifier",
                         min: 1
@@ -427,8 +427,8 @@ describe("Parser Util", () => {
 
     test("getSlices (no value)", (done) => {
         expect(
-            ParserUtil.getSlices<Vaccination.V1_00_000.Profile.PatientPid>(
-                [Vaccination.V1_00_000.Profile.PatientPid],
+            ParserUtil.getSlices<Vaccination.V1_1_0.Profile.PatientPid>(
+                [Vaccination.V1_1_0.Profile.PatientPid],
                 undefined
             )
         ).toEqual([]);
@@ -443,35 +443,33 @@ describe("Parser Util", () => {
 
             const patient = ParserUtil.findEntryByProfile(
                 bundle,
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.1.0"
             );
             expect(patient).toBeDefined();
-            expect(Vaccination.V1_00_000.Profile.Patient.is(patient)).toBeTruthy();
+            expect(Vaccination.V1_1_0.Profile.Patient.is(patient)).toBeTruthy();
 
             const practitioner = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.1.0"
             ]);
             expect(practitioner).toBeDefined();
             expect(
-                Vaccination.V1_00_000.Profile.Practitioner.is(practitioner) ||
-                    Vaccination.V1_00_000.Profile.PractitionerAddendum.is(practitioner)
+                Vaccination.V1_1_0.Profile.Practitioner.is(practitioner) ||
+                    Vaccination.V1_1_0.Profile.PractitionerAddendum.is(practitioner)
             ).toBeTruthy();
 
             const entry = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.1.0"
             ]);
             expect(entry).toBeDefined();
             expect(
-                Vaccination.V1_00_000.Profile.Condition.is(entry) ||
-                    Vaccination.V1_00_000.Profile.ObservationImmunizationStatus.is(
-                        entry
-                    ) ||
-                    Vaccination.V1_00_000.Profile.RecordAddendum.is(entry) ||
-                    Vaccination.V1_00_000.Profile.RecordPrime.is(entry)
+                Vaccination.V1_1_0.Profile.Condition.is(entry) ||
+                    Vaccination.V1_1_0.Profile.ObservationImmunizationStatus.is(entry) ||
+                    Vaccination.V1_1_0.Profile.RecordAddendum.is(entry) ||
+                    Vaccination.V1_1_0.Profile.RecordPrime.is(entry)
             ).toBeTruthy();
         });
     };
@@ -507,8 +505,8 @@ describe("Parser Util", () => {
             const bundle = result.value as KBVBundleResource;
 
             const composition = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.00.000",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.00.000"
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0",
+                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0"
             ]);
             expect(composition).toBeDefined();
         });
@@ -602,15 +600,15 @@ describe("Parser Util", () => {
     const findEntryByFullUrlList: FindEntryByFullUrl[] = [
         {
             mioString: "IM",
-            profile: Vaccination.V1_00_000.Profile.Patient
+            profile: Vaccination.V1_1_0.Profile.Patient
         },
         {
             mioString: "ZB",
-            profile: ZAEB.V1_00_000.Profile.Patient
+            profile: ZAEB.V1_1_0.Profile.Patient
         },
         {
             mioString: "MR",
-            profile: MR.V1_00_000.Profile.PatientMother
+            profile: MR.V1_0_0.Profile.PatientMother
         }
     ];
 
@@ -667,15 +665,15 @@ describe("Parser Util", () => {
     const getEntryWithRefList: GetEntryWithRef[] = [
         {
             mioString: "IM",
-            profile: Vaccination.V1_00_000.Profile.Patient
+            profile: Vaccination.V1_1_0.Profile.Patient
         },
         {
             mioString: "ZB",
-            profile: ZAEB.V1_00_000.Profile.Patient
+            profile: ZAEB.V1_1_0.Profile.Patient
         },
         {
             mioString: "MR",
-            profile: MR.V1_00_000.Profile.PatientMother
+            profile: MR.V1_0_0.Profile.PatientMother
         }
     ];
 

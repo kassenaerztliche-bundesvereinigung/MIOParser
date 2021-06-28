@@ -22,6 +22,7 @@ import * as t from "io-ts";
 import { either } from "fp-ts/Either";
 import ErrorMessage from "../ErrorMessage";
 import { resolvePath } from "./index";
+import { AnyType } from "../Interfaces";
 
 export interface Req<Q extends t.Any> {
     codec: Q;
@@ -29,15 +30,17 @@ export interface Req<Q extends t.Any> {
     sliceBy?: { path: string; value?: string };
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class ReqArrayType extends t.Type<any> {
     readonly _tag = "ReqArrayType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
+        is: t.Is<t.TypeOf<AnyType>>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         encode: (a: any) => any,
-        readonly codec: any,
-        readonly reqTypes: Req<any>[],
+        readonly codec: AnyType,
+        readonly reqTypes: Req<AnyType>[],
         readonly totalOccurrence: [string, string]
     ) {
         super(name, is, validate, encode);
@@ -49,7 +52,7 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
     types: Req<D>[],
     totalOccurrence: [string, string],
     name = `ReqArray<${codec.name}>`
-): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>, unknown> {
+): t.Type<Array<t.TypeOf<C>>, Array<t.OutputOf<C>>> {
     const arr = t.array(codec);
     return new ReqArrayType(
         name,
@@ -136,7 +139,8 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
 
                     return t.failure(u, c, message);
                 } else {
-                    return t.success(checkArr);
+                    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                    return t.success<any>(checkArr);
                 }
             }),
         (a) => [...a],

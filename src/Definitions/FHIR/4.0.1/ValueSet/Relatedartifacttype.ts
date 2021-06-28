@@ -61,7 +61,16 @@ export const RelatedartifacttypeArray: string[] = [
 export const RelatedartifacttypeValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/related-artifact-type",
-        concept: []
+        concept: [
+            { code: "documentation", display: "Documentation" },
+            { code: "justification", display: "Justification" },
+            { code: "citation", display: "Citation" },
+            { code: "predecessor", display: "Predecessor" },
+            { code: "successor", display: "Successor" },
+            { code: "derived-from", display: "Derived From" },
+            { code: "depends-on", display: "Depends On" },
+            { code: "composed-of", display: "Composed Of" }
+        ]
     }
 ];
 

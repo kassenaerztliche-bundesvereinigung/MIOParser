@@ -20,19 +20,20 @@
 
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
+import { AnyType } from "../Interfaces";
 
 function getUuid(value: string, separator: string | RegExp = /[.:/ ]/): string {
     return value.split(separator).pop() ?? value;
 }
 
-export class CustomReferenceType extends t.Type<any> {
+export class CustomReferenceType extends t.Type<AnyType> {
     readonly _tag = "CustomReferenceType";
     constructor(
         name: string,
-        is: t.Is<any>,
-        validate: (i: unknown, context: t.Context) => t.Validation<any>,
-        encode: (a: any) => any,
-        readonly dataType: any,
+        is: t.Is<AnyType>,
+        validate: (i: unknown, context: t.Context) => t.Validation<AnyType>,
+        encode: (a: AnyType) => AnyType,
+        readonly dataType: AnyType,
         readonly targetProfile: string[]
     ) {
         super(name, is, validate, encode);
@@ -60,6 +61,7 @@ export default function CustomReference<C extends t.Any>(
 
                 if (bundle.length && bundle[0]) {
                     const id: string = getUuid(i as string);
+                    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                     const bundleEntry: any = bundle[0];
 
                     /**
@@ -76,8 +78,10 @@ export default function CustomReference<C extends t.Any>(
                     };
 
                     const targetingResource = bundleEntry.actual.entry.filter(
-                        (bundleEntry: { fullUrl: string }) => {
-                            const bundleEntryFullUrl = removeVersion(bundleEntry.fullUrl);
+                        (actualBundleEntry: { fullUrl: string }) => {
+                            const bundleEntryFullUrl = removeVersion(
+                                actualBundleEntry.fullUrl
+                            );
                             const cleanedId = removeVersion(id);
                             return getUuid(bundleEntryFullUrl) === getUuid(cleanedId);
                         }
@@ -103,7 +107,7 @@ export default function CustomReference<C extends t.Any>(
                                 c,
                                 ErrorMessage.WrongTarget(
                                     i as string,
-                                    targetProfile as string[],
+                                    targetProfile,
                                     targetingResource[0].resource.meta.profile[0]
                                 )
                             );
@@ -112,7 +116,8 @@ export default function CustomReference<C extends t.Any>(
             }
 
             if (decodeResult._tag === "Right") {
-                return t.success(i);
+                // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+                return t.success<any>(i);
             } else {
                 return t.failure(i, c, "Decoding von " + dataType + " nicht richtig.");
             }
