@@ -71,9 +71,8 @@ export default function CustomReference<C extends t.Any>(
                      *             https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.00.000
                      */
                     const removeVersion = (val: string): string => {
-                        return (val.includes("|")
-                            ? val.split("|")[0]
-                            : val
+                        return (
+                            val.includes("|") ? val.split("|")[0] : val
                         ).toLowerCase();
                     };
 

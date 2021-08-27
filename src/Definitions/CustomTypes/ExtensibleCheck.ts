@@ -60,14 +60,15 @@ export default function ExtensibleCheck<C extends t.Any>(
                             resourcePath.push(e[1].type.name);
                     }
                 });
+
                 const resource = resourcePath.pop();
                 warningEmitter.emit(
-                    EXTENSIBLE_WARNING,
                     ErrorMessage.Extensible(valueSet.name, i),
                     warningPath.join("."),
                     resource,
                     i
                 );
+
                 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                 return t.success<any>(i);
             }

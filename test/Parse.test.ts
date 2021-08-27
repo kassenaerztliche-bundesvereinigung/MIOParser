@@ -21,7 +21,7 @@
 import MIOParser from "../src";
 import * as fs from "fs";
 import Messages from "../src/Interfaces/Messages";
-import * as TestUtil from "miotestdata";
+import * as TestUtil from "@kbv/miotestdata";
 
 describe("Parse", () => {
     const mioParser = new MIOParser();

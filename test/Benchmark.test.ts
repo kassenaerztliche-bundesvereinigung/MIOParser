@@ -20,7 +20,7 @@
 
 import MIOParser from "../src";
 import * as fs from "fs";
-import * as TestUtil from "miotestdata";
+import * as TestUtil from "@kbv/miotestdata";
 
 type TestFile = {
     file: Blob;

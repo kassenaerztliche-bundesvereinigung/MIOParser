@@ -22,7 +22,9 @@ import {
     KBVEntry,
     MIOError,
     MIOParserResult,
-    ResourceMeta
+    Resource,
+    ResourceMeta,
+    HasMeta
 } from "./Interfaces/AppInternals";
 import ErrorMessage from "./Definitions/ErrorMessage";
 import Messages from "./Interfaces/Messages";
@@ -35,7 +37,7 @@ import {
     KBVBundleResource
 } from "./Definitions/ProfileMaps/ProfileMap";
 
-import { Validation, ValidationError, Errors } from "io-ts";
+import { Validation, ValidationError } from "io-ts";
 import { pipe } from "fp-ts/lib/pipeable";
 import { fold } from "fp-ts/lib/Either";
 import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
@@ -44,23 +46,12 @@ import fhirpath from "fhirpath";
 import fhirpathR4Model from "fhirpath/fhir-context/r4";
 
 import * as t from "io-ts";
-import { validateCompositionReferences } from "./Interfaces/CompositionReferenceValidator";
 
-// TODO: Pls comment + Move to AppInternals?
-export type HasMeta = { meta?: Meta };
-
-// TODO: Pls comment + Move to AppInternals?
-export type HasMetaAndId = {
-    id: string;
-} & HasMeta;
-
-// TODO: Pls comment
-export type Resource = {
-    resourceType?: string;
-    entry?: KBVEntry[];
-} & HasMetaAndId;
-
-// TODO: Pls comment
+/**
+ * Returns the profile from the given resource
+ * @param resource
+ * @return Profile from resource as string
+ */
 function getProfile(resource: Resource | KBVResource | HasMeta): string {
     const profile = resource.meta?.profile;
     return profile && profile.length ? profile[0] ?? "" : "";
@@ -70,7 +61,7 @@ function getProfile(resource: Resource | KBVResource | HasMeta): string {
  * Evaluated the resource type of a MIO by its meta profile.
  *
  * @param resource {HasMeta} The MIO resource to be evaluated
- * @retuns {ResourceType} The source type of the MIO
+ * @returns {ResourceMeta} The source type of the MIO
  */
 export function defineResourceMeta(resource: HasMeta): ResourceMeta {
     const meta = resource.meta;
@@ -115,7 +106,7 @@ const getErrorValue = (error: ValidationError): string => {
 };
 
 /**
- * This helperfunction generates errormessages from the io-ts decoder error.
+ * This helper function generates error messages from the io-ts decoder error.
  *
  * @param validation {Validation} Validation Error from io-ts validation
  * @param resourceId {string} Value from the Error as string
@@ -183,7 +174,9 @@ export function isBundle(resource: HasMeta): boolean {
     return BundleTypes.some((T: MIOType) => type.isEqual(T.profile, T.version, true));
 }
 
-// TODO: Pls comment
+/**
+ * The following Profiles contain errors in their constraints. Therefore they are being excluded from Constraint checks
+ */
 const excludingBundlesForUUIDConstraint = [
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.00.000",
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.00.000",
@@ -192,7 +185,12 @@ const excludingBundlesForUUIDConstraint = [
     "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PC_Bundle|1.0.0"
 ];
 
-// TODO: Pls comment
+/**
+ * Applies the constraints to a resource and adds the results to the parserResult
+ * @param resource
+ * @param constraints
+ * @param parserResult
+ */
 function checkConstraints(
     resource: Resource,
     constraints: { severity: string; expression: string; human: string; key: string }[],
@@ -206,7 +204,7 @@ function checkConstraints(
                 // einige constraints haben einen typo, dieser wird hier ersetzt
                 let expression = constraint.expression.replace("identifer", "identifier");
                 expression = expression.replace("is string", "is String");
-                // ZAEB 1.00.000 hat einen constraint der aufgrund eines fixvalues nicht gelöst werden kann... daher ueberspringen
+                // ZAEB 1.00.000 hat einen constraint der aufgrund eines fixen values nicht gelöst werden kann... daher ueberspringen
                 if (
                     constraint.key === "UUID" &&
                     excludingBundlesForUUIDConstraint.includes(getProfile(resource))
@@ -265,8 +263,8 @@ function checkConstraints(
  *
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
  * @param list {MIOTypeList} List of MioTypes to be tested with
- * @param bundle {KBVBundleResource | undefined} TODO
- * @param versioned {boolean} TODO
+ * @param bundle {KBVBundleResource | undefined} original bundle in which the resource was contained
+ * @param versioned {boolean} boolean to indicate if resource should be found with or without version number
  * @returns {MIOParserResult} a Result for the finding of the resource in the given MioTypeList
  */
 export default function getResource(
@@ -291,14 +289,6 @@ export default function getResource(
             resource.entry?.map(
                 (entry: KBVEntry) => defineResourceMeta(entry.resource).profile
             ) ?? [];
-
-        validateCompositionReferences(resource, parserResult);
-    }
-
-    // returns the parserresult prematurely if compositionReferences are erroneus.
-    // These Errors should be fixed first
-    if (parserResult.errors.length) {
-        return parserResult;
     }
 
     let foundResource = false;
@@ -320,7 +310,7 @@ export default function getResource(
 
             // Callback for decoding failure
             // eslint-disable-next-line
-            const onLeft = (errors: Errors): string => {
+            const onLeft = (): string => {
                 /*
                 errors.forEach((error) => {
                     if (error.message) parserLogging.warn(error.message);
@@ -376,10 +366,10 @@ export default function getResource(
 }
 
 /**
- * Maps the entries in a gibundle to Typescript objects
+ * Maps the entries in a bundle to Typescript objects
  *
  * @param entryArray {KBVEntry} An array of entries contained by a bundle
- * @param bundle {KBVBundleResource} TODO
+ * @param bundle {KBVBundleResource} original bundle in which the resource was contained
  * @return valueErrorArray {values: KBVEntry[]; errors: MIOError[];} values and errors contained in the bundle
  */
 export function getAllEntries(

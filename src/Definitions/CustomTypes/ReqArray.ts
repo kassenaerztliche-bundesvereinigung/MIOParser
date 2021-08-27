@@ -19,10 +19,10 @@
  */
 
 import * as t from "io-ts";
-import { either } from "fp-ts/Either";
 import ErrorMessage from "../ErrorMessage";
 import { resolvePath } from "./index";
 import { AnyType } from "../Interfaces";
+import { ValidationError } from "io-ts";
 
 export interface Req<Q extends t.Any> {
     codec: Q;
@@ -33,6 +33,7 @@ export interface Req<Q extends t.Any> {
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export class ReqArrayType extends t.Type<any> {
     readonly _tag = "ReqArrayType";
+
     constructor(
         name: string,
         is: t.Is<t.TypeOf<AnyType>>,
@@ -57,23 +58,32 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
     return new ReqArrayType(
         name,
         (u): u is Array<t.TypeOf<C>> => arr.is(u),
-        (u, c) =>
-            either.chain(arr.validate(u, c), (s) => {
+        (instanceToCheck: any, c) => {
+            if (!instanceToCheck)
+                return t.failure(instanceToCheck, c, ErrorMessage.ObjectNotPresent());
+            else {
                 // check if total count is correct
                 const totalMin = parseInt(totalOccurrence[0]);
                 const totalMax =
                     totalOccurrence[1] === "*"
                         ? Number.MAX_SAFE_INTEGER
                         : parseInt(totalOccurrence[1]);
-                if (s.length < totalMin)
-                    return t.failure(u, c, ErrorMessage.MinArray(totalMin, s.length));
-                if (s.length > totalMax)
-                    return t.failure(u, c, ErrorMessage.MaxArray(totalMax, s.length));
+                if (instanceToCheck.length < totalMin)
+                    return t.failure(
+                        instanceToCheck,
+                        c,
+                        ErrorMessage.MinArray(totalMin, instanceToCheck.length)
+                    );
+                if (instanceToCheck.length > totalMax)
+                    return t.failure(
+                        instanceToCheck,
+                        c,
+                        ErrorMessage.MaxArray(totalMax, instanceToCheck.length)
+                    );
 
-                let tempArr = s;
-                const checkArr = s.slice();
+                // check if validates correctly
+                let tempInstanceToCheck = instanceToCheck.slice();
                 let message = "";
-                const wrongCodec: string[] = [];
 
                 const firstCheckCodecs = types.filter(
                     (arg) => arg.sliceBy && arg.sliceBy.value
@@ -82,52 +92,91 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                     (arg) => !firstCheckCodecs.includes(arg)
                 );
 
-                const codecArray = [firstCheckCodecs, secondCheckCodecs];
+                const codecArrayToCheck = [...firstCheckCodecs, ...secondCheckCodecs];
                 const result: Req<D>[] = [];
-                codecArray.forEach((codecTypes) => {
-                    result.push(
-                        ...codecTypes.filter((arg) => {
-                            const min = parseInt(arg.occurrence[0]);
-                            const tempMax = arg.occurrence[1];
-                            const max =
-                                tempMax === "*"
-                                    ? Number.MAX_SAFE_INTEGER
-                                    : parseInt(tempMax);
+                const wrongCodecs: ValidationError[] = [];
 
-                            const occurenceEntries = tempArr.filter((a) => {
-                                const decodeResult =
-                                    arg.codec.validate(a, c)._tag === "Right";
-                                if (arg.sliceBy) {
-                                    const value = resolvePath(a, arg.sliceBy.path);
-                                    if (value === arg.sliceBy.value) {
-                                        if (!decodeResult) {
-                                            wrongCodec.push(
-                                                ErrorMessage.Slice(arg.codec.name)
-                                            );
-                                        }
-                                        return decodeResult;
-                                    } else return false;
-                                } else return decodeResult;
-                            });
-                            const occurence = occurenceEntries.length;
-                            tempArr = tempArr.filter(
-                                (a) => !occurenceEntries.includes(a)
-                            );
-                            return min <= occurence && occurence <= max;
-                        })
+                // check for slices that do not have a corresponding checkSlice
+                tempInstanceToCheck.forEach((instance: any) => {
+                    const path = resolvePath(
+                        instance,
+                        codecArrayToCheck[0].sliceBy?.path
                     );
+                    const hasCorrespondingCheckSlice = codecArrayToCheck.some(
+                        (codecToCheck) => {
+                            const value = codecToCheck.sliceBy?.value;
+                            if (value && path) {
+                                return (
+                                    value.replace(/\|.*/, "") === path.replace(/\|.*/, "")
+                                );
+                            } else return !value;
+                        }
+                    );
+                    if (!hasCorrespondingCheckSlice)
+                        wrongCodecs.push({
+                            context: c,
+                            message: ErrorMessage.NoSectionForValue(path),
+                            value: path
+                        });
                 });
 
-                if (wrongCodec.length) {
-                    return t.failure(u, c, wrongCodec.join("\n"));
+                // check each codec if the requirements are fulfilled
+                const validCodecs = codecArrayToCheck.filter((codecToCheck) => {
+                    const min = parseInt(codecToCheck.occurrence[0]);
+                    const max =
+                        codecToCheck.occurrence[1] === "*"
+                            ? Number.MAX_SAFE_INTEGER
+                            : parseInt(codecToCheck.occurrence[1]);
+
+                    const occurrenceEntries = tempInstanceToCheck.filter(
+                        (instance: any) => {
+                            const value = resolvePath(
+                                instance,
+                                codecToCheck.sliceBy?.path
+                            );
+                            if (value === codecToCheck.sliceBy?.value) {
+                                const decoderResult = codecToCheck.codec.validate(
+                                    instance,
+                                    c
+                                );
+                                if (decoderResult._tag !== "Right") {
+                                    decoderResult.left.forEach((left) =>
+                                        wrongCodecs.push({
+                                            context: c,
+                                            message: ErrorMessage.Slice(
+                                                codecToCheck.codec.name,
+                                                left.message
+                                            ),
+                                            value: left.value
+                                        })
+                                    );
+                                } else {
+                                    return true;
+                                }
+                            } else {
+                                return false;
+                            }
+                        }
+                    );
+                    const occurrence = occurrenceEntries.length;
+                    tempInstanceToCheck = tempInstanceToCheck.filter(
+                        (a: any) => !occurrenceEntries.includes(a)
+                    );
+                    return min <= occurrence && occurrence <= max;
+                });
+                result.push(...validCodecs);
+
+                if (wrongCodecs.length) {
+                    return t.failures(wrongCodecs);
                 }
 
                 if (result.length < types.length) {
                     const errorResults = types.filter((arg) => !result.includes(arg));
                     message = errorResults
                         .map((arg) => {
-                            const occurrence = checkArr.filter((a) => arg.codec.is(a))
-                                .length;
+                            const occurrence = instanceToCheck.filter((a: any) =>
+                                arg.codec.is(a)
+                            ).length;
                             return ErrorMessage.Codec(
                                 arg.codec.name,
                                 arg.occurrence[0],
@@ -137,12 +186,18 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                         })
                         .join("\n");
 
-                    return t.failure(u, c, message);
+                    wrongCodecs.push({
+                        context: c,
+                        message: message,
+                        value: instanceToCheck
+                    });
+                    return t.failure(instanceToCheck, c, message);
                 } else {
                     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-                    return t.success<any>(checkArr);
+                    return t.success<any>(instanceToCheck);
                 }
-            }),
+            }
+        },
         (a) => [...a],
         codec,
         types,

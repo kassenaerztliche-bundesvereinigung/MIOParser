@@ -131,7 +131,7 @@ export function getSlice<T>(type: any, value: any[] | undefined): T | undefined 
     if (value) {
         const result = value.filter((e) => type.is(e));
         if (result.length) {
-            return (result[0] as unknown) as T;
+            return result[0] as unknown as T;
         } else {
             return undefined;
         }
@@ -188,7 +188,6 @@ export function findEntryByFullUrl(
 ): MIOEntry<KBVResource> | undefined {
     if (bundle) {
         const results = bundle.entry.filter(
-            // TODO VaccinationBundleEntryEntry for all
             (e: any) => getUuid(e.fullUrl) === getUuid(reference)
         );
         if (results.length > 0) {
@@ -213,7 +212,6 @@ export function findEntryByProfile(
     profile: string
 ): KBVResource | undefined {
     if (bundle) {
-        // TODO VaccinationBundleEntryEntry for all
         const result = bundle.entry.filter((e: any) =>
             e.resource.meta &&
             e.resource.meta.profile &&
@@ -238,7 +236,6 @@ export function findEntryByProfiles(
     profiles: string[]
 ): KBVResource | undefined {
     if (bundle) {
-        // TODO VaccinationBundleEntryEntry for all
         const result = bundle.entry.filter((e: any) => {
             if (
                 e.resource.meta &&
@@ -294,7 +291,7 @@ export function multiTranslateCode(
 }
 
 /**
- * Walks through a objecThe object to be evaluatedt and tries to find a uuid within the fields "reference" and "fullUrl".
+ * Walks through a object and tries to find a uuid within the fields "reference" and "fullUrl".
  *
  * @param obj {any} The object to be evaluated
  * @param reference {string} The uuid to be found

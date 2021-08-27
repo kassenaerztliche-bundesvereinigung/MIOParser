@@ -18,8 +18,9 @@
  *
  */
 
-import { defineResourceMeta, HasMeta } from "../src/Resources";
+import { defineResourceMeta } from "../src/Resources";
 import { VersionNumber } from "../src";
+import { HasMeta } from "../src/Interfaces/AppInternals";
 
 describe("Resources", () => {
     test("VersionNumber", (done) => {

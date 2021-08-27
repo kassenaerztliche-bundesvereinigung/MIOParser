@@ -95,12 +95,15 @@ export default class ErrorMessage {
 
     static Slice(
         name: string,
+        message?: string,
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Der Slice für Codec ${name} konnte nicht validiert werden`;
+            return `Der Slice für Codec ${name} konnte nicht validiert werden. ${
+                message ? `Fehler: ${message}` : ""
+            }`;
         } else {
-            return `Wrong slice for Codec ${name} `;
+            return `Wrong slice for Codec ${name}. ${message ? `Error: ${message}` : ""}`;
         }
     }
 
@@ -224,6 +227,41 @@ export default class ErrorMessage {
             return "Im Bundle konnte keine Composition gefunden werden.";
         } else {
             return "No composition was found within the bundle.";
+        }
+    }
+
+    static NoSections(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        if (lang === "de") {
+            return "In der Composition konnten keine sections gefunden werden.";
+        } else {
+            return "No sections were found in the composition.";
+        }
+    }
+
+    static NoSectionForValue(
+        sectionValue: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Es wurde keine Section mit dem sliceValue ${sectionValue} gefunden`;
+        } else {
+            return `There was no section found for sliceValue ${sectionValue}`;
+        }
+    }
+
+    static ObjectNotPresent(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        if (lang === "de") {
+            return "Es wurde kein Objekt zur Validierung übergeben.";
+        } else {
+            return "Found no object to validate.";
+        }
+    }
+
+    static NoSliceByValue(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        if (lang === "de") {
+            return "SliceValue für die Section fehlt.";
+        } else {
+            return "SliceValue for the section is missing";
         }
     }
 }

@@ -20,6 +20,7 @@
 
 import { KBVResource } from "..";
 import * as t from "io-ts";
+import { Meta } from "../Definitions/FHIR/4.0.1/Profile";
 
 /**
  * Describes an entry in a bundle which always contains a fullUrl which may have any resourceType
@@ -100,6 +101,26 @@ export class ResourceMeta {
 }
 
 /**
+ * Type to define if Object has a meta field
+ */
+export type HasMeta = { meta?: Meta };
+
+/**
+ * Type to define if Object has a meta and an id field
+ */
+export type HasMetaAndId = {
+    id: string;
+} & HasMeta;
+
+/**
+ * Type to define a resource Object containing resourceType, entry, meta and id
+ */
+export type Resource = {
+    resourceType?: string;
+    entry?: KBVEntry[];
+} & HasMetaAndId;
+
+/**
  * Describes the contents of a MIOError
  * message: the message to describe what went wrong
  * resource: the reference to the resource that is in question
@@ -115,7 +136,7 @@ export type MIOError = {
 
 /**
  * Describes the result of parsing an object
- * value: the resource that is now has typesafety
+ * value: the resource that is now has type safety
  * errors: Errors that occurred during validation, should be fixed
  * warnings: Warnings that occurred during validation, more informational, may be fixed
  * patient?: UUID of the patient that this relates to

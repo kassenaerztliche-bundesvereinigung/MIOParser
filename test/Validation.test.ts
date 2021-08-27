@@ -18,9 +18,9 @@
  *
  */
 
-import fs from "fs";
+import fs = require("fs");
 import MIOParser from "../src";
-import * as TestUtil from "miotestdata";
+import * as TestUtil from "@kbv/miotestdata";
 import Messages from "../src/Interfaces/Messages";
 
 describe("Validation", () => {

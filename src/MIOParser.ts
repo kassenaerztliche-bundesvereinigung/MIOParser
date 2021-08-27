@@ -63,7 +63,7 @@ export default class MIOParser {
     }
 
     /**
-     * A file is being taken and first parsed to a JSON-Object then this is taken and being converted into a typscript object with the help of this.handleResult.
+     * A file is being taken and first parsed to a JSON-Object then this is taken and being converted into a typescript object with the help of this.handleResult.
      * The result then is returned as a promise
      *
      * @param {Blob} file input, FHIR file, either of type "application/json" or "text/xml"
@@ -292,6 +292,8 @@ export default class MIOParser {
                 });
             }
         }
+
+        warningEmitter.removeListener();
     };
 
     private setupListeners = (warnings: MIOError[]): void => {
@@ -303,7 +305,7 @@ export default class MIOParser {
                 resource: string,
                 value: string
             ) => {
-                const mioWarning = {
+                const mioWarning: MIOError = {
                     message: errorMessage,
                     path: warningPath,
                     resource: resource,
@@ -314,6 +316,7 @@ export default class MIOParser {
                     (e) =>
                         e.path === mioWarning.path && e.resource === mioWarning.resource
                 );
+
                 if (!alreadyContained) warnings.push(mioWarning);
             }
         );

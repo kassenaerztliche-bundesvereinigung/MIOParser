@@ -26,8 +26,9 @@ import * as MR from "./Definitions/KBV/MR";
 import * as CMR from "./Definitions/KBV/CMR";
 import * as KBVBase from "./Definitions/KBVBase";
 import * as FHIR from "./Definitions/FHIR";
+import * as HL7DE from "./Definitions/HL7DE";
 
-export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR };
+export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR, HL7DE };
 
 export {
     KBVBundleResource,

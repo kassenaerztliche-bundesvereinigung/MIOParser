@@ -19,8 +19,8 @@
  */
 
 import MIOParser, { ParserUtil, KBVBundleResource, Vaccination, ZAEB, MR } from "../src";
-import fs from "fs";
-import * as TestUtil from "miotestdata";
+import fs = require("fs");
+import * as TestUtil from "@kbv/miotestdata";
 import { ConceptMap } from "../src/Interfaces/Util";
 import { AnyType } from "../src/";
 
