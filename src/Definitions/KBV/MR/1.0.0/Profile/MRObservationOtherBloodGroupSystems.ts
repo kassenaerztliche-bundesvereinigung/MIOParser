@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,21 +25,22 @@ export interface MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigename
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Anderes Blutgruppen-System")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Anderes Blutgruppen-System")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -73,51 +54,50 @@ export interface MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigename
     )[];
 }
 
-export const MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -131,9 +111,8 @@ export interface MRObservationOtherBloodGroupSystemsCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsCodeCodingDisplay: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplay> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsCodeCodingDisplay",
-    () =>
+export const MRObservationOtherBloodGroupSystemsCodeCodingDisplay: t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplay> =
+    t.recursion("MRObservationOtherBloodGroupSystemsCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -141,9 +120,7 @@ export const MRObservationOtherBloodGroupSystemsCodeCodingDisplay: t.Type<MRObse
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationOtherBloodGroupSystemsCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -163,8 +140,7 @@ export const MRObservationOtherBloodGroupSystemsCodeCodingDisplay: t.Type<MRObse
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -173,7 +149,7 @@ export const MRObservationOtherBloodGroupSystemsCodeCodingDisplay: t.Type<MRObse
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -187,9 +163,8 @@ export interface MRObservationOtherBloodGroupSystemsCodeCoding {
     display?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsCodeCoding: t.Type<MRObservationOtherBloodGroupSystemsCodeCoding> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsCodeCoding",
-    () =>
+export const MRObservationOtherBloodGroupSystemsCodeCoding: t.Type<MRObservationOtherBloodGroupSystemsCodeCoding> =
+    t.recursion("MRObservationOtherBloodGroupSystemsCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -206,21 +181,18 @@ export const MRObservationOtherBloodGroupSystemsCodeCoding: t.Type<MRObservation
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationOtherBloodGroupSystemsMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Blood_Group_Systems|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Blood_Group_Systems|1.0.0">;
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsMeta: t.Type<MRObservationOtherBloodGroupSystemsMeta> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsMeta",
-    () =>
+export const MRObservationOtherBloodGroupSystemsMeta: t.Type<MRObservationOtherBloodGroupSystemsMeta> =
+    t.recursion("MRObservationOtherBloodGroupSystemsMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +209,7 @@ export const MRObservationOtherBloodGroupSystemsMeta: t.Type<MRObservationOtherB
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -247,9 +219,8 @@ export interface MRObservationOtherBloodGroupSystemsCode {
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsCode: t.Type<MRObservationOtherBloodGroupSystemsCode> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsCode",
-    () =>
+export const MRObservationOtherBloodGroupSystemsCode: t.Type<MRObservationOtherBloodGroupSystemsCode> =
+    t.recursion("MRObservationOtherBloodGroupSystemsCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -264,7 +235,7 @@ export const MRObservationOtherBloodGroupSystemsCode: t.Type<MRObservationOtherB
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -274,9 +245,8 @@ export interface MRObservationOtherBloodGroupSystemsSubject {
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsSubject: t.Type<MRObservationOtherBloodGroupSystemsSubject> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsSubject",
-    () =>
+export const MRObservationOtherBloodGroupSystemsSubject: t.Type<MRObservationOtherBloodGroupSystemsSubject> =
+    t.recursion("MRObservationOtherBloodGroupSystemsSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -289,7 +259,7 @@ export const MRObservationOtherBloodGroupSystemsSubject: t.Type<MRObservationOth
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -299,9 +269,8 @@ export interface MRObservationOtherBloodGroupSystemsEncounter {
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsEncounter: t.Type<MRObservationOtherBloodGroupSystemsEncounter> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsEncounter",
-    () =>
+export const MRObservationOtherBloodGroupSystemsEncounter: t.Type<MRObservationOtherBloodGroupSystemsEncounter> =
+    t.recursion("MRObservationOtherBloodGroupSystemsEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -314,7 +283,7 @@ export const MRObservationOtherBloodGroupSystemsEncounter: t.Type<MRObservationO
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -324,9 +293,8 @@ export interface MRObservationOtherBloodGroupSystemsPerformer {
     id?: string;
 }
 
-export const MRObservationOtherBloodGroupSystemsPerformer: t.Type<MRObservationOtherBloodGroupSystemsPerformer> = t.recursion(
-    "MRObservationOtherBloodGroupSystemsPerformer",
-    () =>
+export const MRObservationOtherBloodGroupSystemsPerformer: t.Type<MRObservationOtherBloodGroupSystemsPerformer> =
+    t.recursion("MRObservationOtherBloodGroupSystemsPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -340,7 +308,7 @@ export const MRObservationOtherBloodGroupSystemsPerformer: t.Type<MRObservationO
                 })
             ])
         )
-);
+    );
 
 interface MRObservationOtherBloodGroupSystems {
     resourceType: "Observation";
@@ -356,9 +324,8 @@ interface MRObservationOtherBloodGroupSystems {
     performer?: Array<MRObservationOtherBloodGroupSystemsPerformer>;
 }
 
-const MRObservationOtherBloodGroupSystems: t.Type<MRObservationOtherBloodGroupSystems> = t.recursion(
-    "MRObservationOtherBloodGroupSystems",
-    () =>
+const MRObservationOtherBloodGroupSystems: t.Type<MRObservationOtherBloodGroupSystems> =
+    t.recursion("MRObservationOtherBloodGroupSystems", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -378,6 +345,6 @@ const MRObservationOtherBloodGroupSystems: t.Type<MRObservationOtherBloodGroupSy
                 })
             ])
         )
-);
+    );
 
 export default MRObservationOtherBloodGroupSystems;

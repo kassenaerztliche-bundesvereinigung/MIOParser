@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { Literal, Excess, ReqArray, MinMaxArray } from "../../../../CustomTypes";
 
@@ -38,21 +18,22 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKor
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaftswoche+Tage (korrigiert)")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaftswoche+Tage (korrigiert)")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -63,25 +44,26 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKor
     extension?: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent[];
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: t.array(
-                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                    )
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: t.array(
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -92,17 +74,18 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeable
     value?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: t.array(TerminologyGerman),
-                value: SCALARString
-            })
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: t.array(TerminologyGerman),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -113,19 +96,20 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKor
     value?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: t.array(
-                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                ),
-                value: SCALARString
-            })
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: t.array(
+                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -139,26 +123,28 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeable
     display?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: SCALARCode
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: SCALARCode
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -172,26 +158,28 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKor
     display?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("57036006:246501002=278395004")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("57036006:246501002=278395004")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -204,23 +192,24 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftsw
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -233,52 +222,52 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageVa
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept {
-    coding: Array<
-        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-    >;
+    coding: Array<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -291,23 +280,24 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwang
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -320,52 +310,52 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenz
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept {
-    coding: Array<
-        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
-    >;
+    coding: Array<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -376,21 +366,23 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftsw
     valueQuantity?: MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswoche")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueQuantity: MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswoche")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueQuantity:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -401,21 +393,21 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage {
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage",
-    () =>
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage> =
+    t.recursion("MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal("ergaenzendeTage"),
-                    valueQuantity: MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity
+                    valueQuantity:
+                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTageValueQuantity
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -426,9 +418,8 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur {
     valueBoolean?: false;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur",
-    () =>
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur> =
+    t.recursion("MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -440,7 +431,7 @@ export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur: t.Type<MRP
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -451,21 +442,21 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode {
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode",
-    () =>
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode> =
+    t.recursion("MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal("kode"),
-                    valueCodeableConcept: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept
+                    valueCodeableConcept:
+                        MRPregnancyWeekAndDaySchwangerschaftszeitpunktKodeValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -476,21 +467,23 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwang
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswocheKorrigiert"),
-                    valueQuantity: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswocheKorrigiert"),
+                        valueQuantity:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -501,21 +494,23 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenz
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("ergaenzendeTageKorrigiert"),
-                    valueQuantity: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("ergaenzendeTageKorrigiert"),
+                        valueQuantity:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -526,21 +521,22 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekt
     valueBoolean?: true;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("korrekturKorrigiert")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueBoolean: Literal(true)
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("korrekturKorrigiert")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueBoolean: Literal(true)
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -551,21 +547,23 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKor
     id?: string;
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("kodeKorrigiert"),
-                    valueCodeableConcept: MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert> =
+    t.recursion(
+        "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("kodeKorrigiert"),
+                        valueCodeableConcept:
+                            MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -581,9 +579,8 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunkt {
     )[];
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunkt: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunkt> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunkt",
-    () =>
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunkt: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunkt> =
+    t.recursion("MRPregnancyWeekAndDaySchwangerschaftszeitpunkt", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -594,15 +591,9 @@ export const MRPregnancyWeekAndDaySchwangerschaftszeitpunkt: t.Type<MRPregnancyW
                     extension: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche
-                                >,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage
-                                >,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur
-                                >,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktSchwangerschaftswoche>,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktErgaenzendeTage>,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrektur>,
                                 t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKode>
                             ]
                         >,
@@ -641,7 +632,7 @@ export const MRPregnancyWeekAndDaySchwangerschaftszeitpunkt: t.Type<MRPregnancyW
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -657,9 +648,8 @@ export interface MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert {
     )[];
 }
 
-export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert> = t.recursion(
-    "MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert",
-    () =>
+export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert: t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert> =
+    t.recursion("MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -670,18 +660,10 @@ export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert: t.Type<MR
                     extension: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert
-                                >,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert
-                                >,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert
-                                >,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert
-                                >
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert>,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert>,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert>,
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiertKodeKorrigiert>
                             ]
                         >,
                         t.Any
@@ -725,7 +707,7 @@ export const MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert: t.Type<MR
                 })
             ])
         )
-);
+    );
 
 interface MRPregnancyWeekAndDay {
     url: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day";
@@ -752,9 +734,7 @@ const MRPregnancyWeekAndDay: t.Type<MRPregnancyWeekAndDay> = t.recursion(
                         t.UnionC<
                             [
                                 t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunkt>,
-                                t.Type<
-                                    MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert
-                                >
+                                t.Type<MRPregnancyWeekAndDaySchwangerschaftszeitpunktKorrigiert>
                             ]
                         >,
                         t.Any

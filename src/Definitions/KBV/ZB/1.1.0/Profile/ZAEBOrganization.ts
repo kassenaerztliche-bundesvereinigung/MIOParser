@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -49,9 +29,8 @@ export interface ZAEBOrganizationStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const ZAEBOrganizationStrassenanschriftLineStrasse: t.Type<ZAEBOrganizationStrassenanschriftLineStrasse> = t.recursion(
-    "ZAEBOrganizationStrassenanschriftLineStrasse",
-    () =>
+export const ZAEBOrganizationStrassenanschriftLineStrasse: t.Type<ZAEBOrganizationStrassenanschriftLineStrasse> =
+    t.recursion("ZAEBOrganizationStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -65,7 +44,7 @@ export const ZAEBOrganizationStrassenanschriftLineStrasse: t.Type<ZAEBOrganizati
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -77,9 +56,8 @@ export interface ZAEBOrganizationStrassenanschriftLineHausnummer {
     id?: string;
 }
 
-export const ZAEBOrganizationStrassenanschriftLineHausnummer: t.Type<ZAEBOrganizationStrassenanschriftLineHausnummer> = t.recursion(
-    "ZAEBOrganizationStrassenanschriftLineHausnummer",
-    () =>
+export const ZAEBOrganizationStrassenanschriftLineHausnummer: t.Type<ZAEBOrganizationStrassenanschriftLineHausnummer> =
+    t.recursion("ZAEBOrganizationStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -93,7 +71,7 @@ export const ZAEBOrganizationStrassenanschriftLineHausnummer: t.Type<ZAEBOrganiz
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -105,9 +83,8 @@ export interface ZAEBOrganizationStrassenanschriftLineAdresszusatz {
     id?: string;
 }
 
-export const ZAEBOrganizationStrassenanschriftLineAdresszusatz: t.Type<ZAEBOrganizationStrassenanschriftLineAdresszusatz> = t.recursion(
-    "ZAEBOrganizationStrassenanschriftLineAdresszusatz",
-    () =>
+export const ZAEBOrganizationStrassenanschriftLineAdresszusatz: t.Type<ZAEBOrganizationStrassenanschriftLineAdresszusatz> =
+    t.recursion("ZAEBOrganizationStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -121,7 +98,7 @@ export const ZAEBOrganizationStrassenanschriftLineAdresszusatz: t.Type<ZAEBOrgan
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -135,9 +112,8 @@ export interface ZAEBOrganizationInstitutionskennzeichenTypeCoding {
     userSelected?: boolean;
 }
 
-export const ZAEBOrganizationInstitutionskennzeichenTypeCoding: t.Type<ZAEBOrganizationInstitutionskennzeichenTypeCoding> = t.recursion(
-    "ZAEBOrganizationInstitutionskennzeichenTypeCoding",
-    () =>
+export const ZAEBOrganizationInstitutionskennzeichenTypeCoding: t.Type<ZAEBOrganizationInstitutionskennzeichenTypeCoding> =
+    t.recursion("ZAEBOrganizationInstitutionskennzeichenTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -152,7 +128,7 @@ export const ZAEBOrganizationInstitutionskennzeichenTypeCoding: t.Type<ZAEBOrgan
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -166,9 +142,8 @@ export interface ZAEBOrganizationBetriebsstaettennummerTypeCoding {
     userSelected?: boolean;
 }
 
-export const ZAEBOrganizationBetriebsstaettennummerTypeCoding: t.Type<ZAEBOrganizationBetriebsstaettennummerTypeCoding> = t.recursion(
-    "ZAEBOrganizationBetriebsstaettennummerTypeCoding",
-    () =>
+export const ZAEBOrganizationBetriebsstaettennummerTypeCoding: t.Type<ZAEBOrganizationBetriebsstaettennummerTypeCoding> =
+    t.recursion("ZAEBOrganizationBetriebsstaettennummerTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -183,7 +158,7 @@ export const ZAEBOrganizationBetriebsstaettennummerTypeCoding: t.Type<ZAEBOrgani
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -197,9 +172,8 @@ export interface ZAEBOrganizationKZVAbrechnungsnummerTypeCoding {
     userSelected?: boolean;
 }
 
-export const ZAEBOrganizationKZVAbrechnungsnummerTypeCoding: t.Type<ZAEBOrganizationKZVAbrechnungsnummerTypeCoding> = t.recursion(
-    "ZAEBOrganizationKZVAbrechnungsnummerTypeCoding",
-    () =>
+export const ZAEBOrganizationKZVAbrechnungsnummerTypeCoding: t.Type<ZAEBOrganizationKZVAbrechnungsnummerTypeCoding> =
+    t.recursion("ZAEBOrganizationKZVAbrechnungsnummerTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -214,34 +188,33 @@ export const ZAEBOrganizationKZVAbrechnungsnummerTypeCoding: t.Type<ZAEBOrganiza
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
  */
 export interface ZAEBOrganizationStrassenanschriftStadtteil {
     url: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct";
-    valueString: string;
     id?: string;
+    valueString?: string;
 }
 
-export const ZAEBOrganizationStrassenanschriftStadtteil: t.Type<ZAEBOrganizationStrassenanschriftStadtteil> = t.recursion(
-    "ZAEBOrganizationStrassenanschriftStadtteil",
-    () =>
+export const ZAEBOrganizationStrassenanschriftStadtteil: t.Type<ZAEBOrganizationStrassenanschriftStadtteil> =
+    t.recursion("ZAEBOrganizationStrassenanschriftStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal(
                         "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
-                    ),
-                    valueString: SCALARString
+                    )
                 }),
                 t.partial({
-                    id: SCALARString
+                    id: SCALARString,
+                    valueString: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -252,9 +225,8 @@ export interface ZAEBOrganizationInstitutionskennzeichenType {
     text?: string;
 }
 
-export const ZAEBOrganizationInstitutionskennzeichenType: t.Type<ZAEBOrganizationInstitutionskennzeichenType> = t.recursion(
-    "ZAEBOrganizationInstitutionskennzeichenType",
-    () =>
+export const ZAEBOrganizationInstitutionskennzeichenType: t.Type<ZAEBOrganizationInstitutionskennzeichenType> =
+    t.recursion("ZAEBOrganizationInstitutionskennzeichenType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -270,7 +242,7 @@ export const ZAEBOrganizationInstitutionskennzeichenType: t.Type<ZAEBOrganizatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -281,9 +253,8 @@ export interface ZAEBOrganizationBetriebsstaettennummerType {
     text?: string;
 }
 
-export const ZAEBOrganizationBetriebsstaettennummerType: t.Type<ZAEBOrganizationBetriebsstaettennummerType> = t.recursion(
-    "ZAEBOrganizationBetriebsstaettennummerType",
-    () =>
+export const ZAEBOrganizationBetriebsstaettennummerType: t.Type<ZAEBOrganizationBetriebsstaettennummerType> =
+    t.recursion("ZAEBOrganizationBetriebsstaettennummerType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -299,7 +270,7 @@ export const ZAEBOrganizationBetriebsstaettennummerType: t.Type<ZAEBOrganization
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -310,9 +281,8 @@ export interface ZAEBOrganizationKZVAbrechnungsnummerType {
     text?: string;
 }
 
-export const ZAEBOrganizationKZVAbrechnungsnummerType: t.Type<ZAEBOrganizationKZVAbrechnungsnummerType> = t.recursion(
-    "ZAEBOrganizationKZVAbrechnungsnummerType",
-    () =>
+export const ZAEBOrganizationKZVAbrechnungsnummerType: t.Type<ZAEBOrganizationKZVAbrechnungsnummerType> =
+    t.recursion("ZAEBOrganizationKZVAbrechnungsnummerType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -328,7 +298,7 @@ export const ZAEBOrganizationKZVAbrechnungsnummerType: t.Type<ZAEBOrganizationKZ
                 })
             ])
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -345,9 +315,8 @@ export interface ZAEBOrganizationStrassenanschriftLine {
     value?: string;
 }
 
-export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStrassenanschriftLine> = t.recursion(
-    "ZAEBOrganizationStrassenanschriftLine",
-    () =>
+export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStrassenanschriftLine> =
+    t.recursion("ZAEBOrganizationStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -379,8 +348,7 @@ export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStras
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -388,8 +356,7 @@ export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStras
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -397,8 +364,7 @@ export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStras
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -407,26 +373,39 @@ export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStras
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationInstitutionskennzeichen {
-    type: ZAEBOrganizationInstitutionskennzeichenType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "XX";
+        }[];
+    };
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const ZAEBOrganizationInstitutionskennzeichen: t.Type<ZAEBOrganizationInstitutionskennzeichen> = t.recursion(
-    "ZAEBOrganizationInstitutionskennzeichen",
-    () =>
+export const ZAEBOrganizationInstitutionskennzeichen: t.Type<ZAEBOrganizationInstitutionskennzeichen> =
+    t.recursion("ZAEBOrganizationInstitutionskennzeichen", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: ZAEBOrganizationInstitutionskennzeichenType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("XX")
+                            })
+                        )
+                    }),
                     system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
                     value: SCALARString
                 }),
@@ -436,26 +415,39 @@ export const ZAEBOrganizationInstitutionskennzeichen: t.Type<ZAEBOrganizationIns
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationBetriebsstaettennummer {
-    type: ZAEBOrganizationBetriebsstaettennummerType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "BSNR";
+        }[];
+    };
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const ZAEBOrganizationBetriebsstaettennummer: t.Type<ZAEBOrganizationBetriebsstaettennummer> = t.recursion(
-    "ZAEBOrganizationBetriebsstaettennummer",
-    () =>
+export const ZAEBOrganizationBetriebsstaettennummer: t.Type<ZAEBOrganizationBetriebsstaettennummer> =
+    t.recursion("ZAEBOrganizationBetriebsstaettennummer", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: ZAEBOrganizationBetriebsstaettennummerType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("BSNR")
+                            })
+                        )
+                    }),
                     system: Literal("https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"),
                     value: SCALARString
                 }),
@@ -465,26 +457,39 @@ export const ZAEBOrganizationBetriebsstaettennummer: t.Type<ZAEBOrganizationBetr
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationKZVAbrechnungsnummer {
-    type: ZAEBOrganizationKZVAbrechnungsnummerType;
+    type: {
+        coding: {
+            system: "http://fhir.de/CodeSystem/identifier-type-de-basis";
+            code: "KZVA";
+        }[];
+    };
     system: "http://fhir.de/NamingSystem/kzbv/kzvabrechnungsnummer";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const ZAEBOrganizationKZVAbrechnungsnummer: t.Type<ZAEBOrganizationKZVAbrechnungsnummer> = t.recursion(
-    "ZAEBOrganizationKZVAbrechnungsnummer",
-    () =>
+export const ZAEBOrganizationKZVAbrechnungsnummer: t.Type<ZAEBOrganizationKZVAbrechnungsnummer> =
+    t.recursion("ZAEBOrganizationKZVAbrechnungsnummer", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: ZAEBOrganizationKZVAbrechnungsnummerType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://fhir.de/CodeSystem/identifier-type-de-basis"
+                                ),
+                                code: Literal("KZVA")
+                            })
+                        )
+                    }),
                     system: Literal(
                         "http://fhir.de/NamingSystem/kzbv/kzvabrechnungsnummer"
                     ),
@@ -496,7 +501,7 @@ export const ZAEBOrganizationKZVAbrechnungsnummer: t.Type<ZAEBOrganizationKZVAbr
                 })
             ])
         )
-);
+    );
 
 /**
 * Eine Adresse gemäß postalischer Konventionen (im Gegensatz zu bspw. GPS-Koordinaten). Die Adresse kann sowohl zur Zustellung von Postsendungen oder zum Aufsuchen von Orten, die keine gültige Postadresse haben, verwendet werden.
@@ -518,9 +523,8 @@ export interface ZAEBOrganizationStrassenanschrift {
     line?: Array<string>;
 }
 
-export const ZAEBOrganizationStrassenanschrift: t.Type<ZAEBOrganizationStrassenanschrift> = t.recursion(
-    "ZAEBOrganizationStrassenanschrift",
-    () =>
+export const ZAEBOrganizationStrassenanschrift: t.Type<ZAEBOrganizationStrassenanschrift> =
+    t.recursion("ZAEBOrganizationStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -552,8 +556,7 @@ export const ZAEBOrganizationStrassenanschrift: t.Type<ZAEBOrganizationStrassena
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -566,15 +569,13 @@ export const ZAEBOrganizationStrassenanschrift: t.Type<ZAEBOrganizationStrassena
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface ZAEBOrganizationMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Organization|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Organization|1.1.0">;
     id?: string;
 }
 

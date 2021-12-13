@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { ValueSet } from "../../../Interfaces";
 
@@ -116,18 +96,54 @@ export const EventtimingValueSet: ValueSet = [
     {
         system: "http://hl7.org/fhir/event-timing",
         concept: [
-            { code: "MORN", display: "Morning" },
-            { code: "MORN.early", display: "Early Morning" },
-            { code: "MORN.late", display: "Late Morning" },
-            { code: "NOON", display: "Noon" },
-            { code: "AFT", display: "Afternoon" },
-            { code: "AFT.early", display: "Early Afternoon" },
-            { code: "AFT.late", display: "Late Afternoon" },
-            { code: "EVE", display: "Evening" },
-            { code: "EVE.early", display: "Early Evening" },
-            { code: "EVE.late", display: "Late Evening" },
-            { code: "NIGHT", display: "Night" },
-            { code: "PHS", display: "After Sleep" }
+            {
+                code: "MORN",
+                display: "Morning"
+            },
+            {
+                code: "MORN.early",
+                display: "Early Morning"
+            },
+            {
+                code: "MORN.late",
+                display: "Late Morning"
+            },
+            {
+                code: "NOON",
+                display: "Noon"
+            },
+            {
+                code: "AFT",
+                display: "Afternoon"
+            },
+            {
+                code: "AFT.early",
+                display: "Early Afternoon"
+            },
+            {
+                code: "AFT.late",
+                display: "Late Afternoon"
+            },
+            {
+                code: "EVE",
+                display: "Evening"
+            },
+            {
+                code: "EVE.early",
+                display: "Early Evening"
+            },
+            {
+                code: "EVE.late",
+                display: "Late Evening"
+            },
+            {
+                code: "NIGHT",
+                display: "Night"
+            },
+            {
+                code: "PHS",
+                display: "After Sleep"
+            }
         ]
     },
     {
@@ -135,82 +151,60 @@ export const EventtimingValueSet: ValueSet = [
         concept: [
             {
                 code: "HS",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "WAKE",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "C",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "CM",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "CD",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "CV",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "AC",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "ACM",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "ACD",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "ACV",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "PC",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "PCM",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "PCD",
-                display: "undefined"
+                display: ""
             },
             {
                 code: "PCV",
-                display: "undefined"
+                display: ""
             }
-        ]
-    },
-    {
-        system: "http://terminology.hl7.org/CodeSystem/v3-TimingEvent",
-        concept: [
-            { code: "AC", display: "AC" },
-            { code: "ACD", display: "ACD" },
-            { code: "ACM", display: "ACM" },
-            { code: "ACV", display: "ACV" },
-            { code: "CD", display: "CD" },
-            { code: "CM", display: "CM" },
-            { code: "CV", display: "CV" },
-            { code: "HS", display: "HS" },
-            { code: "IC", display: "IC" },
-            { code: "ICD", display: "ICD" },
-            { code: "ICM", display: "ICM" },
-            { code: "ICV", display: "ICV" },
-            { code: "PC", display: "PC" },
-            { code: "PCD", display: "PCD" },
-            { code: "PCM", display: "PCM" },
-            { code: "PCV", display: "PCV" },
-            { code: "WAKE", display: "WAKE" }
         ]
     }
 ];

@@ -18,61 +18,50 @@
  *
  */
 
-import fs = require("fs");
 import MIOParser from "../src";
 import * as TestUtil from "@kbv/miotestdata";
-import Messages from "../src/Interfaces/Messages";
+import Messages from "../src/Definitions/ErrorMessage";
 
 describe("Validation", () => {
     const mioParser = new MIOParser();
 
     const testFunction = (file: string): void => {
-        test(file, async (done) => {
-            const validationResult = await mioParser.validateFile(
-                new Blob([fs.readFileSync(file)])
-            );
+        test(file, (done) => {
+            const bundleFile = TestUtil.readFile(file);
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            expect(validationResult.errors.length).toBeTruthy();
-            expect(validationResult.message).toEqual(Messages.Valid(false));
-            expect(validationResult.valid).toBe(false);
-            done();
+            mioParser.validateString(bundleFile).then((validationResult) => {
+                expect(validationResult.errors.length).toBeTruthy();
+                expect(validationResult.message).toEqual(Messages.Valid(false));
+                expect(validationResult.valid).toBe(false);
+                done();
+            });
         });
     };
 
-    TestUtil.runAllBundleFiles("validateFile", testFunction, false);
-    TestUtil.runAllProfileFiles("validateFile", testFunction, false);
+    TestUtil.runAllBundleFiles("validateString", testFunction, false);
+    TestUtil.runAllProfileFiles("validateString", testFunction, false);
 
-    test("ErrorMessage Language", async (done) => {
+    test("ErrorMessage Language", (done) => {
         const mioParser = new MIOParser();
 
-        let resultDe;
+        mioParser.parseString("{}", "application/json").catch((resultDe) => {
+            expect(resultDe).toBeDefined();
+            if (resultDe) {
+                expect(resultDe.message).toBe("Resource has no meta.");
+            }
 
-        try {
-            await mioParser.parseString("{}", "application/json");
-        } catch (err) {
-            resultDe = err;
-        }
+            MIOParser.setLang("de");
 
-        expect(resultDe).toBeDefined();
-        if (resultDe) {
-            expect(resultDe.message).toBe("Resource has no meta.");
-        }
+            mioParser.parseString("{}", "application/json").catch((resultEn) => {
+                expect(resultEn).toBeDefined();
+                if (resultEn) {
+                    expect(resultEn.message).toBe("Die Ressource hat kein Meta-Element.");
+                }
+            });
 
-        MIOParser.setLang("de");
-
-        let resultEn;
-
-        try {
-            await mioParser.parseString("{}", "application/json");
-        } catch (err) {
-            resultEn = err;
-        }
-
-        expect(resultEn).toBeDefined();
-        if (resultEn) {
-            expect(resultEn.message).toBe("Die Ressource hat kein Meta-Element.");
-        }
-
-        done();
+            done();
+        });
     });
 });

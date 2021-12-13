@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnom
     id?: string;
 }
 
-export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Kind lebt und ist gesund")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Kind lebt und ist gesund")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,9 +55,8 @@ export interface MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnom
     )[];
 }
 
-export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -90,9 +70,7 @@ export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed: 
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -118,7 +96,7 @@ export const MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed: 
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -132,9 +110,8 @@ export interface MRObservationChildIsHealthyCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationChildIsHealthyCodeCodingDisplay: t.Type<MRObservationChildIsHealthyCodeCodingDisplay> = t.recursion(
-    "MRObservationChildIsHealthyCodeCodingDisplay",
-    () =>
+export const MRObservationChildIsHealthyCodeCodingDisplay: t.Type<MRObservationChildIsHealthyCodeCodingDisplay> =
+    t.recursion("MRObservationChildIsHealthyCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -142,9 +119,7 @@ export const MRObservationChildIsHealthyCodeCodingDisplay: t.Type<MRObservationC
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationChildIsHealthyCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -164,8 +139,7 @@ export const MRObservationChildIsHealthyCodeCodingDisplay: t.Type<MRObservationC
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -174,7 +148,7 @@ export const MRObservationChildIsHealthyCodeCodingDisplay: t.Type<MRObservationC
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -188,9 +162,8 @@ export interface MRObservationChildIsHealthyCodeCoding {
     display?: string;
 }
 
-export const MRObservationChildIsHealthyCodeCoding: t.Type<MRObservationChildIsHealthyCodeCoding> = t.recursion(
-    "MRObservationChildIsHealthyCodeCoding",
-    () =>
+export const MRObservationChildIsHealthyCodeCoding: t.Type<MRObservationChildIsHealthyCodeCoding> =
+    t.recursion("MRObservationChildIsHealthyCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -207,21 +180,18 @@ export const MRObservationChildIsHealthyCodeCoding: t.Type<MRObservationChildIsH
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationChildIsHealthyMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0">;
     id?: string;
 }
 
-export const MRObservationChildIsHealthyMeta: t.Type<MRObservationChildIsHealthyMeta> = t.recursion(
-    "MRObservationChildIsHealthyMeta",
-    () =>
+export const MRObservationChildIsHealthyMeta: t.Type<MRObservationChildIsHealthyMeta> =
+    t.recursion("MRObservationChildIsHealthyMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -238,7 +208,7 @@ export const MRObservationChildIsHealthyMeta: t.Type<MRObservationChildIsHealthy
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -248,9 +218,8 @@ export interface MRObservationChildIsHealthyCode {
     id?: string;
 }
 
-export const MRObservationChildIsHealthyCode: t.Type<MRObservationChildIsHealthyCode> = t.recursion(
-    "MRObservationChildIsHealthyCode",
-    () =>
+export const MRObservationChildIsHealthyCode: t.Type<MRObservationChildIsHealthyCode> =
+    t.recursion("MRObservationChildIsHealthyCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -261,7 +230,7 @@ export const MRObservationChildIsHealthyCode: t.Type<MRObservationChildIsHealthy
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -271,9 +240,8 @@ export interface MRObservationChildIsHealthySubject {
     id?: string;
 }
 
-export const MRObservationChildIsHealthySubject: t.Type<MRObservationChildIsHealthySubject> = t.recursion(
-    "MRObservationChildIsHealthySubject",
-    () =>
+export const MRObservationChildIsHealthySubject: t.Type<MRObservationChildIsHealthySubject> =
+    t.recursion("MRObservationChildIsHealthySubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,7 +254,7 @@ export const MRObservationChildIsHealthySubject: t.Type<MRObservationChildIsHeal
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -296,9 +264,8 @@ export interface MRObservationChildIsHealthyEncounter {
     id?: string;
 }
 
-export const MRObservationChildIsHealthyEncounter: t.Type<MRObservationChildIsHealthyEncounter> = t.recursion(
-    "MRObservationChildIsHealthyEncounter",
-    () =>
+export const MRObservationChildIsHealthyEncounter: t.Type<MRObservationChildIsHealthyEncounter> =
+    t.recursion("MRObservationChildIsHealthyEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -311,7 +278,7 @@ export const MRObservationChildIsHealthyEncounter: t.Type<MRObservationChildIsHe
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -321,9 +288,8 @@ export interface MRObservationChildIsHealthyPerformer {
     id?: string;
 }
 
-export const MRObservationChildIsHealthyPerformer: t.Type<MRObservationChildIsHealthyPerformer> = t.recursion(
-    "MRObservationChildIsHealthyPerformer",
-    () =>
+export const MRObservationChildIsHealthyPerformer: t.Type<MRObservationChildIsHealthyPerformer> =
+    t.recursion("MRObservationChildIsHealthyPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,7 +303,7 @@ export const MRObservationChildIsHealthyPerformer: t.Type<MRObservationChildIsHe
                 })
             ])
         )
-);
+    );
 
 interface MRObservationChildIsHealthy {
     resourceType: "Observation";

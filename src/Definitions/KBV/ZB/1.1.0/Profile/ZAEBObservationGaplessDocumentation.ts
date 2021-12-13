@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -44,9 +24,8 @@ export interface ZAEBObservationGaplessDocumentationDisclaimer {
     id?: string;
 }
 
-export const ZAEBObservationGaplessDocumentationDisclaimer: t.Type<ZAEBObservationGaplessDocumentationDisclaimer> = t.recursion(
-    "ZAEBObservationGaplessDocumentationDisclaimer",
-    () =>
+export const ZAEBObservationGaplessDocumentationDisclaimer: t.Type<ZAEBObservationGaplessDocumentationDisclaimer> =
+    t.recursion("ZAEBObservationGaplessDocumentationDisclaimer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -62,21 +41,18 @@ export const ZAEBObservationGaplessDocumentationDisclaimer: t.Type<ZAEBObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface ZAEBObservationGaplessDocumentationMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Gapless_Documentation|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Observation_Gapless_Documentation|1.1.0">;
     id?: string;
 }
 
-export const ZAEBObservationGaplessDocumentationMeta: t.Type<ZAEBObservationGaplessDocumentationMeta> = t.recursion(
-    "ZAEBObservationGaplessDocumentationMeta",
-    () =>
+export const ZAEBObservationGaplessDocumentationMeta: t.Type<ZAEBObservationGaplessDocumentationMeta> =
+    t.recursion("ZAEBObservationGaplessDocumentationMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -93,7 +69,7 @@ export const ZAEBObservationGaplessDocumentationMeta: t.Type<ZAEBObservationGapl
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -103,9 +79,8 @@ export interface ZAEBObservationGaplessDocumentationCode {
     id?: string;
 }
 
-export const ZAEBObservationGaplessDocumentationCode: t.Type<ZAEBObservationGaplessDocumentationCode> = t.recursion(
-    "ZAEBObservationGaplessDocumentationCode",
-    () =>
+export const ZAEBObservationGaplessDocumentationCode: t.Type<ZAEBObservationGaplessDocumentationCode> =
+    t.recursion("ZAEBObservationGaplessDocumentationCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -118,7 +93,7 @@ export const ZAEBObservationGaplessDocumentationCode: t.Type<ZAEBObservationGapl
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -128,9 +103,8 @@ export interface ZAEBObservationGaplessDocumentationSubject {
     id?: string;
 }
 
-export const ZAEBObservationGaplessDocumentationSubject: t.Type<ZAEBObservationGaplessDocumentationSubject> = t.recursion(
-    "ZAEBObservationGaplessDocumentationSubject",
-    () =>
+export const ZAEBObservationGaplessDocumentationSubject: t.Type<ZAEBObservationGaplessDocumentationSubject> =
+    t.recursion("ZAEBObservationGaplessDocumentationSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -143,7 +117,7 @@ export const ZAEBObservationGaplessDocumentationSubject: t.Type<ZAEBObservationG
                 })
             ])
         )
-);
+    );
 
 interface ZAEBObservationGaplessDocumentation {
     resourceType: "Observation";
@@ -157,9 +131,8 @@ interface ZAEBObservationGaplessDocumentation {
     extension?: (Extension | ZAEBObservationGaplessDocumentationDisclaimer)[];
 }
 
-const ZAEBObservationGaplessDocumentation: t.Type<ZAEBObservationGaplessDocumentation> = t.recursion(
-    "ZAEBObservationGaplessDocumentation",
-    () =>
+const ZAEBObservationGaplessDocumentation: t.Type<ZAEBObservationGaplessDocumentation> =
+    t.recursion("ZAEBObservationGaplessDocumentation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -197,8 +170,7 @@ const ZAEBObservationGaplessDocumentation: t.Type<ZAEBObservationGaplessDocument
                                 occurrence: ["1", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_ZAEB_Disclaimer"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_ZAEB_Disclaimer"
                                 }
                             }
                         ],
@@ -207,6 +179,6 @@ const ZAEBObservationGaplessDocumentation: t.Type<ZAEBObservationGaplessDocument
                 })
             ])
         )
-);
+    );
 
 export default ZAEBObservationGaplessDocumentation;

@@ -1,26 +1,10 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
+// Canonical URL for ConceptMap: https://fhir.kbv.de/ConceptMap/KBV_CM_MIO_Vaccination_Vaccine_Targetdisease
+// Copyright © [2020], Kassenärztliche Bundesvereinigung (KBV). All rights reserved. Hinweis: This material includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of SNOMED International. All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. SNOMED and SNOMED CT are registered trademarks of SNOMED International. Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license.
 
 // Diese Conceptmap verknüpft die Codes für impfrelevante durchgemachte Krankheiten mit denen für Impfstoffe und bietet einen deutschen Code.
 
 import { ConceptMap } from "../../../../Interfaces";
+
 const VaccinationVaccineTargetdisease: ConceptMap = [
     {
         source: "http://snomed.info/sct",
@@ -762,8 +746,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                         equivalence: "relatedto"
@@ -781,8 +764,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"
@@ -938,15 +920,13 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"
@@ -1036,8 +1016,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                         equivalence: "relatedto"
@@ -1049,8 +1028,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"
@@ -1074,8 +1052,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"
@@ -1135,15 +1112,13 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"
@@ -1215,8 +1190,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                         equivalence: "relatedto"
@@ -1228,8 +1202,7 @@ const VaccinationVaccineTargetdisease: ConceptMap = [
                         equivalence: "relatedto"
                     },
                     {
-                        code:
-                            "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
+                        code: "871729003 + 836380007 + 601000221108 + 863911006 + 836374004 + 871871008",
                         display:
                             "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                         equivalence: "relatedto"

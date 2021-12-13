@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDis
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> = t.recursion(
-    "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> =
+    t.recursion(
+        "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -71,21 +52,22 @@ export interface MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameC
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Stillverhalten der Mutter")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Stillverhalten der Mutter")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -99,51 +81,50 @@ export interface MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDis
     )[];
 }
 
-export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> = t.recursion(
-    "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> =
+    t.recursion(
+        "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -157,51 +138,50 @@ export interface MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameC
     )[];
 }
 
-export const MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -215,49 +195,47 @@ export interface MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDis
     value?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplayAnzeigenameValueSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -271,9 +249,8 @@ export interface MRObservationBreastfeedingBehaviorCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorCodeCodingDisplay: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplay> = t.recursion(
-    "MRObservationBreastfeedingBehaviorCodeCodingDisplay",
-    () =>
+export const MRObservationBreastfeedingBehaviorCodeCodingDisplay: t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplay> =
+    t.recursion("MRObservationBreastfeedingBehaviorCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -281,9 +258,7 @@ export const MRObservationBreastfeedingBehaviorCodeCodingDisplay: t.Type<MRObser
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBreastfeedingBehaviorCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -303,8 +278,7 @@ export const MRObservationBreastfeedingBehaviorCodeCodingDisplay: t.Type<MRObser
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -313,7 +287,7 @@ export const MRObservationBreastfeedingBehaviorCodeCodingDisplay: t.Type<MRObser
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -327,9 +301,8 @@ export interface MRObservationBreastfeedingBehaviorValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorValueCodeableConceptCoding: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCoding> = t.recursion(
-    "MRObservationBreastfeedingBehaviorValueCodeableConceptCoding",
-    () =>
+export const MRObservationBreastfeedingBehaviorValueCodeableConceptCoding: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConceptCoding> =
+    t.recursion("MRObservationBreastfeedingBehaviorValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -339,12 +312,13 @@ export const MRObservationBreastfeedingBehaviorValueCodeableConceptCoding: t.Typ
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay,
+                    _display:
+                        MRObservationBreastfeedingBehaviorValueCodeableConceptCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -358,9 +332,8 @@ export interface MRObservationBreastfeedingBehaviorCodeCoding {
     display?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorCodeCoding: t.Type<MRObservationBreastfeedingBehaviorCodeCoding> = t.recursion(
-    "MRObservationBreastfeedingBehaviorCodeCoding",
-    () =>
+export const MRObservationBreastfeedingBehaviorCodeCoding: t.Type<MRObservationBreastfeedingBehaviorCodeCoding> =
+    t.recursion("MRObservationBreastfeedingBehaviorCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -377,7 +350,7 @@ export const MRObservationBreastfeedingBehaviorCodeCoding: t.Type<MRObservationB
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -387,9 +360,8 @@ export interface MRObservationBreastfeedingBehaviorValueCodeableConcept {
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorValueCodeableConcept: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConcept> = t.recursion(
-    "MRObservationBreastfeedingBehaviorValueCodeableConcept",
-    () =>
+export const MRObservationBreastfeedingBehaviorValueCodeableConcept: t.Type<MRObservationBreastfeedingBehaviorValueCodeableConcept> =
+    t.recursion("MRObservationBreastfeedingBehaviorValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -404,21 +376,18 @@ export const MRObservationBreastfeedingBehaviorValueCodeableConcept: t.Type<MROb
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBreastfeedingBehaviorMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0">;
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorMeta: t.Type<MRObservationBreastfeedingBehaviorMeta> = t.recursion(
-    "MRObservationBreastfeedingBehaviorMeta",
-    () =>
+export const MRObservationBreastfeedingBehaviorMeta: t.Type<MRObservationBreastfeedingBehaviorMeta> =
+    t.recursion("MRObservationBreastfeedingBehaviorMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -435,7 +404,7 @@ export const MRObservationBreastfeedingBehaviorMeta: t.Type<MRObservationBreastf
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -445,9 +414,8 @@ export interface MRObservationBreastfeedingBehaviorCode {
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorCode: t.Type<MRObservationBreastfeedingBehaviorCode> = t.recursion(
-    "MRObservationBreastfeedingBehaviorCode",
-    () =>
+export const MRObservationBreastfeedingBehaviorCode: t.Type<MRObservationBreastfeedingBehaviorCode> =
+    t.recursion("MRObservationBreastfeedingBehaviorCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -462,7 +430,7 @@ export const MRObservationBreastfeedingBehaviorCode: t.Type<MRObservationBreastf
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -472,9 +440,8 @@ export interface MRObservationBreastfeedingBehaviorSubject {
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBreastfeedingBehaviorSubject> = t.recursion(
-    "MRObservationBreastfeedingBehaviorSubject",
-    () =>
+export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBreastfeedingBehaviorSubject> =
+    t.recursion("MRObservationBreastfeedingBehaviorSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -487,7 +454,7 @@ export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBrea
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -497,9 +464,8 @@ export interface MRObservationBreastfeedingBehaviorEncounter {
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBreastfeedingBehaviorEncounter> = t.recursion(
-    "MRObservationBreastfeedingBehaviorEncounter",
-    () =>
+export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBreastfeedingBehaviorEncounter> =
+    t.recursion("MRObservationBreastfeedingBehaviorEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -512,7 +478,7 @@ export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBr
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -522,9 +488,8 @@ export interface MRObservationBreastfeedingBehaviorPerformer {
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBreastfeedingBehaviorPerformer> = t.recursion(
-    "MRObservationBreastfeedingBehaviorPerformer",
-    () =>
+export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBreastfeedingBehaviorPerformer> =
+    t.recursion("MRObservationBreastfeedingBehaviorPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -538,7 +503,7 @@ export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBr
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBreastfeedingBehavior {
     resourceType: "Observation";
@@ -554,9 +519,8 @@ interface MRObservationBreastfeedingBehavior {
     performer?: Array<MRObservationBreastfeedingBehaviorPerformer>;
 }
 
-const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehavior> = t.recursion(
-    "MRObservationBreastfeedingBehavior",
-    () =>
+const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehavior> =
+    t.recursion("MRObservationBreastfeedingBehavior", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -567,7 +531,8 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
                     subject: MRObservationBreastfeedingBehaviorSubject,
                     encounter: MRObservationBreastfeedingBehaviorEncounter,
                     effectiveDateTime: SCALARDateTime,
-                    valueCodeableConcept: MRObservationBreastfeedingBehaviorValueCodeableConcept
+                    valueCodeableConcept:
+                        MRObservationBreastfeedingBehaviorValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
@@ -576,6 +541,6 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
                 })
             ])
         )
-);
+    );
 
 export default MRObservationBreastfeedingBehavior;

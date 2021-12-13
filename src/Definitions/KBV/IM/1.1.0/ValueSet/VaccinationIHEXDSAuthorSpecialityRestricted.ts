@@ -1,25 +1,6 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { ValueSet } from "../../../../Interfaces";
+import VaccinationIHEXDSAuthorSpecialityRestrictedGerman from "../../../../../Definitions/KBV/IM/1.1.0/ConceptMap/VaccinationIHEXDSAuthorSpecialityRestrictedGerman";
 
 // Canonical URL for ValueSet: https://fhir.kbv.de/ValueSet/KBV_VS_MIO_Vaccination_IHEXDS_AuthorSpeciality_Restricted
 
@@ -98,84 +79,85 @@ type VaccinationIHEXDSAuthorSpecialityRestricted =
     | "181"
     | "182";
 
-const VaccinationIHEXDSAuthorSpecialityRestricted: t.Type<VaccinationIHEXDSAuthorSpecialityRestricted> = t.union(
-    [
-        t.literal("1"),
-        t.literal("3"),
-        t.literal("010"),
-        t.literal("020"),
-        t.literal("030"),
-        t.literal("050"),
-        t.literal("060"),
-        t.literal("070"),
-        t.literal("080"),
-        t.literal("091"),
-        t.literal("093"),
-        t.literal("102"),
-        t.literal("110"),
-        t.literal("130"),
-        t.literal("142"),
-        t.literal("147"),
-        t.literal("150"),
-        t.literal("170"),
-        t.literal("180"),
-        t.literal("196"),
-        t.literal("197"),
-        t.literal("200"),
-        t.literal("210"),
-        t.literal("220"),
-        t.literal("230"),
-        t.literal("240"),
-        t.literal("250"),
-        t.literal("271"),
-        t.literal("281"),
-        t.literal("291"),
-        t.literal("301"),
-        t.literal("302"),
-        t.literal("303"),
-        t.literal("304"),
-        t.literal("308"),
-        t.literal("313"),
-        t.literal("314"),
-        t.literal("330"),
-        t.literal("341"),
-        t.literal("511"),
-        t.literal("512"),
-        t.literal("513"),
-        t.literal("514"),
-        t.literal("515"),
-        t.literal("516"),
-        t.literal("517"),
-        t.literal("518"),
-        t.literal("521"),
-        t.literal("522"),
-        t.literal("523"),
-        t.literal("524"),
-        t.literal("525"),
-        t.literal("526"),
-        t.literal("527"),
-        t.literal("528"),
-        t.literal("530"),
-        t.literal("531"),
-        t.literal("532"),
-        t.literal("533"),
-        t.literal("534"),
-        t.literal("535"),
-        t.literal("542"),
-        t.literal("544"),
-        t.literal("2"),
-        t.literal("179"),
-        t.literal("4"),
-        t.literal("69"),
-        t.literal("70"),
-        t.literal("71"),
-        t.literal("72"),
-        t.literal("73"),
-        t.literal("181"),
-        t.literal("182")
-    ],
-    "VaccinationIHEXDSAuthorSpecialityRestricted"
-);
+const VaccinationIHEXDSAuthorSpecialityRestricted: t.Type<VaccinationIHEXDSAuthorSpecialityRestricted> =
+    t.union(
+        [
+            t.literal("1"),
+            t.literal("3"),
+            t.literal("010"),
+            t.literal("020"),
+            t.literal("030"),
+            t.literal("050"),
+            t.literal("060"),
+            t.literal("070"),
+            t.literal("080"),
+            t.literal("091"),
+            t.literal("093"),
+            t.literal("102"),
+            t.literal("110"),
+            t.literal("130"),
+            t.literal("142"),
+            t.literal("147"),
+            t.literal("150"),
+            t.literal("170"),
+            t.literal("180"),
+            t.literal("196"),
+            t.literal("197"),
+            t.literal("200"),
+            t.literal("210"),
+            t.literal("220"),
+            t.literal("230"),
+            t.literal("240"),
+            t.literal("250"),
+            t.literal("271"),
+            t.literal("281"),
+            t.literal("291"),
+            t.literal("301"),
+            t.literal("302"),
+            t.literal("303"),
+            t.literal("304"),
+            t.literal("308"),
+            t.literal("313"),
+            t.literal("314"),
+            t.literal("330"),
+            t.literal("341"),
+            t.literal("511"),
+            t.literal("512"),
+            t.literal("513"),
+            t.literal("514"),
+            t.literal("515"),
+            t.literal("516"),
+            t.literal("517"),
+            t.literal("518"),
+            t.literal("521"),
+            t.literal("522"),
+            t.literal("523"),
+            t.literal("524"),
+            t.literal("525"),
+            t.literal("526"),
+            t.literal("527"),
+            t.literal("528"),
+            t.literal("530"),
+            t.literal("531"),
+            t.literal("532"),
+            t.literal("533"),
+            t.literal("534"),
+            t.literal("535"),
+            t.literal("542"),
+            t.literal("544"),
+            t.literal("2"),
+            t.literal("179"),
+            t.literal("4"),
+            t.literal("69"),
+            t.literal("70"),
+            t.literal("71"),
+            t.literal("72"),
+            t.literal("73"),
+            t.literal("181"),
+            t.literal("182")
+        ],
+        "VaccinationIHEXDSAuthorSpecialityRestricted"
+    );
 
 export const VaccinationIHEXDSAuthorSpecialityRestrictedArray: string[] = [
     "1",
@@ -566,5 +548,7 @@ export const VaccinationIHEXDSAuthorSpecialityRestrictedValueSet: ValueSet = [
         ]
     }
 ];
+
+export { VaccinationIHEXDSAuthorSpecialityRestrictedGerman as ConceptMap };
 
 export default VaccinationIHEXDSAuthorSpecialityRestricted;

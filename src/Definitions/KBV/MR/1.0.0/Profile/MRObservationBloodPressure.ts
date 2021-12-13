@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenam
     id?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Systolischer Blutdruckwert")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Systolischer Blutdruckwert")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -72,21 +53,22 @@ export interface MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCo
     id?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Systolischer Blutdruckwert")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Systolischer Blutdruckwert")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -97,21 +79,22 @@ export interface MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigena
     id?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Diastolischer Blutdruckwert")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Diastolischer Blutdruckwert")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -122,21 +105,22 @@ export interface MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameC
     id?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Diastolischer Blutdruckwert")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Diastolischer Blutdruckwert")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -147,21 +131,22 @@ export interface MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSno
     id?: string;
 }
 
-export const MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Blutdruck")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Blutdruck")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -172,21 +157,22 @@ export interface MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincC
     id?: string;
 }
 
-export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Blutdruck")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Blutdruck")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -200,51 +186,50 @@ export interface MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenam
     )[];
 }
 
-export const MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -258,51 +243,50 @@ export interface MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCo
     )[];
 }
 
-export const MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -316,51 +300,50 @@ export interface MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigena
     )[];
 }
 
-export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -374,51 +357,50 @@ export interface MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameC
     )[];
 }
 
-export const MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -432,51 +414,50 @@ export interface MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSno
     )[];
 }
 
-export const MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -490,9 +471,8 @@ export interface MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc 
     )[];
 }
 
-export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
+export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion("MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -506,9 +486,7 @@ export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc: t.T
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
+                                t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent>
                             ]
                         >,
                         t.Any
@@ -534,7 +512,7 @@ export const MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc: t.T
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -548,9 +526,8 @@ export interface MRObservationBloodPressureSystolicCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplay> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeSnomedCTDisplay",
-    () =>
+export const MRObservationBloodPressureSystolicCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplay> =
+    t.recursion("MRObservationBloodPressureSystolicCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -558,9 +535,7 @@ export const MRObservationBloodPressureSystolicCodeSnomedCTDisplay: t.Type<MRObs
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodPressureSystolicCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -580,8 +555,7 @@ export const MRObservationBloodPressureSystolicCodeSnomedCTDisplay: t.Type<MRObs
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -590,7 +564,7 @@ export const MRObservationBloodPressureSystolicCodeSnomedCTDisplay: t.Type<MRObs
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -604,9 +578,8 @@ export interface MRObservationBloodPressureSystolicCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeLoincDisplay: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplay> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeLoincDisplay",
-    () =>
+export const MRObservationBloodPressureSystolicCodeLoincDisplay: t.Type<MRObservationBloodPressureSystolicCodeLoincDisplay> =
+    t.recursion("MRObservationBloodPressureSystolicCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -614,9 +587,7 @@ export const MRObservationBloodPressureSystolicCodeLoincDisplay: t.Type<MRObserv
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationBloodPressureSystolicCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -636,8 +607,7 @@ export const MRObservationBloodPressureSystolicCodeLoincDisplay: t.Type<MRObserv
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -646,7 +616,7 @@ export const MRObservationBloodPressureSystolicCodeLoincDisplay: t.Type<MRObserv
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -660,9 +630,8 @@ export interface MRObservationBloodPressureDiastolicCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplay> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeSnomedCTDisplay",
-    () =>
+export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplay> =
+    t.recursion("MRObservationBloodPressureDiastolicCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -670,9 +639,7 @@ export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplay: t.Type<MROb
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodPressureDiastolicCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -692,8 +659,7 @@ export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplay: t.Type<MROb
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -702,7 +668,7 @@ export const MRObservationBloodPressureDiastolicCodeSnomedCTDisplay: t.Type<MROb
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -716,9 +682,8 @@ export interface MRObservationBloodPressureDiastolicCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeLoincDisplay: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplay> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeLoincDisplay",
-    () =>
+export const MRObservationBloodPressureDiastolicCodeLoincDisplay: t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplay> =
+    t.recursion("MRObservationBloodPressureDiastolicCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -726,9 +691,7 @@ export const MRObservationBloodPressureDiastolicCodeLoincDisplay: t.Type<MRObser
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationBloodPressureDiastolicCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -748,8 +711,7 @@ export const MRObservationBloodPressureDiastolicCodeLoincDisplay: t.Type<MRObser
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -758,7 +720,7 @@ export const MRObservationBloodPressureDiastolicCodeLoincDisplay: t.Type<MRObser
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -772,9 +734,8 @@ export interface MRObservationBloodPressureSystolicCodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeSnomedCT: t.Type<MRObservationBloodPressureSystolicCodeSnomedCT> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeSnomedCT",
-    () =>
+export const MRObservationBloodPressureSystolicCodeSnomedCT: t.Type<MRObservationBloodPressureSystolicCodeSnomedCT> =
+    t.recursion("MRObservationBloodPressureSystolicCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -791,7 +752,7 @@ export const MRObservationBloodPressureSystolicCodeSnomedCT: t.Type<MRObservatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -805,9 +766,8 @@ export interface MRObservationBloodPressureSystolicCodeLoinc {
     display?: string;
 }
 
-export const MRObservationBloodPressureSystolicCodeLoinc: t.Type<MRObservationBloodPressureSystolicCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureSystolicCodeLoinc",
-    () =>
+export const MRObservationBloodPressureSystolicCodeLoinc: t.Type<MRObservationBloodPressureSystolicCodeLoinc> =
+    t.recursion("MRObservationBloodPressureSystolicCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -822,7 +782,7 @@ export const MRObservationBloodPressureSystolicCodeLoinc: t.Type<MRObservationBl
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -836,9 +796,8 @@ export interface MRObservationBloodPressureDiastolicCodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeSnomedCT: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCT> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeSnomedCT",
-    () =>
+export const MRObservationBloodPressureDiastolicCodeSnomedCT: t.Type<MRObservationBloodPressureDiastolicCodeSnomedCT> =
+    t.recursion("MRObservationBloodPressureDiastolicCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -855,7 +814,7 @@ export const MRObservationBloodPressureDiastolicCodeSnomedCT: t.Type<MRObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -869,9 +828,8 @@ export interface MRObservationBloodPressureDiastolicCodeLoinc {
     display?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCodeLoinc: t.Type<MRObservationBloodPressureDiastolicCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureDiastolicCodeLoinc",
-    () =>
+export const MRObservationBloodPressureDiastolicCodeLoinc: t.Type<MRObservationBloodPressureDiastolicCodeLoinc> =
+    t.recursion("MRObservationBloodPressureDiastolicCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -886,7 +844,7 @@ export const MRObservationBloodPressureDiastolicCodeLoinc: t.Type<MRObservationB
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -900,9 +858,8 @@ export interface MRObservationBloodPressureCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureCodeSnomedCTDisplay> = t.recursion(
-    "MRObservationBloodPressureCodeSnomedCTDisplay",
-    () =>
+export const MRObservationBloodPressureCodeSnomedCTDisplay: t.Type<MRObservationBloodPressureCodeSnomedCTDisplay> =
+    t.recursion("MRObservationBloodPressureCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -910,9 +867,7 @@ export const MRObservationBloodPressureCodeSnomedCTDisplay: t.Type<MRObservation
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodPressureCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -932,8 +887,7 @@ export const MRObservationBloodPressureCodeSnomedCTDisplay: t.Type<MRObservation
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -942,7 +896,7 @@ export const MRObservationBloodPressureCodeSnomedCTDisplay: t.Type<MRObservation
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -956,9 +910,8 @@ export interface MRObservationBloodPressureCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationBloodPressureCodeLoincDisplay: t.Type<MRObservationBloodPressureCodeLoincDisplay> = t.recursion(
-    "MRObservationBloodPressureCodeLoincDisplay",
-    () =>
+export const MRObservationBloodPressureCodeLoincDisplay: t.Type<MRObservationBloodPressureCodeLoincDisplay> =
+    t.recursion("MRObservationBloodPressureCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -966,9 +919,7 @@ export const MRObservationBloodPressureCodeLoincDisplay: t.Type<MRObservationBlo
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -988,8 +939,7 @@ export const MRObservationBloodPressureCodeLoincDisplay: t.Type<MRObservationBlo
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -998,7 +948,7 @@ export const MRObservationBloodPressureCodeLoincDisplay: t.Type<MRObservationBlo
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -1011,9 +961,8 @@ export interface MRObservationBloodPressureSystolicValueQuantity {
     id?: string;
 }
 
-export const MRObservationBloodPressureSystolicValueQuantity: t.Type<MRObservationBloodPressureSystolicValueQuantity> = t.recursion(
-    "MRObservationBloodPressureSystolicValueQuantity",
-    () =>
+export const MRObservationBloodPressureSystolicValueQuantity: t.Type<MRObservationBloodPressureSystolicValueQuantity> =
+    t.recursion("MRObservationBloodPressureSystolicValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1027,7 +976,7 @@ export const MRObservationBloodPressureSystolicValueQuantity: t.Type<MRObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -1040,9 +989,8 @@ export interface MRObservationBloodPressureDiastolicValueQuantity {
     id?: string;
 }
 
-export const MRObservationBloodPressureDiastolicValueQuantity: t.Type<MRObservationBloodPressureDiastolicValueQuantity> = t.recursion(
-    "MRObservationBloodPressureDiastolicValueQuantity",
-    () =>
+export const MRObservationBloodPressureDiastolicValueQuantity: t.Type<MRObservationBloodPressureDiastolicValueQuantity> =
+    t.recursion("MRObservationBloodPressureDiastolicValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1056,7 +1004,7 @@ export const MRObservationBloodPressureDiastolicValueQuantity: t.Type<MRObservat
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1070,9 +1018,8 @@ export interface MRObservationBloodPressureCodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationBloodPressureCodeSnomedCT: t.Type<MRObservationBloodPressureCodeSnomedCT> = t.recursion(
-    "MRObservationBloodPressureCodeSnomedCT",
-    () =>
+export const MRObservationBloodPressureCodeSnomedCT: t.Type<MRObservationBloodPressureCodeSnomedCT> =
+    t.recursion("MRObservationBloodPressureCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1089,7 +1036,7 @@ export const MRObservationBloodPressureCodeSnomedCT: t.Type<MRObservationBloodPr
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1103,9 +1050,8 @@ export interface MRObservationBloodPressureCodeLoinc {
     display?: string;
 }
 
-export const MRObservationBloodPressureCodeLoinc: t.Type<MRObservationBloodPressureCodeLoinc> = t.recursion(
-    "MRObservationBloodPressureCodeLoinc",
-    () =>
+export const MRObservationBloodPressureCodeLoinc: t.Type<MRObservationBloodPressureCodeLoinc> =
+    t.recursion("MRObservationBloodPressureCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1120,7 +1066,7 @@ export const MRObservationBloodPressureCodeLoinc: t.Type<MRObservationBloodPress
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -1134,9 +1080,8 @@ export interface MRObservationBloodPressureSystolicCode {
     id?: string;
 }
 
-export const MRObservationBloodPressureSystolicCode: t.Type<MRObservationBloodPressureSystolicCode> = t.recursion(
-    "MRObservationBloodPressureSystolicCode",
-    () =>
+export const MRObservationBloodPressureSystolicCode: t.Type<MRObservationBloodPressureSystolicCode> =
+    t.recursion("MRObservationBloodPressureSystolicCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1177,7 +1122,7 @@ export const MRObservationBloodPressureSystolicCode: t.Type<MRObservationBloodPr
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -1191,9 +1136,8 @@ export interface MRObservationBloodPressureDiastolicCode {
     id?: string;
 }
 
-export const MRObservationBloodPressureDiastolicCode: t.Type<MRObservationBloodPressureDiastolicCode> = t.recursion(
-    "MRObservationBloodPressureDiastolicCode",
-    () =>
+export const MRObservationBloodPressureDiastolicCode: t.Type<MRObservationBloodPressureDiastolicCode> =
+    t.recursion("MRObservationBloodPressureDiastolicCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1234,7 +1178,7 @@ export const MRObservationBloodPressureDiastolicCode: t.Type<MRObservationBloodP
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -1245,9 +1189,8 @@ export interface MRObservationBloodPressureSystolic {
     id?: string;
 }
 
-export const MRObservationBloodPressureSystolic: t.Type<MRObservationBloodPressureSystolic> = t.recursion(
-    "MRObservationBloodPressureSystolic",
-    () =>
+export const MRObservationBloodPressureSystolic: t.Type<MRObservationBloodPressureSystolic> =
+    t.recursion("MRObservationBloodPressureSystolic", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1259,7 +1202,7 @@ export const MRObservationBloodPressureSystolic: t.Type<MRObservationBloodPressu
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -1270,9 +1213,8 @@ export interface MRObservationBloodPressureDiastolic {
     id?: string;
 }
 
-export const MRObservationBloodPressureDiastolic: t.Type<MRObservationBloodPressureDiastolic> = t.recursion(
-    "MRObservationBloodPressureDiastolic",
-    () =>
+export const MRObservationBloodPressureDiastolic: t.Type<MRObservationBloodPressureDiastolic> =
+    t.recursion("MRObservationBloodPressureDiastolic", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1284,21 +1226,18 @@ export const MRObservationBloodPressureDiastolic: t.Type<MRObservationBloodPress
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBloodPressureMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0">;
     id?: string;
 }
 
-export const MRObservationBloodPressureMeta: t.Type<MRObservationBloodPressureMeta> = t.recursion(
-    "MRObservationBloodPressureMeta",
-    () =>
+export const MRObservationBloodPressureMeta: t.Type<MRObservationBloodPressureMeta> =
+    t.recursion("MRObservationBloodPressureMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1315,7 +1254,7 @@ export const MRObservationBloodPressureMeta: t.Type<MRObservationBloodPressureMe
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -1327,9 +1266,8 @@ export interface MRObservationBloodPressureCode {
     id?: string;
 }
 
-export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCode> = t.recursion(
-    "MRObservationBloodPressureCode",
-    () =>
+export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCode> =
+    t.recursion("MRObservationBloodPressureCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1369,7 +1307,7 @@ export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCo
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -1379,9 +1317,8 @@ export interface MRObservationBloodPressureSubject {
     id?: string;
 }
 
-export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressureSubject> = t.recursion(
-    "MRObservationBloodPressureSubject",
-    () =>
+export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressureSubject> =
+    t.recursion("MRObservationBloodPressureSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1394,7 +1331,7 @@ export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressur
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -1404,9 +1341,8 @@ export interface MRObservationBloodPressureEncounter {
     id?: string;
 }
 
-export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPressureEncounter> = t.recursion(
-    "MRObservationBloodPressureEncounter",
-    () =>
+export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPressureEncounter> =
+    t.recursion("MRObservationBloodPressureEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1419,7 +1355,7 @@ export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPress
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -1429,9 +1365,8 @@ export interface MRObservationBloodPressurePerformer {
     id?: string;
 }
 
-export const MRObservationBloodPressurePerformer: t.Type<MRObservationBloodPressurePerformer> = t.recursion(
-    "MRObservationBloodPressurePerformer",
-    () =>
+export const MRObservationBloodPressurePerformer: t.Type<MRObservationBloodPressurePerformer> =
+    t.recursion("MRObservationBloodPressurePerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1445,7 +1380,7 @@ export const MRObservationBloodPressurePerformer: t.Type<MRObservationBloodPress
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBloodPressure {
     resourceType: "Observation";

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeige
     id?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Zykluslänge")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Zykluslänge")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -72,21 +53,22 @@ export interface MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeig
     id?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Blutungsdauer")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Blutungsdauer")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -97,21 +79,22 @@ export interface MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeig
     id?: string;
 }
 
-export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Letzte Periode")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Letzte Periode")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -122,21 +105,22 @@ export interface MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnom
     id?: string;
 }
 
-export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Menstruationszyklus")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Menstruationszyklus")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -150,51 +134,50 @@ export interface MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeige
     )[];
 }
 
-export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -208,51 +191,50 @@ export interface MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeig
     )[];
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -266,51 +248,50 @@ export interface MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeig
     )[];
 }
 
-export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -324,9 +305,8 @@ export interface MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnom
     )[];
 }
 
-export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -340,9 +320,7 @@ export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed: 
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -368,7 +346,7 @@ export const MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed: 
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -382,9 +360,8 @@ export interface MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay",
-    () =>
+export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay> =
+    t.recursion("MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -392,9 +369,7 @@ export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay: t.Type<MR
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationMenstrualCycleZykluslaengeCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -414,8 +389,7 @@ export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay: t.Type<MR
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -424,7 +398,7 @@ export const MRObservationMenstrualCycleZykluslaengeCodeCodingDisplay: t.Type<MR
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -438,9 +412,8 @@ export interface MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay",
-    () =>
+export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay> =
+    t.recursion("MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -448,9 +421,7 @@ export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay: t.Type<M
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -470,8 +441,7 @@ export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay: t.Type<M
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -480,7 +450,7 @@ export const MRObservationMenstrualCycleBlutungsdauerCodeCodingDisplay: t.Type<M
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -494,9 +464,8 @@ export interface MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay",
-    () =>
+export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay> =
+    t.recursion("MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -504,9 +473,7 @@ export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay: t.Type<M
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -526,8 +493,7 @@ export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay: t.Type<M
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -536,7 +502,7 @@ export const MRObservationMenstrualCycleLetztePeriodeCodeCodingDisplay: t.Type<M
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -550,9 +516,8 @@ export interface MRObservationMenstrualCycleZykluslaengeCodeCoding {
     display?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaengeCodeCoding: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCoding> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeCodeCoding",
-    () =>
+export const MRObservationMenstrualCycleZykluslaengeCodeCoding: t.Type<MRObservationMenstrualCycleZykluslaengeCodeCoding> =
+    t.recursion("MRObservationMenstrualCycleZykluslaengeCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -569,7 +534,7 @@ export const MRObservationMenstrualCycleZykluslaengeCodeCoding: t.Type<MRObserva
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -582,9 +547,8 @@ export interface MRObservationMenstrualCycleZykluslaengeValueQuantity {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaengeValueQuantity: t.Type<MRObservationMenstrualCycleZykluslaengeValueQuantity> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeValueQuantity",
-    () =>
+export const MRObservationMenstrualCycleZykluslaengeValueQuantity: t.Type<MRObservationMenstrualCycleZykluslaengeValueQuantity> =
+    t.recursion("MRObservationMenstrualCycleZykluslaengeValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -598,7 +562,7 @@ export const MRObservationMenstrualCycleZykluslaengeValueQuantity: t.Type<MRObse
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -612,9 +576,8 @@ export interface MRObservationMenstrualCycleBlutungsdauerCodeCoding {
     display?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerCodeCoding: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCoding> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerCodeCoding",
-    () =>
+export const MRObservationMenstrualCycleBlutungsdauerCodeCoding: t.Type<MRObservationMenstrualCycleBlutungsdauerCodeCoding> =
+    t.recursion("MRObservationMenstrualCycleBlutungsdauerCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -631,7 +594,7 @@ export const MRObservationMenstrualCycleBlutungsdauerCodeCoding: t.Type<MRObserv
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -644,9 +607,8 @@ export interface MRObservationMenstrualCycleBlutungsdauerValueQuantity {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerValueQuantity: t.Type<MRObservationMenstrualCycleBlutungsdauerValueQuantity> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerValueQuantity",
-    () =>
+export const MRObservationMenstrualCycleBlutungsdauerValueQuantity: t.Type<MRObservationMenstrualCycleBlutungsdauerValueQuantity> =
+    t.recursion("MRObservationMenstrualCycleBlutungsdauerValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -660,7 +622,7 @@ export const MRObservationMenstrualCycleBlutungsdauerValueQuantity: t.Type<MRObs
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -674,9 +636,8 @@ export interface MRObservationMenstrualCycleLetztePeriodeCodeCoding {
     display?: string;
 }
 
-export const MRObservationMenstrualCycleLetztePeriodeCodeCoding: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCoding> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriodeCodeCoding",
-    () =>
+export const MRObservationMenstrualCycleLetztePeriodeCodeCoding: t.Type<MRObservationMenstrualCycleLetztePeriodeCodeCoding> =
+    t.recursion("MRObservationMenstrualCycleLetztePeriodeCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -693,7 +654,7 @@ export const MRObservationMenstrualCycleLetztePeriodeCodeCoding: t.Type<MRObserv
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -707,9 +668,8 @@ export interface MRObservationMenstrualCycleCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationMenstrualCycleCodeCodingDisplay: t.Type<MRObservationMenstrualCycleCodeCodingDisplay> = t.recursion(
-    "MRObservationMenstrualCycleCodeCodingDisplay",
-    () =>
+export const MRObservationMenstrualCycleCodeCodingDisplay: t.Type<MRObservationMenstrualCycleCodeCodingDisplay> =
+    t.recursion("MRObservationMenstrualCycleCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -717,9 +677,7 @@ export const MRObservationMenstrualCycleCodeCodingDisplay: t.Type<MRObservationM
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationMenstrualCycleCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -739,8 +697,7 @@ export const MRObservationMenstrualCycleCodeCodingDisplay: t.Type<MRObservationM
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -749,7 +706,7 @@ export const MRObservationMenstrualCycleCodeCodingDisplay: t.Type<MRObservationM
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -760,9 +717,8 @@ export interface MRObservationMenstrualCycleZykluslaengeCode {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaengeCode: t.Type<MRObservationMenstrualCycleZykluslaengeCode> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaengeCode",
-    () =>
+export const MRObservationMenstrualCycleZykluslaengeCode: t.Type<MRObservationMenstrualCycleZykluslaengeCode> =
+    t.recursion("MRObservationMenstrualCycleZykluslaengeCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -778,7 +734,7 @@ export const MRObservationMenstrualCycleZykluslaengeCode: t.Type<MRObservationMe
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -789,9 +745,8 @@ export interface MRObservationMenstrualCycleBlutungsdauerCode {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauerCode: t.Type<MRObservationMenstrualCycleBlutungsdauerCode> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauerCode",
-    () =>
+export const MRObservationMenstrualCycleBlutungsdauerCode: t.Type<MRObservationMenstrualCycleBlutungsdauerCode> =
+    t.recursion("MRObservationMenstrualCycleBlutungsdauerCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -807,7 +762,7 @@ export const MRObservationMenstrualCycleBlutungsdauerCode: t.Type<MRObservationM
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -818,9 +773,8 @@ export interface MRObservationMenstrualCycleLetztePeriodeCode {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleLetztePeriodeCode: t.Type<MRObservationMenstrualCycleLetztePeriodeCode> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriodeCode",
-    () =>
+export const MRObservationMenstrualCycleLetztePeriodeCode: t.Type<MRObservationMenstrualCycleLetztePeriodeCode> =
+    t.recursion("MRObservationMenstrualCycleLetztePeriodeCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -836,7 +790,7 @@ export const MRObservationMenstrualCycleLetztePeriodeCode: t.Type<MRObservationM
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -850,9 +804,8 @@ export interface MRObservationMenstrualCycleCodeCoding {
     display?: string;
 }
 
-export const MRObservationMenstrualCycleCodeCoding: t.Type<MRObservationMenstrualCycleCodeCoding> = t.recursion(
-    "MRObservationMenstrualCycleCodeCoding",
-    () =>
+export const MRObservationMenstrualCycleCodeCoding: t.Type<MRObservationMenstrualCycleCodeCoding> =
+    t.recursion("MRObservationMenstrualCycleCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -869,7 +822,7 @@ export const MRObservationMenstrualCycleCodeCoding: t.Type<MRObservationMenstrua
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -880,9 +833,8 @@ export interface MRObservationMenstrualCycleZykluslaenge {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleZykluslaenge: t.Type<MRObservationMenstrualCycleZykluslaenge> = t.recursion(
-    "MRObservationMenstrualCycleZykluslaenge",
-    () =>
+export const MRObservationMenstrualCycleZykluslaenge: t.Type<MRObservationMenstrualCycleZykluslaenge> =
+    t.recursion("MRObservationMenstrualCycleZykluslaenge", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -894,7 +846,7 @@ export const MRObservationMenstrualCycleZykluslaenge: t.Type<MRObservationMenstr
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -905,9 +857,8 @@ export interface MRObservationMenstrualCycleBlutungsdauer {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleBlutungsdauer: t.Type<MRObservationMenstrualCycleBlutungsdauer> = t.recursion(
-    "MRObservationMenstrualCycleBlutungsdauer",
-    () =>
+export const MRObservationMenstrualCycleBlutungsdauer: t.Type<MRObservationMenstrualCycleBlutungsdauer> =
+    t.recursion("MRObservationMenstrualCycleBlutungsdauer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -919,7 +870,7 @@ export const MRObservationMenstrualCycleBlutungsdauer: t.Type<MRObservationMenst
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -930,9 +881,8 @@ export interface MRObservationMenstrualCycleLetztePeriode {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleLetztePeriode: t.Type<MRObservationMenstrualCycleLetztePeriode> = t.recursion(
-    "MRObservationMenstrualCycleLetztePeriode",
-    () =>
+export const MRObservationMenstrualCycleLetztePeriode: t.Type<MRObservationMenstrualCycleLetztePeriode> =
+    t.recursion("MRObservationMenstrualCycleLetztePeriode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -944,21 +894,18 @@ export const MRObservationMenstrualCycleLetztePeriode: t.Type<MRObservationMenst
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationMenstrualCycleMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Menstrual_Cycle|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Menstrual_Cycle|1.0.0">;
     id?: string;
 }
 
-export const MRObservationMenstrualCycleMeta: t.Type<MRObservationMenstrualCycleMeta> = t.recursion(
-    "MRObservationMenstrualCycleMeta",
-    () =>
+export const MRObservationMenstrualCycleMeta: t.Type<MRObservationMenstrualCycleMeta> =
+    t.recursion("MRObservationMenstrualCycleMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -975,7 +922,7 @@ export const MRObservationMenstrualCycleMeta: t.Type<MRObservationMenstrualCycle
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -985,9 +932,8 @@ export interface MRObservationMenstrualCycleCode {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleCode: t.Type<MRObservationMenstrualCycleCode> = t.recursion(
-    "MRObservationMenstrualCycleCode",
-    () =>
+export const MRObservationMenstrualCycleCode: t.Type<MRObservationMenstrualCycleCode> =
+    t.recursion("MRObservationMenstrualCycleCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -998,7 +944,7 @@ export const MRObservationMenstrualCycleCode: t.Type<MRObservationMenstrualCycle
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -1008,9 +954,8 @@ export interface MRObservationMenstrualCycleSubject {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleSubject: t.Type<MRObservationMenstrualCycleSubject> = t.recursion(
-    "MRObservationMenstrualCycleSubject",
-    () =>
+export const MRObservationMenstrualCycleSubject: t.Type<MRObservationMenstrualCycleSubject> =
+    t.recursion("MRObservationMenstrualCycleSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1023,7 +968,7 @@ export const MRObservationMenstrualCycleSubject: t.Type<MRObservationMenstrualCy
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -1033,9 +978,8 @@ export interface MRObservationMenstrualCycleEncounter {
     id?: string;
 }
 
-export const MRObservationMenstrualCycleEncounter: t.Type<MRObservationMenstrualCycleEncounter> = t.recursion(
-    "MRObservationMenstrualCycleEncounter",
-    () =>
+export const MRObservationMenstrualCycleEncounter: t.Type<MRObservationMenstrualCycleEncounter> =
+    t.recursion("MRObservationMenstrualCycleEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1048,7 +992,7 @@ export const MRObservationMenstrualCycleEncounter: t.Type<MRObservationMenstrual
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -1058,9 +1002,8 @@ export interface MRObservationMenstrualCyclePerformer {
     id?: string;
 }
 
-export const MRObservationMenstrualCyclePerformer: t.Type<MRObservationMenstrualCyclePerformer> = t.recursion(
-    "MRObservationMenstrualCyclePerformer",
-    () =>
+export const MRObservationMenstrualCyclePerformer: t.Type<MRObservationMenstrualCyclePerformer> =
+    t.recursion("MRObservationMenstrualCyclePerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1074,7 +1017,7 @@ export const MRObservationMenstrualCyclePerformer: t.Type<MRObservationMenstrual
                 })
             ])
         )
-);
+    );
 
 interface MRObservationMenstrualCycle {
     resourceType: "Observation";

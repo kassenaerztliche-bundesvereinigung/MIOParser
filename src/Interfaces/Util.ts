@@ -23,7 +23,7 @@
 import { MIOEntry, MIOError, Reference } from "./AppInternals";
 import { KBVBundleResource, KBVResource } from "..";
 import { Concept, ConceptMap, Include, ValueSet } from "../Definitions/Interfaces";
-import Messages from "./Messages";
+import ErrorMessage from "../Definitions/ErrorMessage";
 
 export type { Concept, ConceptMap, Include, ValueSet };
 
@@ -388,18 +388,18 @@ export function getUnresolvedReferences(bundle: KBVBundleResource): MIOError[] {
         (reference) => !findReference(bundle, reference.id)
     );
 
-    const orphans = getOrphans(bundle, allReferences).map((orphan) => {
+    const orphans: MIOError[] = getOrphans(bundle, allReferences).map((orphan) => {
         return {
-            message: Messages.Orphan(orphan),
+            message: ErrorMessage.Orphan(orphan),
             resource: bundle.identifier.value,
             path: "bundle.entry",
             value: orphan
         };
     });
 
-    const unresolved = unresolvedReferences.map((reference) => {
+    const unresolved: MIOError[] = unresolvedReferences.map((reference) => {
         return {
-            message: Messages.Reference(reference.id),
+            message: ErrorMessage.Reference(reference.id),
             resource: "",
             path: reference.path,
             value: reference.id
@@ -407,4 +407,14 @@ export function getUnresolvedReferences(bundle: KBVBundleResource): MIOError[] {
     });
 
     return [...unresolved, ...orphans];
+}
+
+export function errorToString(error: unknown): string {
+    if (typeof error === "string") {
+        return error;
+    } else if (error instanceof Error) {
+        return error.message;
+    } else {
+        return "-";
+    }
 }

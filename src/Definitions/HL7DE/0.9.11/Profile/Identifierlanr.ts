@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -79,9 +59,8 @@ export interface IdentifierlanrAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const IdentifierlanrAssignerIdentifier: t.Type<IdentifierlanrAssignerIdentifier> = t.recursion(
-    "IdentifierlanrAssignerIdentifier",
-    () =>
+export const IdentifierlanrAssignerIdentifier: t.Type<IdentifierlanrAssignerIdentifier> =
+    t.recursion("IdentifierlanrAssignerIdentifier", () =>
         t.intersection([
             t.type({
                 system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
@@ -95,7 +74,7 @@ export const IdentifierlanrAssignerIdentifier: t.Type<IdentifierlanrAssignerIden
                 assigner: Reference
             })
         ])
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -155,7 +134,12 @@ interface Identifierlanr {
     resourceType?: "Identifier";
     id?: string;
     use?: "official";
-    type?: IdentifierlanrType;
+    type?: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "LANR";
+        }[];
+    };
     period?: Period;
     assigner?: IdentifierlanrAssigner;
 }
@@ -170,7 +154,14 @@ const Identifierlanr: t.Type<Identifierlanr> = t.recursion("Identifierlanr", () 
             resourceType: Literal("Identifier"),
             id: SCALARString,
             use: Literal("official"),
-            type: IdentifierlanrType,
+            type: t.type({
+                coding: t.array(
+                    t.type({
+                        system: Literal("http://terminology.hl7.org/CodeSystem/v2-0203"),
+                        code: Literal("LANR")
+                    })
+                )
+            }),
             period: Period,
             assigner: IdentifierlanrAssigner
         })

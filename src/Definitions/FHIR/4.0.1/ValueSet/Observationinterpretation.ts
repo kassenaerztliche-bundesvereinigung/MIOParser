@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { ValueSet } from "../../../Interfaces";
 
@@ -209,47 +189,234 @@ export const ObservationinterpretationValueSet: ValueSet = [
     {
         system: "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
         concept: [
-            { code: "CAR", display: "Carrier" },
-            { code: "Carrier", display: "Carrier" },
-            { code: "B", display: "Better" },
-            { code: "D", display: "Significant change down" },
-            { code: "U", display: "Significant change up" },
-            { code: "W", display: "Worse" },
-            { code: "<", display: "Off scale low" },
-            { code: ">", display: "Off scale high" },
-            { code: "AC", display: "Anti-complementary substances present" },
-            { code: "IE", display: "Insufficient evidence" },
-            { code: "QCF", display: "Quality control failure" },
-            { code: "TOX", display: "Cytotoxic substance present" },
-            { code: "HH", display: "Critical high" },
-            { code: "LL", display: "Critical low" },
-            { code: "H>", display: "Significantly high" },
-            { code: "HU", display: "Significantly high" },
-            { code: "L<", display: "Significantly low" },
-            { code: "LU", display: "Significantly low" },
-            { code: "N", display: "Normal" },
-            { code: "I", display: "Intermediate" },
-            { code: "MS", display: "moderately susceptible" },
-            { code: "NCL", display: "No CLSI defined breakpoint" },
-            { code: "NS", display: "Non-susceptible" },
-            { code: "SYN-R", display: "Synergy - resistant" },
-            { code: "SDD", display: "Susceptible-dose dependent" },
-            { code: "SYN-S", display: "Synergy - susceptible" },
-            { code: "VS", display: "very susceptible" },
-            { code: "HX", display: "above high threshold" },
-            { code: "LX", display: "below low threshold" },
-            { code: "HM", display: "Hold for Medical Review" },
-            { code: "E", display: "Equivocal" },
-            { code: "ND", display: "Not detected" },
-            { code: "DET", display: "Detected" },
-            { code: "EXP", display: "Expected" },
-            { code: "UNE", display: "Unexpected" },
+            {
+                code: "_GeneticObservationInterpretation",
+                display: "GeneticObservationInterpretation"
+            },
+            {
+                code: "CAR",
+                display: "Carrier"
+            },
+            {
+                code: "Carrier",
+                display: "Carrier"
+            },
+            {
+                code: "_ObservationInterpretationChange",
+                display: "ObservationInterpretationChange"
+            },
+            {
+                code: "B",
+                display: "Better"
+            },
+            {
+                code: "D",
+                display: "Significant change down"
+            },
+            {
+                code: "U",
+                display: "Significant change up"
+            },
+            {
+                code: "W",
+                display: "Worse"
+            },
+            {
+                code: "_ObservationInterpretationExceptions",
+                display: "ObservationInterpretationExceptions"
+            },
+            {
+                code: "<",
+                display: "Off scale low"
+            },
+            {
+                code: ">",
+                display: "Off scale high"
+            },
+            {
+                code: "AC",
+                display: "Anti-complementary substances present"
+            },
+            {
+                code: "IE",
+                display: "Insufficient evidence"
+            },
+            {
+                code: "QCF",
+                display: "Quality control failure"
+            },
+            {
+                code: "TOX",
+                display: "Cytotoxic substance present"
+            },
+            {
+                code: "_ObservationInterpretationNormality",
+                display: "ObservationInterpretationNormality"
+            },
+            {
+                code: "A",
+                display: "Abnormal"
+            },
+            {
+                code: "AA",
+                display: "Critical abnormal"
+            },
+            {
+                code: "HH",
+                display: "Critical high"
+            },
+            {
+                code: "LL",
+                display: "Critical low"
+            },
+            {
+                code: "H",
+                display: "High"
+            },
+            {
+                code: "H>",
+                display: "Significantly high"
+            },
+            {
+                code: "HU",
+                display: "Significantly high"
+            },
+            {
+                code: "L",
+                display: "Low"
+            },
+            {
+                code: "L<",
+                display: "Significantly low"
+            },
+            {
+                code: "LU",
+                display: "Significantly low"
+            },
+            {
+                code: "N",
+                display: "Normal"
+            },
+            {
+                code: "_ObservationInterpretationSusceptibility",
+                display: "ObservationInterpretationSusceptibility"
+            },
+            {
+                code: "I",
+                display: "Intermediate"
+            },
+            {
+                code: "MS",
+                display: "moderately susceptible"
+            },
+            {
+                code: "NCL",
+                display: "No CLSI defined breakpoint"
+            },
+            {
+                code: "NS",
+                display: "Non-susceptible"
+            },
+            {
+                code: "R",
+                display: "Resistant"
+            },
+            {
+                code: "SYN-R",
+                display: "Synergy - resistant"
+            },
+            {
+                code: "S",
+                display: "Susceptible"
+            },
+            {
+                code: "SDD",
+                display: "Susceptible-dose dependent"
+            },
+            {
+                code: "SYN-S",
+                display: "Synergy - susceptible"
+            },
+            {
+                code: "VS",
+                display: "very susceptible"
+            },
+            {
+                code: "EX",
+                display: "outside threshold"
+            },
+            {
+                code: "HX",
+                display: "above high threshold"
+            },
+            {
+                code: "LX",
+                display: "below low threshold"
+            },
+            {
+                code: "HM",
+                display: "Hold for Medical Review"
+            },
+            {
+                code: "ObservationInterpretationDetection",
+                display: "ObservationInterpretationDetection"
+            },
+            {
+                code: "IND",
+                display: "Indeterminate"
+            },
+            {
+                code: "E",
+                display: "Equivocal"
+            },
+            {
+                code: "NEG",
+                display: "Negative"
+            },
+            {
+                code: "ND",
+                display: "Not detected"
+            },
+            {
+                code: "POS",
+                display: "Positive"
+            },
+            {
+                code: "DET",
+                display: "Detected"
+            },
+            {
+                code: "ObservationInterpretationExpectation",
+                display: "ObservationInterpretationExpectation"
+            },
+            {
+                code: "EXP",
+                display: "Expected"
+            },
+            {
+                code: "UNE",
+                display: "Unexpected"
+            },
             {
                 code: "OBX",
                 display: "Interpretation qualifiers in separate OBX segments"
             },
-            { code: "NR", display: "Non-reactive" },
-            { code: "WR", display: "Weakly reactive" }
+            {
+                code: "ReactivityObservationInterpretation",
+                display: "ReactivityObservationInterpretation"
+            },
+            {
+                code: "NR",
+                display: "Non-reactive"
+            },
+            {
+                code: "RR",
+                display: "Reactive"
+            },
+            {
+                code: "WR",
+                display: "Weakly reactive"
+            }
         ]
     }
 ];

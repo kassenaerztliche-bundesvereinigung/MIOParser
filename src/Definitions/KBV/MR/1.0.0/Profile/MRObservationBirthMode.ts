@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -44,21 +24,22 @@ export interface MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigen
     id?: string;
 }
 
-export const MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> = t.recursion(
-    "MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> =
+    t.recursion(
+        "MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -69,21 +50,22 @@ export interface MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedCon
     id?: string;
 }
 
-export const MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Geburtsmodus")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Geburtsmodus")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -94,25 +76,26 @@ export interface MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigen
     extension?: MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent[];
 }
 
-export const MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> = t.recursion(
-    "MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: t.array(
-                        MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
-                    )
-                })
-            ])
-        )
-);
+export const MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> =
+    t.recursion(
+        "MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: t.array(
+                            MRObservationBirthModeValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -123,9 +106,8 @@ export interface MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed {
     extension?: MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomedContent[];
 }
 
-export const MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -141,7 +123,7 @@ export const MRObservationBirthModeCodeCodingDisplayAnzeigenameCodeSnomed: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -152,9 +134,8 @@ export interface MRObservationBirthModeValueCodeableConceptCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBirthModeValueCodeableConceptCodingDisplay: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRObservationBirthModeValueCodeableConceptCodingDisplay",
-    () =>
+export const MRObservationBirthModeValueCodeableConceptCodingDisplay: t.Type<MRObservationBirthModeValueCodeableConceptCodingDisplay> =
+    t.recursion("MRObservationBirthModeValueCodeableConceptCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -164,7 +145,7 @@ export const MRObservationBirthModeValueCodeableConceptCodingDisplay: t.Type<MRO
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -175,9 +156,8 @@ export interface MRObservationBirthModeCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBirthModeCodeCodingDisplay: t.Type<MRObservationBirthModeCodeCodingDisplay> = t.recursion(
-    "MRObservationBirthModeCodeCodingDisplay",
-    () =>
+export const MRObservationBirthModeCodeCodingDisplay: t.Type<MRObservationBirthModeCodeCodingDisplay> =
+    t.recursion("MRObservationBirthModeCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -187,7 +167,7 @@ export const MRObservationBirthModeCodeCodingDisplay: t.Type<MRObservationBirthM
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -201,9 +181,8 @@ export interface MRObservationBirthModeValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRObservationBirthModeValueCodeableConceptCoding: t.Type<MRObservationBirthModeValueCodeableConceptCoding> = t.recursion(
-    "MRObservationBirthModeValueCodeableConceptCoding",
-    () =>
+export const MRObservationBirthModeValueCodeableConceptCoding: t.Type<MRObservationBirthModeValueCodeableConceptCoding> =
+    t.recursion("MRObservationBirthModeValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -218,7 +197,7 @@ export const MRObservationBirthModeValueCodeableConceptCoding: t.Type<MRObservat
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -232,9 +211,8 @@ export interface MRObservationBirthModeCodeCoding {
     display?: string;
 }
 
-export const MRObservationBirthModeCodeCoding: t.Type<MRObservationBirthModeCodeCoding> = t.recursion(
-    "MRObservationBirthModeCodeCoding",
-    () =>
+export const MRObservationBirthModeCodeCoding: t.Type<MRObservationBirthModeCodeCoding> =
+    t.recursion("MRObservationBirthModeCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -251,7 +229,7 @@ export const MRObservationBirthModeCodeCoding: t.Type<MRObservationBirthModeCode
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -261,9 +239,8 @@ export interface MRObservationBirthModeValueCodeableConcept {
     id?: string;
 }
 
-export const MRObservationBirthModeValueCodeableConcept: t.Type<MRObservationBirthModeValueCodeableConcept> = t.recursion(
-    "MRObservationBirthModeValueCodeableConcept",
-    () =>
+export const MRObservationBirthModeValueCodeableConcept: t.Type<MRObservationBirthModeValueCodeableConcept> =
+    t.recursion("MRObservationBirthModeValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,15 +255,13 @@ export const MRObservationBirthModeValueCodeableConcept: t.Type<MRObservationBir
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBirthModeMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Birth_Mode|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Birth_Mode|1.0.0">;
     id?: string;
 }
 
@@ -342,9 +317,8 @@ export interface MRObservationBirthModeSubject {
     id?: string;
 }
 
-export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject> = t.recursion(
-    "MRObservationBirthModeSubject",
-    () =>
+export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject> =
+    t.recursion("MRObservationBirthModeSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -357,7 +331,7 @@ export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -367,9 +341,8 @@ export interface MRObservationBirthModeEncounter {
     id?: string;
 }
 
-export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncounter> = t.recursion(
-    "MRObservationBirthModeEncounter",
-    () =>
+export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncounter> =
+    t.recursion("MRObservationBirthModeEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -382,7 +355,7 @@ export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncou
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -392,9 +365,8 @@ export interface MRObservationBirthModePerformer {
     id?: string;
 }
 
-export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerformer> = t.recursion(
-    "MRObservationBirthModePerformer",
-    () =>
+export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerformer> =
+    t.recursion("MRObservationBirthModePerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -408,7 +380,7 @@ export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerfo
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBirthMode {
     resourceType: "Observation";

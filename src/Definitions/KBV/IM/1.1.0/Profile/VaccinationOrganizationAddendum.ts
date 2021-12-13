@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -53,9 +33,8 @@ export interface VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXTyp
     display?: string;
 }
 
-export const VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType> = t.recursion(
-    "VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType",
-    () =>
+export const VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType> =
+    t.recursion("VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -69,7 +48,7 @@ export const VaccinationOrganizationAddendumInstitutionskennzeichenTypeXXType: t
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -82,9 +61,8 @@ export interface VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRTy
     display?: string;
 }
 
-export const VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType> = t.recursion(
-    "VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType",
-    () =>
+export const VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType> =
+    t.recursion("VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -98,7 +76,7 @@ export const VaccinationOrganizationAddendumBetriebsstaettennummerTypeBSNRType: 
                 })
             ])
         )
-);
+    );
 
 /**
 * Strassenname (ohne Hausnummer)
@@ -110,9 +88,8 @@ export interface VaccinationOrganizationAddendumStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumStrassenanschriftLineStrasse: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineStrasse> = t.recursion(
-    "VaccinationOrganizationAddendumStrassenanschriftLineStrasse",
-    () =>
+export const VaccinationOrganizationAddendumStrassenanschriftLineStrasse: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineStrasse> =
+    t.recursion("VaccinationOrganizationAddendumStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -126,7 +103,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLineStrasse: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -138,9 +115,8 @@ export interface VaccinationOrganizationAddendumStrassenanschriftLineHausnummer 
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumStrassenanschriftLineHausnummer: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineHausnummer> = t.recursion(
-    "VaccinationOrganizationAddendumStrassenanschriftLineHausnummer",
-    () =>
+export const VaccinationOrganizationAddendumStrassenanschriftLineHausnummer: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineHausnummer> =
+    t.recursion("VaccinationOrganizationAddendumStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -154,7 +130,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLineHausnummer: t.T
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -166,9 +142,8 @@ export interface VaccinationOrganizationAddendumStrassenanschriftLineAdresszusat
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz> = t.recursion(
-    "VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz",
-    () =>
+export const VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz: t.Type<VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz> =
+    t.recursion("VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -182,7 +157,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz: t
                 })
             ])
         )
-);
+    );
 
 /**
 * Postfach-Adresse.
@@ -195,9 +170,8 @@ export interface VaccinationOrganizationAddendumPostfachLinePostfach {
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumPostfachLinePostfach: t.Type<VaccinationOrganizationAddendumPostfachLinePostfach> = t.recursion(
-    "VaccinationOrganizationAddendumPostfachLinePostfach",
-    () =>
+export const VaccinationOrganizationAddendumPostfachLinePostfach: t.Type<VaccinationOrganizationAddendumPostfachLinePostfach> =
+    t.recursion("VaccinationOrganizationAddendumPostfachLinePostfach", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -211,7 +185,7 @@ export const VaccinationOrganizationAddendumPostfachLinePostfach: t.Type<Vaccina
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -221,9 +195,8 @@ export interface VaccinationOrganizationAddendumInstitutionskennzeichenType {
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumInstitutionskennzeichenType: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichenType> = t.recursion(
-    "VaccinationOrganizationAddendumInstitutionskennzeichenType",
-    () =>
+export const VaccinationOrganizationAddendumInstitutionskennzeichenType: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichenType> =
+    t.recursion("VaccinationOrganizationAddendumInstitutionskennzeichenType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +210,7 @@ export const VaccinationOrganizationAddendumInstitutionskennzeichenType: t.Type<
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -247,9 +220,8 @@ export interface VaccinationOrganizationAddendumBetriebsstaettennummerType {
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumBetriebsstaettennummerType: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummerType> = t.recursion(
-    "VaccinationOrganizationAddendumBetriebsstaettennummerType",
-    () =>
+export const VaccinationOrganizationAddendumBetriebsstaettennummerType: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummerType> =
+    t.recursion("VaccinationOrganizationAddendumBetriebsstaettennummerType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -263,7 +235,7 @@ export const VaccinationOrganizationAddendumBetriebsstaettennummerType: t.Type<V
                 })
             ])
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -280,9 +252,8 @@ export interface VaccinationOrganizationAddendumStrassenanschriftLine {
     value?: string;
 }
 
-export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<VaccinationOrganizationAddendumStrassenanschriftLine> = t.recursion(
-    "VaccinationOrganizationAddendumStrassenanschriftLine",
-    () =>
+export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<VaccinationOrganizationAddendumStrassenanschriftLine> =
+    t.recursion("VaccinationOrganizationAddendumStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -290,15 +261,9 @@ export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<Vaccin
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationOrganizationAddendumStrassenanschriftLineStrasse
-                            >,
-                            t.Type<
-                                VaccinationOrganizationAddendumStrassenanschriftLineHausnummer
-                            >,
-                            t.Type<
-                                VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz
-                            >
+                            t.Type<VaccinationOrganizationAddendumStrassenanschriftLineStrasse>,
+                            t.Type<VaccinationOrganizationAddendumStrassenanschriftLineHausnummer>,
+                            t.Type<VaccinationOrganizationAddendumStrassenanschriftLineAdresszusatz>
                         ]
                     >,
                     t.Any
@@ -320,8 +285,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<Vaccin
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -329,8 +293,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<Vaccin
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -338,8 +301,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<Vaccin
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -348,7 +310,7 @@ export const VaccinationOrganizationAddendumStrassenanschriftLine: t.Type<Vaccin
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -360,9 +322,8 @@ export interface VaccinationOrganizationAddendumPostfachLine {
     value?: string;
 }
 
-export const VaccinationOrganizationAddendumPostfachLine: t.Type<VaccinationOrganizationAddendumPostfachLine> = t.recursion(
-    "VaccinationOrganizationAddendumPostfachLine",
-    () =>
+export const VaccinationOrganizationAddendumPostfachLine: t.Type<VaccinationOrganizationAddendumPostfachLine> =
+    t.recursion("VaccinationOrganizationAddendumPostfachLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -390,8 +351,7 @@ export const VaccinationOrganizationAddendumPostfachLine: t.Type<VaccinationOrga
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox"
                             }
                         }
                     ],
@@ -400,7 +360,7 @@ export const VaccinationOrganizationAddendumPostfachLine: t.Type<VaccinationOrga
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -413,9 +373,8 @@ export interface VaccinationOrganizationAddendumInstitutionskennzeichen {
     use?: "official";
 }
 
-export const VaccinationOrganizationAddendumInstitutionskennzeichen: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichen> = t.recursion(
-    "VaccinationOrganizationAddendumInstitutionskennzeichen",
-    () =>
+export const VaccinationOrganizationAddendumInstitutionskennzeichen: t.Type<VaccinationOrganizationAddendumInstitutionskennzeichen> =
+    t.recursion("VaccinationOrganizationAddendumInstitutionskennzeichen", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -429,26 +388,39 @@ export const VaccinationOrganizationAddendumInstitutionskennzeichen: t.Type<Vacc
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface VaccinationOrganizationAddendumBetriebsstaettennummer {
-    type: VaccinationOrganizationAddendumBetriebsstaettennummerType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "BSNR";
+        }[];
+    };
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const VaccinationOrganizationAddendumBetriebsstaettennummer: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummer> = t.recursion(
-    "VaccinationOrganizationAddendumBetriebsstaettennummer",
-    () =>
+export const VaccinationOrganizationAddendumBetriebsstaettennummer: t.Type<VaccinationOrganizationAddendumBetriebsstaettennummer> =
+    t.recursion("VaccinationOrganizationAddendumBetriebsstaettennummer", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: VaccinationOrganizationAddendumBetriebsstaettennummerType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("BSNR")
+                            })
+                        )
+                    }),
                     system: Literal("https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"),
                     value: SCALARString
                 }),
@@ -458,7 +430,7 @@ export const VaccinationOrganizationAddendumBetriebsstaettennummer: t.Type<Vacci
                 })
             ])
         )
-);
+    );
 
 /**
 * Eine Adresse gemäß postalischer Konventionen (im Gegensatz zu bspw. GPS-Koordinaten). Die Adresse kann sowohl zur Zustellung von Postsendungen oder zum Aufsuchen von Orten, die keine gültige Postadresse haben, verwendet werden.
@@ -480,9 +452,8 @@ export interface VaccinationOrganizationAddendumStrassenanschrift {
     postalCode?: string;
 }
 
-export const VaccinationOrganizationAddendumStrassenanschrift: t.Type<VaccinationOrganizationAddendumStrassenanschrift> = t.recursion(
-    "VaccinationOrganizationAddendumStrassenanschrift",
-    () =>
+export const VaccinationOrganizationAddendumStrassenanschrift: t.Type<VaccinationOrganizationAddendumStrassenanschrift> =
+    t.recursion("VaccinationOrganizationAddendumStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -507,8 +478,7 @@ export const VaccinationOrganizationAddendumStrassenanschrift: t.Type<Vaccinatio
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -526,7 +496,7 @@ export const VaccinationOrganizationAddendumStrassenanschrift: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
 * Eine Adresse gemäß postalischer Konventionen (im Gegensatz zu bspw. GPS-Koordinaten). Die Adresse kann sowohl zur Zustellung von Postsendungen oder zum Aufsuchen von Orten, die keine gültige Postadresse haben, verwendet werden.
@@ -546,9 +516,8 @@ export interface VaccinationOrganizationAddendumPostfach {
     postalCode?: string;
 }
 
-export const VaccinationOrganizationAddendumPostfach: t.Type<VaccinationOrganizationAddendumPostfach> = t.recursion(
-    "VaccinationOrganizationAddendumPostfach",
-    () =>
+export const VaccinationOrganizationAddendumPostfach: t.Type<VaccinationOrganizationAddendumPostfach> =
+    t.recursion("VaccinationOrganizationAddendumPostfach", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -573,8 +542,7 @@ export const VaccinationOrganizationAddendumPostfach: t.Type<VaccinationOrganiza
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -587,21 +555,18 @@ export const VaccinationOrganizationAddendumPostfach: t.Type<VaccinationOrganiza
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationOrganizationAddendumMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Organization_Addendum|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Organization_Addendum|1.1.0">;
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumMeta: t.Type<VaccinationOrganizationAddendumMeta> = t.recursion(
-    "VaccinationOrganizationAddendumMeta",
-    () =>
+export const VaccinationOrganizationAddendumMeta: t.Type<VaccinationOrganizationAddendumMeta> =
+    t.recursion("VaccinationOrganizationAddendumMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -618,7 +583,7 @@ export const VaccinationOrganizationAddendumMeta: t.Type<VaccinationOrganization
                 })
             ])
         )
-);
+    );
 
 /**
  * A contact detail for the organization.
@@ -629,9 +594,8 @@ export interface VaccinationOrganizationAddendumTelecom {
     id?: string;
 }
 
-export const VaccinationOrganizationAddendumTelecom: t.Type<VaccinationOrganizationAddendumTelecom> = t.recursion(
-    "VaccinationOrganizationAddendumTelecom",
-    () =>
+export const VaccinationOrganizationAddendumTelecom: t.Type<VaccinationOrganizationAddendumTelecom> =
+    t.recursion("VaccinationOrganizationAddendumTelecom", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -643,7 +607,7 @@ export const VaccinationOrganizationAddendumTelecom: t.Type<VaccinationOrganizat
                 })
             ])
         )
-);
+    );
 
 interface VaccinationOrganizationAddendum {
     resourceType: "Organization";
@@ -663,9 +627,8 @@ interface VaccinationOrganizationAddendum {
     >;
 }
 
-const VaccinationOrganizationAddendum: t.Type<VaccinationOrganizationAddendum> = t.recursion(
-    "VaccinationOrganizationAddendum",
-    () =>
+const VaccinationOrganizationAddendum: t.Type<VaccinationOrganizationAddendum> =
+    t.recursion("VaccinationOrganizationAddendum", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -692,8 +655,7 @@ const VaccinationOrganizationAddendum: t.Type<VaccinationOrganizationAddendum> =
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],
@@ -702,12 +664,8 @@ const VaccinationOrganizationAddendum: t.Type<VaccinationOrganizationAddendum> =
                     identifier: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    VaccinationOrganizationAddendumInstitutionskennzeichen
-                                >,
-                                t.Type<
-                                    VaccinationOrganizationAddendumBetriebsstaettennummer
-                                >
+                                t.Type<VaccinationOrganizationAddendumInstitutionskennzeichen>,
+                                t.Type<VaccinationOrganizationAddendumBetriebsstaettennummer>
                             ]
                         >,
                         t.Any
@@ -761,6 +719,6 @@ const VaccinationOrganizationAddendum: t.Type<VaccinationOrganizationAddendum> =
                 })
             ])
         )
-);
+    );
 
 export default VaccinationOrganizationAddendum;

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeig
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Terminbestimmung")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Terminbestimmung")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -75,51 +56,50 @@ export interface MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeig
     )[];
 }
 
-export const MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -133,9 +113,8 @@ export interface MRObservationDateDeterminationChildbirthCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthCodeCodingDisplay: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplay> = t.recursion(
-    "MRObservationDateDeterminationChildbirthCodeCodingDisplay",
-    () =>
+export const MRObservationDateDeterminationChildbirthCodeCodingDisplay: t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplay> =
+    t.recursion("MRObservationDateDeterminationChildbirthCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -143,9 +122,7 @@ export const MRObservationDateDeterminationChildbirthCodeCodingDisplay: t.Type<M
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationDateDeterminationChildbirthCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -165,8 +142,7 @@ export const MRObservationDateDeterminationChildbirthCodeCodingDisplay: t.Type<M
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -175,7 +151,7 @@ export const MRObservationDateDeterminationChildbirthCodeCodingDisplay: t.Type<M
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -189,9 +165,8 @@ export interface MRObservationDateDeterminationChildbirthCodeCoding {
     display?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthCodeCoding: t.Type<MRObservationDateDeterminationChildbirthCodeCoding> = t.recursion(
-    "MRObservationDateDeterminationChildbirthCodeCoding",
-    () =>
+export const MRObservationDateDeterminationChildbirthCodeCoding: t.Type<MRObservationDateDeterminationChildbirthCodeCoding> =
+    t.recursion("MRObservationDateDeterminationChildbirthCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -208,21 +183,18 @@ export const MRObservationDateDeterminationChildbirthCodeCoding: t.Type<MRObserv
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationDateDeterminationChildbirthMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Date_Determination_Childbirth|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Date_Determination_Childbirth|1.0.0">;
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthMeta: t.Type<MRObservationDateDeterminationChildbirthMeta> = t.recursion(
-    "MRObservationDateDeterminationChildbirthMeta",
-    () =>
+export const MRObservationDateDeterminationChildbirthMeta: t.Type<MRObservationDateDeterminationChildbirthMeta> =
+    t.recursion("MRObservationDateDeterminationChildbirthMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -239,7 +211,7 @@ export const MRObservationDateDeterminationChildbirthMeta: t.Type<MRObservationD
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -249,9 +221,8 @@ export interface MRObservationDateDeterminationChildbirthCode {
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthCode: t.Type<MRObservationDateDeterminationChildbirthCode> = t.recursion(
-    "MRObservationDateDeterminationChildbirthCode",
-    () =>
+export const MRObservationDateDeterminationChildbirthCode: t.Type<MRObservationDateDeterminationChildbirthCode> =
+    t.recursion("MRObservationDateDeterminationChildbirthCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -266,7 +237,7 @@ export const MRObservationDateDeterminationChildbirthCode: t.Type<MRObservationD
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -276,9 +247,8 @@ export interface MRObservationDateDeterminationChildbirthSubject {
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthSubject: t.Type<MRObservationDateDeterminationChildbirthSubject> = t.recursion(
-    "MRObservationDateDeterminationChildbirthSubject",
-    () =>
+export const MRObservationDateDeterminationChildbirthSubject: t.Type<MRObservationDateDeterminationChildbirthSubject> =
+    t.recursion("MRObservationDateDeterminationChildbirthSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -291,7 +261,7 @@ export const MRObservationDateDeterminationChildbirthSubject: t.Type<MRObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -301,9 +271,8 @@ export interface MRObservationDateDeterminationChildbirthEncounter {
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthEncounter: t.Type<MRObservationDateDeterminationChildbirthEncounter> = t.recursion(
-    "MRObservationDateDeterminationChildbirthEncounter",
-    () =>
+export const MRObservationDateDeterminationChildbirthEncounter: t.Type<MRObservationDateDeterminationChildbirthEncounter> =
+    t.recursion("MRObservationDateDeterminationChildbirthEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -316,7 +285,7 @@ export const MRObservationDateDeterminationChildbirthEncounter: t.Type<MRObserva
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -326,9 +295,8 @@ export interface MRObservationDateDeterminationChildbirthPerformer {
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthPerformer: t.Type<MRObservationDateDeterminationChildbirthPerformer> = t.recursion(
-    "MRObservationDateDeterminationChildbirthPerformer",
-    () =>
+export const MRObservationDateDeterminationChildbirthPerformer: t.Type<MRObservationDateDeterminationChildbirthPerformer> =
+    t.recursion("MRObservationDateDeterminationChildbirthPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -342,7 +310,7 @@ export const MRObservationDateDeterminationChildbirthPerformer: t.Type<MRObserva
                 })
             ])
         )
-);
+    );
 
 interface MRObservationDateDeterminationChildbirth {
     resourceType: "Observation";
@@ -358,9 +326,8 @@ interface MRObservationDateDeterminationChildbirth {
     note?: Array<Annotation>;
 }
 
-const MRObservationDateDeterminationChildbirth: t.Type<MRObservationDateDeterminationChildbirth> = t.recursion(
-    "MRObservationDateDeterminationChildbirth",
-    () =>
+const MRObservationDateDeterminationChildbirth: t.Type<MRObservationDateDeterminationChildbirth> =
+    t.recursion("MRObservationDateDeterminationChildbirth", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -383,6 +350,6 @@ const MRObservationDateDeterminationChildbirth: t.Type<MRObservationDateDetermin
                 })
             ])
         )
-);
+    );
 
 export default MRObservationDateDeterminationChildbirth;

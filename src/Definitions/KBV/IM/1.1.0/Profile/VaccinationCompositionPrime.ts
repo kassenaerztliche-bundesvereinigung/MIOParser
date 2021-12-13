@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -49,9 +29,8 @@ export interface VaccinationCompositionPrimeRecordPrimeCodeCoding {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeRecordPrimeCodeCoding: t.Type<VaccinationCompositionPrimeRecordPrimeCodeCoding> = t.recursion(
-    "VaccinationCompositionPrimeRecordPrimeCodeCoding",
-    () =>
+export const VaccinationCompositionPrimeRecordPrimeCodeCoding: t.Type<VaccinationCompositionPrimeRecordPrimeCodeCoding> =
+    t.recursion("VaccinationCompositionPrimeRecordPrimeCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -67,7 +46,7 @@ export const VaccinationCompositionPrimeRecordPrimeCodeCoding: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -80,9 +59,8 @@ export interface VaccinationCompositionPrimeObservationCodeCoding {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeObservationCodeCoding: t.Type<VaccinationCompositionPrimeObservationCodeCoding> = t.recursion(
-    "VaccinationCompositionPrimeObservationCodeCoding",
-    () =>
+export const VaccinationCompositionPrimeObservationCodeCoding: t.Type<VaccinationCompositionPrimeObservationCodeCoding> =
+    t.recursion("VaccinationCompositionPrimeObservationCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -100,7 +78,7 @@ export const VaccinationCompositionPrimeObservationCodeCoding: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -113,9 +91,8 @@ export interface VaccinationCompositionPrimeConditionCodeCoding {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionCodeCoding: t.Type<VaccinationCompositionPrimeConditionCodeCoding> = t.recursion(
-    "VaccinationCompositionPrimeConditionCodeCoding",
-    () =>
+export const VaccinationCompositionPrimeConditionCodeCoding: t.Type<VaccinationCompositionPrimeConditionCodeCoding> =
+    t.recursion("VaccinationCompositionPrimeConditionCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -133,7 +110,7 @@ export const VaccinationCompositionPrimeConditionCodeCoding: t.Type<VaccinationC
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -143,9 +120,8 @@ export interface VaccinationCompositionPrimeConditionSectionEntry {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<VaccinationCompositionPrimeConditionSectionEntry> = t.recursion(
-    "VaccinationCompositionPrimeConditionSectionEntry",
-    () =>
+export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<VaccinationCompositionPrimeConditionSectionEntry> =
+    t.recursion("VaccinationCompositionPrimeConditionSectionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -158,7 +134,7 @@ export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
  * Provides a reason why the expected value or elements in the element that is extended are missing.
@@ -169,9 +145,8 @@ export interface VaccinationCompositionPrimeAuthorDataabsentreason {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeAuthorDataabsentreason: t.Type<VaccinationCompositionPrimeAuthorDataabsentreason> = t.recursion(
-    "VaccinationCompositionPrimeAuthorDataabsentreason",
-    () =>
+export const VaccinationCompositionPrimeAuthorDataabsentreason: t.Type<VaccinationCompositionPrimeAuthorDataabsentreason> =
+    t.recursion("VaccinationCompositionPrimeAuthorDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -185,7 +160,7 @@ export const VaccinationCompositionPrimeAuthorDataabsentreason: t.Type<Vaccinati
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -195,9 +170,8 @@ export interface VaccinationCompositionPrimeRecordPrimeCode {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeRecordPrimeCode: t.Type<VaccinationCompositionPrimeRecordPrimeCode> = t.recursion(
-    "VaccinationCompositionPrimeRecordPrimeCode",
-    () =>
+export const VaccinationCompositionPrimeRecordPrimeCode: t.Type<VaccinationCompositionPrimeRecordPrimeCode> =
+    t.recursion("VaccinationCompositionPrimeRecordPrimeCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -212,7 +186,7 @@ export const VaccinationCompositionPrimeRecordPrimeCode: t.Type<VaccinationCompo
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -222,9 +196,8 @@ export interface VaccinationCompositionPrimeRecordPrimeEntry {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeRecordPrimeEntry: t.Type<VaccinationCompositionPrimeRecordPrimeEntry> = t.recursion(
-    "VaccinationCompositionPrimeRecordPrimeEntry",
-    () =>
+export const VaccinationCompositionPrimeRecordPrimeEntry: t.Type<VaccinationCompositionPrimeRecordPrimeEntry> =
+    t.recursion("VaccinationCompositionPrimeRecordPrimeEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +210,7 @@ export const VaccinationCompositionPrimeRecordPrimeEntry: t.Type<VaccinationComp
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -247,9 +220,8 @@ export interface VaccinationCompositionPrimeObservationCode {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeObservationCode: t.Type<VaccinationCompositionPrimeObservationCode> = t.recursion(
-    "VaccinationCompositionPrimeObservationCode",
-    () =>
+export const VaccinationCompositionPrimeObservationCode: t.Type<VaccinationCompositionPrimeObservationCode> =
+    t.recursion("VaccinationCompositionPrimeObservationCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -264,7 +236,7 @@ export const VaccinationCompositionPrimeObservationCode: t.Type<VaccinationCompo
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -274,9 +246,8 @@ export interface VaccinationCompositionPrimeObservationEntry {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeObservationEntry: t.Type<VaccinationCompositionPrimeObservationEntry> = t.recursion(
-    "VaccinationCompositionPrimeObservationEntry",
-    () =>
+export const VaccinationCompositionPrimeObservationEntry: t.Type<VaccinationCompositionPrimeObservationEntry> =
+    t.recursion("VaccinationCompositionPrimeObservationEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -289,7 +260,7 @@ export const VaccinationCompositionPrimeObservationEntry: t.Type<VaccinationComp
                 })
             ])
         )
-);
+    );
 
 /**
 * Möglicherweise noch ändern auf IHE IC
@@ -303,9 +274,8 @@ export interface VaccinationCompositionPrimeConditionCode {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionCode: t.Type<VaccinationCompositionPrimeConditionCode> = t.recursion(
-    "VaccinationCompositionPrimeConditionCode",
-    () =>
+export const VaccinationCompositionPrimeConditionCode: t.Type<VaccinationCompositionPrimeConditionCode> =
+    t.recursion("VaccinationCompositionPrimeConditionCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -320,7 +290,7 @@ export const VaccinationCompositionPrimeConditionCode: t.Type<VaccinationComposi
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -330,9 +300,8 @@ export interface VaccinationCompositionPrimeConditionEntry {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompositionPrimeConditionEntry> = t.recursion(
-    "VaccinationCompositionPrimeConditionEntry",
-    () =>
+export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompositionPrimeConditionEntry> =
+    t.recursion("VaccinationCompositionPrimeConditionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -345,7 +314,7 @@ export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompos
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -355,9 +324,8 @@ export interface VaccinationCompositionPrimeConditionSection {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionSection: t.Type<VaccinationCompositionPrimeConditionSection> = t.recursion(
-    "VaccinationCompositionPrimeConditionSection",
-    () =>
+export const VaccinationCompositionPrimeConditionSection: t.Type<VaccinationCompositionPrimeConditionSection> =
+    t.recursion("VaccinationCompositionPrimeConditionSection", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -368,7 +336,7 @@ export const VaccinationCompositionPrimeConditionSection: t.Type<VaccinationComp
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -381,9 +349,8 @@ export interface VaccinationCompositionPrimeTypeCoding {
     version?: string;
 }
 
-export const VaccinationCompositionPrimeTypeCoding: t.Type<VaccinationCompositionPrimeTypeCoding> = t.recursion(
-    "VaccinationCompositionPrimeTypeCoding",
-    () =>
+export const VaccinationCompositionPrimeTypeCoding: t.Type<VaccinationCompositionPrimeTypeCoding> =
+    t.recursion("VaccinationCompositionPrimeTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -397,7 +364,7 @@ export const VaccinationCompositionPrimeTypeCoding: t.Type<VaccinationCompositio
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -408,9 +375,8 @@ export interface VaccinationCompositionPrimeRecordPrime {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeRecordPrime: t.Type<VaccinationCompositionPrimeRecordPrime> = t.recursion(
-    "VaccinationCompositionPrimeRecordPrime",
-    () =>
+export const VaccinationCompositionPrimeRecordPrime: t.Type<VaccinationCompositionPrimeRecordPrime> =
+    t.recursion("VaccinationCompositionPrimeRecordPrime", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -422,7 +388,7 @@ export const VaccinationCompositionPrimeRecordPrime: t.Type<VaccinationCompositi
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -433,9 +399,8 @@ export interface VaccinationCompositionPrimeObservation {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeObservation: t.Type<VaccinationCompositionPrimeObservation> = t.recursion(
-    "VaccinationCompositionPrimeObservation",
-    () =>
+export const VaccinationCompositionPrimeObservation: t.Type<VaccinationCompositionPrimeObservation> =
+    t.recursion("VaccinationCompositionPrimeObservation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -447,7 +412,7 @@ export const VaccinationCompositionPrimeObservation: t.Type<VaccinationCompositi
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -459,9 +424,8 @@ export interface VaccinationCompositionPrimeCondition {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeCondition: t.Type<VaccinationCompositionPrimeCondition> = t.recursion(
-    "VaccinationCompositionPrimeCondition",
-    () =>
+export const VaccinationCompositionPrimeCondition: t.Type<VaccinationCompositionPrimeCondition> =
+    t.recursion("VaccinationCompositionPrimeCondition", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -474,21 +438,18 @@ export const VaccinationCompositionPrimeCondition: t.Type<VaccinationComposition
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationCompositionPrimeMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0">;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeMeta: t.Type<VaccinationCompositionPrimeMeta> = t.recursion(
-    "VaccinationCompositionPrimeMeta",
-    () =>
+export const VaccinationCompositionPrimeMeta: t.Type<VaccinationCompositionPrimeMeta> =
+    t.recursion("VaccinationCompositionPrimeMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -505,7 +466,7 @@ export const VaccinationCompositionPrimeMeta: t.Type<VaccinationCompositionPrime
                 })
             ])
         )
-);
+    );
 
 /**
  * A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
@@ -516,9 +477,8 @@ export interface VaccinationCompositionPrimeText {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeText: t.Type<VaccinationCompositionPrimeText> = t.recursion(
-    "VaccinationCompositionPrimeText",
-    () =>
+export const VaccinationCompositionPrimeText: t.Type<VaccinationCompositionPrimeText> =
+    t.recursion("VaccinationCompositionPrimeText", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -530,7 +490,7 @@ export const VaccinationCompositionPrimeText: t.Type<VaccinationCompositionPrime
                 })
             ])
         )
-);
+    );
 
 /**
  * Code aus dem Profil IHE Immunization Content (IC) zur Beschreibung der History of Immunization
@@ -540,9 +500,8 @@ export interface VaccinationCompositionPrimeType {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeType: t.Type<VaccinationCompositionPrimeType> = t.recursion(
-    "VaccinationCompositionPrimeType",
-    () =>
+export const VaccinationCompositionPrimeType: t.Type<VaccinationCompositionPrimeType> =
+    t.recursion("VaccinationCompositionPrimeType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -553,7 +512,7 @@ export const VaccinationCompositionPrimeType: t.Type<VaccinationCompositionPrime
                 })
             ])
         )
-);
+    );
 
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
@@ -563,9 +522,8 @@ export interface VaccinationCompositionPrimeSubject {
     id?: string;
 }
 
-export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPrimeSubject> = t.recursion(
-    "VaccinationCompositionPrimeSubject",
-    () =>
+export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPrimeSubject> =
+    t.recursion("VaccinationCompositionPrimeSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -578,7 +536,7 @@ export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPr
                 })
             ])
         )
-);
+    );
 
 /**
  * Die Person, die den Eintrag der Impfung erstellt hat. Sollte keine eintragende Person vorhanden sein, so kann die Nullflavor-Extension genutzt werden.
@@ -589,9 +547,8 @@ export interface VaccinationCompositionPrimeAuthor {
     reference?: string;
 }
 
-export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPrimeAuthor> = t.recursion(
-    "VaccinationCompositionPrimeAuthor",
-    () =>
+export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPrimeAuthor> =
+    t.recursion("VaccinationCompositionPrimeAuthor", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -619,8 +576,7 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                                value: "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
                             }
                         }
                     ],
@@ -631,7 +587,7 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
                 ])
             })
         )
-);
+    );
 
 interface VaccinationCompositionPrime {
     resourceType: "Composition";

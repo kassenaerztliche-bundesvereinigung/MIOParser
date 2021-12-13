@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -60,24 +40,25 @@ export interface VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXX
     userSelected?: boolean;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://terminology.hl7.org/CodeSystem/v2-0203"),
-                    code: Literal("XX")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    version: SCALARString,
-                    display: SCALARString,
-                    userSelected: SCALARBoolean
-                })
-            ])
-        )
-);
+export const VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType> =
+    t.recursion(
+        "VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://terminology.hl7.org/CodeSystem/v2-0203"),
+                        code: Literal("XX")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        version: SCALARString,
+                        display: SCALARString,
+                        userSelected: SCALARBoolean
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -90,9 +71,8 @@ export interface VaccinationPatientPidTypeMRType {
     display?: string;
 }
 
-export const VaccinationPatientPidTypeMRType: t.Type<VaccinationPatientPidTypeMRType> = t.recursion(
-    "VaccinationPatientPidTypeMRType",
-    () =>
+export const VaccinationPatientPidTypeMRType: t.Type<VaccinationPatientPidTypeMRType> =
+    t.recursion("VaccinationPatientPidTypeMRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -106,7 +86,7 @@ export const VaccinationPatientPidTypeMRType: t.Type<VaccinationPatientPidTypeMR
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -119,9 +99,8 @@ export interface VaccinationPatientVersichertenIdGKVTypeGKVType {
     display?: string;
 }
 
-export const VaccinationPatientVersichertenIdGKVTypeGKVType: t.Type<VaccinationPatientVersichertenIdGKVTypeGKVType> = t.recursion(
-    "VaccinationPatientVersichertenIdGKVTypeGKVType",
-    () =>
+export const VaccinationPatientVersichertenIdGKVTypeGKVType: t.Type<VaccinationPatientVersichertenIdGKVTypeGKVType> =
+    t.recursion("VaccinationPatientVersichertenIdGKVTypeGKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -135,7 +114,7 @@ export const VaccinationPatientVersichertenIdGKVTypeGKVType: t.Type<VaccinationP
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -148,9 +127,8 @@ export interface VaccinationPatientVersichertennummerpkvTypePKVType {
     display?: string;
 }
 
-export const VaccinationPatientVersichertennummerpkvTypePKVType: t.Type<VaccinationPatientVersichertennummerpkvTypePKVType> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvTypePKVType",
-    () =>
+export const VaccinationPatientVersichertennummerpkvTypePKVType: t.Type<VaccinationPatientVersichertennummerpkvTypePKVType> =
+    t.recursion("VaccinationPatientVersichertennummerpkvTypePKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -164,7 +142,7 @@ export const VaccinationPatientVersichertennummerpkvTypePKVType: t.Type<Vaccinat
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -175,9 +153,8 @@ export interface VaccinationPatientVersichertennummerpkvAssignerIdentifierType {
     text?: string;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifierType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierType> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvAssignerIdentifierType",
-    () =>
+export const VaccinationPatientVersichertennummerpkvAssignerIdentifierType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierType> =
+    t.recursion("VaccinationPatientVersichertennummerpkvAssignerIdentifierType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -192,7 +169,7 @@ export const VaccinationPatientVersichertennummerpkvAssignerIdentifierType: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -204,9 +181,8 @@ export interface VaccinationPatientNameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const VaccinationPatientNameFamilyNamenszusatz: t.Type<VaccinationPatientNameFamilyNamenszusatz> = t.recursion(
-    "VaccinationPatientNameFamilyNamenszusatz",
-    () =>
+export const VaccinationPatientNameFamilyNamenszusatz: t.Type<VaccinationPatientNameFamilyNamenszusatz> =
+    t.recursion("VaccinationPatientNameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -220,7 +196,7 @@ export const VaccinationPatientNameFamilyNamenszusatz: t.Type<VaccinationPatient
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -232,9 +208,8 @@ export interface VaccinationPatientNameFamilyNachname {
     id?: string;
 }
 
-export const VaccinationPatientNameFamilyNachname: t.Type<VaccinationPatientNameFamilyNachname> = t.recursion(
-    "VaccinationPatientNameFamilyNachname",
-    () =>
+export const VaccinationPatientNameFamilyNachname: t.Type<VaccinationPatientNameFamilyNachname> =
+    t.recursion("VaccinationPatientNameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,7 +223,7 @@ export const VaccinationPatientNameFamilyNachname: t.Type<VaccinationPatientName
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -260,9 +235,8 @@ export interface VaccinationPatientNameFamilyVorsatzwort {
     id?: string;
 }
 
-export const VaccinationPatientNameFamilyVorsatzwort: t.Type<VaccinationPatientNameFamilyVorsatzwort> = t.recursion(
-    "VaccinationPatientNameFamilyVorsatzwort",
-    () =>
+export const VaccinationPatientNameFamilyVorsatzwort: t.Type<VaccinationPatientNameFamilyVorsatzwort> =
+    t.recursion("VaccinationPatientNameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -276,7 +250,7 @@ export const VaccinationPatientNameFamilyVorsatzwort: t.Type<VaccinationPatientN
                 })
             ])
         )
-);
+    );
 
 /**
  * Spezialisierung der Art des Präfixes, z.B. "AC" für Akademische Titel
@@ -287,9 +261,8 @@ export interface VaccinationPatientNamePrefixPrefixqualifier {
     id?: string;
 }
 
-export const VaccinationPatientNamePrefixPrefixqualifier: t.Type<VaccinationPatientNamePrefixPrefixqualifier> = t.recursion(
-    "VaccinationPatientNamePrefixPrefixqualifier",
-    () =>
+export const VaccinationPatientNamePrefixPrefixqualifier: t.Type<VaccinationPatientNamePrefixPrefixqualifier> =
+    t.recursion("VaccinationPatientNamePrefixPrefixqualifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,7 +276,7 @@ export const VaccinationPatientNamePrefixPrefixqualifier: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -315,9 +288,8 @@ export interface VaccinationPatientGeburtsnameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const VaccinationPatientGeburtsnameFamilyNamenszusatz: t.Type<VaccinationPatientGeburtsnameFamilyNamenszusatz> = t.recursion(
-    "VaccinationPatientGeburtsnameFamilyNamenszusatz",
-    () =>
+export const VaccinationPatientGeburtsnameFamilyNamenszusatz: t.Type<VaccinationPatientGeburtsnameFamilyNamenszusatz> =
+    t.recursion("VaccinationPatientGeburtsnameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -331,7 +303,7 @@ export const VaccinationPatientGeburtsnameFamilyNamenszusatz: t.Type<Vaccination
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -343,9 +315,8 @@ export interface VaccinationPatientGeburtsnameFamilyNachname {
     id?: string;
 }
 
-export const VaccinationPatientGeburtsnameFamilyNachname: t.Type<VaccinationPatientGeburtsnameFamilyNachname> = t.recursion(
-    "VaccinationPatientGeburtsnameFamilyNachname",
-    () =>
+export const VaccinationPatientGeburtsnameFamilyNachname: t.Type<VaccinationPatientGeburtsnameFamilyNachname> =
+    t.recursion("VaccinationPatientGeburtsnameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -359,7 +330,7 @@ export const VaccinationPatientGeburtsnameFamilyNachname: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -371,9 +342,8 @@ export interface VaccinationPatientGeburtsnameFamilyVorsatzwort {
     id?: string;
 }
 
-export const VaccinationPatientGeburtsnameFamilyVorsatzwort: t.Type<VaccinationPatientGeburtsnameFamilyVorsatzwort> = t.recursion(
-    "VaccinationPatientGeburtsnameFamilyVorsatzwort",
-    () =>
+export const VaccinationPatientGeburtsnameFamilyVorsatzwort: t.Type<VaccinationPatientGeburtsnameFamilyVorsatzwort> =
+    t.recursion("VaccinationPatientGeburtsnameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -387,7 +357,7 @@ export const VaccinationPatientGeburtsnameFamilyVorsatzwort: t.Type<VaccinationP
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -402,9 +372,8 @@ export interface VaccinationPatientVersichertennummerpkvAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifier: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifier> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvAssignerIdentifier",
-    () =>
+export const VaccinationPatientVersichertennummerpkvAssignerIdentifier: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifier> =
+    t.recursion("VaccinationPatientVersichertennummerpkvAssignerIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -420,7 +389,7 @@ export const VaccinationPatientVersichertennummerpkvAssignerIdentifier: t.Type<V
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -433,9 +402,8 @@ export interface VaccinationPatientReisepassnummerTypeCoding {
     display?: string;
 }
 
-export const VaccinationPatientReisepassnummerTypeCoding: t.Type<VaccinationPatientReisepassnummerTypeCoding> = t.recursion(
-    "VaccinationPatientReisepassnummerTypeCoding",
-    () =>
+export const VaccinationPatientReisepassnummerTypeCoding: t.Type<VaccinationPatientReisepassnummerTypeCoding> =
+    t.recursion("VaccinationPatientReisepassnummerTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -449,7 +417,7 @@ export const VaccinationPatientReisepassnummerTypeCoding: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -462,9 +430,8 @@ export interface VaccinationPatientVersichertennummerkvkTypeCoding {
     display?: string;
 }
 
-export const VaccinationPatientVersichertennummerkvkTypeCoding: t.Type<VaccinationPatientVersichertennummerkvkTypeCoding> = t.recursion(
-    "VaccinationPatientVersichertennummerkvkTypeCoding",
-    () =>
+export const VaccinationPatientVersichertennummerkvkTypeCoding: t.Type<VaccinationPatientVersichertennummerkvkTypeCoding> =
+    t.recursion("VaccinationPatientVersichertennummerkvkTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -480,7 +447,7 @@ export const VaccinationPatientVersichertennummerkvkTypeCoding: t.Type<Vaccinati
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -513,9 +480,8 @@ export interface VaccinationPatientVersichertenIdGKVType {
     id?: string;
 }
 
-export const VaccinationPatientVersichertenIdGKVType: t.Type<VaccinationPatientVersichertenIdGKVType> = t.recursion(
-    "VaccinationPatientVersichertenIdGKVType",
-    () =>
+export const VaccinationPatientVersichertenIdGKVType: t.Type<VaccinationPatientVersichertenIdGKVType> =
+    t.recursion("VaccinationPatientVersichertenIdGKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -530,7 +496,7 @@ export const VaccinationPatientVersichertenIdGKVType: t.Type<VaccinationPatientV
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -540,9 +506,8 @@ export interface VaccinationPatientVersichertennummerpkvType {
     id?: string;
 }
 
-export const VaccinationPatientVersichertennummerpkvType: t.Type<VaccinationPatientVersichertennummerpkvType> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvType",
-    () =>
+export const VaccinationPatientVersichertennummerpkvType: t.Type<VaccinationPatientVersichertennummerpkvType> =
+    t.recursion("VaccinationPatientVersichertennummerpkvType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -556,7 +521,7 @@ export const VaccinationPatientVersichertennummerpkvType: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
  * Organization that issued/manages the identifier.
@@ -569,9 +534,8 @@ export interface VaccinationPatientVersichertennummerpkvAssigner {
     identifier?: VaccinationPatientVersichertennummerpkvAssignerIdentifier;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<VaccinationPatientVersichertennummerpkvAssigner> = t.recursion(
-    "VaccinationPatientVersichertennummerpkvAssigner",
-    () =>
+export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<VaccinationPatientVersichertennummerpkvAssigner> =
+    t.recursion("VaccinationPatientVersichertennummerpkvAssigner", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -587,7 +551,7 @@ export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<Vaccination
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -597,9 +561,8 @@ export interface VaccinationPatientReisepassnummerType {
     id?: string;
 }
 
-export const VaccinationPatientReisepassnummerType: t.Type<VaccinationPatientReisepassnummerType> = t.recursion(
-    "VaccinationPatientReisepassnummerType",
-    () =>
+export const VaccinationPatientReisepassnummerType: t.Type<VaccinationPatientReisepassnummerType> =
+    t.recursion("VaccinationPatientReisepassnummerType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -610,7 +573,7 @@ export const VaccinationPatientReisepassnummerType: t.Type<VaccinationPatientRei
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -620,9 +583,8 @@ export interface VaccinationPatientVersichertennummerkvkType {
     id?: string;
 }
 
-export const VaccinationPatientVersichertennummerkvkType: t.Type<VaccinationPatientVersichertennummerkvkType> = t.recursion(
-    "VaccinationPatientVersichertennummerkvkType",
-    () =>
+export const VaccinationPatientVersichertennummerkvkType: t.Type<VaccinationPatientVersichertennummerkvkType> =
+    t.recursion("VaccinationPatientVersichertennummerkvkType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -637,7 +599,7 @@ export const VaccinationPatientVersichertennummerkvkType: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -653,9 +615,8 @@ export interface VaccinationPatientNameFamily {
     value?: string;
 }
 
-export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> = t.recursion(
-    "VaccinationPatientNameFamily",
-    () =>
+export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> =
+    t.recursion("VaccinationPatientNameFamily", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -687,8 +648,7 @@ export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> 
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -696,8 +656,7 @@ export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> 
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -705,8 +664,7 @@ export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> 
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -715,7 +673,7 @@ export const VaccinationPatientNameFamily: t.Type<VaccinationPatientNameFamily> 
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Namensteile vor dem Vornamen, z.B. akademischer Titel.
@@ -726,9 +684,8 @@ export interface VaccinationPatientNamePrefix {
     value?: string;
 }
 
-export const VaccinationPatientNamePrefix: t.Type<VaccinationPatientNamePrefix> = t.recursion(
-    "VaccinationPatientNamePrefix",
-    () =>
+export const VaccinationPatientNamePrefix: t.Type<VaccinationPatientNamePrefix> =
+    t.recursion("VaccinationPatientNamePrefix", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -753,8 +710,7 @@ export const VaccinationPatientNamePrefix: t.Type<VaccinationPatientNamePrefix> 
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
                             }
                         }
                     ],
@@ -763,7 +719,7 @@ export const VaccinationPatientNamePrefix: t.Type<VaccinationPatientNamePrefix> 
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -779,9 +735,8 @@ export interface VaccinationPatientGeburtsnameFamily {
     value?: string;
 }
 
-export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGeburtsnameFamily> = t.recursion(
-    "VaccinationPatientGeburtsnameFamily",
-    () =>
+export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGeburtsnameFamily> =
+    t.recursion("VaccinationPatientGeburtsnameFamily", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -813,8 +768,7 @@ export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGebur
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -822,8 +776,7 @@ export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGebur
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -831,8 +784,7 @@ export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGebur
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -841,7 +793,7 @@ export const VaccinationPatientGeburtsnameFamily: t.Type<VaccinationPatientGebur
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Provides a reason why the expected value or elements in the element that is extended are missing.
@@ -852,9 +804,8 @@ export interface VaccinationPatientBirthDateDataabsentreason {
     id?: string;
 }
 
-export const VaccinationPatientBirthDateDataabsentreason: t.Type<VaccinationPatientBirthDateDataabsentreason> = t.recursion(
-    "VaccinationPatientBirthDateDataabsentreason",
-    () =>
+export const VaccinationPatientBirthDateDataabsentreason: t.Type<VaccinationPatientBirthDateDataabsentreason> =
+    t.recursion("VaccinationPatientBirthDateDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -868,7 +819,7 @@ export const VaccinationPatientBirthDateDataabsentreason: t.Type<VaccinationPati
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -910,9 +861,8 @@ export interface VaccinationPatientVersichertenIdGKV {
     use?: "official";
 }
 
-export const VaccinationPatientVersichertenIdGKV: t.Type<VaccinationPatientVersichertenIdGKV> = t.recursion(
-    "VaccinationPatientVersichertenIdGKV",
-    () =>
+export const VaccinationPatientVersichertenIdGKV: t.Type<VaccinationPatientVersichertenIdGKV> =
+    t.recursion("VaccinationPatientVersichertenIdGKV", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -926,7 +876,7 @@ export const VaccinationPatientVersichertenIdGKV: t.Type<VaccinationPatientVersi
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -941,9 +891,8 @@ export interface VaccinationPatientVersichertennummerpkv {
     period?: Period;
 }
 
-export const VaccinationPatientVersichertennummerpkv: t.Type<VaccinationPatientVersichertennummerpkv> = t.recursion(
-    "VaccinationPatientVersichertennummerpkv",
-    () =>
+export const VaccinationPatientVersichertennummerpkv: t.Type<VaccinationPatientVersichertennummerpkv> =
+    t.recursion("VaccinationPatientVersichertennummerpkv", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -959,7 +908,7 @@ export const VaccinationPatientVersichertennummerpkv: t.Type<VaccinationPatientV
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for this patient.
@@ -972,9 +921,8 @@ export interface VaccinationPatientReisepassnummer {
     system?: string;
 }
 
-export const VaccinationPatientReisepassnummer: t.Type<VaccinationPatientReisepassnummer> = t.recursion(
-    "VaccinationPatientReisepassnummer",
-    () =>
+export const VaccinationPatientReisepassnummer: t.Type<VaccinationPatientReisepassnummer> =
+    t.recursion("VaccinationPatientReisepassnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -988,7 +936,7 @@ export const VaccinationPatientReisepassnummer: t.Type<VaccinationPatientReisepa
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for this patient.
@@ -1001,9 +949,8 @@ export interface VaccinationPatientVersichertennummerkvk {
     use?: IdentifieruseVS;
 }
 
-export const VaccinationPatientVersichertennummerkvk: t.Type<VaccinationPatientVersichertennummerkvk> = t.recursion(
-    "VaccinationPatientVersichertennummerkvk",
-    () =>
+export const VaccinationPatientVersichertennummerkvk: t.Type<VaccinationPatientVersichertennummerkvk> =
+    t.recursion("VaccinationPatientVersichertennummerkvk", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1019,7 +966,7 @@ export const VaccinationPatientVersichertennummerkvk: t.Type<VaccinationPatientV
                 })
             ])
         )
-);
+    );
 
 /**
  * Personenname mit in Deutschland üblichen Erweiterungen
@@ -1067,9 +1014,8 @@ export interface VaccinationPatientGeburtsname {
     family?: string;
 }
 
-export const VaccinationPatientGeburtsname: t.Type<VaccinationPatientGeburtsname> = t.recursion(
-    "VaccinationPatientGeburtsname",
-    () =>
+export const VaccinationPatientGeburtsname: t.Type<VaccinationPatientGeburtsname> =
+    t.recursion("VaccinationPatientGeburtsname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1083,15 +1029,13 @@ export const VaccinationPatientGeburtsname: t.Type<VaccinationPatientGeburtsname
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationPatientMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.1.0">;
     id?: string;
 }
 
@@ -1147,8 +1091,7 @@ export const VaccinationPatientGender: t.Type<VaccinationPatientGender> = t.recu
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/gender-amtlich-de"
+                                value: "http://fhir.de/StructureDefinition/gender-amtlich-de"
                             }
                         }
                     ],
@@ -1168,9 +1111,8 @@ export interface VaccinationPatientBirthDate {
     value?: string;
 }
 
-export const VaccinationPatientBirthDate: t.Type<VaccinationPatientBirthDate> = t.recursion(
-    "VaccinationPatientBirthDate",
-    () =>
+export const VaccinationPatientBirthDate: t.Type<VaccinationPatientBirthDate> =
+    t.recursion("VaccinationPatientBirthDate", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1195,8 +1137,7 @@ export const VaccinationPatientBirthDate: t.Type<VaccinationPatientBirthDate> = 
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                                value: "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
                             }
                         }
                     ],
@@ -1205,7 +1146,7 @@ export const VaccinationPatientBirthDate: t.Type<VaccinationPatientBirthDate> = 
                 value: SCALARDate
             })
         )
-);
+    );
 
 interface VaccinationPatient {
     resourceType: "Patient";

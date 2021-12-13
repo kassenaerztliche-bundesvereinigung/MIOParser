@@ -24,10 +24,10 @@ import {
     MIOParserResult,
     Resource,
     ResourceMeta,
-    HasMeta
+    HasMeta,
+    Constraint
 } from "./Interfaces/AppInternals";
 import ErrorMessage from "./Definitions/ErrorMessage";
-import Messages from "./Interfaces/Messages";
 import {
     MIOTypes,
     MIOType,
@@ -46,11 +46,12 @@ import fhirpath from "fhirpath";
 import fhirpathR4Model from "fhirpath/fhir-context/r4";
 
 import * as t from "io-ts";
+import { errorToString } from "./Interfaces/Util";
 
 /**
  * Returns the profile from the given resource
- * @param resource
- * @return Profile from resource as string
+ * @param resource {Resource | KBVResource | HasMeta} The MIO resource to be evaluated
+ * @return Profile {string} from resource as string
  */
 function getProfile(resource: Resource | KBVResource | HasMeta): string {
     const profile = resource.meta?.profile;
@@ -75,7 +76,7 @@ export function defineResourceMeta(resource: HasMeta): ResourceMeta {
             const known = MIOTypes.some((mioType) => mioType.profile === profileType);
 
             if (!profileType || !known) {
-                throw new Error(Messages.UnknownProfile(profileType));
+                throw new Error(ErrorMessage.UnknownProfile(profileType));
             } else {
                 let profileVersion;
 
@@ -87,10 +88,10 @@ export function defineResourceMeta(resource: HasMeta): ResourceMeta {
             }
         }
 
-        throw new Error(Messages.NoProfile());
+        throw new Error(ErrorMessage.NoProfile());
     }
 
-    throw new Error(Messages.NoMeta());
+    throw new Error(ErrorMessage.NoMeta());
 }
 
 /**
@@ -109,11 +110,11 @@ const getErrorValue = (error: ValidationError): string => {
  * This helper function generates error messages from the io-ts decoder error.
  *
  * @param validation {Validation} Validation Error from io-ts validation
- * @param resourceId {string} Value from the Error as string
+ * @param resourceIdentifier {string} Value from the Error as string
  */
 export const getPaths = <A>(
     validation: Validation<A>,
-    resourceId: string
+    resourceIdentifier: string
 ): MIOError[] => {
     return pipe(
         validation,
@@ -122,6 +123,7 @@ export const getPaths = <A>(
                 const mioErrors: MIOError[] = [];
                 errors.forEach((error: ValidationError) => {
                     const errorValue = getErrorValue(error);
+                    console.log(error.context);
                     const errorPath = error.context
                         .map(({ key, type }, index) => {
                             if (key !== "" && !key.match(/^\d+$/)) return key;
@@ -139,18 +141,18 @@ export const getPaths = <A>(
                         errorMessage = error.message;
                     }
 
-                    const mioError = {
+                    const mioError: MIOError = {
                         message: errorMessage,
-                        resource: resourceId,
-                        path: errorPath,
+                        resource: resourceIdentifier,
+                        path: errorPath.replace("bundleForReferenceValidation.", ""),
                         value: errorValue
                     };
                     if (
                         !mioErrors.find(
                             (e) =>
+                                e.resource === mioError.resource &&
                                 e.path === mioError.path &&
-                                e.value === mioError.value &&
-                                e.resource === mioError.resource
+                                e.value === mioError.value
                         )
                     ) {
                         mioErrors.push(mioError);
@@ -178,22 +180,21 @@ export function isBundle(resource: HasMeta): boolean {
  * The following Profiles contain errors in their constraints. Therefore they are being excluded from Constraint checks
  */
 const excludingBundlesForUUIDConstraint = [
-    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Bundle|1.00.000",
-    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.00.000",
-    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Bundle_Entry|1.1.0",
-    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PN_Bundle|1.0.0",
-    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PC_Bundle|1.0.0"
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PN_Bundle|1.0.1",
+    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_PC_Bundle|1.0.1"
 ];
 
 /**
  * Applies the constraints to a resource and adds the results to the parserResult
- * @param resource
- * @param constraints
- * @param parserResult
+ * @param resource {Resource} The MIO resource to be evaluated
+ * @param resourceIdentifier {string} The resource identifier
+ * @param constraints {Constraint} The constraints to be checked
+ * @param parserResult {MIOParserResult} The result with possibly new containing constraint warning/errors
  */
 function checkConstraints(
     resource: Resource,
-    constraints: { severity: string; expression: string; human: string; key: string }[],
+    resourceIdentifier: string,
+    constraints: Constraint[],
     parserResult: MIOParserResult
 ): void {
     constraints.forEach((constraint) => {
@@ -201,7 +202,7 @@ function checkConstraints(
         if (resource && constraint.expression && constraint.key !== "dom-3") {
             let constraintResult: boolean[] = [];
             try {
-                // einige constraints haben einen typo, dieser wird hier ersetzt
+                // Einige constraints haben einen typo, dieser wird hier ersetzt
                 let expression = constraint.expression.replace("identifer", "identifier");
                 expression = expression.replace("is string", "is String");
                 // ZAEB 1.00.000 hat einen constraint der aufgrund eines fixen values nicht gelöst werden kann... daher ueberspringen
@@ -211,7 +212,7 @@ function checkConstraints(
                 ) {
                     return;
                 }
-                //bug in FhirPath implementation
+                // Bug in FhirPath implementation
                 if (
                     expression ===
                     "dosage.text.empty().not() xor (dosage.route.empty().not() and dosage.doseAndRate.dose.empty().not())"
@@ -230,24 +231,25 @@ function checkConstraints(
                 // hasValue is not implemented in fhirpath by now
                 if (constraint.expression.includes(".hasValue()")) return;
                 parserResult.warnings.push({
-                    resource: getProfile(resource),
-                    value: resource.id,
-                    path: constraint.key,
                     message: ErrorMessage.NotResolveConstraint(
                         constraint.expression,
                         constraint.key,
-                        error
-                    )
+                        errorToString(error)
+                    ),
+                    resource: getProfile(resource),
+                    path: constraint.key,
+                    value: resource.id
                 });
             }
 
             if (constraintResult.includes(false)) {
                 const parserError = {
-                    resource: getProfile(resource) + " -> " + resource.id,
-                    value: constraint.key,
+                    message: ErrorMessage.Constraint(constraint.human, constraint.key),
+                    resource: resourceIdentifier,
                     path: constraint.expression,
-                    message: ErrorMessage.Constraint(constraint.human, constraint.key)
+                    value: constraint.key
                 };
+
                 if (constraint.severity === "error") {
                     parserResult.errors.push(parserError);
                 } else if (constraint.severity === "warning") {
@@ -262,6 +264,7 @@ function checkConstraints(
  * Evaluates an object and tries to return a MIO instance according to its profile.
  *
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
+ * @param fullUrl {string} The resource identifier
  * @param list {MIOTypeList} List of MioTypes to be tested with
  * @param bundle {KBVBundleResource | undefined} original bundle in which the resource was contained
  * @param versioned {boolean} boolean to indicate if resource should be found with or without version number
@@ -269,6 +272,7 @@ function checkConstraints(
  */
 export default function getResource(
     resource: Resource,
+    fullUrl: string,
     list: MIOTypeList,
     bundle: KBVBundleResource | undefined = undefined,
     versioned = true
@@ -297,19 +301,21 @@ export default function getResource(
     list.forEach((T: MIOType) => {
         if (type.equals(new ResourceMeta(T.profile, T.version), versioned)) {
             foundResource = true;
-            const resourceId = resource.id;
             const context: t.ContextEntry[] = [];
+
+            const type = resource.resourceType;
+
             context.push({
-                key: "bundleForReferenceValidation",
+                key: "bundleForReferenceValidation" + (type ? `.${type}` : ""),
                 actual: bundle,
                 type: t.type({})
             });
+
             const resourceResult = bundle
                 ? T.type.validate(resource, context)
                 : T.type.decode(resource);
 
             // Callback for decoding failure
-            // eslint-disable-next-line
             const onLeft = (): string => {
                 /*
                 errors.forEach((error) => {
@@ -325,8 +331,8 @@ export default function getResource(
                 return "";
             };
 
-            parserResult.errors.push(...getPaths(resourceResult, resourceId));
-            checkConstraints(resource, T.constraints, parserResult);
+            parserResult.errors.push(...getPaths(resourceResult, fullUrl));
+            checkConstraints(resource, fullUrl, T.constraints, parserResult);
 
             pipe(resourceResult, fold(onLeft, onRight));
         } else if (entryUrlMap.includes(T.profile)) {
@@ -339,23 +345,28 @@ export default function getResource(
             });
 
             checkResource?.forEach((entry: KBVEntry) => {
-                checkConstraints(entry.resource as Resource, T.constraints, parserResult);
+                checkConstraints(
+                    entry.resource as Resource,
+                    fullUrl,
+                    T.constraints,
+                    parserResult
+                );
             });
         }
     });
 
     if (!foundResource) {
         if (!versioned) {
-            throw new Error(Messages.UnknownProfile(type.toString()));
+            throw new Error(ErrorMessage.UnknownProfile(type.toString()));
         } else {
             // TODO: should be removed when MR is fixed
-            return getResource(resource, list, bundle, false);
+            return getResource(resource, fullUrl, list, bundle, false);
         }
     }
 
     if (!versioned) {
         parserResult.warnings.push({
-            message: Messages.ProfileWithoutVersion(type.profile),
+            message: ErrorMessage.ProfileWithoutVersion(type.profile),
             resource: resource.id,
             path: "",
             value: JSON.stringify(resource)
@@ -387,6 +398,7 @@ export function getAllEntries(
                 meta: Meta;
                 id: string;
             },
+            e.fullUrl,
             MIOTypes,
             bundle
         );
@@ -401,8 +413,8 @@ export function getAllEntries(
         const isErrorEqual = (a: MIOError, b: MIOError): boolean => {
             return (
                 a.message === b.message &&
-                a.path === b.path &&
                 a.resource == b.resource &&
+                a.path === b.path &&
                 a.value === b.value
             );
         };

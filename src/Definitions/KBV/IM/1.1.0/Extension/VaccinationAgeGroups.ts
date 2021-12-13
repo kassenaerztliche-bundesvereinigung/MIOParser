@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { Literal, Excess, ReqArray, MinMaxArray } from "../../../../CustomTypes";
 
@@ -37,21 +17,22 @@ export interface VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenam
     id?: string;
 }
 
-export const VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -65,51 +46,50 @@ export interface VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenam
     )[];
 }
 
-export const VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -123,9 +103,8 @@ export interface VaccinationAgeGroupsValueCodeableConceptCodingDisplay {
     value?: string;
 }
 
-export const VaccinationAgeGroupsValueCodeableConceptCodingDisplay: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplay> = t.recursion(
-    "VaccinationAgeGroupsValueCodeableConceptCodingDisplay",
-    () =>
+export const VaccinationAgeGroupsValueCodeableConceptCodingDisplay: t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplay> =
+    t.recursion("VaccinationAgeGroupsValueCodeableConceptCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -133,9 +112,7 @@ export const VaccinationAgeGroupsValueCodeableConceptCodingDisplay: t.Type<Vacci
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<VaccinationAgeGroupsValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -155,8 +132,7 @@ export const VaccinationAgeGroupsValueCodeableConceptCodingDisplay: t.Type<Vacci
                             occurrence: ["0", "*"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -165,7 +141,7 @@ export const VaccinationAgeGroupsValueCodeableConceptCodingDisplay: t.Type<Vacci
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -179,9 +155,8 @@ export interface VaccinationAgeGroupsValueCodeableConceptCoding {
     display?: string;
 }
 
-export const VaccinationAgeGroupsValueCodeableConceptCoding: t.Type<VaccinationAgeGroupsValueCodeableConceptCoding> = t.recursion(
-    "VaccinationAgeGroupsValueCodeableConceptCoding",
-    () =>
+export const VaccinationAgeGroupsValueCodeableConceptCoding: t.Type<VaccinationAgeGroupsValueCodeableConceptCoding> =
+    t.recursion("VaccinationAgeGroupsValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -196,7 +171,7 @@ export const VaccinationAgeGroupsValueCodeableConceptCoding: t.Type<VaccinationA
                 })
             ])
         )
-);
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -206,9 +181,8 @@ export interface VaccinationAgeGroupsValueCodeableConcept {
     id?: string;
 }
 
-export const VaccinationAgeGroupsValueCodeableConcept: t.Type<VaccinationAgeGroupsValueCodeableConcept> = t.recursion(
-    "VaccinationAgeGroupsValueCodeableConcept",
-    () =>
+export const VaccinationAgeGroupsValueCodeableConcept: t.Type<VaccinationAgeGroupsValueCodeableConcept> =
+    t.recursion("VaccinationAgeGroupsValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -223,7 +197,7 @@ export const VaccinationAgeGroupsValueCodeableConcept: t.Type<VaccinationAgeGrou
                 })
             ])
         )
-);
+    );
 
 interface VaccinationAgeGroups {
     url: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_Vaccination_Age_Groups";

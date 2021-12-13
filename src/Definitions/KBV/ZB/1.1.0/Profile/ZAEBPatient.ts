@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -52,9 +32,8 @@ export interface ZAEBPatientNameFamilyNamenszusatz {
     id?: string;
 }
 
-export const ZAEBPatientNameFamilyNamenszusatz: t.Type<ZAEBPatientNameFamilyNamenszusatz> = t.recursion(
-    "ZAEBPatientNameFamilyNamenszusatz",
-    () =>
+export const ZAEBPatientNameFamilyNamenszusatz: t.Type<ZAEBPatientNameFamilyNamenszusatz> =
+    t.recursion("ZAEBPatientNameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -68,7 +47,7 @@ export const ZAEBPatientNameFamilyNamenszusatz: t.Type<ZAEBPatientNameFamilyName
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -80,9 +59,8 @@ export interface ZAEBPatientNameFamilyNachname {
     id?: string;
 }
 
-export const ZAEBPatientNameFamilyNachname: t.Type<ZAEBPatientNameFamilyNachname> = t.recursion(
-    "ZAEBPatientNameFamilyNachname",
-    () =>
+export const ZAEBPatientNameFamilyNachname: t.Type<ZAEBPatientNameFamilyNachname> =
+    t.recursion("ZAEBPatientNameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -96,7 +74,7 @@ export const ZAEBPatientNameFamilyNachname: t.Type<ZAEBPatientNameFamilyNachname
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -108,9 +86,8 @@ export interface ZAEBPatientNameFamilyVorsatzwort {
     id?: string;
 }
 
-export const ZAEBPatientNameFamilyVorsatzwort: t.Type<ZAEBPatientNameFamilyVorsatzwort> = t.recursion(
-    "ZAEBPatientNameFamilyVorsatzwort",
-    () =>
+export const ZAEBPatientNameFamilyVorsatzwort: t.Type<ZAEBPatientNameFamilyVorsatzwort> =
+    t.recursion("ZAEBPatientNameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -124,7 +101,7 @@ export const ZAEBPatientNameFamilyVorsatzwort: t.Type<ZAEBPatientNameFamilyVorsa
                 })
             ])
         )
-);
+    );
 
 /**
  * Spezialisierung der Art des Präfixes, z.B. "AC" für Akademische Titel
@@ -135,9 +112,8 @@ export interface ZAEBPatientNamePrefixPrefixqualifier {
     id?: string;
 }
 
-export const ZAEBPatientNamePrefixPrefixqualifier: t.Type<ZAEBPatientNamePrefixPrefixqualifier> = t.recursion(
-    "ZAEBPatientNamePrefixPrefixqualifier",
-    () =>
+export const ZAEBPatientNamePrefixPrefixqualifier: t.Type<ZAEBPatientNamePrefixPrefixqualifier> =
+    t.recursion("ZAEBPatientNamePrefixPrefixqualifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -151,7 +127,7 @@ export const ZAEBPatientNamePrefixPrefixqualifier: t.Type<ZAEBPatientNamePrefixP
                 })
             ])
         )
-);
+    );
 
 /**
 * Strassenname (ohne Hausnummer)
@@ -163,9 +139,8 @@ export interface ZAEBPatientStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const ZAEBPatientStrassenanschriftLineStrasse: t.Type<ZAEBPatientStrassenanschriftLineStrasse> = t.recursion(
-    "ZAEBPatientStrassenanschriftLineStrasse",
-    () =>
+export const ZAEBPatientStrassenanschriftLineStrasse: t.Type<ZAEBPatientStrassenanschriftLineStrasse> =
+    t.recursion("ZAEBPatientStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -179,7 +154,7 @@ export const ZAEBPatientStrassenanschriftLineStrasse: t.Type<ZAEBPatientStrassen
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -191,9 +166,8 @@ export interface ZAEBPatientStrassenanschriftLineHausnummer {
     id?: string;
 }
 
-export const ZAEBPatientStrassenanschriftLineHausnummer: t.Type<ZAEBPatientStrassenanschriftLineHausnummer> = t.recursion(
-    "ZAEBPatientStrassenanschriftLineHausnummer",
-    () =>
+export const ZAEBPatientStrassenanschriftLineHausnummer: t.Type<ZAEBPatientStrassenanschriftLineHausnummer> =
+    t.recursion("ZAEBPatientStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -207,7 +181,7 @@ export const ZAEBPatientStrassenanschriftLineHausnummer: t.Type<ZAEBPatientStras
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -219,9 +193,8 @@ export interface ZAEBPatientStrassenanschriftLineAdresszusatz {
     id?: string;
 }
 
-export const ZAEBPatientStrassenanschriftLineAdresszusatz: t.Type<ZAEBPatientStrassenanschriftLineAdresszusatz> = t.recursion(
-    "ZAEBPatientStrassenanschriftLineAdresszusatz",
-    () =>
+export const ZAEBPatientStrassenanschriftLineAdresszusatz: t.Type<ZAEBPatientStrassenanschriftLineAdresszusatz> =
+    t.recursion("ZAEBPatientStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -235,7 +208,7 @@ export const ZAEBPatientStrassenanschriftLineAdresszusatz: t.Type<ZAEBPatientStr
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -280,9 +253,8 @@ export interface ZAEBPatientVersichertenIdGKVTypeCoding {
     userSelected?: boolean;
 }
 
-export const ZAEBPatientVersichertenIdGKVTypeCoding: t.Type<ZAEBPatientVersichertenIdGKVTypeCoding> = t.recursion(
-    "ZAEBPatientVersichertenIdGKVTypeCoding",
-    () =>
+export const ZAEBPatientVersichertenIdGKVTypeCoding: t.Type<ZAEBPatientVersichertenIdGKVTypeCoding> =
+    t.recursion("ZAEBPatientVersichertenIdGKVTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -297,34 +269,33 @@ export const ZAEBPatientVersichertenIdGKVTypeCoding: t.Type<ZAEBPatientVersicher
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
  */
 export interface ZAEBPatientStrassenanschriftStadtteil {
     url: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct";
-    valueString: string;
     id?: string;
+    valueString?: string;
 }
 
-export const ZAEBPatientStrassenanschriftStadtteil: t.Type<ZAEBPatientStrassenanschriftStadtteil> = t.recursion(
-    "ZAEBPatientStrassenanschriftStadtteil",
-    () =>
+export const ZAEBPatientStrassenanschriftStadtteil: t.Type<ZAEBPatientStrassenanschriftStadtteil> =
+    t.recursion("ZAEBPatientStrassenanschriftStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal(
                         "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
-                    ),
-                    valueString: SCALARString
+                    )
                 }),
                 t.partial({
-                    id: SCALARString
+                    id: SCALARString,
+                    valueString: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -360,9 +331,8 @@ export interface ZAEBPatientVersichertenIdGKVType {
     text?: string;
 }
 
-export const ZAEBPatientVersichertenIdGKVType: t.Type<ZAEBPatientVersichertenIdGKVType> = t.recursion(
-    "ZAEBPatientVersichertenIdGKVType",
-    () =>
+export const ZAEBPatientVersichertenIdGKVType: t.Type<ZAEBPatientVersichertenIdGKVType> =
+    t.recursion("ZAEBPatientVersichertenIdGKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -374,7 +344,7 @@ export const ZAEBPatientVersichertenIdGKVType: t.Type<ZAEBPatientVersichertenIdG
                 })
             ])
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -424,8 +394,7 @@ export const ZAEBPatientNameFamily: t.Type<ZAEBPatientNameFamily> = t.recursion(
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -433,8 +402,7 @@ export const ZAEBPatientNameFamily: t.Type<ZAEBPatientNameFamily> = t.recursion(
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -442,8 +410,7 @@ export const ZAEBPatientNameFamily: t.Type<ZAEBPatientNameFamily> = t.recursion(
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -487,8 +454,7 @@ export const ZAEBPatientNamePrefix: t.Type<ZAEBPatientNamePrefix> = t.recursion(
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
                             }
                         }
                     ],
@@ -508,9 +474,8 @@ export interface ZAEBPatientBirthDateDataabsentreason {
     id?: string;
 }
 
-export const ZAEBPatientBirthDateDataabsentreason: t.Type<ZAEBPatientBirthDateDataabsentreason> = t.recursion(
-    "ZAEBPatientBirthDateDataabsentreason",
-    () =>
+export const ZAEBPatientBirthDateDataabsentreason: t.Type<ZAEBPatientBirthDateDataabsentreason> =
+    t.recursion("ZAEBPatientBirthDateDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -524,7 +489,7 @@ export const ZAEBPatientBirthDateDataabsentreason: t.Type<ZAEBPatientBirthDateDa
                 })
             ])
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -541,9 +506,8 @@ export interface ZAEBPatientStrassenanschriftLine {
     value?: string;
 }
 
-export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschriftLine> = t.recursion(
-    "ZAEBPatientStrassenanschriftLine",
-    () =>
+export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschriftLine> =
+    t.recursion("ZAEBPatientStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -575,8 +539,7 @@ export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschri
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -584,8 +547,7 @@ export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschri
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -593,8 +555,7 @@ export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschri
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -603,13 +564,18 @@ export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschri
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBPatientPid {
-    type: ZAEBPatientPidType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "MR";
+        }[];
+    };
     system: string;
     value: string;
     id?: string;
@@ -620,7 +586,16 @@ export const ZAEBPatientPid: t.Type<ZAEBPatientPid> = t.recursion("ZAEBPatientPi
     Excess(
         t.intersection([
             t.type({
-                type: ZAEBPatientPidType,
+                type: t.type({
+                    coding: t.array(
+                        t.type({
+                            system: Literal(
+                                "http://terminology.hl7.org/CodeSystem/v2-0203"
+                            ),
+                            code: Literal("MR")
+                        })
+                    )
+                }),
                 system: SCALARUri,
                 value: SCALARString
             }),
@@ -636,20 +611,33 @@ export const ZAEBPatientPid: t.Type<ZAEBPatientPid> = t.recursion("ZAEBPatientPi
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBPatientVersichertenIdGKV {
-    type: ZAEBPatientVersichertenIdGKVType;
+    type: {
+        coding: {
+            system: "http://fhir.de/CodeSystem/identifier-type-de-basis";
+            code: "GKV";
+        }[];
+    };
     system: "http://fhir.de/NamingSystem/gkv/kvid-10";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const ZAEBPatientVersichertenIdGKV: t.Type<ZAEBPatientVersichertenIdGKV> = t.recursion(
-    "ZAEBPatientVersichertenIdGKV",
-    () =>
+export const ZAEBPatientVersichertenIdGKV: t.Type<ZAEBPatientVersichertenIdGKV> =
+    t.recursion("ZAEBPatientVersichertenIdGKV", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: ZAEBPatientVersichertenIdGKVType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://fhir.de/CodeSystem/identifier-type-de-basis"
+                                ),
+                                code: Literal("GKV")
+                            })
+                        )
+                    }),
                     system: Literal("http://fhir.de/NamingSystem/gkv/kvid-10"),
                     value: SCALARString
                 }),
@@ -659,7 +647,7 @@ export const ZAEBPatientVersichertenIdGKV: t.Type<ZAEBPatientVersichertenIdGKV> 
                 })
             ])
         )
-);
+    );
 
 /**
  * Personenname mit in Deutschland üblichen Erweiterungen
@@ -715,9 +703,8 @@ export interface ZAEBPatientStrassenanschrift {
     postalCode?: string;
 }
 
-export const ZAEBPatientStrassenanschrift: t.Type<ZAEBPatientStrassenanschrift> = t.recursion(
-    "ZAEBPatientStrassenanschrift",
-    () =>
+export const ZAEBPatientStrassenanschrift: t.Type<ZAEBPatientStrassenanschrift> =
+    t.recursion("ZAEBPatientStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -748,8 +735,7 @@ export const ZAEBPatientStrassenanschrift: t.Type<ZAEBPatientStrassenanschrift> 
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -762,15 +748,13 @@ export const ZAEBPatientStrassenanschrift: t.Type<ZAEBPatientStrassenanschrift> 
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface ZAEBPatientMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_ZAEB_Patient|1.1.0">;
     id?: string;
 }
 
@@ -828,8 +812,7 @@ export const ZAEBPatientBirthDate: t.Type<ZAEBPatientBirthDate> = t.recursion(
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                                value: "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
                             }
                         }
                     ],

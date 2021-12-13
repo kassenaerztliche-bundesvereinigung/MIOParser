@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 
@@ -36,9 +16,8 @@ export interface MREncounterGeneralParticipantIndividual {
     id?: string;
 }
 
-export const MREncounterGeneralParticipantIndividual: t.Type<MREncounterGeneralParticipantIndividual> = t.recursion(
-    "MREncounterGeneralParticipantIndividual",
-    () =>
+export const MREncounterGeneralParticipantIndividual: t.Type<MREncounterGeneralParticipantIndividual> =
+    t.recursion("MREncounterGeneralParticipantIndividual", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -51,15 +30,13 @@ export const MREncounterGeneralParticipantIndividual: t.Type<MREncounterGeneralP
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MREncounterGeneralMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0">;
     id?: string;
 }
 
@@ -146,9 +123,8 @@ export interface MREncounterGeneralParticipant {
     id?: string;
 }
 
-export const MREncounterGeneralParticipant: t.Type<MREncounterGeneralParticipant> = t.recursion(
-    "MREncounterGeneralParticipant",
-    () =>
+export const MREncounterGeneralParticipant: t.Type<MREncounterGeneralParticipant> =
+    t.recursion("MREncounterGeneralParticipant", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -159,7 +135,7 @@ export const MREncounterGeneralParticipant: t.Type<MREncounterGeneralParticipant
                 })
             ])
         )
-);
+    );
 
 /**
  * The start and end time of the encounter.
@@ -194,9 +170,8 @@ export interface MREncounterGeneralServiceProvider {
     id?: string;
 }
 
-export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralServiceProvider> = t.recursion(
-    "MREncounterGeneralServiceProvider",
-    () =>
+export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralServiceProvider> =
+    t.recursion("MREncounterGeneralServiceProvider", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -209,7 +184,7 @@ export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralService
                 })
             ])
         )
-);
+    );
 
 interface MREncounterGeneral {
     resourceType: "Encounter";

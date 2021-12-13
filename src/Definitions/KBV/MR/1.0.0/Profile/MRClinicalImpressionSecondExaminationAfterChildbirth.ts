@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingD
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Zweite Untersuchung nach Entbindung")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Zweite Untersuchung nach Entbindung")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -75,51 +56,50 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingD
     )[];
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -133,49 +113,47 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingD
     value?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -189,9 +167,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding 
     display?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -203,12 +180,13 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthCodeCoding: t.T
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay,
+                    _display:
+                        MRClinicalImpressionSecondExaminationAfterChildbirthCodeCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutritional) history may be used.
@@ -218,22 +196,23 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthInvestigati
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    text: Literal(
-                        "Untersuchungen zur zweiten Untersuchung nach Entbindung"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode> =
+    t.recursion(
+        "MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        text: Literal(
+                            "Untersuchungen zur zweiten Untersuchung nach Entbindung"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A record of a specific investigation that was undertaken.
@@ -243,44 +222,42 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthInvestigati
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sediment|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_U3_Performed|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Need_Of_Treatment_U3|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem> =
+    t.recursion(
+        "MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sediment|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_U3_Performed|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Need_Of_Treatment_U3|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRClinicalImpressionSecondExaminationAfterChildbirthMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Second_Examination_After_Childbirth|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Second_Examination_After_Childbirth|1.0.0">;
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthMeta: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthMeta> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthMeta",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthMeta: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthMeta> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -297,7 +274,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthMeta: t.Type<MR
                 })
             ])
         )
-);
+    );
 
 /**
  * Categorizes the type of clinical assessment performed.
@@ -307,9 +284,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthCode {
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthCode: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCode> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthCode",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthCode: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthCode> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -324,7 +300,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthCode: t.Type<MR
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group of individuals assessed as part of this record.
@@ -334,9 +310,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthSubject {
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthSubject: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthSubject> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthSubject",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthSubject: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthSubject> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -349,7 +324,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthSubject: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
@@ -359,9 +334,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthEncounter {
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthEncounter: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthEncounter> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthEncounter",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthEncounter: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthEncounter> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -374,7 +348,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthEncounter: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * The clinician performing the assessment.
@@ -384,9 +358,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthAssessor {
     id?: string;
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthAssessor: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthAssessor> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthAssessor",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthAssessor: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthAssessor> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthAssessor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -399,7 +372,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthAssessor: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
@@ -410,9 +383,8 @@ export interface MRClinicalImpressionSecondExaminationAfterChildbirthInvestigati
     item?: MRClinicalImpressionSecondExaminationAfterChildbirthInvestigationItem[];
 }
 
-export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation",
-    () =>
+export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -426,7 +398,7 @@ export const MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation: 
                 })
             ])
         )
-);
+    );
 
 interface MRClinicalImpressionSecondExaminationAfterChildbirth {
     resourceType: "ClinicalImpression";
@@ -439,15 +411,12 @@ interface MRClinicalImpressionSecondExaminationAfterChildbirth {
     id?: string;
     text?: Narrative;
     assessor?: MRClinicalImpressionSecondExaminationAfterChildbirthAssessor;
-    investigation?: Array<
-        MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation
-    >;
+    investigation?: Array<MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation>;
     note?: Array<Annotation>;
 }
 
-const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirth> = t.recursion(
-    "MRClinicalImpressionSecondExaminationAfterChildbirth",
-    () =>
+const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImpressionSecondExaminationAfterChildbirth> =
+    t.recursion("MRClinicalImpressionSecondExaminationAfterChildbirth", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -456,13 +425,15 @@ const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImp
                     status: Literal("completed"),
                     code: MRClinicalImpressionSecondExaminationAfterChildbirthCode,
                     subject: MRClinicalImpressionSecondExaminationAfterChildbirthSubject,
-                    encounter: MRClinicalImpressionSecondExaminationAfterChildbirthEncounter,
+                    encounter:
+                        MRClinicalImpressionSecondExaminationAfterChildbirthEncounter,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    assessor: MRClinicalImpressionSecondExaminationAfterChildbirthAssessor,
+                    assessor:
+                        MRClinicalImpressionSecondExaminationAfterChildbirthAssessor,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionSecondExaminationAfterChildbirthInvestigation
@@ -471,6 +442,6 @@ const MRClinicalImpressionSecondExaminationAfterChildbirth: t.Type<MRClinicalImp
                 })
             ])
         )
-);
+    );
 
 export default MRClinicalImpressionSecondExaminationAfterChildbirth;

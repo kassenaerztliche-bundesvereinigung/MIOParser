@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,9 +26,8 @@ export interface MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent {
     id?: string;
 }
 
-export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
+export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion("MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -60,7 +39,7 @@ export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,9 +53,8 @@ export interface MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -90,9 +68,7 @@ export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MROb
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -118,7 +94,7 @@ export const MRObservationAgeCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MROb
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -129,9 +105,8 @@ export interface MRObservationAgeCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationAgeCodeCodingDisplay: t.Type<MRObservationAgeCodeCodingDisplay> = t.recursion(
-    "MRObservationAgeCodeCodingDisplay",
-    () =>
+export const MRObservationAgeCodeCodingDisplay: t.Type<MRObservationAgeCodeCodingDisplay> =
+    t.recursion("MRObservationAgeCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -159,8 +134,7 @@ export const MRObservationAgeCodeCodingDisplay: t.Type<MRObservationAgeCodeCodin
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -169,7 +143,7 @@ export const MRObservationAgeCodeCodingDisplay: t.Type<MRObservationAgeCodeCodin
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -215,9 +189,8 @@ export interface MRObservationAgeValueQuantity {
     id?: string;
 }
 
-export const MRObservationAgeValueQuantity: t.Type<MRObservationAgeValueQuantity> = t.recursion(
-    "MRObservationAgeValueQuantity",
-    () =>
+export const MRObservationAgeValueQuantity: t.Type<MRObservationAgeValueQuantity> =
+    t.recursion("MRObservationAgeValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -231,15 +204,13 @@ export const MRObservationAgeValueQuantity: t.Type<MRObservationAgeValueQuantity
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationAgeMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Age|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Age|1.0.0">;
     id?: string;
 }
 

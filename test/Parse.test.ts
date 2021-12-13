@@ -20,83 +20,95 @@
 
 import MIOParser from "../src";
 import * as fs from "fs";
-import Messages from "../src/Interfaces/Messages";
+import Messages from "../src/Definitions/ErrorMessage";
 import * as TestUtil from "@kbv/miotestdata";
+import { errorToString } from "../src/Interfaces/Util";
 
 describe("Parse", () => {
     const mioParser = new MIOParser();
 
     TestUtil.runAllBundleFiles("parseFile", (file) => {
-        test(`"${file}"`, async (done) => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            if (result.errors.length) console.log(result.errors);
-            expect(result.errors.length).toBe(0);
-            done();
+        test(`"${file}"`, (done) => {
+            const blob = TestUtil.readFileAsBlob(file);
+            expect(blob).toBeDefined();
+            if (!blob) return;
+
+            mioParser.parseFile(blob).then((result) => {
+                if (result.errors.length) console.log(result.errors);
+                expect(result.errors.length).toBe(0);
+                done();
+            });
         });
     });
 
     TestUtil.runAllBundles("parseFiles", (bundles, value) => {
-        test(`all ${value.mioString} Bundles`, async (done) => {
+        test(`all ${value.mioString} Bundles`, (done) => {
             const blobs: Blob[] = [];
             bundles.forEach((file) => blobs.push(new Blob([fs.readFileSync(file)])));
-            const results = await mioParser.parseFiles(blobs);
-            const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
-            if (numErrors > 0) console.log(results.map((r) => r.errors));
-            expect(numErrors).toBe(0);
-            done();
+            mioParser.parseFiles(blobs).then((results) => {
+                const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
+                if (numErrors > 0) console.log(results.map((r) => r.errors));
+                expect(numErrors).toBe(0);
+                done();
+            });
         });
     });
 
     TestUtil.runAllBundleFiles("parseString", (file) => {
-        test(`"${file}" `, async (done) => {
+        test(`"${file}" `, (done) => {
             const str = fs.readFileSync(file).toString();
-            const result = await mioParser.parseString(str);
-            const numErrors = result.errors.length;
-            if (numErrors > 0) console.log(result.errors);
-            expect(numErrors).toBe(0);
-            done();
+            mioParser.parseString(str).then((result) => {
+                const numErrors = result.errors.length;
+                if (numErrors > 0) console.log(result.errors);
+                expect(numErrors).toBe(0);
+                done();
+            });
         });
     });
 
     TestUtil.runAllBundles("parseStrings", (bundles, value) => {
-        test(`all ${value.mioString} Bundles`, async (done) => {
+        test(`all ${value.mioString} Bundles`, (done) => {
             const strings = bundles.map((file) => fs.readFileSync(file).toString());
-            const results = await mioParser.parseStrings(strings);
-            const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
-            if (numErrors > 0) console.log(results.map((r) => r.errors));
-            expect(numErrors).toBe(0);
-            done();
+            mioParser.parseStrings(strings).then((results) => {
+                const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
+                if (numErrors > 0) console.log(results.map((r) => r.errors));
+                expect(numErrors).toBe(0);
+                done();
+            });
         });
     });
 
     TestUtil.runAllBundles(
         "parseStrings (Invalid)",
         (bundles, value) => {
-            test(`all ${value.mioString} Bundles`, async (done) => {
+            test(`all ${value.mioString} Bundles`, (done) => {
                 const strings = bundles.map((file) => fs.readFileSync(file).toString());
-                const results = await mioParser.parseStrings(strings);
-                results.forEach((result) =>
-                    expect(result.errors.length).toBeGreaterThan(0)
-                );
-
-                done();
+                mioParser.parseStrings(strings).then((results) => {
+                    results.forEach((result) =>
+                        expect(result.errors.length).toBeGreaterThan(0)
+                    );
+                    done();
+                });
             });
         },
         false
     );
 
     TestUtil.runAllProfileFiles("parseFile (Profiles)", (file, value) => {
-        test(`${value.mioString} Profile "${file}"`, async (done) => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            if (result.errors.length) console.log(result.errors);
-            expect(result.errors.length).toBe(0);
-            done();
+        test(`${value.mioString} Profile "${file}"`, (done) => {
+            const blob = TestUtil.readFileAsBlob(file);
+            expect(blob).toBeDefined();
+            if (!blob) return;
+
+            mioParser.parseFile(blob).then((result) => {
+                if (result.errors.length) console.log(result.errors);
+                expect(result.errors.length).toBe(0);
+                done();
+            });
         });
     });
 
-    test("Invalid Bundle Basics", async (done) => {
+    test("Invalid Bundle Basics", (done) => {
         const checkInvalidMessage = async (
             str: string | undefined,
             expected: string,
@@ -116,62 +128,45 @@ describe("Parse", () => {
 
             expect(result).toBeDefined();
             if (result) {
-                expect(result.message).toBe(expected);
+                expect(errorToString(result)).toBe(expected);
             }
         };
 
-        await checkInvalidMessage(
-            TestUtil.getExample("/data/bundles/error/no-meta.json"),
+        const a = checkInvalidMessage(
+            TestUtil.getExample("/data/bundles/Misc/Error/no-meta.json"),
             Messages.NoMeta()
         );
 
-        await checkInvalidMessage(
-            TestUtil.getExample("/data/bundles/error/no-profile.json"),
+        const b = checkInvalidMessage(
+            TestUtil.getExample("/data/bundles/Misc/Error/no-profile.json"),
             Messages.NoProfile()
         );
 
-        await checkInvalidMessage(
-            TestUtil.getExample("/data/bundles/error/unknown-profile.json"),
+        const c = checkInvalidMessage(
+            TestUtil.getExample("/data/bundles/Misc/Error/unknown-profile.json"),
             Messages.UnknownProfile("Unknown_Profile")
         );
 
-        await checkInvalidMessage("", Messages.FileType("undefined"), "undefined");
+        const d = checkInvalidMessage("", Messages.FileType("undefined"), "undefined");
 
-        done();
+        Promise.all([a, b, c, d]).then(() => done());
     });
 
-    test("Broken JSON", async (done) => {
-        const file = "{";
-        const blob = new Blob([file]);
-
-        let result = false;
-
-        try {
-            await mioParser.parseFile(blob);
-        } catch (e) {
+    test("Broken JSON", (done) => {
+        const str = "{";
+        mioParser.parseString(str).catch((e) => {
             expect(e.message).toEqual(
                 "This file contains errors. Please contact the issuer of this document."
             );
-            result = true;
-        }
-
-        expect(result).toBeTruthy();
-        done();
+            done();
+        });
     });
 
-    test("Broken XML", async (done) => {
-        const file = "<";
-        const blob = new Blob([file]);
-
-        let result = false;
-
-        try {
-            await mioParser.parseFile(blob);
-        } catch (e) {
-            result = true;
-        }
-
-        expect(result).toBeTruthy();
-        done();
+    test("Broken XML", (done) => {
+        const str = "<";
+        mioParser.parseString(str).catch((e) => {
+            expect(e.message).toBeDefined();
+            done();
+        });
     });
 });

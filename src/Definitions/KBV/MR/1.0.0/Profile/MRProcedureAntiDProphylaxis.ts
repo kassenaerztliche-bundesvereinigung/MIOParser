@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnom
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Anti-D-Prophylaxe")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Anti-D-Prophylaxe")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -75,9 +56,8 @@ export interface MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnom
     )[];
 }
 
-export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -91,9 +71,7 @@ export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed: 
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -119,7 +97,7 @@ export const MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed: 
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -133,9 +111,8 @@ export interface MRProcedureAntiDProphylaxisCodeCodingDisplay {
     value?: string;
 }
 
-export const MRProcedureAntiDProphylaxisCodeCodingDisplay: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplay> = t.recursion(
-    "MRProcedureAntiDProphylaxisCodeCodingDisplay",
-    () =>
+export const MRProcedureAntiDProphylaxisCodeCodingDisplay: t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplay> =
+    t.recursion("MRProcedureAntiDProphylaxisCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -143,9 +120,7 @@ export const MRProcedureAntiDProphylaxisCodeCodingDisplay: t.Type<MRProcedureAnt
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRProcedureAntiDProphylaxisCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -165,8 +140,7 @@ export const MRProcedureAntiDProphylaxisCodeCodingDisplay: t.Type<MRProcedureAnt
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -175,7 +149,7 @@ export const MRProcedureAntiDProphylaxisCodeCodingDisplay: t.Type<MRProcedureAnt
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -189,9 +163,8 @@ export interface MRProcedureAntiDProphylaxisCodeCoding {
     display?: string;
 }
 
-export const MRProcedureAntiDProphylaxisCodeCoding: t.Type<MRProcedureAntiDProphylaxisCodeCoding> = t.recursion(
-    "MRProcedureAntiDProphylaxisCodeCoding",
-    () =>
+export const MRProcedureAntiDProphylaxisCodeCoding: t.Type<MRProcedureAntiDProphylaxisCodeCoding> =
+    t.recursion("MRProcedureAntiDProphylaxisCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -208,7 +181,7 @@ export const MRProcedureAntiDProphylaxisCodeCoding: t.Type<MRProcedureAntiDProph
                 })
             ])
         )
-);
+    );
 
 /**
  * The practitioner who was involved in the procedure.
@@ -218,9 +191,8 @@ export interface MRProcedureAntiDProphylaxisPerformerActor {
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisPerformerActor: t.Type<MRProcedureAntiDProphylaxisPerformerActor> = t.recursion(
-    "MRProcedureAntiDProphylaxisPerformerActor",
-    () =>
+export const MRProcedureAntiDProphylaxisPerformerActor: t.Type<MRProcedureAntiDProphylaxisPerformerActor> =
+    t.recursion("MRProcedureAntiDProphylaxisPerformerActor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -234,21 +206,18 @@ export const MRProcedureAntiDProphylaxisPerformerActor: t.Type<MRProcedureAntiDP
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRProcedureAntiDProphylaxisMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Procedure_Anti_D_Prophylaxis|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Procedure_Anti_D_Prophylaxis|1.0.0">;
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisMeta: t.Type<MRProcedureAntiDProphylaxisMeta> = t.recursion(
-    "MRProcedureAntiDProphylaxisMeta",
-    () =>
+export const MRProcedureAntiDProphylaxisMeta: t.Type<MRProcedureAntiDProphylaxisMeta> =
+    t.recursion("MRProcedureAntiDProphylaxisMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -265,7 +234,7 @@ export const MRProcedureAntiDProphylaxisMeta: t.Type<MRProcedureAntiDProphylaxis
                 })
             ])
         )
-);
+    );
 
 /**
  * The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").
@@ -275,9 +244,8 @@ export interface MRProcedureAntiDProphylaxisCode {
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisCode: t.Type<MRProcedureAntiDProphylaxisCode> = t.recursion(
-    "MRProcedureAntiDProphylaxisCode",
-    () =>
+export const MRProcedureAntiDProphylaxisCode: t.Type<MRProcedureAntiDProphylaxisCode> =
+    t.recursion("MRProcedureAntiDProphylaxisCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -288,7 +256,7 @@ export const MRProcedureAntiDProphylaxisCode: t.Type<MRProcedureAntiDProphylaxis
                 })
             ])
         )
-);
+    );
 
 /**
  * The person, animal or group on which the procedure was performed.
@@ -298,9 +266,8 @@ export interface MRProcedureAntiDProphylaxisSubject {
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisSubject: t.Type<MRProcedureAntiDProphylaxisSubject> = t.recursion(
-    "MRProcedureAntiDProphylaxisSubject",
-    () =>
+export const MRProcedureAntiDProphylaxisSubject: t.Type<MRProcedureAntiDProphylaxisSubject> =
+    t.recursion("MRProcedureAntiDProphylaxisSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -313,7 +280,7 @@ export const MRProcedureAntiDProphylaxisSubject: t.Type<MRProcedureAntiDProphyla
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
@@ -323,9 +290,8 @@ export interface MRProcedureAntiDProphylaxisEncounter {
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisEncounter: t.Type<MRProcedureAntiDProphylaxisEncounter> = t.recursion(
-    "MRProcedureAntiDProphylaxisEncounter",
-    () =>
+export const MRProcedureAntiDProphylaxisEncounter: t.Type<MRProcedureAntiDProphylaxisEncounter> =
+    t.recursion("MRProcedureAntiDProphylaxisEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -338,7 +304,7 @@ export const MRProcedureAntiDProphylaxisEncounter: t.Type<MRProcedureAntiDProphy
                 })
             ])
         )
-);
+    );
 
 /**
  * Limited to "real" people rather than equipment.
@@ -348,9 +314,8 @@ export interface MRProcedureAntiDProphylaxisPerformer {
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisPerformer: t.Type<MRProcedureAntiDProphylaxisPerformer> = t.recursion(
-    "MRProcedureAntiDProphylaxisPerformer",
-    () =>
+export const MRProcedureAntiDProphylaxisPerformer: t.Type<MRProcedureAntiDProphylaxisPerformer> =
+    t.recursion("MRProcedureAntiDProphylaxisPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -361,7 +326,7 @@ export const MRProcedureAntiDProphylaxisPerformer: t.Type<MRProcedureAntiDProphy
                 })
             ])
         )
-);
+    );
 
 interface MRProcedureAntiDProphylaxis {
     resourceType: "Procedure";

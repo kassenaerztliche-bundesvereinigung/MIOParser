@@ -21,6 +21,7 @@
 import MIOParser from "../src";
 import * as path from "path";
 import * as fs from "fs";
+import * as TestUtil from "@kbv/miotestdata";
 
 describe("Null Test", () => {
     it("loads mio with null", (done) => {
@@ -31,12 +32,13 @@ describe("Null Test", () => {
         let parsedFies = 0;
 
         files.forEach((file) => {
-            const nullFile = fs.readFileSync(
-                // eslint-disable-next-line no-undef
+            const bundleFile = TestUtil.readFile(
                 path.join(__dirname, "Resources", "NullTest", file)
             );
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            mioParser.parseFile(new Blob([nullFile])).then((result) => {
+            mioParser.parseString(bundleFile).then((result) => {
                 if (result.errors.length !== 0) console.error(result.errors);
                 expect(result.errors.length).toBe(0);
 

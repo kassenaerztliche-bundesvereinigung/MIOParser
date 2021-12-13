@@ -27,14 +27,13 @@ import {
     MIOError,
     GeneralError
 } from "./Interfaces/AppInternals";
-import Messages from "./Interfaces/Messages";
 import * as Util from "./Interfaces/Util";
 
 import getResource, { getAllEntries, isBundle } from "./Resources";
+
+import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
 import ErrorMessage, { ErrorMessageLanguage } from "./Definitions/ErrorMessage";
 import { MIOTypes, KBVBundleResource } from "./Definitions/ProfileMaps/ProfileMap";
-import { Meta } from "./Definitions/FHIR/4.0.1/Profile";
-
 import { EXTENSIBLE_WARNING, warningEmitter } from "./Definitions/CustomTypes";
 
 /**
@@ -88,7 +87,7 @@ export default class MIOParser {
                     this.handleResult(result, resolve);
                 } catch (error) {
                     // File parsing in stringToObject threw error
-                    reject(error);
+                    reject(new Error(Util.errorToString(error)));
                 }
             };
 
@@ -181,16 +180,22 @@ export default class MIOParser {
             try {
                 return this.fhirParser.xmlToObj(str);
             } catch (error) {
-                throw new GeneralError(Messages.SyntaxError(), error.message);
+                throw new GeneralError(
+                    ErrorMessage.SyntaxError(),
+                    Util.errorToString(error)
+                );
             }
         } else if (fileType === "application/json") {
             try {
                 return JSON.parse(str);
             } catch (error) {
-                throw new GeneralError(Messages.SyntaxError(), error.message);
+                throw new GeneralError(
+                    ErrorMessage.SyntaxError(),
+                    Util.errorToString(error)
+                );
             }
         } else {
-            throw new GeneralError(Messages.FileType(fileType), "");
+            throw new GeneralError(ErrorMessage.FileType(fileType), "");
         }
     }
 
@@ -206,7 +211,24 @@ export default class MIOParser {
             return {
                 valid: valid,
                 errors: result.errors,
-                message: Messages.Valid(valid)
+                message: ErrorMessage.Valid(valid)
+            };
+        });
+    }
+
+    /**
+     * Quickly validates a file and returns only validation results.
+     *
+     * @param value {string} The value to be evaluated and validated
+     * @returns {Promise<ValidationResult>} ValidationResult Object that contains information regarding the validation
+     */
+    public async validateString(value: string): Promise<ValidationResult> {
+        return this.parseString(value).then((result) => {
+            const valid: boolean = result.errors.length > 0 && !result.value;
+            return {
+                valid: valid,
+                errors: result.errors,
+                message: ErrorMessage.Valid(valid)
             };
         });
     }
@@ -246,13 +268,14 @@ export default class MIOParser {
      */
     protected handleResult = (
         input: Record<string, unknown>,
-        resolve: (
-            value?: MIOParserResult | PromiseLike<MIOParserResult> | undefined
-        ) => void
+        resolve: (value: MIOParserResult | PromiseLike<MIOParserResult>) => void
     ): void => {
         const warnings: MIOError[] = [];
         this.setupListeners(warnings);
         this.cleanEmpty(input);
+
+        const identifier = input.identifier as { value: string };
+        const fullUrl = input.fullUrl ?? identifier?.value ? identifier?.value : "";
 
         // Tries to get the resource for the object, meta and id must be present
         const result = getResource(
@@ -260,6 +283,7 @@ export default class MIOParser {
                 meta: Meta;
                 id: string;
             },
+            fullUrl,
             MIOTypes
         );
 
@@ -282,6 +306,7 @@ export default class MIOParser {
                     errors: [...result.errors, ...entries.errors],
                     warnings: Util.getUnresolvedReferences(value).concat(result.warnings)
                 };
+
                 resolve(returnMioResult);
             } else {
                 result.warnings.push(...Array.from(new Set(warnings)));
@@ -307,8 +332,8 @@ export default class MIOParser {
             ) => {
                 const mioWarning: MIOError = {
                     message: errorMessage,
-                    path: warningPath,
                     resource: resource,
+                    path: warningPath,
                     value: value
                 };
 

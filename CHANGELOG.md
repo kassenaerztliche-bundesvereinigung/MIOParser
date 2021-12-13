@@ -1,5 +1,9 @@
 # Changelog MIO Parser
 
+## 1.5.0
+* Parsen von Kinderuntersuchungsheft, Version 1.0.1
+* Version 1.0.0 des MIOs wird nicht mehr unterstützt
+
 ## 1.4.0
 * Parsen von Impfpass, Version 1.1.0
 * Parsen von Zahnärztliches Bonusheft, Version 1.1.0

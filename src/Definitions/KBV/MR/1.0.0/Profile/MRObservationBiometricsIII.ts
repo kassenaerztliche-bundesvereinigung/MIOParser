@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,21 +25,22 @@ export interface MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnome
     id?: string;
 }
 
-export const MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -70,21 +51,22 @@ export interface MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodyS
     id?: string;
 }
 
-export const MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent> = t.recursion(
-    "MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Angaben zum Fötus/Kind")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent> =
+    t.recursion(
+        "MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Angaben zum Fötus/Kind")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -95,9 +77,8 @@ export interface MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnome
     extension?: MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomedContent[];
 }
 
-export const MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -113,7 +94,7 @@ export const MRObservationBiometricsIIICodeCodingDisplayAnzeigenameCodeSnomed: t
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -124,25 +105,26 @@ export interface MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodyS
     extension?: MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent[];
 }
 
-export const MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed> = t.recursion(
-    "MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: t.array(
-                        MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent
-                    )
-                })
-            ])
-        )
-);
+export const MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed> =
+    t.recursion(
+        "MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: t.array(
+                            MRObservationBiometricsIIIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -153,9 +135,8 @@ export interface MRObservationBiometricsIIICodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBiometricsIIICodeCodingDisplay: t.Type<MRObservationBiometricsIIICodeCodingDisplay> = t.recursion(
-    "MRObservationBiometricsIIICodeCodingDisplay",
-    () =>
+export const MRObservationBiometricsIIICodeCodingDisplay: t.Type<MRObservationBiometricsIIICodeCodingDisplay> =
+    t.recursion("MRObservationBiometricsIIICodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -165,7 +146,7 @@ export const MRObservationBiometricsIIICodeCodingDisplay: t.Type<MRObservationBi
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -176,9 +157,8 @@ export interface MRObservationBiometricsIIIBodySiteIdentifikation {
     id?: string;
 }
 
-export const MRObservationBiometricsIIIBodySiteIdentifikation: t.Type<MRObservationBiometricsIIIBodySiteIdentifikation> = t.recursion(
-    "MRObservationBiometricsIIIBodySiteIdentifikation",
-    () =>
+export const MRObservationBiometricsIIIBodySiteIdentifikation: t.Type<MRObservationBiometricsIIIBodySiteIdentifikation> =
+    t.recursion("MRObservationBiometricsIIIBodySiteIdentifikation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -192,7 +172,7 @@ export const MRObservationBiometricsIIIBodySiteIdentifikation: t.Type<MRObservat
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -203,9 +183,8 @@ export interface MRObservationBiometricsIIIBodySiteCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBiometricsIIIBodySiteCodingDisplay: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplay> = t.recursion(
-    "MRObservationBiometricsIIIBodySiteCodingDisplay",
-    () =>
+export const MRObservationBiometricsIIIBodySiteCodingDisplay: t.Type<MRObservationBiometricsIIIBodySiteCodingDisplay> =
+    t.recursion("MRObservationBiometricsIIIBodySiteCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -215,7 +194,7 @@ export const MRObservationBiometricsIIIBodySiteCodingDisplay: t.Type<MRObservati
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -229,9 +208,8 @@ export interface MRObservationBiometricsIIICodeCoding {
     display?: string;
 }
 
-export const MRObservationBiometricsIIICodeCoding: t.Type<MRObservationBiometricsIIICodeCoding> = t.recursion(
-    "MRObservationBiometricsIIICodeCoding",
-    () =>
+export const MRObservationBiometricsIIICodeCoding: t.Type<MRObservationBiometricsIIICodeCoding> =
+    t.recursion("MRObservationBiometricsIIICodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -246,7 +224,7 @@ export const MRObservationBiometricsIIICodeCoding: t.Type<MRObservationBiometric
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -259,9 +237,8 @@ export interface MRObservationBiometricsIIIValueQuantity {
     id?: string;
 }
 
-export const MRObservationBiometricsIIIValueQuantity: t.Type<MRObservationBiometricsIIIValueQuantity> = t.recursion(
-    "MRObservationBiometricsIIIValueQuantity",
-    () =>
+export const MRObservationBiometricsIIIValueQuantity: t.Type<MRObservationBiometricsIIIValueQuantity> =
+    t.recursion("MRObservationBiometricsIIIValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -275,7 +252,7 @@ export const MRObservationBiometricsIIIValueQuantity: t.Type<MRObservationBiomet
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -289,9 +266,8 @@ export interface MRObservationBiometricsIIIBodySiteCoding {
     display?: string;
 }
 
-export const MRObservationBiometricsIIIBodySiteCoding: t.Type<MRObservationBiometricsIIIBodySiteCoding> = t.recursion(
-    "MRObservationBiometricsIIIBodySiteCoding",
-    () =>
+export const MRObservationBiometricsIIIBodySiteCoding: t.Type<MRObservationBiometricsIIIBodySiteCoding> =
+    t.recursion("MRObservationBiometricsIIIBodySiteCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,21 +284,18 @@ export const MRObservationBiometricsIIIBodySiteCoding: t.Type<MRObservationBiome
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBiometricsIIIMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_III|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_III|1.0.0">;
     id?: string;
 }
 
-export const MRObservationBiometricsIIIMeta: t.Type<MRObservationBiometricsIIIMeta> = t.recursion(
-    "MRObservationBiometricsIIIMeta",
-    () =>
+export const MRObservationBiometricsIIIMeta: t.Type<MRObservationBiometricsIIIMeta> =
+    t.recursion("MRObservationBiometricsIIIMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -339,7 +312,7 @@ export const MRObservationBiometricsIIIMeta: t.Type<MRObservationBiometricsIIIMe
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -349,9 +322,8 @@ export interface MRObservationBiometricsIIICode {
     id?: string;
 }
 
-export const MRObservationBiometricsIIICode: t.Type<MRObservationBiometricsIIICode> = t.recursion(
-    "MRObservationBiometricsIIICode",
-    () =>
+export const MRObservationBiometricsIIICode: t.Type<MRObservationBiometricsIIICode> =
+    t.recursion("MRObservationBiometricsIIICode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -362,7 +334,7 @@ export const MRObservationBiometricsIIICode: t.Type<MRObservationBiometricsIIICo
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -372,9 +344,8 @@ export interface MRObservationBiometricsIIISubject {
     id?: string;
 }
 
-export const MRObservationBiometricsIIISubject: t.Type<MRObservationBiometricsIIISubject> = t.recursion(
-    "MRObservationBiometricsIIISubject",
-    () =>
+export const MRObservationBiometricsIIISubject: t.Type<MRObservationBiometricsIIISubject> =
+    t.recursion("MRObservationBiometricsIIISubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -387,7 +358,7 @@ export const MRObservationBiometricsIIISubject: t.Type<MRObservationBiometricsII
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -397,9 +368,8 @@ export interface MRObservationBiometricsIIIEncounter {
     id?: string;
 }
 
-export const MRObservationBiometricsIIIEncounter: t.Type<MRObservationBiometricsIIIEncounter> = t.recursion(
-    "MRObservationBiometricsIIIEncounter",
-    () =>
+export const MRObservationBiometricsIIIEncounter: t.Type<MRObservationBiometricsIIIEncounter> =
+    t.recursion("MRObservationBiometricsIIIEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -412,7 +382,7 @@ export const MRObservationBiometricsIIIEncounter: t.Type<MRObservationBiometrics
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -422,9 +392,8 @@ export interface MRObservationBiometricsIIIPerformer {
     id?: string;
 }
 
-export const MRObservationBiometricsIIIPerformer: t.Type<MRObservationBiometricsIIIPerformer> = t.recursion(
-    "MRObservationBiometricsIIIPerformer",
-    () =>
+export const MRObservationBiometricsIIIPerformer: t.Type<MRObservationBiometricsIIIPerformer> =
+    t.recursion("MRObservationBiometricsIIIPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -438,7 +407,7 @@ export const MRObservationBiometricsIIIPerformer: t.Type<MRObservationBiometrics
                 })
             ])
         )
-);
+    );
 
 /**
  * Indicates the site on the subject's body where the observation was made (i.e. the target site).
@@ -450,9 +419,8 @@ export interface MRObservationBiometricsIIIBodySite {
     text?: string;
 }
 
-export const MRObservationBiometricsIIIBodySite: t.Type<MRObservationBiometricsIIIBodySite> = t.recursion(
-    "MRObservationBiometricsIIIBodySite",
-    () =>
+export const MRObservationBiometricsIIIBodySite: t.Type<MRObservationBiometricsIIIBodySite> =
+    t.recursion("MRObservationBiometricsIIIBodySite", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -465,7 +433,7 @@ export const MRObservationBiometricsIIIBodySite: t.Type<MRObservationBiometricsI
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBiometricsIII {
     resourceType: "Observation";

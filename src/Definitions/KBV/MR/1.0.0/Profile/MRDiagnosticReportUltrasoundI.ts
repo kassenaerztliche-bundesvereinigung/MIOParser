@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaftswoche+Tage")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaftswoche+Tage")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -71,21 +52,22 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaftswoche+Tage (korrigiert)")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaftswoche+Tage (korrigiert)")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -99,51 +81,50 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -157,51 +138,50 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -215,49 +195,47 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     value?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -271,49 +249,47 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     value?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -327,26 +303,28 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     display?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("57036006")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("57036006")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -360,26 +338,28 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     display?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("57036006:246501002=278395004")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("57036006:246501002=278395004")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -392,23 +372,24 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -421,52 +402,52 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept {
-    coding: Array<
-        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-    >;
+    coding: Array<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -479,23 +460,24 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -508,52 +490,52 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept {
-    coding: Array<
-        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
-    >;
+    coding: Array<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -564,21 +546,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     valueQuantity?: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswoche")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueQuantity: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswoche")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueQuantity:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -589,21 +573,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("ergaenzendeTage"),
-                    valueQuantity: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("ergaenzendeTage"),
+                        valueQuantity:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -614,21 +600,22 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     valueBoolean?: false;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("korrektur")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueBoolean: Literal(false)
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("korrektur")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueBoolean: Literal(false)
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -639,21 +626,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("kode"),
-                    valueCodeableConcept: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("kode"),
+                        valueCodeableConcept:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -664,21 +653,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswocheKorrigiert"),
-                    valueQuantity: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswocheKorrigiert"),
+                        valueQuantity:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiertValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -689,21 +680,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("ergaenzendeTageKorrigiert"),
-                    valueQuantity: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("ergaenzendeTageKorrigiert"),
+                        valueQuantity:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiertValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -714,21 +707,22 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     valueBoolean?: true;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("korrekturKorrigiert")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueBoolean: Literal(true)
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("korrekturKorrigiert")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueBoolean: Literal(true)
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -739,21 +733,23 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("kodeKorrigiert"),
-                    valueCodeableConcept: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("kodeKorrigiert"),
+                        valueCodeableConcept:
+                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiertValueCodeableConcept
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -764,21 +760,22 @@ export interface MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSn
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("I. Screening")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("I. Screening")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -795,76 +792,72 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftszeitpunkt")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftszeitpunkt")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "schwangerschaftswoche" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
-                                occurrence: ["0", "1"],
-                                sliceBy: { path: "url", value: "ergaenzendeTage" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "korrektur" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "kode" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftswoche"
+                                    }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: { path: "url", value: "ergaenzendeTage" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "korrektur" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "kode" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -881,82 +874,75 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftszeitpunktKorrigiert")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftszeitpunktKorrigiert")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert,
-                                occurrence: ["1", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "schwangerschaftswocheKorrigiert"
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertSchwangerschaftswocheKorrigiert,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftswocheKorrigiert"
+                                    }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "ergaenzendeTageKorrigiert"
+                                    }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "korrekturKorrigiert" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "kodeKorrigiert" }
                                 }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertErgaenzendeTageKorrigiert,
-                                occurrence: ["0", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "ergaenzendeTageKorrigiert"
-                                }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKorrekturKorrigiert,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "korrekturKorrigiert" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiertKodeKorrigiert,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "kodeKorrigiert" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -970,51 +956,50 @@ export interface MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSn
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * In dieser Extension können Schwangerschaftswoche und ergänzende Tage dokumentiert werden.
@@ -1029,66 +1014,63 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUnter
     )[];
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung> =
+    t.recursion(
+        "MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt>,
+                                    t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
+                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt
-                                >,
-                                t.Type<
-                                    MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
-                            MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
-                                occurrence: ["0", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "schwangerschaftszeitpunkt"
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftszeitpunkt"
+                                    }
+                                },
+                                {
+                                    codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftszeitpunktKorrigiert"
+                                    }
                                 }
-                            },
-                            {
-                                codec: MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrigiert,
-                                occurrence: ["0", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "schwangerschaftszeitpunktKorrigiert"
-                                }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1102,9 +1084,8 @@ export interface MRDiagnosticReportUltrasoundICodeCodingDisplay {
     value?: string;
 }
 
-export const MRDiagnosticReportUltrasoundICodeCodingDisplay: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplay> = t.recursion(
-    "MRDiagnosticReportUltrasoundICodeCodingDisplay",
-    () =>
+export const MRDiagnosticReportUltrasoundICodeCodingDisplay: t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplay> =
+    t.recursion("MRDiagnosticReportUltrasoundICodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1112,9 +1093,7 @@ export const MRDiagnosticReportUltrasoundICodeCodingDisplay: t.Type<MRDiagnostic
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRDiagnosticReportUltrasoundICodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -1134,8 +1113,7 @@ export const MRDiagnosticReportUltrasoundICodeCodingDisplay: t.Type<MRDiagnostic
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -1144,7 +1122,7 @@ export const MRDiagnosticReportUltrasoundICodeCodingDisplay: t.Type<MRDiagnostic
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -1155,9 +1133,8 @@ export interface MRDiagnosticReportUltrasoundIErgaenzendeAngaben {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIErgaenzendeAngaben: t.Type<MRDiagnosticReportUltrasoundIErgaenzendeAngaben> = t.recursion(
-    "MRDiagnosticReportUltrasoundIErgaenzendeAngaben",
-    () =>
+export const MRDiagnosticReportUltrasoundIErgaenzendeAngaben: t.Type<MRDiagnosticReportUltrasoundIErgaenzendeAngaben> =
+    t.recursion("MRDiagnosticReportUltrasoundIErgaenzendeAngaben", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1171,7 +1148,7 @@ export const MRDiagnosticReportUltrasoundIErgaenzendeAngaben: t.Type<MRDiagnosti
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1185,9 +1162,8 @@ export interface MRDiagnosticReportUltrasoundICodeCoding {
     display?: string;
 }
 
-export const MRDiagnosticReportUltrasoundICodeCoding: t.Type<MRDiagnosticReportUltrasoundICodeCoding> = t.recursion(
-    "MRDiagnosticReportUltrasoundICodeCoding",
-    () =>
+export const MRDiagnosticReportUltrasoundICodeCoding: t.Type<MRDiagnosticReportUltrasoundICodeCoding> =
+    t.recursion("MRDiagnosticReportUltrasoundICodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1204,7 +1180,7 @@ export const MRDiagnosticReportUltrasoundICodeCoding: t.Type<MRDiagnosticReportU
                 })
             ])
         )
-);
+    );
 
 /**
  * The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
@@ -1218,9 +1194,8 @@ export interface MRDiagnosticReportUltrasoundIEffectiveDateTime {
     value?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEffectiveDateTime: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTime> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEffectiveDateTime",
-    () =>
+export const MRDiagnosticReportUltrasoundIEffectiveDateTime: t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTime> =
+    t.recursion("MRDiagnosticReportUltrasoundIEffectiveDateTime", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1228,9 +1203,7 @@ export const MRDiagnosticReportUltrasoundIEffectiveDateTime: t.Type<MRDiagnostic
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung
-                            >
+                            t.Type<MRDiagnosticReportUltrasoundIEffectiveDateTimeZeitpunktDerUntersuchung>
                         ]
                     >,
                     t.Any
@@ -1250,8 +1223,7 @@ export const MRDiagnosticReportUltrasoundIEffectiveDateTime: t.Type<MRDiagnostic
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
                             }
                         }
                     ],
@@ -1260,21 +1232,18 @@ export const MRDiagnosticReportUltrasoundIEffectiveDateTime: t.Type<MRDiagnostic
                 value: SCALARDateTime
             })
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRDiagnosticReportUltrasoundIMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_DiagnosticReport_Ultrasound_I|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_DiagnosticReport_Ultrasound_I|1.0.0">;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIMeta: t.Type<MRDiagnosticReportUltrasoundIMeta> = t.recursion(
-    "MRDiagnosticReportUltrasoundIMeta",
-    () =>
+export const MRDiagnosticReportUltrasoundIMeta: t.Type<MRDiagnosticReportUltrasoundIMeta> =
+    t.recursion("MRDiagnosticReportUltrasoundIMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1291,7 +1260,7 @@ export const MRDiagnosticReportUltrasoundIMeta: t.Type<MRDiagnosticReportUltraso
                 })
             ])
         )
-);
+    );
 
 /**
  * A code or name that describes this diagnostic report.
@@ -1301,9 +1270,8 @@ export interface MRDiagnosticReportUltrasoundICode {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundICode: t.Type<MRDiagnosticReportUltrasoundICode> = t.recursion(
-    "MRDiagnosticReportUltrasoundICode",
-    () =>
+export const MRDiagnosticReportUltrasoundICode: t.Type<MRDiagnosticReportUltrasoundICode> =
+    t.recursion("MRDiagnosticReportUltrasoundICode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1314,7 +1282,7 @@ export const MRDiagnosticReportUltrasoundICode: t.Type<MRDiagnosticReportUltraso
                 })
             ])
         )
-);
+    );
 
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
@@ -1324,9 +1292,8 @@ export interface MRDiagnosticReportUltrasoundISubject {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltrasoundISubject> = t.recursion(
-    "MRDiagnosticReportUltrasoundISubject",
-    () =>
+export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltrasoundISubject> =
+    t.recursion("MRDiagnosticReportUltrasoundISubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1339,7 +1306,7 @@ export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltr
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
@@ -1349,9 +1316,8 @@ export interface MRDiagnosticReportUltrasoundIEncounter {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUltrasoundIEncounter> = t.recursion(
-    "MRDiagnosticReportUltrasoundIEncounter",
-    () =>
+export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUltrasoundIEncounter> =
+    t.recursion("MRDiagnosticReportUltrasoundIEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1364,7 +1330,7 @@ export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUl
                 })
             ])
         )
-);
+    );
 
 /**
  * The diagnostic service that is responsible for issuing the report.
@@ -1374,9 +1340,8 @@ export interface MRDiagnosticReportUltrasoundIPerformer {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUltrasoundIPerformer> = t.recursion(
-    "MRDiagnosticReportUltrasoundIPerformer",
-    () =>
+export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUltrasoundIPerformer> =
+    t.recursion("MRDiagnosticReportUltrasoundIPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1390,7 +1355,7 @@ export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUl
                 })
             ])
         )
-);
+    );
 
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
@@ -1400,9 +1365,8 @@ export interface MRDiagnosticReportUltrasoundIResult {
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltrasoundIResult> = t.recursion(
-    "MRDiagnosticReportUltrasoundIResult",
-    () =>
+export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltrasoundIResult> =
+    t.recursion("MRDiagnosticReportUltrasoundIResult", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1421,7 +1385,7 @@ export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltra
                 })
             ])
         )
-);
+    );
 
 interface MRDiagnosticReportUltrasoundI {
     resourceType: "DiagnosticReport";
@@ -1479,8 +1443,7 @@ const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.r
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],

@@ -20,7 +20,7 @@
 
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
-import { EXTENSIBLE_WARNING, warningEmitter } from "./index";
+import { warningEmitter } from "./index";
 import { AnyType } from "../Interfaces";
 
 export class ExtensibleCheckType extends t.Type<AnyType> {

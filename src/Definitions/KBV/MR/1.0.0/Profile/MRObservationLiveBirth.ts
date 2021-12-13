@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedCon
     id?: string;
 }
 
-export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Lebendgeburt")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Lebendgeburt")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,9 +55,8 @@ export interface MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -90,9 +70,7 @@ export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Typ
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -118,7 +96,7 @@ export const MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -132,9 +110,8 @@ export interface MRObservationLiveBirthCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationLiveBirthCodeCodingDisplay: t.Type<MRObservationLiveBirthCodeCodingDisplay> = t.recursion(
-    "MRObservationLiveBirthCodeCodingDisplay",
-    () =>
+export const MRObservationLiveBirthCodeCodingDisplay: t.Type<MRObservationLiveBirthCodeCodingDisplay> =
+    t.recursion("MRObservationLiveBirthCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -142,9 +119,7 @@ export const MRObservationLiveBirthCodeCodingDisplay: t.Type<MRObservationLiveBi
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationLiveBirthCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -164,8 +139,7 @@ export const MRObservationLiveBirthCodeCodingDisplay: t.Type<MRObservationLiveBi
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -174,7 +148,7 @@ export const MRObservationLiveBirthCodeCodingDisplay: t.Type<MRObservationLiveBi
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -188,9 +162,8 @@ export interface MRObservationLiveBirthCodeCoding {
     display?: string;
 }
 
-export const MRObservationLiveBirthCodeCoding: t.Type<MRObservationLiveBirthCodeCoding> = t.recursion(
-    "MRObservationLiveBirthCodeCoding",
-    () =>
+export const MRObservationLiveBirthCodeCoding: t.Type<MRObservationLiveBirthCodeCoding> =
+    t.recursion("MRObservationLiveBirthCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -207,15 +180,13 @@ export const MRObservationLiveBirthCodeCoding: t.Type<MRObservationLiveBirthCode
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationLiveBirthMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Live_Birth|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Live_Birth|1.0.0">;
     id?: string;
 }
 
@@ -271,9 +242,8 @@ export interface MRObservationLiveBirthSubject {
     id?: string;
 }
 
-export const MRObservationLiveBirthSubject: t.Type<MRObservationLiveBirthSubject> = t.recursion(
-    "MRObservationLiveBirthSubject",
-    () =>
+export const MRObservationLiveBirthSubject: t.Type<MRObservationLiveBirthSubject> =
+    t.recursion("MRObservationLiveBirthSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,7 +256,7 @@ export const MRObservationLiveBirthSubject: t.Type<MRObservationLiveBirthSubject
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -296,9 +266,8 @@ export interface MRObservationLiveBirthEncounter {
     id?: string;
 }
 
-export const MRObservationLiveBirthEncounter: t.Type<MRObservationLiveBirthEncounter> = t.recursion(
-    "MRObservationLiveBirthEncounter",
-    () =>
+export const MRObservationLiveBirthEncounter: t.Type<MRObservationLiveBirthEncounter> =
+    t.recursion("MRObservationLiveBirthEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -311,7 +280,7 @@ export const MRObservationLiveBirthEncounter: t.Type<MRObservationLiveBirthEncou
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -321,9 +290,8 @@ export interface MRObservationLiveBirthPerformer {
     id?: string;
 }
 
-export const MRObservationLiveBirthPerformer: t.Type<MRObservationLiveBirthPerformer> = t.recursion(
-    "MRObservationLiveBirthPerformer",
-    () =>
+export const MRObservationLiveBirthPerformer: t.Type<MRObservationLiveBirthPerformer> =
+    t.recursion("MRObservationLiveBirthPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,7 +305,7 @@ export const MRObservationLiveBirthPerformer: t.Type<MRObservationLiveBirthPerfo
                 })
             ])
         )
-);
+    );
 
 interface MRObservationLiveBirth {
     resourceType: "Observation";

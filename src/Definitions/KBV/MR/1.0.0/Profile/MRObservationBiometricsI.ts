@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -48,21 +28,22 @@ export interface MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedC
     id?: string;
 }
 
-export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -73,21 +54,22 @@ export interface MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySit
     id?: string;
 }
 
-export const MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent: t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent> = t.recursion(
-    "MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Angaben zum Fötus/Kind")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent: t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent> =
+    t.recursion(
+        "MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Angaben zum Fötus/Kind")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -101,9 +83,8 @@ export interface MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed 
     )[];
 }
 
-export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -117,9 +98,7 @@ export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed: t.T
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -145,7 +124,7 @@ export const MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed: t.T
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -159,51 +138,50 @@ export interface MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySit
     )[];
 }
 
-export const MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed: t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed> = t.recursion(
-    "MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed: t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed> =
+    t.recursion(
+        "MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -217,9 +195,8 @@ export interface MRObservationBiometricsICodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBiometricsICodeCodingDisplay: t.Type<MRObservationBiometricsICodeCodingDisplay> = t.recursion(
-    "MRObservationBiometricsICodeCodingDisplay",
-    () =>
+export const MRObservationBiometricsICodeCodingDisplay: t.Type<MRObservationBiometricsICodeCodingDisplay> =
+    t.recursion("MRObservationBiometricsICodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -227,9 +204,7 @@ export const MRObservationBiometricsICodeCodingDisplay: t.Type<MRObservationBiom
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBiometricsICodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -249,8 +224,7 @@ export const MRObservationBiometricsICodeCodingDisplay: t.Type<MRObservationBiom
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -259,7 +233,7 @@ export const MRObservationBiometricsICodeCodingDisplay: t.Type<MRObservationBiom
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -273,9 +247,8 @@ export interface MRObservationBiometricsIBodySiteCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBiometricsIBodySiteCodingDisplay: t.Type<MRObservationBiometricsIBodySiteCodingDisplay> = t.recursion(
-    "MRObservationBiometricsIBodySiteCodingDisplay",
-    () =>
+export const MRObservationBiometricsIBodySiteCodingDisplay: t.Type<MRObservationBiometricsIBodySiteCodingDisplay> =
+    t.recursion("MRObservationBiometricsIBodySiteCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -283,9 +256,7 @@ export const MRObservationBiometricsIBodySiteCodingDisplay: t.Type<MRObservation
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed
-                            >
+                            t.Type<MRObservationBiometricsIBodySiteCodingDisplayAnzeigenameBodySiteSnomed>
                         ]
                     >,
                     t.Any
@@ -305,8 +276,7 @@ export const MRObservationBiometricsIBodySiteCodingDisplay: t.Type<MRObservation
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -315,7 +285,7 @@ export const MRObservationBiometricsIBodySiteCodingDisplay: t.Type<MRObservation
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -329,9 +299,8 @@ export interface MRObservationBiometricsICodeCoding {
     display?: string;
 }
 
-export const MRObservationBiometricsICodeCoding: t.Type<MRObservationBiometricsICodeCoding> = t.recursion(
-    "MRObservationBiometricsICodeCoding",
-    () =>
+export const MRObservationBiometricsICodeCoding: t.Type<MRObservationBiometricsICodeCoding> =
+    t.recursion("MRObservationBiometricsICodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -346,7 +315,7 @@ export const MRObservationBiometricsICodeCoding: t.Type<MRObservationBiometricsI
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -359,9 +328,8 @@ export interface MRObservationBiometricsIValueQuantity {
     id?: string;
 }
 
-export const MRObservationBiometricsIValueQuantity: t.Type<MRObservationBiometricsIValueQuantity> = t.recursion(
-    "MRObservationBiometricsIValueQuantity",
-    () =>
+export const MRObservationBiometricsIValueQuantity: t.Type<MRObservationBiometricsIValueQuantity> =
+    t.recursion("MRObservationBiometricsIValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -375,7 +343,7 @@ export const MRObservationBiometricsIValueQuantity: t.Type<MRObservationBiometri
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -389,9 +357,8 @@ export interface MRObservationBiometricsIBodySiteCoding {
     display?: string;
 }
 
-export const MRObservationBiometricsIBodySiteCoding: t.Type<MRObservationBiometricsIBodySiteCoding> = t.recursion(
-    "MRObservationBiometricsIBodySiteCoding",
-    () =>
+export const MRObservationBiometricsIBodySiteCoding: t.Type<MRObservationBiometricsIBodySiteCoding> =
+    t.recursion("MRObservationBiometricsIBodySiteCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -408,21 +375,18 @@ export const MRObservationBiometricsIBodySiteCoding: t.Type<MRObservationBiometr
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBiometricsIMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_I|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_I|1.0.0">;
     id?: string;
 }
 
-export const MRObservationBiometricsIMeta: t.Type<MRObservationBiometricsIMeta> = t.recursion(
-    "MRObservationBiometricsIMeta",
-    () =>
+export const MRObservationBiometricsIMeta: t.Type<MRObservationBiometricsIMeta> =
+    t.recursion("MRObservationBiometricsIMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -439,7 +403,7 @@ export const MRObservationBiometricsIMeta: t.Type<MRObservationBiometricsIMeta> 
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -449,9 +413,8 @@ export interface MRObservationBiometricsICode {
     id?: string;
 }
 
-export const MRObservationBiometricsICode: t.Type<MRObservationBiometricsICode> = t.recursion(
-    "MRObservationBiometricsICode",
-    () =>
+export const MRObservationBiometricsICode: t.Type<MRObservationBiometricsICode> =
+    t.recursion("MRObservationBiometricsICode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -462,7 +425,7 @@ export const MRObservationBiometricsICode: t.Type<MRObservationBiometricsICode> 
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -472,9 +435,8 @@ export interface MRObservationBiometricsISubject {
     id?: string;
 }
 
-export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISubject> = t.recursion(
-    "MRObservationBiometricsISubject",
-    () =>
+export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISubject> =
+    t.recursion("MRObservationBiometricsISubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -487,7 +449,7 @@ export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISub
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -497,9 +459,8 @@ export interface MRObservationBiometricsIEncounter {
     id?: string;
 }
 
-export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIEncounter> = t.recursion(
-    "MRObservationBiometricsIEncounter",
-    () =>
+export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIEncounter> =
+    t.recursion("MRObservationBiometricsIEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -512,7 +473,7 @@ export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIE
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -522,9 +483,8 @@ export interface MRObservationBiometricsIPerformer {
     id?: string;
 }
 
-export const MRObservationBiometricsIPerformer: t.Type<MRObservationBiometricsIPerformer> = t.recursion(
-    "MRObservationBiometricsIPerformer",
-    () =>
+export const MRObservationBiometricsIPerformer: t.Type<MRObservationBiometricsIPerformer> =
+    t.recursion("MRObservationBiometricsIPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -538,7 +498,7 @@ export const MRObservationBiometricsIPerformer: t.Type<MRObservationBiometricsIP
                 })
             ])
         )
-);
+    );
 
 /**
  * Indicates the site on the subject's body where the observation was made (i.e. the target site).
@@ -550,9 +510,8 @@ export interface MRObservationBiometricsIBodySite {
     text?: string;
 }
 
-export const MRObservationBiometricsIBodySite: t.Type<MRObservationBiometricsIBodySite> = t.recursion(
-    "MRObservationBiometricsIBodySite",
-    () =>
+export const MRObservationBiometricsIBodySite: t.Type<MRObservationBiometricsIBodySite> =
+    t.recursion("MRObservationBiometricsIBodySite", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -576,8 +535,7 @@ export const MRObservationBiometricsIBodySite: t.Type<MRObservationBiometricsIBo
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],
@@ -587,7 +545,7 @@ export const MRObservationBiometricsIBodySite: t.Type<MRObservationBiometricsIBo
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBiometricsI {
     resourceType: "Observation";

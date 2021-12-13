@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigena
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("pH-Wert (Nabelarterie)")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("pH-Wert (Nabelarterie)")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -71,21 +52,22 @@ export interface MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameC
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("pH-Wert (Nabelarterie)")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("pH-Wert (Nabelarterie)")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -99,51 +81,50 @@ export interface MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigena
     )[];
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -157,51 +138,50 @@ export interface MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameC
     )[];
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -215,9 +195,8 @@ export interface MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay",
-    () =>
+export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay> =
+    t.recursion("MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -225,9 +204,7 @@ export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay: t.Type<MROb
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -247,8 +224,7 @@ export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay: t.Type<MROb
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -257,7 +233,7 @@ export const MRObservationpHValueUmbilicalArteryCodeSnomedCTDisplay: t.Type<MROb
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -271,9 +247,8 @@ export interface MRObservationpHValueUmbilicalArteryCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeLoincDisplay: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplay> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeLoincDisplay",
-    () =>
+export const MRObservationpHValueUmbilicalArteryCodeLoincDisplay: t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplay> =
+    t.recursion("MRObservationpHValueUmbilicalArteryCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -281,9 +256,7 @@ export const MRObservationpHValueUmbilicalArteryCodeLoincDisplay: t.Type<MRObser
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationpHValueUmbilicalArteryCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -303,8 +276,7 @@ export const MRObservationpHValueUmbilicalArteryCodeLoincDisplay: t.Type<MRObser
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -313,7 +285,7 @@ export const MRObservationpHValueUmbilicalArteryCodeLoincDisplay: t.Type<MRObser
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -327,9 +299,8 @@ export interface MRObservationpHValueUmbilicalArteryCodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeSnomedCT: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCT> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeSnomedCT",
-    () =>
+export const MRObservationpHValueUmbilicalArteryCodeSnomedCT: t.Type<MRObservationpHValueUmbilicalArteryCodeSnomedCT> =
+    t.recursion("MRObservationpHValueUmbilicalArteryCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -348,7 +319,7 @@ export const MRObservationpHValueUmbilicalArteryCodeSnomedCT: t.Type<MRObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -362,9 +333,8 @@ export interface MRObservationpHValueUmbilicalArteryCodeLoinc {
     display?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCodeLoinc: t.Type<MRObservationpHValueUmbilicalArteryCodeLoinc> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCodeLoinc",
-    () =>
+export const MRObservationpHValueUmbilicalArteryCodeLoinc: t.Type<MRObservationpHValueUmbilicalArteryCodeLoinc> =
+    t.recursion("MRObservationpHValueUmbilicalArteryCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -379,7 +349,7 @@ export const MRObservationpHValueUmbilicalArteryCodeLoinc: t.Type<MRObservationp
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -392,9 +362,8 @@ export interface MRObservationpHValueUmbilicalArteryValueQuantity {
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryValueQuantity: t.Type<MRObservationpHValueUmbilicalArteryValueQuantity> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryValueQuantity",
-    () =>
+export const MRObservationpHValueUmbilicalArteryValueQuantity: t.Type<MRObservationpHValueUmbilicalArteryValueQuantity> =
+    t.recursion("MRObservationpHValueUmbilicalArteryValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -408,21 +377,18 @@ export const MRObservationpHValueUmbilicalArteryValueQuantity: t.Type<MRObservat
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationpHValueUmbilicalArteryMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_pH_Value_Umbilical_Artery|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_pH_Value_Umbilical_Artery|1.0.0">;
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryMeta: t.Type<MRObservationpHValueUmbilicalArteryMeta> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryMeta",
-    () =>
+export const MRObservationpHValueUmbilicalArteryMeta: t.Type<MRObservationpHValueUmbilicalArteryMeta> =
+    t.recursion("MRObservationpHValueUmbilicalArteryMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -439,7 +405,7 @@ export const MRObservationpHValueUmbilicalArteryMeta: t.Type<MRObservationpHValu
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -452,9 +418,8 @@ export interface MRObservationpHValueUmbilicalArteryCode {
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryCode: t.Type<MRObservationpHValueUmbilicalArteryCode> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryCode",
-    () =>
+export const MRObservationpHValueUmbilicalArteryCode: t.Type<MRObservationpHValueUmbilicalArteryCode> =
+    t.recursion("MRObservationpHValueUmbilicalArteryCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -494,7 +459,7 @@ export const MRObservationpHValueUmbilicalArteryCode: t.Type<MRObservationpHValu
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -504,9 +469,8 @@ export interface MRObservationpHValueUmbilicalArterySubject {
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHValueUmbilicalArterySubject> = t.recursion(
-    "MRObservationpHValueUmbilicalArterySubject",
-    () =>
+export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHValueUmbilicalArterySubject> =
+    t.recursion("MRObservationpHValueUmbilicalArterySubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -519,7 +483,7 @@ export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHV
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -529,9 +493,8 @@ export interface MRObservationpHValueUmbilicalArteryEncounter {
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationpHValueUmbilicalArteryEncounter> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryEncounter",
-    () =>
+export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationpHValueUmbilicalArteryEncounter> =
+    t.recursion("MRObservationpHValueUmbilicalArteryEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -544,7 +507,7 @@ export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationp
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -554,9 +517,8 @@ export interface MRObservationpHValueUmbilicalArteryPerformer {
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationpHValueUmbilicalArteryPerformer> = t.recursion(
-    "MRObservationpHValueUmbilicalArteryPerformer",
-    () =>
+export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationpHValueUmbilicalArteryPerformer> =
+    t.recursion("MRObservationpHValueUmbilicalArteryPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -570,7 +532,7 @@ export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationp
                 })
             ])
         )
-);
+    );
 
 interface MRObservationpHValueUmbilicalArtery {
     resourceType: "Observation";
@@ -586,9 +548,8 @@ interface MRObservationpHValueUmbilicalArtery {
     performer?: Array<MRObservationpHValueUmbilicalArteryPerformer>;
 }
 
-const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalArtery> = t.recursion(
-    "MRObservationpHValueUmbilicalArtery",
-    () =>
+const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalArtery> =
+    t.recursion("MRObservationpHValueUmbilicalArtery", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -608,6 +569,6 @@ const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalA
                 })
             ])
         )
-);
+    );
 
 export default MRObservationpHValueUmbilicalArtery;

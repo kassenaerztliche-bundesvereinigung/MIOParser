@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRObservationLocalisationPlacentaValueCodeableConceptCodingDisp
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> = t.recursion(
-    "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -72,21 +53,22 @@ export interface MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCo
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Lokalisation/Struktur der Plazenta")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Lokalisation/Struktur der Plazenta")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -97,21 +79,22 @@ export interface MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigena
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Angaben zum Fötus/Kind")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Angaben zum Fötus/Kind")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -125,51 +108,50 @@ export interface MRObservationLocalisationPlacentaValueCodeableConceptCodingDisp
     )[];
 }
 
-export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> = t.recursion(
-    "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -183,51 +165,50 @@ export interface MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCo
     )[];
 }
 
-export const MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -241,51 +222,50 @@ export interface MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigena
     )[];
 }
 
-export const MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -299,49 +279,47 @@ export interface MRObservationLocalisationPlacentaValueCodeableConceptCodingDisp
     value?: string;
 }
 
-export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplayAnzeigenameValueSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -355,9 +333,8 @@ export interface MRObservationLocalisationPlacentaCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationLocalisationPlacentaCodeCodingDisplay: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplay> = t.recursion(
-    "MRObservationLocalisationPlacentaCodeCodingDisplay",
-    () =>
+export const MRObservationLocalisationPlacentaCodeCodingDisplay: t.Type<MRObservationLocalisationPlacentaCodeCodingDisplay> =
+    t.recursion("MRObservationLocalisationPlacentaCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -365,9 +342,7 @@ export const MRObservationLocalisationPlacentaCodeCodingDisplay: t.Type<MRObserv
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationLocalisationPlacentaCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -387,8 +362,7 @@ export const MRObservationLocalisationPlacentaCodeCodingDisplay: t.Type<MRObserv
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -397,7 +371,7 @@ export const MRObservationLocalisationPlacentaCodeCodingDisplay: t.Type<MRObserv
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -411,9 +385,8 @@ export interface MRObservationLocalisationPlacentaValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRObservationLocalisationPlacentaValueCodeableConceptCoding: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCoding> = t.recursion(
-    "MRObservationLocalisationPlacentaValueCodeableConceptCoding",
-    () =>
+export const MRObservationLocalisationPlacentaValueCodeableConceptCoding: t.Type<MRObservationLocalisationPlacentaValueCodeableConceptCoding> =
+    t.recursion("MRObservationLocalisationPlacentaValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -423,12 +396,13 @@ export const MRObservationLocalisationPlacentaValueCodeableConceptCoding: t.Type
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay,
+                    _display:
+                        MRObservationLocalisationPlacentaValueCodeableConceptCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -439,9 +413,8 @@ export interface MRObservationLocalisationPlacentaBodySiteIdentifikation {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaBodySiteIdentifikation: t.Type<MRObservationLocalisationPlacentaBodySiteIdentifikation> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySiteIdentifikation",
-    () =>
+export const MRObservationLocalisationPlacentaBodySiteIdentifikation: t.Type<MRObservationLocalisationPlacentaBodySiteIdentifikation> =
+    t.recursion("MRObservationLocalisationPlacentaBodySiteIdentifikation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -455,7 +428,7 @@ export const MRObservationLocalisationPlacentaBodySiteIdentifikation: t.Type<MRO
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -469,9 +442,8 @@ export interface MRObservationLocalisationPlacentaBodySiteCodingDisplay {
     value?: string;
 }
 
-export const MRObservationLocalisationPlacentaBodySiteCodingDisplay: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplay> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySiteCodingDisplay",
-    () =>
+export const MRObservationLocalisationPlacentaBodySiteCodingDisplay: t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplay> =
+    t.recursion("MRObservationLocalisationPlacentaBodySiteCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -479,9 +451,7 @@ export const MRObservationLocalisationPlacentaBodySiteCodingDisplay: t.Type<MROb
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed
-                            >
+                            t.Type<MRObservationLocalisationPlacentaBodySiteCodingDisplayAnzeigenameBodysiteSnomed>
                         ]
                     >,
                     t.Any
@@ -501,8 +471,7 @@ export const MRObservationLocalisationPlacentaBodySiteCodingDisplay: t.Type<MROb
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -511,7 +480,7 @@ export const MRObservationLocalisationPlacentaBodySiteCodingDisplay: t.Type<MROb
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -525,9 +494,8 @@ export interface MRObservationLocalisationPlacentaCodeCoding {
     display?: string;
 }
 
-export const MRObservationLocalisationPlacentaCodeCoding: t.Type<MRObservationLocalisationPlacentaCodeCoding> = t.recursion(
-    "MRObservationLocalisationPlacentaCodeCoding",
-    () =>
+export const MRObservationLocalisationPlacentaCodeCoding: t.Type<MRObservationLocalisationPlacentaCodeCoding> =
+    t.recursion("MRObservationLocalisationPlacentaCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -544,7 +512,7 @@ export const MRObservationLocalisationPlacentaCodeCoding: t.Type<MRObservationLo
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -554,9 +522,8 @@ export interface MRObservationLocalisationPlacentaValueCodeableConcept {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaValueCodeableConcept: t.Type<MRObservationLocalisationPlacentaValueCodeableConcept> = t.recursion(
-    "MRObservationLocalisationPlacentaValueCodeableConcept",
-    () =>
+export const MRObservationLocalisationPlacentaValueCodeableConcept: t.Type<MRObservationLocalisationPlacentaValueCodeableConcept> =
+    t.recursion("MRObservationLocalisationPlacentaValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -571,7 +538,7 @@ export const MRObservationLocalisationPlacentaValueCodeableConcept: t.Type<MRObs
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -585,9 +552,8 @@ export interface MRObservationLocalisationPlacentaBodySiteCoding {
     display?: string;
 }
 
-export const MRObservationLocalisationPlacentaBodySiteCoding: t.Type<MRObservationLocalisationPlacentaBodySiteCoding> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySiteCoding",
-    () =>
+export const MRObservationLocalisationPlacentaBodySiteCoding: t.Type<MRObservationLocalisationPlacentaBodySiteCoding> =
+    t.recursion("MRObservationLocalisationPlacentaBodySiteCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -604,21 +570,18 @@ export const MRObservationLocalisationPlacentaBodySiteCoding: t.Type<MRObservati
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationLocalisationPlacentaMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Localisation_Placenta|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Localisation_Placenta|1.0.0">;
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaMeta: t.Type<MRObservationLocalisationPlacentaMeta> = t.recursion(
-    "MRObservationLocalisationPlacentaMeta",
-    () =>
+export const MRObservationLocalisationPlacentaMeta: t.Type<MRObservationLocalisationPlacentaMeta> =
+    t.recursion("MRObservationLocalisationPlacentaMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -635,7 +598,7 @@ export const MRObservationLocalisationPlacentaMeta: t.Type<MRObservationLocalisa
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -645,9 +608,8 @@ export interface MRObservationLocalisationPlacentaCode {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaCode: t.Type<MRObservationLocalisationPlacentaCode> = t.recursion(
-    "MRObservationLocalisationPlacentaCode",
-    () =>
+export const MRObservationLocalisationPlacentaCode: t.Type<MRObservationLocalisationPlacentaCode> =
+    t.recursion("MRObservationLocalisationPlacentaCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -658,7 +620,7 @@ export const MRObservationLocalisationPlacentaCode: t.Type<MRObservationLocalisa
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -668,9 +630,8 @@ export interface MRObservationLocalisationPlacentaSubject {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocalisationPlacentaSubject> = t.recursion(
-    "MRObservationLocalisationPlacentaSubject",
-    () =>
+export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocalisationPlacentaSubject> =
+    t.recursion("MRObservationLocalisationPlacentaSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -683,7 +644,7 @@ export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocal
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -693,9 +654,8 @@ export interface MRObservationLocalisationPlacentaEncounter {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLocalisationPlacentaEncounter> = t.recursion(
-    "MRObservationLocalisationPlacentaEncounter",
-    () =>
+export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLocalisationPlacentaEncounter> =
+    t.recursion("MRObservationLocalisationPlacentaEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -708,7 +668,7 @@ export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLoc
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -718,9 +678,8 @@ export interface MRObservationLocalisationPlacentaPerformer {
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaPerformer: t.Type<MRObservationLocalisationPlacentaPerformer> = t.recursion(
-    "MRObservationLocalisationPlacentaPerformer",
-    () =>
+export const MRObservationLocalisationPlacentaPerformer: t.Type<MRObservationLocalisationPlacentaPerformer> =
+    t.recursion("MRObservationLocalisationPlacentaPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -734,7 +693,7 @@ export const MRObservationLocalisationPlacentaPerformer: t.Type<MRObservationLoc
                 })
             ])
         )
-);
+    );
 
 /**
  * Indicates the site on the subject's body where the observation was made (i.e. the target site).
@@ -746,9 +705,8 @@ export interface MRObservationLocalisationPlacentaBodySite {
     text?: string;
 }
 
-export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLocalisationPlacentaBodySite> = t.recursion(
-    "MRObservationLocalisationPlacentaBodySite",
-    () =>
+export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLocalisationPlacentaBodySite> =
+    t.recursion("MRObservationLocalisationPlacentaBodySite", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -764,9 +722,7 @@ export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLoca
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationLocalisationPlacentaBodySiteIdentifikation
-                                >
+                                t.Type<MRObservationLocalisationPlacentaBodySiteIdentifikation>
                             ]
                         >,
                         t.Any
@@ -786,8 +742,7 @@ export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLoca
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],
@@ -797,7 +752,7 @@ export const MRObservationLocalisationPlacentaBodySite: t.Type<MRObservationLoca
                 })
             ])
         )
-);
+    );
 
 interface MRObservationLocalisationPlacenta {
     resourceType: "Observation";
@@ -815,9 +770,8 @@ interface MRObservationLocalisationPlacenta {
     bodySite?: MRObservationLocalisationPlacentaBodySite;
 }
 
-const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacenta> = t.recursion(
-    "MRObservationLocalisationPlacenta",
-    () =>
+const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacenta> =
+    t.recursion("MRObservationLocalisationPlacenta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -828,7 +782,8 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
                     subject: MRObservationLocalisationPlacentaSubject,
                     encounter: MRObservationLocalisationPlacentaEncounter,
                     effectiveDateTime: SCALARDateTime,
-                    valueCodeableConcept: MRObservationLocalisationPlacentaValueCodeableConcept
+                    valueCodeableConcept:
+                        MRObservationLocalisationPlacentaValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
@@ -839,6 +794,6 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
                 })
             ])
         )
-);
+    );
 
 export default MRObservationLocalisationPlacenta;

@@ -183,3 +183,10 @@ export type Reference = {
  * Any io-ts type
  */
 export type AnyType = t.Any;
+
+export type Constraint = {
+    severity: string;
+    expression: string;
+    human: string;
+    key: string;
+};

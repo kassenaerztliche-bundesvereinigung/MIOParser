@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,9 +25,8 @@ export interface MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent
     id?: string;
 }
 
-export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
+export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion("MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -59,7 +38,7 @@ export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -73,9 +52,8 @@ export interface MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -89,9 +67,7 @@ export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MR
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -117,7 +93,7 @@ export const MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MR
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -128,9 +104,8 @@ export interface MRObservationEdemaCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationEdemaCodeCodingDisplay: t.Type<MRObservationEdemaCodeCodingDisplay> = t.recursion(
-    "MRObservationEdemaCodeCodingDisplay",
-    () =>
+export const MRObservationEdemaCodeCodingDisplay: t.Type<MRObservationEdemaCodeCodingDisplay> =
+    t.recursion("MRObservationEdemaCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -138,9 +113,7 @@ export const MRObservationEdemaCodeCodingDisplay: t.Type<MRObservationEdemaCodeC
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationEdemaCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -160,8 +133,7 @@ export const MRObservationEdemaCodeCodingDisplay: t.Type<MRObservationEdemaCodeC
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -170,7 +142,7 @@ export const MRObservationEdemaCodeCodingDisplay: t.Type<MRObservationEdemaCodeC
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -184,9 +156,8 @@ export interface MRObservationEdemaCodeCoding {
     display?: string;
 }
 
-export const MRObservationEdemaCodeCoding: t.Type<MRObservationEdemaCodeCoding> = t.recursion(
-    "MRObservationEdemaCodeCoding",
-    () =>
+export const MRObservationEdemaCodeCoding: t.Type<MRObservationEdemaCodeCoding> =
+    t.recursion("MRObservationEdemaCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -203,15 +174,13 @@ export const MRObservationEdemaCodeCoding: t.Type<MRObservationEdemaCodeCoding> 
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationEdemaMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Edema|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Edema|1.0.0">;
     id?: string;
 }
 
@@ -292,9 +261,8 @@ export interface MRObservationEdemaEncounter {
     id?: string;
 }
 
-export const MRObservationEdemaEncounter: t.Type<MRObservationEdemaEncounter> = t.recursion(
-    "MRObservationEdemaEncounter",
-    () =>
+export const MRObservationEdemaEncounter: t.Type<MRObservationEdemaEncounter> =
+    t.recursion("MRObservationEdemaEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -307,7 +275,7 @@ export const MRObservationEdemaEncounter: t.Type<MRObservationEdemaEncounter> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -317,9 +285,8 @@ export interface MRObservationEdemaPerformer {
     id?: string;
 }
 
-export const MRObservationEdemaPerformer: t.Type<MRObservationEdemaPerformer> = t.recursion(
-    "MRObservationEdemaPerformer",
-    () =>
+export const MRObservationEdemaPerformer: t.Type<MRObservationEdemaPerformer> =
+    t.recursion("MRObservationEdemaPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,7 +300,7 @@ export const MRObservationEdemaPerformer: t.Type<MRObservationEdemaPerformer> = 
                 })
             ])
         )
-);
+    );
 
 interface MRObservationEdema {
     resourceType: "Observation";

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -44,9 +24,8 @@ export interface MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent 
     id?: string;
 }
 
-export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
+export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion("MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -58,7 +37,7 @@ export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.T
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -69,9 +48,8 @@ export interface MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed {
     extension?: MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomedContent[];
 }
 
-export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -87,7 +65,7 @@ export const MRObservationParaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRO
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -98,9 +76,8 @@ export interface MRObservationParaCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationParaCodeCodingDisplay: t.Type<MRObservationParaCodeCodingDisplay> = t.recursion(
-    "MRObservationParaCodeCodingDisplay",
-    () =>
+export const MRObservationParaCodeCodingDisplay: t.Type<MRObservationParaCodeCodingDisplay> =
+    t.recursion("MRObservationParaCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -110,7 +87,7 @@ export const MRObservationParaCodeCodingDisplay: t.Type<MRObservationParaCodeCod
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -124,9 +101,8 @@ export interface MRObservationParaCodeCoding {
     display?: string;
 }
 
-export const MRObservationParaCodeCoding: t.Type<MRObservationParaCodeCoding> = t.recursion(
-    "MRObservationParaCodeCoding",
-    () =>
+export const MRObservationParaCodeCoding: t.Type<MRObservationParaCodeCoding> =
+    t.recursion("MRObservationParaCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -143,7 +119,7 @@ export const MRObservationParaCodeCoding: t.Type<MRObservationParaCodeCoding> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -156,9 +132,8 @@ export interface MRObservationParaValueQuantity {
     unit?: string;
 }
 
-export const MRObservationParaValueQuantity: t.Type<MRObservationParaValueQuantity> = t.recursion(
-    "MRObservationParaValueQuantity",
-    () =>
+export const MRObservationParaValueQuantity: t.Type<MRObservationParaValueQuantity> =
+    t.recursion("MRObservationParaValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -172,15 +147,13 @@ export const MRObservationParaValueQuantity: t.Type<MRObservationParaValueQuanti
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationParaMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Para|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Para|1.0.0">;
     id?: string;
 }
 

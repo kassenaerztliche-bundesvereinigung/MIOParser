@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Erst-Untersuchung in SSW")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Erst-Untersuchung in SSW")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -75,51 +56,50 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     )[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -133,49 +113,47 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     value?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -189,26 +167,28 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     display?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("424441002")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("424441002")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -221,23 +201,24 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -250,52 +231,52 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept {
-    coding: Array<
-        MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-    >;
+    coding: Array<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -306,21 +287,23 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     valueQuantity?: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswoche")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueQuantity: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswoche")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueQuantity:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -331,21 +314,23 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("ergaenzendeTage"),
-                    valueQuantity: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("ergaenzendeTage"),
+                        valueQuantity:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -356,21 +341,22 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     valueBoolean?: false;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("korrektur")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueBoolean: Literal(false)
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("korrektur")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueBoolean: Literal(false)
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -381,21 +367,23 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("kode"),
-                    valueCodeableConcept: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("kode"),
+                        valueCodeableConcept:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKodeValueCodeableConcept
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -406,21 +394,22 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -431,21 +420,22 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCod
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaft")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaft")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -462,76 +452,72 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     )[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftszeitpunkt")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftszeitpunkt")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "schwangerschaftswoche" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
-                                occurrence: ["0", "1"],
-                                sliceBy: { path: "url", value: "ergaenzendeTage" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "korrektur" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "kode" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftswoche"
+                                    }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktErgaenzendeTage,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: { path: "url", value: "ergaenzendeTage" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKorrektur,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "korrektur" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunktKode,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "kode" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -545,51 +531,50 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding
     )[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -603,51 +588,50 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCod
     )[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * In dieser Extension können Schwangerschaftswoche und ergänzende Tage dokumentiert werden.
@@ -661,54 +645,53 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     )[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
-                                occurrence: ["0", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "schwangerschaftszeitpunkt"
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchungSchwangerschaftszeitpunkt,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftszeitpunkt"
+                                    }
                                 }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -722,49 +705,47 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding
     value?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -778,49 +759,47 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCod
     value?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -834,24 +813,26 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding
     display?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: SCALARString,
-                    code: MRRiskCharacteristicsDischargeSummaryVS
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: SCALARString,
+                        code: MRRiskCharacteristicsDischargeSummaryVS
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -865,26 +846,28 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCod
     display?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("721923008")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("721923008")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * The point in time or period over which the subject was assessed.
@@ -898,49 +881,47 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEffecti
     value?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung,
-                            occurrence: ["0", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTimeZeitpunktDerUntersuchung,
+                                occurrence: ["0", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARDateTime
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARDateTime
+                })
+            )
+    );
 
 /**
  * A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutritional) history may be used.
@@ -950,20 +931,21 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvesti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    text: Literal("Abschlussuntersuchungen zur Schwangerschaft")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        text: Literal("Abschlussuntersuchungen zur Schwangerschaft")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A record of a specific investigation that was undertaken.
@@ -973,70 +955,67 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvesti
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Age|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gravida|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Para|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Number_Of_Checkups|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Presentation_At_Birth_Clinic|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Inpatient_Stay_During_Pregnancy|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Age|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gravida|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Para|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Number_Of_Checkups|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Presentation_At_Birth_Clinic|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Inpatient_Stay_During_Pregnancy|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Specific text or code for finding or diagnosis, which may include ruled-out or resolved conditions.
  */
 export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept {
-    coding: Array<
-        MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding
-    >;
+    coding: Array<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Pregnancy_Examination_Discharge_Summary|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Pregnancy_Examination_Discharge_Summary|1.0.0">;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1053,7 +1032,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * Categorizes the type of clinical assessment performed.
@@ -1063,9 +1042,8 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryCode {
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCode> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryCode",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCode: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryCode> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1080,7 +1058,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCode: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group of individuals assessed as part of this record.
@@ -1090,9 +1068,8 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummarySubject
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubject: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummarySubject> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummarySubject",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubject: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummarySubject> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummarySubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1105,7 +1082,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubject: t.
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
@@ -1115,9 +1092,8 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEncount
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1130,7 +1106,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter: 
                 })
             ])
         )
-);
+    );
 
 /**
  * The clinician performing the assessment.
@@ -1140,9 +1116,8 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryAssesso
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1155,7 +1130,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t
                 })
             ])
         )
-);
+    );
 
 /**
  * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
@@ -1166,23 +1141,24 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvesti
     item?: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem[];
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    code: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode
-                }),
-                t.partial({
-                    id: SCALARString,
-                    item: t.array(
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem
-                    )
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        code: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        item: t.array(
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
@@ -1192,20 +1168,20 @@ export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding",
-    () =>
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding", () =>
         Excess(
             t.intersection([
                 t.type({
-                    itemCodeableConcept: MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept
+                    itemCodeableConcept:
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryFindingItemCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 interface MRClinicalImpressionPregnancyExaminationDischargeSummary {
     resourceType: "ClinicalImpression";
@@ -1219,15 +1195,12 @@ interface MRClinicalImpressionPregnancyExaminationDischargeSummary {
     _effectiveDateTime?: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime;
     effectiveDateTime?: string;
     assessor?: MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor;
-    investigation?: Array<
-        MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation
-    >;
+    investigation?: Array<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation>;
     finding?: MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding[];
 }
 
-const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummary> = t.recursion(
-    "MRClinicalImpressionPregnancyExaminationDischargeSummary",
-    () =>
+const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummary> =
+    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummary", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1235,15 +1208,19 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
                     meta: MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryCode,
-                    subject: MRClinicalImpressionPregnancyExaminationDischargeSummarySubject,
-                    encounter: MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter
+                    subject:
+                        MRClinicalImpressionPregnancyExaminationDischargeSummarySubject,
+                    encounter:
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    _effectiveDateTime: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime,
+                    _effectiveDateTime:
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
-                    assessor: MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor,
+                    assessor:
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation
@@ -1254,6 +1231,6 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
                 })
             ])
         )
-);
+    );
 
 export default MRClinicalImpressionPregnancyExaminationDischargeSummary;

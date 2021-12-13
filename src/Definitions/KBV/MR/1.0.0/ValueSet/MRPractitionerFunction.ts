@@ -1,25 +1,6 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { ValueSet } from "../../../../Interfaces";
+import MRPractitionerFunctionGerman from "../../../../../Definitions/KBV/MR/1.0.0/ConceptMap/MRPractitionerFunctionGerman";
 
 // Canonical URL for ValueSet: https://fhir.kbv.de/ValueSet/KBV_VS_MIO_MR_Practitioner_Function
 
@@ -236,104 +217,294 @@ export const MRPractitionerFunctionValueSet: ValueSet = [
     {
         system: "urn:oid:1.2.276.0.76.5.114",
         concept: [
-            { code: "010", display: "FA Allgemeinmedizin" },
-            { code: "020", display: "FA Anästhesiologie" },
-            { code: "030", display: "FA Augenheilkunde" },
-            { code: "050", display: "FA Frauenheilkunde und Geburtshilfe" },
-            { code: "060", display: "FA Hals-, Nasen-, Ohrenheilkunde" },
-            { code: "070", display: "FA Haut- und Geschlechtskrankheiten" },
-            { code: "080", display: "FA Innere Medizin" },
-            { code: "091", display: "SP Kinderkardiologie" },
-            { code: "093", display: "SP Neonatologie" },
-            { code: "110", display: "FA Laboratoriumsmedizin" },
-            { code: "142", display: "FA Neurologie" },
-            { code: "147", display: "FA Psychiatrie und Psychotherapie" },
-            { code: "150", display: "FA Neurochirurgie" },
-            { code: "170", display: "FA Pathologie" },
-            { code: "180", display: "FA Pharmakologie und Toxikologie" },
-            { code: "197", display: "SP Neuroradiologie" },
-            { code: "200", display: "FA Urologie" },
-            { code: "210", display: "FA Arbeitsmedizin" },
-            { code: "220", display: "FA Nuklearmedizin" },
-            { code: "230", display: "FA Öffentliches Gesundheitswesen" },
-            { code: "271", display: "FA Neuropathologie" },
-            { code: "281", display: "FA Klinische Pharmakologie" },
-            { code: "291", display: "FA Strahlentherapie" },
-            { code: "303", display: "FA Transfusionsmedizin" },
-            { code: "313", display: "FA Herzchirurgie" },
-            { code: "314", display: "FA Humangenetik" },
-            { code: "330", display: "FA Physikalische und Rehabilitative Medizin" },
-            { code: "341", display: "FA Kinder-und Jugendmedizin" },
-            { code: "511", display: "FA Gefäßchirurgie" },
-            { code: "512", display: "FA Orthopädie und Unfallchirurgie" },
-            { code: "513", display: "FA Thoraxchirurgie" },
-            { code: "514", display: "FA Visceralchirurgie" },
-            { code: "515", display: "SP Gynäkologische Onkologie" },
+            {
+                code: "010",
+                display: "FA Allgemeinmedizin"
+            },
+            {
+                code: "020",
+                display: "FA Anästhesiologie"
+            },
+            {
+                code: "030",
+                display: "FA Augenheilkunde"
+            },
+            {
+                code: "050",
+                display: "FA Frauenheilkunde und Geburtshilfe"
+            },
+            {
+                code: "060",
+                display: "FA Hals-, Nasen-, Ohrenheilkunde"
+            },
+            {
+                code: "070",
+                display: "FA Haut- und Geschlechtskrankheiten"
+            },
+            {
+                code: "080",
+                display: "FA Innere Medizin"
+            },
+            {
+                code: "091",
+                display: "SP Kinderkardiologie"
+            },
+            {
+                code: "093",
+                display: "SP Neonatologie"
+            },
+            {
+                code: "110",
+                display: "FA Laboratoriumsmedizin"
+            },
+            {
+                code: "142",
+                display: "FA Neurologie"
+            },
+            {
+                code: "147",
+                display: "FA Psychiatrie und Psychotherapie"
+            },
+            {
+                code: "150",
+                display: "FA Neurochirurgie"
+            },
+            {
+                code: "170",
+                display: "FA Pathologie"
+            },
+            {
+                code: "180",
+                display: "FA Pharmakologie und Toxikologie"
+            },
+            {
+                code: "197",
+                display: "SP Neuroradiologie"
+            },
+            {
+                code: "200",
+                display: "FA Urologie"
+            },
+            {
+                code: "210",
+                display: "FA Arbeitsmedizin"
+            },
+            {
+                code: "220",
+                display: "FA Nuklearmedizin"
+            },
+            {
+                code: "230",
+                display: "FA Öffentliches Gesundheitswesen"
+            },
+            {
+                code: "271",
+                display: "FA Neuropathologie"
+            },
+            {
+                code: "281",
+                display: "FA Klinische Pharmakologie"
+            },
+            {
+                code: "291",
+                display: "FA Strahlentherapie"
+            },
+            {
+                code: "303",
+                display: "FA Transfusionsmedizin"
+            },
+            {
+                code: "313",
+                display: "FA Herzchirurgie"
+            },
+            {
+                code: "314",
+                display: "FA Humangenetik"
+            },
+            {
+                code: "330",
+                display: "FA Physikalische und Rehabilitative Medizin"
+            },
+            {
+                code: "341",
+                display: "FA Kinder-und Jugendmedizin"
+            },
+            {
+                code: "511",
+                display: "FA Gefäßchirurgie"
+            },
+            {
+                code: "512",
+                display: "FA Orthopädie und Unfallchirurgie"
+            },
+            {
+                code: "513",
+                display: "FA Thoraxchirurgie"
+            },
+            {
+                code: "514",
+                display: "FA Visceralchirurgie"
+            },
+            {
+                code: "515",
+                display: "SP Gynäkologische Onkologie"
+            },
             {
                 code: "516",
                 display: "SP Gynäkologische Endokrinologie und Reproduktionsmedizin"
             },
-            { code: "517", display: "SP Spezielle Geburtshilfe und Perinatalmedizin" },
-            { code: "521", display: "FA Innere Medizin und (SP) Angiologie" },
+            {
+                code: "517",
+                display: "SP Spezielle Geburtshilfe und Perinatalmedizin"
+            },
+            {
+                code: "521",
+                display: "FA Innere Medizin und (SP) Angiologie"
+            },
             {
                 code: "522",
                 display: "FA Innere Medizin und (SP) Endokrinologie und Diabetologie"
             },
-            { code: "523", display: "FA Innere Medizin und (SP) Gastroenterologie" },
+            {
+                code: "523",
+                display: "FA Innere Medizin und (SP) Gastroenterologie"
+            },
             {
                 code: "524",
                 display: "FA Innere Medizin und (SP) Hämatologie und Onkologie"
             },
-            { code: "525", display: "FA Innere Medizin und (SP) Kardiologie" },
-            { code: "526", display: "FA Innere Medizin und (SP) Nephrologie" },
-            { code: "527", display: "FA Innere Medizin und (SP) Pneumologie" },
-            { code: "528", display: "FA Innere Medizin und (SP) Rheumatologie" },
+            {
+                code: "525",
+                display: "FA Innere Medizin und (SP) Kardiologie"
+            },
+            {
+                code: "526",
+                display: "FA Innere Medizin und (SP) Nephrologie"
+            },
+            {
+                code: "527",
+                display: "FA Innere Medizin und (SP) Pneumologie"
+            },
+            {
+                code: "528",
+                display: "FA Innere Medizin und (SP) Rheumatologie"
+            },
             {
                 code: "532",
                 display: "FA Mikrobiologie, Virologie und Infektionsepidemiologie"
             },
-            { code: "534", display: "FA Psychosomatische Medizin und Psychotherapie" },
-            { code: "535", display: "FA Radiologie (neue (M-)WBO)" },
-            { code: "542", display: "FA Plastische und Ästhetische Chirurgie" },
-            { code: "544", display: "FA Allgemeinchirurgie" }
+            {
+                code: "534",
+                display: "FA Psychosomatische Medizin und Psychotherapie"
+            },
+            {
+                code: "535",
+                display: "FA Radiologie (neue (M-)WBO)"
+            },
+            {
+                code: "542",
+                display: "FA Plastische und Ästhetische Chirurgie"
+            },
+            {
+                code: "544",
+                display: "FA Allgemeinchirurgie"
+            }
         ]
     },
     {
         system: "urn:oid:1.2.276.0.76.5.493",
         concept: [
-            { code: "1", display: "Arzt in Facharztausbildung" },
-            { code: "3", display: "Praktischer Arzt" }
+            {
+                code: "1",
+                display: "Arzt in Facharztausbildung"
+            },
+            {
+                code: "3",
+                display: "Praktischer Arzt"
+            }
         ]
     },
     {
         system: "urn:oid:1.3.6.1.4.1.19376.3.276.1.5.11",
         concept: [
-            { code: "2", display: "Arzthilfe, Praxisorganisation, -verwaltung" },
-            { code: "179", display: "Physician Assistant" },
-            { code: "4", display: "Medizinischer Fachangestellter" },
-            { code: "33", display: "Kranken-, Altenpflege, Geburtshilfe" },
-            { code: "41", display: "Hebamme / Entbindungspfleger" },
-            { code: "86", display: "Rettungsdienst" },
-            { code: "88", display: "Notfallsanitäter" },
-            { code: "89", display: "Rettungsassistent" },
-            { code: "91", display: "Rettungssanitäter" }
+            {
+                code: "2",
+                display: "Arzthilfe, Praxisorganisation, -verwaltung"
+            },
+            {
+                code: "179",
+                display: "Physician Assistant"
+            },
+            {
+                code: "4",
+                display: "Medizinischer Fachangestellter"
+            },
+            {
+                code: "33",
+                display: "Kranken-, Altenpflege, Geburtshilfe"
+            },
+            {
+                code: "41",
+                display: "Hebamme / Entbindungspfleger"
+            },
+            {
+                code: "86",
+                display: "Rettungsdienst"
+            },
+            {
+                code: "88",
+                display: "Notfallsanitäter"
+            },
+            {
+                code: "89",
+                display: "Rettungsassistent"
+            },
+            {
+                code: "91",
+                display: "Rettungssanitäter"
+            }
         ]
     },
     {
         system: "http://snomed.info/sct",
-        concept: [{ code: "309343006", display: "Physician (occupation)" }]
+        concept: [
+            {
+                code: "309343006",
+                display: "Physician (occupation)"
+            }
+        ]
     },
     {
         system: "urn:oid:1.2.276.0.76.5.114",
         concept: [
-            { code: "140", display: "FA Nervenheilkunde" },
-            { code: "143", display: "Psychotherapeutisch tätiger Arzt" },
-            { code: "160", display: "FA Orthopädie" },
-            { code: "161", display: "SP Rheumatologie" },
-            { code: "171", display: "TG Neuropathologie" },
-            { code: "192", display: "TG Neuroradiologie" }
+            {
+                code: "140",
+                display: "FA Nervenheilkunde"
+            },
+            {
+                code: "143",
+                display: "Psychotherapeutisch tätiger Arzt"
+            },
+            {
+                code: "160",
+                display: "FA Orthopädie"
+            },
+            {
+                code: "161",
+                display: "SP Rheumatologie"
+            },
+            {
+                code: "171",
+                display: "TG Neuropathologie"
+            },
+            {
+                code: "192",
+                display: "TG Neuroradiologie"
+            }
         ]
     }
 ];
+
+export { MRPractitionerFunctionGerman as ConceptMap };
 
 export default MRPractitionerFunction;

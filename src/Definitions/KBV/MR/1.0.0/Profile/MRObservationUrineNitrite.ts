@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,21 +25,22 @@ export interface MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed
     id?: string;
 }
 
-export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Nitrit")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Nitrit")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -73,9 +54,8 @@ export interface MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed
     )[];
 }
 
-export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -89,9 +69,7 @@ export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed: t.
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -117,7 +95,7 @@ export const MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed: t.
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -131,9 +109,8 @@ export interface MRObservationUrineNitriteCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationUrineNitriteCodeCodingDisplay: t.Type<MRObservationUrineNitriteCodeCodingDisplay> = t.recursion(
-    "MRObservationUrineNitriteCodeCodingDisplay",
-    () =>
+export const MRObservationUrineNitriteCodeCodingDisplay: t.Type<MRObservationUrineNitriteCodeCodingDisplay> =
+    t.recursion("MRObservationUrineNitriteCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -141,9 +118,7 @@ export const MRObservationUrineNitriteCodeCodingDisplay: t.Type<MRObservationUri
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationUrineNitriteCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -163,8 +138,7 @@ export const MRObservationUrineNitriteCodeCodingDisplay: t.Type<MRObservationUri
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -173,7 +147,7 @@ export const MRObservationUrineNitriteCodeCodingDisplay: t.Type<MRObservationUri
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -187,9 +161,8 @@ export interface MRObservationUrineNitriteCodeCoding {
     display?: string;
 }
 
-export const MRObservationUrineNitriteCodeCoding: t.Type<MRObservationUrineNitriteCodeCoding> = t.recursion(
-    "MRObservationUrineNitriteCodeCoding",
-    () =>
+export const MRObservationUrineNitriteCodeCoding: t.Type<MRObservationUrineNitriteCodeCoding> =
+    t.recursion("MRObservationUrineNitriteCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -206,21 +179,18 @@ export const MRObservationUrineNitriteCodeCoding: t.Type<MRObservationUrineNitri
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationUrineNitriteMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Nitrite|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Nitrite|1.0.0">;
     id?: string;
 }
 
-export const MRObservationUrineNitriteMeta: t.Type<MRObservationUrineNitriteMeta> = t.recursion(
-    "MRObservationUrineNitriteMeta",
-    () =>
+export const MRObservationUrineNitriteMeta: t.Type<MRObservationUrineNitriteMeta> =
+    t.recursion("MRObservationUrineNitriteMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +207,7 @@ export const MRObservationUrineNitriteMeta: t.Type<MRObservationUrineNitriteMeta
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -247,9 +217,8 @@ export interface MRObservationUrineNitriteCode {
     id?: string;
 }
 
-export const MRObservationUrineNitriteCode: t.Type<MRObservationUrineNitriteCode> = t.recursion(
-    "MRObservationUrineNitriteCode",
-    () =>
+export const MRObservationUrineNitriteCode: t.Type<MRObservationUrineNitriteCode> =
+    t.recursion("MRObservationUrineNitriteCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -260,7 +229,7 @@ export const MRObservationUrineNitriteCode: t.Type<MRObservationUrineNitriteCode
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -270,9 +239,8 @@ export interface MRObservationUrineNitriteSubject {
     id?: string;
 }
 
-export const MRObservationUrineNitriteSubject: t.Type<MRObservationUrineNitriteSubject> = t.recursion(
-    "MRObservationUrineNitriteSubject",
-    () =>
+export const MRObservationUrineNitriteSubject: t.Type<MRObservationUrineNitriteSubject> =
+    t.recursion("MRObservationUrineNitriteSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,7 +253,7 @@ export const MRObservationUrineNitriteSubject: t.Type<MRObservationUrineNitriteS
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -295,9 +263,8 @@ export interface MRObservationUrineNitriteEncounter {
     id?: string;
 }
 
-export const MRObservationUrineNitriteEncounter: t.Type<MRObservationUrineNitriteEncounter> = t.recursion(
-    "MRObservationUrineNitriteEncounter",
-    () =>
+export const MRObservationUrineNitriteEncounter: t.Type<MRObservationUrineNitriteEncounter> =
+    t.recursion("MRObservationUrineNitriteEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -310,7 +277,7 @@ export const MRObservationUrineNitriteEncounter: t.Type<MRObservationUrineNitrit
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -320,9 +287,8 @@ export interface MRObservationUrineNitritePerformer {
     id?: string;
 }
 
-export const MRObservationUrineNitritePerformer: t.Type<MRObservationUrineNitritePerformer> = t.recursion(
-    "MRObservationUrineNitritePerformer",
-    () =>
+export const MRObservationUrineNitritePerformer: t.Type<MRObservationUrineNitritePerformer> =
+    t.recursion("MRObservationUrineNitritePerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -336,7 +302,7 @@ export const MRObservationUrineNitritePerformer: t.Type<MRObservationUrineNitrit
                 })
             ])
         )
-);
+    );
 
 interface MRObservationUrineNitrite {
     resourceType: "Observation";

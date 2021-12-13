@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -60,9 +40,8 @@ export interface MRPatientMotherPidTypeMRType {
     userSelected?: boolean;
 }
 
-export const MRPatientMotherPidTypeMRType: t.Type<MRPatientMotherPidTypeMRType> = t.recursion(
-    "MRPatientMotherPidTypeMRType",
-    () =>
+export const MRPatientMotherPidTypeMRType: t.Type<MRPatientMotherPidTypeMRType> =
+    t.recursion("MRPatientMotherPidTypeMRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -77,7 +56,7 @@ export const MRPatientMotherPidTypeMRType: t.Type<MRPatientMotherPidTypeMRType> 
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -91,9 +70,8 @@ export interface MRPatientMotherVersichertenIdGKVTypeGKVType {
     userSelected?: boolean;
 }
 
-export const MRPatientMotherVersichertenIdGKVTypeGKVType: t.Type<MRPatientMotherVersichertenIdGKVTypeGKVType> = t.recursion(
-    "MRPatientMotherVersichertenIdGKVTypeGKVType",
-    () =>
+export const MRPatientMotherVersichertenIdGKVTypeGKVType: t.Type<MRPatientMotherVersichertenIdGKVTypeGKVType> =
+    t.recursion("MRPatientMotherVersichertenIdGKVTypeGKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -108,7 +86,7 @@ export const MRPatientMotherVersichertenIdGKVTypeGKVType: t.Type<MRPatientMother
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -122,9 +100,8 @@ export interface MRPatientMotherVersichertennummerpkvTypePKVType {
     userSelected?: boolean;
 }
 
-export const MRPatientMotherVersichertennummerpkvTypePKVType: t.Type<MRPatientMotherVersichertennummerpkvTypePKVType> = t.recursion(
-    "MRPatientMotherVersichertennummerpkvTypePKVType",
-    () =>
+export const MRPatientMotherVersichertennummerpkvTypePKVType: t.Type<MRPatientMotherVersichertennummerpkvTypePKVType> =
+    t.recursion("MRPatientMotherVersichertennummerpkvTypePKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -139,7 +116,7 @@ export const MRPatientMotherVersichertennummerpkvTypePKVType: t.Type<MRPatientMo
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -151,9 +128,8 @@ export interface MRPatientMotherNameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const MRPatientMotherNameFamilyNamenszusatz: t.Type<MRPatientMotherNameFamilyNamenszusatz> = t.recursion(
-    "MRPatientMotherNameFamilyNamenszusatz",
-    () =>
+export const MRPatientMotherNameFamilyNamenszusatz: t.Type<MRPatientMotherNameFamilyNamenszusatz> =
+    t.recursion("MRPatientMotherNameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -167,7 +143,7 @@ export const MRPatientMotherNameFamilyNamenszusatz: t.Type<MRPatientMotherNameFa
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -179,9 +155,8 @@ export interface MRPatientMotherNameFamilyNachname {
     id?: string;
 }
 
-export const MRPatientMotherNameFamilyNachname: t.Type<MRPatientMotherNameFamilyNachname> = t.recursion(
-    "MRPatientMotherNameFamilyNachname",
-    () =>
+export const MRPatientMotherNameFamilyNachname: t.Type<MRPatientMotherNameFamilyNachname> =
+    t.recursion("MRPatientMotherNameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -195,7 +170,7 @@ export const MRPatientMotherNameFamilyNachname: t.Type<MRPatientMotherNameFamily
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -207,9 +182,8 @@ export interface MRPatientMotherNameFamilyVorsatzwort {
     id?: string;
 }
 
-export const MRPatientMotherNameFamilyVorsatzwort: t.Type<MRPatientMotherNameFamilyVorsatzwort> = t.recursion(
-    "MRPatientMotherNameFamilyVorsatzwort",
-    () =>
+export const MRPatientMotherNameFamilyVorsatzwort: t.Type<MRPatientMotherNameFamilyVorsatzwort> =
+    t.recursion("MRPatientMotherNameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -223,7 +197,7 @@ export const MRPatientMotherNameFamilyVorsatzwort: t.Type<MRPatientMotherNameFam
                 })
             ])
         )
-);
+    );
 
 /**
  * Spezialisierung der Art des Präfixes, z.B. "AC" für Akademische Titel
@@ -234,9 +208,8 @@ export interface MRPatientMotherNamePrefixPrefixqualifier {
     id?: string;
 }
 
-export const MRPatientMotherNamePrefixPrefixqualifier: t.Type<MRPatientMotherNamePrefixPrefixqualifier> = t.recursion(
-    "MRPatientMotherNamePrefixPrefixqualifier",
-    () =>
+export const MRPatientMotherNamePrefixPrefixqualifier: t.Type<MRPatientMotherNamePrefixPrefixqualifier> =
+    t.recursion("MRPatientMotherNamePrefixPrefixqualifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -250,7 +223,7 @@ export const MRPatientMotherNamePrefixPrefixqualifier: t.Type<MRPatientMotherNam
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -262,9 +235,8 @@ export interface MRPatientMotherGeburtsnameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const MRPatientMotherGeburtsnameFamilyNamenszusatz: t.Type<MRPatientMotherGeburtsnameFamilyNamenszusatz> = t.recursion(
-    "MRPatientMotherGeburtsnameFamilyNamenszusatz",
-    () =>
+export const MRPatientMotherGeburtsnameFamilyNamenszusatz: t.Type<MRPatientMotherGeburtsnameFamilyNamenszusatz> =
+    t.recursion("MRPatientMotherGeburtsnameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,7 +250,7 @@ export const MRPatientMotherGeburtsnameFamilyNamenszusatz: t.Type<MRPatientMothe
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -290,9 +262,8 @@ export interface MRPatientMotherGeburtsnameFamilyNachname {
     id?: string;
 }
 
-export const MRPatientMotherGeburtsnameFamilyNachname: t.Type<MRPatientMotherGeburtsnameFamilyNachname> = t.recursion(
-    "MRPatientMotherGeburtsnameFamilyNachname",
-    () =>
+export const MRPatientMotherGeburtsnameFamilyNachname: t.Type<MRPatientMotherGeburtsnameFamilyNachname> =
+    t.recursion("MRPatientMotherGeburtsnameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -306,7 +277,7 @@ export const MRPatientMotherGeburtsnameFamilyNachname: t.Type<MRPatientMotherGeb
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -318,9 +289,8 @@ export interface MRPatientMotherGeburtsnameFamilyVorsatzwort {
     id?: string;
 }
 
-export const MRPatientMotherGeburtsnameFamilyVorsatzwort: t.Type<MRPatientMotherGeburtsnameFamilyVorsatzwort> = t.recursion(
-    "MRPatientMotherGeburtsnameFamilyVorsatzwort",
-    () =>
+export const MRPatientMotherGeburtsnameFamilyVorsatzwort: t.Type<MRPatientMotherGeburtsnameFamilyVorsatzwort> =
+    t.recursion("MRPatientMotherGeburtsnameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -334,7 +304,7 @@ export const MRPatientMotherGeburtsnameFamilyVorsatzwort: t.Type<MRPatientMother
                 })
             ])
         )
-);
+    );
 
 /**
 * Strassenname (ohne Hausnummer)
@@ -346,9 +316,8 @@ export interface MRPatientMotherStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const MRPatientMotherStrassenanschriftLineStrasse: t.Type<MRPatientMotherStrassenanschriftLineStrasse> = t.recursion(
-    "MRPatientMotherStrassenanschriftLineStrasse",
-    () =>
+export const MRPatientMotherStrassenanschriftLineStrasse: t.Type<MRPatientMotherStrassenanschriftLineStrasse> =
+    t.recursion("MRPatientMotherStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -362,7 +331,7 @@ export const MRPatientMotherStrassenanschriftLineStrasse: t.Type<MRPatientMother
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -374,9 +343,8 @@ export interface MRPatientMotherStrassenanschriftLineHausnummer {
     id?: string;
 }
 
-export const MRPatientMotherStrassenanschriftLineHausnummer: t.Type<MRPatientMotherStrassenanschriftLineHausnummer> = t.recursion(
-    "MRPatientMotherStrassenanschriftLineHausnummer",
-    () =>
+export const MRPatientMotherStrassenanschriftLineHausnummer: t.Type<MRPatientMotherStrassenanschriftLineHausnummer> =
+    t.recursion("MRPatientMotherStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -390,7 +358,7 @@ export const MRPatientMotherStrassenanschriftLineHausnummer: t.Type<MRPatientMot
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -402,9 +370,8 @@ export interface MRPatientMotherStrassenanschriftLineAdresszusatz {
     id?: string;
 }
 
-export const MRPatientMotherStrassenanschriftLineAdresszusatz: t.Type<MRPatientMotherStrassenanschriftLineAdresszusatz> = t.recursion(
-    "MRPatientMotherStrassenanschriftLineAdresszusatz",
-    () =>
+export const MRPatientMotherStrassenanschriftLineAdresszusatz: t.Type<MRPatientMotherStrassenanschriftLineAdresszusatz> =
+    t.recursion("MRPatientMotherStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -418,7 +385,7 @@ export const MRPatientMotherStrassenanschriftLineAdresszusatz: t.Type<MRPatientM
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
@@ -433,9 +400,8 @@ export interface MRPatientMotherVersichertennummerpkvAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MRPatientMotherVersichertennummerpkvAssignerIdentifier: t.Type<MRPatientMotherVersichertennummerpkvAssignerIdentifier> = t.recursion(
-    "MRPatientMotherVersichertennummerpkvAssignerIdentifier",
-    () =>
+export const MRPatientMotherVersichertennummerpkvAssignerIdentifier: t.Type<MRPatientMotherVersichertennummerpkvAssignerIdentifier> =
+    t.recursion("MRPatientMotherVersichertennummerpkvAssignerIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -451,7 +417,7 @@ export const MRPatientMotherVersichertennummerpkvAssignerIdentifier: t.Type<MRPa
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -465,9 +431,8 @@ export interface MRPatientMotherVersichertennummerkvkTypeCoding {
     userSelected?: boolean;
 }
 
-export const MRPatientMotherVersichertennummerkvkTypeCoding: t.Type<MRPatientMotherVersichertennummerkvkTypeCoding> = t.recursion(
-    "MRPatientMotherVersichertennummerkvkTypeCoding",
-    () =>
+export const MRPatientMotherVersichertennummerkvkTypeCoding: t.Type<MRPatientMotherVersichertennummerkvkTypeCoding> =
+    t.recursion("MRPatientMotherVersichertennummerkvkTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -484,7 +449,7 @@ export const MRPatientMotherVersichertennummerkvkTypeCoding: t.Type<MRPatientMot
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
@@ -495,9 +460,8 @@ export interface MRPatientMotherStrassenanschriftStadtteil {
     id?: string;
 }
 
-export const MRPatientMotherStrassenanschriftStadtteil: t.Type<MRPatientMotherStrassenanschriftStadtteil> = t.recursion(
-    "MRPatientMotherStrassenanschriftStadtteil",
-    () =>
+export const MRPatientMotherStrassenanschriftStadtteil: t.Type<MRPatientMotherStrassenanschriftStadtteil> =
+    t.recursion("MRPatientMotherStrassenanschriftStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -511,7 +475,7 @@ export const MRPatientMotherStrassenanschriftStadtteil: t.Type<MRPatientMotherSt
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -547,9 +511,8 @@ export interface MRPatientMotherVersichertenIdGKVType {
     text?: string;
 }
 
-export const MRPatientMotherVersichertenIdGKVType: t.Type<MRPatientMotherVersichertenIdGKVType> = t.recursion(
-    "MRPatientMotherVersichertenIdGKVType",
-    () =>
+export const MRPatientMotherVersichertenIdGKVType: t.Type<MRPatientMotherVersichertenIdGKVType> =
+    t.recursion("MRPatientMotherVersichertenIdGKVType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -561,7 +524,7 @@ export const MRPatientMotherVersichertenIdGKVType: t.Type<MRPatientMotherVersich
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -572,9 +535,8 @@ export interface MRPatientMotherVersichertennummerpkvType {
     text?: string;
 }
 
-export const MRPatientMotherVersichertennummerpkvType: t.Type<MRPatientMotherVersichertennummerpkvType> = t.recursion(
-    "MRPatientMotherVersichertennummerpkvType",
-    () =>
+export const MRPatientMotherVersichertennummerpkvType: t.Type<MRPatientMotherVersichertennummerpkvType> =
+    t.recursion("MRPatientMotherVersichertennummerpkvType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -586,7 +548,7 @@ export const MRPatientMotherVersichertennummerpkvType: t.Type<MRPatientMotherVer
                 })
             ])
         )
-);
+    );
 
 /**
  * Organization that issued/manages the identifier.
@@ -599,9 +561,8 @@ export interface MRPatientMotherVersichertennummerpkvAssigner {
     identifier?: MRPatientMotherVersichertennummerpkvAssignerIdentifier;
 }
 
-export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMotherVersichertennummerpkvAssigner> = t.recursion(
-    "MRPatientMotherVersichertennummerpkvAssigner",
-    () =>
+export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMotherVersichertennummerpkvAssigner> =
+    t.recursion("MRPatientMotherVersichertennummerpkvAssigner", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -617,7 +578,7 @@ export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMothe
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -628,9 +589,8 @@ export interface MRPatientMotherVersichertennummerkvkType {
     text?: string;
 }
 
-export const MRPatientMotherVersichertennummerkvkType: t.Type<MRPatientMotherVersichertennummerkvkType> = t.recursion(
-    "MRPatientMotherVersichertennummerkvkType",
-    () =>
+export const MRPatientMotherVersichertennummerkvkType: t.Type<MRPatientMotherVersichertennummerkvkType> =
+    t.recursion("MRPatientMotherVersichertennummerkvkType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -642,7 +602,7 @@ export const MRPatientMotherVersichertennummerkvkType: t.Type<MRPatientMotherVer
                 })
             ])
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -684,8 +644,7 @@ export const MRPatientMotherNameFamily: t.Type<MRPatientMotherNameFamily> = t.re
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -693,8 +652,7 @@ export const MRPatientMotherNameFamily: t.Type<MRPatientMotherNameFamily> = t.re
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -702,8 +660,7 @@ export const MRPatientMotherNameFamily: t.Type<MRPatientMotherNameFamily> = t.re
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -748,9 +705,8 @@ export interface MRPatientMotherGeburtsnameFamily {
     value?: string;
 }
 
-export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsnameFamily> = t.recursion(
-    "MRPatientMotherGeburtsnameFamily",
-    () =>
+export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsnameFamily> =
+    t.recursion("MRPatientMotherGeburtsnameFamily", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -775,8 +731,7 @@ export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsname
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -784,8 +739,7 @@ export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsname
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -793,8 +747,7 @@ export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsname
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -803,7 +756,7 @@ export const MRPatientMotherGeburtsnameFamily: t.Type<MRPatientMotherGeburtsname
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Provides a reason why the expected value or elements in the element that is extended are missing.
@@ -814,9 +767,8 @@ export interface MRPatientMotherBirthDateDataabsentreason {
     id?: string;
 }
 
-export const MRPatientMotherBirthDateDataabsentreason: t.Type<MRPatientMotherBirthDateDataabsentreason> = t.recursion(
-    "MRPatientMotherBirthDateDataabsentreason",
-    () =>
+export const MRPatientMotherBirthDateDataabsentreason: t.Type<MRPatientMotherBirthDateDataabsentreason> =
+    t.recursion("MRPatientMotherBirthDateDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -830,7 +782,7 @@ export const MRPatientMotherBirthDateDataabsentreason: t.Type<MRPatientMotherBir
                 })
             ])
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -846,9 +798,8 @@ export interface MRPatientMotherStrassenanschriftLine {
     value?: string;
 }
 
-export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrassenanschriftLine> = t.recursion(
-    "MRPatientMotherStrassenanschriftLine",
-    () =>
+export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrassenanschriftLine> =
+    t.recursion("MRPatientMotherStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -873,8 +824,7 @@ export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrasse
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -882,8 +832,7 @@ export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrasse
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -891,8 +840,7 @@ export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrasse
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -901,7 +849,7 @@ export const MRPatientMotherStrassenanschriftLine: t.Type<MRPatientMotherStrasse
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -949,9 +897,8 @@ export interface MRPatientMotherVersichertenIdGKV {
     assigner?: Reference;
 }
 
-export const MRPatientMotherVersichertenIdGKV: t.Type<MRPatientMotherVersichertenIdGKV> = t.recursion(
-    "MRPatientMotherVersichertenIdGKV",
-    () =>
+export const MRPatientMotherVersichertenIdGKV: t.Type<MRPatientMotherVersichertenIdGKV> =
+    t.recursion("MRPatientMotherVersichertenIdGKV", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -967,7 +914,7 @@ export const MRPatientMotherVersichertenIdGKV: t.Type<MRPatientMotherVersicherte
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -982,9 +929,8 @@ export interface MRPatientMotherVersichertennummerpkv {
     period?: Period;
 }
 
-export const MRPatientMotherVersichertennummerpkv: t.Type<MRPatientMotherVersichertennummerpkv> = t.recursion(
-    "MRPatientMotherVersichertennummerpkv",
-    () =>
+export const MRPatientMotherVersichertennummerpkv: t.Type<MRPatientMotherVersichertennummerpkv> =
+    t.recursion("MRPatientMotherVersichertennummerpkv", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1000,7 +946,7 @@ export const MRPatientMotherVersichertennummerpkv: t.Type<MRPatientMotherVersich
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for this patient.
@@ -1015,9 +961,8 @@ export interface MRPatientMotherVersichertennummerkvk {
     assigner?: Reference;
 }
 
-export const MRPatientMotherVersichertennummerkvk: t.Type<MRPatientMotherVersichertennummerkvk> = t.recursion(
-    "MRPatientMotherVersichertennummerkvk",
-    () =>
+export const MRPatientMotherVersichertennummerkvk: t.Type<MRPatientMotherVersichertennummerkvk> =
+    t.recursion("MRPatientMotherVersichertennummerkvk", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1035,7 +980,7 @@ export const MRPatientMotherVersichertennummerkvk: t.Type<MRPatientMotherVersich
                 })
             ])
         )
-);
+    );
 
 /**
  * Personenname mit in Deutschland üblichen Erweiterungen
@@ -1121,9 +1066,8 @@ export interface MRPatientMotherStrassenanschrift {
     postalCode?: string;
 }
 
-export const MRPatientMotherStrassenanschrift: t.Type<MRPatientMotherStrassenanschrift> = t.recursion(
-    "MRPatientMotherStrassenanschrift",
-    () =>
+export const MRPatientMotherStrassenanschrift: t.Type<MRPatientMotherStrassenanschrift> =
+    t.recursion("MRPatientMotherStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1142,15 +1086,13 @@ export const MRPatientMotherStrassenanschrift: t.Type<MRPatientMotherStrassenans
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRPatientMotherMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0">;
     id?: string;
 }
 

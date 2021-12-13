@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -61,21 +41,22 @@ export interface MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenam
     id?: string;
 }
 
-export const MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent> = t.recursion(
-    "MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent> =
+    t.recursion(
+        "MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -89,51 +70,50 @@ export interface MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenam
     )[];
 }
 
-export const MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation> = t.recursion(
-    "MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation> =
+    t.recursion(
+        "MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -147,9 +127,8 @@ export interface MRPractitionerANRTypeLANRType {
     userSelected?: boolean;
 }
 
-export const MRPractitionerANRTypeLANRType: t.Type<MRPractitionerANRTypeLANRType> = t.recursion(
-    "MRPractitionerANRTypeLANRType",
-    () =>
+export const MRPractitionerANRTypeLANRType: t.Type<MRPractitionerANRTypeLANRType> =
+    t.recursion("MRPractitionerANRTypeLANRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -164,7 +143,7 @@ export const MRPractitionerANRTypeLANRType: t.Type<MRPractitionerANRTypeLANRType
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -178,9 +157,8 @@ export interface MRPractitionerEFNTypeDNType {
     userSelected?: boolean;
 }
 
-export const MRPractitionerEFNTypeDNType: t.Type<MRPractitionerEFNTypeDNType> = t.recursion(
-    "MRPractitionerEFNTypeDNType",
-    () =>
+export const MRPractitionerEFNTypeDNType: t.Type<MRPractitionerEFNTypeDNType> =
+    t.recursion("MRPractitionerEFNTypeDNType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -195,7 +173,7 @@ export const MRPractitionerEFNTypeDNType: t.Type<MRPractitionerEFNTypeDNType> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -209,9 +187,8 @@ export interface MRPractitionerHebammenIKTypeXXType {
     userSelected?: boolean;
 }
 
-export const MRPractitionerHebammenIKTypeXXType: t.Type<MRPractitionerHebammenIKTypeXXType> = t.recursion(
-    "MRPractitionerHebammenIKTypeXXType",
-    () =>
+export const MRPractitionerHebammenIKTypeXXType: t.Type<MRPractitionerHebammenIKTypeXXType> =
+    t.recursion("MRPractitionerHebammenIKTypeXXType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -226,7 +203,7 @@ export const MRPractitionerHebammenIKTypeXXType: t.Type<MRPractitionerHebammenIK
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -238,9 +215,8 @@ export interface MRPractitionerNameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const MRPractitionerNameFamilyNamenszusatz: t.Type<MRPractitionerNameFamilyNamenszusatz> = t.recursion(
-    "MRPractitionerNameFamilyNamenszusatz",
-    () =>
+export const MRPractitionerNameFamilyNamenszusatz: t.Type<MRPractitionerNameFamilyNamenszusatz> =
+    t.recursion("MRPractitionerNameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -254,7 +230,7 @@ export const MRPractitionerNameFamilyNamenszusatz: t.Type<MRPractitionerNameFami
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -266,9 +242,8 @@ export interface MRPractitionerNameFamilyNachname {
     id?: string;
 }
 
-export const MRPractitionerNameFamilyNachname: t.Type<MRPractitionerNameFamilyNachname> = t.recursion(
-    "MRPractitionerNameFamilyNachname",
-    () =>
+export const MRPractitionerNameFamilyNachname: t.Type<MRPractitionerNameFamilyNachname> =
+    t.recursion("MRPractitionerNameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -282,7 +257,7 @@ export const MRPractitionerNameFamilyNachname: t.Type<MRPractitionerNameFamilyNa
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -294,9 +269,8 @@ export interface MRPractitionerNameFamilyVorsatzwort {
     id?: string;
 }
 
-export const MRPractitionerNameFamilyVorsatzwort: t.Type<MRPractitionerNameFamilyVorsatzwort> = t.recursion(
-    "MRPractitionerNameFamilyVorsatzwort",
-    () =>
+export const MRPractitionerNameFamilyVorsatzwort: t.Type<MRPractitionerNameFamilyVorsatzwort> =
+    t.recursion("MRPractitionerNameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -310,7 +284,7 @@ export const MRPractitionerNameFamilyVorsatzwort: t.Type<MRPractitionerNameFamil
                 })
             ])
         )
-);
+    );
 
 /**
  * Spezialisierung der Art des Präfixes, z.B. "AC" für Akademische Titel
@@ -321,9 +295,8 @@ export interface MRPractitionerNamePrefixPrefixqualifier {
     id?: string;
 }
 
-export const MRPractitionerNamePrefixPrefixqualifier: t.Type<MRPractitionerNamePrefixPrefixqualifier> = t.recursion(
-    "MRPractitionerNamePrefixPrefixqualifier",
-    () =>
+export const MRPractitionerNamePrefixPrefixqualifier: t.Type<MRPractitionerNamePrefixPrefixqualifier> =
+    t.recursion("MRPractitionerNamePrefixPrefixqualifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,7 +310,7 @@ export const MRPractitionerNamePrefixPrefixqualifier: t.Type<MRPractitionerNameP
                 })
             ])
         )
-);
+    );
 
 /**
 * Strassenname (ohne Hausnummer)
@@ -349,9 +322,8 @@ export interface MRPractitionerStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const MRPractitionerStrassenanschriftLineStrasse: t.Type<MRPractitionerStrassenanschriftLineStrasse> = t.recursion(
-    "MRPractitionerStrassenanschriftLineStrasse",
-    () =>
+export const MRPractitionerStrassenanschriftLineStrasse: t.Type<MRPractitionerStrassenanschriftLineStrasse> =
+    t.recursion("MRPractitionerStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -365,7 +337,7 @@ export const MRPractitionerStrassenanschriftLineStrasse: t.Type<MRPractitionerSt
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -377,9 +349,8 @@ export interface MRPractitionerStrassenanschriftLineHausnummer {
     id?: string;
 }
 
-export const MRPractitionerStrassenanschriftLineHausnummer: t.Type<MRPractitionerStrassenanschriftLineHausnummer> = t.recursion(
-    "MRPractitionerStrassenanschriftLineHausnummer",
-    () =>
+export const MRPractitionerStrassenanschriftLineHausnummer: t.Type<MRPractitionerStrassenanschriftLineHausnummer> =
+    t.recursion("MRPractitionerStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -393,7 +364,7 @@ export const MRPractitionerStrassenanschriftLineHausnummer: t.Type<MRPractitione
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -405,9 +376,8 @@ export interface MRPractitionerStrassenanschriftLineAdresszusatz {
     id?: string;
 }
 
-export const MRPractitionerStrassenanschriftLineAdresszusatz: t.Type<MRPractitionerStrassenanschriftLineAdresszusatz> = t.recursion(
-    "MRPractitionerStrassenanschriftLineAdresszusatz",
-    () =>
+export const MRPractitionerStrassenanschriftLineAdresszusatz: t.Type<MRPractitionerStrassenanschriftLineAdresszusatz> =
+    t.recursion("MRPractitionerStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -421,7 +391,7 @@ export const MRPractitionerStrassenanschriftLineAdresszusatz: t.Type<MRPractitio
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -435,9 +405,8 @@ export interface MRPractitionerPractitionerspecialityCodeCodingDisplay {
     value?: string;
 }
 
-export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplay> = t.recursion(
-    "MRPractitionerPractitionerspecialityCodeCodingDisplay",
-    () =>
+export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplay> =
+    t.recursion("MRPractitionerPractitionerspecialityCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -445,9 +414,7 @@ export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPra
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation
-                            >
+                            t.Type<MRPractitionerPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation>
                         ]
                     >,
                     t.Any
@@ -467,8 +434,7 @@ export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPra
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -477,7 +443,7 @@ export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPra
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
@@ -492,9 +458,8 @@ export interface MRPractitionerANRAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MRPractitionerANRAssignerIdentifier: t.Type<MRPractitionerANRAssignerIdentifier> = t.recursion(
-    "MRPractitionerANRAssignerIdentifier",
-    () =>
+export const MRPractitionerANRAssignerIdentifier: t.Type<MRPractitionerANRAssignerIdentifier> =
+    t.recursion("MRPractitionerANRAssignerIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -510,7 +475,7 @@ export const MRPractitionerANRAssignerIdentifier: t.Type<MRPractitionerANRAssign
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
@@ -525,9 +490,8 @@ export interface MRPractitionerEFNAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MRPractitionerEFNAssignerIdentifier: t.Type<MRPractitionerEFNAssignerIdentifier> = t.recursion(
-    "MRPractitionerEFNAssignerIdentifier",
-    () =>
+export const MRPractitionerEFNAssignerIdentifier: t.Type<MRPractitionerEFNAssignerIdentifier> =
+    t.recursion("MRPractitionerEFNAssignerIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -543,34 +507,33 @@ export const MRPractitionerEFNAssignerIdentifier: t.Type<MRPractitionerEFNAssign
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
  */
 export interface MRPractitionerStrassenanschriftStadtteil {
     url: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct";
-    valueString: string;
     id?: string;
+    valueString?: string;
 }
 
-export const MRPractitionerStrassenanschriftStadtteil: t.Type<MRPractitionerStrassenanschriftStadtteil> = t.recursion(
-    "MRPractitionerStrassenanschriftStadtteil",
-    () =>
+export const MRPractitionerStrassenanschriftStadtteil: t.Type<MRPractitionerStrassenanschriftStadtteil> =
+    t.recursion("MRPractitionerStrassenanschriftStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal(
                         "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
-                    ),
-                    valueString: SCALARString
+                    )
                 }),
                 t.partial({
-                    id: SCALARString
+                    id: SCALARString,
+                    valueString: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -584,9 +547,8 @@ export interface MRPractitionerPractitionerspecialityCodeCoding {
     display?: string;
 }
 
-export const MRPractitionerPractitionerspecialityCodeCoding: t.Type<MRPractitionerPractitionerspecialityCodeCoding> = t.recursion(
-    "MRPractitionerPractitionerspecialityCodeCoding",
-    () =>
+export const MRPractitionerPractitionerspecialityCodeCoding: t.Type<MRPractitionerPractitionerspecialityCodeCoding> =
+    t.recursion("MRPractitionerPractitionerspecialityCodeCoding", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -597,7 +559,7 @@ export const MRPractitionerPractitionerspecialityCodeCoding: t.Type<MRPractition
                 display: SCALARString
             })
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -720,9 +682,8 @@ export interface MRPractitionerHebammenIKType {
     text?: string;
 }
 
-export const MRPractitionerHebammenIKType: t.Type<MRPractitionerHebammenIKType> = t.recursion(
-    "MRPractitionerHebammenIKType",
-    () =>
+export const MRPractitionerHebammenIKType: t.Type<MRPractitionerHebammenIKType> =
+    t.recursion("MRPractitionerHebammenIKType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -734,7 +695,7 @@ export const MRPractitionerHebammenIKType: t.Type<MRPractitionerHebammenIKType> 
                 })
             ])
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -784,8 +745,7 @@ export const MRPractitionerNameFamily: t.Type<MRPractitionerNameFamily> = t.recu
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -793,8 +753,7 @@ export const MRPractitionerNameFamily: t.Type<MRPractitionerNameFamily> = t.recu
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -802,8 +761,7 @@ export const MRPractitionerNameFamily: t.Type<MRPractitionerNameFamily> = t.recu
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -850,8 +808,7 @@ export const MRPractitionerNamePrefix: t.Type<MRPractitionerNamePrefix> = t.recu
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
                             }
                         }
                     ],
@@ -877,9 +834,8 @@ export interface MRPractitionerStrassenanschriftLine {
     value?: string;
 }
 
-export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassenanschriftLine> = t.recursion(
-    "MRPractitionerStrassenanschriftLine",
-    () =>
+export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassenanschriftLine> =
+    t.recursion("MRPractitionerStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -911,8 +867,7 @@ export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassena
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -920,8 +875,7 @@ export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassena
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -929,8 +883,7 @@ export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassena
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -939,7 +892,7 @@ export const MRPractitionerStrassenanschriftLine: t.Type<MRPractitionerStrassena
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Coded representation of the qualification.
@@ -949,9 +902,8 @@ export interface MRPractitionerPractitionerspecialityCode {
     id?: string;
 }
 
-export const MRPractitionerPractitionerspecialityCode: t.Type<MRPractitionerPractitionerspecialityCode> = t.recursion(
-    "MRPractitionerPractitionerspecialityCode",
-    () =>
+export const MRPractitionerPractitionerspecialityCode: t.Type<MRPractitionerPractitionerspecialityCode> =
+    t.recursion("MRPractitionerPractitionerspecialityCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -966,7 +918,7 @@ export const MRPractitionerPractitionerspecialityCode: t.Type<MRPractitionerPrac
                 })
             ])
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -977,9 +929,8 @@ export interface MRPractitionerErgaenzendeAngaben {
     id?: string;
 }
 
-export const MRPractitionerErgaenzendeAngaben: t.Type<MRPractitionerErgaenzendeAngaben> = t.recursion(
-    "MRPractitionerErgaenzendeAngaben",
-    () =>
+export const MRPractitionerErgaenzendeAngaben: t.Type<MRPractitionerErgaenzendeAngaben> =
+    t.recursion("MRPractitionerErgaenzendeAngaben", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -993,7 +944,7 @@ export const MRPractitionerErgaenzendeAngaben: t.Type<MRPractitionerErgaenzendeA
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -1003,7 +954,12 @@ export interface MRPractitionerANR {
     value: string;
     id?: string;
     use?: "official";
-    type?: MRPractitionerANRType;
+    type?: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "LANR";
+        }[];
+    };
     period?: Period;
     assigner?: MRPractitionerANRAssigner;
 }
@@ -1020,7 +976,16 @@ export const MRPractitionerANR: t.Type<MRPractitionerANR> = t.recursion(
                 t.partial({
                     id: SCALARString,
                     use: Literal("official"),
-                    type: MRPractitionerANRType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("LANR")
+                            })
+                        )
+                    }),
                     period: Period,
                     assigner: MRPractitionerANRAssigner
                 })
@@ -1036,7 +1001,12 @@ export interface MRPractitionerEFN {
     value: string;
     id?: string;
     use?: "official";
-    type?: MRPractitionerEFNType;
+    type?: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "DN";
+        }[];
+    };
     period?: Period;
     assigner?: MRPractitionerEFNAssigner;
 }
@@ -1053,7 +1023,16 @@ export const MRPractitionerEFN: t.Type<MRPractitionerEFN> = t.recursion(
                 t.partial({
                     id: SCALARString,
                     use: Literal("official"),
-                    type: MRPractitionerEFNType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("DN")
+                            })
+                        )
+                    }),
                     period: Period,
                     assigner: MRPractitionerEFNAssigner
                 })
@@ -1149,9 +1128,8 @@ export interface MRPractitionerStrassenanschrift {
     country?: GemRSAnlage8VS;
 }
 
-export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenanschrift> = t.recursion(
-    "MRPractitionerStrassenanschrift",
-    () =>
+export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenanschrift> =
+    t.recursion("MRPractitionerStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1180,8 +1158,7 @@ export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenansch
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -1197,7 +1174,7 @@ export const MRPractitionerStrassenanschrift: t.Type<MRPractitionerStrassenansch
                 })
             ])
         )
-);
+    );
 
 /**
  * The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.
@@ -1208,9 +1185,8 @@ export interface MRPractitionerPractitionerspeciality {
     identifier?: Identifier[];
 }
 
-export const MRPractitionerPractitionerspeciality: t.Type<MRPractitionerPractitionerspeciality> = t.recursion(
-    "MRPractitionerPractitionerspeciality",
-    () =>
+export const MRPractitionerPractitionerspeciality: t.Type<MRPractitionerPractitionerspeciality> =
+    t.recursion("MRPractitionerPractitionerspeciality", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1222,15 +1198,13 @@ export const MRPractitionerPractitionerspeciality: t.Type<MRPractitionerPractiti
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRPractitionerMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0">;
     id?: string;
 }
 
@@ -1358,8 +1332,7 @@ const MRPractitioner: t.Type<MRPractitioner> = t.recursion("MRPractitioner", () 
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                             }
                         }
                     ],

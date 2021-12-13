@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -48,21 +28,22 @@ export interface MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedCo
     id?: string;
 }
 
-export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -76,9 +57,8 @@ export interface MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -92,9 +72,7 @@ export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -120,7 +98,7 @@ export const MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -134,9 +112,8 @@ export interface MRObservationCatalogueACodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationCatalogueACodeCodingDisplay: t.Type<MRObservationCatalogueACodeCodingDisplay> = t.recursion(
-    "MRObservationCatalogueACodeCodingDisplay",
-    () =>
+export const MRObservationCatalogueACodeCodingDisplay: t.Type<MRObservationCatalogueACodeCodingDisplay> =
+    t.recursion("MRObservationCatalogueACodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -144,9 +121,7 @@ export const MRObservationCatalogueACodeCodingDisplay: t.Type<MRObservationCatal
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationCatalogueACodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -166,8 +141,7 @@ export const MRObservationCatalogueACodeCodingDisplay: t.Type<MRObservationCatal
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -176,7 +150,7 @@ export const MRObservationCatalogueACodeCodingDisplay: t.Type<MRObservationCatal
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -190,9 +164,8 @@ export interface MRObservationCatalogueACodeCoding {
     display?: string;
 }
 
-export const MRObservationCatalogueACodeCoding: t.Type<MRObservationCatalogueACodeCoding> = t.recursion(
-    "MRObservationCatalogueACodeCoding",
-    () =>
+export const MRObservationCatalogueACodeCoding: t.Type<MRObservationCatalogueACodeCoding> =
+    t.recursion("MRObservationCatalogueACodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -207,21 +180,18 @@ export const MRObservationCatalogueACodeCoding: t.Type<MRObservationCatalogueACo
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationCatalogueAMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Catalogue_A|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Catalogue_A|1.0.0">;
     id?: string;
 }
 
-export const MRObservationCatalogueAMeta: t.Type<MRObservationCatalogueAMeta> = t.recursion(
-    "MRObservationCatalogueAMeta",
-    () =>
+export const MRObservationCatalogueAMeta: t.Type<MRObservationCatalogueAMeta> =
+    t.recursion("MRObservationCatalogueAMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -238,7 +208,7 @@ export const MRObservationCatalogueAMeta: t.Type<MRObservationCatalogueAMeta> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -248,9 +218,8 @@ export interface MRObservationCatalogueACode {
     id?: string;
 }
 
-export const MRObservationCatalogueACode: t.Type<MRObservationCatalogueACode> = t.recursion(
-    "MRObservationCatalogueACode",
-    () =>
+export const MRObservationCatalogueACode: t.Type<MRObservationCatalogueACode> =
+    t.recursion("MRObservationCatalogueACode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -261,7 +230,7 @@ export const MRObservationCatalogueACode: t.Type<MRObservationCatalogueACode> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -271,9 +240,8 @@ export interface MRObservationCatalogueASubject {
     id?: string;
 }
 
-export const MRObservationCatalogueASubject: t.Type<MRObservationCatalogueASubject> = t.recursion(
-    "MRObservationCatalogueASubject",
-    () =>
+export const MRObservationCatalogueASubject: t.Type<MRObservationCatalogueASubject> =
+    t.recursion("MRObservationCatalogueASubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,7 +254,7 @@ export const MRObservationCatalogueASubject: t.Type<MRObservationCatalogueASubje
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -296,9 +264,8 @@ export interface MRObservationCatalogueAEncounter {
     id?: string;
 }
 
-export const MRObservationCatalogueAEncounter: t.Type<MRObservationCatalogueAEncounter> = t.recursion(
-    "MRObservationCatalogueAEncounter",
-    () =>
+export const MRObservationCatalogueAEncounter: t.Type<MRObservationCatalogueAEncounter> =
+    t.recursion("MRObservationCatalogueAEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -311,7 +278,7 @@ export const MRObservationCatalogueAEncounter: t.Type<MRObservationCatalogueAEnc
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -321,9 +288,8 @@ export interface MRObservationCatalogueAPerformer {
     id?: string;
 }
 
-export const MRObservationCatalogueAPerformer: t.Type<MRObservationCatalogueAPerformer> = t.recursion(
-    "MRObservationCatalogueAPerformer",
-    () =>
+export const MRObservationCatalogueAPerformer: t.Type<MRObservationCatalogueAPerformer> =
+    t.recursion("MRObservationCatalogueAPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,7 +303,7 @@ export const MRObservationCatalogueAPerformer: t.Type<MRObservationCatalogueAPer
                 })
             ])
         )
-);
+    );
 
 interface MRObservationCatalogueA {
     resourceType: "Observation";

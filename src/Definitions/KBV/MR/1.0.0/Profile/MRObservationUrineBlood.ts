@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,21 +25,22 @@ export interface MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedCo
     id?: string;
 }
 
-export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Blut")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Blut")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -73,9 +54,8 @@ export interface MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -89,9 +69,7 @@ export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -117,7 +95,7 @@ export const MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -131,9 +109,8 @@ export interface MRObservationUrineBloodCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationUrineBloodCodeCodingDisplay: t.Type<MRObservationUrineBloodCodeCodingDisplay> = t.recursion(
-    "MRObservationUrineBloodCodeCodingDisplay",
-    () =>
+export const MRObservationUrineBloodCodeCodingDisplay: t.Type<MRObservationUrineBloodCodeCodingDisplay> =
+    t.recursion("MRObservationUrineBloodCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -141,9 +118,7 @@ export const MRObservationUrineBloodCodeCodingDisplay: t.Type<MRObservationUrine
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationUrineBloodCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -163,8 +138,7 @@ export const MRObservationUrineBloodCodeCodingDisplay: t.Type<MRObservationUrine
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -173,7 +147,7 @@ export const MRObservationUrineBloodCodeCodingDisplay: t.Type<MRObservationUrine
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -187,9 +161,8 @@ export interface MRObservationUrineBloodCodeCoding {
     display?: string;
 }
 
-export const MRObservationUrineBloodCodeCoding: t.Type<MRObservationUrineBloodCodeCoding> = t.recursion(
-    "MRObservationUrineBloodCodeCoding",
-    () =>
+export const MRObservationUrineBloodCodeCoding: t.Type<MRObservationUrineBloodCodeCoding> =
+    t.recursion("MRObservationUrineBloodCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -206,21 +179,18 @@ export const MRObservationUrineBloodCodeCoding: t.Type<MRObservationUrineBloodCo
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationUrineBloodMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Blood|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Blood|1.0.0">;
     id?: string;
 }
 
-export const MRObservationUrineBloodMeta: t.Type<MRObservationUrineBloodMeta> = t.recursion(
-    "MRObservationUrineBloodMeta",
-    () =>
+export const MRObservationUrineBloodMeta: t.Type<MRObservationUrineBloodMeta> =
+    t.recursion("MRObservationUrineBloodMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +207,7 @@ export const MRObservationUrineBloodMeta: t.Type<MRObservationUrineBloodMeta> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -247,9 +217,8 @@ export interface MRObservationUrineBloodCode {
     id?: string;
 }
 
-export const MRObservationUrineBloodCode: t.Type<MRObservationUrineBloodCode> = t.recursion(
-    "MRObservationUrineBloodCode",
-    () =>
+export const MRObservationUrineBloodCode: t.Type<MRObservationUrineBloodCode> =
+    t.recursion("MRObservationUrineBloodCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -260,7 +229,7 @@ export const MRObservationUrineBloodCode: t.Type<MRObservationUrineBloodCode> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -270,9 +239,8 @@ export interface MRObservationUrineBloodSubject {
     id?: string;
 }
 
-export const MRObservationUrineBloodSubject: t.Type<MRObservationUrineBloodSubject> = t.recursion(
-    "MRObservationUrineBloodSubject",
-    () =>
+export const MRObservationUrineBloodSubject: t.Type<MRObservationUrineBloodSubject> =
+    t.recursion("MRObservationUrineBloodSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,7 +253,7 @@ export const MRObservationUrineBloodSubject: t.Type<MRObservationUrineBloodSubje
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -295,9 +263,8 @@ export interface MRObservationUrineBloodEncounter {
     id?: string;
 }
 
-export const MRObservationUrineBloodEncounter: t.Type<MRObservationUrineBloodEncounter> = t.recursion(
-    "MRObservationUrineBloodEncounter",
-    () =>
+export const MRObservationUrineBloodEncounter: t.Type<MRObservationUrineBloodEncounter> =
+    t.recursion("MRObservationUrineBloodEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -310,7 +277,7 @@ export const MRObservationUrineBloodEncounter: t.Type<MRObservationUrineBloodEnc
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -320,9 +287,8 @@ export interface MRObservationUrineBloodPerformer {
     id?: string;
 }
 
-export const MRObservationUrineBloodPerformer: t.Type<MRObservationUrineBloodPerformer> = t.recursion(
-    "MRObservationUrineBloodPerformer",
-    () =>
+export const MRObservationUrineBloodPerformer: t.Type<MRObservationUrineBloodPerformer> =
+    t.recursion("MRObservationUrineBloodPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -336,7 +302,7 @@ export const MRObservationUrineBloodPerformer: t.Type<MRObservationUrineBloodPer
                 })
             ])
         )
-);
+    );
 
 interface MRObservationUrineBlood {
     resourceType: "Observation";

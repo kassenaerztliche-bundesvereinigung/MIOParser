@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,21 +26,22 @@ export interface MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigename
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,51 +55,50 @@ export interface MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigename
     )[];
 }
 
-export const MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -132,9 +112,8 @@ export interface MRObservationOtherUltrasoundStudiesCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesCodeCodingDisplay: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplay> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesCodeCodingDisplay",
-    () =>
+export const MRObservationOtherUltrasoundStudiesCodeCodingDisplay: t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplay> =
+    t.recursion("MRObservationOtherUltrasoundStudiesCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -142,9 +121,7 @@ export const MRObservationOtherUltrasoundStudiesCodeCodingDisplay: t.Type<MRObse
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationOtherUltrasoundStudiesCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -164,8 +141,7 @@ export const MRObservationOtherUltrasoundStudiesCodeCodingDisplay: t.Type<MRObse
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -174,7 +150,7 @@ export const MRObservationOtherUltrasoundStudiesCodeCodingDisplay: t.Type<MRObse
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -188,9 +164,8 @@ export interface MRObservationOtherUltrasoundStudiesCodeCoding {
     display?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesCodeCoding: t.Type<MRObservationOtherUltrasoundStudiesCodeCoding> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesCodeCoding",
-    () =>
+export const MRObservationOtherUltrasoundStudiesCodeCoding: t.Type<MRObservationOtherUltrasoundStudiesCodeCoding> =
+    t.recursion("MRObservationOtherUltrasoundStudiesCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -205,21 +180,18 @@ export const MRObservationOtherUltrasoundStudiesCodeCoding: t.Type<MRObservation
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationOtherUltrasoundStudiesMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Ultrasound_Studies|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Ultrasound_Studies|1.0.0">;
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesMeta: t.Type<MRObservationOtherUltrasoundStudiesMeta> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesMeta",
-    () =>
+export const MRObservationOtherUltrasoundStudiesMeta: t.Type<MRObservationOtherUltrasoundStudiesMeta> =
+    t.recursion("MRObservationOtherUltrasoundStudiesMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -236,7 +208,7 @@ export const MRObservationOtherUltrasoundStudiesMeta: t.Type<MRObservationOtherU
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -246,9 +218,8 @@ export interface MRObservationOtherUltrasoundStudiesCode {
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesCode: t.Type<MRObservationOtherUltrasoundStudiesCode> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesCode",
-    () =>
+export const MRObservationOtherUltrasoundStudiesCode: t.Type<MRObservationOtherUltrasoundStudiesCode> =
+    t.recursion("MRObservationOtherUltrasoundStudiesCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -263,7 +234,7 @@ export const MRObservationOtherUltrasoundStudiesCode: t.Type<MRObservationOtherU
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -273,9 +244,8 @@ export interface MRObservationOtherUltrasoundStudiesSubject {
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOtherUltrasoundStudiesSubject> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesSubject",
-    () =>
+export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOtherUltrasoundStudiesSubject> =
+    t.recursion("MRObservationOtherUltrasoundStudiesSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -288,7 +258,7 @@ export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOth
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -298,9 +268,8 @@ export interface MRObservationOtherUltrasoundStudiesEncounter {
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationOtherUltrasoundStudiesEncounter> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesEncounter",
-    () =>
+export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationOtherUltrasoundStudiesEncounter> =
+    t.recursion("MRObservationOtherUltrasoundStudiesEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -313,7 +282,7 @@ export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationO
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -323,9 +292,8 @@ export interface MRObservationOtherUltrasoundStudiesPerformer {
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationOtherUltrasoundStudiesPerformer> = t.recursion(
-    "MRObservationOtherUltrasoundStudiesPerformer",
-    () =>
+export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationOtherUltrasoundStudiesPerformer> =
+    t.recursion("MRObservationOtherUltrasoundStudiesPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -339,7 +307,7 @@ export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationO
                 })
             ])
         )
-);
+    );
 
 interface MRObservationOtherUltrasoundStudies {
     resourceType: "Observation";
@@ -355,9 +323,8 @@ interface MRObservationOtherUltrasoundStudies {
     performer?: Array<MRObservationOtherUltrasoundStudiesPerformer>;
 }
 
-const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundStudies> = t.recursion(
-    "MRObservationOtherUltrasoundStudies",
-    () =>
+const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundStudies> =
+    t.recursion("MRObservationOtherUltrasoundStudies", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -377,6 +344,6 @@ const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundSt
                 })
             ])
         )
-);
+    );
 
 export default MRObservationOtherUltrasoundStudies;

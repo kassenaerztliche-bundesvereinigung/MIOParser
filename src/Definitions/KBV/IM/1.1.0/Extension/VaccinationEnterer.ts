@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -44,9 +24,8 @@ export interface VaccinationEntererModeValueCodeableConceptCoding {
     display?: string;
 }
 
-export const VaccinationEntererModeValueCodeableConceptCoding: t.Type<VaccinationEntererModeValueCodeableConceptCoding> = t.recursion(
-    "VaccinationEntererModeValueCodeableConceptCoding",
-    () =>
+export const VaccinationEntererModeValueCodeableConceptCoding: t.Type<VaccinationEntererModeValueCodeableConceptCoding> =
+    t.recursion("VaccinationEntererModeValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -62,7 +41,7 @@ export const VaccinationEntererModeValueCodeableConceptCoding: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -72,9 +51,8 @@ export interface VaccinationEntererModeValueCodeableConcept {
     id?: string;
 }
 
-export const VaccinationEntererModeValueCodeableConcept: t.Type<VaccinationEntererModeValueCodeableConcept> = t.recursion(
-    "VaccinationEntererModeValueCodeableConcept",
-    () =>
+export const VaccinationEntererModeValueCodeableConcept: t.Type<VaccinationEntererModeValueCodeableConcept> =
+    t.recursion("VaccinationEntererModeValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -89,7 +67,7 @@ export const VaccinationEntererModeValueCodeableConcept: t.Type<VaccinationEnter
                 })
             ])
         )
-);
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -99,9 +77,8 @@ export interface VaccinationEntererPartyValueReference {
     id?: string;
 }
 
-export const VaccinationEntererPartyValueReference: t.Type<VaccinationEntererPartyValueReference> = t.recursion(
-    "VaccinationEntererPartyValueReference",
-    () =>
+export const VaccinationEntererPartyValueReference: t.Type<VaccinationEntererPartyValueReference> =
+    t.recursion("VaccinationEntererPartyValueReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -114,7 +91,7 @@ export const VaccinationEntererPartyValueReference: t.Type<VaccinationEntererPar
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

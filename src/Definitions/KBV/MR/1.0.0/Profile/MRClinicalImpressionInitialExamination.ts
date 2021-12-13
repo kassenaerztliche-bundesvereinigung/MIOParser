@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -48,23 +28,24 @@ export interface MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigen
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal(
-                        "Anamnese und allgemeine Befunde/Erste Vorsorge-Untersuchung"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal(
+                            "Anamnese und allgemeine Befunde/Erste Vorsorge-Untersuchung"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -78,51 +59,50 @@ export interface MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigen
     )[];
 }
 
-export const MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -136,9 +116,8 @@ export interface MRClinicalImpressionInitialExaminationCodeCodingDisplay {
     value?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationCodeCodingDisplay: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplay> = t.recursion(
-    "MRClinicalImpressionInitialExaminationCodeCodingDisplay",
-    () =>
+export const MRClinicalImpressionInitialExaminationCodeCodingDisplay: t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplay> =
+    t.recursion("MRClinicalImpressionInitialExaminationCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -146,9 +125,7 @@ export const MRClinicalImpressionInitialExaminationCodeCodingDisplay: t.Type<MRC
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRClinicalImpressionInitialExaminationCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -168,8 +145,7 @@ export const MRClinicalImpressionInitialExaminationCodeCodingDisplay: t.Type<MRC
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -178,7 +154,7 @@ export const MRClinicalImpressionInitialExaminationCodeCodingDisplay: t.Type<MRC
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -192,9 +168,8 @@ export interface MRClinicalImpressionInitialExaminationCodeCoding {
     display?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationCodeCoding: t.Type<MRClinicalImpressionInitialExaminationCodeCoding> = t.recursion(
-    "MRClinicalImpressionInitialExaminationCodeCoding",
-    () =>
+export const MRClinicalImpressionInitialExaminationCodeCoding: t.Type<MRClinicalImpressionInitialExaminationCodeCoding> =
+    t.recursion("MRClinicalImpressionInitialExaminationCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -211,7 +186,7 @@ export const MRClinicalImpressionInitialExaminationCodeCoding: t.Type<MRClinical
                 })
             ])
         )
-);
+    );
 
 /**
  * A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutritional) history may be used.
@@ -221,9 +196,8 @@ export interface MRClinicalImpressionInitialExaminationInvestigationCode {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationInvestigationCode: t.Type<MRClinicalImpressionInitialExaminationInvestigationCode> = t.recursion(
-    "MRClinicalImpressionInitialExaminationInvestigationCode",
-    () =>
+export const MRClinicalImpressionInitialExaminationInvestigationCode: t.Type<MRClinicalImpressionInitialExaminationInvestigationCode> =
+    t.recursion("MRClinicalImpressionInitialExaminationInvestigationCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -236,7 +210,7 @@ export const MRClinicalImpressionInitialExaminationInvestigationCode: t.Type<MRC
                 })
             ])
         )
-);
+    );
 
 /**
  * A record of a specific investigation that was undertaken.
@@ -246,9 +220,8 @@ export interface MRClinicalImpressionInitialExaminationInvestigationItem {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRClinicalImpressionInitialExaminationInvestigationItem> = t.recursion(
-    "MRClinicalImpressionInitialExaminationInvestigationItem",
-    () =>
+export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRClinicalImpressionInitialExaminationInvestigationItem> =
+    t.recursion("MRClinicalImpressionInitialExaminationInvestigationItem", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -261,7 +234,7 @@ export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRC
                 })
             ])
         )
-);
+    );
 
 /**
  * Specific reference for finding or diagnosis, which may include ruled-out or resolved conditions.
@@ -271,9 +244,8 @@ export interface MRClinicalImpressionInitialExaminationFindingItemReference {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationFindingItemReference: t.Type<MRClinicalImpressionInitialExaminationFindingItemReference> = t.recursion(
-    "MRClinicalImpressionInitialExaminationFindingItemReference",
-    () =>
+export const MRClinicalImpressionInitialExaminationFindingItemReference: t.Type<MRClinicalImpressionInitialExaminationFindingItemReference> =
+    t.recursion("MRClinicalImpressionInitialExaminationFindingItemReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,21 +258,18 @@ export const MRClinicalImpressionInitialExaminationFindingItemReference: t.Type<
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRClinicalImpressionInitialExaminationMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Initial_Examination|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Initial_Examination|1.0.0">;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationMeta: t.Type<MRClinicalImpressionInitialExaminationMeta> = t.recursion(
-    "MRClinicalImpressionInitialExaminationMeta",
-    () =>
+export const MRClinicalImpressionInitialExaminationMeta: t.Type<MRClinicalImpressionInitialExaminationMeta> =
+    t.recursion("MRClinicalImpressionInitialExaminationMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -317,7 +286,7 @@ export const MRClinicalImpressionInitialExaminationMeta: t.Type<MRClinicalImpres
                 })
             ])
         )
-);
+    );
 
 /**
  * Categorizes the type of clinical assessment performed.
@@ -327,9 +296,8 @@ export interface MRClinicalImpressionInitialExaminationCode {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationCode: t.Type<MRClinicalImpressionInitialExaminationCode> = t.recursion(
-    "MRClinicalImpressionInitialExaminationCode",
-    () =>
+export const MRClinicalImpressionInitialExaminationCode: t.Type<MRClinicalImpressionInitialExaminationCode> =
+    t.recursion("MRClinicalImpressionInitialExaminationCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -344,7 +312,7 @@ export const MRClinicalImpressionInitialExaminationCode: t.Type<MRClinicalImpres
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group of individuals assessed as part of this record.
@@ -354,9 +322,8 @@ export interface MRClinicalImpressionInitialExaminationSubject {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImpressionInitialExaminationSubject> = t.recursion(
-    "MRClinicalImpressionInitialExaminationSubject",
-    () =>
+export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImpressionInitialExaminationSubject> =
+    t.recursion("MRClinicalImpressionInitialExaminationSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -369,7 +336,7 @@ export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImp
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
@@ -379,9 +346,8 @@ export interface MRClinicalImpressionInitialExaminationEncounter {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalImpressionInitialExaminationEncounter> = t.recursion(
-    "MRClinicalImpressionInitialExaminationEncounter",
-    () =>
+export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalImpressionInitialExaminationEncounter> =
+    t.recursion("MRClinicalImpressionInitialExaminationEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -394,7 +360,7 @@ export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalI
                 })
             ])
         )
-);
+    );
 
 /**
  * The clinician performing the assessment.
@@ -404,9 +370,8 @@ export interface MRClinicalImpressionInitialExaminationAssessor {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalImpressionInitialExaminationAssessor> = t.recursion(
-    "MRClinicalImpressionInitialExaminationAssessor",
-    () =>
+export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalImpressionInitialExaminationAssessor> =
+    t.recursion("MRClinicalImpressionInitialExaminationAssessor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -419,7 +384,7 @@ export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalIm
                 })
             ])
         )
-);
+    );
 
 /**
  * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
@@ -430,9 +395,8 @@ export interface MRClinicalImpressionInitialExaminationInvestigation {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationInvestigation: t.Type<MRClinicalImpressionInitialExaminationInvestigation> = t.recursion(
-    "MRClinicalImpressionInitialExaminationInvestigation",
-    () =>
+export const MRClinicalImpressionInitialExaminationInvestigation: t.Type<MRClinicalImpressionInitialExaminationInvestigation> =
+    t.recursion("MRClinicalImpressionInitialExaminationInvestigation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -447,7 +411,7 @@ export const MRClinicalImpressionInitialExaminationInvestigation: t.Type<MRClini
                 })
             ])
         )
-);
+    );
 
 /**
  * Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
@@ -457,20 +421,20 @@ export interface MRClinicalImpressionInitialExaminationFinding {
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationFinding: t.Type<MRClinicalImpressionInitialExaminationFinding> = t.recursion(
-    "MRClinicalImpressionInitialExaminationFinding",
-    () =>
+export const MRClinicalImpressionInitialExaminationFinding: t.Type<MRClinicalImpressionInitialExaminationFinding> =
+    t.recursion("MRClinicalImpressionInitialExaminationFinding", () =>
         Excess(
             t.intersection([
                 t.type({
-                    itemReference: MRClinicalImpressionInitialExaminationFindingItemReference
+                    itemReference:
+                        MRClinicalImpressionInitialExaminationFindingItemReference
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 interface MRClinicalImpressionInitialExamination {
     resourceType: "ClinicalImpression";
@@ -488,9 +452,8 @@ interface MRClinicalImpressionInitialExamination {
     note?: Array<Annotation>;
 }
 
-const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitialExamination> = t.recursion(
-    "MRClinicalImpressionInitialExamination",
-    () =>
+const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitialExamination> =
+    t.recursion("MRClinicalImpressionInitialExamination", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -515,6 +478,6 @@ const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitial
                 })
             ])
         )
-);
+    );
 
 export default MRClinicalImpressionInitialExamination;

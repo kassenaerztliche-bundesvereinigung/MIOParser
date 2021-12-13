@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,9 +25,8 @@ export interface VaccinationCompositionAddendumRecordAddendumCodeCoding {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumRecordAddendumCodeCoding: t.Type<VaccinationCompositionAddendumRecordAddendumCodeCoding> = t.recursion(
-    "VaccinationCompositionAddendumRecordAddendumCodeCoding",
-    () =>
+export const VaccinationCompositionAddendumRecordAddendumCodeCoding: t.Type<VaccinationCompositionAddendumRecordAddendumCodeCoding> =
+    t.recursion("VaccinationCompositionAddendumRecordAddendumCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -63,7 +42,7 @@ export const VaccinationCompositionAddendumRecordAddendumCodeCoding: t.Type<Vacc
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -73,9 +52,8 @@ export interface VaccinationCompositionAddendumRecordAddendumCode {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumRecordAddendumCode: t.Type<VaccinationCompositionAddendumRecordAddendumCode> = t.recursion(
-    "VaccinationCompositionAddendumRecordAddendumCode",
-    () =>
+export const VaccinationCompositionAddendumRecordAddendumCode: t.Type<VaccinationCompositionAddendumRecordAddendumCode> =
+    t.recursion("VaccinationCompositionAddendumRecordAddendumCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -90,7 +68,7 @@ export const VaccinationCompositionAddendumRecordAddendumCode: t.Type<Vaccinatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -100,9 +78,8 @@ export interface VaccinationCompositionAddendumRecordAddendumEntry {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumRecordAddendumEntry: t.Type<VaccinationCompositionAddendumRecordAddendumEntry> = t.recursion(
-    "VaccinationCompositionAddendumRecordAddendumEntry",
-    () =>
+export const VaccinationCompositionAddendumRecordAddendumEntry: t.Type<VaccinationCompositionAddendumRecordAddendumEntry> =
+    t.recursion("VaccinationCompositionAddendumRecordAddendumEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -115,7 +92,7 @@ export const VaccinationCompositionAddendumRecordAddendumEntry: t.Type<Vaccinati
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -128,9 +105,8 @@ export interface VaccinationCompositionAddendumTypeCoding {
     version?: string;
 }
 
-export const VaccinationCompositionAddendumTypeCoding: t.Type<VaccinationCompositionAddendumTypeCoding> = t.recursion(
-    "VaccinationCompositionAddendumTypeCoding",
-    () =>
+export const VaccinationCompositionAddendumTypeCoding: t.Type<VaccinationCompositionAddendumTypeCoding> =
+    t.recursion("VaccinationCompositionAddendumTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -144,7 +120,7 @@ export const VaccinationCompositionAddendumTypeCoding: t.Type<VaccinationComposi
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -155,9 +131,8 @@ export interface VaccinationCompositionAddendumRecordAddendum {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumRecordAddendum: t.Type<VaccinationCompositionAddendumRecordAddendum> = t.recursion(
-    "VaccinationCompositionAddendumRecordAddendum",
-    () =>
+export const VaccinationCompositionAddendumRecordAddendum: t.Type<VaccinationCompositionAddendumRecordAddendum> =
+    t.recursion("VaccinationCompositionAddendumRecordAddendum", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -169,21 +144,18 @@ export const VaccinationCompositionAddendumRecordAddendum: t.Type<VaccinationCom
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationCompositionAddendumMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0">;
     id?: string;
 }
 
-export const VaccinationCompositionAddendumMeta: t.Type<VaccinationCompositionAddendumMeta> = t.recursion(
-    "VaccinationCompositionAddendumMeta",
-    () =>
+export const VaccinationCompositionAddendumMeta: t.Type<VaccinationCompositionAddendumMeta> =
+    t.recursion("VaccinationCompositionAddendumMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -200,7 +172,7 @@ export const VaccinationCompositionAddendumMeta: t.Type<VaccinationCompositionAd
                 })
             ])
         )
-);
+    );
 
 /**
  * A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
@@ -211,9 +183,8 @@ export interface VaccinationCompositionAddendumText {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumText: t.Type<VaccinationCompositionAddendumText> = t.recursion(
-    "VaccinationCompositionAddendumText",
-    () =>
+export const VaccinationCompositionAddendumText: t.Type<VaccinationCompositionAddendumText> =
+    t.recursion("VaccinationCompositionAddendumText", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -225,7 +196,7 @@ export const VaccinationCompositionAddendumText: t.Type<VaccinationCompositionAd
                 })
             ])
         )
-);
+    );
 
 /**
  * Code aus dem Profil IHE Immunization Content (IC) zur Beschreibung der History of Immunization
@@ -235,9 +206,8 @@ export interface VaccinationCompositionAddendumType {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumType: t.Type<VaccinationCompositionAddendumType> = t.recursion(
-    "VaccinationCompositionAddendumType",
-    () =>
+export const VaccinationCompositionAddendumType: t.Type<VaccinationCompositionAddendumType> =
+    t.recursion("VaccinationCompositionAddendumType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,7 +218,7 @@ export const VaccinationCompositionAddendumType: t.Type<VaccinationCompositionAd
                 })
             ])
         )
-);
+    );
 
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
@@ -258,9 +228,8 @@ export interface VaccinationCompositionAddendumSubject {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumSubject: t.Type<VaccinationCompositionAddendumSubject> = t.recursion(
-    "VaccinationCompositionAddendumSubject",
-    () =>
+export const VaccinationCompositionAddendumSubject: t.Type<VaccinationCompositionAddendumSubject> =
+    t.recursion("VaccinationCompositionAddendumSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -273,7 +242,7 @@ export const VaccinationCompositionAddendumSubject: t.Type<VaccinationCompositio
                 })
             ])
         )
-);
+    );
 
 /**
  * Die Person, die den Eintrag der Impfung erstellt hat.
@@ -283,9 +252,8 @@ export interface VaccinationCompositionAddendumAuthor {
     id?: string;
 }
 
-export const VaccinationCompositionAddendumAuthor: t.Type<VaccinationCompositionAddendumAuthor> = t.recursion(
-    "VaccinationCompositionAddendumAuthor",
-    () =>
+export const VaccinationCompositionAddendumAuthor: t.Type<VaccinationCompositionAddendumAuthor> =
+    t.recursion("VaccinationCompositionAddendumAuthor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -298,7 +266,7 @@ export const VaccinationCompositionAddendumAuthor: t.Type<VaccinationComposition
                 })
             ])
         )
-);
+    );
 
 interface VaccinationCompositionAddendum {
     resourceType: "Composition";
@@ -314,9 +282,8 @@ interface VaccinationCompositionAddendum {
     text?: VaccinationCompositionAddendumText;
 }
 
-const VaccinationCompositionAddendum: t.Type<VaccinationCompositionAddendum> = t.recursion(
-    "VaccinationCompositionAddendum",
-    () =>
+const VaccinationCompositionAddendum: t.Type<VaccinationCompositionAddendum> =
+    t.recursion("VaccinationCompositionAddendum", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -340,6 +307,6 @@ const VaccinationCompositionAddendum: t.Type<VaccinationCompositionAddendum> = t
                 })
             ])
         )
-);
+    );
 
 export default VaccinationCompositionAddendum;

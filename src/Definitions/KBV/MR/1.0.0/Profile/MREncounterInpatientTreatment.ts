@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -44,23 +24,24 @@ export interface MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSn
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal(
-                        "Stationäre Behandlung während der Schwangerschaft"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal(
+                            "Stationäre Behandlung während der Schwangerschaft"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,51 +55,50 @@ export interface MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSn
     )[];
 }
 
-export const MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed: t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed: t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -132,9 +112,8 @@ export interface MREncounterInpatientTreatmentTypeCodingDisplay {
     value?: string;
 }
 
-export const MREncounterInpatientTreatmentTypeCodingDisplay: t.Type<MREncounterInpatientTreatmentTypeCodingDisplay> = t.recursion(
-    "MREncounterInpatientTreatmentTypeCodingDisplay",
-    () =>
+export const MREncounterInpatientTreatmentTypeCodingDisplay: t.Type<MREncounterInpatientTreatmentTypeCodingDisplay> =
+    t.recursion("MREncounterInpatientTreatmentTypeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -142,9 +121,7 @@ export const MREncounterInpatientTreatmentTypeCodingDisplay: t.Type<MREncounterI
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MREncounterInpatientTreatmentTypeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -164,8 +141,7 @@ export const MREncounterInpatientTreatmentTypeCodingDisplay: t.Type<MREncounterI
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -174,7 +150,7 @@ export const MREncounterInpatientTreatmentTypeCodingDisplay: t.Type<MREncounterI
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -185,9 +161,8 @@ export interface MREncounterInpatientTreatmentPeriodVonBis {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentPeriodVonBis: t.Type<MREncounterInpatientTreatmentPeriodVonBis> = t.recursion(
-    "MREncounterInpatientTreatmentPeriodVonBis",
-    () =>
+export const MREncounterInpatientTreatmentPeriodVonBis: t.Type<MREncounterInpatientTreatmentPeriodVonBis> =
+    t.recursion("MREncounterInpatientTreatmentPeriodVonBis", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -201,7 +176,7 @@ export const MREncounterInpatientTreatmentPeriodVonBis: t.Type<MREncounterInpati
                 })
             ])
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -212,9 +187,8 @@ export interface MREncounterInpatientTreatmentTherapie {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentTherapie: t.Type<MREncounterInpatientTreatmentTherapie> = t.recursion(
-    "MREncounterInpatientTreatmentTherapie",
-    () =>
+export const MREncounterInpatientTreatmentTherapie: t.Type<MREncounterInpatientTreatmentTherapie> =
+    t.recursion("MREncounterInpatientTreatmentTherapie", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -228,7 +202,7 @@ export const MREncounterInpatientTreatmentTherapie: t.Type<MREncounterInpatientT
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -242,9 +216,8 @@ export interface MREncounterInpatientTreatmentTypeCoding {
     display?: string;
 }
 
-export const MREncounterInpatientTreatmentTypeCoding: t.Type<MREncounterInpatientTreatmentTypeCoding> = t.recursion(
-    "MREncounterInpatientTreatmentTypeCoding",
-    () =>
+export const MREncounterInpatientTreatmentTypeCoding: t.Type<MREncounterInpatientTreatmentTypeCoding> =
+    t.recursion("MREncounterInpatientTreatmentTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -261,7 +234,7 @@ export const MREncounterInpatientTreatmentTypeCoding: t.Type<MREncounterInpatien
                 })
             ])
         )
-);
+    );
 
 /**
  * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
@@ -271,9 +244,8 @@ export interface MREncounterInpatientTreatmentDiagnosisCondition {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentDiagnosisCondition: t.Type<MREncounterInpatientTreatmentDiagnosisCondition> = t.recursion(
-    "MREncounterInpatientTreatmentDiagnosisCondition",
-    () =>
+export const MREncounterInpatientTreatmentDiagnosisCondition: t.Type<MREncounterInpatientTreatmentDiagnosisCondition> =
+    t.recursion("MREncounterInpatientTreatmentDiagnosisCondition", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,21 +256,18 @@ export const MREncounterInpatientTreatmentDiagnosisCondition: t.Type<MREncounter
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MREncounterInpatientTreatmentMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_Inpatient_Treatment|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_Inpatient_Treatment|1.0.0">;
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentMeta: t.Type<MREncounterInpatientTreatmentMeta> = t.recursion(
-    "MREncounterInpatientTreatmentMeta",
-    () =>
+export const MREncounterInpatientTreatmentMeta: t.Type<MREncounterInpatientTreatmentMeta> =
+    t.recursion("MREncounterInpatientTreatmentMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -315,7 +284,7 @@ export const MREncounterInpatientTreatmentMeta: t.Type<MREncounterInpatientTreat
                 })
             ])
         )
-);
+    );
 
 /**
  * Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.
@@ -328,9 +297,8 @@ export interface MREncounterInpatientTreatmentClass {
     display?: string;
 }
 
-export const MREncounterInpatientTreatmentClass: t.Type<MREncounterInpatientTreatmentClass> = t.recursion(
-    "MREncounterInpatientTreatmentClass",
-    () =>
+export const MREncounterInpatientTreatmentClass: t.Type<MREncounterInpatientTreatmentClass> =
+    t.recursion("MREncounterInpatientTreatmentClass", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -344,7 +312,7 @@ export const MREncounterInpatientTreatmentClass: t.Type<MREncounterInpatientTrea
                 })
             ])
         )
-);
+    );
 
 /**
  * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
@@ -354,9 +322,8 @@ export interface MREncounterInpatientTreatmentType {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentType: t.Type<MREncounterInpatientTreatmentType> = t.recursion(
-    "MREncounterInpatientTreatmentType",
-    () =>
+export const MREncounterInpatientTreatmentType: t.Type<MREncounterInpatientTreatmentType> =
+    t.recursion("MREncounterInpatientTreatmentType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -367,7 +334,7 @@ export const MREncounterInpatientTreatmentType: t.Type<MREncounterInpatientTreat
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group present at the encounter.
@@ -377,9 +344,8 @@ export interface MREncounterInpatientTreatmentSubject {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentSubject: t.Type<MREncounterInpatientTreatmentSubject> = t.recursion(
-    "MREncounterInpatientTreatmentSubject",
-    () =>
+export const MREncounterInpatientTreatmentSubject: t.Type<MREncounterInpatientTreatmentSubject> =
+    t.recursion("MREncounterInpatientTreatmentSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -392,7 +358,7 @@ export const MREncounterInpatientTreatmentSubject: t.Type<MREncounterInpatientTr
                 })
             ])
         )
-);
+    );
 
 /**
  * The start and end time of the encounter.
@@ -402,9 +368,8 @@ export interface MREncounterInpatientTreatmentPeriod {
     extension?: (Extension | MREncounterInpatientTreatmentPeriodVonBis)[];
 }
 
-export const MREncounterInpatientTreatmentPeriod: t.Type<MREncounterInpatientTreatmentPeriod> = t.recursion(
-    "MREncounterInpatientTreatmentPeriod",
-    () =>
+export const MREncounterInpatientTreatmentPeriod: t.Type<MREncounterInpatientTreatmentPeriod> =
+    t.recursion("MREncounterInpatientTreatmentPeriod", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -429,8 +394,7 @@ export const MREncounterInpatientTreatmentPeriod: t.Type<MREncounterInpatientTre
                             occurrence: ["2", "2"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                             }
                         }
                     ],
@@ -438,7 +402,7 @@ export const MREncounterInpatientTreatmentPeriod: t.Type<MREncounterInpatientTre
                 )
             })
         )
-);
+    );
 
 /**
  * The list of diagnosis relevant to this encounter.
@@ -448,9 +412,8 @@ export interface MREncounterInpatientTreatmentDiagnosis {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentDiagnosis: t.Type<MREncounterInpatientTreatmentDiagnosis> = t.recursion(
-    "MREncounterInpatientTreatmentDiagnosis",
-    () =>
+export const MREncounterInpatientTreatmentDiagnosis: t.Type<MREncounterInpatientTreatmentDiagnosis> =
+    t.recursion("MREncounterInpatientTreatmentDiagnosis", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -461,7 +424,7 @@ export const MREncounterInpatientTreatmentDiagnosis: t.Type<MREncounterInpatient
                 })
             ])
         )
-);
+    );
 
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
@@ -471,9 +434,8 @@ export interface MREncounterInpatientTreatmentServiceProvider {
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInpatientTreatmentServiceProvider> = t.recursion(
-    "MREncounterInpatientTreatmentServiceProvider",
-    () =>
+export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInpatientTreatmentServiceProvider> =
+    t.recursion("MREncounterInpatientTreatmentServiceProvider", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -486,7 +448,7 @@ export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInp
                 })
             ])
         )
-);
+    );
 
 interface MREncounterInpatientTreatment {
     resourceType: "Encounter";
@@ -542,8 +504,7 @@ const MREncounterInpatientTreatment: t.Type<MREncounterInpatientTreatment> = t.r
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],

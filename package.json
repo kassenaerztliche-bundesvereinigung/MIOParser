@@ -1,76 +1,72 @@
 {
-  "author": "KBV",
-  "name": "@kbv/mioparser",
-  "version": "1.4.1",
-  "license": "Apache-2.0",
-  "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
-  "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
-  "homepage": "https://github.com/kassenaerztliche-bundesvereinigung/mioparser#readme",
-  "bugs": {
-    "url": "https://github.com/kassenaerztliche-bundesvereinigung/mioparser/issues",
-    "email": "support.mio@kbv.de"
-  },
-  "keywords": [
-    "mio",
-    "fhir",
-    "kbv",
-    "parser"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "pretest": "npm unlink @kbv/miotestdata && npm link @kbv/miotestdata",
-    "test": "jest --silent --testPathIgnorePatterns=test/Benchmark",
-    "test:coverage": "npm run pretest && jest --silent --collectCoverage --testPathIgnorePatterns=test/Benchmark --coveragePathIgnorePatterns=src/Definitions",
-    "test:benchmark": "npm run pretest && jest --silent --testPathPattern=test/Benchmark",
-    "lint": "eslint src/*.ts src/Interfaces/*.ts test/**/*.ts",
-    "lint-errors-only": "eslint src/** test/** --quiet",
-    "prettier": "prettier --write src/**/*.ts test/**/*.ts",
-    "ts-check": "tsc --noEmit",
-    "ts-check:watch": "npm run type-check -- --watch",
-    "build": "tsc && npm link",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/**/index.ts"
-    ],
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 50,
-        "branches": 50,
-        "functions": 50,
-        "lines": 50
-      }
+    "author": "KBV",
+    "name": "@kbv/mioparser",
+    "version": "1.5.0",
+    "license": "Apache-2.0",
+    "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
+    "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
+    "homepage": "https://github.com/kassenaerztliche-bundesvereinigung/mioparser#readme",
+    "bugs": {
+        "url": "https://github.com/kassenaerztliche-bundesvereinigung/mioparser/issues",
+        "email": "support.mio@kbv.de"
     },
-    "preset": "ts-jest",
-    "verbose": true
-  },
-  "dependencies": {
-    "@types/uuid": "^8.3.0",
-    "fhir": "^4.8.3",
-    "fhirpath": "^2.9.1",
-    "fp-ts": "^2.10.5",
-    "io-ts": "^2.2.16"
-  },
-  "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^14.17.4",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^26.6.3",
-    "prettier": "^2.3.2",
-    "ts-jest": "^26.5.6",
-    "ts-node": "^9.1.1",
-    "typescript": "^3.9.10"
-  }
+    "keywords": [
+        "mio",
+        "fhir",
+        "kbv",
+        "parser"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "jest --silent --testPathIgnorePatterns=test/Benchmark",
+        "test:benchmark": "npm run pretest && jest --silent --testPathPattern=test/Benchmark",
+        "lint": "eslint src/*.ts src/Interfaces/*.ts test/**/*.ts",
+        "lint-errors-only": "eslint src/** test/** --quiet",
+        "prettier": "prettier --write src/**/*.ts test/**/*.ts",
+        "ts-check": "tsc --noEmit",
+        "ts-check:watch": "npm run type-check -- --watch",
+        "build": "tsc"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{ts,tsx}",
+            "!src/**/index.ts"
+        ],
+        "coverageReporters": [
+            "lcov",
+            "text"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "statements": 50,
+                "branches": 50,
+                "functions": 50,
+                "lines": 50
+            }
+        },
+        "preset": "ts-jest",
+        "verbose": true
+    },
+    "dependencies": {
+        "fhir": "^4.11.1",
+        "fhirpath": "^2.10.1",
+        "fp-ts": "^2.11.5",
+        "io-ts": "^2.2.16"
+    },
+    "devDependencies": {
+        "@kbv/miotestdata": "^1.5.1",
+        "@types/jest": "^25.2.1",
+        "@types/node": "^16.11.6",
+        "@typescript-eslint/eslint-plugin": "^5.2.0",
+        "@typescript-eslint/parser": "^5.2.0",
+        "eslint": "^8.1.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^26.6.3",
+        "prettier": "^2.4.1",
+        "ts-jest": "^26.5.6",
+        "ts-node": "^9.1.1",
+        "typescript": "^3.9.10"
+    }
 }

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { Literal, Excess, MinMaxArray, CustomReference } from "../../../../CustomTypes";
 
@@ -37,21 +17,22 @@ export interface MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigename
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("In der Entbindungsklinik vorgestellt am")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("In der Entbindungsklinik vorgestellt am")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -62,25 +43,26 @@ export interface MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigename
     extension?: MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent[];
 }
 
-export const MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: t.array(
-                        MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent
-                    )
-                })
-            ])
-        )
-);
+export const MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: t.array(
+                            MREncounterArrivalMaternityHospitalTypeCodingDisplayAnzeigenameCodeSnomedContent
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -91,9 +73,8 @@ export interface MREncounterArrivalMaternityHospitalTypeCodingDisplay {
     value?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalTypeCodingDisplay: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplay> = t.recursion(
-    "MREncounterArrivalMaternityHospitalTypeCodingDisplay",
-    () =>
+export const MREncounterArrivalMaternityHospitalTypeCodingDisplay: t.Type<MREncounterArrivalMaternityHospitalTypeCodingDisplay> =
+    t.recursion("MREncounterArrivalMaternityHospitalTypeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -103,7 +84,7 @@ export const MREncounterArrivalMaternityHospitalTypeCodingDisplay: t.Type<MREnco
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -117,9 +98,8 @@ export interface MREncounterArrivalMaternityHospitalTypeCoding {
     display?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalTypeCoding: t.Type<MREncounterArrivalMaternityHospitalTypeCoding> = t.recursion(
-    "MREncounterArrivalMaternityHospitalTypeCoding",
-    () =>
+export const MREncounterArrivalMaternityHospitalTypeCoding: t.Type<MREncounterArrivalMaternityHospitalTypeCoding> =
+    t.recursion("MREncounterArrivalMaternityHospitalTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -136,21 +116,18 @@ export const MREncounterArrivalMaternityHospitalTypeCoding: t.Type<MREncounterAr
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MREncounterArrivalMaternityHospitalMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_Arrival_Maternity_Hospital|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_Arrival_Maternity_Hospital|1.0.0">;
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalMeta: t.Type<MREncounterArrivalMaternityHospitalMeta> = t.recursion(
-    "MREncounterArrivalMaternityHospitalMeta",
-    () =>
+export const MREncounterArrivalMaternityHospitalMeta: t.Type<MREncounterArrivalMaternityHospitalMeta> =
+    t.recursion("MREncounterArrivalMaternityHospitalMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -167,7 +144,7 @@ export const MREncounterArrivalMaternityHospitalMeta: t.Type<MREncounterArrivalM
                 })
             ])
         )
-);
+    );
 
 /**
  * Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.
@@ -180,9 +157,8 @@ export interface MREncounterArrivalMaternityHospitalClass {
     display?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalClass: t.Type<MREncounterArrivalMaternityHospitalClass> = t.recursion(
-    "MREncounterArrivalMaternityHospitalClass",
-    () =>
+export const MREncounterArrivalMaternityHospitalClass: t.Type<MREncounterArrivalMaternityHospitalClass> =
+    t.recursion("MREncounterArrivalMaternityHospitalClass", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -196,7 +172,7 @@ export const MREncounterArrivalMaternityHospitalClass: t.Type<MREncounterArrival
                 })
             ])
         )
-);
+    );
 
 /**
  * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
@@ -206,9 +182,8 @@ export interface MREncounterArrivalMaternityHospitalType {
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalType: t.Type<MREncounterArrivalMaternityHospitalType> = t.recursion(
-    "MREncounterArrivalMaternityHospitalType",
-    () =>
+export const MREncounterArrivalMaternityHospitalType: t.Type<MREncounterArrivalMaternityHospitalType> =
+    t.recursion("MREncounterArrivalMaternityHospitalType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -223,7 +198,7 @@ export const MREncounterArrivalMaternityHospitalType: t.Type<MREncounterArrivalM
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group present at the encounter.
@@ -233,9 +208,8 @@ export interface MREncounterArrivalMaternityHospitalSubject {
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalSubject: t.Type<MREncounterArrivalMaternityHospitalSubject> = t.recursion(
-    "MREncounterArrivalMaternityHospitalSubject",
-    () =>
+export const MREncounterArrivalMaternityHospitalSubject: t.Type<MREncounterArrivalMaternityHospitalSubject> =
+    t.recursion("MREncounterArrivalMaternityHospitalSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,7 +222,7 @@ export const MREncounterArrivalMaternityHospitalSubject: t.Type<MREncounterArriv
                 })
             ])
         )
-);
+    );
 
 /**
  * The start and end time of the encounter.
@@ -258,9 +232,8 @@ export interface MREncounterArrivalMaternityHospitalPeriod {
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalPeriod: t.Type<MREncounterArrivalMaternityHospitalPeriod> = t.recursion(
-    "MREncounterArrivalMaternityHospitalPeriod",
-    () =>
+export const MREncounterArrivalMaternityHospitalPeriod: t.Type<MREncounterArrivalMaternityHospitalPeriod> =
+    t.recursion("MREncounterArrivalMaternityHospitalPeriod", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,7 +244,7 @@ export const MREncounterArrivalMaternityHospitalPeriod: t.Type<MREncounterArriva
                 })
             ])
         )
-);
+    );
 
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
@@ -281,9 +254,8 @@ export interface MREncounterArrivalMaternityHospitalServiceProvider {
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncounterArrivalMaternityHospitalServiceProvider> = t.recursion(
-    "MREncounterArrivalMaternityHospitalServiceProvider",
-    () =>
+export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncounterArrivalMaternityHospitalServiceProvider> =
+    t.recursion("MREncounterArrivalMaternityHospitalServiceProvider", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -296,7 +268,7 @@ export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncoun
                 })
             ])
         )
-);
+    );
 
 interface MREncounterArrivalMaternityHospital {
     resourceType: "Encounter";
@@ -311,9 +283,8 @@ interface MREncounterArrivalMaternityHospital {
     text?: Narrative;
 }
 
-const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHospital> = t.recursion(
-    "MREncounterArrivalMaternityHospital",
-    () =>
+const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHospital> =
+    t.recursion("MREncounterArrivalMaternityHospital", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,6 +303,6 @@ const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHos
                 })
             ])
         )
-);
+    );
 
 export default MREncounterArrivalMaternityHospital;

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedCon
     id?: string;
 }
 
-export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Beratung der Schwangeren")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Beratung der Schwangeren")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -72,21 +53,22 @@ export interface MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonC
     id?: string;
 }
 
-export const MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent: t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent> = t.recursion(
-    "MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent: t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent> =
+    t.recursion(
+        "MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -100,9 +82,8 @@ export interface MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -116,9 +97,7 @@ export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed: t.Typ
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -144,7 +123,7 @@ export const MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -158,51 +137,50 @@ export interface MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonC
     )[];
 }
 
-export const MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed: t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed> = t.recursion(
-    "MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed: t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed> =
+    t.recursion(
+        "MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -216,9 +194,8 @@ export interface MRProcedureCounsellingCodeCodingDisplay {
     value?: string;
 }
 
-export const MRProcedureCounsellingCodeCodingDisplay: t.Type<MRProcedureCounsellingCodeCodingDisplay> = t.recursion(
-    "MRProcedureCounsellingCodeCodingDisplay",
-    () =>
+export const MRProcedureCounsellingCodeCodingDisplay: t.Type<MRProcedureCounsellingCodeCodingDisplay> =
+    t.recursion("MRProcedureCounsellingCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -226,9 +203,7 @@ export const MRProcedureCounsellingCodeCodingDisplay: t.Type<MRProcedureCounsell
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRProcedureCounsellingCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -248,8 +223,7 @@ export const MRProcedureCounsellingCodeCodingDisplay: t.Type<MRProcedureCounsell
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -258,7 +232,7 @@ export const MRProcedureCounsellingCodeCodingDisplay: t.Type<MRProcedureCounsell
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -272,9 +246,8 @@ export interface MRProcedureCounsellingReasonCodeCodingDisplay {
     value?: string;
 }
 
-export const MRProcedureCounsellingReasonCodeCodingDisplay: t.Type<MRProcedureCounsellingReasonCodeCodingDisplay> = t.recursion(
-    "MRProcedureCounsellingReasonCodeCodingDisplay",
-    () =>
+export const MRProcedureCounsellingReasonCodeCodingDisplay: t.Type<MRProcedureCounsellingReasonCodeCodingDisplay> =
+    t.recursion("MRProcedureCounsellingReasonCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -282,9 +255,7 @@ export const MRProcedureCounsellingReasonCodeCodingDisplay: t.Type<MRProcedureCo
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed
-                            >
+                            t.Type<MRProcedureCounsellingReasonCodeCodingDisplayAnzeigenameReasonCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -304,8 +275,7 @@ export const MRProcedureCounsellingReasonCodeCodingDisplay: t.Type<MRProcedureCo
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -314,7 +284,7 @@ export const MRProcedureCounsellingReasonCodeCodingDisplay: t.Type<MRProcedureCo
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -328,9 +298,8 @@ export interface MRProcedureCounsellingCodeCoding {
     display?: string;
 }
 
-export const MRProcedureCounsellingCodeCoding: t.Type<MRProcedureCounsellingCodeCoding> = t.recursion(
-    "MRProcedureCounsellingCodeCoding",
-    () =>
+export const MRProcedureCounsellingCodeCoding: t.Type<MRProcedureCounsellingCodeCoding> =
+    t.recursion("MRProcedureCounsellingCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -347,7 +316,7 @@ export const MRProcedureCounsellingCodeCoding: t.Type<MRProcedureCounsellingCode
                 })
             ])
         )
-);
+    );
 
 /**
  * The practitioner who was involved in the procedure.
@@ -357,9 +326,8 @@ export interface MRProcedureCounsellingPerformerActor {
     id?: string;
 }
 
-export const MRProcedureCounsellingPerformerActor: t.Type<MRProcedureCounsellingPerformerActor> = t.recursion(
-    "MRProcedureCounsellingPerformerActor",
-    () =>
+export const MRProcedureCounsellingPerformerActor: t.Type<MRProcedureCounsellingPerformerActor> =
+    t.recursion("MRProcedureCounsellingPerformerActor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -373,7 +341,7 @@ export const MRProcedureCounsellingPerformerActor: t.Type<MRProcedureCounselling
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -387,9 +355,8 @@ export interface MRProcedureCounsellingReasonCodeCoding {
     display?: string;
 }
 
-export const MRProcedureCounsellingReasonCodeCoding: t.Type<MRProcedureCounsellingReasonCodeCoding> = t.recursion(
-    "MRProcedureCounsellingReasonCodeCoding",
-    () =>
+export const MRProcedureCounsellingReasonCodeCoding: t.Type<MRProcedureCounsellingReasonCodeCoding> =
+    t.recursion("MRProcedureCounsellingReasonCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -406,15 +373,13 @@ export const MRProcedureCounsellingReasonCodeCoding: t.Type<MRProcedureCounselli
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRProcedureCounsellingMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Procedure_Counselling|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Procedure_Counselling|1.0.0">;
     id?: string;
 }
 
@@ -470,9 +435,8 @@ export interface MRProcedureCounsellingSubject {
     id?: string;
 }
 
-export const MRProcedureCounsellingSubject: t.Type<MRProcedureCounsellingSubject> = t.recursion(
-    "MRProcedureCounsellingSubject",
-    () =>
+export const MRProcedureCounsellingSubject: t.Type<MRProcedureCounsellingSubject> =
+    t.recursion("MRProcedureCounsellingSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -485,7 +449,7 @@ export const MRProcedureCounsellingSubject: t.Type<MRProcedureCounsellingSubject
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
@@ -495,9 +459,8 @@ export interface MRProcedureCounsellingEncounter {
     id?: string;
 }
 
-export const MRProcedureCounsellingEncounter: t.Type<MRProcedureCounsellingEncounter> = t.recursion(
-    "MRProcedureCounsellingEncounter",
-    () =>
+export const MRProcedureCounsellingEncounter: t.Type<MRProcedureCounsellingEncounter> =
+    t.recursion("MRProcedureCounsellingEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -510,7 +473,7 @@ export const MRProcedureCounsellingEncounter: t.Type<MRProcedureCounsellingEncou
                 })
             ])
         )
-);
+    );
 
 /**
  * Limited to "real" people rather than equipment.
@@ -520,9 +483,8 @@ export interface MRProcedureCounsellingPerformer {
     id?: string;
 }
 
-export const MRProcedureCounsellingPerformer: t.Type<MRProcedureCounsellingPerformer> = t.recursion(
-    "MRProcedureCounsellingPerformer",
-    () =>
+export const MRProcedureCounsellingPerformer: t.Type<MRProcedureCounsellingPerformer> =
+    t.recursion("MRProcedureCounsellingPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -533,7 +495,7 @@ export const MRProcedureCounsellingPerformer: t.Type<MRProcedureCounsellingPerfo
                 })
             ])
         )
-);
+    );
 
 /**
  * The coded reason why the procedure was performed. This may be a coded entity of some type, or may simply be present as text.
@@ -543,9 +505,8 @@ export interface MRProcedureCounsellingReasonCode {
     id?: string;
 }
 
-export const MRProcedureCounsellingReasonCode: t.Type<MRProcedureCounsellingReasonCode> = t.recursion(
-    "MRProcedureCounsellingReasonCode",
-    () =>
+export const MRProcedureCounsellingReasonCode: t.Type<MRProcedureCounsellingReasonCode> =
+    t.recursion("MRProcedureCounsellingReasonCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -556,7 +517,7 @@ export const MRProcedureCounsellingReasonCode: t.Type<MRProcedureCounsellingReas
                 })
             ])
         )
-);
+    );
 
 interface MRProcedureCounselling {
     resourceType: "Procedure";

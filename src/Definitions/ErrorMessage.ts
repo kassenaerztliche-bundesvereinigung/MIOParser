@@ -27,6 +27,11 @@ export type ErrorMessageLanguage = "de" | "en";
 export default class ErrorMessage {
     public static Language: ErrorMessageLanguage = "en";
 
+    static capitalize(s: string): string {
+        if (!s.length) return "";
+        return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
     static ContextEntry(
         context: ContextEntry,
         lang: ErrorMessageLanguage = ErrorMessage.Language
@@ -112,10 +117,13 @@ export default class ErrorMessage {
         should: string | boolean | number,
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
+        const s = typeof should === "string" ? `"${should}"` : should;
+        const i = typeof is === "string" ? `"${is}"` : is;
+
         if (lang === "de") {
-            return `Es wurde der Wert ${should} erwartet. Angegeben wurde ${is}`;
+            return `Es wurde der Wert ${s} erwartet. Angegeben wurde ${i}`;
         } else {
-            return `Expected literal ${should}, but received ${is}`;
+            return `Expected literal ${s}, but received ${i}`;
         }
     }
 
@@ -239,13 +247,23 @@ export default class ErrorMessage {
     }
 
     static NoSectionForValue(
-        sectionValue: string,
+        sectionValue?: string,
+        sliceValuePath?: string,
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
+        const append = sliceValuePath ? ` (${sliceValuePath})` : "";
         if (lang === "de") {
-            return `Es wurde keine Section mit dem sliceValue ${sectionValue} gefunden`;
+            return (
+                `Es wurde keine Section mit dem sliceValue ${
+                    sectionValue ?? "undefined"
+                } gefunden` + append
+            );
         } else {
-            return `There was no section found for sliceValue ${sectionValue}`;
+            return (
+                `There was no section found for sliceValue ${
+                    sectionValue ?? "undefined"
+                }` + append
+            );
         }
     }
 
@@ -262,6 +280,174 @@ export default class ErrorMessage {
             return "SliceValue für die Section fehlt.";
         } else {
             return "SliceValue for the section is missing";
+        }
+    }
+
+    static ReferenceNotResolved(
+        value: unknown,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            if (value == "")
+                return "Die Referenz hat einen leeren String und kann nicht aufgelöst werden.";
+            else
+                return `Die Referenz konnte nicht aufgelöst werden. Der Wert "${value}" ist nicht korrekt.`;
+        } else {
+            if (value == "")
+                return "The reference contains an empty string and can not be resolved.";
+            else
+                return `The Reference could not be resolved. The value "${value}" is not correct.`;
+        }
+    }
+
+    static NoProfile(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        return lang === "de"
+            ? "Das Meta-Element der Ressource hat kein Profil."
+            : "Resource meta has no profile.";
+    }
+
+    static NoMeta(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        return lang === "de"
+            ? "Die Ressource hat kein Meta-Element."
+            : "Resource has no meta.";
+    }
+
+    static UnknownProfile(
+        profile: string | undefined,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        return lang === "de"
+            ? `Unbekanntes Profil: ${profile}.`
+            : `Unknown profile: ${profile}.`;
+    }
+
+    static ProfileWithoutVersion(
+        profile: string | undefined,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        return lang === "de"
+            ? `Profil ohne Versionierung: ${profile}.`
+            : `Profile without versioning: ${profile}.`;
+    }
+
+    static FileType(
+        fileType: string | undefined,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        return lang === "de"
+            ? `Die Datei hat ein falsches Format. "${fileType}" wird nicht unterstützt. Es können nur Daten vom Format .json oder .xml verarbeitet werden.`
+            : `The file has a wrong format. Files of type "${fileType}" are not supported. Only files of with the extension .json or .xml can be processed.`;
+    }
+
+    static SyntaxError(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        return lang === "de"
+            ? "Die Datei ist fehlerhaft. Bitte wenden Sie sich an den Herausgeber des MIOs."
+            : "This file contains errors. Please contact the issuer of this document.";
+    }
+
+    static InvalidMIO(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
+        return lang === "de" ? "Fehlerhaftes MIO." : "Invalid MIO.";
+    }
+
+    static Reference(
+        ref: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Unaufgelöste Referenz "${ref}".`;
+        } else {
+            return `Unresolved reference "${ref}".`;
+        }
+    }
+
+    static Orphan(
+        fullUrl: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Verwaiste Ressource mit der fullUrl "${fullUrl}" gefunden.`;
+        } else {
+            return `Found orphan resource with fullUrl "${fullUrl}".`;
+        }
+    }
+
+    static ReferenceNotFound(
+        fieldName: string,
+        ref: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        const name = ErrorMessage.capitalize(fieldName);
+        if (lang === "de") {
+            return `${name} mit der Reference "${ref}" wurde nicht gefunden.`;
+        } else {
+            return `${name} with reference "${ref}" not found.`;
+        }
+    }
+
+    static Valid(
+        valid: boolean,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return valid ? "Datei valide." : "Datei nicht valide.";
+        } else {
+            return valid ? "File valid." : "File not valid.";
+        }
+    }
+
+    static NoComposition(
+        bundleName: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Ein Bundle (${bundleName}) muss eine Composition enthalten.`;
+        } else {
+            return `A Bundle (${bundleName}) must have a Composition.`;
+        }
+    }
+
+    static OnlyOneComposition(
+        bundleName: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Ein Bundle (${bundleName}) darf nur eine Composition enthalten.`;
+        } else {
+            return `A Bundle (${bundleName}) must have only one composition.`;
+        }
+    }
+
+    static CompositionRequire(
+        bundleName: string,
+        profile: string,
+        profiles: string[],
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return ` Ein Bundle (${bundleName}) mit der Composition (${profile}) muss ${profiles.join(
+                " oder "
+            )} enthalten.`;
+        } else {
+            return `Bundle (${bundleName}) with Composition (${profile}) must have a ${profiles.join(
+                " or a "
+            )}.`;
+        }
+    }
+
+    static CompositionExclude(
+        bundleName: string,
+        profile: string,
+        profiles: string[],
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        if (lang === "de") {
+            return `Ein Bundle (${bundleName}) mit der Composition (${profile}) darf kein ${profiles.join(
+                " oder "
+            )} enthalten.`;
+        } else {
+            return `A Bundle (${bundleName}) with Composition (${profile}) can not have a ${profiles.join(
+                " or a "
+            )}.`;
         }
     }
 }

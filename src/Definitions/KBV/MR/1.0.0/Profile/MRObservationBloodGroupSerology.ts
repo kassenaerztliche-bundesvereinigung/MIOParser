@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -51,21 +31,22 @@ export interface MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenam
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("AB0-System")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("AB0-System")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -76,21 +57,22 @@ export interface MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCo
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("AB0-System")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("AB0-System")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -101,21 +83,22 @@ export interface MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDis
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -126,21 +109,22 @@ export interface MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeige
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Rhesus-System")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Rhesus-System")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -151,21 +135,22 @@ export interface MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenam
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Rhesus-System")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Rhesus-System")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -176,21 +161,22 @@ export interface MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -204,51 +190,50 @@ export interface MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenam
     )[];
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -262,51 +247,50 @@ export interface MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCo
     )[];
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -320,51 +304,50 @@ export interface MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDis
     )[];
 }
 
-export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -378,51 +361,50 @@ export interface MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeige
     )[];
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -436,51 +418,50 @@ export interface MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenam
     )[];
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -494,51 +475,50 @@ export interface MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding
     )[];
 }
 
-export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -549,21 +529,22 @@ export interface MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCode
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Blutgruppenzugehörigkeit")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Blutgruppenzugehörigkeit")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -577,9 +558,8 @@ export interface MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay",
-    () =>
+export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay> =
+    t.recursion("MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -587,9 +567,7 @@ export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay: t.Type<MRObs
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -609,8 +587,7 @@ export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay: t.Type<MRObs
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -619,7 +596,7 @@ export const MRObservationBloodGroupSerologyAB0CodeSnomedCTDisplay: t.Type<MRObs
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -633,9 +610,8 @@ export interface MRObservationBloodGroupSerologyAB0CodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeLoincDisplay: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeLoincDisplay",
-    () =>
+export const MRObservationBloodGroupSerologyAB0CodeLoincDisplay: t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplay> =
+    t.recursion("MRObservationBloodGroupSerologyAB0CodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -643,9 +619,7 @@ export const MRObservationBloodGroupSerologyAB0CodeLoincDisplay: t.Type<MRObserv
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationBloodGroupSerologyAB0CodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -665,8 +639,7 @@ export const MRObservationBloodGroupSerologyAB0CodeLoincDisplay: t.Type<MRObserv
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -675,7 +648,7 @@ export const MRObservationBloodGroupSerologyAB0CodeLoincDisplay: t.Type<MRObserv
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -689,49 +662,47 @@ export interface MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDis
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -745,9 +716,8 @@ export interface MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -755,9 +725,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay: t.Type<MR
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -777,8 +745,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay: t.Type<MR
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -787,7 +754,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeSnomedCTDisplay: t.Type<MR
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -801,9 +768,8 @@ export interface MRObservationBloodGroupSerologyRhesusCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplay: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeLoincDisplay",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplay: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplay> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -811,9 +777,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplay: t.Type<MRObs
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationBloodGroupSerologyRhesusCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -833,8 +797,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplay: t.Type<MRObs
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -843,7 +806,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeLoincDisplay: t.Type<MRObs
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -857,49 +820,47 @@ export interface MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -913,51 +874,50 @@ export interface MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCode
     )[];
 }
 
-export const MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -971,9 +931,8 @@ export interface MRObservationBloodGroupSerologyAB0CodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeSnomedCT: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCT> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeSnomedCT",
-    () =>
+export const MRObservationBloodGroupSerologyAB0CodeSnomedCT: t.Type<MRObservationBloodGroupSerologyAB0CodeSnomedCT> =
+    t.recursion("MRObservationBloodGroupSerologyAB0CodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -992,7 +951,7 @@ export const MRObservationBloodGroupSerologyAB0CodeSnomedCT: t.Type<MRObservatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1006,9 +965,8 @@ export interface MRObservationBloodGroupSerologyAB0CodeLoinc {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0CodeLoinc: t.Type<MRObservationBloodGroupSerologyAB0CodeLoinc> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0CodeLoinc",
-    () =>
+export const MRObservationBloodGroupSerologyAB0CodeLoinc: t.Type<MRObservationBloodGroupSerologyAB0CodeLoinc> =
+    t.recursion("MRObservationBloodGroupSerologyAB0CodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1023,7 +981,7 @@ export const MRObservationBloodGroupSerologyAB0CodeLoinc: t.Type<MRObservationBl
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1037,9 +995,8 @@ export interface MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding",
-    () =>
+export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding> =
+    t.recursion("MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1049,12 +1006,13 @@ export const MRObservationBloodGroupSerologyAB0ValueCodeableConceptCoding: t.Typ
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay,
+                    _display:
+                        MRObservationBloodGroupSerologyAB0ValueCodeableConceptCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1068,9 +1026,8 @@ export interface MRObservationBloodGroupSerologyRhesusCodeSnomedCT {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeSnomedCT: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCT> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeSnomedCT",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusCodeSnomedCT: t.Type<MRObservationBloodGroupSerologyRhesusCodeSnomedCT> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1089,7 +1046,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeSnomedCT: t.Type<MRObserva
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1103,9 +1060,8 @@ export interface MRObservationBloodGroupSerologyRhesusCodeLoinc {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCodeLoinc: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoinc> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCodeLoinc",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusCodeLoinc: t.Type<MRObservationBloodGroupSerologyRhesusCodeLoinc> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1120,7 +1076,7 @@ export const MRObservationBloodGroupSerologyRhesusCodeLoinc: t.Type<MRObservatio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1134,9 +1090,8 @@ export interface MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1146,12 +1101,13 @@ export const MRObservationBloodGroupSerologyRhesusValueCodeableConceptCoding: t.
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay,
+                    _display:
+                        MRObservationBloodGroupSerologyRhesusValueCodeableConceptCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -1162,9 +1118,8 @@ export interface MRObservationBloodGroupSerologyAB0ValueCodeableConcept {
     text?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0ValueCodeableConcept: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConcept> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0ValueCodeableConcept",
-    () =>
+export const MRObservationBloodGroupSerologyAB0ValueCodeableConcept: t.Type<MRObservationBloodGroupSerologyAB0ValueCodeableConcept> =
+    t.recursion("MRObservationBloodGroupSerologyAB0ValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1180,7 +1135,7 @@ export const MRObservationBloodGroupSerologyAB0ValueCodeableConcept: t.Type<MROb
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -1191,9 +1146,8 @@ export interface MRObservationBloodGroupSerologyRhesusValueCodeableConcept {
     text?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusValueCodeableConcept: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConcept> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusValueCodeableConcept",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusValueCodeableConcept: t.Type<MRObservationBloodGroupSerologyRhesusValueCodeableConcept> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1209,7 +1163,7 @@ export const MRObservationBloodGroupSerologyRhesusValueCodeableConcept: t.Type<M
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1223,9 +1177,8 @@ export interface MRObservationBloodGroupSerologyCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationBloodGroupSerologyCodeCodingDisplay: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplay> = t.recursion(
-    "MRObservationBloodGroupSerologyCodeCodingDisplay",
-    () =>
+export const MRObservationBloodGroupSerologyCodeCodingDisplay: t.Type<MRObservationBloodGroupSerologyCodeCodingDisplay> =
+    t.recursion("MRObservationBloodGroupSerologyCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1233,9 +1186,7 @@ export const MRObservationBloodGroupSerologyCodeCodingDisplay: t.Type<MRObservat
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationBloodGroupSerologyCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -1255,8 +1206,7 @@ export const MRObservationBloodGroupSerologyCodeCodingDisplay: t.Type<MRObservat
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -1265,7 +1215,7 @@ export const MRObservationBloodGroupSerologyCodeCodingDisplay: t.Type<MRObservat
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -1279,9 +1229,8 @@ export interface MRObservationBloodGroupSerologyAB0Code {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0Code: t.Type<MRObservationBloodGroupSerologyAB0Code> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0Code",
-    () =>
+export const MRObservationBloodGroupSerologyAB0Code: t.Type<MRObservationBloodGroupSerologyAB0Code> =
+    t.recursion("MRObservationBloodGroupSerologyAB0Code", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1322,7 +1271,7 @@ export const MRObservationBloodGroupSerologyAB0Code: t.Type<MRObservationBloodGr
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "code".
@@ -1336,9 +1285,8 @@ export interface MRObservationBloodGroupSerologyRhesusCode {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesusCode: t.Type<MRObservationBloodGroupSerologyRhesusCode> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesusCode",
-    () =>
+export const MRObservationBloodGroupSerologyRhesusCode: t.Type<MRObservationBloodGroupSerologyRhesusCode> =
+    t.recursion("MRObservationBloodGroupSerologyRhesusCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1379,7 +1327,7 @@ export const MRObservationBloodGroupSerologyRhesusCode: t.Type<MRObservationBloo
                 })
             ])
         )
-);
+    );
 
 /**
  * Mit diesem Profil ist eine zusätzlicher Kommentar/Information definiert worden. Dieser kann an diverse Ressourcen hinzugefügt werden. Der Informationsgehalt der beinhaltenden Ressource darf nicht grundlegend verändert oder negiert werden.
@@ -1390,9 +1338,8 @@ export interface MRObservationBloodGroupSerologyHinweisBehandelndePerson {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyHinweisBehandelndePerson: t.Type<MRObservationBloodGroupSerologyHinweisBehandelndePerson> = t.recursion(
-    "MRObservationBloodGroupSerologyHinweisBehandelndePerson",
-    () =>
+export const MRObservationBloodGroupSerologyHinweisBehandelndePerson: t.Type<MRObservationBloodGroupSerologyHinweisBehandelndePerson> =
+    t.recursion("MRObservationBloodGroupSerologyHinweisBehandelndePerson", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1408,7 +1355,7 @@ export const MRObservationBloodGroupSerologyHinweisBehandelndePerson: t.Type<MRO
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1422,9 +1369,8 @@ export interface MRObservationBloodGroupSerologyCodeCoding {
     display?: string;
 }
 
-export const MRObservationBloodGroupSerologyCodeCoding: t.Type<MRObservationBloodGroupSerologyCodeCoding> = t.recursion(
-    "MRObservationBloodGroupSerologyCodeCoding",
-    () =>
+export const MRObservationBloodGroupSerologyCodeCoding: t.Type<MRObservationBloodGroupSerologyCodeCoding> =
+    t.recursion("MRObservationBloodGroupSerologyCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1441,7 +1387,7 @@ export const MRObservationBloodGroupSerologyCodeCoding: t.Type<MRObservationBloo
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -1452,21 +1398,21 @@ export interface MRObservationBloodGroupSerologyAB0 {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyAB0: t.Type<MRObservationBloodGroupSerologyAB0> = t.recursion(
-    "MRObservationBloodGroupSerologyAB0",
-    () =>
+export const MRObservationBloodGroupSerologyAB0: t.Type<MRObservationBloodGroupSerologyAB0> =
+    t.recursion("MRObservationBloodGroupSerologyAB0", () =>
         Excess(
             t.intersection([
                 t.type({
                     code: MRObservationBloodGroupSerologyAB0Code,
-                    valueCodeableConcept: MRObservationBloodGroupSerologyAB0ValueCodeableConcept
+                    valueCodeableConcept:
+                        MRObservationBloodGroupSerologyAB0ValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
@@ -1477,35 +1423,32 @@ export interface MRObservationBloodGroupSerologyRhesus {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyRhesus: t.Type<MRObservationBloodGroupSerologyRhesus> = t.recursion(
-    "MRObservationBloodGroupSerologyRhesus",
-    () =>
+export const MRObservationBloodGroupSerologyRhesus: t.Type<MRObservationBloodGroupSerologyRhesus> =
+    t.recursion("MRObservationBloodGroupSerologyRhesus", () =>
         Excess(
             t.intersection([
                 t.type({
                     code: MRObservationBloodGroupSerologyRhesusCode,
-                    valueCodeableConcept: MRObservationBloodGroupSerologyRhesusValueCodeableConcept
+                    valueCodeableConcept:
+                        MRObservationBloodGroupSerologyRhesusValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationBloodGroupSerologyMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology|1.0.0">;
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyMeta: t.Type<MRObservationBloodGroupSerologyMeta> = t.recursion(
-    "MRObservationBloodGroupSerologyMeta",
-    () =>
+export const MRObservationBloodGroupSerologyMeta: t.Type<MRObservationBloodGroupSerologyMeta> =
+    t.recursion("MRObservationBloodGroupSerologyMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1522,7 +1465,7 @@ export const MRObservationBloodGroupSerologyMeta: t.Type<MRObservationBloodGroup
                 })
             ])
         )
-);
+    );
 
 /**
  * A unique identifier assigned to this observation.
@@ -1533,9 +1476,8 @@ export interface MRObservationBloodGroupSerologyIdentifier {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyIdentifier: t.Type<MRObservationBloodGroupSerologyIdentifier> = t.recursion(
-    "MRObservationBloodGroupSerologyIdentifier",
-    () =>
+export const MRObservationBloodGroupSerologyIdentifier: t.Type<MRObservationBloodGroupSerologyIdentifier> =
+    t.recursion("MRObservationBloodGroupSerologyIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1547,7 +1489,7 @@ export const MRObservationBloodGroupSerologyIdentifier: t.Type<MRObservationBloo
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -1557,9 +1499,8 @@ export interface MRObservationBloodGroupSerologyCode {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyCode: t.Type<MRObservationBloodGroupSerologyCode> = t.recursion(
-    "MRObservationBloodGroupSerologyCode",
-    () =>
+export const MRObservationBloodGroupSerologyCode: t.Type<MRObservationBloodGroupSerologyCode> =
+    t.recursion("MRObservationBloodGroupSerologyCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1570,7 +1511,7 @@ export const MRObservationBloodGroupSerologyCode: t.Type<MRObservationBloodGroup
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -1580,9 +1521,8 @@ export interface MRObservationBloodGroupSerologySubject {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologySubject: t.Type<MRObservationBloodGroupSerologySubject> = t.recursion(
-    "MRObservationBloodGroupSerologySubject",
-    () =>
+export const MRObservationBloodGroupSerologySubject: t.Type<MRObservationBloodGroupSerologySubject> =
+    t.recursion("MRObservationBloodGroupSerologySubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1595,7 +1535,7 @@ export const MRObservationBloodGroupSerologySubject: t.Type<MRObservationBloodGr
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -1605,9 +1545,8 @@ export interface MRObservationBloodGroupSerologyEncounter {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyEncounter: t.Type<MRObservationBloodGroupSerologyEncounter> = t.recursion(
-    "MRObservationBloodGroupSerologyEncounter",
-    () =>
+export const MRObservationBloodGroupSerologyEncounter: t.Type<MRObservationBloodGroupSerologyEncounter> =
+    t.recursion("MRObservationBloodGroupSerologyEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1620,7 +1559,7 @@ export const MRObservationBloodGroupSerologyEncounter: t.Type<MRObservationBlood
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -1630,9 +1569,8 @@ export interface MRObservationBloodGroupSerologyPerformer {
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyPerformer: t.Type<MRObservationBloodGroupSerologyPerformer> = t.recursion(
-    "MRObservationBloodGroupSerologyPerformer",
-    () =>
+export const MRObservationBloodGroupSerologyPerformer: t.Type<MRObservationBloodGroupSerologyPerformer> =
+    t.recursion("MRObservationBloodGroupSerologyPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1646,7 +1584,7 @@ export const MRObservationBloodGroupSerologyPerformer: t.Type<MRObservationBlood
                 })
             ])
         )
-);
+    );
 
 interface MRObservationBloodGroupSerology {
     resourceType: "Observation";
@@ -1667,9 +1605,8 @@ interface MRObservationBloodGroupSerology {
     >;
 }
 
-const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> = t.recursion(
-    "MRObservationBloodGroupSerology",
-    () =>
+const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
+    t.recursion("MRObservationBloodGroupSerology", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1688,9 +1625,7 @@ const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationBloodGroupSerologyHinweisBehandelndePerson
-                                >
+                                t.Type<MRObservationBloodGroupSerologyHinweisBehandelndePerson>
                             ]
                         >,
                         t.Any
@@ -1710,8 +1645,7 @@ const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
                                 occurrence: ["1", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],
@@ -1750,6 +1684,6 @@ const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
                 })
             ])
         )
-);
+    );
 
 export default MRObservationBloodGroupSerology;

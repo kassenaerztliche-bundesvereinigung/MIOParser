@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -50,21 +30,22 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodi
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Apgar-Score")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Apgar-Score")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -75,21 +56,22 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Angaben zum Kind")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Angaben zum Kind")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -100,21 +82,22 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Angaben zum Kind")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Angaben zum Kind")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -125,21 +108,22 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Laboruntersuchung")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Laboruntersuchung")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -150,21 +134,22 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Laboruntersuchung, Ergebnis maskiert")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Laboruntersuchung, Ergebnis maskiert")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -175,21 +160,22 @@ export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersu
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Weitere Ultraschall-Untersuchungen")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Weitere Ultraschall-Untersuchungen")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -200,21 +186,22 @@ export interface MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzei
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Geburt")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Geburt")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -228,51 +215,50 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodi
     )[];
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -286,51 +272,50 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode
     )[];
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -344,51 +329,50 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     )[];
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -399,21 +383,22 @@ export interface MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigen
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Gestationsdiabetes")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Gestationsdiabetes")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -424,21 +409,22 @@ export interface MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigename
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Gestationsdiabetes")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Gestationsdiabetes")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -452,51 +438,50 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     )[];
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -510,51 +495,50 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     )[];
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -568,51 +552,50 @@ export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersu
     )[];
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -626,51 +609,50 @@ export interface MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzei
     )[];
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -684,49 +666,47 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodi
     value?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -740,49 +720,47 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode
     value?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -796,49 +774,47 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     value?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * Content in other Language.
@@ -849,21 +825,22 @@ export interface MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnom
     id?: string;
 }
 
-export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Nächster Untersuchungstermin")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Nächster Untersuchungstermin")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -877,9 +854,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodi
     display?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -891,12 +867,13 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCoding: 
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay,
+                    _display:
+                        MRCompositionUntersuchungenEpikriseGeburtSectionSectionCodeCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -910,26 +887,28 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode
     display?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("118188004")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("118188004")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -943,26 +922,28 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     display?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("118188004")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("118188004")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -976,51 +957,50 @@ export interface MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigen
     )[];
 }
 
-export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -1034,51 +1014,50 @@ export interface MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigename
     )[];
 }
 
-export const MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1092,49 +1071,47 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     value?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1148,49 +1125,47 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     value?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1204,49 +1179,47 @@ export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersu
     value?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1260,9 +1233,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay {
     value?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1270,9 +1242,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay: t.Type<
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -1292,8 +1262,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay: t.Type<
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -1302,7 +1271,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtCodeCodingDisplay: t.Type<
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -1312,9 +1281,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1329,7 +1297,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1339,9 +1307,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1354,7 +1321,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1364,26 +1331,27 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEn
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Puerperium_Normal|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Anti_D_Prophylaxis_Post_Partum|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Advice_On_Iodine_Intake|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Puerperium_Normal|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Anti_D_Prophylaxis_Post_Partum|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Advice_On_Iodine_Intake|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -1393,9 +1361,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1410,7 +1377,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode: t.
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1420,9 +1387,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntr
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1437,7 +1403,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry: t
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1447,57 +1413,57 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sediment|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gynecological_Finding_Normal|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Protein|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sediment|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Pressure|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Breastfeeding_Behavior|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
  */
 export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode {
-    coding: Array<
-        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding
-    >;
+    coding: Array<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCodeCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1507,25 +1473,26 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_U3_Performed|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Need_Of_Treatment_U3|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_U3_Performed|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Is_Healthy|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Need_Of_Treatment_U3|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -1536,9 +1503,8 @@ export interface MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent {
     id?: string;
 }
 
-export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent",
-    () =>
+export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent: t.Type<MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion("MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1550,7 +1516,7 @@ export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent: t.Type<
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -1564,9 +1530,8 @@ export interface MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnom
     )[];
 }
 
-export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1580,9 +1545,7 @@ export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed: 
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -1608,7 +1571,7 @@ export const MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed: 
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1622,26 +1585,28 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     display?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("404684003:363714003=108252007")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("404684003:363714003=108252007")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1655,26 +1620,30 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     display?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("129125009:363589002=(108252007:363702006=442228008)")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal(
+                            "129125009:363589002=(108252007:363702006=442228008)"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1688,26 +1657,28 @@ export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersu
     display?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("169220006")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("169220006")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -1721,9 +1692,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtCodeCoding {
     display?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCoding> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtCodeCoding",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtCodeCoding: t.Type<MRCompositionUntersuchungenEpikriseGeburtCodeCoding> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1740,7 +1710,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtCodeCoding: t.Type<MRCompo
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -1750,9 +1720,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1774,7 +1743,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionEntry: t.Type<MRCom
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -1786,9 +1755,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSection {
     entry?: MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry[];
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSection> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSectionSection",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSection> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionSection", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1803,7 +1771,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRC
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -1814,9 +1782,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter {
     entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry[];
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1830,7 +1797,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -1842,9 +1809,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind {
     entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry[];
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1859,7 +1825,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -1870,23 +1836,24 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry[];
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Angaben zur Mutter")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    entry: t.array(
-                        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry
-                    )
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Angaben zur Mutter")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        entry: t.array(
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A nested sub-section within this section.
@@ -1898,24 +1865,25 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry[];
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Angaben zum Kind"),
-                    code: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode
-                }),
-                t.partial({
-                    id: SCALARString,
-                    entry: t.array(
-                        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry
-                    )
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Angaben zum Kind"),
+                        code: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        entry: t.array(
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1929,9 +1897,8 @@ export interface MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay",
-    () =>
+export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay> =
+    t.recursion("MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1939,9 +1906,7 @@ export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay: t.Type<MRC
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -1961,8 +1926,7 @@ export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay: t.Type<MRC
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -1971,7 +1935,7 @@ export const MRCompositionBesondereBefundeSectionCodeSnomedCTDisplay: t.Type<MRC
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -1985,9 +1949,8 @@ export interface MRCompositionBesondereBefundeSectionCodeLoincDisplay {
     value?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeLoincDisplay: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplay> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeLoincDisplay",
-    () =>
+export const MRCompositionBesondereBefundeSectionCodeLoincDisplay: t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplay> =
+    t.recursion("MRCompositionBesondereBefundeSectionCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -1995,9 +1958,7 @@ export const MRCompositionBesondereBefundeSectionCodeLoincDisplay: t.Type<MRComp
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRCompositionBesondereBefundeSectionCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -2017,8 +1978,7 @@ export const MRCompositionBesondereBefundeSectionCodeLoincDisplay: t.Type<MRComp
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -2027,36 +1987,35 @@ export const MRCompositionBesondereBefundeSectionCodeLoincDisplay: t.Type<MRComp
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
  */
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode {
-    coding: Array<
-        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding
-    >;
+    coding: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCodeCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2066,51 +2025,51 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Examination|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Examination|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
  */
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode {
-    coding: Array<
-        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding
-    >;
+    coding: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCodeCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2120,22 +2079,23 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzL
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Examination|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Examination|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2145,9 +2105,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallIEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIEntry> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallIEntry",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIEntry> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2167,7 +2126,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIEntry: t.Type<MRC
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2177,9 +2136,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallIIEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIEntry> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallIIEntry",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIEntry> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIIEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2201,7 +2159,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIIEntry: t.Type<MR
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2211,9 +2169,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallIIIEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIIEntry> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallIIIEntry",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIIEntry> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIIIEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2235,36 +2192,35 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIIIEntry: t.Type<M
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
  */
 export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode {
-    coding: Array<
-        MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding
-    >;
+    coding: Array<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCodeCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2274,22 +2230,23 @@ export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersu
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Ultrasound_Studies|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Ultrasound_Studies|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2299,9 +2256,8 @@ export interface MRCompositionUntersuchungenEpikriseSchwangerschaftEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseSchwangerschaftEntry: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaftEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseSchwangerschaftEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseSchwangerschaftEntry: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaftEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseSchwangerschaftEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2320,7 +2276,7 @@ export const MRCompositionUntersuchungenEpikriseSchwangerschaftEntry: t.Type<MRC
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -2330,9 +2286,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtCode {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtCode: t.Type<MRCompositionUntersuchungenEpikriseGeburtCode> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtCode",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtCode: t.Type<MRCompositionUntersuchungenEpikriseGeburtCode> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2347,7 +2302,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtCode: t.Type<MRComposition
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2357,9 +2312,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2373,7 +2327,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtEntry: t.Type<MRCompositio
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2385,9 +2339,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSection {
     section?: Array<MRCompositionUntersuchungenEpikriseGeburtSectionSection>;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSection: t.Type<MRCompositionUntersuchungenEpikriseGeburtSection> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburtSection",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSection: t.Type<MRCompositionUntersuchungenEpikriseGeburtSection> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSection", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2403,7 +2356,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSection: t.Type<MRComposit
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2413,9 +2366,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbettEntry",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettEntry> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2428,7 +2380,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettEntry: t.Type<MRCompos
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -2438,22 +2390,23 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Second_Examination_After_Childbirth|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Second_Examination_After_Childbirth|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -2467,9 +2420,8 @@ export interface MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2483,9 +2435,7 @@ export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRCompo
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -2511,7 +2461,7 @@ export const MRCompositionTypeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRCompo
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -2525,9 +2475,8 @@ export interface MRCompositionTermineSectionCodeCodingDisplay {
     value?: string;
 }
 
-export const MRCompositionTermineSectionCodeCodingDisplay: t.Type<MRCompositionTermineSectionCodeCodingDisplay> = t.recursion(
-    "MRCompositionTermineSectionCodeCodingDisplay",
-    () =>
+export const MRCompositionTermineSectionCodeCodingDisplay: t.Type<MRCompositionTermineSectionCodeCodingDisplay> =
+    t.recursion("MRCompositionTermineSectionCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -2535,9 +2484,7 @@ export const MRCompositionTermineSectionCodeCodingDisplay: t.Type<MRCompositionT
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRCompositionTermineSectionCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -2557,8 +2504,7 @@ export const MRCompositionTermineSectionCodeCodingDisplay: t.Type<MRCompositionT
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -2567,7 +2513,7 @@ export const MRCompositionTermineSectionCodeCodingDisplay: t.Type<MRCompositionT
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -2581,9 +2527,8 @@ export interface MRCompositionBesondereBefundeSectionCodeSnomedCT {
     display?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeSnomedCT: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCT> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeSnomedCT",
-    () =>
+export const MRCompositionBesondereBefundeSectionCodeSnomedCT: t.Type<MRCompositionBesondereBefundeSectionCodeSnomedCT> =
+    t.recursion("MRCompositionBesondereBefundeSectionCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2600,7 +2545,7 @@ export const MRCompositionBesondereBefundeSectionCodeSnomedCT: t.Type<MRComposit
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -2614,9 +2559,8 @@ export interface MRCompositionBesondereBefundeSectionCodeLoinc {
     display?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCodeLoinc: t.Type<MRCompositionBesondereBefundeSectionCodeLoinc> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCodeLoinc",
-    () =>
+export const MRCompositionBesondereBefundeSectionCodeLoinc: t.Type<MRCompositionBesondereBefundeSectionCodeLoinc> =
+    t.recursion("MRCompositionBesondereBefundeSectionCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2631,7 +2575,7 @@ export const MRCompositionBesondereBefundeSectionCodeLoinc: t.Type<MRComposition
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2639,31 +2583,30 @@ export const MRCompositionBesondereBefundeSectionCodeLoinc: t.Type<MRComposition
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung {
     title: "Laboruntersuchung";
     code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode;
-    entry: Array<
-        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry
-    >;
+    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Laboruntersuchung"),
-                    code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode,
-                    entry: MinArray(
-                        1,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Laboruntersuchung"),
+                        code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode,
+                        entry: MinArray(
+                            1,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2671,31 +2614,30 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert {
     title: "Laboruntersuchung, Ergebnis maskiert";
     code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode;
-    entry: Array<
-        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry
-    >;
+    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Laboruntersuchung, Ergebnis maskiert"),
-                    code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode,
-                    entry: MinArray(
-                        1,
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Laboruntersuchung, Ergebnis maskiert"),
+                        code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode,
+                        entry: MinArray(
+                            1,
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2706,9 +2648,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallI {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallI: t.Type<MRCompositionUntersuchungenUltraschallUltraschallI> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallI",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallI: t.Type<MRCompositionUntersuchungenUltraschallUltraschallI> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallI", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2723,7 +2664,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallI: t.Type<MRCompos
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2734,9 +2675,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallII {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallII: t.Type<MRCompositionUntersuchungenUltraschallUltraschallII> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallII",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallII: t.Type<MRCompositionUntersuchungenUltraschallUltraschallII> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallII", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2751,7 +2691,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallII: t.Type<MRCompo
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2762,9 +2702,8 @@ export interface MRCompositionUntersuchungenUltraschallUltraschallIII {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIII> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallUltraschallIII",
-    () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIII> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIII", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2779,7 +2718,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRComp
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2787,32 +2726,31 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRComp
 export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen {
     title: "Weitere Ultraschall-Untersuchungen";
     code: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode;
-    entry: Array<
-        MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry
-    >;
+    entry: Array<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry>;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Weitere Ultraschall-Untersuchungen"),
-                    code: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode,
-                    entry: MinMaxArray(
-                        1,
-                        1,
-                        MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Weitere Ultraschall-Untersuchungen"),
+                        code: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode,
+                        entry: MinMaxArray(
+                            1,
+                            1,
+                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2823,9 +2761,8 @@ export interface MRCompositionUntersuchungenEpikriseSchwangerschaft {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseSchwangerschaft: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaft> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseSchwangerschaft",
-    () =>
+export const MRCompositionUntersuchungenEpikriseSchwangerschaft: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaft> =
+    t.recursion("MRCompositionUntersuchungenEpikriseSchwangerschaft", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2840,7 +2777,7 @@ export const MRCompositionUntersuchungenEpikriseSchwangerschaft: t.Type<MRCompos
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2853,9 +2790,8 @@ export interface MRCompositionUntersuchungenEpikriseGeburt {
     section?: Array<MRCompositionUntersuchungenEpikriseGeburtSection>;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburt: t.Type<MRCompositionUntersuchungenEpikriseGeburt> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseGeburt",
-    () =>
+export const MRCompositionUntersuchungenEpikriseGeburt: t.Type<MRCompositionUntersuchungenEpikriseGeburt> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburt", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2869,7 +2805,7 @@ export const MRCompositionUntersuchungenEpikriseGeburt: t.Type<MRCompositionUnte
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2884,9 +2820,8 @@ export interface MRCompositionUntersuchungenEpikriseWochenbett {
     >;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRCompositionUntersuchungenEpikriseWochenbett> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseWochenbett",
-    () =>
+export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRCompositionUntersuchungenEpikriseWochenbett> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbett", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2901,12 +2836,8 @@ export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRComposition
                     section: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind
-                                >
+                                t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter>,
+                                t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind>
                             ]
                         >,
                         t.Any
@@ -2932,7 +2863,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRComposition
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -2940,64 +2871,62 @@ export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRComposition
 export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung {
     title: "Zweite Untersuchung nach Entbindung";
     id?: string;
-    entry?: Array<
-        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry
-    >;
+    entry?: Array<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry>;
     section?: Array<
         | MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter
         | MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind
     >;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung> = t.recursion(
-    "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    title: Literal("Zweite Untersuchung nach Entbindung")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    entry: MaxArray(
-                        1,
-                        MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry
-                    ),
-                    section: ReqArray<
-                        t.UnionC<
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        title: Literal("Zweite Untersuchung nach Entbindung")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        entry: MaxArray(
+                            1,
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry
+                        ),
+                        section: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter>,
+                                    t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter,
+                                MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind
+                            ]),
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter,
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind
-                        ]),
-                        [
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter,
-                                occurrence: ["0", "1"],
-                                sliceBy: { path: "title", value: "Angaben zur Mutter" }
-                            },
-                            {
-                                codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind,
-                                occurrence: ["0", "1"],
-                                sliceBy: { path: "title", value: "Angaben zum Kind" }
-                            }
-                        ],
-                        ["0", "2"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "title",
+                                        value: "Angaben zur Mutter"
+                                    }
+                                },
+                                {
+                                    codec: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: { path: "title", value: "Angaben zum Kind" }
+                                }
+                            ],
+                            ["0", "2"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -3011,9 +2940,8 @@ export interface MRCompositionTermineSectionCodeCoding {
     display?: string;
 }
 
-export const MRCompositionTermineSectionCodeCoding: t.Type<MRCompositionTermineSectionCodeCoding> = t.recursion(
-    "MRCompositionTermineSectionCodeCoding",
-    () =>
+export const MRCompositionTermineSectionCodeCoding: t.Type<MRCompositionTermineSectionCodeCoding> =
+    t.recursion("MRCompositionTermineSectionCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3030,7 +2958,7 @@ export const MRCompositionTermineSectionCodeCoding: t.Type<MRCompositionTermineS
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3040,24 +2968,25 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzE
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Blood_Group_Systems|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Immunization_Status|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry> =
+    t.recursion(
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Other_Blood_Group_Systems|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Immunization_Status|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3067,9 +2996,8 @@ export interface MRCompositionUntersuchungenGravidogrammEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenGravidogrammEntry: t.Type<MRCompositionUntersuchungenGravidogrammEntry> = t.recursion(
-    "MRCompositionUntersuchungenGravidogrammEntry",
-    () =>
+export const MRCompositionUntersuchungenGravidogrammEntry: t.Type<MRCompositionUntersuchungenGravidogrammEntry> =
+    t.recursion("MRCompositionUntersuchungenGravidogrammEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3096,7 +3024,7 @@ export const MRCompositionUntersuchungenGravidogrammEntry: t.Type<MRCompositionU
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3106,9 +3034,8 @@ export interface MRCompositionUntersuchungenUltraschallEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallEntry: t.Type<MRCompositionUntersuchungenUltraschallEntry> = t.recursion(
-    "MRCompositionUntersuchungenUltraschallEntry",
-    () =>
+export const MRCompositionUntersuchungenUltraschallEntry: t.Type<MRCompositionUntersuchungenUltraschallEntry> =
+    t.recursion("MRCompositionUntersuchungenUltraschallEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3121,7 +3048,7 @@ export const MRCompositionUntersuchungenUltraschallEntry: t.Type<MRCompositionUn
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3131,9 +3058,8 @@ export interface MRCompositionUntersuchungenCardiotokographieEntry {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenCardiotokographieEntry: t.Type<MRCompositionUntersuchungenCardiotokographieEntry> = t.recursion(
-    "MRCompositionUntersuchungenCardiotokographieEntry",
-    () =>
+export const MRCompositionUntersuchungenCardiotokographieEntry: t.Type<MRCompositionUntersuchungenCardiotokographieEntry> =
+    t.recursion("MRCompositionUntersuchungenCardiotokographieEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3146,7 +3072,7 @@ export const MRCompositionUntersuchungenCardiotokographieEntry: t.Type<MRComposi
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -3157,9 +3083,8 @@ export interface MRCompositionHinweiseHinweiseSchwangere {
     valueString?: "Schwangerschaft und Geburt sind natürliche Vorgänge und stellen keine Krankheit dar. Manchmal können sie allerdings mit einem erhöhten Risiko für Mutter und Kind belastet sein. Eine sorgfältige Schwangerschaftsbetreuung hilft, einen großen Teil dieser Risiken zu vermeiden oder rechtzeitig zu erkennen, um Gefahren abzuwenden. Voraussetzung dafür ist jedoch Ihre regelmäßige Teilnahme an den Vorsorgeuntersuchungen!Die in Ihrem Mutterpass aufgeführten Untersuchungen dienen der Gesunderhaltung von Mutter und Kind und entsprechen langjähriger geburtshilflicher Erfahrung und modernen medizinischen Erkenntnissen. Dieser Mutterpass enthält die während der Schwangerschaft erhobenen wichtigen Befunde. Er wird Ihnen nach jeder Vorsorgeuntersuchung wieder mitgegeben. Die Angaben im Mutterpass dienen der Information von Arzt und Hebamme sowie Ihrer und Ihres Kindes Sicherheit. Der Mutterpass ist Ihr persönliches Dokument. Sie allein entscheiden darüber, wem er zugänglich gemacht werden soll. Andere (z. B. Arbeitgeber, Behörden) dürfen eine Einsichtnahme nicht verlangen.Bitte: ● Nutzen Sie die Ihnen gebotenen Möglichkeiten, um sich und Ihrem Kind Sicherheit zu verschaffen! ● Vergessen Sie nicht, dieses Heft zu jeder ärztlichen Untersuchung während der Schwangerschaft, zur Entbindung und zur Untersuchung des Kindes mitzubringen! ● Lassen Sie sich helfen, wenn Sie Sorgen haben! ● Beraten Sie sich mit Ihrem Arzt und befolgen Sie seine Ratschläge!";
 }
 
-export const MRCompositionHinweiseHinweiseSchwangere: t.Type<MRCompositionHinweiseHinweiseSchwangere> = t.recursion(
-    "MRCompositionHinweiseHinweiseSchwangere",
-    () =>
+export const MRCompositionHinweiseHinweiseSchwangere: t.Type<MRCompositionHinweiseHinweiseSchwangere> =
+    t.recursion("MRCompositionHinweiseHinweiseSchwangere", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3173,7 +3098,7 @@ export const MRCompositionHinweiseHinweiseSchwangere: t.Type<MRCompositionHinwei
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -3184,9 +3109,8 @@ export interface MRCompositionHinweiseHinweiseMutter {
     valueString?: "Nach Schwangerschaft und Geburt beginnt für Sie zwar wieder der Alltag mit neuen Aufgaben, beachten Sie aber bitte Folgendes: ● Gehen Sie etwa 6–8 Wochen nach der Entbindung zur Nachuntersuchung ● Nutzen Sie alle Kinder-Früherkennungsuntersuchungen (U2 – U9) beim Kinder- oder Hausarzt";
 }
 
-export const MRCompositionHinweiseHinweiseMutter: t.Type<MRCompositionHinweiseHinweiseMutter> = t.recursion(
-    "MRCompositionHinweiseHinweiseMutter",
-    () =>
+export const MRCompositionHinweiseHinweiseMutter: t.Type<MRCompositionHinweiseHinweiseMutter> =
+    t.recursion("MRCompositionHinweiseHinweiseMutter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3200,7 +3124,7 @@ export const MRCompositionHinweiseHinweiseMutter: t.Type<MRCompositionHinweiseHi
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -3211,9 +3135,8 @@ export interface MRCompositionHinweiseAufbewahrungshinweis {
     valueString?: "Während der Schwangerschaft sollten Sie Ihren Mutterpass immer bei sich haben und zu jeder ärztlichen Untersuchung mitbringen,insbesondere auch zur Entbindung. Ihr Mutterpass gehört zu den Dokumenten, die Sie immer sorgfältig aufbewahren sollten.";
 }
 
-export const MRCompositionHinweiseAufbewahrungshinweis: t.Type<MRCompositionHinweiseAufbewahrungshinweis> = t.recursion(
-    "MRCompositionHinweiseAufbewahrungshinweis",
-    () =>
+export const MRCompositionHinweiseAufbewahrungshinweis: t.Type<MRCompositionHinweiseAufbewahrungshinweis> =
+    t.recursion("MRCompositionHinweiseAufbewahrungshinweis", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3227,7 +3150,7 @@ export const MRCompositionHinweiseAufbewahrungshinweis: t.Type<MRCompositionHinw
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -3238,9 +3161,8 @@ export interface MRCompositionTypeSnomedDisplay {
     value?: string;
 }
 
-export const MRCompositionTypeSnomedDisplay: t.Type<MRCompositionTypeSnomedDisplay> = t.recursion(
-    "MRCompositionTypeSnomedDisplay",
-    () =>
+export const MRCompositionTypeSnomedDisplay: t.Type<MRCompositionTypeSnomedDisplay> =
+    t.recursion("MRCompositionTypeSnomedDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -3268,8 +3190,7 @@ export const MRCompositionTypeSnomedDisplay: t.Type<MRCompositionTypeSnomedDispl
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -3278,7 +3199,7 @@ export const MRCompositionTypeSnomedDisplay: t.Type<MRCompositionTypeSnomedDispl
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -3289,9 +3210,8 @@ export interface MRCompositionTypeLoincDisplay {
     value?: string;
 }
 
-export const MRCompositionTypeLoincDisplay: t.Type<MRCompositionTypeLoincDisplay> = t.recursion(
-    "MRCompositionTypeLoincDisplay",
-    () =>
+export const MRCompositionTypeLoincDisplay: t.Type<MRCompositionTypeLoincDisplay> =
+    t.recursion("MRCompositionTypeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -3311,8 +3231,7 @@ export const MRCompositionTypeLoincDisplay: t.Type<MRCompositionTypeLoincDisplay
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -3321,7 +3240,7 @@ export const MRCompositionTypeLoincDisplay: t.Type<MRCompositionTypeLoincDisplay
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -3331,9 +3250,8 @@ export interface MRCompositionTermineSectionCode {
     id?: string;
 }
 
-export const MRCompositionTermineSectionCode: t.Type<MRCompositionTermineSectionCode> = t.recursion(
-    "MRCompositionTermineSectionCode",
-    () =>
+export const MRCompositionTermineSectionCode: t.Type<MRCompositionTermineSectionCode> =
+    t.recursion("MRCompositionTermineSectionCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3344,7 +3262,7 @@ export const MRCompositionTermineSectionCode: t.Type<MRCompositionTermineSection
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3354,9 +3272,8 @@ export interface MRCompositionTermineSectionEntry {
     id?: string;
 }
 
-export const MRCompositionTermineSectionEntry: t.Type<MRCompositionTermineSectionEntry> = t.recursion(
-    "MRCompositionTermineSectionEntry",
-    () =>
+export const MRCompositionTermineSectionEntry: t.Type<MRCompositionTermineSectionEntry> =
+    t.recursion("MRCompositionTermineSectionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3369,7 +3286,7 @@ export const MRCompositionTermineSectionEntry: t.Type<MRCompositionTermineSectio
                 })
             ])
         )
-);
+    );
 
 /**
  * A code identifying the kind of content contained within the section. This must be consistent with the section title.
@@ -3382,9 +3299,8 @@ export interface MRCompositionBesondereBefundeSectionCode {
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionCode: t.Type<MRCompositionBesondereBefundeSectionCode> = t.recursion(
-    "MRCompositionBesondereBefundeSectionCode",
-    () =>
+export const MRCompositionBesondereBefundeSectionCode: t.Type<MRCompositionBesondereBefundeSectionCode> =
+    t.recursion("MRCompositionBesondereBefundeSectionCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3424,7 +3340,7 @@ export const MRCompositionBesondereBefundeSectionCode: t.Type<MRCompositionBeson
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3434,9 +3350,8 @@ export interface MRCompositionBesondereBefundeSectionEntry {
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionEntry: t.Type<MRCompositionBesondereBefundeSectionEntry> = t.recursion(
-    "MRCompositionBesondereBefundeSectionEntry",
-    () =>
+export const MRCompositionBesondereBefundeSectionEntry: t.Type<MRCompositionBesondereBefundeSectionEntry> =
+    t.recursion("MRCompositionBesondereBefundeSectionEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3450,7 +3365,7 @@ export const MRCompositionBesondereBefundeSectionEntry: t.Type<MRCompositionBeso
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3465,9 +3380,8 @@ export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz 
     )[];
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz> = t.recursion(
-    "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz",
-    () =>
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz> =
+    t.recursion("MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3481,12 +3395,8 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.T
                     section: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert
-                                >
+                                t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung>,
+                                t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert>
                             ]
                         >,
                         t.Any
@@ -3515,7 +3425,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.T
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3526,9 +3436,8 @@ export interface MRCompositionUntersuchungenGravidogramm {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenGravidogramm: t.Type<MRCompositionUntersuchungenGravidogramm> = t.recursion(
-    "MRCompositionUntersuchungenGravidogramm",
-    () =>
+export const MRCompositionUntersuchungenGravidogramm: t.Type<MRCompositionUntersuchungenGravidogramm> =
+    t.recursion("MRCompositionUntersuchungenGravidogramm", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3540,7 +3449,7 @@ export const MRCompositionUntersuchungenGravidogramm: t.Type<MRCompositionUnters
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3557,9 +3466,8 @@ export interface MRCompositionUntersuchungenUltraschall {
     )[];
 }
 
-export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersuchungenUltraschall> = t.recursion(
-    "MRCompositionUntersuchungenUltraschall",
-    () =>
+export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersuchungenUltraschall> =
+    t.recursion("MRCompositionUntersuchungenUltraschall", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3571,18 +3479,10 @@ export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersu
                     section: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenUltraschallUltraschallI
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenUltraschallUltraschallII
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenUltraschallUltraschallIII
-                                >,
-                                t.Type<
-                                    MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen
-                                >
+                                t.Type<MRCompositionUntersuchungenUltraschallUltraschallI>,
+                                t.Type<MRCompositionUntersuchungenUltraschallUltraschallII>,
+                                t.Type<MRCompositionUntersuchungenUltraschallUltraschallIII>,
+                                t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen>
                             ]
                         >,
                         t.Any
@@ -3623,7 +3523,7 @@ export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersu
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3634,9 +3534,8 @@ export interface MRCompositionUntersuchungenCardiotokographie {
     id?: string;
 }
 
-export const MRCompositionUntersuchungenCardiotokographie: t.Type<MRCompositionUntersuchungenCardiotokographie> = t.recursion(
-    "MRCompositionUntersuchungenCardiotokographie",
-    () =>
+export const MRCompositionUntersuchungenCardiotokographie: t.Type<MRCompositionUntersuchungenCardiotokographie> =
+    t.recursion("MRCompositionUntersuchungenCardiotokographie", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3648,7 +3547,7 @@ export const MRCompositionUntersuchungenCardiotokographie: t.Type<MRCompositionU
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3664,9 +3563,8 @@ export interface MRCompositionUntersuchungenEpikrise {
     )[];
 }
 
-export const MRCompositionUntersuchungenEpikrise: t.Type<MRCompositionUntersuchungenEpikrise> = t.recursion(
-    "MRCompositionUntersuchungenEpikrise",
-    () =>
+export const MRCompositionUntersuchungenEpikrise: t.Type<MRCompositionUntersuchungenEpikrise> =
+    t.recursion("MRCompositionUntersuchungenEpikrise", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3677,14 +3575,10 @@ export const MRCompositionUntersuchungenEpikrise: t.Type<MRCompositionUntersuchu
                     section: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseSchwangerschaft
-                                >,
+                                t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaft>,
                                 t.Type<MRCompositionUntersuchungenEpikriseGeburt>,
                                 t.Type<MRCompositionUntersuchungenEpikriseWochenbett>,
-                                t.Type<
-                                    MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung
-                                >
+                                t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung>
                             ]
                         >,
                         t.Any
@@ -3711,8 +3605,7 @@ export const MRCompositionUntersuchungenEpikrise: t.Type<MRCompositionUntersuchu
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "title",
-                                    value:
-                                        "Erste Untersuchung nach Entbindung (Wochenbett)"
+                                    value: "Erste Untersuchung nach Entbindung (Wochenbett)"
                                 }
                             },
                             {
@@ -3729,7 +3622,7 @@ export const MRCompositionUntersuchungenEpikrise: t.Type<MRCompositionUntersuchu
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -3803,9 +3696,8 @@ export interface MRCompositionStempelinformationenEntry {
     id?: string;
 }
 
-export const MRCompositionStempelinformationenEntry: t.Type<MRCompositionStempelinformationenEntry> = t.recursion(
-    "MRCompositionStempelinformationenEntry",
-    () =>
+export const MRCompositionStempelinformationenEntry: t.Type<MRCompositionStempelinformationenEntry> =
+    t.recursion("MRCompositionStempelinformationenEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3819,7 +3711,7 @@ export const MRCompositionStempelinformationenEntry: t.Type<MRCompositionStempel
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3856,9 +3748,8 @@ export interface MRCompositionTermineSection {
     id?: string;
 }
 
-export const MRCompositionTermineSection: t.Type<MRCompositionTermineSection> = t.recursion(
-    "MRCompositionTermineSection",
-    () =>
+export const MRCompositionTermineSection: t.Type<MRCompositionTermineSection> =
+    t.recursion("MRCompositionTermineSection", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3871,7 +3762,7 @@ export const MRCompositionTermineSection: t.Type<MRCompositionTermineSection> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3881,9 +3772,8 @@ export interface MRCompositionTerminbestimmungEntry {
     id?: string;
 }
 
-export const MRCompositionTerminbestimmungEntry: t.Type<MRCompositionTerminbestimmungEntry> = t.recursion(
-    "MRCompositionTerminbestimmungEntry",
-    () =>
+export const MRCompositionTerminbestimmungEntry: t.Type<MRCompositionTerminbestimmungEntry> =
+    t.recursion("MRCompositionTerminbestimmungEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3900,7 +3790,7 @@ export const MRCompositionTerminbestimmungEntry: t.Type<MRCompositionTerminbesti
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3910,9 +3800,8 @@ export interface MRCompositionAnamneseUndAllgemeineBefundeEntry {
     id?: string;
 }
 
-export const MRCompositionAnamneseUndAllgemeineBefundeEntry: t.Type<MRCompositionAnamneseUndAllgemeineBefundeEntry> = t.recursion(
-    "MRCompositionAnamneseUndAllgemeineBefundeEntry",
-    () =>
+export const MRCompositionAnamneseUndAllgemeineBefundeEntry: t.Type<MRCompositionAnamneseUndAllgemeineBefundeEntry> =
+    t.recursion("MRCompositionAnamneseUndAllgemeineBefundeEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3933,7 +3822,7 @@ export const MRCompositionAnamneseUndAllgemeineBefundeEntry: t.Type<MRCompositio
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -3943,9 +3832,8 @@ export interface MRCompositionBesondereBefundeEntry {
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeEntry: t.Type<MRCompositionBesondereBefundeEntry> = t.recursion(
-    "MRCompositionBesondereBefundeEntry",
-    () =>
+export const MRCompositionBesondereBefundeEntry: t.Type<MRCompositionBesondereBefundeEntry> =
+    t.recursion("MRCompositionBesondereBefundeEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3958,7 +3846,7 @@ export const MRCompositionBesondereBefundeEntry: t.Type<MRCompositionBesondereBe
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3970,9 +3858,8 @@ export interface MRCompositionBesondereBefundeSection {
     entry?: Array<MRCompositionBesondereBefundeSectionEntry>;
 }
 
-export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondereBefundeSection> = t.recursion(
-    "MRCompositionBesondereBefundeSection",
-    () =>
+export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondereBefundeSection> =
+    t.recursion("MRCompositionBesondereBefundeSection", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3985,7 +3872,7 @@ export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondere
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -4021,9 +3908,8 @@ export interface MRCompositionAntiDProphylaxeEntry {
     id?: string;
 }
 
-export const MRCompositionAntiDProphylaxeEntry: t.Type<MRCompositionAntiDProphylaxeEntry> = t.recursion(
-    "MRCompositionAntiDProphylaxeEntry",
-    () =>
+export const MRCompositionAntiDProphylaxeEntry: t.Type<MRCompositionAntiDProphylaxeEntry> =
+    t.recursion("MRCompositionAntiDProphylaxeEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4036,7 +3922,7 @@ export const MRCompositionAntiDProphylaxeEntry: t.Type<MRCompositionAntiDProphyl
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
@@ -4046,9 +3932,8 @@ export interface MRCompositionStationaereBehandlungEntry {
     id?: string;
 }
 
-export const MRCompositionStationaereBehandlungEntry: t.Type<MRCompositionStationaereBehandlungEntry> = t.recursion(
-    "MRCompositionStationaereBehandlungEntry",
-    () =>
+export const MRCompositionStationaereBehandlungEntry: t.Type<MRCompositionStationaereBehandlungEntry> =
+    t.recursion("MRCompositionStationaereBehandlungEntry", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4062,7 +3947,7 @@ export const MRCompositionStationaereBehandlungEntry: t.Type<MRCompositionStatio
                 })
             ])
         )
-);
+    );
 
 /**
  * Diese Extension enthält die Klappentexte und Hinweise des Mutterpasses.
@@ -4145,9 +4030,8 @@ export interface MRCompositionStempelinformationen {
     id?: string;
 }
 
-export const MRCompositionStempelinformationen: t.Type<MRCompositionStempelinformationen> = t.recursion(
-    "MRCompositionStempelinformationen",
-    () =>
+export const MRCompositionStempelinformationen: t.Type<MRCompositionStempelinformationen> =
+    t.recursion("MRCompositionStempelinformationen", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4161,7 +4045,7 @@ export const MRCompositionStempelinformationen: t.Type<MRCompositionStempelinfor
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4199,9 +4083,8 @@ export interface MRCompositionTerminbestimmung {
     id?: string;
 }
 
-export const MRCompositionTerminbestimmung: t.Type<MRCompositionTerminbestimmung> = t.recursion(
-    "MRCompositionTerminbestimmung",
-    () =>
+export const MRCompositionTerminbestimmung: t.Type<MRCompositionTerminbestimmung> =
+    t.recursion("MRCompositionTerminbestimmung", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4213,7 +4096,7 @@ export const MRCompositionTerminbestimmung: t.Type<MRCompositionTerminbestimmung
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4224,9 +4107,8 @@ export interface MRCompositionAnamneseUndAllgemeineBefunde {
     id?: string;
 }
 
-export const MRCompositionAnamneseUndAllgemeineBefunde: t.Type<MRCompositionAnamneseUndAllgemeineBefunde> = t.recursion(
-    "MRCompositionAnamneseUndAllgemeineBefunde",
-    () =>
+export const MRCompositionAnamneseUndAllgemeineBefunde: t.Type<MRCompositionAnamneseUndAllgemeineBefunde> =
+    t.recursion("MRCompositionAnamneseUndAllgemeineBefunde", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4238,7 +4120,7 @@ export const MRCompositionAnamneseUndAllgemeineBefunde: t.Type<MRCompositionAnam
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4250,9 +4132,8 @@ export interface MRCompositionBesondereBefunde {
     section?: Array<MRCompositionBesondereBefundeSection>;
 }
 
-export const MRCompositionBesondereBefunde: t.Type<MRCompositionBesondereBefunde> = t.recursion(
-    "MRCompositionBesondereBefunde",
-    () =>
+export const MRCompositionBesondereBefunde: t.Type<MRCompositionBesondereBefunde> =
+    t.recursion("MRCompositionBesondereBefunde", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4265,7 +4146,7 @@ export const MRCompositionBesondereBefunde: t.Type<MRCompositionBesondereBefunde
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4301,9 +4182,8 @@ export interface MRCompositionAntiDProphylaxe {
     id?: string;
 }
 
-export const MRCompositionAntiDProphylaxe: t.Type<MRCompositionAntiDProphylaxe> = t.recursion(
-    "MRCompositionAntiDProphylaxe",
-    () =>
+export const MRCompositionAntiDProphylaxe: t.Type<MRCompositionAntiDProphylaxe> =
+    t.recursion("MRCompositionAntiDProphylaxe", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4315,7 +4195,7 @@ export const MRCompositionAntiDProphylaxe: t.Type<MRCompositionAntiDProphylaxe> 
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4332,9 +4212,8 @@ export interface MRCompositionUntersuchungen {
     id?: string;
 }
 
-export const MRCompositionUntersuchungen: t.Type<MRCompositionUntersuchungen> = t.recursion(
-    "MRCompositionUntersuchungen",
-    () =>
+export const MRCompositionUntersuchungen: t.Type<MRCompositionUntersuchungen> =
+    t.recursion("MRCompositionUntersuchungen", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4342,9 +4221,7 @@ export const MRCompositionUntersuchungen: t.Type<MRCompositionUntersuchungen> = 
                     section: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz
-                                >,
+                                t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz>,
                                 t.Type<MRCompositionUntersuchungenGravidogramm>,
                                 t.Type<MRCompositionUntersuchungenUltraschall>,
                                 t.Type<MRCompositionUntersuchungenCardiotokographie>,
@@ -4401,7 +4278,7 @@ export const MRCompositionUntersuchungen: t.Type<MRCompositionUntersuchungen> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
@@ -4412,9 +4289,8 @@ export interface MRCompositionStationaereBehandlung {
     id?: string;
 }
 
-export const MRCompositionStationaereBehandlung: t.Type<MRCompositionStationaereBehandlung> = t.recursion(
-    "MRCompositionStationaereBehandlung",
-    () =>
+export const MRCompositionStationaereBehandlung: t.Type<MRCompositionStationaereBehandlung> =
+    t.recursion("MRCompositionStationaereBehandlung", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4426,15 +4302,13 @@ export const MRCompositionStationaereBehandlung: t.Type<MRCompositionStationaere
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRCompositionMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Composition|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Composition|1.0.0">;
     id?: string;
 }
 
@@ -4656,8 +4530,7 @@ const MRComposition: t.Type<MRComposition> = t.recursion("MRComposition", () =>
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "title",
-                                value:
-                                    "Stempelinformationen des Arztes/der Klinik/der mitbetreuenden Hebamme"
+                                value: "Stempelinformationen des Arztes/der Klinik/der mitbetreuenden Hebamme"
                             }
                         },
                         {
@@ -4726,8 +4599,7 @@ const MRComposition: t.Type<MRComposition> = t.recursion("MRComposition", () =>
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Comments"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Comments"
                             }
                         }
                     ],

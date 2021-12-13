@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { Literal, Excess, ReqArray, MinMaxArray } from "../../../../CustomTypes";
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
@@ -37,9 +17,8 @@ export interface MRDateVerlegungKodeValueCodeableConceptCodingDisplay {
     value?: string;
 }
 
-export const MRDateVerlegungKodeValueCodeableConceptCodingDisplay: t.Type<MRDateVerlegungKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRDateVerlegungKodeValueCodeableConceptCodingDisplay",
-    () =>
+export const MRDateVerlegungKodeValueCodeableConceptCodingDisplay: t.Type<MRDateVerlegungKodeValueCodeableConceptCodingDisplay> =
+    t.recursion("MRDateVerlegungKodeValueCodeableConceptCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -47,7 +26,7 @@ export const MRDateVerlegungKodeValueCodeableConceptCodingDisplay: t.Type<MRDate
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -58,9 +37,8 @@ export interface MRDateEntlassungKodeValueCodeableConceptCodingDisplay {
     value?: string;
 }
 
-export const MRDateEntlassungKodeValueCodeableConceptCodingDisplay: t.Type<MRDateEntlassungKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRDateEntlassungKodeValueCodeableConceptCodingDisplay",
-    () =>
+export const MRDateEntlassungKodeValueCodeableConceptCodingDisplay: t.Type<MRDateEntlassungKodeValueCodeableConceptCodingDisplay> =
+    t.recursion("MRDateEntlassungKodeValueCodeableConceptCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -68,7 +46,7 @@ export const MRDateEntlassungKodeValueCodeableConceptCodingDisplay: t.Type<MRDat
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -82,9 +60,8 @@ export interface MRDateVerlegungKodeValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRDateVerlegungKodeValueCodeableConceptCoding: t.Type<MRDateVerlegungKodeValueCodeableConceptCoding> = t.recursion(
-    "MRDateVerlegungKodeValueCodeableConceptCoding",
-    () =>
+export const MRDateVerlegungKodeValueCodeableConceptCoding: t.Type<MRDateVerlegungKodeValueCodeableConceptCoding> =
+    t.recursion("MRDateVerlegungKodeValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -101,7 +78,7 @@ export const MRDateVerlegungKodeValueCodeableConceptCoding: t.Type<MRDateVerlegu
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -115,9 +92,8 @@ export interface MRDateEntlassungKodeValueCodeableConceptCoding {
     display?: string;
 }
 
-export const MRDateEntlassungKodeValueCodeableConceptCoding: t.Type<MRDateEntlassungKodeValueCodeableConceptCoding> = t.recursion(
-    "MRDateEntlassungKodeValueCodeableConceptCoding",
-    () =>
+export const MRDateEntlassungKodeValueCodeableConceptCoding: t.Type<MRDateEntlassungKodeValueCodeableConceptCoding> =
+    t.recursion("MRDateEntlassungKodeValueCodeableConceptCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -134,7 +110,7 @@ export const MRDateEntlassungKodeValueCodeableConceptCoding: t.Type<MRDateEntlas
                 })
             ])
         )
-);
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -144,9 +120,8 @@ export interface MRDateVerlegungKodeValueCodeableConcept {
     id?: string;
 }
 
-export const MRDateVerlegungKodeValueCodeableConcept: t.Type<MRDateVerlegungKodeValueCodeableConcept> = t.recursion(
-    "MRDateVerlegungKodeValueCodeableConcept",
-    () =>
+export const MRDateVerlegungKodeValueCodeableConcept: t.Type<MRDateVerlegungKodeValueCodeableConcept> =
+    t.recursion("MRDateVerlegungKodeValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -161,7 +136,7 @@ export const MRDateVerlegungKodeValueCodeableConcept: t.Type<MRDateVerlegungKode
                 })
             ])
         )
-);
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -171,9 +146,8 @@ export interface MRDateEntlassungKodeValueCodeableConcept {
     id?: string;
 }
 
-export const MRDateEntlassungKodeValueCodeableConcept: t.Type<MRDateEntlassungKodeValueCodeableConcept> = t.recursion(
-    "MRDateEntlassungKodeValueCodeableConcept",
-    () =>
+export const MRDateEntlassungKodeValueCodeableConcept: t.Type<MRDateEntlassungKodeValueCodeableConcept> =
+    t.recursion("MRDateEntlassungKodeValueCodeableConcept", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -188,7 +162,7 @@ export const MRDateEntlassungKodeValueCodeableConcept: t.Type<MRDateEntlassungKo
                 })
             ])
         )
-);
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.

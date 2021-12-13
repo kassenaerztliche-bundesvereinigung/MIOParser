@@ -33,7 +33,7 @@ export default class WarningEmitter {
     // eslint-disable-next-line
     public on(event: string | symbol, listener: (...args: any[]) => void): void {
         this.boundEventListener = listener;
-        this.emitter.on(event, this.boundEventListener);
+        this.emitter.on(event, listener);
     }
 
     public emit(

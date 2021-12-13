@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -51,21 +31,22 @@ export interface VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnze
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -76,21 +57,22 @@ export interface VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeige
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -101,21 +83,22 @@ export interface VaccinationObservationImmunizationStatusInterpretationCodingDis
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -129,51 +112,50 @@ export interface VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnze
     )[];
 }
 
-export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -187,51 +169,50 @@ export interface VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeige
     )[];
 }
 
-export const VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoincContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -245,51 +226,50 @@ export interface VaccinationObservationImmunizationStatusInterpretationCodingDis
     )[];
 }
 
-export const VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -303,9 +283,8 @@ export interface VaccinationObservationImmunizationStatusCodeSnomedCTDisplay {
     value?: string;
 }
 
-export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplay: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplay> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeSnomedCTDisplay",
-    () =>
+export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplay: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplay> =
+    t.recursion("VaccinationObservationImmunizationStatusCodeSnomedCTDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -313,9 +292,7 @@ export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplay: t.Type
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<VaccinationObservationImmunizationStatusCodeSnomedCTDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -335,8 +312,7 @@ export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplay: t.Type
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -345,7 +321,7 @@ export const VaccinationObservationImmunizationStatusCodeSnomedCTDisplay: t.Type
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -359,9 +335,8 @@ export interface VaccinationObservationImmunizationStatusCodeLoincDisplay {
     value?: string;
 }
 
-export const VaccinationObservationImmunizationStatusCodeLoincDisplay: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplay> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeLoincDisplay",
-    () =>
+export const VaccinationObservationImmunizationStatusCodeLoincDisplay: t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplay> =
+    t.recursion("VaccinationObservationImmunizationStatusCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -369,9 +344,7 @@ export const VaccinationObservationImmunizationStatusCodeLoincDisplay: t.Type<Va
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<VaccinationObservationImmunizationStatusCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -391,8 +364,7 @@ export const VaccinationObservationImmunizationStatusCodeLoincDisplay: t.Type<Va
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -401,7 +373,7 @@ export const VaccinationObservationImmunizationStatusCodeLoincDisplay: t.Type<Va
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -416,9 +388,8 @@ export interface VaccinationObservationImmunizationStatusCodeSnomedCT {
     userSelected?: boolean;
 }
 
-export const VaccinationObservationImmunizationStatusCodeSnomedCT: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCT> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeSnomedCT",
-    () =>
+export const VaccinationObservationImmunizationStatusCodeSnomedCT: t.Type<VaccinationObservationImmunizationStatusCodeSnomedCT> =
+    t.recursion("VaccinationObservationImmunizationStatusCodeSnomedCT", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -434,7 +405,7 @@ export const VaccinationObservationImmunizationStatusCodeSnomedCT: t.Type<Vaccin
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -449,9 +420,8 @@ export interface VaccinationObservationImmunizationStatusCodeLoinc {
     userSelected?: boolean;
 }
 
-export const VaccinationObservationImmunizationStatusCodeLoinc: t.Type<VaccinationObservationImmunizationStatusCodeLoinc> = t.recursion(
-    "VaccinationObservationImmunizationStatusCodeLoinc",
-    () =>
+export const VaccinationObservationImmunizationStatusCodeLoinc: t.Type<VaccinationObservationImmunizationStatusCodeLoinc> =
+    t.recursion("VaccinationObservationImmunizationStatusCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -467,7 +437,7 @@ export const VaccinationObservationImmunizationStatusCodeLoinc: t.Type<Vaccinati
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -481,49 +451,47 @@ export interface VaccinationObservationImmunizationStatusInterpretationCodingDis
     value?: string;
 }
 
-export const VaccinationObservationImmunizationStatusInterpretationCodingDisplay: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplay> = t.recursion(
-    "VaccinationObservationImmunizationStatusInterpretationCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const VaccinationObservationImmunizationStatusInterpretationCodingDisplay: t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplay> =
+    t.recursion(
+        "VaccinationObservationImmunizationStatusInterpretationCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: VaccinationObservationImmunizationStatusInterpretationCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -537,9 +505,8 @@ export interface VaccinationObservationImmunizationStatusInterpretationCoding {
     display?: string;
 }
 
-export const VaccinationObservationImmunizationStatusInterpretationCoding: t.Type<VaccinationObservationImmunizationStatusInterpretationCoding> = t.recursion(
-    "VaccinationObservationImmunizationStatusInterpretationCoding",
-    () =>
+export const VaccinationObservationImmunizationStatusInterpretationCoding: t.Type<VaccinationObservationImmunizationStatusInterpretationCoding> =
+    t.recursion("VaccinationObservationImmunizationStatusInterpretationCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -549,26 +516,24 @@ export const VaccinationObservationImmunizationStatusInterpretationCoding: t.Typ
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: VaccinationObservationImmunizationStatusInterpretationCodingDisplay,
+                    _display:
+                        VaccinationObservationImmunizationStatusInterpretationCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationObservationImmunizationStatusMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0">;
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusMeta: t.Type<VaccinationObservationImmunizationStatusMeta> = t.recursion(
-    "VaccinationObservationImmunizationStatusMeta",
-    () =>
+export const VaccinationObservationImmunizationStatusMeta: t.Type<VaccinationObservationImmunizationStatusMeta> =
+    t.recursion("VaccinationObservationImmunizationStatusMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -585,7 +550,7 @@ export const VaccinationObservationImmunizationStatusMeta: t.Type<VaccinationObs
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -598,18 +563,15 @@ export interface VaccinationObservationImmunizationStatusCode {
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusCode: t.Type<VaccinationObservationImmunizationStatusCode> = t.recursion(
-    "VaccinationObservationImmunizationStatusCode",
-    () =>
+export const VaccinationObservationImmunizationStatusCode: t.Type<VaccinationObservationImmunizationStatusCode> =
+    t.recursion("VaccinationObservationImmunizationStatusCode", () =>
         Excess(
             t.intersection([
                 t.type({
                     coding: ReqArray<
                         t.UnionC<
                             [
-                                t.Type<
-                                    VaccinationObservationImmunizationStatusCodeSnomedCT
-                                >,
+                                t.Type<VaccinationObservationImmunizationStatusCodeSnomedCT>,
                                 t.Type<VaccinationObservationImmunizationStatusCodeLoinc>
                             ]
                         >,
@@ -642,7 +604,7 @@ export const VaccinationObservationImmunizationStatusCode: t.Type<VaccinationObs
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -652,9 +614,8 @@ export interface VaccinationObservationImmunizationStatusSubject {
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusSubject: t.Type<VaccinationObservationImmunizationStatusSubject> = t.recursion(
-    "VaccinationObservationImmunizationStatusSubject",
-    () =>
+export const VaccinationObservationImmunizationStatusSubject: t.Type<VaccinationObservationImmunizationStatusSubject> =
+    t.recursion("VaccinationObservationImmunizationStatusSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -667,7 +628,7 @@ export const VaccinationObservationImmunizationStatusSubject: t.Type<Vaccination
                 })
             ])
         )
-);
+    );
 
 /**
  * Die Nachweisbarkeit beschreibt das Erreichen der Nachweisgrenze und damit das Ergebnis des Tests. Das Ergebnis ist im Sinne von Positiv/Negativ anzugeben, dazu ist ein Code der LOINC Answer-List zu verwenden. Das Ergebnis erlaubt noch keine Aussage über die Immunität.
@@ -677,9 +638,8 @@ export interface VaccinationObservationImmunizationStatusInterpretation {
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusInterpretation: t.Type<VaccinationObservationImmunizationStatusInterpretation> = t.recursion(
-    "VaccinationObservationImmunizationStatusInterpretation",
-    () =>
+export const VaccinationObservationImmunizationStatusInterpretation: t.Type<VaccinationObservationImmunizationStatusInterpretation> =
+    t.recursion("VaccinationObservationImmunizationStatusInterpretation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -694,7 +654,7 @@ export const VaccinationObservationImmunizationStatusInterpretation: t.Type<Vacc
                 })
             ])
         )
-);
+    );
 
 /**
  * Ergänzende Angaben zur Titerbestimmung
@@ -704,9 +664,8 @@ export interface VaccinationObservationImmunizationStatusNote {
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusNote: t.Type<VaccinationObservationImmunizationStatusNote> = t.recursion(
-    "VaccinationObservationImmunizationStatusNote",
-    () =>
+export const VaccinationObservationImmunizationStatusNote: t.Type<VaccinationObservationImmunizationStatusNote> =
+    t.recursion("VaccinationObservationImmunizationStatusNote", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -717,7 +676,7 @@ export const VaccinationObservationImmunizationStatusNote: t.Type<VaccinationObs
                 })
             ])
         )
-);
+    );
 
 interface VaccinationObservationImmunizationStatus {
     resourceType: "Observation";
@@ -732,9 +691,8 @@ interface VaccinationObservationImmunizationStatus {
     note?: Array<VaccinationObservationImmunizationStatusNote>;
 }
 
-const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImmunizationStatus> = t.recursion(
-    "VaccinationObservationImmunizationStatus",
-    () =>
+const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImmunizationStatus> =
+    t.recursion("VaccinationObservationImmunizationStatus", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -756,6 +714,6 @@ const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImm
                 })
             ])
         )
-);
+    );
 
 export default VaccinationObservationImmunizationStatus;

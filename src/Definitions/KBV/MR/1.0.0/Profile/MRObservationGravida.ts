@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -46,9 +26,8 @@ export interface MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedConte
     id?: string;
 }
 
-export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
+export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion("MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -60,7 +39,7 @@ export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent: 
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -74,9 +53,8 @@ export interface MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -90,9 +68,7 @@ export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -118,7 +94,7 @@ export const MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -132,9 +108,8 @@ export interface MRObservationGravidaCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationGravidaCodeCodingDisplay: t.Type<MRObservationGravidaCodeCodingDisplay> = t.recursion(
-    "MRObservationGravidaCodeCodingDisplay",
-    () =>
+export const MRObservationGravidaCodeCodingDisplay: t.Type<MRObservationGravidaCodeCodingDisplay> =
+    t.recursion("MRObservationGravidaCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -142,9 +117,7 @@ export const MRObservationGravidaCodeCodingDisplay: t.Type<MRObservationGravidaC
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationGravidaCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -164,8 +137,7 @@ export const MRObservationGravidaCodeCodingDisplay: t.Type<MRObservationGravidaC
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -174,7 +146,7 @@ export const MRObservationGravidaCodeCodingDisplay: t.Type<MRObservationGravidaC
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -188,9 +160,8 @@ export interface MRObservationGravidaCodeCoding {
     display?: string;
 }
 
-export const MRObservationGravidaCodeCoding: t.Type<MRObservationGravidaCodeCoding> = t.recursion(
-    "MRObservationGravidaCodeCoding",
-    () =>
+export const MRObservationGravidaCodeCoding: t.Type<MRObservationGravidaCodeCoding> =
+    t.recursion("MRObservationGravidaCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -207,7 +178,7 @@ export const MRObservationGravidaCodeCoding: t.Type<MRObservationGravidaCodeCodi
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -220,9 +191,8 @@ export interface MRObservationGravidaValueQuantity {
     unit?: string;
 }
 
-export const MRObservationGravidaValueQuantity: t.Type<MRObservationGravidaValueQuantity> = t.recursion(
-    "MRObservationGravidaValueQuantity",
-    () =>
+export const MRObservationGravidaValueQuantity: t.Type<MRObservationGravidaValueQuantity> =
+    t.recursion("MRObservationGravidaValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -236,15 +206,13 @@ export const MRObservationGravidaValueQuantity: t.Type<MRObservationGravidaValue
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationGravidaMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gravida|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Gravida|1.0.0">;
     id?: string;
 }
 
@@ -300,9 +268,8 @@ export interface MRObservationGravidaSubject {
     id?: string;
 }
 
-export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> = t.recursion(
-    "MRObservationGravidaSubject",
-    () =>
+export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> =
+    t.recursion("MRObservationGravidaSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -315,7 +282,7 @@ export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -325,9 +292,8 @@ export interface MRObservationGravidaEncounter {
     id?: string;
 }
 
-export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter> = t.recursion(
-    "MRObservationGravidaEncounter",
-    () =>
+export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter> =
+    t.recursion("MRObservationGravidaEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -340,7 +306,7 @@ export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -350,9 +316,8 @@ export interface MRObservationGravidaPerformer {
     id?: string;
 }
 
-export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer> = t.recursion(
-    "MRObservationGravidaPerformer",
-    () =>
+export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer> =
+    t.recursion("MRObservationGravidaPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -366,7 +331,7 @@ export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer
                 })
             ])
         )
-);
+    );
 
 interface MRObservationGravida {
     resourceType: "Observation";

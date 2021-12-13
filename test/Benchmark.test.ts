@@ -154,17 +154,17 @@ async function performBenchmark(
 
 jest.setTimeout(60 * 1000 * 10);
 
-test("Parser Benchmark Test", async (done) => {
+test("Parser Benchmark Test", (done) => {
     process.stdout.write("\n"); // eslint-disable-line
     process.stdout.write("# Parser Benchmark Test\n\n"); // eslint-disable-line
 
     const bundlesIM = TestUtil.getExamples("IM", "Bundles");
-    await performBenchmark("IM", bundlesIM, 10);
+    const IM = performBenchmark("IM", bundlesIM, 10);
 
     const bundlesZB = TestUtil.getExamples("ZB", "Bundles");
-    await performBenchmark("ZB", bundlesZB, 6);
+    const ZB = performBenchmark("ZB", bundlesZB, 6);
 
-    await performBenchmark("IM & ZB", [...bundlesIM, ...bundlesZB], 2);
+    const All = performBenchmark("IM & ZB", [...bundlesIM, ...bundlesZB], 2);
 
-    done();
+    Promise.all([IM, ZB, All]).then(() => done());
 });

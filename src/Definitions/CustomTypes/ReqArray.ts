@@ -98,16 +98,21 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
 
                 // check for slices that do not have a corresponding checkSlice
                 tempInstanceToCheck.forEach((instance: any) => {
-                    const path = resolvePath(
-                        instance,
-                        codecArrayToCheck[0].sliceBy?.path
-                    );
+                    const slicedBy = codecArrayToCheck[0].sliceBy;
+                    const sliceValuePath = slicedBy?.path;
+                    const sliceValue =
+                        typeof slicedBy?.value === "string"
+                            ? `"${slicedBy?.value}"`
+                            : slicedBy?.value;
+                    const actualValue = resolvePath(instance, sliceValuePath);
+
                     const hasCorrespondingCheckSlice = codecArrayToCheck.some(
                         (codecToCheck) => {
                             const value = codecToCheck.sliceBy?.value;
-                            if (value && path) {
+                            if (value && actualValue) {
                                 return (
-                                    value.replace(/\|.*/, "") === path.replace(/\|.*/, "")
+                                    value.replace(/\|.*/, "") ===
+                                    actualValue.replace(/\|.*/, "")
                                 );
                             } else return !value;
                         }
@@ -115,8 +120,11 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                     if (!hasCorrespondingCheckSlice)
                         wrongCodecs.push({
                             context: c,
-                            message: ErrorMessage.NoSectionForValue(path),
-                            value: path
+                            message: ErrorMessage.NoSectionForValue(
+                                sliceValue,
+                                sliceValuePath
+                            ),
+                            value: actualValue
                         });
                 });
 
@@ -164,6 +172,7 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                     );
                     return min <= occurrence && occurrence <= max;
                 });
+
                 result.push(...validCodecs);
 
                 if (wrongCodecs.length) {
@@ -191,6 +200,7 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                         message: message,
                         value: instanceToCheck
                     });
+
                     return t.failure(instanceToCheck, c, message);
                 } else {
                     // eslint-disable-next-line  @typescript-eslint/no-explicit-any

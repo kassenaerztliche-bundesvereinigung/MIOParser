@@ -1,25 +1,6 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import { ValueSet } from "../../../../Interfaces";
+import VaccinationVaccineGerman from "../../../../../Definitions/KBV/IM/1.1.0/ConceptMap/VaccinationVaccineGerman";
 
 // Canonical URL for ValueSet: https://fhir.kbv.de/ValueSet/KBV_VS_MIO_Vaccination_Vaccine
 
@@ -251,8 +232,14 @@ export const VaccinationVaccineValueSet: ValueSet = [
                 display:
                     "Vaccine product containing only Bordetella pertussis and Clostridium tetani and Corynebacterium diphtheriae antigens (medicinal product)"
             },
-            { code: "787859002", display: "Vaccine product (medicinal product)" },
-            { code: "37146000", display: "Typhus vaccine (product)" },
+            {
+                code: "787859002",
+                display: "Vaccine product (medicinal product)"
+            },
+            {
+                code: "37146000",
+                display: "Typhus vaccine (product)"
+            },
             {
                 code: "2221000221107",
                 display:
@@ -509,7 +496,64 @@ export const VaccinationVaccineValueSet: ValueSet = [
                     "Vaccine product containing Bacillus anthracis antigen (medicinal product)"
             }
         ]
+    },
+    {
+        system: "http://snomed.info/sct",
+        concept: [
+            {
+                code: "714569001",
+                display:
+                    "Product containing normal immunoglobulin human (medicinal product)"
+            },
+            {
+                code: "786224004",
+                display:
+                    "Product containing human anti-D immunoglobulin (medicinal product)|"
+            },
+            {
+                code: "384706007",
+                display: "Product containing tetanus antitoxin (medicinal product)"
+            },
+            {
+                code: "62294009",
+                display:
+                    "Product containing Varicella-zoster virus antibody (medicinal product)"
+            },
+            {
+                code: "9542007",
+                display:
+                    "Product containing Hepatitis B surface antigen immunoglobulin (medicinal product)"
+            },
+            {
+                code: "80834004",
+                display:
+                    "Product containing rabies human immune globulin (medicinal product)"
+            },
+            {
+                code: "9778000",
+                display: "Product containing Cytomegalovirus antibody (medicinal product)"
+            },
+            {
+                code: "108725001",
+                display: "Product containing palivizumab (medicinal product)"
+            },
+            {
+                code: "763703008",
+                display: "Product containing bezlotoxumab (medicinal product)"
+            }
+        ]
+    },
+    {
+        system: "http://snomed.info/sct",
+        concept: [
+            {
+                code: "7230005",
+                display: "Brucella vaccine (product)"
+            }
+        ]
     }
 ];
+
+export { VaccinationVaccineGerman as ConceptMap };
 
 export default VaccinationVaccine;

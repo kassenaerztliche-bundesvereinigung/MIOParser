@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -59,9 +39,8 @@ export interface MROrganizationInstitutionskennzeichenTypeXXType {
     userSelected?: boolean;
 }
 
-export const MROrganizationInstitutionskennzeichenTypeXXType: t.Type<MROrganizationInstitutionskennzeichenTypeXXType> = t.recursion(
-    "MROrganizationInstitutionskennzeichenTypeXXType",
-    () =>
+export const MROrganizationInstitutionskennzeichenTypeXXType: t.Type<MROrganizationInstitutionskennzeichenTypeXXType> =
+    t.recursion("MROrganizationInstitutionskennzeichenTypeXXType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -76,7 +55,7 @@ export const MROrganizationInstitutionskennzeichenTypeXXType: t.Type<MROrganizat
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -90,9 +69,8 @@ export interface MROrganizationBetriebsstaettennummerTypeBSNRType {
     userSelected?: boolean;
 }
 
-export const MROrganizationBetriebsstaettennummerTypeBSNRType: t.Type<MROrganizationBetriebsstaettennummerTypeBSNRType> = t.recursion(
-    "MROrganizationBetriebsstaettennummerTypeBSNRType",
-    () =>
+export const MROrganizationBetriebsstaettennummerTypeBSNRType: t.Type<MROrganizationBetriebsstaettennummerTypeBSNRType> =
+    t.recursion("MROrganizationBetriebsstaettennummerTypeBSNRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -107,7 +85,7 @@ export const MROrganizationBetriebsstaettennummerTypeBSNRType: t.Type<MROrganiza
                 })
             ])
         )
-);
+    );
 
 /**
 * Strassenname (ohne Hausnummer)
@@ -119,9 +97,8 @@ export interface MROrganizationStrassenanschriftLineStrasse {
     id?: string;
 }
 
-export const MROrganizationStrassenanschriftLineStrasse: t.Type<MROrganizationStrassenanschriftLineStrasse> = t.recursion(
-    "MROrganizationStrassenanschriftLineStrasse",
-    () =>
+export const MROrganizationStrassenanschriftLineStrasse: t.Type<MROrganizationStrassenanschriftLineStrasse> =
+    t.recursion("MROrganizationStrassenanschriftLineStrasse", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -135,7 +112,7 @@ export const MROrganizationStrassenanschriftLineStrasse: t.Type<MROrganizationSt
                 })
             ])
         )
-);
+    );
 
 /**
 * Hausnummer, sowie Zusätze (Appartmentnummer, Etage...)
@@ -147,9 +124,8 @@ export interface MROrganizationStrassenanschriftLineHausnummer {
     id?: string;
 }
 
-export const MROrganizationStrassenanschriftLineHausnummer: t.Type<MROrganizationStrassenanschriftLineHausnummer> = t.recursion(
-    "MROrganizationStrassenanschriftLineHausnummer",
-    () =>
+export const MROrganizationStrassenanschriftLineHausnummer: t.Type<MROrganizationStrassenanschriftLineHausnummer> =
+    t.recursion("MROrganizationStrassenanschriftLineHausnummer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -163,7 +139,7 @@ export const MROrganizationStrassenanschriftLineHausnummer: t.Type<MROrganizatio
                 })
             ])
         )
-);
+    );
 
 /**
 * Zusätzliche Informationen, wie z.B. "3. Etage", "Appartment C"
@@ -175,9 +151,8 @@ export interface MROrganizationStrassenanschriftLineAdresszusatz {
     id?: string;
 }
 
-export const MROrganizationStrassenanschriftLineAdresszusatz: t.Type<MROrganizationStrassenanschriftLineAdresszusatz> = t.recursion(
-    "MROrganizationStrassenanschriftLineAdresszusatz",
-    () =>
+export const MROrganizationStrassenanschriftLineAdresszusatz: t.Type<MROrganizationStrassenanschriftLineAdresszusatz> =
+    t.recursion("MROrganizationStrassenanschriftLineAdresszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -191,7 +166,7 @@ export const MROrganizationStrassenanschriftLineAdresszusatz: t.Type<MROrganizat
                 })
             ])
         )
-);
+    );
 
 /**
 * Postfach-Adresse.
@@ -204,9 +179,8 @@ export interface MROrganizationPostfachLinePostfach {
     id?: string;
 }
 
-export const MROrganizationPostfachLinePostfach: t.Type<MROrganizationPostfachLinePostfach> = t.recursion(
-    "MROrganizationPostfachLinePostfach",
-    () =>
+export const MROrganizationPostfachLinePostfach: t.Type<MROrganizationPostfachLinePostfach> =
+    t.recursion("MROrganizationPostfachLinePostfach", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -220,7 +194,7 @@ export const MROrganizationPostfachLinePostfach: t.Type<MROrganizationPostfachLi
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
@@ -235,9 +209,8 @@ export interface MROrganizationBetriebsstaettennummerAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MROrganizationBetriebsstaettennummerAssignerIdentifier: t.Type<MROrganizationBetriebsstaettennummerAssignerIdentifier> = t.recursion(
-    "MROrganizationBetriebsstaettennummerAssignerIdentifier",
-    () =>
+export const MROrganizationBetriebsstaettennummerAssignerIdentifier: t.Type<MROrganizationBetriebsstaettennummerAssignerIdentifier> =
+    t.recursion("MROrganizationBetriebsstaettennummerAssignerIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -253,61 +226,59 @@ export const MROrganizationBetriebsstaettennummerAssignerIdentifier: t.Type<MROr
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
  */
 export interface MROrganizationStrassenanschriftStadtteil {
     url: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct";
-    valueString: string;
     id?: string;
+    valueString?: string;
 }
 
-export const MROrganizationStrassenanschriftStadtteil: t.Type<MROrganizationStrassenanschriftStadtteil> = t.recursion(
-    "MROrganizationStrassenanschriftStadtteil",
-    () =>
+export const MROrganizationStrassenanschriftStadtteil: t.Type<MROrganizationStrassenanschriftStadtteil> =
+    t.recursion("MROrganizationStrassenanschriftStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal(
                         "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
-                    ),
-                    valueString: SCALARString
+                    )
                 }),
                 t.partial({
-                    id: SCALARString
+                    id: SCALARString,
+                    valueString: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A subsection of a municipality.
  */
 export interface MROrganizationPostfachStadtteil {
     url: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct";
-    valueString: string;
     id?: string;
+    valueString?: string;
 }
 
-export const MROrganizationPostfachStadtteil: t.Type<MROrganizationPostfachStadtteil> = t.recursion(
-    "MROrganizationPostfachStadtteil",
-    () =>
+export const MROrganizationPostfachStadtteil: t.Type<MROrganizationPostfachStadtteil> =
+    t.recursion("MROrganizationPostfachStadtteil", () =>
         Excess(
             t.intersection([
                 t.type({
                     url: Literal(
                         "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
-                    ),
-                    valueString: SCALARString
+                    )
                 }),
                 t.partial({
-                    id: SCALARString
+                    id: SCALARString,
+                    valueString: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -318,9 +289,8 @@ export interface MROrganizationInstitutionskennzeichenType {
     text?: string;
 }
 
-export const MROrganizationInstitutionskennzeichenType: t.Type<MROrganizationInstitutionskennzeichenType> = t.recursion(
-    "MROrganizationInstitutionskennzeichenType",
-    () =>
+export const MROrganizationInstitutionskennzeichenType: t.Type<MROrganizationInstitutionskennzeichenType> =
+    t.recursion("MROrganizationInstitutionskennzeichenType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,7 +302,7 @@ export const MROrganizationInstitutionskennzeichenType: t.Type<MROrganizationIns
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -343,9 +313,8 @@ export interface MROrganizationBetriebsstaettennummerType {
     text?: string;
 }
 
-export const MROrganizationBetriebsstaettennummerType: t.Type<MROrganizationBetriebsstaettennummerType> = t.recursion(
-    "MROrganizationBetriebsstaettennummerType",
-    () =>
+export const MROrganizationBetriebsstaettennummerType: t.Type<MROrganizationBetriebsstaettennummerType> =
+    t.recursion("MROrganizationBetriebsstaettennummerType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -357,7 +326,7 @@ export const MROrganizationBetriebsstaettennummerType: t.Type<MROrganizationBetr
                 })
             ])
         )
-);
+    );
 
 /**
  * Organization that issued/manages the identifier.
@@ -370,9 +339,8 @@ export interface MROrganizationBetriebsstaettennummerAssigner {
     identifier?: MROrganizationBetriebsstaettennummerAssignerIdentifier;
 }
 
-export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganizationBetriebsstaettennummerAssigner> = t.recursion(
-    "MROrganizationBetriebsstaettennummerAssigner",
-    () =>
+export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganizationBetriebsstaettennummerAssigner> =
+    t.recursion("MROrganizationBetriebsstaettennummerAssigner", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -388,7 +356,7 @@ export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganization
                 })
             ])
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -405,9 +373,8 @@ export interface MROrganizationStrassenanschriftLine {
     value?: string;
 }
 
-export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassenanschriftLine> = t.recursion(
-    "MROrganizationStrassenanschriftLine",
-    () =>
+export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassenanschriftLine> =
+    t.recursion("MROrganizationStrassenanschriftLine", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -439,8 +406,7 @@ export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassena
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName"
                             }
                         },
                         {
@@ -448,8 +414,7 @@ export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassena
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"
                             }
                         },
                         {
@@ -457,8 +422,7 @@ export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassena
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator"
                             }
                         }
                     ],
@@ -467,7 +431,7 @@ export const MROrganizationStrassenanschriftLine: t.Type<MROrganizationStrassena
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
 * Diese Komponente kann Straßennamen, Hausnummer, Appartmentnummer, Postfach, c/o sowie weitere Zustellungshinweise enthalten. Die Informationen können in mehrere line-Komponenten aufgeteilt werden.
@@ -503,8 +467,7 @@ export const MROrganizationPostfachLine: t.Type<MROrganizationPostfachLine> = t.
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox"
                             }
                         }
                     ],
@@ -524,9 +487,8 @@ export interface MROrganizationErgaenzendeAngaben {
     id?: string;
 }
 
-export const MROrganizationErgaenzendeAngaben: t.Type<MROrganizationErgaenzendeAngaben> = t.recursion(
-    "MROrganizationErgaenzendeAngaben",
-    () =>
+export const MROrganizationErgaenzendeAngaben: t.Type<MROrganizationErgaenzendeAngaben> =
+    t.recursion("MROrganizationErgaenzendeAngaben", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -540,7 +502,7 @@ export const MROrganizationErgaenzendeAngaben: t.Type<MROrganizationErgaenzendeA
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -555,9 +517,8 @@ export interface MROrganizationInstitutionskennzeichen {
     assigner?: Reference;
 }
 
-export const MROrganizationInstitutionskennzeichen: t.Type<MROrganizationInstitutionskennzeichen> = t.recursion(
-    "MROrganizationInstitutionskennzeichen",
-    () =>
+export const MROrganizationInstitutionskennzeichen: t.Type<MROrganizationInstitutionskennzeichen> =
+    t.recursion("MROrganizationInstitutionskennzeichen", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -573,13 +534,18 @@ export const MROrganizationInstitutionskennzeichen: t.Type<MROrganizationInstitu
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface MROrganizationBetriebsstaettennummer {
-    type: MROrganizationBetriebsstaettennummerType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "BSNR";
+        }[];
+    };
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR";
     value: string;
     id?: string;
@@ -588,13 +554,21 @@ export interface MROrganizationBetriebsstaettennummer {
     assigner?: MROrganizationBetriebsstaettennummerAssigner;
 }
 
-export const MROrganizationBetriebsstaettennummer: t.Type<MROrganizationBetriebsstaettennummer> = t.recursion(
-    "MROrganizationBetriebsstaettennummer",
-    () =>
+export const MROrganizationBetriebsstaettennummer: t.Type<MROrganizationBetriebsstaettennummer> =
+    t.recursion("MROrganizationBetriebsstaettennummer", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: MROrganizationBetriebsstaettennummerType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("BSNR")
+                            })
+                        )
+                    }),
                     system: Literal("https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"),
                     value: SCALARString
                 }),
@@ -606,7 +580,7 @@ export const MROrganizationBetriebsstaettennummer: t.Type<MROrganizationBetriebs
                 })
             ])
         )
-);
+    );
 
 /**
 * Eine Adresse gemäß postalischer Konventionen (im Gegensatz zu bspw. GPS-Koordinaten). Die Adresse kann sowohl zur Zustellung von Postsendungen oder zum Aufsuchen von Orten, die keine gültige Postadresse haben, verwendet werden.
@@ -628,9 +602,8 @@ export interface MROrganizationStrassenanschrift {
     line?: Array<string>;
 }
 
-export const MROrganizationStrassenanschrift: t.Type<MROrganizationStrassenanschrift> = t.recursion(
-    "MROrganizationStrassenanschrift",
-    () =>
+export const MROrganizationStrassenanschrift: t.Type<MROrganizationStrassenanschrift> =
+    t.recursion("MROrganizationStrassenanschrift", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -662,8 +635,7 @@ export const MROrganizationStrassenanschrift: t.Type<MROrganizationStrassenansch
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -676,7 +648,7 @@ export const MROrganizationStrassenanschrift: t.Type<MROrganizationStrassenansch
                 })
             ])
         )
-);
+    );
 
 /**
 * Eine Adresse gemäß postalischer Konventionen (im Gegensatz zu bspw. GPS-Koordinaten). Die Adresse kann sowohl zur Zustellung von Postsendungen oder zum Aufsuchen von Orten, die keine gültige Postadresse haben, verwendet werden.
@@ -726,8 +698,7 @@ export const MROrganizationPostfach: t.Type<MROrganizationPostfach> = t.recursio
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
+                                    value: "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"
                                 }
                             }
                         ],
@@ -749,9 +720,7 @@ export const MROrganizationPostfach: t.Type<MROrganizationPostfach> = t.recursio
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MROrganizationMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Organization|1.0.0">;
     id?: string;
 }
 
@@ -844,8 +813,7 @@ const MROrganization: t.Type<MROrganization> = t.recursion("MROrganization", () 
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                             }
                         }
                     ],

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -48,21 +28,22 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaftswoche+Tage")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaftswoche+Tage")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -76,51 +57,50 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     )[];
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -134,49 +114,47 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     value?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -190,26 +168,28 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     display?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://snomed.info/sct"),
-                    version: Literal(
-                        "http://snomed.info/sct/900000000000207008/version/20200731"
-                    ),
-                    code: Literal("412726003")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
-                    display: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://snomed.info/sct"),
+                        version: Literal(
+                            "http://snomed.info/sct/900000000000207008/version/20200731"
+                        ),
+                        code: Literal("412726003")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCodingDisplay,
+                        display: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -222,23 +202,24 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Wochen"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("wk")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Wochen"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("wk")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
@@ -251,52 +232,52 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    value: SCALARDecimal,
-                    unit: Literal("Tage"),
-                    system: Literal("http://unitsofmeasure.org"),
-                    code: Literal("d")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        value: SCALARDecimal,
+                        unit: Literal("Tage"),
+                        system: Literal("http://unitsofmeasure.org"),
+                        code: Literal("d")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
  */
 export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept {
-    coding: Array<
-        MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-    >;
+    coding: Array<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding>;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinMaxArray(
-                        1,
-                        1,
-                        MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
-                    )
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinMaxArray(
+                            1,
+                            1,
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConceptCoding
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -307,21 +288,23 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     valueQuantity?: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftswoche")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueQuantity: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftswoche")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueQuantity:
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswocheValueQuantity
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -332,21 +315,23 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("ergaenzendeTage"),
-                    valueQuantity: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("ergaenzendeTage"),
+                        valueQuantity:
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTageValueQuantity
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -357,21 +342,22 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     valueBoolean?: false;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("korrektur")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    valueBoolean: Literal(false)
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("korrektur")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        valueBoolean: Literal(false)
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -382,21 +368,23 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("kode"),
-                    valueCodeableConcept: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("kode"),
+                        valueCodeableConcept:
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKodeValueCodeableConcept
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -407,21 +395,22 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodi
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Abschluss-Untersuchung/Epikrise-Geburt")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Abschluss-Untersuchung/Epikrise-Geburt")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
@@ -438,76 +427,72 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     )[];
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("schwangerschaftszeitpunkt")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("schwangerschaftszeitpunkt")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur
-                                >,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "schwangerschaftswoche" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage,
-                                occurrence: ["0", "1"],
-                                sliceBy: { path: "url", value: "ergaenzendeTage" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "korrektur" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "kode" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktSchwangerschaftswoche,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftswoche"
+                                    }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktErgaenzendeTage,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: { path: "url", value: "ergaenzendeTage" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKorrektur,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "korrektur" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunktKode,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "kode" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -521,51 +506,50 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodi
     )[];
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomedContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * In dieser Extension können Schwangerschaftswoche und ergänzende Tage dokumentiert werden.
@@ -579,54 +563,53 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     )[];
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt,
-                                occurrence: ["0", "1"],
-                                sliceBy: {
-                                    path: "url",
-                                    value: "schwangerschaftszeitpunkt"
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunktSchwangerschaftszeitpunkt,
+                                    occurrence: ["0", "1"],
+                                    sliceBy: {
+                                        path: "url",
+                                        value: "schwangerschaftszeitpunkt"
+                                    }
                                 }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -640,49 +623,47 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodi
     value?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplayAnzeigenameCodeSnomed,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -696,9 +677,8 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodi
     display?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -710,12 +690,13 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationCodeCoding: 
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay,
+                    _display:
+                        MRClinicalImpressionBirthExaminationDeliveryInformationCodeCodingDisplay,
                     display: SCALARString
                 })
             ])
         )
-);
+    );
 
 /**
  * The point in time or period over which the subject was assessed.
@@ -729,49 +710,47 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEffectiv
     value?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt,
-                            occurrence: ["1", "1"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTimeSchwangerschaftszeitpunkt,
+                                occurrence: ["1", "1"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_MIO_MR_Pregnancy_Week_And_Day"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARDateTime
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARDateTime
+                })
+            )
+    );
 
 /**
  * A name/code for the group ("set") of investigations. Typically, this will be something like "signs", "symptoms", "clinical", "diagnostic", but the list is not constrained, and others such groups such as (exposure|family|travel|nutritional) history may be used.
@@ -781,20 +760,21 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationInvestig
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    text: Literal("Angaben zur Entbindung")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        text: Literal("Angaben zur Entbindung")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * A record of a specific investigation that was undertaken.
@@ -804,36 +784,34 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationInvestig
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_External_Birth|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_External_Birth|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRClinicalImpressionBirthExaminationDeliveryInformationMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Birth_Examination_Delivery_Information|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_ClinicalImpression_Birth_Examination_Delivery_Information|1.0.0">;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationMeta: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationMeta> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationMeta",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationMeta: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationMeta> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -850,7 +828,7 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationMeta: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * Categorizes the type of clinical assessment performed.
@@ -860,9 +838,8 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationCode {
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationCode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCode> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationCode",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationCode: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationCode> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -877,7 +854,7 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationCode: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient or group of individuals assessed as part of this record.
@@ -887,9 +864,8 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationSubject 
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationSubject: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationSubject> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationSubject",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationSubject: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationSubject> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -902,7 +878,7 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationSubject: t.T
                 })
             ])
         )
-);
+    );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
@@ -912,9 +888,8 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationEncounte
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationEncounter: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEncounter> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationEncounter",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationEncounter: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationEncounter> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -927,7 +902,7 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationEncounter: t
                 })
             ])
         )
-);
+    );
 
 /**
  * The clinician performing the assessment.
@@ -937,9 +912,8 @@ export interface MRClinicalImpressionBirthExaminationDeliveryInformationAssessor
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationAssessor: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationAssessor> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationAssessor",
-    () =>
+export const MRClinicalImpressionBirthExaminationDeliveryInformationAssessor: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationAssessor> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformationAssessor", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -952,7 +926,7 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationAssessor: t.
                 })
             ])
         )
-);
+    );
 
 /**
  * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
@@ -960,29 +934,28 @@ export const MRClinicalImpressionBirthExaminationDeliveryInformationAssessor: t.
 export interface MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation {
     code: MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode;
     id?: string;
-    item?: Array<
-        MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem
-    >;
+    item?: Array<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem>;
 }
 
-export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    code: MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode
-                }),
-                t.partial({
-                    id: SCALARString,
-                    item: MaxArray(
-                        1,
-                        MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem
-                    )
-                })
-            ])
-        )
-);
+export const MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        code: MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationCode
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        item: MaxArray(
+                            1,
+                            MRClinicalImpressionBirthExaminationDeliveryInformationInvestigationItem
+                        )
+                    })
+                ])
+            )
+    );
 
 interface MRClinicalImpressionBirthExaminationDeliveryInformation {
     resourceType: "ClinicalImpression";
@@ -996,15 +969,12 @@ interface MRClinicalImpressionBirthExaminationDeliveryInformation {
     _effectiveDateTime?: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime;
     effectiveDateTime?: string;
     assessor?: MRClinicalImpressionBirthExaminationDeliveryInformationAssessor;
-    investigation?: Array<
-        MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation
-    >;
+    investigation?: Array<MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation>;
     note?: Array<Annotation>;
 }
 
-const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformation> = t.recursion(
-    "MRClinicalImpressionBirthExaminationDeliveryInformation",
-    () =>
+const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinicalImpressionBirthExaminationDeliveryInformation> =
+    t.recursion("MRClinicalImpressionBirthExaminationDeliveryInformation", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1012,15 +982,19 @@ const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinical
                     meta: MRClinicalImpressionBirthExaminationDeliveryInformationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionBirthExaminationDeliveryInformationCode,
-                    subject: MRClinicalImpressionBirthExaminationDeliveryInformationSubject,
-                    encounter: MRClinicalImpressionBirthExaminationDeliveryInformationEncounter
+                    subject:
+                        MRClinicalImpressionBirthExaminationDeliveryInformationSubject,
+                    encounter:
+                        MRClinicalImpressionBirthExaminationDeliveryInformationEncounter
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    _effectiveDateTime: MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime,
+                    _effectiveDateTime:
+                        MRClinicalImpressionBirthExaminationDeliveryInformationEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
-                    assessor: MRClinicalImpressionBirthExaminationDeliveryInformationAssessor,
+                    assessor:
+                        MRClinicalImpressionBirthExaminationDeliveryInformationAssessor,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionBirthExaminationDeliveryInformationInvestigation
@@ -1029,6 +1003,6 @@ const MRClinicalImpressionBirthExaminationDeliveryInformation: t.Type<MRClinical
                 })
             ])
         )
-);
+    );
 
 export default MRClinicalImpressionBirthExaminationDeliveryInformation;

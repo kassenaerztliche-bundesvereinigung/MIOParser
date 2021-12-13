@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -47,21 +27,22 @@ export interface MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnome
     id?: string;
 }
 
-export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Schwangerschaftsrisiko")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Schwangerschaftsrisiko")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -75,9 +56,8 @@ export interface MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnome
     )[];
 }
 
-export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -91,9 +71,7 @@ export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed: t
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -119,7 +97,7 @@ export const MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed: t
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -133,9 +111,8 @@ export interface MRObservationPregnancyRiskCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationPregnancyRiskCodeCodingDisplay: t.Type<MRObservationPregnancyRiskCodeCodingDisplay> = t.recursion(
-    "MRObservationPregnancyRiskCodeCodingDisplay",
-    () =>
+export const MRObservationPregnancyRiskCodeCodingDisplay: t.Type<MRObservationPregnancyRiskCodeCodingDisplay> =
+    t.recursion("MRObservationPregnancyRiskCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -143,9 +120,7 @@ export const MRObservationPregnancyRiskCodeCodingDisplay: t.Type<MRObservationPr
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationPregnancyRiskCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -165,8 +140,7 @@ export const MRObservationPregnancyRiskCodeCodingDisplay: t.Type<MRObservationPr
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -175,7 +149,7 @@ export const MRObservationPregnancyRiskCodeCodingDisplay: t.Type<MRObservationPr
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -189,9 +163,8 @@ export interface MRObservationPregnancyRiskCodeCoding {
     display?: string;
 }
 
-export const MRObservationPregnancyRiskCodeCoding: t.Type<MRObservationPregnancyRiskCodeCoding> = t.recursion(
-    "MRObservationPregnancyRiskCodeCoding",
-    () =>
+export const MRObservationPregnancyRiskCodeCoding: t.Type<MRObservationPregnancyRiskCodeCoding> =
+    t.recursion("MRObservationPregnancyRiskCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -208,21 +181,18 @@ export const MRObservationPregnancyRiskCodeCoding: t.Type<MRObservationPregnancy
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationPregnancyRiskMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Risk|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Risk|1.0.0">;
     id?: string;
 }
 
-export const MRObservationPregnancyRiskMeta: t.Type<MRObservationPregnancyRiskMeta> = t.recursion(
-    "MRObservationPregnancyRiskMeta",
-    () =>
+export const MRObservationPregnancyRiskMeta: t.Type<MRObservationPregnancyRiskMeta> =
+    t.recursion("MRObservationPregnancyRiskMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -239,7 +209,7 @@ export const MRObservationPregnancyRiskMeta: t.Type<MRObservationPregnancyRiskMe
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -249,9 +219,8 @@ export interface MRObservationPregnancyRiskCode {
     id?: string;
 }
 
-export const MRObservationPregnancyRiskCode: t.Type<MRObservationPregnancyRiskCode> = t.recursion(
-    "MRObservationPregnancyRiskCode",
-    () =>
+export const MRObservationPregnancyRiskCode: t.Type<MRObservationPregnancyRiskCode> =
+    t.recursion("MRObservationPregnancyRiskCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -262,7 +231,7 @@ export const MRObservationPregnancyRiskCode: t.Type<MRObservationPregnancyRiskCo
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -272,9 +241,8 @@ export interface MRObservationPregnancyRiskSubject {
     id?: string;
 }
 
-export const MRObservationPregnancyRiskSubject: t.Type<MRObservationPregnancyRiskSubject> = t.recursion(
-    "MRObservationPregnancyRiskSubject",
-    () =>
+export const MRObservationPregnancyRiskSubject: t.Type<MRObservationPregnancyRiskSubject> =
+    t.recursion("MRObservationPregnancyRiskSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -287,7 +255,7 @@ export const MRObservationPregnancyRiskSubject: t.Type<MRObservationPregnancyRis
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -297,9 +265,8 @@ export interface MRObservationPregnancyRiskEncounter {
     id?: string;
 }
 
-export const MRObservationPregnancyRiskEncounter: t.Type<MRObservationPregnancyRiskEncounter> = t.recursion(
-    "MRObservationPregnancyRiskEncounter",
-    () =>
+export const MRObservationPregnancyRiskEncounter: t.Type<MRObservationPregnancyRiskEncounter> =
+    t.recursion("MRObservationPregnancyRiskEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -312,7 +279,7 @@ export const MRObservationPregnancyRiskEncounter: t.Type<MRObservationPregnancyR
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -322,9 +289,8 @@ export interface MRObservationPregnancyRiskPerformer {
     id?: string;
 }
 
-export const MRObservationPregnancyRiskPerformer: t.Type<MRObservationPregnancyRiskPerformer> = t.recursion(
-    "MRObservationPregnancyRiskPerformer",
-    () =>
+export const MRObservationPregnancyRiskPerformer: t.Type<MRObservationPregnancyRiskPerformer> =
+    t.recursion("MRObservationPregnancyRiskPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -338,7 +304,7 @@ export const MRObservationPregnancyRiskPerformer: t.Type<MRObservationPregnancyR
                 })
             ])
         )
-);
+    );
 
 interface MRObservationPregnancyRisk {
     resourceType: "Observation";

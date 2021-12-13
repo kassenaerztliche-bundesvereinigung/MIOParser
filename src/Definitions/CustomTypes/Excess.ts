@@ -23,9 +23,11 @@ import { Either, either, isRight, left, right, Right } from "fp-ts/Either";
 import ErrorMessage from "../ErrorMessage";
 import { AnyType } from "../Interfaces";
 
-const getIsCodec = <T extends t.Any>(tag: string) => (codec: t.Any): codec is T =>
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    (codec as any)._tag === tag;
+const getIsCodec =
+    <T extends t.Any>(tag: string) =>
+    (codec: t.Any): codec is T =>
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+        (codec as any)._tag === tag;
 const isInterfaceCodec = getIsCodec<t.InterfaceType<t.Props>>("InterfaceType");
 const isPartialCodec = getIsCodec<t.PartialType<t.Props>>("PartialType");
 
@@ -63,12 +65,13 @@ const getExcessTypeName = (codec: t.Any): string => {
     return `Excess<${codec.name}>`;
 };
 
-const stripKeys = <T = AnyType>(o: T, props: t.Props): Either<Array<string>, T> => {
+const stripKeys = <T = AnyType>(o: T, props: t.Props): Either<string[], T> => {
     const keys = Object.getOwnPropertyNames(o);
     const propsKeys = Object.getOwnPropertyNames(props);
-    // allows extension and text fields to be present
+    // allows extension and text fields and html/xml comments to be present
     propsKeys.push("extension");
     propsKeys.push("text");
+    propsKeys.push("fhir_comments");
 
     propsKeys.forEach((pk) => {
         const index = keys.indexOf(pk);

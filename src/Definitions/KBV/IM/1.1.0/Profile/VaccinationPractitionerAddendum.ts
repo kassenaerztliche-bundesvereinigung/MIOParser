@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -49,21 +29,22 @@ export interface VaccinationPractitionerAddendumPractitionerspecialityCodeCoding
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent> =
+    t.recursion(
+        "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -77,51 +58,50 @@ export interface VaccinationPractitionerAddendumPractitionerspecialityCodeCoding
     )[];
 }
 
-export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal(
-                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    extension: ReqArray<
-                        t.UnionC<
+export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation> =
+    t.recursion(
+        "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal(
+                            "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        extension: ReqArray<
+                            t.UnionC<
+                                [
+                                    t.Type<Extension>,
+                                    t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent>
+                                ]
+                            >,
+                            t.Any
+                        >(
+                            t.union([
+                                Extension,
+                                VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
+                            ]),
                             [
-                                t.Type<Extension>,
-                                t.Type<
-                                    VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
-                                >
-                            ]
-                        >,
-                        t.Any
-                    >(
-                        t.union([
-                            Extension,
-                            VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent
-                        ]),
-                        [
-                            {
-                                codec: Extension,
-                                occurrence: ["0", "*"],
-                                sliceBy: { path: "url" }
-                            },
-                            {
-                                codec: VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent,
-                                occurrence: ["1", "1"],
-                                sliceBy: { path: "url", value: "content" }
-                            }
-                        ],
-                        ["0", "*"]
-                    )
-                })
-            ])
-        )
-);
+                                {
+                                    codec: Extension,
+                                    occurrence: ["0", "*"],
+                                    sliceBy: { path: "url" }
+                                },
+                                {
+                                    codec: VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikationContent,
+                                    occurrence: ["1", "1"],
+                                    sliceBy: { path: "url", value: "content" }
+                                }
+                            ],
+                            ["0", "*"]
+                        )
+                    })
+                ])
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -135,9 +115,8 @@ export interface VaccinationPractitionerAddendumANRTypeLANRType {
     userSelected?: boolean;
 }
 
-export const VaccinationPractitionerAddendumANRTypeLANRType: t.Type<VaccinationPractitionerAddendumANRTypeLANRType> = t.recursion(
-    "VaccinationPractitionerAddendumANRTypeLANRType",
-    () =>
+export const VaccinationPractitionerAddendumANRTypeLANRType: t.Type<VaccinationPractitionerAddendumANRTypeLANRType> =
+    t.recursion("VaccinationPractitionerAddendumANRTypeLANRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -152,7 +131,7 @@ export const VaccinationPractitionerAddendumANRTypeLANRType: t.Type<VaccinationP
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -166,9 +145,8 @@ export interface VaccinationPractitionerAddendumEFNTypeDNType {
     userSelected?: boolean;
 }
 
-export const VaccinationPractitionerAddendumEFNTypeDNType: t.Type<VaccinationPractitionerAddendumEFNTypeDNType> = t.recursion(
-    "VaccinationPractitionerAddendumEFNTypeDNType",
-    () =>
+export const VaccinationPractitionerAddendumEFNTypeDNType: t.Type<VaccinationPractitionerAddendumEFNTypeDNType> =
+    t.recursion("VaccinationPractitionerAddendumEFNTypeDNType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -183,7 +161,7 @@ export const VaccinationPractitionerAddendumEFNTypeDNType: t.Type<VaccinationPra
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -195,9 +173,8 @@ export interface VaccinationPractitionerAddendumNameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const VaccinationPractitionerAddendumNameFamilyNamenszusatz: t.Type<VaccinationPractitionerAddendumNameFamilyNamenszusatz> = t.recursion(
-    "VaccinationPractitionerAddendumNameFamilyNamenszusatz",
-    () =>
+export const VaccinationPractitionerAddendumNameFamilyNamenszusatz: t.Type<VaccinationPractitionerAddendumNameFamilyNamenszusatz> =
+    t.recursion("VaccinationPractitionerAddendumNameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -211,7 +188,7 @@ export const VaccinationPractitionerAddendumNameFamilyNamenszusatz: t.Type<Vacci
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -223,9 +200,8 @@ export interface VaccinationPractitionerAddendumNameFamilyNachname {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumNameFamilyNachname: t.Type<VaccinationPractitionerAddendumNameFamilyNachname> = t.recursion(
-    "VaccinationPractitionerAddendumNameFamilyNachname",
-    () =>
+export const VaccinationPractitionerAddendumNameFamilyNachname: t.Type<VaccinationPractitionerAddendumNameFamilyNachname> =
+    t.recursion("VaccinationPractitionerAddendumNameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -239,7 +215,7 @@ export const VaccinationPractitionerAddendumNameFamilyNachname: t.Type<Vaccinati
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -251,9 +227,8 @@ export interface VaccinationPractitionerAddendumNameFamilyVorsatzwort {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumNameFamilyVorsatzwort: t.Type<VaccinationPractitionerAddendumNameFamilyVorsatzwort> = t.recursion(
-    "VaccinationPractitionerAddendumNameFamilyVorsatzwort",
-    () =>
+export const VaccinationPractitionerAddendumNameFamilyVorsatzwort: t.Type<VaccinationPractitionerAddendumNameFamilyVorsatzwort> =
+    t.recursion("VaccinationPractitionerAddendumNameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -267,7 +242,7 @@ export const VaccinationPractitionerAddendumNameFamilyVorsatzwort: t.Type<Vaccin
                 })
             ])
         )
-);
+    );
 
 /**
  * Spezialisierung der Art des Präfixes, z.B. "AC" für Akademische Titel
@@ -278,9 +253,8 @@ export interface VaccinationPractitionerAddendumNamePrefixPrefixqualifier {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumNamePrefixPrefixqualifier: t.Type<VaccinationPractitionerAddendumNamePrefixPrefixqualifier> = t.recursion(
-    "VaccinationPractitionerAddendumNamePrefixPrefixqualifier",
-    () =>
+export const VaccinationPractitionerAddendumNamePrefixPrefixqualifier: t.Type<VaccinationPractitionerAddendumNamePrefixPrefixqualifier> =
+    t.recursion("VaccinationPractitionerAddendumNamePrefixPrefixqualifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -294,7 +268,7 @@ export const VaccinationPractitionerAddendumNamePrefixPrefixqualifier: t.Type<Va
                 })
             ])
         )
-);
+    );
 
 /**
 * Namenszusatz als Bestandteil das Nachnamens, wie in VSDM (Versichertenstammdatenmanagement, "eGK") definiert.
@@ -306,9 +280,8 @@ export interface VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz {
     valueString?: string;
 }
 
-export const VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz> = t.recursion(
-    "VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz",
-    () =>
+export const VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz> =
+    t.recursion("VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -322,7 +295,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz: t.Typ
                 })
             ])
         )
-);
+    );
 
 /**
 * Nachname ohne Vor- und Zusätze.
@@ -334,9 +307,8 @@ export interface VaccinationPractitionerAddendumGeburtsnameFamilyNachname {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumGeburtsnameFamilyNachname: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNachname> = t.recursion(
-    "VaccinationPractitionerAddendumGeburtsnameFamilyNachname",
-    () =>
+export const VaccinationPractitionerAddendumGeburtsnameFamilyNachname: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNachname> =
+    t.recursion("VaccinationPractitionerAddendumGeburtsnameFamilyNachname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -350,7 +322,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamilyNachname: t.Type<Va
                 })
             ])
         )
-);
+    );
 
 /**
 * Vorsatzwort wie z.B.: von, van, zu
@@ -362,9 +334,8 @@ export interface VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort> = t.recursion(
-    "VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort",
-    () =>
+export const VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort: t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort> =
+    t.recursion("VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -378,7 +349,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -392,49 +363,47 @@ export interface VaccinationPractitionerAddendumPractitionerspecialityCodeCoding
     value?: string;
 }
 
-export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay",
-    () =>
-        Excess(
-            t.partial({
-                id: SCALARString,
-                extension: ReqArray<
-                    t.UnionC<
+export const VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay> =
+    t.recursion(
+        "VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay",
+        () =>
+            Excess(
+                t.partial({
+                    id: SCALARString,
+                    extension: ReqArray<
+                        t.UnionC<
+                            [
+                                t.Type<Extension>,
+                                t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation>
+                            ]
+                        >,
+                        t.Any
+                    >(
+                        t.union([
+                            Extension,
+                            VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation
+                        ]),
                         [
-                            t.Type<Extension>,
-                            t.Type<
-                                VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation
-                            >
-                        ]
-                    >,
-                    t.Any
-                >(
-                    t.union([
-                        Extension,
-                        VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation
-                    ]),
-                    [
-                        {
-                            codec: Extension,
-                            occurrence: ["0", "*"],
-                            sliceBy: { path: "url" }
-                        },
-                        {
-                            codec: VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation,
-                            occurrence: ["0", "*"],
-                            sliceBy: {
-                                path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                            {
+                                codec: Extension,
+                                occurrence: ["0", "*"],
+                                sliceBy: { path: "url" }
+                            },
+                            {
+                                codec: VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplayAnzeigenameQualifikation,
+                                occurrence: ["0", "*"],
+                                sliceBy: {
+                                    path: "url",
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                }
                             }
-                        }
-                    ],
-                    ["0", "*"]
-                ),
-                value: SCALARString
-            })
-        )
-);
+                        ],
+                        ["0", "*"]
+                    ),
+                    value: SCALARString
+                })
+            )
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -447,9 +416,8 @@ export interface VaccinationPractitionerAddendumIdTypeCoding {
     display?: string;
 }
 
-export const VaccinationPractitionerAddendumIdTypeCoding: t.Type<VaccinationPractitionerAddendumIdTypeCoding> = t.recursion(
-    "VaccinationPractitionerAddendumIdTypeCoding",
-    () =>
+export const VaccinationPractitionerAddendumIdTypeCoding: t.Type<VaccinationPractitionerAddendumIdTypeCoding> =
+    t.recursion("VaccinationPractitionerAddendumIdTypeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -463,7 +431,7 @@ export const VaccinationPractitionerAddendumIdTypeCoding: t.Type<VaccinationPrac
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -478,21 +446,21 @@ export interface VaccinationPractitionerAddendumPractitionerspecialityCodeCoding
     userSelected?: boolean;
 }
 
-export const VaccinationPractitionerAddendumPractitionerspecialityCodeCoding: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCoding> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspecialityCodeCoding",
-    () =>
+export const VaccinationPractitionerAddendumPractitionerspecialityCodeCoding: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCodeCoding> =
+    t.recursion("VaccinationPractitionerAddendumPractitionerspecialityCodeCoding", () =>
         Excess(
             t.partial({
                 id: SCALARString,
                 system: SCALARUri,
                 version: SCALARString,
                 code: VaccinationPractitionerSpecialityVS,
-                _display: VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay,
+                _display:
+                    VaccinationPractitionerAddendumPractitionerspecialityCodeCodingDisplay,
                 display: SCALARString,
                 userSelected: SCALARBoolean
             })
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -502,9 +470,8 @@ export interface VaccinationPractitionerAddendumANRType {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumANRType: t.Type<VaccinationPractitionerAddendumANRType> = t.recursion(
-    "VaccinationPractitionerAddendumANRType",
-    () =>
+export const VaccinationPractitionerAddendumANRType: t.Type<VaccinationPractitionerAddendumANRType> =
+    t.recursion("VaccinationPractitionerAddendumANRType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -515,7 +482,7 @@ export const VaccinationPractitionerAddendumANRType: t.Type<VaccinationPractitio
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -525,9 +492,8 @@ export interface VaccinationPractitionerAddendumEFNType {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumEFNType: t.Type<VaccinationPractitionerAddendumEFNType> = t.recursion(
-    "VaccinationPractitionerAddendumEFNType",
-    () =>
+export const VaccinationPractitionerAddendumEFNType: t.Type<VaccinationPractitionerAddendumEFNType> =
+    t.recursion("VaccinationPractitionerAddendumEFNType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -538,7 +504,7 @@ export const VaccinationPractitionerAddendumEFNType: t.Type<VaccinationPractitio
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -548,9 +514,8 @@ export interface VaccinationPractitionerAddendumIdType {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumIdType: t.Type<VaccinationPractitionerAddendumIdType> = t.recursion(
-    "VaccinationPractitionerAddendumIdType",
-    () =>
+export const VaccinationPractitionerAddendumIdType: t.Type<VaccinationPractitionerAddendumIdType> =
+    t.recursion("VaccinationPractitionerAddendumIdType", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -561,7 +526,7 @@ export const VaccinationPractitionerAddendumIdType: t.Type<VaccinationPractition
                 })
             ])
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -577,9 +542,8 @@ export interface VaccinationPractitionerAddendumNameFamily {
     value?: string;
 }
 
-export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPractitionerAddendumNameFamily> = t.recursion(
-    "VaccinationPractitionerAddendumNameFamily",
-    () =>
+export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPractitionerAddendumNameFamily> =
+    t.recursion("VaccinationPractitionerAddendumNameFamily", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -611,8 +575,7 @@ export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPracti
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -620,8 +583,7 @@ export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPracti
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -629,8 +591,7 @@ export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPracti
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -639,7 +600,7 @@ export const VaccinationPractitionerAddendumNameFamily: t.Type<VaccinationPracti
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Namensteile vor dem Vornamen, z.B. akademischer Titel.
@@ -650,9 +611,8 @@ export interface VaccinationPractitionerAddendumNamePrefix {
     value?: string;
 }
 
-export const VaccinationPractitionerAddendumNamePrefix: t.Type<VaccinationPractitionerAddendumNamePrefix> = t.recursion(
-    "VaccinationPractitionerAddendumNamePrefix",
-    () =>
+export const VaccinationPractitionerAddendumNamePrefix: t.Type<VaccinationPractitionerAddendumNamePrefix> =
+    t.recursion("VaccinationPractitionerAddendumNamePrefix", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -660,9 +620,7 @@ export const VaccinationPractitionerAddendumNamePrefix: t.Type<VaccinationPracti
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationPractitionerAddendumNamePrefixPrefixqualifier
-                            >
+                            t.Type<VaccinationPractitionerAddendumNamePrefixPrefixqualifier>
                         ]
                     >,
                     t.Any
@@ -682,8 +640,7 @@ export const VaccinationPractitionerAddendumNamePrefix: t.Type<VaccinationPracti
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
+                                value: "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"
                             }
                         }
                     ],
@@ -692,7 +649,7 @@ export const VaccinationPractitionerAddendumNamePrefix: t.Type<VaccinationPracti
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Der vollständige Familienname, einschließlich aller Vorsatz- und Zusatzwörter, mit Leerzeichen getrennt.
@@ -708,9 +665,8 @@ export interface VaccinationPractitionerAddendumGeburtsnameFamily {
     value?: string;
 }
 
-export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<VaccinationPractitionerAddendumGeburtsnameFamily> = t.recursion(
-    "VaccinationPractitionerAddendumGeburtsnameFamily",
-    () =>
+export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<VaccinationPractitionerAddendumGeburtsnameFamily> =
+    t.recursion("VaccinationPractitionerAddendumGeburtsnameFamily", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -718,15 +674,9 @@ export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<Vaccinatio
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz
-                            >,
-                            t.Type<
-                                VaccinationPractitionerAddendumGeburtsnameFamilyNachname
-                            >,
-                            t.Type<
-                                VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort
-                            >
+                            t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNamenszusatz>,
+                            t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyNachname>,
+                            t.Type<VaccinationPractitionerAddendumGeburtsnameFamilyVorsatzwort>
                         ]
                     >,
                     t.Any
@@ -748,8 +698,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<Vaccinatio
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://fhir.de/StructureDefinition/humanname-namenszusatz"
+                                value: "http://fhir.de/StructureDefinition/humanname-namenszusatz"
                             }
                         },
                         {
@@ -757,8 +706,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<Vaccinatio
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-name"
                             }
                         },
                         {
@@ -766,8 +714,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<Vaccinatio
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
+                                value: "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"
                             }
                         }
                     ],
@@ -776,7 +723,7 @@ export const VaccinationPractitionerAddendumGeburtsnameFamily: t.Type<Vaccinatio
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * Coded representation of the qualification.
@@ -787,9 +734,8 @@ export interface VaccinationPractitionerAddendumPractitionerspecialityCode {
     text?: string;
 }
 
-export const VaccinationPractitionerAddendumPractitionerspecialityCode: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCode> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspecialityCode",
-    () =>
+export const VaccinationPractitionerAddendumPractitionerspecialityCode: t.Type<VaccinationPractitionerAddendumPractitionerspecialityCode> =
+    t.recursion("VaccinationPractitionerAddendumPractitionerspecialityCode", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -799,26 +745,39 @@ export const VaccinationPractitionerAddendumPractitionerspecialityCode: t.Type<V
                 text: SCALARString
             })
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface VaccinationPractitionerAddendumANR {
-    type: VaccinationPractitionerAddendumANRType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "LANR";
+        }[];
+    };
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const VaccinationPractitionerAddendumANR: t.Type<VaccinationPractitionerAddendumANR> = t.recursion(
-    "VaccinationPractitionerAddendumANR",
-    () =>
+export const VaccinationPractitionerAddendumANR: t.Type<VaccinationPractitionerAddendumANR> =
+    t.recursion("VaccinationPractitionerAddendumANR", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: VaccinationPractitionerAddendumANRType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("LANR")
+                            })
+                        )
+                    }),
                     system: Literal("https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR"),
                     value: SCALARString
                 }),
@@ -828,26 +787,39 @@ export const VaccinationPractitionerAddendumANR: t.Type<VaccinationPractitionerA
                 })
             ])
         )
-);
+    );
 
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface VaccinationPractitionerAddendumEFN {
-    type: VaccinationPractitionerAddendumEFNType;
+    type: {
+        coding: {
+            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
+            code: "DN";
+        }[];
+    };
     system: "http://fhir.de/NamingSystem/bundesaerztekammer/efn";
     value: string;
     id?: string;
     use?: "official";
 }
 
-export const VaccinationPractitionerAddendumEFN: t.Type<VaccinationPractitionerAddendumEFN> = t.recursion(
-    "VaccinationPractitionerAddendumEFN",
-    () =>
+export const VaccinationPractitionerAddendumEFN: t.Type<VaccinationPractitionerAddendumEFN> =
+    t.recursion("VaccinationPractitionerAddendumEFN", () =>
         Excess(
             t.intersection([
                 t.type({
-                    type: VaccinationPractitionerAddendumEFNType,
+                    type: t.type({
+                        coding: t.array(
+                            t.type({
+                                system: Literal(
+                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
+                                ),
+                                code: Literal("DN")
+                            })
+                        )
+                    }),
                     system: Literal("http://fhir.de/NamingSystem/bundesaerztekammer/efn"),
                     value: SCALARString
                 }),
@@ -857,7 +829,7 @@ export const VaccinationPractitionerAddendumEFN: t.Type<VaccinationPractitionerA
                 })
             ])
         )
-);
+    );
 
 /**
  * Nicht näher spezifizierter Identifikator einer nicht ärztlichen, behandelnden Person.
@@ -869,9 +841,8 @@ export interface VaccinationPractitionerAddendumId {
     system?: string;
 }
 
-export const VaccinationPractitionerAddendumId: t.Type<VaccinationPractitionerAddendumId> = t.recursion(
-    "VaccinationPractitionerAddendumId",
-    () =>
+export const VaccinationPractitionerAddendumId: t.Type<VaccinationPractitionerAddendumId> =
+    t.recursion("VaccinationPractitionerAddendumId", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -884,7 +855,7 @@ export const VaccinationPractitionerAddendumId: t.Type<VaccinationPractitionerAd
                 })
             ])
         )
-);
+    );
 
 /**
  * Personenname mit in Deutschland üblichen Erweiterungen
@@ -900,9 +871,8 @@ export interface VaccinationPractitionerAddendumName {
     prefix?: string[];
 }
 
-export const VaccinationPractitionerAddendumName: t.Type<VaccinationPractitionerAddendumName> = t.recursion(
-    "VaccinationPractitionerAddendumName",
-    () =>
+export const VaccinationPractitionerAddendumName: t.Type<VaccinationPractitionerAddendumName> =
+    t.recursion("VaccinationPractitionerAddendumName", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -919,7 +889,7 @@ export const VaccinationPractitionerAddendumName: t.Type<VaccinationPractitioner
                 })
             ])
         )
-);
+    );
 
 /**
  * Personenname mit in Deutschland üblichen Erweiterungen
@@ -932,9 +902,8 @@ export interface VaccinationPractitionerAddendumGeburtsname {
     family?: string;
 }
 
-export const VaccinationPractitionerAddendumGeburtsname: t.Type<VaccinationPractitionerAddendumGeburtsname> = t.recursion(
-    "VaccinationPractitionerAddendumGeburtsname",
-    () =>
+export const VaccinationPractitionerAddendumGeburtsname: t.Type<VaccinationPractitionerAddendumGeburtsname> =
+    t.recursion("VaccinationPractitionerAddendumGeburtsname", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -948,7 +917,7 @@ export const VaccinationPractitionerAddendumGeburtsname: t.Type<VaccinationPract
                 })
             ])
         )
-);
+    );
 
 /**
  * Das Element beschreibt die Funktion der Person (z.B.: Hebamme).
@@ -958,9 +927,8 @@ export interface VaccinationPractitionerAddendumPractitionerspeciality {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumPractitionerspeciality: t.Type<VaccinationPractitionerAddendumPractitionerspeciality> = t.recursion(
-    "VaccinationPractitionerAddendumPractitionerspeciality",
-    () =>
+export const VaccinationPractitionerAddendumPractitionerspeciality: t.Type<VaccinationPractitionerAddendumPractitionerspeciality> =
+    t.recursion("VaccinationPractitionerAddendumPractitionerspeciality", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -971,21 +939,18 @@ export const VaccinationPractitionerAddendumPractitionerspeciality: t.Type<Vacci
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface VaccinationPractitionerAddendumMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.1.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.1.0">;
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumMeta: t.Type<VaccinationPractitionerAddendumMeta> = t.recursion(
-    "VaccinationPractitionerAddendumMeta",
-    () =>
+export const VaccinationPractitionerAddendumMeta: t.Type<VaccinationPractitionerAddendumMeta> =
+    t.recursion("VaccinationPractitionerAddendumMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1002,7 +967,7 @@ export const VaccinationPractitionerAddendumMeta: t.Type<VaccinationPractitioner
                 })
             ])
         )
-);
+    );
 
 /**
  * Dieses Element beschreibt die Kontaktinformationen einer Person.
@@ -1013,9 +978,8 @@ export interface VaccinationPractitionerAddendumTelecom {
     id?: string;
 }
 
-export const VaccinationPractitionerAddendumTelecom: t.Type<VaccinationPractitionerAddendumTelecom> = t.recursion(
-    "VaccinationPractitionerAddendumTelecom",
-    () =>
+export const VaccinationPractitionerAddendumTelecom: t.Type<VaccinationPractitionerAddendumTelecom> =
+    t.recursion("VaccinationPractitionerAddendumTelecom", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1027,7 +991,7 @@ export const VaccinationPractitionerAddendumTelecom: t.Type<VaccinationPractitio
                 })
             ])
         )
-);
+    );
 
 interface VaccinationPractitionerAddendum {
     resourceType: "Practitioner";
@@ -1047,9 +1011,8 @@ interface VaccinationPractitionerAddendum {
     qualification?: Array<VaccinationPractitionerAddendumPractitionerspeciality>;
 }
 
-const VaccinationPractitionerAddendum: t.Type<VaccinationPractitionerAddendum> = t.recursion(
-    "VaccinationPractitionerAddendum",
-    () =>
+const VaccinationPractitionerAddendum: t.Type<VaccinationPractitionerAddendum> =
+    t.recursion("VaccinationPractitionerAddendum", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1102,8 +1065,7 @@ const VaccinationPractitionerAddendum: t.Type<VaccinationPractitionerAddendum> =
                                 occurrence: ["0", "1"],
                                 sliceBy: {
                                     path: "url",
-                                    value:
-                                        "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
+                                    value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Additional_Comment"
                                 }
                             }
                         ],
@@ -1151,6 +1113,6 @@ const VaccinationPractitionerAddendum: t.Type<VaccinationPractitionerAddendum> =
                 })
             ])
         )
-);
+    );
 
 export default VaccinationPractitionerAddendum;

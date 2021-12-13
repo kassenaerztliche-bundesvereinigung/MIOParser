@@ -19,7 +19,6 @@
  */
 
 import MIOParser, { ParserUtil, KBVBundleResource, Vaccination, ZAEB, MR } from "../src";
-import fs = require("fs");
 import * as TestUtil from "@kbv/miotestdata";
 import { ConceptMap } from "../src/Interfaces/Util";
 import { AnyType } from "../src/";
@@ -28,10 +27,12 @@ async function getMIOAs<T extends KBVBundleResource>(
     T: AnyType,
     filePath: string
 ): Promise<T | undefined> {
-    const bundleFile = fs.readFileSync(filePath);
+    const bundleFile = TestUtil.readFile(filePath);
+    expect(bundleFile).toBeDefined();
+    if (!bundleFile) return;
 
     const mioParser = new MIOParser();
-    const result = await mioParser.parseFile(new Blob([bundleFile]));
+    const result = await mioParser.parseString(bundleFile);
 
     expect(result.errors.length).toBe(0);
     expect(result.value).toBeDefined();
@@ -101,26 +102,29 @@ describe("Parser Util", () => {
         (file, value) => {
             describe(`${value.bundleType.name} "${file}"`, () => {
                 value.todos.forEach((todo) => {
-                    test(`${todo.profile.name} to be ${todo.result}`, async (done) => {
-                        const mio = await getMIOAs<typeof value.bundleType>(
-                            value.bundleType,
-                            file
-                        );
-                        if (mio) {
-                            const p = ParserUtil.getEntry<typeof todo.profile>(mio, [
-                                todo.profile
-                            ]);
+                    test(`${todo.profile.name} to be ${todo.result}`, (done) => {
+                        getMIOAs<typeof value.bundleType>(value.bundleType, file).then(
+                            (mio) => {
+                                if (mio) {
+                                    const p = ParserUtil.getEntry<typeof todo.profile>(
+                                        mio,
+                                        [todo.profile]
+                                    );
 
-                            if (todo.result) {
-                                expect(p).toBeDefined();
-                                if (p) {
-                                    expect(todo.profile.is(p.resource)).toBeTruthy();
+                                    if (todo.result) {
+                                        expect(p).toBeDefined();
+                                        if (p) {
+                                            expect(
+                                                todo.profile.is(p.resource)
+                                            ).toBeTruthy();
+                                        }
+                                    } else {
+                                        expect(p).toBeUndefined();
+                                    }
                                 }
-                            } else {
-                                expect(p).toBeUndefined();
+                                done();
                             }
-                        }
-                        done();
+                        );
                     });
                 });
             });
@@ -205,7 +209,7 @@ describe("Parser Util", () => {
             value.todos.forEach((todo) => {
                 test(`${todo.profiles.map((profile) => profile.name).join(", ")}: to be ${
                     todo.result
-                }`, async (done) => {
+                }`, (done) => {
                     let mio = undefined;
                     value.bundleType.some(async (bundleType) => {
                         mio = await getMIOAs<typeof bundleType>(bundleType, file);
@@ -305,29 +309,28 @@ describe("Parser Util", () => {
         (file, value) => {
             value.todos.forEach((todo) => {
                 const slices = todo.slices.map((slice) => slice.type.name).join(", ");
-                test(`Get ${slices} from ${todo.profile.name} "${file}"`, async (done) => {
-                    const mio = await getMIOAs<typeof value.bundleType>(
-                        value.bundleType,
-                        file
-                    );
-                    if (mio) {
-                        const p = ParserUtil.getEntry<typeof todo.profile>(mio, [
-                            todo.profile
-                        ]);
+                test(`Get ${slices} from ${todo.profile.name} "${file}"`, (done) => {
+                    getMIOAs<typeof value.bundleType>(value.bundleType, file).then(
+                        (mio) => {
+                            if (mio) {
+                                const p = ParserUtil.getEntry<typeof todo.profile>(mio, [
+                                    todo.profile
+                                ]);
 
-                        expect(p).toBeDefined();
-                        if (p) {
-                            expect(todo.profile.is(p.resource)).toBeTruthy();
-                            todo.slices.forEach((slice) => {
-                                const result = ParserUtil.getSlice<typeof slice.type>(
-                                    slice.type,
-                                    p.resource[slice.field]
-                                );
-                                expect(result).toBeTruthy();
-                            });
+                                expect(p).toBeDefined();
+                                if (p) {
+                                    expect(todo.profile.is(p.resource)).toBeTruthy();
+                                    todo.slices.forEach((slice) => {
+                                        const result = ParserUtil.getSlice<
+                                            typeof slice.type
+                                        >(slice.type, p.resource[slice.field]);
+                                        expect(result).toBeTruthy();
+                                    });
+                                }
+                            }
+                            done();
                         }
-                    }
-                    done();
+                    );
                 });
             });
         },
@@ -393,31 +396,32 @@ describe("Parser Util", () => {
         (file, value) => {
             value.todos.forEach((todo) => {
                 const slices = todo.slice.types.map((type) => type.name).join(", ");
-                test(`Get ${slices} from ${todo.profile.name} to be at least ${todo.slice.min} `, async (done) => {
-                    const mio = await getMIOAs<typeof value.bundleType>(
-                        value.bundleType,
-                        file
-                    );
-                    if (mio) {
-                        const p = ParserUtil.getEntry<typeof todo.profile>(mio, [
-                            todo.profile
-                        ]);
+                test(`Get ${slices} from ${todo.profile.name} to be at least ${todo.slice.min} `, (done) => {
+                    getMIOAs<typeof value.bundleType>(value.bundleType, file).then(
+                        (mio) => {
+                            if (mio) {
+                                const p = ParserUtil.getEntry<typeof todo.profile>(mio, [
+                                    todo.profile
+                                ]);
 
-                        expect(p).toBeDefined();
-                        if (p) {
-                            expect(todo.profile.is(p.resource)).toBeTruthy();
-                            // eslint-disable-next-line
-                            const PROFILES = (<T extends any[]>(...o: T): T => o)(
-                                todo.slice.types
-                            );
-                            const result = ParserUtil.getSlices<typeof PROFILES[number]>(
-                                todo.slice.types,
-                                p.resource[todo.slice.field]
-                            );
-                            expect(result.length).toBeGreaterThan(todo.slice.min - 1);
+                                expect(p).toBeDefined();
+                                if (p) {
+                                    expect(todo.profile.is(p.resource)).toBeTruthy();
+                                    // eslint-disable-next-line
+                                    const PROFILES = (<T extends any[]>(...o: T): T => o)(
+                                        todo.slice.types
+                                    );
+                                    const result = ParserUtil.getSlices<
+                                        typeof PROFILES[number]
+                                    >(todo.slice.types, p.resource[todo.slice.field]);
+                                    expect(result.length).toBeGreaterThan(
+                                        todo.slice.min - 1
+                                    );
+                                }
+                            }
+                            done();
                         }
-                    }
-                    done();
+                    );
                 });
             });
         },
@@ -437,40 +441,46 @@ describe("Parser Util", () => {
 
     const testByProfile = (file: string): void => {
         it(file, async () => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            const bundle = result.value as KBVBundleResource;
+            const bundleFile = TestUtil.readFile(file);
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            const patient = ParserUtil.findEntryByProfile(
-                bundle,
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.1.0"
-            );
-            expect(patient).toBeDefined();
-            expect(Vaccination.V1_1_0.Profile.Patient.is(patient)).toBeTruthy();
+            mioParser.parseString(bundleFile).then((result) => {
+                const bundle = result.value as KBVBundleResource;
 
-            const practitioner = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.1.0",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.1.0"
-            ]);
-            expect(practitioner).toBeDefined();
-            expect(
-                Vaccination.V1_1_0.Profile.Practitioner.is(practitioner) ||
-                    Vaccination.V1_1_0.Profile.PractitionerAddendum.is(practitioner)
-            ).toBeTruthy();
+                const patient = ParserUtil.findEntryByProfile(
+                    bundle,
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Patient|1.1.0"
+                );
+                expect(patient).toBeDefined();
+                expect(Vaccination.V1_1_0.Profile.Patient.is(patient)).toBeTruthy();
 
-            const entry = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.1.0",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.1.0",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.1.0"
-            ]);
-            expect(entry).toBeDefined();
-            expect(
-                Vaccination.V1_1_0.Profile.Condition.is(entry) ||
-                    Vaccination.V1_1_0.Profile.ObservationImmunizationStatus.is(entry) ||
-                    Vaccination.V1_1_0.Profile.RecordAddendum.is(entry) ||
-                    Vaccination.V1_1_0.Profile.RecordPrime.is(entry)
-            ).toBeTruthy();
+                const practitioner = ParserUtil.findEntryByProfiles(bundle, [
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner|1.1.0",
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Practitioner_Addendum|1.1.0"
+                ]);
+                expect(practitioner).toBeDefined();
+                expect(
+                    Vaccination.V1_1_0.Profile.Practitioner.is(practitioner) ||
+                        Vaccination.V1_1_0.Profile.PractitionerAddendum.is(practitioner)
+                ).toBeTruthy();
+
+                const entry = ParserUtil.findEntryByProfiles(bundle, [
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Condition|1.1.0",
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Observation_Immunization_Status|1.1.0",
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.1.0",
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Prime|1.1.0"
+                ]);
+                expect(entry).toBeDefined();
+                expect(
+                    Vaccination.V1_1_0.Profile.Condition.is(entry) ||
+                        Vaccination.V1_1_0.Profile.ObservationImmunizationStatus.is(
+                            entry
+                        ) ||
+                        Vaccination.V1_1_0.Profile.RecordAddendum.is(entry) ||
+                        Vaccination.V1_1_0.Profile.RecordPrime.is(entry)
+                ).toBeTruthy();
+            });
         });
     };
 
@@ -500,15 +510,19 @@ describe("Parser Util", () => {
 
     const testByProfiles = (file: string): void => {
         it(file, async () => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            const bundle = result.value as KBVBundleResource;
+            const bundleFile = TestUtil.readFile(file);
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            const composition = ParserUtil.findEntryByProfiles(bundle, [
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0",
-                "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0"
-            ]);
-            expect(composition).toBeDefined();
+            await mioParser.parseString(bundleFile).then((result) => {
+                const bundle = result.value as KBVBundleResource;
+
+                const composition = ParserUtil.findEntryByProfiles(bundle, [
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Prime|1.1.0",
+                    "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Composition_Addendum|1.1.0"
+                ]);
+                expect(composition).toBeDefined();
+            });
         });
     };
 
@@ -613,24 +627,28 @@ describe("Parser Util", () => {
     ];
 
     const findEntryByFullUrlTest = (file: string, value: FindEntryByFullUrl): void => {
-        it(file, async (done) => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            const bundle = result.value as KBVBundleResource;
+        it(file, (done) => {
+            const bundleFile = TestUtil.readFile(file);
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            const patient = ParserUtil.getEntry<typeof value.profile>(bundle, [
-                value.profile
-            ]);
+            mioParser.parseString(bundleFile).then((result) => {
+                const bundle = result.value as KBVBundleResource;
 
-            expect(patient).toBeDefined();
-            if (patient) {
-                const fullUrl = patient.fullUrl;
-                expect(fullUrl).toBeDefined();
+                const patient = ParserUtil.getEntry<typeof value.profile>(bundle, [
+                    value.profile
+                ]);
 
-                const result = ParserUtil.findEntryByFullUrl(bundle, fullUrl);
-                expect(result).toEqual(patient);
-            }
-            done();
+                expect(patient).toBeDefined();
+                if (patient) {
+                    const fullUrl = patient.fullUrl;
+                    expect(fullUrl).toBeDefined();
+
+                    const result = ParserUtil.findEntryByFullUrl(bundle, fullUrl);
+                    expect(result).toEqual(patient);
+                }
+                done();
+            });
         });
     };
 
@@ -678,35 +696,39 @@ describe("Parser Util", () => {
     ];
 
     const getEntryWithRefTest = (file: string, value: GetEntryWithRef): void => {
-        it(file, async (done) => {
-            const blob = new Blob([fs.readFileSync(file)]);
-            const result = await mioParser.parseFile(blob);
-            const bundle = result.value as KBVBundleResource;
+        it(file, (done) => {
+            const bundleFile = TestUtil.readFile(file);
+            expect(bundleFile).toBeDefined();
+            if (!bundleFile) return;
 
-            const patient = ParserUtil.getEntry<typeof value.profile>(bundle, [
-                value.profile
-            ]);
+            mioParser.parseString(bundleFile).then((result) => {
+                const bundle = result.value as KBVBundleResource;
 
-            expect(patient).toBeDefined();
-            if (patient) {
-                const ref = ParserUtil.getUuid(patient.fullUrl);
-                expect(ref).toBeDefined();
+                const patient = ParserUtil.getEntry<typeof value.profile>(bundle, [
+                    value.profile
+                ]);
 
-                const result = ParserUtil.getEntryWithRef<typeof value.profile>(
-                    bundle,
-                    [value.profile],
-                    ref
-                );
-                expect(result).toEqual(patient);
+                expect(patient).toBeDefined();
+                if (patient) {
+                    const ref = ParserUtil.getUuid(patient.fullUrl);
+                    expect(ref).toBeDefined();
 
-                const noResult = ParserUtil.getEntryWithRef<typeof value.profile>(
-                    bundle,
-                    [value.profile],
-                    "-"
-                );
-                expect(noResult).toBeUndefined();
-            }
-            done();
+                    const result = ParserUtil.getEntryWithRef<typeof value.profile>(
+                        bundle,
+                        [value.profile],
+                        ref
+                    );
+                    expect(result).toEqual(patient);
+
+                    const noResult = ParserUtil.getEntryWithRef<typeof value.profile>(
+                        bundle,
+                        [value.profile],
+                        "-"
+                    );
+                    expect(noResult).toBeUndefined();
+                }
+                done();
+            });
         });
     };
 

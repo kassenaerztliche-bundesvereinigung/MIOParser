@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -45,21 +25,22 @@ export interface MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedCo
     id?: string;
 }
 
-export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: Literal("Zucker")
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: Literal("Zucker")
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -73,9 +54,8 @@ export interface MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed: t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -89,9 +69,7 @@ export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -117,7 +95,7 @@ export const MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -131,9 +109,8 @@ export interface MRObservationUrineSugarCodeCodingDisplay {
     value?: string;
 }
 
-export const MRObservationUrineSugarCodeCodingDisplay: t.Type<MRObservationUrineSugarCodeCodingDisplay> = t.recursion(
-    "MRObservationUrineSugarCodeCodingDisplay",
-    () =>
+export const MRObservationUrineSugarCodeCodingDisplay: t.Type<MRObservationUrineSugarCodeCodingDisplay> =
+    t.recursion("MRObservationUrineSugarCodeCodingDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -141,9 +118,7 @@ export const MRObservationUrineSugarCodeCodingDisplay: t.Type<MRObservationUrine
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationUrineSugarCodeCodingDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -163,8 +138,7 @@ export const MRObservationUrineSugarCodeCodingDisplay: t.Type<MRObservationUrine
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -173,7 +147,7 @@ export const MRObservationUrineSugarCodeCodingDisplay: t.Type<MRObservationUrine
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -187,9 +161,8 @@ export interface MRObservationUrineSugarCodeCoding {
     display?: string;
 }
 
-export const MRObservationUrineSugarCodeCoding: t.Type<MRObservationUrineSugarCodeCoding> = t.recursion(
-    "MRObservationUrineSugarCodeCoding",
-    () =>
+export const MRObservationUrineSugarCodeCoding: t.Type<MRObservationUrineSugarCodeCoding> =
+    t.recursion("MRObservationUrineSugarCodeCoding", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -206,21 +179,18 @@ export const MRObservationUrineSugarCodeCoding: t.Type<MRObservationUrineSugarCo
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationUrineSugarMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Urine_Sugar|1.0.0">;
     id?: string;
 }
 
-export const MRObservationUrineSugarMeta: t.Type<MRObservationUrineSugarMeta> = t.recursion(
-    "MRObservationUrineSugarMeta",
-    () =>
+export const MRObservationUrineSugarMeta: t.Type<MRObservationUrineSugarMeta> =
+    t.recursion("MRObservationUrineSugarMeta", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -237,7 +207,7 @@ export const MRObservationUrineSugarMeta: t.Type<MRObservationUrineSugarMeta> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes what was observed. Sometimes this is called the observation "name".
@@ -247,9 +217,8 @@ export interface MRObservationUrineSugarCode {
     id?: string;
 }
 
-export const MRObservationUrineSugarCode: t.Type<MRObservationUrineSugarCode> = t.recursion(
-    "MRObservationUrineSugarCode",
-    () =>
+export const MRObservationUrineSugarCode: t.Type<MRObservationUrineSugarCode> =
+    t.recursion("MRObservationUrineSugarCode", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -260,7 +229,7 @@ export const MRObservationUrineSugarCode: t.Type<MRObservationUrineSugarCode> = 
                 })
             ])
         )
-);
+    );
 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
@@ -270,9 +239,8 @@ export interface MRObservationUrineSugarSubject {
     id?: string;
 }
 
-export const MRObservationUrineSugarSubject: t.Type<MRObservationUrineSugarSubject> = t.recursion(
-    "MRObservationUrineSugarSubject",
-    () =>
+export const MRObservationUrineSugarSubject: t.Type<MRObservationUrineSugarSubject> =
+    t.recursion("MRObservationUrineSugarSubject", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,7 +253,7 @@ export const MRObservationUrineSugarSubject: t.Type<MRObservationUrineSugarSubje
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -295,9 +263,8 @@ export interface MRObservationUrineSugarEncounter {
     id?: string;
 }
 
-export const MRObservationUrineSugarEncounter: t.Type<MRObservationUrineSugarEncounter> = t.recursion(
-    "MRObservationUrineSugarEncounter",
-    () =>
+export const MRObservationUrineSugarEncounter: t.Type<MRObservationUrineSugarEncounter> =
+    t.recursion("MRObservationUrineSugarEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -310,7 +277,7 @@ export const MRObservationUrineSugarEncounter: t.Type<MRObservationUrineSugarEnc
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -320,9 +287,8 @@ export interface MRObservationUrineSugarPerformer {
     id?: string;
 }
 
-export const MRObservationUrineSugarPerformer: t.Type<MRObservationUrineSugarPerformer> = t.recursion(
-    "MRObservationUrineSugarPerformer",
-    () =>
+export const MRObservationUrineSugarPerformer: t.Type<MRObservationUrineSugarPerformer> =
+    t.recursion("MRObservationUrineSugarPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -336,7 +302,7 @@ export const MRObservationUrineSugarPerformer: t.Type<MRObservationUrineSugarPer
                 })
             ])
         )
-);
+    );
 
 interface MRObservationUrineSugar {
     resourceType: "Observation";

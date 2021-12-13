@@ -1,26 +1,10 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
+// Canonical URL for ConceptMap: https://fhir.kbv.de/ConceptMap/KBV_CM_MIO_Vaccination_Vaccine_German
+// Im folgenden Profil können Codes aus den Codesystemen Snomed, Loinc oder Ucum enthalten sein, die dem folgenden Urheberrecht unterliegen: This material includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of SNOMED International. All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. SNOMED and SNOMED CT are registered trademarks of SNOMED International. Implementers of these artefacts must have the appropriate SNOMED CT Affiliate license. This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc. This product includes all or a portion of the UCUM table, UCUM codes, and UCUM definitions or is derived from it, subject to a license from Regenstrief Institute, Inc. and The UCUM Organization. Your use of the UCUM table, UCUM codes, UCUM definitions also is subject to this license, a copy of which is available at â€‹http://unitsofmeasure.org. The current complete UCUM table, UCUM Specification are available for download at http://unitsofmeasure.org. The UCUM table and UCUM codes are copyright © 1995-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved. THE UCUM TABLE (IN ALL FORMATS), UCUM DEFINITIONS, AND SPECIFICATION ARE PROVIDED "AS IS." ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 // Diese Conceptmap verknüpft die SNOMED CT® Impfstoffcodes mit deutschen Bezeichnungen.
 
 import { ConceptMap } from "../../../../Interfaces";
+
 const VaccinationVaccineGerman: ConceptMap = [
     {
         source: "http://snomed.info/sct",
@@ -56,8 +40,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only Bordetella pertussis and Clostridium tetani and Corynebacterium diphtheriae antigens (medicinal product)",
                 target: [
                     {
-                        code:
-                            "PertussisgereinigtesAntigenKombinationenmitToxoidenPertussisTetanusDiphtherieImpfstoff",
+                        code: "PertussisgereinigtesAntigenKombinationenmitToxoidenPertussisTetanusDiphtherieImpfstoff",
                         display:
                             "Pertussis, gereinigtes Antigen, Kombinationen mit Toxoiden (Pertussis, Tetanus, Diphtherie-Impfstoff))",
                         equivalence: "equivalent"
@@ -110,8 +93,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product) + Vaccine product containing only Neisseria meningitidis serogroup A and C antigens (medicinal product)",
                 target: [
                     {
-                        code:
-                            "DiphtherieHaemophilusinfluenzaeBPertussisTetanusHepatitisBMeningokokkenACImpfstoff",
+                        code: "DiphtherieHaemophilusinfluenzaeBPertussisTetanusHepatitisBMeningokokkenACImpfstoff",
                         display:
                             "Diphtherie, Haemophilus influenzae  B, Pertussis, Tetanus, Hepatitis B, Meningokokken  A + C-Impfstoff",
                         equivalence: "equivalent"
@@ -124,8 +106,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only acellular Bordetella pertussis and Clostridium tetani and Corynebacterium diphtheriae and Hepatitis B virus and inactivated whole Human poliovirus antigens (medicinal product)",
                 target: [
                     {
-                        code:
-                            "DiphtheriePertussisPoliomyelitisTetanusHepatitisBImpfstoff",
+                        code: "DiphtheriePertussisPoliomyelitisTetanusHepatitisBImpfstoff",
                         display:
                             "Diphtherie-Pertussis, Poliomyelitis, Tetanus, Hepatitis B-Impfstoff",
                         equivalence: "equivalent"
@@ -138,8 +119,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only Corynebacterium diphtheriae antigen (medicinal product) + Vaccine product containing Haemophilus influenzae type B antigen (medicinal product) + Vaccine product containing Bordetella pertussis antigen (medicinal product) + Vaccine product containing Clostridium tetani antigen (medicinal product) + Vaccine product containing Hepatitis B virus antigen (medicinal product)",
                 target: [
                     {
-                        code:
-                            "DiphtherieHaemophilusinfluenzaeBPertussisTetanusHepatitisBImpfstoff",
+                        code: "DiphtherieHaemophilusinfluenzaeBPertussisTetanusHepatitisBImpfstoff",
                         display:
                             "Diphtherie-Haemophilus influenzae  B, Pertussis, Tetanus, Hepatitis B-Impfstoff",
                         equivalence: "equivalent"
@@ -164,8 +144,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only Bordetella pertussis and Clostridium tetani and Corynebacterium diphtheriae and Haemophilus influenzae type B and Hepatitis B virus and Human poliovirus antigens (medicinal product)",
                 target: [
                     {
-                        code:
-                            "DiphtherieHaemophilusinfluenzaeBPertussisPoliomyelitisTetanusHepatitisBImpfstoff",
+                        code: "DiphtherieHaemophilusinfluenzaeBPertussisPoliomyelitisTetanusHepatitisBImpfstoff",
                         display:
                             "Diphtherie-Haemophilus influenzae  B-Pertussis, Poliomyelitis, Tetanus, Hepatitis B-Impfstoff",
                         equivalence: "equivalent"
@@ -202,8 +181,7 @@ const VaccinationVaccineGerman: ConceptMap = [
                     "Vaccine product containing only Bordetella pertussis and Clostridium tetani and Corynebacterium diphtheriae and Haemophilus influenzae type B and Human poliovirus antigens (medicinal product)",
                 target: [
                     {
-                        code:
-                            "DiphtherieHaemophilusinfluenzaeBPertussisPoliomyelitisTetanusImpfstoff",
+                        code: "DiphtherieHaemophilusinfluenzaeBPertussisPoliomyelitisTetanusImpfstoff",
                         display:
                             "Diphtherie-Haemophilus influenzae  B, Pertussis, Poliomyelitis, Tetanus-Impfstoff",
                         equivalence: "equivalent"
@@ -834,8 +812,7 @@ const VaccinationVaccineGerman: ConceptMap = [
     },
     {
         source: "http://fhir.de/CodeSystem/dimdi/atc",
-        target:
-            "https://fhir.kbv.de/CodeSystem/KBV_CS_MIO_Vaccination_Vaccine_List_German",
+        target: "https://fhir.kbv.de/CodeSystem/KBV_CS_MIO_Vaccination_Vaccine_List_German",
         element: [
             {
                 code: "J07BK02",

@@ -1,23 +1,3 @@
-/*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
- *  or more contributor license agreements. See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership. The KBV licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied. See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- *
- */
-
 import * as t from "io-ts";
 import {
     Literal,
@@ -48,21 +28,22 @@ export interface MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedCo
     id?: string;
 }
 
-export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent> = t.recursion(
-    "MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent: t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent> =
+    t.recursion(
+        "MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Content in other Language.
@@ -73,21 +54,22 @@ export interface MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincCont
     id?: string;
 }
 
-export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent> = t.recursion(
-    "MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent",
-    () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    url: Literal("content"),
-                    valueString: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
-);
+export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent: t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent> =
+    t.recursion(
+        "MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        url: Literal("content"),
+                        valueString: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -101,9 +83,8 @@ export interface MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed {
     )[];
 }
 
-export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed> = t.recursion(
-    "MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed",
-    () =>
+export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed: t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed> =
+    t.recursion("MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -117,9 +98,7 @@ export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed: t.Ty
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent
-                                >
+                                t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent>
                             ]
                         >,
                         t.Any
@@ -145,7 +124,7 @@ export const MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed: t.Ty
                 })
             ])
         )
-);
+    );
 
 /**
  * Annotation eines Codes mit einem deutschen Bezeichner. In der Beschreibung sollte die entsprechende Conceptmap erwähnt werden.
@@ -159,9 +138,8 @@ export interface MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc {
     )[];
 }
 
-export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc> = t.recursion(
-    "MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc",
-    () =>
+export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc: t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc> =
+    t.recursion("MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -175,9 +153,7 @@ export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc: t.Type
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<
-                                    MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent
-                                >
+                                t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoincContent>
                             ]
                         >,
                         t.Any
@@ -203,7 +179,7 @@ export const MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc: t.Type
                 })
             ])
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -217,9 +193,8 @@ export interface MRObservationHeightCodeCodeSnomedDisplay {
     value?: string;
 }
 
-export const MRObservationHeightCodeCodeSnomedDisplay: t.Type<MRObservationHeightCodeCodeSnomedDisplay> = t.recursion(
-    "MRObservationHeightCodeCodeSnomedDisplay",
-    () =>
+export const MRObservationHeightCodeCodeSnomedDisplay: t.Type<MRObservationHeightCodeCodeSnomedDisplay> =
+    t.recursion("MRObservationHeightCodeCodeSnomedDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -227,9 +202,7 @@ export const MRObservationHeightCodeCodeSnomedDisplay: t.Type<MRObservationHeigh
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed
-                            >
+                            t.Type<MRObservationHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed>
                         ]
                     >,
                     t.Any
@@ -249,8 +222,7 @@ export const MRObservationHeightCodeCodeSnomedDisplay: t.Type<MRObservationHeigh
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -259,7 +231,7 @@ export const MRObservationHeightCodeCodeSnomedDisplay: t.Type<MRObservationHeigh
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A representation of the meaning of the code in the system, following the rules of the system.
@@ -273,9 +245,8 @@ export interface MRObservationHeightCodeCodeLoincDisplay {
     value?: string;
 }
 
-export const MRObservationHeightCodeCodeLoincDisplay: t.Type<MRObservationHeightCodeCodeLoincDisplay> = t.recursion(
-    "MRObservationHeightCodeCodeLoincDisplay",
-    () =>
+export const MRObservationHeightCodeCodeLoincDisplay: t.Type<MRObservationHeightCodeCodeLoincDisplay> =
+    t.recursion("MRObservationHeightCodeCodeLoincDisplay", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -283,9 +254,7 @@ export const MRObservationHeightCodeCodeLoincDisplay: t.Type<MRObservationHeight
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<
-                                MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc
-                            >
+                            t.Type<MRObservationHeightCodeCodeLoincDisplayAnzeigenameCodeLoinc>
                         ]
                     >,
                     t.Any
@@ -305,8 +274,7 @@ export const MRObservationHeightCodeCodeLoincDisplay: t.Type<MRObservationHeight
                             occurrence: ["1", "1"],
                             sliceBy: {
                                 path: "url",
-                                value:
-                                    "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
+                                value: "https://fhir.kbv.de/StructureDefinition/KBV_EX_Base_Terminology_German"
                             }
                         }
                     ],
@@ -315,7 +283,7 @@ export const MRObservationHeightCodeCodeLoincDisplay: t.Type<MRObservationHeight
                 value: SCALARString
             })
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -329,9 +297,8 @@ export interface MRObservationHeightCodeCodeSnomed {
     display?: string;
 }
 
-export const MRObservationHeightCodeCodeSnomed: t.Type<MRObservationHeightCodeCodeSnomed> = t.recursion(
-    "MRObservationHeightCodeCodeSnomed",
-    () =>
+export const MRObservationHeightCodeCodeSnomed: t.Type<MRObservationHeightCodeCodeSnomed> =
+    t.recursion("MRObservationHeightCodeCodeSnomed", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -346,7 +313,7 @@ export const MRObservationHeightCodeCodeSnomed: t.Type<MRObservationHeightCodeCo
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to a code defined by a terminology system.
@@ -360,9 +327,8 @@ export interface MRObservationHeightCodeCodeLoinc {
     display?: string;
 }
 
-export const MRObservationHeightCodeCodeLoinc: t.Type<MRObservationHeightCodeCodeLoinc> = t.recursion(
-    "MRObservationHeightCodeCodeLoinc",
-    () =>
+export const MRObservationHeightCodeCodeLoinc: t.Type<MRObservationHeightCodeCodeLoinc> =
+    t.recursion("MRObservationHeightCodeCodeLoinc", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -377,7 +343,7 @@ export const MRObservationHeightCodeCodeLoinc: t.Type<MRObservationHeightCodeCod
                 })
             ])
         )
-);
+    );
 
 /**
  * The information determined as a result of making the observation, if the information has a simple value.
@@ -390,9 +356,8 @@ export interface MRObservationHeightValueQuantity {
     id?: string;
 }
 
-export const MRObservationHeightValueQuantity: t.Type<MRObservationHeightValueQuantity> = t.recursion(
-    "MRObservationHeightValueQuantity",
-    () =>
+export const MRObservationHeightValueQuantity: t.Type<MRObservationHeightValueQuantity> =
+    t.recursion("MRObservationHeightValueQuantity", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -406,15 +371,13 @@ export const MRObservationHeightValueQuantity: t.Type<MRObservationHeightValueQu
                 })
             ])
         )
-);
+    );
 
 /**
  * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 export interface MRObservationHeightMeta {
-    profile: Array<
-        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Height|1.0.0"
-    >;
+    profile: Array<"https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Height|1.0.0">;
     id?: string;
 }
 
@@ -524,9 +487,8 @@ export interface MRObservationHeightEncounter {
     id?: string;
 }
 
-export const MRObservationHeightEncounter: t.Type<MRObservationHeightEncounter> = t.recursion(
-    "MRObservationHeightEncounter",
-    () =>
+export const MRObservationHeightEncounter: t.Type<MRObservationHeightEncounter> =
+    t.recursion("MRObservationHeightEncounter", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -539,7 +501,7 @@ export const MRObservationHeightEncounter: t.Type<MRObservationHeightEncounter> 
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
@@ -549,9 +511,8 @@ export interface MRObservationHeightPerformer {
     id?: string;
 }
 
-export const MRObservationHeightPerformer: t.Type<MRObservationHeightPerformer> = t.recursion(
-    "MRObservationHeightPerformer",
-    () =>
+export const MRObservationHeightPerformer: t.Type<MRObservationHeightPerformer> =
+    t.recursion("MRObservationHeightPerformer", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -565,7 +526,7 @@ export const MRObservationHeightPerformer: t.Type<MRObservationHeightPerformer> 
                 })
             ])
         )
-);
+    );
 
 interface MRObservationHeight {
     resourceType: "Observation";
