@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -21,14 +21,7 @@
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
 import { AnyType } from "../Interfaces";
-
-function getUuid(value: string, separator: string | RegExp = /[.:/ ]/): string {
-    if (value === undefined) {
-        // eslint-disable-next-line no-debugger
-        debugger;
-    }
-    return value.split(separator).pop() ?? value;
-}
+import Reference from "../../Interfaces/Reference";
 
 export class CustomReferenceType extends t.Type<AnyType> {
     readonly _tag = "CustomReferenceType";
@@ -53,6 +46,7 @@ export default function CustomReference<C extends t.Any>(
         name,
         (i): i is C => dataType.is(i),
         (i, c) => {
+            const referenceValue = i as string;
             const decodeResult = dataType.decode(i);
 
             if (decodeResult._tag === "Left") {
@@ -66,8 +60,11 @@ export default function CustomReference<C extends t.Any>(
                         cEntry.key.startsWith("bundleForReferenceValidation")
                     );
 
+                    const entryFullURL = c.filter((cEntry) =>
+                        cEntry.key.startsWith("entryFullURL")
+                    );
+
                     if (bundle.length && bundle[0]) {
-                        const id: string = getUuid(i as string);
                         // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                         const bundleEntry: any = bundle[0];
 
@@ -78,18 +75,17 @@ export default function CustomReference<C extends t.Any>(
                          *             https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_Vaccination_Record_Addendum|1.00.000
                          */
                         const removeVersion = (val: string): string => {
-                            return (
-                                val.includes("|") ? val.split("|")[0] : val
-                            ).toLowerCase();
+                            return val.includes("|") ? val.split("|")[0] : val;
                         };
 
+                        const fullUrl = entryFullURL.length
+                            ? (entryFullURL[0].actual as string)
+                            : "";
+
                         const targetingResource = bundleEntry.actual.entry.filter(
-                            (actualBundleEntry: { fullUrl: string }) => {
-                                const bundleEntryFullUrl = removeVersion(
-                                    actualBundleEntry.fullUrl
-                                );
-                                const cleanedId = removeVersion(id);
-                                return getUuid(bundleEntryFullUrl) === getUuid(cleanedId);
+                            (entry: { fullUrl: string }) => {
+                                const ref = new Reference(referenceValue, fullUrl);
+                                return ref.resolve(entry.fullUrl);
                             }
                         );
 
@@ -97,7 +93,7 @@ export default function CustomReference<C extends t.Any>(
                             return t.failure(
                                 i,
                                 c,
-                                ErrorMessage.NoTargetWithinBundle(i as string)
+                                ErrorMessage.NoTargetWithinBundle(referenceValue)
                             );
                         else {
                             const targetEntryProfile = removeVersion(
@@ -105,14 +101,14 @@ export default function CustomReference<C extends t.Any>(
                             );
                             if (
                                 !targetProfile
-                                    .map((x) => removeVersion(x))
+                                    .map((p) => removeVersion(p))
                                     .includes(targetEntryProfile)
                             )
                                 return t.failure(
                                     i,
                                     c,
                                     ErrorMessage.WrongTarget(
-                                        i as string,
+                                        referenceValue,
                                         targetProfile,
                                         targetingResource[0].resource.meta.profile[0]
                                     )

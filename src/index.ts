@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -28,7 +28,9 @@ import * as KBVBase from "./Definitions/KBVBase";
 import * as FHIR from "./Definitions/FHIR";
 import * as HL7DE from "./Definitions/HL7DE";
 
-export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR, HL7DE };
+import Reference from "./Interfaces/Reference";
+
+export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR, HL7DE, Reference };
 
 export {
     KBVBundleResource,

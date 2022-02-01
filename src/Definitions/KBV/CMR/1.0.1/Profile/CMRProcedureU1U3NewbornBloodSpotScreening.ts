@@ -1,3 +1,23 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
 import * as t from "io-ts";
 import {
     Literal,
@@ -215,8 +235,9 @@ export interface CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollende
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20210131";
     code: "738796001:363702006=395507008";
-    display: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
     id?: string;
+    _display?: CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCodingDisplay;
+    display?: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
 }
 
 export const CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCoding: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCoding> =
@@ -230,13 +251,15 @@ export const CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter3
                         version: Literal(
                             "http://snomed.info/sct/900000000000207008/version/20210131"
                         ),
-                        code: Literal("738796001:363702006=395507008"),
+                        code: Literal("738796001:363702006=395507008")
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        _display:
+                            CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCodingDisplay,
                         display: Literal(
                             "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)"
                         )
-                    }),
-                    t.partial({
-                        id: SCALARString
                     })
                 ])
             )

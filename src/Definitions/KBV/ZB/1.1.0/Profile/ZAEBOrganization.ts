@@ -1,3 +1,23 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
 import * as t from "io-ts";
 import {
     Literal,
@@ -379,12 +399,7 @@ export const ZAEBOrganizationStrassenanschriftLine: t.Type<ZAEBOrganizationStras
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationInstitutionskennzeichen {
-    type: {
-        coding: {
-            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
-            code: "XX";
-        }[];
-    };
+    type: ZAEBOrganizationInstitutionskennzeichenType;
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -396,16 +411,7 @@ export const ZAEBOrganizationInstitutionskennzeichen: t.Type<ZAEBOrganizationIns
         Excess(
             t.intersection([
                 t.type({
-                    type: t.type({
-                        coding: t.array(
-                            t.type({
-                                system: Literal(
-                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
-                                ),
-                                code: Literal("XX")
-                            })
-                        )
-                    }),
+                    type: ZAEBOrganizationInstitutionskennzeichenType,
                     system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
                     value: SCALARString
                 }),
@@ -421,12 +427,7 @@ export const ZAEBOrganizationInstitutionskennzeichen: t.Type<ZAEBOrganizationIns
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationBetriebsstaettennummer {
-    type: {
-        coding: {
-            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
-            code: "BSNR";
-        }[];
-    };
+    type: ZAEBOrganizationBetriebsstaettennummerType;
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR";
     value: string;
     id?: string;
@@ -438,16 +439,7 @@ export const ZAEBOrganizationBetriebsstaettennummer: t.Type<ZAEBOrganizationBetr
         Excess(
             t.intersection([
                 t.type({
-                    type: t.type({
-                        coding: t.array(
-                            t.type({
-                                system: Literal(
-                                    "http://terminology.hl7.org/CodeSystem/v2-0203"
-                                ),
-                                code: Literal("BSNR")
-                            })
-                        )
-                    }),
+                    type: ZAEBOrganizationBetriebsstaettennummerType,
                     system: Literal("https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"),
                     value: SCALARString
                 }),
@@ -463,12 +455,7 @@ export const ZAEBOrganizationBetriebsstaettennummer: t.Type<ZAEBOrganizationBetr
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBOrganizationKZVAbrechnungsnummer {
-    type: {
-        coding: {
-            system: "http://fhir.de/CodeSystem/identifier-type-de-basis";
-            code: "KZVA";
-        }[];
-    };
+    type: ZAEBOrganizationKZVAbrechnungsnummerType;
     system: "http://fhir.de/NamingSystem/kzbv/kzvabrechnungsnummer";
     value: string;
     id?: string;
@@ -480,16 +467,7 @@ export const ZAEBOrganizationKZVAbrechnungsnummer: t.Type<ZAEBOrganizationKZVAbr
         Excess(
             t.intersection([
                 t.type({
-                    type: t.type({
-                        coding: t.array(
-                            t.type({
-                                system: Literal(
-                                    "http://fhir.de/CodeSystem/identifier-type-de-basis"
-                                ),
-                                code: Literal("KZVA")
-                            })
-                        )
-                    }),
+                    type: ZAEBOrganizationKZVAbrechnungsnummerType,
                     system: Literal(
                         "http://fhir.de/NamingSystem/kzbv/kzvabrechnungsnummer"
                     ),

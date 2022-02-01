@@ -35,12 +35,12 @@
                     ]
                 },
                 "subject": {
-                    "reference": "urn:uuid:ba5f36ef-84e9-4a83-852b-e74dac4014ed"
+                    "reference": "Patient/ba5f36ef-84e9-4a83-852b-e74dac4014ed"
                 },
                 "date": "2018-07-01T12:30:02Z",
                 "author": [
                     {
-                        "reference": "d6259485-ec02-43a9-a476-dc1b7baa05bf"
+                        "reference": "Organization/d6259485-ec02-43a9-a476-dc1b7baa05bf"
                     }
                 ],
                 "title": "Bonushefteintrag",
@@ -48,7 +48,7 @@
                     {
                         "entry": [
                             {
-                                "reference": "urn:uuid:321c66be-ea2e-4559-9e3d-b6f2326f2dcf"
+                                "reference": "Observation/321c66be-ea2e-4559-9e3d-b6f2326f2dcf"
                             }
                         ]
                     }
@@ -214,7 +214,7 @@
                     "text": "Individualprophylaxe"
                 },
                 "subject": {
-                    "reference": "urn:uuid:ba5f36ef-84e9-4a83-852b-e74dac4014ed"
+                    "reference": "Patient/ba5f36ef-84e9-4a83-852b-e74dac4014ed"
                 },
                 "effectiveDateTime": "2020-01-02",
                 "valueBoolean": true
@@ -241,7 +241,7 @@
                     "text": "Datum, seit dem eine lückenlose Dokumentation in dem Papier-Zahnbonusheft nachweislich vorliegt."
                 },
                 "subject": {
-                    "reference": "urn:uuid:ba5f36ef-84e9-4a83-852b-e74dac4014ed"
+                    "reference": "Patient/ba5f36ef-84e9-4a83-852b-e74dac4014ed"
                 },
                 "valueDateTime": "2015-01-02"
             }

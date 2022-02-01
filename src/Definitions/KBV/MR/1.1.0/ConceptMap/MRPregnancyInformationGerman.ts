@@ -1,0 +1,67 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
+// Diese Conceptmap verknüpft die Codes für die Angaben zur Schwangerschaft beim Ultraschallscreening mit deutschen Bezeichnungen.
+
+import { ConceptMap } from "../../../../Interfaces";
+
+const MRPregnancyInformationGerman: ConceptMap = [
+    {
+        source: "http://snomed.info/sct",
+        target: "https://fhir.kbv.de/CodeSystem/KBV_CS_MIO_MR_Pregnancy_Information_German",
+        element: [
+            {
+                code: "370383002",
+                display: "Antenatal ultrasound confirms intrauterine pregnancy (finding)",
+                target: [
+                    {
+                        code: "IntrauterinerSitzintrauterineSchwangerschaft",
+                        display: "Intrauteriner Sitz (intrauterine Schwangerschaft)",
+                        equivalence: "equivalent"
+                    }
+                ]
+            },
+            {
+                code: "370386005",
+                display: "Ultrasound scan - multiple fetus (finding)",
+                target: [
+                    {
+                        code: "MehrlingeMehrlingsschwangerschaft",
+                        display: "Mehrlinge (Mehrlingsschwangerschaft)",
+                        equivalence: "equivalent"
+                    }
+                ]
+            },
+            {
+                code: "459167000",
+                display: "Monochorionic twin pregnancy (disorder)",
+                target: [
+                    {
+                        code: "MonochorialMonochorialeSchwangerschaft",
+                        display: "Monochorial (Monochoriale Schwangerschaft)",
+                        equivalence: "equivalent"
+                    }
+                ]
+            }
+        ]
+    }
+];
+
+export default MRPregnancyInformationGerman;

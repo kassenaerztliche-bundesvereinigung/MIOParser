@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -20,43 +20,41 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { MIOEntry, MIOError, Reference } from "./AppInternals";
+import { MIOEntry, MIOError, ReferencePath } from "./AppInternals";
 import { KBVBundleResource, KBVResource } from "..";
 import { Concept, ConceptMap, Include, ValueSet } from "../Definitions/Interfaces";
 import ErrorMessage from "../Definitions/ErrorMessage";
+import Reference from "./Reference";
 
 export type { Concept, ConceptMap, Include, ValueSet };
 
 function getEntryBase<T>(
     mio: KBVBundleResource,
     types: any[],
-    ref: string | undefined,
-    useRef: boolean
+    ref: Reference | undefined,
+    useRef: boolean,
+    log = false
 ): MIOEntry<T>[] | undefined {
-    // const typesStr = types.map((type) => (type as any).name).join(" | ");
+    const typesStr = types.map((type) => (type as any).name).join(" | ");
 
     const results = mio.entry.filter(
         (entry: any) =>
             types.filter((type) => {
-                // https://hl7.org/FHIR/bundle.html#references
-                const regex = /[.:/ ]/;
-                const isRef =
-                    entry.fullUrl.split(regex).pop() === ref?.split(regex).pop();
+                const isRef = ref?.resolve(entry.fullUrl);
                 const isRes = type.is(entry.resource);
                 return isRes && (useRef ? isRef : true);
             }).length
     );
 
     if (results.length > 0) {
-        /*
-        if (results.length > 1) {
+        if (log && results.length > 1) {
             const msg = `${results.length} results for "${typesStr}" ${
                 useRef ? `with ref: "${ref}"` : ""
             }`;
             console.log(msg);
             console.log(results);
         }
-         */
+
         return results.map((r: any) => {
             return {
                 fullUrl: r.fullUrl,
@@ -64,10 +62,13 @@ function getEntryBase<T>(
             };
         });
     } else {
-        /*
-        const msg = `Can not find "${typesStr}" ${useRef ? `with ref: "${ref}"` : ""}`;
-        console.log(msg);
-         */
+        if (log) {
+            const msg = `Can not find "${typesStr}" ${
+                useRef ? `with ref: "${ref}"` : ""
+            }`;
+            console.log(msg);
+        }
+
         return undefined;
     }
 }
@@ -111,7 +112,7 @@ export function getEntries<T>(mio: KBVBundleResource, types: any[]): MIOEntry<T>
 export function getEntryWithRef<T>(
     mio: KBVBundleResource,
     types: any[],
-    ref: string
+    ref: Reference
 ): MIOEntry<T> | undefined {
     const result = getEntryBase<T>(mio, types, ref, true);
     if (result && result.length === 1) {
@@ -182,14 +183,13 @@ export function getUuidFromEntry(entry: { fullUrl: string }): string {
  * @param bundle {KBVBundleResource | undefined} the bundle that is to be examined
  * @param reference {string} the reference for the entry to be searched for
  */
-export function findEntryByFullUrl(
+export function findEntryByReference(
     bundle: KBVBundleResource | undefined,
-    reference: string
+    reference: Reference
 ): MIOEntry<KBVResource> | undefined {
     if (bundle) {
-        const results = bundle.entry.filter(
-            (e: any) => getUuid(e.fullUrl) === getUuid(reference)
-        );
+        const results = bundle.entry.filter((e: any) => reference.resolve(e.fullUrl));
+
         if (results.length > 0) {
             const result = results[0];
             return {
@@ -291,67 +291,43 @@ export function multiTranslateCode(
 }
 
 /**
- * Walks through a object and tries to find a uuid within the fields "reference" and "fullUrl".
- *
- * @param obj {any} The object to be evaluated
- * @param reference {string} The uuid to be found
- * @param found {boolean} Whether the uuid was found or not
- */
-const findReference = (
-    obj: any, // eslint-disable-line
-    reference: string,
-    found = false
-): boolean => {
-    reference = getUuid(reference);
-    if (!found && obj) {
-        Object.keys(obj).forEach((key) => {
-            const value = obj[key];
-
-            if (value instanceof Array) {
-                value.forEach((e) => {
-                    found = found || findReference(e, reference, found);
-                });
-            } else if (typeof value === "object") {
-                found = found || findReference(value, reference, found);
-            } else if (key === "id") {
-                found = found || getUuid(value as string) === reference;
-            } else if (key === "fullUrl") {
-                found = found || getUuid(value as string) === reference;
-            }
-        });
-    }
-
-    return found;
-};
-
-export { findReference };
-
-/**
  * Walks a object and lists its references (fields called "reference" and "fullUrl").
  *
  * @param obj {any} The object to be evaluated
- * @param references {Reference[]} Array of references containing a value and the path of the reference
+ * @param references {ReferencePath[]} Array of references containing a value and the path of the reference
  * @param path {string} Current path within the object
  */
 const listReferences = (
     obj: any, // eslint-disable-line
-    references: Reference[] = [],
-    path = ""
-): Reference[] => {
+    references: ReferencePath[] = [],
+    path = "",
+    lastFullUrl = ""
+): ReferencePath[] => {
     if (obj) {
         Object.keys(obj).forEach((key) => {
             const currentPath = (path ? path + "." : "") + key;
             const value = obj[key];
             if (value instanceof Array) {
                 value.forEach((e) => {
-                    listReferences(e, references, currentPath);
+                    listReferences(e, references, currentPath, lastFullUrl);
                 });
             } else if (typeof value === "object") {
-                listReferences(value, references, currentPath);
+                listReferences(value, references, currentPath, lastFullUrl);
+            } else if (key === "fullUrl") {
+                listReferences(
+                    obj.resource,
+                    references,
+                    (path ? path + "." : "") + "resource",
+                    value
+                );
             } else if (key === "reference") {
-                references.push({ id: value, path: currentPath });
+                references.push({
+                    ref: new Reference(value, lastFullUrl),
+                    path: currentPath
+                });
             }
         });
+
         return references;
     }
 
@@ -360,53 +336,26 @@ const listReferences = (
 
 export { listReferences };
 
-export function getOrphans(
-    bundle: KBVBundleResource,
-    allReferences?: Reference[]
-): string[] {
-    const references = (allReferences ?? listReferences(bundle)).map((ref) =>
-        getUuid(ref.id)
-    );
+export function getOrphans(bundle: KBVBundleResource): MIOError[] {
+    const allReferences = listReferences(bundle);
+    const references = (allReferences ?? listReferences(bundle)).map((ref) => ref.ref);
+
     const fullUrls = bundle.entry
         .filter((e) => e.resource.resourceType !== "Composition")
         .map((e) => e.fullUrl);
 
-    return fullUrls.filter((ref) => !references.includes(getUuid(ref)));
-}
+    const orphans: MIOError[] = fullUrls
+        .filter((fullUrl) => !references.filter((r) => r.resolve(fullUrl)).length)
+        .map((orphan) => {
+            return {
+                message: ErrorMessage.Orphan(orphan),
+                resource: bundle.identifier.value,
+                path: "bundle.entry",
+                value: orphan
+            };
+        });
 
-/**
- * Evaluates whether references in bundle are resolved or not.
- * Every unresolved reference is returned as a MIOError.
- *
- * @param bundle {KBVBundleResource} The bundle to be evaluated
- * @returns {MIOError[]} Array of MIOErrors containing the unresolved references
- */
-export function getUnresolvedReferences(bundle: KBVBundleResource): MIOError[] {
-    const allReferences = listReferences(bundle);
-
-    const unresolvedReferences = allReferences.filter(
-        (reference) => !findReference(bundle, reference.id)
-    );
-
-    const orphans: MIOError[] = getOrphans(bundle, allReferences).map((orphan) => {
-        return {
-            message: ErrorMessage.Orphan(orphan),
-            resource: bundle.identifier.value,
-            path: "bundle.entry",
-            value: orphan
-        };
-    });
-
-    const unresolved: MIOError[] = unresolvedReferences.map((reference) => {
-        return {
-            message: ErrorMessage.Reference(reference.id),
-            resource: "",
-            path: reference.path,
-            value: reference.id
-        };
-    });
-
-    return [...unresolved, ...orphans];
+    return orphans;
 }
 
 export function errorToString(error: unknown): string {

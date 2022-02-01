@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -32,6 +32,8 @@ describe("Export", () => {
             expect(imported.MR).toBeDefined();
             expect(imported.CMR).toBeDefined();
             expect(imported.FHIR).toBeDefined();
+            expect(imported.KBVBase).toBeDefined();
+            expect(imported.HL7DE).toBeDefined();
         });
     });
 
@@ -40,6 +42,7 @@ describe("Export", () => {
             expect(imported.BundleTypes.length).toBeGreaterThan(1);
             expect(imported.MIOTypes.length).toBeGreaterThan(1);
             expect(imported.ParserUtil).toBeDefined();
+            expect(imported.Reference).toBeDefined();
         });
     });
 });

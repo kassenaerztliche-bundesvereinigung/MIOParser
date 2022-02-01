@@ -162,21 +162,13 @@ const persons = ParserUtil.getEntries(mio, [
 ]);
 ```
 
-## Tests 
+## Tests
 
-Zum Ausführen der Tests muss das Paket [MIO Test Data](https://github.com/kassenaerztliche-bundesvereinigung/MIOTestData) installiert sein. 
-Es stellt Funktionalitäten und Test-Datensätze bereit. 
-
-### Setup der Tests 
+### Setup der Tests
 Die Installation und das Ausführen der Tests kann so erfolgen:
 
 ```shell script
-git clone https://github.com/kassenaerztliche-bundesvereinigung/miotestdata.git
-cd miotestdata
-npm run build
-npm link
-cd ../mioparser
-npm run install
+npm install
 npm run test
 ```
 
@@ -191,7 +183,7 @@ Softwarefehler können über die [GitHub Issues](https://github.com/kassenaerztl
 ### Lizenz 
 
 Diese Software ist unter der Apache-2.0 Lizenz lizensiert worden - siehe <a href="./LICENSE">LICENSE</a> Datei für mehr Details. 
-(c) 2020 - 2021 Kassenärztliche Bundesvereinigung KdöR
+(c) 2020 - 2022 Kassenärztliche Bundesvereinigung KdöR
 
 ### Bekannte Fehler 
 * Felder, die eine Kardinalität von 1..1 haben und eine extension erlauben (wie z.B. family bei Patient-> Name) sind optional, da derzeit eine Validierung im Sinne von "entweder das eine Feld oder das andere oder beide" nicht implementiert ist. Somit wird derzeit ein Dokument mit fehlendem "family" Feld als falsch positiv validiert.

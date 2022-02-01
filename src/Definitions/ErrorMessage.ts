@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -41,9 +41,9 @@ export default class ErrorMessage {
         const tag = (context.type as any)._tag ? (context.type as any)._tag : "";
 
         if (lang === "de") {
-            return `Wert ist ${actual} aber sollte ${context.type.name} sein (${tag})`;
+            return `Wert ist ${actual} aber sollte ${context.type.name} sein (${tag}).`;
         } else {
-            return `Value is ${actual} but should be ${context.type.name} (${tag})`;
+            return `Value is ${actual} but should be ${context.type.name} (${tag}).`;
         }
     }
 
@@ -54,14 +54,14 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            let msg = `${name} hat ein falsches Format (${regex})`;
+            let msg = `${name} hat ein falsches Format (${regex}).`;
             if (value === undefined)
-                msg = `Der Wert ist nicht definiert, sollte aber ${name} entsprechen (${regex})`;
+                msg = `Der Wert ist nicht definiert, sollte aber ${name} entsprechen (${regex}).`;
             return msg;
         } else {
-            let msg = `${name} has wrong format (${regex})`;
+            let msg = `${name} has wrong format (${regex}).`;
             if (value === undefined)
-                msg = `Value is undefined but should be a ${name} (${regex})`;
+                msg = `Value is undefined but should be a ${name} (${regex}).`;
             return msg;
         }
     }
@@ -74,11 +74,11 @@ export default class ErrorMessage {
         if (lang === "de") {
             return `Das Array enthält ${actual} sollte aber mindestens ${min} ${
                 min > 1 ? "Elemente" : "Element"
-            } enthalten`;
+            } enthalten.`;
         } else {
             return `Array has length of ${actual} but should have at least ${min} ${
                 min > 1 ? "elements" : "element"
-            }`;
+            }.`;
         }
     }
 
@@ -90,11 +90,11 @@ export default class ErrorMessage {
         if (lang === "de") {
             return `Das Array enthält ${actual} sollte aber maximal ${max} ${
                 max > 1 ? "Elemente" : "Element"
-            } enthalten`;
+            } enthalten.`;
         } else {
             return `Array has length of ${actual} but should have a maximum of ${max} ${
                 max > 1 ? "elements" : "element"
-            }`;
+            }.`;
         }
     }
 
@@ -108,7 +108,9 @@ export default class ErrorMessage {
                 message ? `Fehler: ${message}` : ""
             }`;
         } else {
-            return `Wrong slice for Codec ${name}. ${message ? `Error: ${message}` : ""}`;
+            return `Wrong slice for Codec ${name}. ${
+                message ? `Error: ${message}` : ""
+            }.`;
         }
     }
 
@@ -121,9 +123,9 @@ export default class ErrorMessage {
         const i = typeof is === "string" ? `"${is}"` : is;
 
         if (lang === "de") {
-            return `Es wurde der Wert ${s} erwartet. Angegeben wurde ${i}`;
+            return `Es wurde der Wert ${s} erwartet. Angegeben wurde ${i}.`;
         } else {
-            return `Expected literal ${s}, but received ${i}`;
+            return `Expected literal ${s}, but received ${i}.`;
         }
     }
 
@@ -135,9 +137,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Fehler für Codec: ${name}. Sollte ${min} bis ${max} mal vorkommen. Codec kam allerdings ${actual} mal vor.`;
+            return `Codec: ${name} wurde ${actual} gefunden. (Soll: ${min} bis ${max})`;
         } else {
-            return `Error for Codec: ${name}. Should occur ${min} to ${max} times but occurs ${actual} times.`;
+            return `Codec: ${name} was found ${actual} times. (Target: ${min} to ${max})`;
         }
     }
 
@@ -146,9 +148,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Überflüssiges Element "${key}" gefunden`;
+            return `Überflüssiges Element "${key}" gefunden.`;
         } else {
-            return `Excess key "${key}" found`;
+            return `Excess key "${key}" found.`;
         }
     }
 
@@ -170,9 +172,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Folgender Constraint (${key}) wurde nicht eingehalten: ${humanMessage}`;
+            return `Folgender Constraint (${key}) wurde nicht erfüllt: ${humanMessage}.`;
         } else {
-            return `The following constraint (${key}) was not satisfied: ${humanMessage}`;
+            return `The following constraint (${key}) was not satisfied: ${humanMessage}.`;
         }
     }
 
@@ -183,9 +185,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Folgender Constraint (${key}) konnte nicht aufgelöst werden: ${humanMessage} \n ${error}`;
+            return `Folgender Constraint (${key}) ist nicht implementiert: ${humanMessage} \n ${error}.`;
         } else {
-            return `The following constraint (${key}) could not be resolved: ${humanMessage} \n ${error}`;
+            return `The following constraint (${key}) is not implemented: ${humanMessage} \n ${error}.`;
         }
     }
 
@@ -194,9 +196,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Die Referenz ${ref} verweist nicht auf eine Ressource innerhalb des Bundles`;
+            return `Die Referenz ${ref} verweist auf keine Ressource innerhalb des Bundles.`;
         } else {
-            return `Reference ${ref} not targeting a resource within the bundle`;
+            return `Reference ${ref} does not target a resource within the bundle.`;
         }
     }
 
@@ -207,13 +209,13 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Die Referenz ${ref} verweist auf ein nicht korrektes Profil. ${
-                targetProfile.length > 1 ? "Erwartetes Profil" : "Erwartete Profile"
-            }: ${targetProfile}, Referenziertes Profil: ${actualProfile}`;
+            return `Die Referenz ${ref} verweist auf ein falsches Profil. \n 
+            Erwartet: ${targetProfile}, \n
+            Erhalten: ${actualProfile}`;
         } else {
-            return `Reference ${ref} does not target a correct profile. Expected ${
-                targetProfile.length > 1 ? "Profiles" : "Profile"
-            }: ${targetProfile}, Received Profile: ${actualProfile}`;
+            return `Reference ${ref} targets wrong profile. \n 
+            Expected: ${targetProfile}, \n 
+            Received: ${actualProfile}`;
         }
     }
 
@@ -222,19 +224,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Die Composition mit Url: ${ref} konnte nicht zur Validierung gefunden werden`;
+            return `Die Composition mit Url: ${ref} konnte nicht gefunden werden.`;
         } else {
-            return `The composition with url: ${ref} could not be found for validation`;
-        }
-    }
-
-    static NoCompositionInBundle(
-        lang: ErrorMessageLanguage = ErrorMessage.Language
-    ): string {
-        if (lang === "de") {
-            return "Im Bundle konnte keine Composition gefunden werden.";
-        } else {
-            return "No composition was found within the bundle.";
+            return `The composition with url: ${ref} could not be found.`;
         }
     }
 
@@ -275,14 +267,6 @@ export default class ErrorMessage {
         }
     }
 
-    static NoSliceByValue(lang: ErrorMessageLanguage = ErrorMessage.Language): string {
-        if (lang === "de") {
-            return "SliceValue für die Section fehlt.";
-        } else {
-            return "SliceValue for the section is missing";
-        }
-    }
-
     static ReferenceNotResolved(
         value: unknown,
         lang: ErrorMessageLanguage = ErrorMessage.Language
@@ -290,13 +274,11 @@ export default class ErrorMessage {
         if (lang === "de") {
             if (value == "")
                 return "Die Referenz hat einen leeren String und kann nicht aufgelöst werden.";
-            else
-                return `Die Referenz konnte nicht aufgelöst werden. Der Wert "${value}" ist nicht korrekt.`;
+            else return `Der Codec "${value}" der Referenz ist fehlerhaft.`;
         } else {
             if (value == "")
                 return "The reference contains an empty string and can not be resolved.";
-            else
-                return `The Reference could not be resolved. The value "${value}" is not correct.`;
+            else return `The Codec "${value}" of the Reference could not be validated.`;
         }
     }
 
@@ -350,13 +332,13 @@ export default class ErrorMessage {
     }
 
     static Reference(
-        ref: string,
+        ref?: string,
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Unaufgelöste Referenz "${ref}".`;
+            return `Referenz "${ref}" kann nicht gefunden werden.`;
         } else {
-            return `Unresolved reference "${ref}".`;
+            return `Unable to find reference "${ref}".`;
         }
     }
 
@@ -365,22 +347,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Verwaiste Ressource mit der fullUrl "${fullUrl}" gefunden.`;
+            return `Verwaiste Ressource "${fullUrl}" gefunden.`;
         } else {
-            return `Found orphan resource with fullUrl "${fullUrl}".`;
-        }
-    }
-
-    static ReferenceNotFound(
-        fieldName: string,
-        ref: string,
-        lang: ErrorMessageLanguage = ErrorMessage.Language
-    ): string {
-        const name = ErrorMessage.capitalize(fieldName);
-        if (lang === "de") {
-            return `${name} mit der Reference "${ref}" wurde nicht gefunden.`;
-        } else {
-            return `${name} with reference "${ref}" not found.`;
+            return `Found orphan resource "${fullUrl}".`;
         }
     }
 
@@ -400,9 +369,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Ein Bundle (${bundleName}) muss eine Composition enthalten.`;
+            return `Bundle (${bundleName}) enthält keine Composition.`;
         } else {
-            return `A Bundle (${bundleName}) must have a Composition.`;
+            return `Bundle (${bundleName}) doesn't contain a Composition.`;
         }
     }
 
@@ -411,43 +380,9 @@ export default class ErrorMessage {
         lang: ErrorMessageLanguage = ErrorMessage.Language
     ): string {
         if (lang === "de") {
-            return `Ein Bundle (${bundleName}) darf nur eine Composition enthalten.`;
+            return `Bundle (${bundleName}) darf nur eine Composition enthalten.`;
         } else {
-            return `A Bundle (${bundleName}) must have only one composition.`;
-        }
-    }
-
-    static CompositionRequire(
-        bundleName: string,
-        profile: string,
-        profiles: string[],
-        lang: ErrorMessageLanguage = ErrorMessage.Language
-    ): string {
-        if (lang === "de") {
-            return ` Ein Bundle (${bundleName}) mit der Composition (${profile}) muss ${profiles.join(
-                " oder "
-            )} enthalten.`;
-        } else {
-            return `Bundle (${bundleName}) with Composition (${profile}) must have a ${profiles.join(
-                " or a "
-            )}.`;
-        }
-    }
-
-    static CompositionExclude(
-        bundleName: string,
-        profile: string,
-        profiles: string[],
-        lang: ErrorMessageLanguage = ErrorMessage.Language
-    ): string {
-        if (lang === "de") {
-            return `Ein Bundle (${bundleName}) mit der Composition (${profile}) darf kein ${profiles.join(
-                " oder "
-            )} enthalten.`;
-        } else {
-            return `A Bundle (${bundleName}) with Composition (${profile}) can not have a ${profiles.join(
-                " or a "
-            )}.`;
+            return `Bundle (${bundleName}) may only have one composition.`;
         }
     }
 }

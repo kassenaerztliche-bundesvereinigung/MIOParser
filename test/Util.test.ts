@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -18,7 +18,15 @@
  *
  */
 
-import MIOParser, { ParserUtil, KBVBundleResource, Vaccination, ZAEB, MR } from "../src";
+import MIOParser, {
+    ParserUtil,
+    KBVBundleResource,
+    Vaccination,
+    ZAEB,
+    MR,
+    Reference
+} from "../src";
+
 import * as TestUtil from "@kbv/miotestdata";
 import { ConceptMap } from "../src/Interfaces/Util";
 import { AnyType } from "../src/";
@@ -85,11 +93,11 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: MR.V1_0_0.Profile.Bundle,
+            bundleType: MR.V1_1_0.Profile.Bundle,
             mioString: "MR",
             todos: [
                 {
-                    profile: MR.V1_0_0.Profile.PatientMother,
+                    profile: MR.V1_1_0.Profile.PatientMother,
                     result: true
                 }
             ]
@@ -187,15 +195,15 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: [MR.V1_0_0.Profile.Bundle],
+            bundleType: [MR.V1_1_0.Profile.Bundle],
             mioString: "MR",
             todos: [
                 {
-                    profiles: [MR.V1_0_0.Profile.Composition],
+                    profiles: [MR.V1_1_0.Profile.Composition],
                     result: 1
                 },
                 {
-                    profiles: [MR.V1_0_0.Profile.PatientMother],
+                    profiles: [MR.V1_1_0.Profile.PatientMother],
                     result: 1
                 }
             ]
@@ -287,14 +295,14 @@ describe("Parser Util", () => {
             ]
         },
         {
-            bundleType: MR.V1_0_0.Profile.Bundle,
+            bundleType: MR.V1_1_0.Profile.Bundle,
             mioString: "MR",
             todos: [
                 {
-                    profile: MR.V1_0_0.Profile.PatientMother,
+                    profile: MR.V1_1_0.Profile.PatientMother,
                     slices: [
                         {
-                            type: MR.V1_0_0.Profile.PatientMotherName,
+                            type: MR.V1_1_0.Profile.PatientMotherName,
                             field: "name"
                         }
                     ]
@@ -550,6 +558,7 @@ describe("Parser Util", () => {
         done();
     });
 
+    /*
     test("getUuid", (done) => {
         const values: { in: string; out: string }[] = [
             {
@@ -581,6 +590,7 @@ describe("Parser Util", () => {
         expect(ParserUtil.getUuid("", "")).toEqual("");
         done();
     });
+     */
 
     test("getUuidFromBundle", (done) => {
         // eslint-disable-next-line
@@ -622,7 +632,7 @@ describe("Parser Util", () => {
         },
         {
             mioString: "MR",
-            profile: MR.V1_0_0.Profile.PatientMother
+            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 
@@ -640,13 +650,18 @@ describe("Parser Util", () => {
                 ]);
 
                 expect(patient).toBeDefined();
+
                 if (patient) {
                     const fullUrl = patient.fullUrl;
                     expect(fullUrl).toBeDefined();
 
-                    const result = ParserUtil.findEntryByFullUrl(bundle, fullUrl);
+                    const result = ParserUtil.findEntryByReference(
+                        bundle,
+                        new Reference(fullUrl)
+                    );
                     expect(result).toEqual(patient);
                 }
+
                 done();
             });
         });
@@ -660,17 +675,19 @@ describe("Parser Util", () => {
     );
 
     test("findEntryByFullUrl (no value)", (done) => {
-        expect(ParserUtil.findEntryByFullUrl(undefined, "fullUrl")).toEqual(undefined);
+        expect(
+            ParserUtil.findEntryByReference(undefined, new Reference("fullUrl"))
+        ).toEqual(undefined);
         done();
     });
 
     test("findEntryByFullUrl (entry false fullUrl)", (done) => {
         expect(
-            ParserUtil.findEntryByFullUrl(
+            ParserUtil.findEntryByReference(
                 {
                     entry: [{ fullUrl: "0", resource: {} }]
                 } as KBVBundleResource,
-                "fullUrl"
+                new Reference("fullUrl")
             )
         ).toEqual(undefined);
         done();
@@ -691,7 +708,7 @@ describe("Parser Util", () => {
         },
         {
             mioString: "MR",
-            profile: MR.V1_0_0.Profile.PatientMother
+            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 
@@ -710,20 +727,17 @@ describe("Parser Util", () => {
 
                 expect(patient).toBeDefined();
                 if (patient) {
-                    const ref = ParserUtil.getUuid(patient.fullUrl);
-                    expect(ref).toBeDefined();
-
                     const result = ParserUtil.getEntryWithRef<typeof value.profile>(
                         bundle,
                         [value.profile],
-                        ref
+                        new Reference(patient.fullUrl)
                     );
                     expect(result).toEqual(patient);
 
                     const noResult = ParserUtil.getEntryWithRef<typeof value.profile>(
                         bundle,
                         [value.profile],
-                        "-"
+                        new Reference("-")
                     );
                     expect(noResult).toBeUndefined();
                 }

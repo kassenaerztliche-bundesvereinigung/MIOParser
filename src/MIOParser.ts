@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -69,8 +69,6 @@ export default class MIOParser {
      * @returns {Promise<MIOParserResult>} Processed result containing the values and/or errors and warnings
      */
     public async parseFile(file: Blob): Promise<MIOParserResult> {
-        // parserLogging.info("Starting to parse MIO");
-
         return new Promise((resolve, reject: (reason?: Error) => void) => {
             const fileReader = new FileReader();
 
@@ -289,8 +287,6 @@ export default class MIOParser {
 
         // If errors occurred
         if (!result.value || result.errors.length) {
-            // const message = Messages.InvalidMIO();
-            // parserLogging.warn(message);
             resolve(result);
         }
         // if no errors occurred
@@ -304,7 +300,7 @@ export default class MIOParser {
                 const returnMioResult: MIOParserResult = {
                     value: value,
                     errors: [...result.errors, ...entries.errors],
-                    warnings: Util.getUnresolvedReferences(value).concat(result.warnings)
+                    warnings: Util.getOrphans(value).concat(result.warnings)
                 };
 
                 resolve(returnMioResult);

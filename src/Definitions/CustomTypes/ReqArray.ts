@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -27,7 +27,7 @@ import { ValidationError } from "io-ts";
 export interface Req<Q extends t.Any> {
     codec: Q;
     occurrence: [string, string];
-    sliceBy?: { path: string; value?: string };
+    sliceBy?: { path?: string; value?: string; pattern?: any };
 }
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
@@ -46,6 +46,21 @@ export class ReqArrayType extends t.Type<any> {
     ) {
         super(name, is, validate, encode);
     }
+}
+
+function sliceByEqual(
+    codecSliceBy: any,
+    instanceSliceBy: any,
+    callback?: (x: string, y: string) => void
+) {
+    return Object.keys(codecSliceBy.pattern).every((slicedByKey: string) => {
+        return Object.keys(instanceSliceBy).some((instanceSliceByKey: string) => {
+            if (callback) callback(slicedByKey, instanceSliceByKey);
+            return (
+                codecSliceBy.pattern[slicedByKey] === instanceSliceBy[instanceSliceByKey]
+            );
+        });
+    });
 }
 
 export default function ReqArray<C extends t.Any, D extends t.Any>(
@@ -99,33 +114,76 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
                 // check for slices that do not have a corresponding checkSlice
                 tempInstanceToCheck.forEach((instance: any) => {
                     const slicedBy = codecArrayToCheck[0].sliceBy;
-                    const sliceValuePath = slicedBy?.path;
-                    const sliceValue =
-                        typeof slicedBy?.value === "string"
-                            ? `"${slicedBy?.value}"`
-                            : slicedBy?.value;
-                    const actualValue = resolvePath(instance, sliceValuePath);
 
-                    const hasCorrespondingCheckSlice = codecArrayToCheck.some(
-                        (codecToCheck) => {
-                            const value = codecToCheck.sliceBy?.value;
-                            if (value && actualValue) {
-                                return (
-                                    value.replace(/\|.*/, "") ===
-                                    actualValue.replace(/\|.*/, "")
+                    // check for path Slices
+                    let hasCorrespondingCheckSlice: boolean;
+                    let actualValue = "";
+                    let sliceValue: string | undefined;
+                    if (slicedBy?.path) {
+                        const sliceValuePath = slicedBy?.path;
+                        sliceValue =
+                            typeof slicedBy?.value === "string"
+                                ? `"${slicedBy?.value}"`
+                                : slicedBy?.value;
+                        actualValue = resolvePath(instance, sliceValuePath);
+
+                        hasCorrespondingCheckSlice = codecArrayToCheck.some(
+                            (codecToCheck) => {
+                                const value = codecToCheck.sliceBy?.value;
+                                if (value && actualValue) {
+                                    return (
+                                        value.replace(/\|.*/, "") ===
+                                        actualValue.replace(/\|.*/, "")
+                                    );
+                                } else return !value;
+                            }
+                        );
+                        if (!hasCorrespondingCheckSlice)
+                            wrongCodecs.push({
+                                context: c,
+                                message: ErrorMessage.NoSectionForValue(
+                                    sliceValue,
+                                    sliceValuePath
+                                ),
+                                value: actualValue
+                            });
+                    } else if (slicedBy?.pattern) {
+                        const hasCorrespondingCheckSlice = codecArrayToCheck.some(
+                            (codecToCheck) => {
+                                const callBack = (
+                                    codecToCheckKey: string,
+                                    slicedByKey: string
+                                ): void => {
+                                    if (codecToCheckKey === slicedByKey) {
+                                        if (
+                                            !codecToCheck.sliceBy?.pattern[
+                                                codecToCheckKey
+                                            ] === slicedBy.pattern[slicedByKey]
+                                        ) {
+                                            actualValue =
+                                                codecToCheck.sliceBy?.pattern[
+                                                    codecToCheckKey
+                                                ];
+                                            sliceValue = slicedBy.pattern[slicedByKey];
+                                        }
+                                    }
+                                };
+
+                                return sliceByEqual(
+                                    slicedBy,
+                                    codecToCheck.sliceBy?.pattern,
+                                    callBack
                                 );
-                            } else return !value;
-                        }
-                    );
-                    if (!hasCorrespondingCheckSlice)
-                        wrongCodecs.push({
-                            context: c,
-                            message: ErrorMessage.NoSectionForValue(
-                                sliceValue,
-                                sliceValuePath
-                            ),
-                            value: actualValue
-                        });
+                            }
+                        );
+
+                        if (!hasCorrespondingCheckSlice)
+                            wrongCodecs.push({
+                                context: c,
+                                message: ErrorMessage.NoSectionForValue(sliceValue),
+                                value: actualValue
+                            });
+                    }
                 });
 
                 // check each codec if the requirements are fulfilled
@@ -138,31 +196,54 @@ export default function ReqArray<C extends t.Any, D extends t.Any>(
 
                     const occurrenceEntries = tempInstanceToCheck.filter(
                         (instance: any) => {
-                            const value = resolvePath(
-                                instance,
-                                codecToCheck.sliceBy?.path
-                            );
-                            if (value === codecToCheck.sliceBy?.value) {
-                                const decoderResult = codecToCheck.codec.validate(
+                            if (codecToCheck.sliceBy?.path) {
+                                const value = resolvePath(
                                     instance,
-                                    c
+                                    codecToCheck.sliceBy?.path
                                 );
-                                if (decoderResult._tag !== "Right") {
-                                    decoderResult.left.forEach((left) =>
-                                        wrongCodecs.push({
-                                            context: c,
-                                            message: ErrorMessage.Slice(
-                                                codecToCheck.codec.name,
-                                                left.message
-                                            ),
-                                            value: left.value
-                                        })
+                                if (value === codecToCheck.sliceBy?.value) {
+                                    const decoderResult = codecToCheck.codec.validate(
+                                        instance,
+                                        c
                                     );
+                                    if (decoderResult._tag !== "Right") {
+                                        decoderResult.left.forEach((left) =>
+                                            wrongCodecs.push({
+                                                context: c,
+                                                message: ErrorMessage.Slice(
+                                                    codecToCheck.codec.name,
+                                                    left.message
+                                                ),
+                                                value: left.value
+                                            })
+                                        );
+                                    } else {
+                                        return true;
+                                    }
                                 } else {
-                                    return true;
+                                    return false;
                                 }
-                            } else {
-                                return false;
+                            } else if (codecToCheck.sliceBy?.pattern) {
+                                if (sliceByEqual(codecToCheck.sliceBy, instance)) {
+                                    const decoderResult = codecToCheck.codec.validate(
+                                        instance,
+                                        c
+                                    );
+                                    if (decoderResult._tag !== "Right") {
+                                        decoderResult.left.forEach((left) =>
+                                            wrongCodecs.push({
+                                                context: c,
+                                                message: ErrorMessage.Slice(
+                                                    codecToCheck.codec.name,
+                                                    left.message
+                                                ),
+                                                value: left.value
+                                            })
+                                        );
+                                    } else {
+                                        return true;
+                                    }
+                                }
                             }
                         }
                     );

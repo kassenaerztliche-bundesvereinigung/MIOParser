@@ -1,5 +1,9 @@
 # Changelog MIO Parser
 
+## 1.6.0
+* Parsen von Mutterpass, Version 1.1.0
+* Version 1.0.0 des MIOs wird nicht mehr unterstützt
+
 ## 1.5.0
 * Parsen von Kinderuntersuchungsheft, Version 1.0.1
 * Version 1.0.0 des MIOs wird nicht mehr unterstützt

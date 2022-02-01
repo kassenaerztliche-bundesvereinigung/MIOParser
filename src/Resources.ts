@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -123,7 +123,6 @@ export const getPaths = <A>(
                 const mioErrors: MIOError[] = [];
                 errors.forEach((error: ValidationError) => {
                     const errorValue = getErrorValue(error);
-                    console.log(error.context);
                     const errorPath = error.context
                         .map(({ key, type }, index) => {
                             if (key !== "" && !key.match(/^\d+$/)) return key;
@@ -245,7 +244,7 @@ function checkConstraints(
             if (constraintResult.includes(false)) {
                 const parserError = {
                     message: ErrorMessage.Constraint(constraint.human, constraint.key),
-                    resource: resourceIdentifier,
+                    resource: resource.id ?? resourceIdentifier,
                     path: constraint.expression,
                     value: constraint.key
                 };
@@ -309,6 +308,12 @@ export default function getResource(
                 key: "bundleForReferenceValidation" + (type ? `.${type}` : ""),
                 actual: bundle,
                 type: t.type({})
+            });
+
+            context.push({
+                key: "entryFullURL",
+                actual: fullUrl,
+                type: t.string
             });
 
             const resourceResult = bundle
@@ -402,6 +407,7 @@ export function getAllEntries(
             MIOTypes,
             bundle
         );
+
         kbvResources.push({
             fullUrl: e.fullUrl,
             resource: result.value

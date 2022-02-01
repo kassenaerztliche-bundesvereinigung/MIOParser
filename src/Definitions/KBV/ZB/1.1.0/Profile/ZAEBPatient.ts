@@ -1,3 +1,23 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
 import * as t from "io-ts";
 import {
     Literal,
@@ -570,12 +590,7 @@ export const ZAEBPatientStrassenanschriftLine: t.Type<ZAEBPatientStrassenanschri
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBPatientPid {
-    type: {
-        coding: {
-            system: "http://terminology.hl7.org/CodeSystem/v2-0203";
-            code: "MR";
-        }[];
-    };
+    type: ZAEBPatientPidType;
     system: string;
     value: string;
     id?: string;
@@ -586,16 +601,7 @@ export const ZAEBPatientPid: t.Type<ZAEBPatientPid> = t.recursion("ZAEBPatientPi
     Excess(
         t.intersection([
             t.type({
-                type: t.type({
-                    coding: t.array(
-                        t.type({
-                            system: Literal(
-                                "http://terminology.hl7.org/CodeSystem/v2-0203"
-                            ),
-                            code: Literal("MR")
-                        })
-                    )
-                }),
+                type: ZAEBPatientPidType,
                 system: SCALARUri,
                 value: SCALARString
             }),
@@ -611,12 +617,7 @@ export const ZAEBPatientPid: t.Type<ZAEBPatientPid> = t.recursion("ZAEBPatientPi
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
 export interface ZAEBPatientVersichertenIdGKV {
-    type: {
-        coding: {
-            system: "http://fhir.de/CodeSystem/identifier-type-de-basis";
-            code: "GKV";
-        }[];
-    };
+    type: ZAEBPatientVersichertenIdGKVType;
     system: "http://fhir.de/NamingSystem/gkv/kvid-10";
     value: string;
     id?: string;
@@ -628,16 +629,7 @@ export const ZAEBPatientVersichertenIdGKV: t.Type<ZAEBPatientVersichertenIdGKV> 
         Excess(
             t.intersection([
                 t.type({
-                    type: t.type({
-                        coding: t.array(
-                            t.type({
-                                system: Literal(
-                                    "http://fhir.de/CodeSystem/identifier-type-de-basis"
-                                ),
-                                code: Literal("GKV")
-                            })
-                        )
-                    }),
+                    type: ZAEBPatientVersichertenIdGKVType,
                     system: Literal("http://fhir.de/NamingSystem/gkv/kvid-10"),
                     value: SCALARString
                 }),

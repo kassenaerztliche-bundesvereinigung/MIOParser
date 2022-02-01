@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -19,6 +19,7 @@
  */
 
 import { KBVResource } from "..";
+import Reference from "./Reference";
 import * as t from "io-ts";
 import { Meta } from "../Definitions/FHIR/4.0.1/Profile";
 
@@ -174,8 +175,8 @@ export interface ValidationResult {
 /**
  * Describes a reference for validating a Composition Resource
  */
-export type Reference = {
-    id: string;
+export type ReferencePath = {
+    ref: Reference;
     path: string;
 };
 

@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -55,19 +55,10 @@ describe("ErrorMessage", () => {
         { callback: ErrorMessage.InvalidMIO, params: [] },
         { callback: ErrorMessage.SyntaxError, params: [] },
         { callback: ErrorMessage.Reference, params: ["0000"] },
-        { callback: ErrorMessage.ReferenceNotFound, params: ["field.name", "0000"] },
         { callback: ErrorMessage.Valid, params: [true] },
         { callback: ErrorMessage.Valid, params: [false] },
         { callback: ErrorMessage.NoComposition, params: ["bundle"] },
         { callback: ErrorMessage.OnlyOneComposition, params: ["bundle"] },
-        {
-            callback: ErrorMessage.CompositionRequire,
-            params: ["bundle", "profile B", ["profile A"]]
-        },
-        {
-            callback: ErrorMessage.CompositionExclude,
-            params: ["bundle", "profile B", ["profile A"]]
-        },
         /*
         {
             callback: ErrorMessage.ContextEntry,
@@ -127,10 +118,6 @@ describe("ErrorMessage", () => {
             params: ["0000-0000"]
         },
         {
-            callback: ErrorMessage.NoCompositionInBundle,
-            params: []
-        },
-        {
             callback: ErrorMessage.NoSections,
             params: []
         },
@@ -140,10 +127,6 @@ describe("ErrorMessage", () => {
         },
         {
             callback: ErrorMessage.ObjectNotPresent,
-            params: []
-        },
-        {
-            callback: ErrorMessage.NoSliceByValue,
             params: []
         },
         {
