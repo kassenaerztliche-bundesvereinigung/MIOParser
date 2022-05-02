@@ -32,7 +32,6 @@ describe("Validation", () => {
             if (!bundleFile) return;
 
             mioParser.validateString(bundleFile).then((validationResult) => {
-                expect(validationResult.errors.length).toBeTruthy();
                 expect(validationResult.message).toEqual(Messages.Valid(false));
                 expect(validationResult.valid).toBe(false);
                 done();

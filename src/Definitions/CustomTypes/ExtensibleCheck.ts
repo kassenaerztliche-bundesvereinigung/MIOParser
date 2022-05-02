@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -45,8 +45,9 @@ export default function ExtensibleCheck<C extends t.Any>(
         name,
         (i): i is string => typeof i === "string",
         (i, c) => {
+            if (!i) return t.failure(ErrorMessage.ValueOfValueSetNotPresent(valueSet), c);
             const valueSetResult = valueSet.decode(i);
-            if (valueSetResult._tag === "Right" || !i) {
+            if (valueSetResult._tag === "Right") {
                 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
                 return t.success<any>(i);
             } else {

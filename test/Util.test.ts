@@ -23,7 +23,6 @@ import MIOParser, {
     KBVBundleResource,
     Vaccination,
     ZAEB,
-    MR,
     Reference
 } from "../src";
 
@@ -88,16 +87,6 @@ describe("Parser Util", () => {
                 },
                 {
                     profile: ZAEB.V1_1_0.Profile.Composition,
-                    result: true
-                }
-            ]
-        },
-        {
-            bundleType: MR.V1_1_0.Profile.Bundle,
-            mioString: "MR",
-            todos: [
-                {
-                    profile: MR.V1_1_0.Profile.PatientMother,
                     result: true
                 }
             ]
@@ -193,20 +182,6 @@ describe("Parser Util", () => {
                     result: 1
                 }
             ]
-        },
-        {
-            bundleType: [MR.V1_1_0.Profile.Bundle],
-            mioString: "MR",
-            todos: [
-                {
-                    profiles: [MR.V1_1_0.Profile.Composition],
-                    result: 1
-                },
-                {
-                    profiles: [MR.V1_1_0.Profile.PatientMother],
-                    result: 1
-                }
-            ]
         }
     ];
 
@@ -289,21 +264,6 @@ describe("Parser Util", () => {
                         {
                             type: ZAEB.V1_1_0.Profile.OrganizationStrassenanschrift,
                             field: "address"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            bundleType: MR.V1_1_0.Profile.Bundle,
-            mioString: "MR",
-            todos: [
-                {
-                    profile: MR.V1_1_0.Profile.PatientMother,
-                    slices: [
-                        {
-                            type: MR.V1_1_0.Profile.PatientMotherName,
-                            field: "name"
                         }
                     ]
                 }
@@ -629,10 +589,6 @@ describe("Parser Util", () => {
         {
             mioString: "ZB",
             profile: ZAEB.V1_1_0.Profile.Patient
-        },
-        {
-            mioString: "MR",
-            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 
@@ -705,10 +661,6 @@ describe("Parser Util", () => {
         {
             mioString: "ZB",
             profile: ZAEB.V1_1_0.Profile.Patient
-        },
-        {
-            mioString: "MR",
-            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 

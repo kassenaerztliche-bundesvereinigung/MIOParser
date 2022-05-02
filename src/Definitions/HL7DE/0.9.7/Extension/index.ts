@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,15 +18,17 @@
  *
  */
 
-export {default as Genderamtlichde,} from "./Genderamtlichde"
+export { default as Genderamtlichde } from "./Genderamtlichde";
 
-export {default as Icd10gmausrufezeichen,} from "./Icd10gmausrufezeichen"
+export { default as Icd10gmausrufezeichen } from "./Icd10gmausrufezeichen";
 
-export {default as Icd10gmdiagnosesicherheit,} from "./Icd10gmdiagnosesicherheit"
+export { default as Icd10gmdiagnosesicherheit } from "./Icd10gmdiagnosesicherheit";
 
-export {default as Icd10gmmanifestationscode,} from "./Icd10gmmanifestationscode"
+export { default as Icd10gmmanifestationscode } from "./Icd10gmmanifestationscode";
 
-export {default as Icd10gmprimaercode,} from "./Icd10gmprimaercode"
+export { default as Icd10gmprimaercode } from "./Icd10gmprimaercode";
 
-export {default as Seitenlokalisation,
- SeitenlokalisationValueCoding as  SeitenlokalisationValueCoding,} from "./Seitenlokalisation"
+export {
+    default as Seitenlokalisation,
+    SeitenlokalisationValueCoding as SeitenlokalisationValueCoding
+} from "./Seitenlokalisation";

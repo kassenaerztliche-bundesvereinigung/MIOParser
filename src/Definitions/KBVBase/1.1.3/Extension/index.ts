@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,14 +18,18 @@
  *
  */
 
-export {default as AdditionalComment,} from "./AdditionalComment"
+export { default as AdditionalComment } from "./AdditionalComment";
 
-export {default as StageLife,
- StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplayContent as  StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplayContent,
- StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplay as  StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplay,
- StageLifeValueCodeableConceptCodingDisplay as  StageLifeValueCodeableConceptCodingDisplay,
- StageLifeValueCodeableConceptCoding as  StageLifeValueCodeableConceptCoding,
- StageLifeValueCodeableConcept as  StageLifeValueCodeableConcept,} from "./StageLife"
+export {
+    default as StageLife,
+    StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplayContent as StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplayContent,
+    StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplay as StageLifeValueCodeableConceptCodingDisplayAnzeigeNameDisplay,
+    StageLifeValueCodeableConceptCodingDisplay as StageLifeValueCodeableConceptCodingDisplay,
+    StageLifeValueCodeableConceptCoding as StageLifeValueCodeableConceptCoding,
+    StageLifeValueCodeableConcept as StageLifeValueCodeableConcept
+} from "./StageLife";
 
-export {default as TerminologyGerman,
- TerminologyGermanContent as  TerminologyGermanContent,} from "./TerminologyGerman"
+export {
+    default as TerminologyGerman,
+    TerminologyGermanContent as TerminologyGermanContent
+} from "./TerminologyGerman";

@@ -143,33 +143,38 @@ export type MIOError = {
  * patient?: UUID of the patient that this relates to
  */
 export interface MIOParserResult {
+    fileName: string;
     value: KBVResource;
     errors: MIOError[];
     warnings: MIOError[];
-    patient?: string;
 }
 
 /**
  * Provides an Error Message for non-validation errors, such as Syntax errors.
+ * fileName: TODO
  * message: The main message of that error, describing what happened
  * details: The details describing the error or giving "under the hood" information.
  */
-export class GeneralError extends Error {
-    constructor(readonly message: string, readonly details: string) {
+export class MIOParserError extends Error {
+    constructor(
+        readonly fileName: string,
+        readonly message: string,
+        readonly details: string
+    ) {
         super();
     }
 }
 
 /**
  * Describes the result of validation
- * errors: Array of MIOErrors
  * valid: boolean to quickly indicate validity
  * message: accompanying message with the error
+ * result: the MIOParserResult
  */
 export interface ValidationResult {
-    errors: MIOError[];
     valid: boolean;
     message: string;
+    result: MIOParserResult;
 }
 
 /**

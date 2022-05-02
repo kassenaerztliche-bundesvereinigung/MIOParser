@@ -1,5 +1,9 @@
 # Changelog MIO Parser
 
+## 1.7.0
+* Parsen von allen offiziell unterstützten Versionen
+* Version 1.0.0 des MIOs Mutterpass wird wieder unterstützt
+
 ## 1.6.0
 * Parsen von Mutterpass, Version 1.1.0
 * Version 1.0.0 des MIOs wird nicht mehr unterstützt

@@ -33,7 +33,7 @@ describe("Parse", () => {
             expect(blob).toBeDefined();
             if (!blob) return;
 
-            mioParser.parseFile(blob).then((result) => {
+            mioParser.parseFile(new File([blob], "test-file")).then((result) => {
                 if (result.errors.length) console.log(result.errors);
                 expect(result.errors.length).toBe(0);
                 done();
@@ -45,12 +45,14 @@ describe("Parse", () => {
         test(`all ${value.mioString} Bundles`, (done) => {
             const blobs: Blob[] = [];
             bundles.forEach((file) => blobs.push(new Blob([fs.readFileSync(file)])));
-            mioParser.parseFiles(blobs).then((results) => {
-                const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
-                if (numErrors > 0) console.log(results.map((r) => r.errors));
-                expect(numErrors).toBe(0);
-                done();
-            });
+            mioParser
+                .parseFiles(blobs.map((b) => new File([b], "test-file")))
+                .then((results) => {
+                    const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
+                    if (numErrors > 0) console.log(results.map((r) => r.errors));
+                    expect(numErrors).toBe(0);
+                    done();
+                });
         });
     });
 
@@ -100,7 +102,7 @@ describe("Parse", () => {
             expect(blob).toBeDefined();
             if (!blob) return;
 
-            mioParser.parseFile(blob).then((result) => {
+            mioParser.parseFile(new File([blob], "test-file")).then((result) => {
                 if (result.errors.length) console.log(result.errors);
                 expect(result.errors.length).toBe(0);
                 done();

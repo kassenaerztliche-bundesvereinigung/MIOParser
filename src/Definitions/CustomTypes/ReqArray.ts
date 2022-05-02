@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -19,6 +19,7 @@
  */
 
 import * as t from "io-ts";
+
 import ErrorMessage from "../ErrorMessage";
 import { resolvePath } from "./index";
 import { AnyType } from "../Interfaces";

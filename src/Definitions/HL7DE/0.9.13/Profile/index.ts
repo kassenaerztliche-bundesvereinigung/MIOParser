@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,4 +18,4 @@
  *
  */
 
-export {default as CodingICD10GM,} from "./CodingICD10GM"
+export { default as CodingICD10GM } from "./CodingICD10GM";

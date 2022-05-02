@@ -131,7 +131,7 @@ describe("Resources", () => {
         ];
 
         values.forEach((value) => {
-            const result = defineResourceMeta(value.in);
+            const result = defineResourceMeta("text-file", value.in);
             expect(result.isEqual(value.out.profile, value.out.version)).toBeTruthy();
         });
 

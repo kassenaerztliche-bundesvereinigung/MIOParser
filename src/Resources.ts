@@ -25,7 +25,8 @@ import {
     Resource,
     ResourceMeta,
     HasMeta,
-    Constraint
+    Constraint,
+    MIOParserError
 } from "./Interfaces/AppInternals";
 import ErrorMessage from "./Definitions/ErrorMessage";
 import {
@@ -64,7 +65,7 @@ function getProfile(resource: Resource | KBVResource | HasMeta): string {
  * @param resource {HasMeta} The MIO resource to be evaluated
  * @returns {ResourceMeta} The source type of the MIO
  */
-export function defineResourceMeta(resource: HasMeta): ResourceMeta {
+export function defineResourceMeta(fileName: string, resource: HasMeta): ResourceMeta {
     const meta = resource.meta;
 
     if (meta && meta.profile) {
@@ -76,22 +77,34 @@ export function defineResourceMeta(resource: HasMeta): ResourceMeta {
             const known = MIOTypes.some((mioType) => mioType.profile === profileType);
 
             if (!profileType || !known) {
-                throw new Error(ErrorMessage.UnknownProfile(profileType));
+                throw new MIOParserError(
+                    fileName,
+                    ErrorMessage.UnknownProfile(profileType),
+                    ""
+                );
             } else {
                 let profileVersion;
 
                 if (profileParts.length > 1) {
                     profileVersion = profileParts[1];
                 }
+                // This fix accounts for the lack of Version number in Observation Weight Child in MR 1.0.0
+                else if (
+                    profileParts.length === 1 &&
+                    profileParts[0] ===
+                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Weight_Child"
+                ) {
+                    profileVersion = "1.0.0";
+                }
 
                 return new ResourceMeta(profileType, profileVersion);
             }
         }
 
-        throw new Error(ErrorMessage.NoProfile());
+        throw new MIOParserError(fileName, ErrorMessage.NoProfile(), "");
     }
 
-    throw new Error(ErrorMessage.NoMeta());
+    throw new MIOParserError(fileName, ErrorMessage.NoMeta(), "");
 }
 
 /**
@@ -170,8 +183,8 @@ export const getPaths = <A>(
  * @param resource {HasMeta} The MIO resource to be evaluated
  * @returns {boolean} Whether the resource is a bundle or not
  */
-export function isBundle(resource: HasMeta): boolean {
-    const type = defineResourceMeta(resource);
+export function isBundle(fileName: string, resource: HasMeta): boolean {
+    const type = defineResourceMeta(fileName, resource);
     return BundleTypes.some((T: MIOType) => type.isEqual(T.profile, T.version, true));
 }
 
@@ -262,6 +275,7 @@ function checkConstraints(
 /**
  * Evaluates an object and tries to return a MIO instance according to its profile.
  *
+ * @param fileName {string} TODO
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
  * @param fullUrl {string} The resource identifier
  * @param list {MIOTypeList} List of MioTypes to be tested with
@@ -270,16 +284,18 @@ function checkConstraints(
  * @returns {MIOParserResult} a Result for the finding of the resource in the given MioTypeList
  */
 export default function getResource(
+    fileName: string,
     resource: Resource,
     fullUrl: string,
     list: MIOTypeList,
     bundle: KBVBundleResource | undefined = undefined,
     versioned = true
 ): MIOParserResult {
-    const type = defineResourceMeta(resource);
+    const type = defineResourceMeta(fileName, resource);
 
     // Unknown resource..
     const parserResult: MIOParserResult = {
+        fileName,
         value: resource as KBVResource,
         errors: [],
         warnings: []
@@ -290,7 +306,7 @@ export default function getResource(
     if (resource.resourceType === "Bundle") {
         entryUrlMap =
             resource.entry?.map(
-                (entry: KBVEntry) => defineResourceMeta(entry.resource).profile
+                (entry: KBVEntry) => defineResourceMeta(fileName, entry.resource).profile
             ) ?? [];
     }
 
@@ -342,7 +358,7 @@ export default function getResource(
             pipe(resourceResult, fold(onLeft, onRight));
         } else if (entryUrlMap.includes(T.profile)) {
             const checkResource = resource.entry?.filter((entry: KBVEntry) => {
-                const entryType = defineResourceMeta(entry.resource);
+                const entryType = defineResourceMeta(fileName, entry.resource);
                 return entryType.equals(
                     new ResourceMeta(T.profile, T.version),
                     versioned
@@ -362,10 +378,14 @@ export default function getResource(
 
     if (!foundResource) {
         if (!versioned) {
-            throw new Error(ErrorMessage.UnknownProfile(type.toString()));
+            throw new MIOParserError(
+                fileName,
+                ErrorMessage.UnknownProfile(type.toString()),
+                ""
+            );
         } else {
             // TODO: should be removed when MR is fixed
-            return getResource(resource, fullUrl, list, bundle, false);
+            return getResource(fileName, resource, fullUrl, list, bundle, false);
         }
     }
 
@@ -384,11 +404,13 @@ export default function getResource(
 /**
  * Maps the entries in a bundle to Typescript objects
  *
+ * @param fileName {string} TODO
  * @param entryArray {KBVEntry} An array of entries contained by a bundle
  * @param bundle {KBVBundleResource} original bundle in which the resource was contained
  * @return valueErrorArray {values: KBVEntry[]; errors: MIOError[];} values and errors contained in the bundle
  */
 export function getAllEntries(
+    fileName: string,
     entryArray: KBVEntry[],
     bundle: KBVBundleResource
 ): {
@@ -399,6 +421,7 @@ export function getAllEntries(
     let errors: MIOError[] = [];
     entryArray.forEach((e: KBVEntry) => {
         const result = getResource(
+            fileName,
             e.resource as {
                 meta: Meta;
                 id: string;

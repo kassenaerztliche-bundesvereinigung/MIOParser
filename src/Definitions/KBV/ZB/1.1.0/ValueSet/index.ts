@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,6 +18,8 @@
  *
  */
 
-export {default as PreventiveCheckUpType,
- ZAEBPreventiveCheckUpTypeArray as  PreventiveCheckUpTypeArray,
- ZAEBPreventiveCheckUpTypeValueSet as  PreventiveCheckUpTypeValueSet,} from "./ZAEBPreventiveCheckUpType"
+export {
+    default as PreventiveCheckUpType,
+    ZAEBPreventiveCheckUpTypeArray as PreventiveCheckUpTypeArray,
+    ZAEBPreventiveCheckUpTypeValueSet as PreventiveCheckUpTypeValueSet
+} from "./ZAEBPreventiveCheckUpType";

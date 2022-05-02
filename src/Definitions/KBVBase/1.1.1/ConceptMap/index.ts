@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,8 +18,8 @@
  *
  */
 
-export {default as ApgarScoreIdentifierGerman,} from "./ApgarScoreIdentifierGerman"
+export { default as ApgarScoreIdentifierGerman } from "./ApgarScoreIdentifierGerman";
 
-export {default as ApgarScoreValueGerman,} from "./ApgarScoreValueGerman"
+export { default as ApgarScoreValueGerman } from "./ApgarScoreValueGerman";
 
-export {default as StageLifeGerman,} from "./StageLifeGerman"
+export { default as StageLifeGerman } from "./StageLifeGerman";

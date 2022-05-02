@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,6 +18,6 @@
  *
  */
 
-export {default as Extension,} from "./Extension"
+export { default as Extension } from "./Extension";
 
-export {default as Iso21090ADXPprecinct,} from "./Iso21090ADXPprecinct"
+export { default as Iso21090ADXPprecinct } from "./Iso21090ADXPprecinct";

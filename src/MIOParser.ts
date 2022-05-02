@@ -25,7 +25,7 @@ import {
     ValidationResult,
     KBVEntry,
     MIOError,
-    GeneralError
+    MIOParserError
 } from "./Interfaces/AppInternals";
 import * as Util from "./Interfaces/Util";
 
@@ -68,7 +68,7 @@ export default class MIOParser {
      * @param {Blob} file input, FHIR file, either of type "application/json" or "text/xml"
      * @returns {Promise<MIOParserResult>} Processed result containing the values and/or errors and warnings
      */
-    public async parseFile(file: Blob): Promise<MIOParserResult> {
+    public async parseFile(file: File): Promise<MIOParserResult> {
         return new Promise((resolve, reject: (reason?: Error) => void) => {
             const fileReader = new FileReader();
 
@@ -77,15 +77,16 @@ export default class MIOParser {
                 try {
                     // Result is being parsed into a JS-Object
                     const result = this.stringToObject(
+                        file.name,
                         fileReader.result as string,
                         file.type
                     );
 
                     // The JS-Object now is being parsed into a Typescript-representation
-                    this.handleResult(result, resolve);
+                    this.handleResult(file.name, result, resolve);
                 } catch (error) {
                     // File parsing in stringToObject threw error
-                    reject(new Error(Util.errorToString(error)));
+                    reject(error);
                 }
             };
 
@@ -99,7 +100,7 @@ export default class MIOParser {
      * @param files {Blob[]} Files that need to be processed
      * @returns {Promise<MIOParserResult[]} Processed result containing the values and/or errors and warnings
      */
-    public async parseFiles(files: Blob[]): Promise<MIOParserResult[]> {
+    public async parseFiles(files: File[]): Promise<MIOParserResult[]> {
         const promises: Promise<MIOParserResult>[] = [];
 
         files.forEach((file) => {
@@ -119,10 +120,10 @@ export default class MIOParser {
     public async parseString(value: string, fileType?: string): Promise<MIOParserResult> {
         return new Promise((resolve, reject) => {
             try {
-                const result = this.stringToObject(value, fileType);
+                const result = this.stringToObject("String", value, fileType);
                 try {
                     // The JS-Object now is being parsed into a Typescript-representation
-                    this.handleResult(result, resolve);
+                    this.handleResult("String", result, resolve);
                 } catch (error) {
                     reject(error);
                 }
@@ -155,11 +156,16 @@ export default class MIOParser {
     /**
      * This function takes a string and optional filetype to and returns an object that either is converted vom XML to Json by lantanagroup/fhir or a parsed json object
      *
+     * @param fileName {string} TODO
      * @param str {string} The string to be evaluated
      * @param fileType {string | undefined} File type that the string originates
      * @returns {object} a JSON-representation of the string
      */
-    protected stringToObject(str: string, fileType?: string): Record<string, unknown> {
+    protected stringToObject(
+        fileName: string,
+        str: string,
+        fileType?: string
+    ): Record<string, unknown> {
         // Checks for file type and transforms accordingly
         if (!fileType) {
             switch (str[0]) {
@@ -178,7 +184,8 @@ export default class MIOParser {
             try {
                 return this.fhirParser.xmlToObj(str);
             } catch (error) {
-                throw new GeneralError(
+                throw new MIOParserError(
+                    fileName,
                     ErrorMessage.SyntaxError(),
                     Util.errorToString(error)
                 );
@@ -187,13 +194,14 @@ export default class MIOParser {
             try {
                 return JSON.parse(str);
             } catch (error) {
-                throw new GeneralError(
+                throw new MIOParserError(
+                    fileName,
                     ErrorMessage.SyntaxError(),
                     Util.errorToString(error)
                 );
             }
         } else {
-            throw new GeneralError(ErrorMessage.FileType(fileType), "");
+            throw new MIOParserError(fileName, ErrorMessage.FileType(fileType), "");
         }
     }
 
@@ -203,13 +211,13 @@ export default class MIOParser {
      * @param file {Blob} The value to be evaluated and validated
      * @returns {Promise<ValidationResult>} ValidationResult Object that contains information regarding the validation
      */
-    public async validateFile(file: Blob): Promise<ValidationResult> {
+    public async validateFile(file: File): Promise<ValidationResult> {
         return this.parseFile(file).then((result) => {
             const valid: boolean = result.errors.length > 0 && !result.value;
             return {
                 valid: valid,
-                errors: result.errors,
-                message: ErrorMessage.Valid(valid)
+                message: ErrorMessage.Valid(valid),
+                result
             };
         });
     }
@@ -225,8 +233,8 @@ export default class MIOParser {
             const valid: boolean = result.errors.length > 0 && !result.value;
             return {
                 valid: valid,
-                errors: result.errors,
-                message: ErrorMessage.Valid(valid)
+                message: ErrorMessage.Valid(valid),
+                result
             };
         });
     }
@@ -261,10 +269,12 @@ export default class MIOParser {
     /**
      * This function takes the input object and tries to map that to a Typescript object and will either resolve or reject the promise
      *
+     * @param fileName {string} TODO
      * @param input {object} the parsed object of type object that now needs to be mapped to a Resource Type
      * @param resolve from the upper level promise
      */
     protected handleResult = (
+        fileName: string,
         input: Record<string, unknown>,
         resolve: (value: MIOParserResult | PromiseLike<MIOParserResult>) => void
     ): void => {
@@ -277,6 +287,7 @@ export default class MIOParser {
 
         // Tries to get the resource for the object, meta and id must be present
         const result = getResource(
+            fileName,
             input as {
                 meta: Meta;
                 id: string;
@@ -292,13 +303,14 @@ export default class MIOParser {
         // if no errors occurred
         else {
             const value = result.value as KBVBundleResource;
-            if (isBundle(value)) {
-                const entries = getAllEntries(value.entry as KBVEntry[], value);
+            if (isBundle(fileName, value)) {
+                const entries = getAllEntries(fileName, value.entry as KBVEntry[], value);
                 value.entry = entries.values;
 
                 result.warnings.push(...Array.from(new Set(warnings)));
                 const returnMioResult: MIOParserResult = {
-                    value: value,
+                    fileName,
+                    value,
                     errors: [...result.errors, ...entries.errors],
                     warnings: Util.getOrphans(value).concat(result.warnings)
                 };
@@ -307,7 +319,8 @@ export default class MIOParser {
             } else {
                 result.warnings.push(...Array.from(new Set(warnings)));
                 resolve({
-                    value: value,
+                    fileName,
+                    value,
                     errors: result.errors,
                     warnings: result.warnings
                 });

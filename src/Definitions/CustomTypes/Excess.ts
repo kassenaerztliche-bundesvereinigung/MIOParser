@@ -1,5 +1,5 @@
 /*
- *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2021 under one
  *  or more contributor license agreements. See the NOTICE file
  *  distributed with this work for additional information
  *  regarding copyright ownership. The KBV licenses this file
@@ -68,7 +68,7 @@ const getExcessTypeName = (codec: t.Any): string => {
 const stripKeys = <T = AnyType>(o: T, props: t.Props): Either<string[], T> => {
     const keys = Object.getOwnPropertyNames(o);
     const propsKeys = Object.getOwnPropertyNames(props);
-    // allows extension and text fields and html/xml comments to be present
+    // allows extension and text fields to be present
     propsKeys.push("extension");
     propsKeys.push("text");
     propsKeys.push("fhir_comments");

@@ -1,4 +1,3 @@
-
 /*
  *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
  *  or more contributor license agreements. See the NOTICE file
@@ -19,16 +18,20 @@
  *
  */
 
-export {default as CMREarlyCollectionOfBlood,
- CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomedContent as  CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomedContent,
- CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomed as  CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomed,
- CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay as  CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay,
- CMREarlyCollectionOfBloodValueCodeableConceptCoding as  CMREarlyCollectionOfBloodValueCodeableConceptCoding,
- CMREarlyCollectionOfBloodValueCodeableConcept as  CMREarlyCollectionOfBloodValueCodeableConcept,} from "./CMREarlyCollectionOfBlood"
+export {
+    default as CMREarlyCollectionOfBlood,
+    CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomedContent as CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomedContent,
+    CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomed as CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplayAnzeigenameStatusReasonSnomed,
+    CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay as CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay,
+    CMREarlyCollectionOfBloodValueCodeableConceptCoding as CMREarlyCollectionOfBloodValueCodeableConceptCoding,
+    CMREarlyCollectionOfBloodValueCodeableConcept as CMREarlyCollectionOfBloodValueCodeableConcept
+} from "./CMREarlyCollectionOfBlood";
 
-export {default as CMRExecutingLaboratory,
- CMRExecutingLaboratoryValueReference as  CMRExecutingLaboratoryValueReference,} from "./CMRExecutingLaboratory"
+export {
+    default as CMRExecutingLaboratory,
+    CMRExecutingLaboratoryValueReference as CMRExecutingLaboratoryValueReference
+} from "./CMRExecutingLaboratory";
 
-export {default as CMRInstruction,} from "./CMRInstruction"
+export { default as CMRInstruction } from "./CMRInstruction";
 
-export {default as CMRNote,} from "./CMRNote"
+export { default as CMRNote } from "./CMRNote";
