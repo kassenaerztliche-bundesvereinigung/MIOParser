@@ -43,7 +43,6 @@ describe("Reference", () => {
 
         values.forEach((v) => {
             const reference = new Reference(v.ref);
-            console.log(v.ref);
             expect(reference.absolute).toBe(v.result);
         });
 
@@ -197,7 +196,6 @@ describe("Reference", () => {
 
         values.forEach((v) => {
             const ref = new Reference(v.reference, v.fullUrl);
-            console.log(v.reference, v.fullUrl);
             expect(ref.resolve(v.toResolve)).toBe(v.result);
         });
 

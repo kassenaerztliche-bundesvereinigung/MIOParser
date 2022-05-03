@@ -23,6 +23,7 @@ import MIOParser, {
     KBVBundleResource,
     Vaccination,
     ZAEB,
+    MR,
     Reference
 } from "../src";
 
@@ -53,15 +54,17 @@ describe("Parser Util", () => {
 
     type GetEntry = {
         bundleType: any; // eslint-disable-line
+        version: string;
         todos: {
             profile: AnyType;
             result: boolean;
         }[];
-    } & TestUtil.HasMioString;
+    } & TestUtil.MIOType;
     const getEntryList: GetEntry[] = [
         {
             bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
-            mioString: "IM",
+            mio: "IM",
+            version: "1.1.0",
             todos: [
                 {
                     profile: Vaccination.V1_1_0.Profile.Patient,
@@ -75,7 +78,8 @@ describe("Parser Util", () => {
         },
         {
             bundleType: ZAEB.V1_1_0.Profile.Bundle,
-            mioString: "ZB",
+            mio: "ZB",
+            version: "1.1.0",
             todos: [
                 {
                     profile: ZAEB.V1_1_0.Profile.Patient,
@@ -90,14 +94,37 @@ describe("Parser Util", () => {
                     result: true
                 }
             ]
+        },
+        {
+            bundleType: MR.V1_0_0.Profile.Bundle,
+            mio: "MR",
+            version: "1.0.0",
+            todos: [
+                {
+                    profile: MR.V1_0_0.Profile.PatientMother,
+                    result: true
+                }
+            ]
+        },
+        {
+            bundleType: MR.V1_1_0.Profile.Bundle,
+            mio: "MR",
+            version: "1.1.0",
+            todos: [
+                {
+                    profile: MR.V1_1_0.Profile.PatientMother,
+                    result: true
+                }
+            ]
         }
     ];
 
     TestUtil.runAllFiles<GetEntry>(
         "getEntry",
         getEntryList,
-        (file, value) => {
+        (file, value, version) => {
             describe(`${value.bundleType.name} "${file}"`, () => {
+                if (version !== value.version) return;
                 value.todos.forEach((todo) => {
                     test(`${todo.profile.name} to be ${todo.result}`, (done) => {
                         getMIOAs<typeof value.bundleType>(value.bundleType, file).then(
@@ -132,16 +159,17 @@ describe("Parser Util", () => {
 
     type GetEntries = {
         bundleType: any[]; // eslint-disable-line
+        version?: string;
         todos: {
             profiles: AnyType[];
             result: number;
         }[];
-    } & TestUtil.HasMioString;
+    } & TestUtil.MIOType;
 
     const getEntriesList: GetEntries[] = [
         {
             bundleType: [Vaccination.V1_1_0.Profile.BundleEntry],
-            mioString: "IM",
+            mio: "IM",
             todos: [
                 {
                     profiles: [
@@ -161,7 +189,7 @@ describe("Parser Util", () => {
         },
         {
             bundleType: [ZAEB.V1_1_0.Profile.Bundle],
-            mioString: "ZB",
+            mio: "ZB",
             todos: [
                 {
                     profiles: [ZAEB.V1_1_0.Profile.Composition],
@@ -182,13 +210,29 @@ describe("Parser Util", () => {
                     result: 1
                 }
             ]
+        },
+        {
+            bundleType: [MR.V1_1_0.Profile.Bundle],
+            mio: "MR",
+            version: "1.1.0",
+            todos: [
+                {
+                    profiles: [MR.V1_1_0.Profile.Composition],
+                    result: 1
+                },
+                {
+                    profiles: [MR.V1_1_0.Profile.PatientMother],
+                    result: 1
+                }
+            ]
         }
     ];
 
     TestUtil.runAllFiles<GetEntries>(
         "getEntries",
         getEntriesList,
-        (file, value) => {
+        (file, value, version) => {
+            if (value.version && value.version !== version) return;
             value.todos.forEach((todo) => {
                 test(`${todo.profiles.map((profile) => profile.name).join(", ")}: to be ${
                     todo.result
@@ -220,6 +264,7 @@ describe("Parser Util", () => {
 
     type GetSlice = {
         bundleType: any; // eslint-disable-line
+        version: string;
         todos: {
             profile: any; // eslint-disable-line
             slices: {
@@ -227,12 +272,13 @@ describe("Parser Util", () => {
                 field: string;
             }[];
         }[];
-    } & TestUtil.HasMioString;
+    } & TestUtil.MIOType;
 
     const getSliceList: GetSlice[] = [
         {
             bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
-            mioString: "IM",
+            mio: "IM",
+            version: "1.1.0",
             todos: [
                 {
                     profile: Vaccination.V1_1_0.Profile.Patient,
@@ -247,7 +293,8 @@ describe("Parser Util", () => {
         },
         {
             bundleType: ZAEB.V1_1_0.Profile.Bundle,
-            mioString: "ZB",
+            mio: "ZB",
+            version: "1.1.0",
             todos: [
                 {
                     profile: ZAEB.V1_1_0.Profile.Patient,
@@ -268,13 +315,46 @@ describe("Parser Util", () => {
                     ]
                 }
             ]
+        },
+        {
+            bundleType: MR.V1_0_0.Profile.Bundle,
+            mio: "MR",
+            version: "1.0.0",
+            todos: [
+                {
+                    profile: MR.V1_0_0.Profile.PatientMother,
+                    slices: [
+                        {
+                            type: MR.V1_1_0.Profile.PatientMotherName,
+                            field: "name"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            bundleType: MR.V1_1_0.Profile.Bundle,
+            mio: "MR",
+            version: "1.1.0",
+            todos: [
+                {
+                    profile: MR.V1_1_0.Profile.PatientMother,
+                    slices: [
+                        {
+                            type: MR.V1_1_0.Profile.PatientMotherName,
+                            field: "name"
+                        }
+                    ]
+                }
+            ]
         }
     ];
 
     TestUtil.runAllFiles<GetSlice>(
         "getSlice",
         getSliceList,
-        (file, value) => {
+        (file, value, version) => {
+            if (version !== value.version) return;
             value.todos.forEach((todo) => {
                 const slices = todo.slices.map((slice) => slice.type.name).join(", ");
                 test(`Get ${slices} from ${todo.profile.name} "${file}"`, (done) => {
@@ -333,12 +413,12 @@ describe("Parser Util", () => {
                 min: number;
             };
         }[];
-    } & TestUtil.HasMioString;
+    } & TestUtil.MIOType;
 
     const getSlicesList: GetSlices[] = [
         {
             bundleType: Vaccination.V1_1_0.Profile.BundleEntry,
-            mioString: "IM",
+            mio: "IM",
             todos: [
                 {
                     profile: Vaccination.V1_1_0.Profile.Patient,
@@ -452,12 +532,7 @@ describe("Parser Util", () => {
         });
     };
 
-    TestUtil.runAllFiles(
-        "findEntryByProfile",
-        [{ mioString: "IM" }],
-        testByProfile,
-        "Bundles"
-    );
+    TestUtil.runAllFiles("findEntryByProfile", [{ mio: "IM" }], testByProfile, "Bundles");
 
     test("findEntryByProfile (no value)", (done) => {
         expect(ParserUtil.findEntryByProfile(undefined, "fullUrl")).toEqual(undefined);
@@ -496,7 +571,7 @@ describe("Parser Util", () => {
 
     TestUtil.runAllFiles(
         "findEntryByProfiles",
-        [{ mioString: "IM" }],
+        [{ mio: "IM" }],
         testByProfiles,
         "Bundles"
     );
@@ -517,40 +592,6 @@ describe("Parser Util", () => {
         ).toEqual(undefined);
         done();
     });
-
-    /*
-    test("getUuid", (done) => {
-        const values: { in: string; out: string }[] = [
-            {
-                in: "A",
-                out: "A"
-            },
-            {
-                in: "urn:uuid:6d92d417-8a0d-42b9-959f-567ab2f4650f",
-                out: "6d92d417-8a0d-42b9-959f-567ab2f4650f"
-            },
-            {
-                in: "uuid:A",
-                out: "A"
-            },
-            {
-                in: "url:https://www:A",
-                out: "A"
-            },
-            {
-                in: "no-uuid",
-                out: "no-uuid"
-            }
-        ];
-
-        values.forEach((value) => {
-            expect(ParserUtil.getUuid(value.in)).toEqual(value.out);
-        });
-
-        expect(ParserUtil.getUuid("", "")).toEqual("");
-        done();
-    });
-     */
 
     test("getUuidFromBundle", (done) => {
         // eslint-disable-next-line
@@ -579,20 +620,38 @@ describe("Parser Util", () => {
 
     type FindEntryByFullUrl = {
         profile: AnyType;
-    } & TestUtil.HasMioString;
+        version: string;
+    } & TestUtil.MIOType;
 
     const findEntryByFullUrlList: FindEntryByFullUrl[] = [
         {
-            mioString: "IM",
+            mio: "IM",
+            version: "1.1.0",
             profile: Vaccination.V1_1_0.Profile.Patient
         },
         {
-            mioString: "ZB",
+            mio: "ZB",
+            version: "1.1.0",
             profile: ZAEB.V1_1_0.Profile.Patient
+        },
+        {
+            mio: "MR",
+            version: "1.0.0",
+            profile: MR.V1_0_0.Profile.PatientMother
+        },
+        {
+            mio: "MR",
+            version: "1.1.0",
+            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 
-    const findEntryByFullUrlTest = (file: string, value: FindEntryByFullUrl): void => {
+    const findEntryByFullUrlTest = (
+        file: string,
+        value: FindEntryByFullUrl,
+        version?: string
+    ): void => {
+        if (version !== value.version) return;
         it(file, (done) => {
             const bundleFile = TestUtil.readFile(file);
             expect(bundleFile).toBeDefined();
@@ -651,20 +710,38 @@ describe("Parser Util", () => {
 
     type GetEntryWithRef = {
         profile: AnyType;
-    } & TestUtil.HasMioString;
+        version: string;
+    } & TestUtil.MIOType;
 
     const getEntryWithRefList: GetEntryWithRef[] = [
         {
-            mioString: "IM",
+            mio: "IM",
+            version: "1.1.0",
             profile: Vaccination.V1_1_0.Profile.Patient
         },
         {
-            mioString: "ZB",
+            mio: "ZB",
+            version: "1.1.0",
             profile: ZAEB.V1_1_0.Profile.Patient
+        },
+        {
+            mio: "MR",
+            version: "1.0.0",
+            profile: MR.V1_0_0.Profile.PatientMother
+        },
+        {
+            mio: "MR",
+            version: "1.1.0",
+            profile: MR.V1_1_0.Profile.PatientMother
         }
     ];
 
-    const getEntryWithRefTest = (file: string, value: GetEntryWithRef): void => {
+    const getEntryWithRefTest = (
+        file: string,
+        value: GetEntryWithRef,
+        version?: string
+    ): void => {
+        if (version !== value.version) return;
         it(file, (done) => {
             const bundleFile = TestUtil.readFile(file);
             expect(bundleFile).toBeDefined();

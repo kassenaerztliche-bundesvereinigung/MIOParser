@@ -42,7 +42,7 @@ describe("Parse", () => {
     });
 
     TestUtil.runAllBundles("parseFiles", (bundles, value) => {
-        test(`all ${value.mioString} Bundles`, (done) => {
+        test(`all ${value.mio} Bundles`, (done) => {
             const blobs: Blob[] = [];
             bundles.forEach((file) => blobs.push(new Blob([fs.readFileSync(file)])));
             mioParser
@@ -69,7 +69,7 @@ describe("Parse", () => {
     });
 
     TestUtil.runAllBundles("parseStrings", (bundles, value) => {
-        test(`all ${value.mioString} Bundles`, (done) => {
+        test(`all ${value.mio} Bundles`, (done) => {
             const strings = bundles.map((file) => fs.readFileSync(file).toString());
             mioParser.parseStrings(strings).then((results) => {
                 const numErrors = results.reduce((a, b) => a + b.errors.length, 0);
@@ -83,7 +83,7 @@ describe("Parse", () => {
     TestUtil.runAllBundles(
         "parseStrings (Invalid)",
         (bundles, value) => {
-            test(`all ${value.mioString} Bundles`, (done) => {
+            test(`all ${value.mio} Bundles`, (done) => {
                 const strings = bundles.map((file) => fs.readFileSync(file).toString());
                 mioParser.parseStrings(strings).then((results) => {
                     results.forEach((result) =>
@@ -97,7 +97,7 @@ describe("Parse", () => {
     );
 
     TestUtil.runAllProfileFiles("parseFile (Profiles)", (file, value) => {
-        test(`${value.mioString} Profile "${file}"`, (done) => {
+        test(`${value.mio} Profile "${file}"`, (done) => {
             const blob = TestUtil.readFileAsBlob(file);
             expect(blob).toBeDefined();
             if (!blob) return;

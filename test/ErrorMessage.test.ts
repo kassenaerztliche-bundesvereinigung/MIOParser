@@ -152,8 +152,6 @@ describe("ErrorMessage", () => {
             const de = value.callback(...value.params, "de");
             const en = value.callback(...value.params, "en");
 
-            console.log(de);
-
             expect(de).not.toEqual(en);
         });
     });
