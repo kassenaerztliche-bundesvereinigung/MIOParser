@@ -255,13 +255,13 @@ export const MRObservationCatalogueACode: t.Type<MRObservationCatalogueACode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationCatalogueASubject {
+export interface MRObservationCatalogueASubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationCatalogueASubject: t.Type<MRObservationCatalogueASubject> =
-    t.recursion("MRObservationCatalogueASubject", () =>
+export const MRObservationCatalogueASubjectReference: t.Type<MRObservationCatalogueASubjectReference> =
+    t.recursion("MRObservationCatalogueASubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,13 +279,13 @@ export const MRObservationCatalogueASubject: t.Type<MRObservationCatalogueASubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationCatalogueAEncounter {
+export interface MRObservationCatalogueAEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationCatalogueAEncounter: t.Type<MRObservationCatalogueAEncounter> =
-    t.recursion("MRObservationCatalogueAEncounter", () =>
+export const MRObservationCatalogueAEncounterReference: t.Type<MRObservationCatalogueAEncounterReference> =
+    t.recursion("MRObservationCatalogueAEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,13 +303,13 @@ export const MRObservationCatalogueAEncounter: t.Type<MRObservationCatalogueAEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationCatalogueAPerformer {
+export interface MRObservationCatalogueAPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationCatalogueAPerformer: t.Type<MRObservationCatalogueAPerformer> =
-    t.recursion("MRObservationCatalogueAPerformer", () =>
+export const MRObservationCatalogueAPerformerReference: t.Type<MRObservationCatalogueAPerformerReference> =
+    t.recursion("MRObservationCatalogueAPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface MRObservationCatalogueA {
     meta: MRObservationCatalogueAMeta;
     status: "final";
     code: MRObservationCatalogueACode;
-    subject: MRObservationCatalogueASubject;
-    encounter: MRObservationCatalogueAEncounter;
+    subject: MRObservationCatalogueASubjectReference;
+    encounter: MRObservationCatalogueAEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationCatalogueAPerformer>;
+    performer?: Array<MRObservationCatalogueAPerformerReference>;
     note?: Array<Annotation>;
 }
 
@@ -350,15 +350,15 @@ const MRObservationCatalogueA: t.Type<MRObservationCatalogueA> = t.recursion(
                     meta: MRObservationCatalogueAMeta,
                     status: Literal("final"),
                     code: MRObservationCatalogueACode,
-                    subject: MRObservationCatalogueASubject,
-                    encounter: MRObservationCatalogueAEncounter,
+                    subject: MRObservationCatalogueASubjectReference,
+                    encounter: MRObservationCatalogueAEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationCatalogueAPerformer),
+                    performer: MaxArray(1, MRObservationCatalogueAPerformerReference),
                     note: MaxArray(1, Annotation)
                 })
             ])

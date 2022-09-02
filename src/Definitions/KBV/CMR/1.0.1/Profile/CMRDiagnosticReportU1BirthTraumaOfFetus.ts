@@ -260,13 +260,13 @@ export const CMRDiagnosticReportU1BirthTraumaOfFetusCode: t.Type<CMRDiagnosticRe
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1BirthTraumaOfFetusSubject {
+export interface CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthTraumaOfFetusSubject: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusSubject> =
-    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusSubject", () =>
+export const CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportU1BirthTraumaOfFetusSubject: t.Type<CMRDiagnosti
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1BirthTraumaOfFetusEncounter {
+export interface CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthTraumaOfFetusEncounter: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusEncounter> =
-    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusEncounter", () =>
+export const CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportU1BirthTraumaOfFetusEncounter: t.Type<CMRDiagnos
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1BirthTraumaOfFetusPerformer {
+export interface CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthTraumaOfFetusPerformer: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusPerformer> =
-    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusPerformer", () =>
+export const CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportU1BirthTraumaOfFetusPerformer: t.Type<CMRDiagnos
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1BirthTraumaOfFetusResult {
+export interface CMRDiagnosticReportU1BirthTraumaOfFetusResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthTraumaOfFetusResult: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusResult> =
-    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusResult", () =>
+export const CMRDiagnosticReportU1BirthTraumaOfFetusResultReference: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetusResultReference> =
+    t.recursion("CMRDiagnosticReportU1BirthTraumaOfFetusResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportU1BirthTraumaOfFetus {
     meta: CMRDiagnosticReportU1BirthTraumaOfFetusMeta;
     status: "final";
     code: CMRDiagnosticReportU1BirthTraumaOfFetusCode;
-    subject: CMRDiagnosticReportU1BirthTraumaOfFetusSubject;
-    encounter: CMRDiagnosticReportU1BirthTraumaOfFetusEncounter;
+    subject: CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference;
+    encounter: CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1BirthTraumaOfFetusPerformer>;
-    result?: CMRDiagnosticReportU1BirthTraumaOfFetusResult[];
+    performer?: Array<CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference>;
+    result?: CMRDiagnosticReportU1BirthTraumaOfFetusResultReference[];
 }
 
 const CMRDiagnosticReportU1BirthTraumaOfFetus: t.Type<CMRDiagnosticReportU1BirthTraumaOfFetus> =
@@ -376,8 +376,8 @@ const CMRDiagnosticReportU1BirthTraumaOfFetus: t.Type<CMRDiagnosticReportU1Birth
                     meta: CMRDiagnosticReportU1BirthTraumaOfFetusMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1BirthTraumaOfFetusCode,
-                    subject: CMRDiagnosticReportU1BirthTraumaOfFetusSubject,
-                    encounter: CMRDiagnosticReportU1BirthTraumaOfFetusEncounter,
+                    subject: CMRDiagnosticReportU1BirthTraumaOfFetusSubjectReference,
+                    encounter: CMRDiagnosticReportU1BirthTraumaOfFetusEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -385,9 +385,11 @@ const CMRDiagnosticReportU1BirthTraumaOfFetus: t.Type<CMRDiagnosticReportU1Birth
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU1BirthTraumaOfFetusPerformer
+                        CMRDiagnosticReportU1BirthTraumaOfFetusPerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU1BirthTraumaOfFetusResult)
+                    result: t.array(
+                        CMRDiagnosticReportU1BirthTraumaOfFetusResultReference
+                    )
                 })
             ])
         )

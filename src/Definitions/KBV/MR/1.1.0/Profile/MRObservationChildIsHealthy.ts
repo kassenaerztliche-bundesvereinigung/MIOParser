@@ -196,13 +196,13 @@ export const MRObservationChildIsHealthyCode: t.Type<MRObservationChildIsHealthy
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationChildIsHealthySubject {
+export interface MRObservationChildIsHealthySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildIsHealthySubject: t.Type<MRObservationChildIsHealthySubject> =
-    t.recursion("MRObservationChildIsHealthySubject", () =>
+export const MRObservationChildIsHealthySubjectReference: t.Type<MRObservationChildIsHealthySubjectReference> =
+    t.recursion("MRObservationChildIsHealthySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -220,13 +220,13 @@ export const MRObservationChildIsHealthySubject: t.Type<MRObservationChildIsHeal
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationChildIsHealthyEncounter {
+export interface MRObservationChildIsHealthyEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildIsHealthyEncounter: t.Type<MRObservationChildIsHealthyEncounter> =
-    t.recursion("MRObservationChildIsHealthyEncounter", () =>
+export const MRObservationChildIsHealthyEncounterReference: t.Type<MRObservationChildIsHealthyEncounterReference> =
+    t.recursion("MRObservationChildIsHealthyEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -244,13 +244,13 @@ export const MRObservationChildIsHealthyEncounter: t.Type<MRObservationChildIsHe
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationChildIsHealthyPerformer {
+export interface MRObservationChildIsHealthyPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildIsHealthyPerformer: t.Type<MRObservationChildIsHealthyPerformer> =
-    t.recursion("MRObservationChildIsHealthyPerformer", () =>
+export const MRObservationChildIsHealthyPerformerReference: t.Type<MRObservationChildIsHealthyPerformerReference> =
+    t.recursion("MRObservationChildIsHealthyPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,13 +271,13 @@ interface MRObservationChildIsHealthy {
     meta: MRObservationChildIsHealthyMeta;
     status: "final";
     code: MRObservationChildIsHealthyCode;
-    subject: MRObservationChildIsHealthySubject;
-    encounter: MRObservationChildIsHealthyEncounter;
+    subject: MRObservationChildIsHealthySubjectReference;
+    encounter: MRObservationChildIsHealthyEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationChildIsHealthyPerformer>;
+    performer?: Array<MRObservationChildIsHealthyPerformerReference>;
 }
 
 const MRObservationChildIsHealthy: t.Type<MRObservationChildIsHealthy> = t.recursion(
@@ -290,15 +290,15 @@ const MRObservationChildIsHealthy: t.Type<MRObservationChildIsHealthy> = t.recur
                     meta: MRObservationChildIsHealthyMeta,
                     status: Literal("final"),
                     code: MRObservationChildIsHealthyCode,
-                    subject: MRObservationChildIsHealthySubject,
-                    encounter: MRObservationChildIsHealthyEncounter,
+                    subject: MRObservationChildIsHealthySubjectReference,
+                    encounter: MRObservationChildIsHealthyEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationChildIsHealthyPerformer)
+                    performer: MaxArray(1, MRObservationChildIsHealthyPerformerReference)
                 })
             ])
         )

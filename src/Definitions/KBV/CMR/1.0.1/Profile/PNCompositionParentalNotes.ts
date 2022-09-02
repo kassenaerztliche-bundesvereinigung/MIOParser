@@ -127,13 +127,13 @@ export const PNCompositionParentalNotesCategoryCoding: t.Type<PNCompositionParen
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface PNCompositionParentalNotesSectionEntry {
+export interface PNCompositionParentalNotesSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const PNCompositionParentalNotesSectionEntry: t.Type<PNCompositionParentalNotesSectionEntry> =
-    t.recursion("PNCompositionParentalNotesSectionEntry", () =>
+export const PNCompositionParentalNotesSectionEntryReference: t.Type<PNCompositionParentalNotesSectionEntryReference> =
+    t.recursion("PNCompositionParentalNotesSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -223,13 +223,13 @@ export const PNCompositionParentalNotesCategory: t.Type<PNCompositionParentalNot
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface PNCompositionParentalNotesSubject {
+export interface PNCompositionParentalNotesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const PNCompositionParentalNotesSubject: t.Type<PNCompositionParentalNotesSubject> =
-    t.recursion("PNCompositionParentalNotesSubject", () =>
+export const PNCompositionParentalNotesSubjectReference: t.Type<PNCompositionParentalNotesSubjectReference> =
+    t.recursion("PNCompositionParentalNotesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -247,13 +247,13 @@ export const PNCompositionParentalNotesSubject: t.Type<PNCompositionParentalNote
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface PNCompositionParentalNotesEncounter {
+export interface PNCompositionParentalNotesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const PNCompositionParentalNotesEncounter: t.Type<PNCompositionParentalNotesEncounter> =
-    t.recursion("PNCompositionParentalNotesEncounter", () =>
+export const PNCompositionParentalNotesEncounterReference: t.Type<PNCompositionParentalNotesEncounterReference> =
+    t.recursion("PNCompositionParentalNotesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,13 +271,13 @@ export const PNCompositionParentalNotesEncounter: t.Type<PNCompositionParentalNo
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface PNCompositionParentalNotesAuthor {
+export interface PNCompositionParentalNotesAuthorReference {
     display: string;
     id?: string;
 }
 
-export const PNCompositionParentalNotesAuthor: t.Type<PNCompositionParentalNotesAuthor> =
-    t.recursion("PNCompositionParentalNotesAuthor", () =>
+export const PNCompositionParentalNotesAuthorReference: t.Type<PNCompositionParentalNotesAuthorReference> =
+    t.recursion("PNCompositionParentalNotesAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -294,7 +294,7 @@ export const PNCompositionParentalNotesAuthor: t.Type<PNCompositionParentalNotes
  * The root of the sections that make up the composition.
  */
 export interface PNCompositionParentalNotesSection {
-    entry: Array<PNCompositionParentalNotesSectionEntry>;
+    entry: Array<PNCompositionParentalNotesSectionEntryReference>;
     id?: string;
 }
 
@@ -303,7 +303,11 @@ export const PNCompositionParentalNotesSection: t.Type<PNCompositionParentalNote
         Excess(
             t.intersection([
                 t.type({
-                    entry: MinMaxArray(1, 1, PNCompositionParentalNotesSectionEntry)
+                    entry: MinMaxArray(
+                        1,
+                        1,
+                        PNCompositionParentalNotesSectionEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -318,10 +322,10 @@ interface PNCompositionParentalNotes {
     status: "final";
     type: PNCompositionParentalNotesType;
     category: Array<PNCompositionParentalNotesCategory>;
-    subject: PNCompositionParentalNotesSubject;
-    encounter: PNCompositionParentalNotesEncounter;
+    subject: PNCompositionParentalNotesSubjectReference;
+    encounter: PNCompositionParentalNotesEncounterReference;
     date: string;
-    author: Array<PNCompositionParentalNotesAuthor>;
+    author: Array<PNCompositionParentalNotesAuthorReference>;
     title: "Hier können Sie Ihre Notizen eintragen:";
     section: Array<PNCompositionParentalNotesSection>;
     id?: string;
@@ -340,10 +344,10 @@ const PNCompositionParentalNotes: t.Type<PNCompositionParentalNotes> = t.recursi
                     status: Literal("final"),
                     type: PNCompositionParentalNotesType,
                     category: MinMaxArray(1, 1, PNCompositionParentalNotesCategory),
-                    subject: PNCompositionParentalNotesSubject,
-                    encounter: PNCompositionParentalNotesEncounter,
+                    subject: PNCompositionParentalNotesSubjectReference,
+                    encounter: PNCompositionParentalNotesEncounterReference,
                     date: SCALARDateTime,
-                    author: MinArray(1, PNCompositionParentalNotesAuthor),
+                    author: MinArray(1, PNCompositionParentalNotesAuthorReference),
                     title: Literal("Hier können Sie Ihre Notizen eintragen:"),
                     section: MinMaxArray(1, 1, PNCompositionParentalNotesSection)
                 }),

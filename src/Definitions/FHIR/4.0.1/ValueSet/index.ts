@@ -37,6 +37,12 @@ export {
 } from "./Administrativegender";
 
 export {
+    default as Allergyintoleranceverification,
+    AllergyintoleranceverificationArray as AllergyintoleranceverificationArray,
+    AllergyintoleranceverificationValueSet as AllergyintoleranceverificationValueSet
+} from "./Allergyintoleranceverification";
+
+export {
     default as Alltypes,
     AlltypesArray as AlltypesArray,
     AlltypesValueSet as AlltypesValueSet
@@ -115,6 +121,30 @@ export {
 } from "./Daysofweek";
 
 export {
+    default as Devicenametype,
+    DevicenametypeArray as DevicenametypeArray,
+    DevicenametypeValueSet as DevicenametypeValueSet
+} from "./Devicenametype";
+
+export {
+    default as Devicestatus,
+    DevicestatusArray as DevicestatusArray,
+    DevicestatusValueSet as DevicestatusValueSet
+} from "./Devicestatus";
+
+export {
+    default as Diagnosticreportstatus,
+    DiagnosticreportstatusArray as DiagnosticreportstatusArray,
+    DiagnosticreportstatusValueSet as DiagnosticreportstatusValueSet
+} from "./Diagnosticreportstatus";
+
+export {
+    default as Eventstatus,
+    EventstatusArray as EventstatusArray,
+    EventstatusValueSet as EventstatusValueSet
+} from "./Eventstatus";
+
+export {
     default as Eventtiming,
     EventtimingArray as EventtimingArray,
     EventtimingValueSet as EventtimingValueSet
@@ -149,6 +179,12 @@ export {
     MaritalstatusArray as MaritalstatusArray,
     MaritalstatusValueSet as MaritalstatusValueSet
 } from "./Maritalstatus";
+
+export {
+    default as Medicationstatus,
+    MedicationstatusArray as MedicationstatusArray,
+    MedicationstatusValueSet as MedicationstatusValueSet
+} from "./Medicationstatus";
 
 export {
     default as Mimetypes,
@@ -199,6 +235,12 @@ export {
 } from "./Quantitycomparator";
 
 export {
+    default as Referencerangemeaning,
+    ReferencerangemeaningArray as ReferencerangemeaningArray,
+    ReferencerangemeaningValueSet as ReferencerangemeaningValueSet
+} from "./Referencerangemeaning";
+
+export {
     default as Relatedartifacttype,
     RelatedartifacttypeArray as RelatedartifacttypeArray,
     RelatedartifacttypeValueSet as RelatedartifacttypeValueSet
@@ -233,6 +275,12 @@ export {
     TriggertypeArray as TriggertypeArray,
     TriggertypeValueSet as TriggertypeValueSet
 } from "./Triggertype";
+
+export {
+    default as Udientrytype,
+    UdientrytypeArray as UdientrytypeArray,
+    UdientrytypeValueSet as UdientrytypeValueSet
+} from "./Udientrytype";
 
 export {
     default as Unitsoftime,

@@ -33,20 +33,27 @@ type Eventstatus =
     | "entered-in-error"
     | "unknown";
 
-const Eventstatus: t.Type<Eventstatus> = t.union(
-    [
-        t.literal("preparation"),
-        t.literal("in-progress"),
-        t.literal("not-done"),
-        t.literal("on-hold"),
-        t.literal("stopped"),
-        t.literal("completed"),
-        t.literal("entered-in-error"),
-        t.literal("unknown")
-    ],
-    "Eventstatus"
-);
+type EventstatusType = t.KeyofC<{
+    preparation: null;
+    "in-progress": null;
+    "not-done": null;
+    "on-hold": null;
+    stopped: null;
+    completed: null;
+    "entered-in-error": null;
+    unknown: null;
+}>;
 
+const Eventstatus: EventstatusType = t.keyof({
+    preparation: null,
+    "in-progress": null,
+    "not-done": null,
+    "on-hold": null,
+    stopped: null,
+    completed: null,
+    "entered-in-error": null,
+    unknown: null
+});
 export const EventstatusArray: string[] = [
     "preparation",
     "in-progress",

@@ -261,13 +261,13 @@ export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseCode: t.Type<CMRDiagnos
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject {
+export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject> =
-    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject", () =>
+export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference> =
+    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,13 +285,13 @@ export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject: t.Type<CMRDiag
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter {
+export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter> =
-    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter", () =>
+export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference> =
+    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -309,13 +309,13 @@ export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter: t.Type<CMRDi
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer {
+export interface CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer> =
-    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer", () =>
+export const CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference> =
+    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ export const CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer: t.Type<CMRDi
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult {
+export interface CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult> =
-    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult", () =>
+export const CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference> =
+    t.recursion("CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -359,13 +359,13 @@ interface CMRDiagnosticReportU8U9PhysicalExamMouthNose {
     meta: CMRDiagnosticReportU8U9PhysicalExamMouthNoseMeta;
     status: "final";
     code: CMRDiagnosticReportU8U9PhysicalExamMouthNoseCode;
-    subject: CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject;
-    encounter: CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter;
+    subject: CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference;
+    encounter: CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer>;
-    result?: CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult[];
+    performer?: Array<CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference>;
+    result?: CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference[];
 }
 
 const CMRDiagnosticReportU8U9PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU8U9PhysicalExamMouthNose> =
@@ -377,8 +377,9 @@ const CMRDiagnosticReportU8U9PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU8
                     meta: CMRDiagnosticReportU8U9PhysicalExamMouthNoseMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU8U9PhysicalExamMouthNoseCode,
-                    subject: CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubject,
-                    encounter: CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounter,
+                    subject: CMRDiagnosticReportU8U9PhysicalExamMouthNoseSubjectReference,
+                    encounter:
+                        CMRDiagnosticReportU8U9PhysicalExamMouthNoseEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -386,9 +387,11 @@ const CMRDiagnosticReportU8U9PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU8
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformer
+                        CMRDiagnosticReportU8U9PhysicalExamMouthNosePerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU8U9PhysicalExamMouthNoseResult)
+                    result: t.array(
+                        CMRDiagnosticReportU8U9PhysicalExamMouthNoseResultReference
+                    )
                 })
             ])
         )

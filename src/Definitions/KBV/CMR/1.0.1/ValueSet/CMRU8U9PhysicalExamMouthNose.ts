@@ -26,11 +26,17 @@ import CMRU8U9PhysicalExamMouthNoseGerman from "../../../../../Definitions/KBV/C
 
 type CMRU8U9PhysicalExamMouthNose = "300255008" | "449790007" | "125593007";
 
-const CMRU8U9PhysicalExamMouthNose: t.Type<CMRU8U9PhysicalExamMouthNose> = t.union(
-    [t.literal("300255008"), t.literal("449790007"), t.literal("125593007")],
-    "CMRU8U9PhysicalExamMouthNose"
-);
+type CMRU8U9PhysicalExamMouthNoseType = t.KeyofC<{
+    "300255008": null;
+    "449790007": null;
+    "125593007": null;
+}>;
 
+const CMRU8U9PhysicalExamMouthNose: CMRU8U9PhysicalExamMouthNoseType = t.keyof({
+    "300255008": null,
+    "449790007": null,
+    "125593007": null
+});
 export const CMRU8U9PhysicalExamMouthNoseArray: string[] = [
     "300255008",
     "449790007",

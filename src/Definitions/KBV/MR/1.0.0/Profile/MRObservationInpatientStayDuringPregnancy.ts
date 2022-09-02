@@ -289,13 +289,13 @@ export const MRObservationInpatientStayDuringPregnancyCode: t.Type<MRObservation
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationInpatientStayDuringPregnancySubject {
+export interface MRObservationInpatientStayDuringPregnancySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationInpatientStayDuringPregnancySubject: t.Type<MRObservationInpatientStayDuringPregnancySubject> =
-    t.recursion("MRObservationInpatientStayDuringPregnancySubject", () =>
+export const MRObservationInpatientStayDuringPregnancySubjectReference: t.Type<MRObservationInpatientStayDuringPregnancySubjectReference> =
+    t.recursion("MRObservationInpatientStayDuringPregnancySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -313,13 +313,13 @@ export const MRObservationInpatientStayDuringPregnancySubject: t.Type<MRObservat
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationInpatientStayDuringPregnancyEncounter {
+export interface MRObservationInpatientStayDuringPregnancyEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationInpatientStayDuringPregnancyEncounter: t.Type<MRObservationInpatientStayDuringPregnancyEncounter> =
-    t.recursion("MRObservationInpatientStayDuringPregnancyEncounter", () =>
+export const MRObservationInpatientStayDuringPregnancyEncounterReference: t.Type<MRObservationInpatientStayDuringPregnancyEncounterReference> =
+    t.recursion("MRObservationInpatientStayDuringPregnancyEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,13 +337,13 @@ export const MRObservationInpatientStayDuringPregnancyEncounter: t.Type<MRObserv
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationInpatientStayDuringPregnancyPerformer {
+export interface MRObservationInpatientStayDuringPregnancyPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationInpatientStayDuringPregnancyPerformer: t.Type<MRObservationInpatientStayDuringPregnancyPerformer> =
-    t.recursion("MRObservationInpatientStayDuringPregnancyPerformer", () =>
+export const MRObservationInpatientStayDuringPregnancyPerformerReference: t.Type<MRObservationInpatientStayDuringPregnancyPerformerReference> =
+    t.recursion("MRObservationInpatientStayDuringPregnancyPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -364,13 +364,13 @@ interface MRObservationInpatientStayDuringPregnancy {
     meta: MRObservationInpatientStayDuringPregnancyMeta;
     status: "final";
     code: MRObservationInpatientStayDuringPregnancyCode;
-    subject: MRObservationInpatientStayDuringPregnancySubject;
-    encounter: MRObservationInpatientStayDuringPregnancyEncounter;
+    subject: MRObservationInpatientStayDuringPregnancySubjectReference;
+    encounter: MRObservationInpatientStayDuringPregnancyEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationInpatientStayDuringPregnancyValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationInpatientStayDuringPregnancyPerformer>;
+    performer?: Array<MRObservationInpatientStayDuringPregnancyPerformerReference>;
 }
 
 const MRObservationInpatientStayDuringPregnancy: t.Type<MRObservationInpatientStayDuringPregnancy> =
@@ -382,8 +382,9 @@ const MRObservationInpatientStayDuringPregnancy: t.Type<MRObservationInpatientSt
                     meta: MRObservationInpatientStayDuringPregnancyMeta,
                     status: Literal("final"),
                     code: MRObservationInpatientStayDuringPregnancyCode,
-                    subject: MRObservationInpatientStayDuringPregnancySubject,
-                    encounter: MRObservationInpatientStayDuringPregnancyEncounter,
+                    subject: MRObservationInpatientStayDuringPregnancySubjectReference,
+                    encounter:
+                        MRObservationInpatientStayDuringPregnancyEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationInpatientStayDuringPregnancyValueQuantity
                 }),
@@ -392,7 +393,7 @@ const MRObservationInpatientStayDuringPregnancy: t.Type<MRObservationInpatientSt
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        MRObservationInpatientStayDuringPregnancyPerformer
+                        MRObservationInpatientStayDuringPregnancyPerformerReference
                     )
                 })
             ])

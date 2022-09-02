@@ -26,19 +26,24 @@ import CMRGrafHipUltrasoundClassificationGerman from "../../../../../Definitions
 
 type CMRGrafHipUltrasoundClassification = "1ab" | "2a" | "2cd" | "3a" | "3b" | "4";
 
-const CMRGrafHipUltrasoundClassification: t.Type<CMRGrafHipUltrasoundClassification> =
-    t.union(
-        [
-            t.literal("1ab"),
-            t.literal("2a"),
-            t.literal("2cd"),
-            t.literal("3a"),
-            t.literal("3b"),
-            t.literal("4")
-        ],
-        "CMRGrafHipUltrasoundClassification"
-    );
+type CMRGrafHipUltrasoundClassificationType = t.KeyofC<{
+    "1ab": null;
+    "2a": null;
+    "2cd": null;
+    "3a": null;
+    "3b": null;
+    "4": null;
+}>;
 
+const CMRGrafHipUltrasoundClassification: CMRGrafHipUltrasoundClassificationType =
+    t.keyof({
+        "1ab": null,
+        "2a": null,
+        "2cd": null,
+        "3a": null,
+        "3b": null,
+        "4": null
+    });
 export const CMRGrafHipUltrasoundClassificationArray: string[] = [
     "1ab",
     "2a",

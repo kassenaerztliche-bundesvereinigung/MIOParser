@@ -26,11 +26,12 @@ import MRDirectCoombstestGerman from "../../../../../Definitions/KBV/MR/1.0.0/Co
 
 type MRDirectCoombstest = "165772007" | "165773002";
 
-const MRDirectCoombstest: t.Type<MRDirectCoombstest> = t.union(
-    [t.literal("165772007"), t.literal("165773002")],
-    "MRDirectCoombstest"
-);
+type MRDirectCoombstestType = t.KeyofC<{ "165772007": null; "165773002": null }>;
 
+const MRDirectCoombstest: MRDirectCoombstestType = t.keyof({
+    "165772007": null,
+    "165773002": null
+});
 export const MRDirectCoombstestArray: string[] = ["165772007", "165773002"];
 
 export const MRDirectCoombstestValueSet: ValueSet = [

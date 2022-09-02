@@ -276,14 +276,13 @@ export const PNEncounterType: t.Type<PNEncounterType> = t.recursion(
 /**
  * The patient or group present at the encounter.
  */
-export interface PNEncounterSubject {
+export interface PNEncounterSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const PNEncounterSubject: t.Type<PNEncounterSubject> = t.recursion(
-    "PNEncounterSubject",
-    () =>
+export const PNEncounterSubjectReference: t.Type<PNEncounterSubjectReference> =
+    t.recursion("PNEncounterSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -296,7 +295,7 @@ export const PNEncounterSubject: t.Type<PNEncounterSubject> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 /**
  * The start and end time of the encounter.
@@ -327,7 +326,7 @@ interface PNEncounter {
     status: "finished";
     class: PNEncounterClass;
     type: Array<PNEncounterType>;
-    subject: PNEncounterSubject;
+    subject: PNEncounterSubjectReference;
     period: PNEncounterPeriod;
     id?: string;
 }
@@ -341,7 +340,7 @@ const PNEncounter: t.Type<PNEncounter> = t.recursion("PNEncounter", () =>
                 status: Literal("finished"),
                 class: PNEncounterClass,
                 type: MinMaxArray(1, 1, PNEncounterType),
-                subject: PNEncounterSubject,
+                subject: PNEncounterSubjectReference,
                 period: PNEncounterPeriod
             }),
             t.partial({

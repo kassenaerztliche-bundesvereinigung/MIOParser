@@ -28,14 +28,15 @@ type VaccinationLabTiterImmunity =
     | "365861007:363713009=260385009"
     | "365861007:363713009=10828004";
 
-const VaccinationLabTiterImmunity: t.Type<VaccinationLabTiterImmunity> = t.union(
-    [
-        t.literal("365861007:363713009=260385009"),
-        t.literal("365861007:363713009=10828004")
-    ],
-    "VaccinationLabTiterImmunity"
-);
+type VaccinationLabTiterImmunityType = t.KeyofC<{
+    "365861007:363713009=260385009": null;
+    "365861007:363713009=10828004": null;
+}>;
 
+const VaccinationLabTiterImmunity: VaccinationLabTiterImmunityType = t.keyof({
+    "365861007:363713009=260385009": null,
+    "365861007:363713009=10828004": null
+});
 export const VaccinationLabTiterImmunityArray: string[] = [
     "365861007:363713009=260385009",
     "365861007:363713009=10828004"

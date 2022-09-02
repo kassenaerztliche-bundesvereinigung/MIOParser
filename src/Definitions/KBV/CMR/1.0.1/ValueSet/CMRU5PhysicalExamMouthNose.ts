@@ -26,11 +26,12 @@ import CMRU5PhysicalExamMouthNoseGerman from "../../../../../Definitions/KBV/CMR
 
 type CMRU5PhysicalExamMouthNose = "125593007" | "367381002";
 
-const CMRU5PhysicalExamMouthNose: t.Type<CMRU5PhysicalExamMouthNose> = t.union(
-    [t.literal("125593007"), t.literal("367381002")],
-    "CMRU5PhysicalExamMouthNose"
-);
+type CMRU5PhysicalExamMouthNoseType = t.KeyofC<{ "125593007": null; "367381002": null }>;
 
+const CMRU5PhysicalExamMouthNose: CMRU5PhysicalExamMouthNoseType = t.keyof({
+    "125593007": null,
+    "367381002": null
+});
 export const CMRU5PhysicalExamMouthNoseArray: string[] = ["125593007", "367381002"];
 
 export const CMRU5PhysicalExamMouthNoseValueSet: ValueSet = [

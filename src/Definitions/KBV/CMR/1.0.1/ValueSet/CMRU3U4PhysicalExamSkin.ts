@@ -34,20 +34,27 @@ type CMRU3U4PhysicalExamSkin =
     | "781645001"
     | "106076001:116676008=708039003";
 
-const CMRU3U4PhysicalExamSkin: t.Type<CMRU3U4PhysicalExamSkin> = t.union(
-    [
-        t.literal("267029006"),
-        t.literal("3415004"),
-        t.literal("18165001"),
-        t.literal("400210000"),
-        t.literal("370172004"),
-        t.literal("267038008"),
-        t.literal("781645001"),
-        t.literal("106076001:116676008=708039003")
-    ],
-    "CMRU3U4PhysicalExamSkin"
-);
+type CMRU3U4PhysicalExamSkinType = t.KeyofC<{
+    "267029006": null;
+    "3415004": null;
+    "18165001": null;
+    "400210000": null;
+    "370172004": null;
+    "267038008": null;
+    "781645001": null;
+    "106076001:116676008=708039003": null;
+}>;
 
+const CMRU3U4PhysicalExamSkin: CMRU3U4PhysicalExamSkinType = t.keyof({
+    "267029006": null,
+    "3415004": null,
+    "18165001": null,
+    "400210000": null,
+    "370172004": null,
+    "267038008": null,
+    "781645001": null,
+    "106076001:116676008=708039003": null
+});
 export const CMRU3U4PhysicalExamSkinArray: string[] = [
     "267029006",
     "3415004",

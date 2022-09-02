@@ -25,8 +25,11 @@ import { ValueSet } from "../../../Interfaces";
 
 type BodyHeightSnomed = "169886007";
 
-const BodyHeightSnomed: t.Type<BodyHeightSnomed> = t.literal("169886007");
+type BodyHeightSnomedType = t.KeyofC<{ "169886007": null }>;
 
+const BodyHeightSnomed: BodyHeightSnomedType = t.keyof({
+    "169886007": null
+});
 export const BodyHeightSnomedArray: string[] = ["169886007"];
 
 export const BodyHeightSnomedValueSet: ValueSet = [

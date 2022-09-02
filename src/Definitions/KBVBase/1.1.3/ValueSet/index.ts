@@ -55,6 +55,12 @@ export {
 } from "./BodyTempSnomed";
 
 export {
+    default as BodyTempUnit,
+    BodyTempUnitArray as BodyTempUnitArray,
+    BodyTempUnitValueSet as BodyTempUnitValueSet
+} from "./BodyTempUnit";
+
+export {
     default as BodyWeightLoinc,
     BodyWeightLoincArray as BodyWeightLoincArray,
     BodyWeightLoincValueSet as BodyWeightLoincValueSet
@@ -107,6 +113,24 @@ export {
     HeartRateSnomedArray as HeartRateSnomedArray,
     HeartRateSnomedValueSet as HeartRateSnomedValueSet
 } from "./HeartRateSnomed";
+
+export {
+    default as IHEXDSAuthorSpecialityRestricted,
+    IHEXDSAuthorSpecialityRestrictedArray as IHEXDSAuthorSpecialityRestrictedArray,
+    IHEXDSAuthorSpecialityRestrictedValueSet as IHEXDSAuthorSpecialityRestrictedValueSet
+} from "./IHEXDSAuthorSpecialityRestricted";
+
+export {
+    default as PractitionerSpeciality,
+    PractitionerSpecialityArray as PractitionerSpecialityArray,
+    PractitionerSpecialityValueSet as PractitionerSpecialityValueSet
+} from "./PractitionerSpeciality";
+
+export {
+    default as PractitionerSpecialityAddendum,
+    PractitionerSpecialityAddendumArray as PractitionerSpecialityAddendumArray,
+    PractitionerSpecialityAddendumValueSet as PractitionerSpecialityAddendumValueSet
+} from "./PractitionerSpecialityAddendum";
 
 export {
     default as StageLife,

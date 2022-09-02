@@ -39,11 +39,16 @@ export default class ErrorMessage {
         const actual =
             typeof context.actual === "string" ? `"${context.actual}"` : context.actual;
         const tag = (context.type as any)._tag ? (context.type as any)._tag : "";
+        const should = context.type.name;
 
         if (lang === "de") {
-            return `Wert ist ${actual} aber sollte ${context.type.name} sein (${tag})`;
+            return `Wert ist ${actual} aber sollte${
+                should.includes("|") ? " einer der folgenden Werte sein: " : " "
+            }${context.type.name}${should.includes("|") ? "" : "sein"}  (${tag})`;
         } else {
-            return `Value is ${actual} but should be ${context.type.name} (${tag})`;
+            return `Value is ${actual} but should be ${
+                should.includes("|") ? "in" : ""
+            } ${context.type.name} (${tag})`;
         }
     }
 
@@ -260,6 +265,28 @@ export default class ErrorMessage {
             return "In der Composition konnten keine sections gefunden werden.";
         } else {
             return "No sections were found in the composition.";
+        }
+    }
+
+    static NoSectionForExistsValue(
+        sectionExists?: (string | undefined)[],
+        sliceValuePath?: string,
+        lang: ErrorMessageLanguage = ErrorMessage.Language
+    ): string {
+        const append = sliceValuePath ? ` (${sliceValuePath})` : "";
+        sectionExists = sectionExists?.filter((e) => e?.length);
+        if (lang === "de") {
+            return (
+                `Es wurde keine Section mit den möglichen sliceKeys: "${
+                    sectionExists ? sectionExists.join(", ") : "undefined"
+                }" gefunden` + append
+            );
+        } else {
+            return (
+                `There was no section found for sliceKeys: "${
+                    sectionExists ? sectionExists.join(", ") : "undefined"
+                }"` + append
+            );
         }
     }
 

@@ -247,13 +247,13 @@ export const CMREncounterParticipantType: t.Type<CMREncounterParticipantType> =
 /**
  * Persons involved in the encounter other than the patient.
  */
-export interface CMREncounterParticipantIndividual {
+export interface CMREncounterParticipantIndividualReference {
     reference: string;
     id?: string;
 }
 
-export const CMREncounterParticipantIndividual: t.Type<CMREncounterParticipantIndividual> =
-    t.recursion("CMREncounterParticipantIndividual", () =>
+export const CMREncounterParticipantIndividualReference: t.Type<CMREncounterParticipantIndividualReference> =
+    t.recursion("CMREncounterParticipantIndividualReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -352,14 +352,13 @@ export const CMREncounterType: t.Type<CMREncounterType> = t.recursion(
 /**
  * The patient or group present at the encounter.
  */
-export interface CMREncounterSubject {
+export interface CMREncounterSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMREncounterSubject: t.Type<CMREncounterSubject> = t.recursion(
-    "CMREncounterSubject",
-    () =>
+export const CMREncounterSubjectReference: t.Type<CMREncounterSubjectReference> =
+    t.recursion("CMREncounterSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -372,14 +371,14 @@ export const CMREncounterSubject: t.Type<CMREncounterSubject> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 /**
  * The list of people responsible for providing the service.
  */
 export interface CMREncounterParticipant {
     type: Array<CMREncounterParticipantType>;
-    individual: CMREncounterParticipantIndividual;
+    individual: CMREncounterParticipantIndividualReference;
     id?: string;
 }
 
@@ -390,7 +389,7 @@ export const CMREncounterParticipant: t.Type<CMREncounterParticipant> = t.recurs
             t.intersection([
                 t.type({
                     type: MinMaxArray(1, 1, CMREncounterParticipantType),
-                    individual: CMREncounterParticipantIndividual
+                    individual: CMREncounterParticipantIndividualReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -425,13 +424,13 @@ export const CMREncounterPeriod: t.Type<CMREncounterPeriod> = t.recursion(
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
  */
-export interface CMREncounterServiceProvider {
+export interface CMREncounterServiceProviderReference {
     reference: string;
     id?: string;
 }
 
-export const CMREncounterServiceProvider: t.Type<CMREncounterServiceProvider> =
-    t.recursion("CMREncounterServiceProvider", () =>
+export const CMREncounterServiceProviderReference: t.Type<CMREncounterServiceProviderReference> =
+    t.recursion("CMREncounterServiceProviderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -452,11 +451,11 @@ interface CMREncounter {
     status: "finished";
     class: CMREncounterClass;
     type: Array<CMREncounterType>;
-    subject: CMREncounterSubject;
+    subject: CMREncounterSubjectReference;
     participant: Array<CMREncounterParticipant>;
     period: CMREncounterPeriod;
     id?: string;
-    serviceProvider?: CMREncounterServiceProvider;
+    serviceProvider?: CMREncounterServiceProviderReference;
 }
 
 const CMREncounter: t.Type<CMREncounter> = t.recursion("CMREncounter", () =>
@@ -468,13 +467,13 @@ const CMREncounter: t.Type<CMREncounter> = t.recursion("CMREncounter", () =>
                 status: Literal("finished"),
                 class: CMREncounterClass,
                 type: MinMaxArray(1, 1, CMREncounterType),
-                subject: CMREncounterSubject,
+                subject: CMREncounterSubjectReference,
                 participant: MinMaxArray(1, 1, CMREncounterParticipant),
                 period: CMREncounterPeriod
             }),
             t.partial({
                 id: SCALARString,
-                serviceProvider: CMREncounterServiceProvider
+                serviceProvider: CMREncounterServiceProviderReference
             })
         ])
     )

@@ -19,7 +19,6 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
 
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import NameuseVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Nameuse";
@@ -28,7 +27,6 @@ import Period from "../../../../Definitions/FHIR/4.0.1/Profile/Period";
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/HumanName"
 
 interface HumanName {
-    resourceType?: "HumanName";
     id?: string;
     use?: NameuseVS;
     text?: string;
@@ -41,7 +39,6 @@ interface HumanName {
 
 const HumanName: t.Type<HumanName> = t.recursion("HumanName", () =>
     t.partial({
-        resourceType: Literal("HumanName"),
         id: SCALARString,
         use: NameuseVS,
         text: SCALARString,

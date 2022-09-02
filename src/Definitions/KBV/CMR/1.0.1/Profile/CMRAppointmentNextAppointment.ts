@@ -208,13 +208,13 @@ export const CMRAppointmentNextAppointmentServiceTypeCoding: t.Type<CMRAppointme
 /**
  * A Person, Location/HealthcareService or Device that is participating in the appointment.
  */
-export interface CMRAppointmentNextAppointmentParticipantActor {
+export interface CMRAppointmentNextAppointmentParticipantActorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRAppointmentNextAppointmentParticipantActor: t.Type<CMRAppointmentNextAppointmentParticipantActor> =
-    t.recursion("CMRAppointmentNextAppointmentParticipantActor", () =>
+export const CMRAppointmentNextAppointmentParticipantActorReference: t.Type<CMRAppointmentNextAppointmentParticipantActorReference> =
+    t.recursion("CMRAppointmentNextAppointmentParticipantActorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -288,7 +288,7 @@ export const CMRAppointmentNextAppointmentServiceType: t.Type<CMRAppointmentNext
  * List of participants involved in the appointment.
  */
 export interface CMRAppointmentNextAppointmentParticipant {
-    actor: CMRAppointmentNextAppointmentParticipantActor;
+    actor: CMRAppointmentNextAppointmentParticipantActorReference;
     status: "accepted";
     id?: string;
 }
@@ -298,7 +298,7 @@ export const CMRAppointmentNextAppointmentParticipant: t.Type<CMRAppointmentNext
         Excess(
             t.intersection([
                 t.type({
-                    actor: CMRAppointmentNextAppointmentParticipantActor,
+                    actor: CMRAppointmentNextAppointmentParticipantActorReference,
                     status: Literal("accepted")
                 }),
                 t.partial({

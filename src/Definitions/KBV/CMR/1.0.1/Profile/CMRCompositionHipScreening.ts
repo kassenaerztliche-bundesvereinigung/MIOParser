@@ -99,13 +99,13 @@ export const CMRCompositionHipScreeningCategoryCoding: t.Type<CMRCompositionHipS
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionHipScreeningSectionEntry {
+export interface CMRCompositionHipScreeningSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionHipScreeningSectionEntry: t.Type<CMRCompositionHipScreeningSectionEntry> =
-    t.recursion("CMRCompositionHipScreeningSectionEntry", () =>
+export const CMRCompositionHipScreeningSectionEntryReference: t.Type<CMRCompositionHipScreeningSectionEntryReference> =
+    t.recursion("CMRCompositionHipScreeningSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -198,13 +198,13 @@ export const CMRCompositionHipScreeningCategory: t.Type<CMRCompositionHipScreeni
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionHipScreeningSubject {
+export interface CMRCompositionHipScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionHipScreeningSubject: t.Type<CMRCompositionHipScreeningSubject> =
-    t.recursion("CMRCompositionHipScreeningSubject", () =>
+export const CMRCompositionHipScreeningSubjectReference: t.Type<CMRCompositionHipScreeningSubjectReference> =
+    t.recursion("CMRCompositionHipScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -222,13 +222,13 @@ export const CMRCompositionHipScreeningSubject: t.Type<CMRCompositionHipScreenin
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionHipScreeningEncounter {
+export interface CMRCompositionHipScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionHipScreeningEncounter: t.Type<CMRCompositionHipScreeningEncounter> =
-    t.recursion("CMRCompositionHipScreeningEncounter", () =>
+export const CMRCompositionHipScreeningEncounterReference: t.Type<CMRCompositionHipScreeningEncounterReference> =
+    t.recursion("CMRCompositionHipScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -246,13 +246,13 @@ export const CMRCompositionHipScreeningEncounter: t.Type<CMRCompositionHipScreen
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionHipScreeningAuthor {
+export interface CMRCompositionHipScreeningAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionHipScreeningAuthor: t.Type<CMRCompositionHipScreeningAuthor> =
-    t.recursion("CMRCompositionHipScreeningAuthor", () =>
+export const CMRCompositionHipScreeningAuthorReference: t.Type<CMRCompositionHipScreeningAuthorReference> =
+    t.recursion("CMRCompositionHipScreeningAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -273,7 +273,7 @@ export const CMRCompositionHipScreeningAuthor: t.Type<CMRCompositionHipScreening
  */
 export interface CMRCompositionHipScreeningSection {
     title: "Screening auf Hüftgelenksdysplasie und -luxation";
-    entry: Array<CMRCompositionHipScreeningSectionEntry>;
+    entry: Array<CMRCompositionHipScreeningSectionEntryReference>;
     id?: string;
 }
 
@@ -283,7 +283,7 @@ export const CMRCompositionHipScreeningSection: t.Type<CMRCompositionHipScreenin
             t.intersection([
                 t.type({
                     title: Literal("Screening auf Hüftgelenksdysplasie und -luxation"),
-                    entry: MinArray(1, CMRCompositionHipScreeningSectionEntry)
+                    entry: MinArray(1, CMRCompositionHipScreeningSectionEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -298,10 +298,10 @@ interface CMRCompositionHipScreening {
     status: "final";
     type: CMRCompositionHipScreeningType;
     category: Array<CMRCompositionHipScreeningCategory>;
-    subject: CMRCompositionHipScreeningSubject;
-    encounter: CMRCompositionHipScreeningEncounter;
+    subject: CMRCompositionHipScreeningSubjectReference;
+    encounter: CMRCompositionHipScreeningEncounterReference;
     date: string;
-    author: Array<CMRCompositionHipScreeningAuthor>;
+    author: Array<CMRCompositionHipScreeningAuthorReference>;
     title: "Spezielle Früherkennungsuntersuchungen";
     section: Array<CMRCompositionHipScreeningSection>;
     id?: string;
@@ -319,10 +319,10 @@ const CMRCompositionHipScreening: t.Type<CMRCompositionHipScreening> = t.recursi
                     status: Literal("final"),
                     type: CMRCompositionHipScreeningType,
                     category: MinMaxArray(1, 1, CMRCompositionHipScreeningCategory),
-                    subject: CMRCompositionHipScreeningSubject,
-                    encounter: CMRCompositionHipScreeningEncounter,
+                    subject: CMRCompositionHipScreeningSubjectReference,
+                    encounter: CMRCompositionHipScreeningEncounterReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 2, CMRCompositionHipScreeningAuthor),
+                    author: MinMaxArray(1, 2, CMRCompositionHipScreeningAuthorReference),
                     title: Literal("Spezielle Früherkennungsuntersuchungen"),
                     section: MinMaxArray(1, 1, CMRCompositionHipScreeningSection)
                 }),

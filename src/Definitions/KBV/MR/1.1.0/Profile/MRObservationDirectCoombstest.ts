@@ -333,13 +333,13 @@ export const MRObservationDirectCoombstestCode: t.Type<MRObservationDirectCoombs
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationDirectCoombstestSubject {
+export interface MRObservationDirectCoombstestSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDirectCoombstestSubject: t.Type<MRObservationDirectCoombstestSubject> =
-    t.recursion("MRObservationDirectCoombstestSubject", () =>
+export const MRObservationDirectCoombstestSubjectReference: t.Type<MRObservationDirectCoombstestSubjectReference> =
+    t.recursion("MRObservationDirectCoombstestSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -357,13 +357,13 @@ export const MRObservationDirectCoombstestSubject: t.Type<MRObservationDirectCoo
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationDirectCoombstestEncounter {
+export interface MRObservationDirectCoombstestEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDirectCoombstestEncounter: t.Type<MRObservationDirectCoombstestEncounter> =
-    t.recursion("MRObservationDirectCoombstestEncounter", () =>
+export const MRObservationDirectCoombstestEncounterReference: t.Type<MRObservationDirectCoombstestEncounterReference> =
+    t.recursion("MRObservationDirectCoombstestEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -381,13 +381,13 @@ export const MRObservationDirectCoombstestEncounter: t.Type<MRObservationDirectC
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationDirectCoombstestPerformer {
+export interface MRObservationDirectCoombstestPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDirectCoombstestPerformer: t.Type<MRObservationDirectCoombstestPerformer> =
-    t.recursion("MRObservationDirectCoombstestPerformer", () =>
+export const MRObservationDirectCoombstestPerformerReference: t.Type<MRObservationDirectCoombstestPerformerReference> =
+    t.recursion("MRObservationDirectCoombstestPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -408,13 +408,13 @@ interface MRObservationDirectCoombstest {
     meta: MRObservationDirectCoombstestMeta;
     status: "final";
     code: MRObservationDirectCoombstestCode;
-    subject: MRObservationDirectCoombstestSubject;
-    encounter: MRObservationDirectCoombstestEncounter;
+    subject: MRObservationDirectCoombstestSubjectReference;
+    encounter: MRObservationDirectCoombstestEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationDirectCoombstestValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationDirectCoombstestPerformer>;
+    performer?: Array<MRObservationDirectCoombstestPerformerReference>;
 }
 
 const MRObservationDirectCoombstest: t.Type<MRObservationDirectCoombstest> = t.recursion(
@@ -427,8 +427,8 @@ const MRObservationDirectCoombstest: t.Type<MRObservationDirectCoombstest> = t.r
                     meta: MRObservationDirectCoombstestMeta,
                     status: Literal("final"),
                     code: MRObservationDirectCoombstestCode,
-                    subject: MRObservationDirectCoombstestSubject,
-                    encounter: MRObservationDirectCoombstestEncounter,
+                    subject: MRObservationDirectCoombstestSubjectReference,
+                    encounter: MRObservationDirectCoombstestEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         MRObservationDirectCoombstestValueCodeableConcept
@@ -436,7 +436,10 @@ const MRObservationDirectCoombstest: t.Type<MRObservationDirectCoombstest> = t.r
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationDirectCoombstestPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationDirectCoombstestPerformerReference
+                    )
                 })
             ])
         )

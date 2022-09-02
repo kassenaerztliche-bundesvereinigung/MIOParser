@@ -265,97 +265,105 @@ export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationCode: t.Typ
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject {
+export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject> =
-    t.recursion("CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference> =
+    t.recursion(
+        "CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter {
+export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter> =
-    t.recursion("CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference> =
+    t.recursion(
+        "CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer {
+export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer> =
-    t.recursion("CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference> =
+    t.recursion(
+        "CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult {
+export interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult> =
-    t.recursion("CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U7_U9_Physical_Exam_Heart_Blood_Circulation|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference> =
+    t.recursion(
+        "CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U7_U9_Physical_Exam_Heart_Blood_Circulation|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation {
@@ -363,13 +371,13 @@ interface CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation {
     meta: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationMeta;
     status: "final";
     code: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationCode;
-    subject: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject;
-    encounter: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter;
+    subject: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference;
+    encounter: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer>;
-    result?: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult[];
+    performer?: Array<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference>;
+    result?: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference[];
 }
 
 const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation> =
@@ -382,9 +390,9 @@ const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRDiagno
                     status: Literal("final"),
                     code: CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationCode,
                     subject:
-                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubject,
+                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounter,
+                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -392,10 +400,10 @@ const CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRDiagno
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformer
+                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResult
+                        CMRDiagnosticReportU7U9PhysicalExamHeartBloodCirculationResultReference
                     )
                 })
             ])

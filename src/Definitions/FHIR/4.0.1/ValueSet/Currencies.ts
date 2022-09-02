@@ -25,7 +25,9 @@ import { ValueSet } from "../../../Interfaces";
 
 type Currencies = string;
 
-const Currencies: t.Type<Currencies> = t.string;
+type CurrenciesType = string;
+
+const Currencies: t.Type<CurrenciesType> = t.string;
 
 export const CurrenciesArray: string[] = [];
 

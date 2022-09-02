@@ -453,13 +453,13 @@ export const CMRDiagnosticReportU3U4HipScreeningCode: t.Type<CMRDiagnosticReport
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU3U4HipScreeningSubject {
+export interface CMRDiagnosticReportU3U4HipScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU3U4HipScreeningSubject: t.Type<CMRDiagnosticReportU3U4HipScreeningSubject> =
-    t.recursion("CMRDiagnosticReportU3U4HipScreeningSubject", () =>
+export const CMRDiagnosticReportU3U4HipScreeningSubjectReference: t.Type<CMRDiagnosticReportU3U4HipScreeningSubjectReference> =
+    t.recursion("CMRDiagnosticReportU3U4HipScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -477,13 +477,13 @@ export const CMRDiagnosticReportU3U4HipScreeningSubject: t.Type<CMRDiagnosticRep
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU3U4HipScreeningEncounter {
+export interface CMRDiagnosticReportU3U4HipScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU3U4HipScreeningEncounter: t.Type<CMRDiagnosticReportU3U4HipScreeningEncounter> =
-    t.recursion("CMRDiagnosticReportU3U4HipScreeningEncounter", () =>
+export const CMRDiagnosticReportU3U4HipScreeningEncounterReference: t.Type<CMRDiagnosticReportU3U4HipScreeningEncounterReference> =
+    t.recursion("CMRDiagnosticReportU3U4HipScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const CMRDiagnosticReportU3U4HipScreeningEncounter: t.Type<CMRDiagnosticR
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU3U4HipScreeningPerformer {
+export interface CMRDiagnosticReportU3U4HipScreeningPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU3U4HipScreeningPerformer: t.Type<CMRDiagnosticReportU3U4HipScreeningPerformer> =
-    t.recursion("CMRDiagnosticReportU3U4HipScreeningPerformer", () =>
+export const CMRDiagnosticReportU3U4HipScreeningPerformerReference: t.Type<CMRDiagnosticReportU3U4HipScreeningPerformerReference> =
+    t.recursion("CMRDiagnosticReportU3U4HipScreeningPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -525,13 +525,13 @@ export const CMRDiagnosticReportU3U4HipScreeningPerformer: t.Type<CMRDiagnosticR
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU3U4HipScreeningResult {
+export interface CMRDiagnosticReportU3U4HipScreeningResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU3U4HipScreeningResult: t.Type<CMRDiagnosticReportU3U4HipScreeningResult> =
-    t.recursion("CMRDiagnosticReportU3U4HipScreeningResult", () =>
+export const CMRDiagnosticReportU3U4HipScreeningResultReference: t.Type<CMRDiagnosticReportU3U4HipScreeningResultReference> =
+    t.recursion("CMRDiagnosticReportU3U4HipScreeningResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -551,13 +551,13 @@ interface CMRDiagnosticReportU3U4HipScreening {
     meta: CMRDiagnosticReportU3U4HipScreeningMeta;
     status: "final";
     code: CMRDiagnosticReportU3U4HipScreeningCode;
-    subject: CMRDiagnosticReportU3U4HipScreeningSubject;
-    encounter: CMRDiagnosticReportU3U4HipScreeningEncounter;
+    subject: CMRDiagnosticReportU3U4HipScreeningSubjectReference;
+    encounter: CMRDiagnosticReportU3U4HipScreeningEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU3U4HipScreeningPerformer>;
-    result?: CMRDiagnosticReportU3U4HipScreeningResult[];
+    performer?: Array<CMRDiagnosticReportU3U4HipScreeningPerformerReference>;
+    result?: CMRDiagnosticReportU3U4HipScreeningResultReference[];
 }
 
 const CMRDiagnosticReportU3U4HipScreening: t.Type<CMRDiagnosticReportU3U4HipScreening> =
@@ -569,15 +569,18 @@ const CMRDiagnosticReportU3U4HipScreening: t.Type<CMRDiagnosticReportU3U4HipScre
                     meta: CMRDiagnosticReportU3U4HipScreeningMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU3U4HipScreeningCode,
-                    subject: CMRDiagnosticReportU3U4HipScreeningSubject,
-                    encounter: CMRDiagnosticReportU3U4HipScreeningEncounter,
+                    subject: CMRDiagnosticReportU3U4HipScreeningSubjectReference,
+                    encounter: CMRDiagnosticReportU3U4HipScreeningEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU3U4HipScreeningPerformer),
-                    result: t.array(CMRDiagnosticReportU3U4HipScreeningResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU3U4HipScreeningPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportU3U4HipScreeningResultReference)
                 })
             ])
         )

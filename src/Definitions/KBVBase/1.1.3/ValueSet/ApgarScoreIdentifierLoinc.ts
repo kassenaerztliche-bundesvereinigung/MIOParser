@@ -26,11 +26,12 @@ import ApgarScoreIdentifierLoincGerman from "../../../../Definitions/KBVBase/1.1
 
 type ApgarScoreIdentifierLoinc = "9274-2" | "9271-8";
 
-const ApgarScoreIdentifierLoinc: t.Type<ApgarScoreIdentifierLoinc> = t.union(
-    [t.literal("9274-2"), t.literal("9271-8")],
-    "ApgarScoreIdentifierLoinc"
-);
+type ApgarScoreIdentifierLoincType = t.KeyofC<{ "9274-2": null; "9271-8": null }>;
 
+const ApgarScoreIdentifierLoinc: ApgarScoreIdentifierLoincType = t.keyof({
+    "9274-2": null,
+    "9271-8": null
+});
 export const ApgarScoreIdentifierLoincArray: string[] = ["9274-2", "9271-8"];
 
 export const ApgarScoreIdentifierLoincValueSet: ValueSet = [

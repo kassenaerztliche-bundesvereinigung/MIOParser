@@ -84,72 +84,130 @@ type MRIHEXDSAuthorSpecialityRestricted =
     | "89"
     | "91";
 
-const MRIHEXDSAuthorSpecialityRestricted: t.Type<MRIHEXDSAuthorSpecialityRestricted> =
-    t.union(
-        [
-            t.literal("010"),
-            t.literal("020"),
-            t.literal("030"),
-            t.literal("050"),
-            t.literal("060"),
-            t.literal("070"),
-            t.literal("080"),
-            t.literal("091"),
-            t.literal("093"),
-            t.literal("110"),
-            t.literal("142"),
-            t.literal("147"),
-            t.literal("150"),
-            t.literal("170"),
-            t.literal("180"),
-            t.literal("197"),
-            t.literal("200"),
-            t.literal("210"),
-            t.literal("220"),
-            t.literal("230"),
-            t.literal("271"),
-            t.literal("281"),
-            t.literal("291"),
-            t.literal("303"),
-            t.literal("313"),
-            t.literal("314"),
-            t.literal("330"),
-            t.literal("341"),
-            t.literal("511"),
-            t.literal("512"),
-            t.literal("513"),
-            t.literal("514"),
-            t.literal("515"),
-            t.literal("516"),
-            t.literal("517"),
-            t.literal("521"),
-            t.literal("522"),
-            t.literal("523"),
-            t.literal("524"),
-            t.literal("525"),
-            t.literal("526"),
-            t.literal("527"),
-            t.literal("528"),
-            t.literal("532"),
-            t.literal("534"),
-            t.literal("535"),
-            t.literal("542"),
-            t.literal("544"),
-            t.literal("1"),
-            t.literal("3"),
-            t.literal("2"),
-            t.literal("179"),
-            t.literal("4"),
-            t.literal("33"),
-            t.literal("41"),
-            t.literal("86"),
-            t.literal("88"),
-            t.literal("89"),
-            t.literal("91")
-        ],
-        "MRIHEXDSAuthorSpecialityRestricted"
-    );
+type MRIHEXDSAuthorSpecialityRestrictedType = t.KeyofC<{
+    "010": null;
+    "020": null;
+    "030": null;
+    "050": null;
+    "060": null;
+    "070": null;
+    "080": null;
+    "091": null;
+    "093": null;
+    "110": null;
+    "142": null;
+    "147": null;
+    "150": null;
+    "170": null;
+    "180": null;
+    "197": null;
+    "200": null;
+    "210": null;
+    "220": null;
+    "230": null;
+    "271": null;
+    "281": null;
+    "291": null;
+    "303": null;
+    "313": null;
+    "314": null;
+    "330": null;
+    "341": null;
+    "511": null;
+    "512": null;
+    "513": null;
+    "514": null;
+    "515": null;
+    "516": null;
+    "517": null;
+    "521": null;
+    "522": null;
+    "523": null;
+    "524": null;
+    "525": null;
+    "526": null;
+    "527": null;
+    "528": null;
+    "532": null;
+    "534": null;
+    "535": null;
+    "542": null;
+    "544": null;
+    "1": null;
+    "3": null;
+    "2": null;
+    "179": null;
+    "4": null;
+    "33": null;
+    "41": null;
+    "86": null;
+    "88": null;
+    "89": null;
+    "91": null;
+}>;
 
+const MRIHEXDSAuthorSpecialityRestricted: MRIHEXDSAuthorSpecialityRestrictedType =
+    t.keyof({
+        "010": null,
+        "020": null,
+        "030": null,
+        "050": null,
+        "060": null,
+        "070": null,
+        "080": null,
+        "091": null,
+        "093": null,
+        "110": null,
+        "142": null,
+        "147": null,
+        "150": null,
+        "170": null,
+        "180": null,
+        "197": null,
+        "200": null,
+        "210": null,
+        "220": null,
+        "230": null,
+        "271": null,
+        "281": null,
+        "291": null,
+        "303": null,
+        "313": null,
+        "314": null,
+        "330": null,
+        "341": null,
+        "511": null,
+        "512": null,
+        "513": null,
+        "514": null,
+        "515": null,
+        "516": null,
+        "517": null,
+        "521": null,
+        "522": null,
+        "523": null,
+        "524": null,
+        "525": null,
+        "526": null,
+        "527": null,
+        "528": null,
+        "532": null,
+        "534": null,
+        "535": null,
+        "542": null,
+        "544": null,
+        "1": null,
+        "3": null,
+        "2": null,
+        "179": null,
+        "4": null,
+        "33": null,
+        "41": null,
+        "86": null,
+        "88": null,
+        "89": null,
+        "91": null
+    });
 export const MRIHEXDSAuthorSpecialityRestrictedArray: string[] = [
     "010",
     "020",

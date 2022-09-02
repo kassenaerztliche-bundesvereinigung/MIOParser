@@ -86,72 +86,131 @@ type CMRPractitionerSpeciality =
     | "89"
     | "91";
 
-const CMRPractitionerSpeciality: t.Type<CMRPractitionerSpeciality> = t.union(
-    [
-        t.literal("309343006"),
-        t.literal("1"),
-        t.literal("3"),
-        t.literal("010"),
-        t.literal("042"),
-        t.literal("050"),
-        t.literal("060"),
-        t.literal("070"),
-        t.literal("080"),
-        t.literal("091"),
-        t.literal("093"),
-        t.literal("096"),
-        t.literal("097"),
-        t.literal("102"),
-        t.literal("110"),
-        t.literal("140"),
-        t.literal("143"),
-        t.literal("160"),
-        t.literal("161"),
-        t.literal("171"),
-        t.literal("192"),
-        t.literal("196"),
-        t.literal("230"),
-        t.literal("304"),
-        t.literal("308"),
-        t.literal("313"),
-        t.literal("314"),
-        t.literal("330"),
-        t.literal("341"),
-        t.literal("512"),
-        t.literal("517"),
-        t.literal("518"),
-        t.literal("521"),
-        t.literal("522"),
-        t.literal("523"),
-        t.literal("524"),
-        t.literal("525"),
-        t.literal("526"),
-        t.literal("527"),
-        t.literal("528"),
-        t.literal("530"),
-        t.literal("531"),
-        t.literal("535"),
-        t.literal("536"),
-        t.literal("537"),
-        t.literal("544"),
-        t.literal("2"),
-        t.literal("179"),
-        t.literal("4"),
-        t.literal("33"),
-        t.literal("37"),
-        t.literal("38"),
-        t.literal("39"),
-        t.literal("41"),
-        t.literal("47"),
-        t.literal("76"),
-        t.literal("86"),
-        t.literal("88"),
-        t.literal("89"),
-        t.literal("91")
-    ],
-    "CMRPractitionerSpeciality"
-);
+type CMRPractitionerSpecialityType = t.KeyofC<{
+    "309343006": null;
+    "1": null;
+    "3": null;
+    "010": null;
+    "042": null;
+    "050": null;
+    "060": null;
+    "070": null;
+    "080": null;
+    "091": null;
+    "093": null;
+    "096": null;
+    "097": null;
+    "102": null;
+    "110": null;
+    "140": null;
+    "143": null;
+    "160": null;
+    "161": null;
+    "171": null;
+    "192": null;
+    "196": null;
+    "230": null;
+    "304": null;
+    "308": null;
+    "313": null;
+    "314": null;
+    "330": null;
+    "341": null;
+    "512": null;
+    "517": null;
+    "518": null;
+    "521": null;
+    "522": null;
+    "523": null;
+    "524": null;
+    "525": null;
+    "526": null;
+    "527": null;
+    "528": null;
+    "530": null;
+    "531": null;
+    "535": null;
+    "536": null;
+    "537": null;
+    "544": null;
+    "2": null;
+    "179": null;
+    "4": null;
+    "33": null;
+    "37": null;
+    "38": null;
+    "39": null;
+    "41": null;
+    "47": null;
+    "76": null;
+    "86": null;
+    "88": null;
+    "89": null;
+    "91": null;
+}>;
 
+const CMRPractitionerSpeciality: CMRPractitionerSpecialityType = t.keyof({
+    "309343006": null,
+    "1": null,
+    "3": null,
+    "010": null,
+    "042": null,
+    "050": null,
+    "060": null,
+    "070": null,
+    "080": null,
+    "091": null,
+    "093": null,
+    "096": null,
+    "097": null,
+    "102": null,
+    "110": null,
+    "140": null,
+    "143": null,
+    "160": null,
+    "161": null,
+    "171": null,
+    "192": null,
+    "196": null,
+    "230": null,
+    "304": null,
+    "308": null,
+    "313": null,
+    "314": null,
+    "330": null,
+    "341": null,
+    "512": null,
+    "517": null,
+    "518": null,
+    "521": null,
+    "522": null,
+    "523": null,
+    "524": null,
+    "525": null,
+    "526": null,
+    "527": null,
+    "528": null,
+    "530": null,
+    "531": null,
+    "535": null,
+    "536": null,
+    "537": null,
+    "544": null,
+    "2": null,
+    "179": null,
+    "4": null,
+    "33": null,
+    "37": null,
+    "38": null,
+    "39": null,
+    "41": null,
+    "47": null,
+    "76": null,
+    "86": null,
+    "88": null,
+    "89": null,
+    "91": null
+});
 export const CMRPractitionerSpecialityArray: string[] = [
     "309343006",
     "1",

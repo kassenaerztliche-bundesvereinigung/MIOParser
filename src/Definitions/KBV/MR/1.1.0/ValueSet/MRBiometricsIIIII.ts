@@ -33,19 +33,25 @@ type MRBiometricsIIIII =
     | "1156896009"
     | "396551005";
 
-const MRBiometricsIIIII: t.Type<MRBiometricsIIIII> = t.union(
-    [
-        t.literal("281688001"),
-        t.literal("363812007"),
-        t.literal("1156893001"),
-        t.literal("439984002:704327008=302553009"),
-        t.literal("249676004"),
-        t.literal("1156896009"),
-        t.literal("396551005")
-    ],
-    "MRBiometricsIIIII"
-);
+type MRBiometricsIIIIIType = t.KeyofC<{
+    "281688001": null;
+    "363812007": null;
+    "1156893001": null;
+    "439984002:704327008=302553009": null;
+    "249676004": null;
+    "1156896009": null;
+    "396551005": null;
+}>;
 
+const MRBiometricsIIIII: MRBiometricsIIIIIType = t.keyof({
+    "281688001": null,
+    "363812007": null,
+    "1156893001": null,
+    "439984002:704327008=302553009": null,
+    "249676004": null,
+    "1156896009": null,
+    "396551005": null
+});
 export const MRBiometricsIIIIIArray: string[] = [
     "281688001",
     "363812007",

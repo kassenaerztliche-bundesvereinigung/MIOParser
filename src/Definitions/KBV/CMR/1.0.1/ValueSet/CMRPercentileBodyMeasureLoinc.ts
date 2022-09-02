@@ -25,11 +25,19 @@ import { ValueSet } from "../../../../Interfaces";
 
 type CMRPercentileBodyMeasureLoinc = "8336-0" | "8303-0" | "8289-1" | "59574-4";
 
-const CMRPercentileBodyMeasureLoinc: t.Type<CMRPercentileBodyMeasureLoinc> = t.union(
-    [t.literal("8336-0"), t.literal("8303-0"), t.literal("8289-1"), t.literal("59574-4")],
-    "CMRPercentileBodyMeasureLoinc"
-);
+type CMRPercentileBodyMeasureLoincType = t.KeyofC<{
+    "8336-0": null;
+    "8303-0": null;
+    "8289-1": null;
+    "59574-4": null;
+}>;
 
+const CMRPercentileBodyMeasureLoinc: CMRPercentileBodyMeasureLoincType = t.keyof({
+    "8336-0": null,
+    "8303-0": null,
+    "8289-1": null,
+    "59574-4": null
+});
 export const CMRPercentileBodyMeasureLoincArray: string[] = [
     "8336-0",
     "8303-0",

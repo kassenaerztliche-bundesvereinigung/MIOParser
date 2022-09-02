@@ -33,20 +33,27 @@ type Relatedartifacttype =
     | "depends-on"
     | "composed-of";
 
-const Relatedartifacttype: t.Type<Relatedartifacttype> = t.union(
-    [
-        t.literal("documentation"),
-        t.literal("justification"),
-        t.literal("citation"),
-        t.literal("predecessor"),
-        t.literal("successor"),
-        t.literal("derived-from"),
-        t.literal("depends-on"),
-        t.literal("composed-of")
-    ],
-    "Relatedartifacttype"
-);
+type RelatedartifacttypeType = t.KeyofC<{
+    documentation: null;
+    justification: null;
+    citation: null;
+    predecessor: null;
+    successor: null;
+    "derived-from": null;
+    "depends-on": null;
+    "composed-of": null;
+}>;
 
+const Relatedartifacttype: RelatedartifacttypeType = t.keyof({
+    documentation: null,
+    justification: null,
+    citation: null,
+    predecessor: null,
+    successor: null,
+    "derived-from": null,
+    "depends-on": null,
+    "composed-of": null
+});
 export const RelatedartifacttypeArray: string[] = [
     "documentation",
     "justification",

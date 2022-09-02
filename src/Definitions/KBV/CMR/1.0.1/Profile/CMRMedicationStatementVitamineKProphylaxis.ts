@@ -544,13 +544,13 @@ export const CMRMedicationStatementVitamineKProphylaxisMeta: t.Type<CMRMedicatio
 /**
  * The person, animal or group who is/was taking the medication.
  */
-export interface CMRMedicationStatementVitamineKProphylaxisSubject {
+export interface CMRMedicationStatementVitamineKProphylaxisSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRMedicationStatementVitamineKProphylaxisSubject: t.Type<CMRMedicationStatementVitamineKProphylaxisSubject> =
-    t.recursion("CMRMedicationStatementVitamineKProphylaxisSubject", () =>
+export const CMRMedicationStatementVitamineKProphylaxisSubjectReference: t.Type<CMRMedicationStatementVitamineKProphylaxisSubjectReference> =
+    t.recursion("CMRMedicationStatementVitamineKProphylaxisSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -568,13 +568,13 @@ export const CMRMedicationStatementVitamineKProphylaxisSubject: t.Type<CMRMedica
 /**
  * The encounter or episode of care that establishes the context for this MedicationStatement.
  */
-export interface CMRMedicationStatementVitamineKProphylaxisContext {
+export interface CMRMedicationStatementVitamineKProphylaxisContextReference {
     reference: string;
     id?: string;
 }
 
-export const CMRMedicationStatementVitamineKProphylaxisContext: t.Type<CMRMedicationStatementVitamineKProphylaxisContext> =
-    t.recursion("CMRMedicationStatementVitamineKProphylaxisContext", () =>
+export const CMRMedicationStatementVitamineKProphylaxisContextReference: t.Type<CMRMedicationStatementVitamineKProphylaxisContextReference> =
+    t.recursion("CMRMedicationStatementVitamineKProphylaxisContextReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -619,8 +619,8 @@ interface CMRMedicationStatementVitamineKProphylaxis {
     meta: CMRMedicationStatementVitamineKProphylaxisMeta;
     status: CMRMedicationStatementStatusVS;
     medicationCodeableConcept: CMRMedicationStatementVitamineKProphylaxisMedicationCodeableConcept;
-    subject: CMRMedicationStatementVitamineKProphylaxisSubject;
-    context: CMRMedicationStatementVitamineKProphylaxisContext;
+    subject: CMRMedicationStatementVitamineKProphylaxisSubjectReference;
+    context: CMRMedicationStatementVitamineKProphylaxisContextReference;
     effectiveDateTime: string;
     dosage: Array<CMRMedicationStatementVitamineKProphylaxisDosage>;
     id?: string;
@@ -641,8 +641,8 @@ const CMRMedicationStatementVitamineKProphylaxis: t.Type<CMRMedicationStatementV
                     status: CMRMedicationStatementStatusVS,
                     medicationCodeableConcept:
                         CMRMedicationStatementVitamineKProphylaxisMedicationCodeableConcept,
-                    subject: CMRMedicationStatementVitamineKProphylaxisSubject,
-                    context: CMRMedicationStatementVitamineKProphylaxisContext,
+                    subject: CMRMedicationStatementVitamineKProphylaxisSubjectReference,
+                    context: CMRMedicationStatementVitamineKProphylaxisContextReference,
                     effectiveDateTime: SCALARDateTime,
                     dosage: MinMaxArray(
                         1,

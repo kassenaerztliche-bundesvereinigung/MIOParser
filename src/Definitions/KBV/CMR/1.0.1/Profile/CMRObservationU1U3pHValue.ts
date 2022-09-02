@@ -483,13 +483,13 @@ export const CMRObservationU1U3pHValueCode: t.Type<CMRObservationU1U3pHValueCode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3pHValueSubject {
+export interface CMRObservationU1U3pHValueSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3pHValueSubject: t.Type<CMRObservationU1U3pHValueSubject> =
-    t.recursion("CMRObservationU1U3pHValueSubject", () =>
+export const CMRObservationU1U3pHValueSubjectReference: t.Type<CMRObservationU1U3pHValueSubjectReference> =
+    t.recursion("CMRObservationU1U3pHValueSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -507,13 +507,13 @@ export const CMRObservationU1U3pHValueSubject: t.Type<CMRObservationU1U3pHValueS
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3pHValueEncounter {
+export interface CMRObservationU1U3pHValueEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3pHValueEncounter: t.Type<CMRObservationU1U3pHValueEncounter> =
-    t.recursion("CMRObservationU1U3pHValueEncounter", () =>
+export const CMRObservationU1U3pHValueEncounterReference: t.Type<CMRObservationU1U3pHValueEncounterReference> =
+    t.recursion("CMRObservationU1U3pHValueEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -531,13 +531,13 @@ export const CMRObservationU1U3pHValueEncounter: t.Type<CMRObservationU1U3pHValu
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3pHValuePerformer {
+export interface CMRObservationU1U3pHValuePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3pHValuePerformer: t.Type<CMRObservationU1U3pHValuePerformer> =
-    t.recursion("CMRObservationU1U3pHValuePerformer", () =>
+export const CMRObservationU1U3pHValuePerformerReference: t.Type<CMRObservationU1U3pHValuePerformerReference> =
+    t.recursion("CMRObservationU1U3pHValuePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -557,13 +557,13 @@ interface CMRObservationU1U3pHValue {
     meta: CMRObservationU1U3pHValueMeta;
     status: "final";
     code: CMRObservationU1U3pHValueCode;
-    subject: CMRObservationU1U3pHValueSubject;
-    encounter: CMRObservationU1U3pHValueEncounter;
+    subject: CMRObservationU1U3pHValueSubjectReference;
+    encounter: CMRObservationU1U3pHValueEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationU1U3pHValueValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3pHValuePerformer>;
+    performer?: Array<CMRObservationU1U3pHValuePerformerReference>;
 }
 
 const CMRObservationU1U3pHValue: t.Type<CMRObservationU1U3pHValue> = t.recursion(
@@ -576,15 +576,15 @@ const CMRObservationU1U3pHValue: t.Type<CMRObservationU1U3pHValue> = t.recursion
                     meta: CMRObservationU1U3pHValueMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3pHValueCode,
-                    subject: CMRObservationU1U3pHValueSubject,
-                    encounter: CMRObservationU1U3pHValueEncounter,
+                    subject: CMRObservationU1U3pHValueSubjectReference,
+                    encounter: CMRObservationU1U3pHValueEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationU1U3pHValueValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1U3pHValuePerformer)
+                    performer: MaxArray(1, CMRObservationU1U3pHValuePerformerReference)
                 })
             ])
         )

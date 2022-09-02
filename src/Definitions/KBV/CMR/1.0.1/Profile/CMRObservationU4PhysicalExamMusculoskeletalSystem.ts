@@ -262,13 +262,13 @@ export const CMRObservationU4PhysicalExamMusculoskeletalSystemCode: t.Type<CMROb
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU4PhysicalExamMusculoskeletalSystemSubject {
+export interface CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamMusculoskeletalSystemSubject: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemSubject> =
-    t.recursion("CMRObservationU4PhysicalExamMusculoskeletalSystemSubject", () =>
+export const CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference> =
+    t.recursion("CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,49 +286,53 @@ export const CMRObservationU4PhysicalExamMusculoskeletalSystemSubject: t.Type<CM
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter {
+export interface CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter> =
-    t.recursion("CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference> =
+    t.recursion(
+        "CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer {
+export interface CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer> =
-    t.recursion("CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference> =
+    t.recursion(
+        "CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRObservationU4PhysicalExamMusculoskeletalSystem {
@@ -336,13 +340,13 @@ interface CMRObservationU4PhysicalExamMusculoskeletalSystem {
     meta: CMRObservationU4PhysicalExamMusculoskeletalSystemMeta;
     status: "final";
     code: CMRObservationU4PhysicalExamMusculoskeletalSystemCode;
-    subject: CMRObservationU4PhysicalExamMusculoskeletalSystemSubject;
-    encounter: CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter;
+    subject: CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference;
+    encounter: CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer>;
+    performer?: Array<CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference>;
 }
 
 const CMRObservationU4PhysicalExamMusculoskeletalSystem: t.Type<CMRObservationU4PhysicalExamMusculoskeletalSystem> =
@@ -354,8 +358,10 @@ const CMRObservationU4PhysicalExamMusculoskeletalSystem: t.Type<CMRObservationU4
                     meta: CMRObservationU4PhysicalExamMusculoskeletalSystemMeta,
                     status: Literal("final"),
                     code: CMRObservationU4PhysicalExamMusculoskeletalSystemCode,
-                    subject: CMRObservationU4PhysicalExamMusculoskeletalSystemSubject,
-                    encounter: CMRObservationU4PhysicalExamMusculoskeletalSystemEncounter,
+                    subject:
+                        CMRObservationU4PhysicalExamMusculoskeletalSystemSubjectReference,
+                    encounter:
+                        CMRObservationU4PhysicalExamMusculoskeletalSystemEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -364,7 +370,7 @@ const CMRObservationU4PhysicalExamMusculoskeletalSystem: t.Type<CMRObservationU4
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU4PhysicalExamMusculoskeletalSystemPerformer
+                        CMRObservationU4PhysicalExamMusculoskeletalSystemPerformerReference
                     )
                 })
             ])

@@ -93,13 +93,13 @@ export const CMRCompositionCysticFibrosisScreeningCategoryCoding: t.Type<CMRComp
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionCysticFibrosisScreeningSectionEntry {
+export interface CMRCompositionCysticFibrosisScreeningSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionCysticFibrosisScreeningSectionEntry: t.Type<CMRCompositionCysticFibrosisScreeningSectionEntry> =
-    t.recursion("CMRCompositionCysticFibrosisScreeningSectionEntry", () =>
+export const CMRCompositionCysticFibrosisScreeningSectionEntryReference: t.Type<CMRCompositionCysticFibrosisScreeningSectionEntryReference> =
+    t.recursion("CMRCompositionCysticFibrosisScreeningSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -197,13 +197,13 @@ export const CMRCompositionCysticFibrosisScreeningCategory: t.Type<CMRCompositio
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionCysticFibrosisScreeningSubject {
+export interface CMRCompositionCysticFibrosisScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionCysticFibrosisScreeningSubject: t.Type<CMRCompositionCysticFibrosisScreeningSubject> =
-    t.recursion("CMRCompositionCysticFibrosisScreeningSubject", () =>
+export const CMRCompositionCysticFibrosisScreeningSubjectReference: t.Type<CMRCompositionCysticFibrosisScreeningSubjectReference> =
+    t.recursion("CMRCompositionCysticFibrosisScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -221,13 +221,13 @@ export const CMRCompositionCysticFibrosisScreeningSubject: t.Type<CMRComposition
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionCysticFibrosisScreeningEncounter {
+export interface CMRCompositionCysticFibrosisScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionCysticFibrosisScreeningEncounter: t.Type<CMRCompositionCysticFibrosisScreeningEncounter> =
-    t.recursion("CMRCompositionCysticFibrosisScreeningEncounter", () =>
+export const CMRCompositionCysticFibrosisScreeningEncounterReference: t.Type<CMRCompositionCysticFibrosisScreeningEncounterReference> =
+    t.recursion("CMRCompositionCysticFibrosisScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -245,13 +245,13 @@ export const CMRCompositionCysticFibrosisScreeningEncounter: t.Type<CMRCompositi
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionCysticFibrosisScreeningAuthor {
+export interface CMRCompositionCysticFibrosisScreeningAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionCysticFibrosisScreeningAuthor: t.Type<CMRCompositionCysticFibrosisScreeningAuthor> =
-    t.recursion("CMRCompositionCysticFibrosisScreeningAuthor", () =>
+export const CMRCompositionCysticFibrosisScreeningAuthorReference: t.Type<CMRCompositionCysticFibrosisScreeningAuthorReference> =
+    t.recursion("CMRCompositionCysticFibrosisScreeningAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,7 +272,7 @@ export const CMRCompositionCysticFibrosisScreeningAuthor: t.Type<CMRCompositionC
  */
 export interface CMRCompositionCysticFibrosisScreeningSection {
     title: "Screening auf Mukoviszidose";
-    entry: Array<CMRCompositionCysticFibrosisScreeningSectionEntry>;
+    entry: Array<CMRCompositionCysticFibrosisScreeningSectionEntryReference>;
     id?: string;
 }
 
@@ -285,7 +285,7 @@ export const CMRCompositionCysticFibrosisScreeningSection: t.Type<CMRComposition
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionCysticFibrosisScreeningSectionEntry
+                        CMRCompositionCysticFibrosisScreeningSectionEntryReference
                     )
                 }),
                 t.partial({
@@ -301,10 +301,10 @@ interface CMRCompositionCysticFibrosisScreening {
     status: "final";
     type: CMRCompositionCysticFibrosisScreeningType;
     category: Array<CMRCompositionCysticFibrosisScreeningCategory>;
-    subject: CMRCompositionCysticFibrosisScreeningSubject;
-    encounter: CMRCompositionCysticFibrosisScreeningEncounter;
+    subject: CMRCompositionCysticFibrosisScreeningSubjectReference;
+    encounter: CMRCompositionCysticFibrosisScreeningEncounterReference;
     date: string;
-    author: Array<CMRCompositionCysticFibrosisScreeningAuthor>;
+    author: Array<CMRCompositionCysticFibrosisScreeningAuthorReference>;
     title: "Spezielle Früherkennungsuntersuchungen";
     section: Array<CMRCompositionCysticFibrosisScreeningSection>;
     id?: string;
@@ -325,13 +325,13 @@ const CMRCompositionCysticFibrosisScreening: t.Type<CMRCompositionCysticFibrosis
                         1,
                         CMRCompositionCysticFibrosisScreeningCategory
                     ),
-                    subject: CMRCompositionCysticFibrosisScreeningSubject,
-                    encounter: CMRCompositionCysticFibrosisScreeningEncounter,
+                    subject: CMRCompositionCysticFibrosisScreeningSubjectReference,
+                    encounter: CMRCompositionCysticFibrosisScreeningEncounterReference,
                     date: SCALARDateTime,
                     author: MinMaxArray(
                         1,
                         2,
-                        CMRCompositionCysticFibrosisScreeningAuthor
+                        CMRCompositionCysticFibrosisScreeningAuthorReference
                     ),
                     title: Literal("Spezielle Früherkennungsuntersuchungen"),
                     section: MinMaxArray(

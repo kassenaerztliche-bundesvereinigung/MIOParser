@@ -678,13 +678,13 @@ export const MRObservationoGTTDiagnosistestCode: t.Type<MRObservationoGTTDiagnos
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationoGTTDiagnosistestSubject {
+export interface MRObservationoGTTDiagnosistestSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTDiagnosistestSubject: t.Type<MRObservationoGTTDiagnosistestSubject> =
-    t.recursion("MRObservationoGTTDiagnosistestSubject", () =>
+export const MRObservationoGTTDiagnosistestSubjectReference: t.Type<MRObservationoGTTDiagnosistestSubjectReference> =
+    t.recursion("MRObservationoGTTDiagnosistestSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -702,13 +702,13 @@ export const MRObservationoGTTDiagnosistestSubject: t.Type<MRObservationoGTTDiag
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationoGTTDiagnosistestEncounter {
+export interface MRObservationoGTTDiagnosistestEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTDiagnosistestEncounter: t.Type<MRObservationoGTTDiagnosistestEncounter> =
-    t.recursion("MRObservationoGTTDiagnosistestEncounter", () =>
+export const MRObservationoGTTDiagnosistestEncounterReference: t.Type<MRObservationoGTTDiagnosistestEncounterReference> =
+    t.recursion("MRObservationoGTTDiagnosistestEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -726,13 +726,13 @@ export const MRObservationoGTTDiagnosistestEncounter: t.Type<MRObservationoGTTDi
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationoGTTDiagnosistestPerformer {
+export interface MRObservationoGTTDiagnosistestPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTDiagnosistestPerformer: t.Type<MRObservationoGTTDiagnosistestPerformer> =
-    t.recursion("MRObservationoGTTDiagnosistestPerformer", () =>
+export const MRObservationoGTTDiagnosistestPerformerReference: t.Type<MRObservationoGTTDiagnosistestPerformerReference> =
+    t.recursion("MRObservationoGTTDiagnosistestPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -779,12 +779,12 @@ interface MRObservationoGTTDiagnosistest {
     meta: MRObservationoGTTDiagnosistestMeta;
     status: "final";
     code: MRObservationoGTTDiagnosistestCode;
-    subject: MRObservationoGTTDiagnosistestSubject;
-    encounter: MRObservationoGTTDiagnosistestEncounter;
+    subject: MRObservationoGTTDiagnosistestSubjectReference;
+    encounter: MRObservationoGTTDiagnosistestEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationoGTTDiagnosistestPerformer>;
+    performer?: Array<MRObservationoGTTDiagnosistestPerformerReference>;
     valueCodeableConcept?: MRObservationoGTTDiagnosistestValueCodeableConcept;
     dataAbsentReason?: MRObservationoGTTDiagnosistestDataAbsentReason;
 }
@@ -798,14 +798,17 @@ const MRObservationoGTTDiagnosistest: t.Type<MRObservationoGTTDiagnosistest> =
                     meta: MRObservationoGTTDiagnosistestMeta,
                     status: Literal("final"),
                     code: MRObservationoGTTDiagnosistestCode,
-                    subject: MRObservationoGTTDiagnosistestSubject,
-                    encounter: MRObservationoGTTDiagnosistestEncounter,
+                    subject: MRObservationoGTTDiagnosistestSubjectReference,
+                    encounter: MRObservationoGTTDiagnosistestEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationoGTTDiagnosistestPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationoGTTDiagnosistestPerformerReference
+                    ),
                     valueCodeableConcept:
                         MRObservationoGTTDiagnosistestValueCodeableConcept,
                     dataAbsentReason: MRObservationoGTTDiagnosistestDataAbsentReason

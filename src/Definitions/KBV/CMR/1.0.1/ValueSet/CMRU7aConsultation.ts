@@ -34,20 +34,27 @@ type CMRU7aConsultation =
     | "702971000"
     | "274410002";
 
-const CMRU7aConsultation: t.Type<CMRU7aConsultation> = t.union(
-    [
-        t.literal("409059003"),
-        t.literal("424308004"),
-        t.literal("441041000124100"),
-        t.literal("304507003"),
-        t.literal("709135003"),
-        t.literal("410263001"),
-        t.literal("702971000"),
-        t.literal("274410002")
-    ],
-    "CMRU7aConsultation"
-);
+type CMRU7aConsultationType = t.KeyofC<{
+    "409059003": null;
+    "424308004": null;
+    "441041000124100": null;
+    "304507003": null;
+    "709135003": null;
+    "410263001": null;
+    "702971000": null;
+    "274410002": null;
+}>;
 
+const CMRU7aConsultation: CMRU7aConsultationType = t.keyof({
+    "409059003": null,
+    "424308004": null,
+    "441041000124100": null,
+    "304507003": null,
+    "709135003": null,
+    "410263001": null,
+    "702971000": null,
+    "274410002": null
+});
 export const CMRU7aConsultationArray: string[] = [
     "409059003",
     "424308004",

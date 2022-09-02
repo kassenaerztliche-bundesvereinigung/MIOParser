@@ -20,6 +20,13 @@
 
 import * as t from "io-ts";
 
+export type SliceByInterface = {
+    path?: string;
+    pattern?: any;
+    value?: string;
+    exists?: string[];
+};
+
 export type Concept = {
     source: string;
     target: string;

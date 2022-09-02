@@ -285,13 +285,13 @@ export const CMRCarePlanU3U4HipScreeningPlanMeta: t.Type<CMRCarePlanU3U4HipScree
 /**
  * Identifies the patient or group whose intended care is described by the plan.
  */
-export interface CMRCarePlanU3U4HipScreeningPlanSubject {
+export interface CMRCarePlanU3U4HipScreeningPlanSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU3U4HipScreeningPlanSubject: t.Type<CMRCarePlanU3U4HipScreeningPlanSubject> =
-    t.recursion("CMRCarePlanU3U4HipScreeningPlanSubject", () =>
+export const CMRCarePlanU3U4HipScreeningPlanSubjectReference: t.Type<CMRCarePlanU3U4HipScreeningPlanSubjectReference> =
+    t.recursion("CMRCarePlanU3U4HipScreeningPlanSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -309,13 +309,13 @@ export const CMRCarePlanU3U4HipScreeningPlanSubject: t.Type<CMRCarePlanU3U4HipSc
 /**
  * The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated.
  */
-export interface CMRCarePlanU3U4HipScreeningPlanEncounter {
+export interface CMRCarePlanU3U4HipScreeningPlanEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU3U4HipScreeningPlanEncounter: t.Type<CMRCarePlanU3U4HipScreeningPlanEncounter> =
-    t.recursion("CMRCarePlanU3U4HipScreeningPlanEncounter", () =>
+export const CMRCarePlanU3U4HipScreeningPlanEncounterReference: t.Type<CMRCarePlanU3U4HipScreeningPlanEncounterReference> =
+    t.recursion("CMRCarePlanU3U4HipScreeningPlanEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ export const CMRCarePlanU3U4HipScreeningPlanEncounter: t.Type<CMRCarePlanU3U4Hip
 /**
  * When populated, the author is responsible for the care plan.  The care plan is attributed to the author.
  */
-export interface CMRCarePlanU3U4HipScreeningPlanAuthor {
+export interface CMRCarePlanU3U4HipScreeningPlanAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU3U4HipScreeningPlanAuthor: t.Type<CMRCarePlanU3U4HipScreeningPlanAuthor> =
-    t.recursion("CMRCarePlanU3U4HipScreeningPlanAuthor", () =>
+export const CMRCarePlanU3U4HipScreeningPlanAuthorReference: t.Type<CMRCarePlanU3U4HipScreeningPlanAuthorReference> =
+    t.recursion("CMRCarePlanU3U4HipScreeningPlanAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -382,13 +382,13 @@ interface CMRCarePlanU3U4HipScreeningPlan {
     status: "unknown";
     intent: "plan";
     title: "Weiteres Vorgehen:";
-    subject: CMRCarePlanU3U4HipScreeningPlanSubject;
-    encounter: CMRCarePlanU3U4HipScreeningPlanEncounter;
+    subject: CMRCarePlanU3U4HipScreeningPlanSubjectReference;
+    encounter: CMRCarePlanU3U4HipScreeningPlanEncounterReference;
     created: string;
     activity: Array<CMRCarePlanU3U4HipScreeningPlanActivity>;
     id?: string;
     text?: Narrative;
-    author?: CMRCarePlanU3U4HipScreeningPlanAuthor;
+    author?: CMRCarePlanU3U4HipScreeningPlanAuthorReference;
 }
 
 const CMRCarePlanU3U4HipScreeningPlan: t.Type<CMRCarePlanU3U4HipScreeningPlan> =
@@ -401,15 +401,15 @@ const CMRCarePlanU3U4HipScreeningPlan: t.Type<CMRCarePlanU3U4HipScreeningPlan> =
                     status: Literal("unknown"),
                     intent: Literal("plan"),
                     title: Literal("Weiteres Vorgehen:"),
-                    subject: CMRCarePlanU3U4HipScreeningPlanSubject,
-                    encounter: CMRCarePlanU3U4HipScreeningPlanEncounter,
+                    subject: CMRCarePlanU3U4HipScreeningPlanSubjectReference,
+                    encounter: CMRCarePlanU3U4HipScreeningPlanEncounterReference,
                     created: SCALARDateTime,
                     activity: MinMaxArray(1, 3, CMRCarePlanU3U4HipScreeningPlanActivity)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    author: CMRCarePlanU3U4HipScreeningPlanAuthor
+                    author: CMRCarePlanU3U4HipScreeningPlanAuthorReference
                 })
             ])
         )

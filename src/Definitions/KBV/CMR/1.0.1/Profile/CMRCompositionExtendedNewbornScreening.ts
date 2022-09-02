@@ -93,13 +93,13 @@ export const CMRCompositionExtendedNewbornScreeningCategoryCoding: t.Type<CMRCom
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionExtendedNewbornScreeningSectionEntry {
+export interface CMRCompositionExtendedNewbornScreeningSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionExtendedNewbornScreeningSectionEntry: t.Type<CMRCompositionExtendedNewbornScreeningSectionEntry> =
-    t.recursion("CMRCompositionExtendedNewbornScreeningSectionEntry", () =>
+export const CMRCompositionExtendedNewbornScreeningSectionEntryReference: t.Type<CMRCompositionExtendedNewbornScreeningSectionEntryReference> =
+    t.recursion("CMRCompositionExtendedNewbornScreeningSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -197,13 +197,13 @@ export const CMRCompositionExtendedNewbornScreeningCategory: t.Type<CMRCompositi
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionExtendedNewbornScreeningSubject {
+export interface CMRCompositionExtendedNewbornScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionExtendedNewbornScreeningSubject: t.Type<CMRCompositionExtendedNewbornScreeningSubject> =
-    t.recursion("CMRCompositionExtendedNewbornScreeningSubject", () =>
+export const CMRCompositionExtendedNewbornScreeningSubjectReference: t.Type<CMRCompositionExtendedNewbornScreeningSubjectReference> =
+    t.recursion("CMRCompositionExtendedNewbornScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -221,13 +221,13 @@ export const CMRCompositionExtendedNewbornScreeningSubject: t.Type<CMRCompositio
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionExtendedNewbornScreeningEncounter {
+export interface CMRCompositionExtendedNewbornScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionExtendedNewbornScreeningEncounter: t.Type<CMRCompositionExtendedNewbornScreeningEncounter> =
-    t.recursion("CMRCompositionExtendedNewbornScreeningEncounter", () =>
+export const CMRCompositionExtendedNewbornScreeningEncounterReference: t.Type<CMRCompositionExtendedNewbornScreeningEncounterReference> =
+    t.recursion("CMRCompositionExtendedNewbornScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -245,13 +245,13 @@ export const CMRCompositionExtendedNewbornScreeningEncounter: t.Type<CMRComposit
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionExtendedNewbornScreeningAuthor {
+export interface CMRCompositionExtendedNewbornScreeningAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionExtendedNewbornScreeningAuthor: t.Type<CMRCompositionExtendedNewbornScreeningAuthor> =
-    t.recursion("CMRCompositionExtendedNewbornScreeningAuthor", () =>
+export const CMRCompositionExtendedNewbornScreeningAuthorReference: t.Type<CMRCompositionExtendedNewbornScreeningAuthorReference> =
+    t.recursion("CMRCompositionExtendedNewbornScreeningAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,7 +272,7 @@ export const CMRCompositionExtendedNewbornScreeningAuthor: t.Type<CMRComposition
  */
 export interface CMRCompositionExtendedNewbornScreeningSection {
     title: "Erweitertes Neugeborenen-Screening";
-    entry: Array<CMRCompositionExtendedNewbornScreeningSectionEntry>;
+    entry: Array<CMRCompositionExtendedNewbornScreeningSectionEntryReference>;
     id?: string;
 }
 
@@ -285,7 +285,7 @@ export const CMRCompositionExtendedNewbornScreeningSection: t.Type<CMRCompositio
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionExtendedNewbornScreeningSectionEntry
+                        CMRCompositionExtendedNewbornScreeningSectionEntryReference
                     )
                 }),
                 t.partial({
@@ -301,10 +301,10 @@ interface CMRCompositionExtendedNewbornScreening {
     status: "final";
     type: CMRCompositionExtendedNewbornScreeningType;
     category: Array<CMRCompositionExtendedNewbornScreeningCategory>;
-    subject: CMRCompositionExtendedNewbornScreeningSubject;
-    encounter: CMRCompositionExtendedNewbornScreeningEncounter;
+    subject: CMRCompositionExtendedNewbornScreeningSubjectReference;
+    encounter: CMRCompositionExtendedNewbornScreeningEncounterReference;
     date: string;
-    author: Array<CMRCompositionExtendedNewbornScreeningAuthor>;
+    author: Array<CMRCompositionExtendedNewbornScreeningAuthorReference>;
     title: "Spezielle Früherkennungsuntersuchungen";
     section: Array<CMRCompositionExtendedNewbornScreeningSection>;
     id?: string;
@@ -325,13 +325,13 @@ const CMRCompositionExtendedNewbornScreening: t.Type<CMRCompositionExtendedNewbo
                         1,
                         CMRCompositionExtendedNewbornScreeningCategory
                     ),
-                    subject: CMRCompositionExtendedNewbornScreeningSubject,
-                    encounter: CMRCompositionExtendedNewbornScreeningEncounter,
+                    subject: CMRCompositionExtendedNewbornScreeningSubjectReference,
+                    encounter: CMRCompositionExtendedNewbornScreeningEncounterReference,
                     date: SCALARDateTime,
                     author: MinMaxArray(
                         1,
                         2,
-                        CMRCompositionExtendedNewbornScreeningAuthor
+                        CMRCompositionExtendedNewbornScreeningAuthorReference
                     ),
                     title: Literal("Spezielle Früherkennungsuntersuchungen"),
                     section: MinMaxArray(

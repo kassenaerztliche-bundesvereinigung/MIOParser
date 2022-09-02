@@ -25,11 +25,15 @@ import { ValueSet } from "../../../Interfaces";
 
 type Conditioncategory = "problem-list-item" | "encounter-diagnosis";
 
-const Conditioncategory: t.Type<Conditioncategory> = t.union(
-    [t.literal("problem-list-item"), t.literal("encounter-diagnosis")],
-    "Conditioncategory"
-);
+type ConditioncategoryType = t.KeyofC<{
+    "problem-list-item": null;
+    "encounter-diagnosis": null;
+}>;
 
+const Conditioncategory: ConditioncategoryType = t.keyof({
+    "problem-list-item": null,
+    "encounter-diagnosis": null
+});
 export const ConditioncategoryArray: string[] = [
     "problem-list-item",
     "encounter-diagnosis"

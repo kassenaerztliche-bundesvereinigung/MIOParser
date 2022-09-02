@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type Sortdirection = "ascending" | "descending";
 
-const Sortdirection: t.Type<Sortdirection> = t.union(
-    [t.literal("ascending"), t.literal("descending")],
-    "Sortdirection"
-);
+type SortdirectionType = t.KeyofC<{ ascending: null; descending: null }>;
 
+const Sortdirection: SortdirectionType = t.keyof({
+    ascending: null,
+    descending: null
+});
 export const SortdirectionArray: string[] = ["ascending", "descending"];
 
 export const SortdirectionValueSet: ValueSet = [

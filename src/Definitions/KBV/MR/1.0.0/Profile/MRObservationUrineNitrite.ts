@@ -254,13 +254,13 @@ export const MRObservationUrineNitriteCode: t.Type<MRObservationUrineNitriteCode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUrineNitriteSubject {
+export interface MRObservationUrineNitriteSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineNitriteSubject: t.Type<MRObservationUrineNitriteSubject> =
-    t.recursion("MRObservationUrineNitriteSubject", () =>
+export const MRObservationUrineNitriteSubjectReference: t.Type<MRObservationUrineNitriteSubjectReference> =
+    t.recursion("MRObservationUrineNitriteSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,13 +278,13 @@ export const MRObservationUrineNitriteSubject: t.Type<MRObservationUrineNitriteS
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUrineNitriteEncounter {
+export interface MRObservationUrineNitriteEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineNitriteEncounter: t.Type<MRObservationUrineNitriteEncounter> =
-    t.recursion("MRObservationUrineNitriteEncounter", () =>
+export const MRObservationUrineNitriteEncounterReference: t.Type<MRObservationUrineNitriteEncounterReference> =
+    t.recursion("MRObservationUrineNitriteEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +302,13 @@ export const MRObservationUrineNitriteEncounter: t.Type<MRObservationUrineNitrit
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUrineNitritePerformer {
+export interface MRObservationUrineNitritePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineNitritePerformer: t.Type<MRObservationUrineNitritePerformer> =
-    t.recursion("MRObservationUrineNitritePerformer", () =>
+export const MRObservationUrineNitritePerformerReference: t.Type<MRObservationUrineNitritePerformerReference> =
+    t.recursion("MRObservationUrineNitritePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -329,13 +329,13 @@ interface MRObservationUrineNitrite {
     meta: MRObservationUrineNitriteMeta;
     status: "final";
     code: MRObservationUrineNitriteCode;
-    subject: MRObservationUrineNitriteSubject;
-    encounter: MRObservationUrineNitriteEncounter;
+    subject: MRObservationUrineNitriteSubjectReference;
+    encounter: MRObservationUrineNitriteEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUrineNitritePerformer>;
+    performer?: Array<MRObservationUrineNitritePerformerReference>;
 }
 
 const MRObservationUrineNitrite: t.Type<MRObservationUrineNitrite> = t.recursion(
@@ -348,15 +348,15 @@ const MRObservationUrineNitrite: t.Type<MRObservationUrineNitrite> = t.recursion
                     meta: MRObservationUrineNitriteMeta,
                     status: Literal("final"),
                     code: MRObservationUrineNitriteCode,
-                    subject: MRObservationUrineNitriteSubject,
-                    encounter: MRObservationUrineNitriteEncounter,
+                    subject: MRObservationUrineNitriteSubjectReference,
+                    encounter: MRObservationUrineNitriteEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUrineNitritePerformer)
+                    performer: MaxArray(1, MRObservationUrineNitritePerformerReference)
                 })
             ])
         )

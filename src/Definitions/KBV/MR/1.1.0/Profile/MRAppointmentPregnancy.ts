@@ -37,13 +37,13 @@ import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
 /**
  * A Person, Location/HealthcareService or Device that is participating in the appointment.
  */
-export interface MRAppointmentPregnancyParticipantActor {
+export interface MRAppointmentPregnancyParticipantActorReference {
     reference: string;
     id?: string;
 }
 
-export const MRAppointmentPregnancyParticipantActor: t.Type<MRAppointmentPregnancyParticipantActor> =
-    t.recursion("MRAppointmentPregnancyParticipantActor", () =>
+export const MRAppointmentPregnancyParticipantActorReference: t.Type<MRAppointmentPregnancyParticipantActorReference> =
+    t.recursion("MRAppointmentPregnancyParticipantActorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -92,7 +92,7 @@ export const MRAppointmentPregnancyMeta: t.Type<MRAppointmentPregnancyMeta> = t.
  * List of participants involved in the appointment.
  */
 export interface MRAppointmentPregnancyParticipant {
-    actor: MRAppointmentPregnancyParticipantActor;
+    actor: MRAppointmentPregnancyParticipantActorReference;
     required: "required";
     status: "accepted";
     id?: string;
@@ -103,7 +103,7 @@ export const MRAppointmentPregnancyParticipant: t.Type<MRAppointmentPregnancyPar
         Excess(
             t.intersection([
                 t.type({
-                    actor: MRAppointmentPregnancyParticipantActor,
+                    actor: MRAppointmentPregnancyParticipantActorReference,
                     required: Literal("required"),
                     status: Literal("accepted")
                 }),

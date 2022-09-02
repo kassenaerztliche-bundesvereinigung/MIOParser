@@ -34,21 +34,29 @@ type Usagecontexttype =
     | "species"
     | "program";
 
-const Usagecontexttype: t.Type<Usagecontexttype> = t.union(
-    [
-        t.literal("gender"),
-        t.literal("age"),
-        t.literal("focus"),
-        t.literal("user"),
-        t.literal("workflow"),
-        t.literal("task"),
-        t.literal("venue"),
-        t.literal("species"),
-        t.literal("program")
-    ],
-    "Usagecontexttype"
-);
+type UsagecontexttypeType = t.KeyofC<{
+    gender: null;
+    age: null;
+    focus: null;
+    user: null;
+    workflow: null;
+    task: null;
+    venue: null;
+    species: null;
+    program: null;
+}>;
 
+const Usagecontexttype: UsagecontexttypeType = t.keyof({
+    gender: null,
+    age: null,
+    focus: null,
+    user: null,
+    workflow: null,
+    task: null,
+    venue: null,
+    species: null,
+    program: null
+});
 export const UsagecontexttypeArray: string[] = [
     "gender",
     "age",

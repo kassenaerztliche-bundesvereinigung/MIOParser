@@ -18,15 +18,5 @@
  *
  */
 
-import * as VaccinationResource from "./VaccinationResource";
-export { VaccinationResource };
-import * as ZAEBResource from "./ZAEBResource";
-export { ZAEBResource };
-import * as MRResource from "./MRResource";
-export { MRResource };
-import * as CMRResource from "./CMRResource";
-export { CMRResource };
-import * as PNResource from "./PNResource";
-export { PNResource };
-import * as PCResource from "./PCResource";
-export { PCResource };
+import * as PSResource from "./PSResource";
+export { PSResource };

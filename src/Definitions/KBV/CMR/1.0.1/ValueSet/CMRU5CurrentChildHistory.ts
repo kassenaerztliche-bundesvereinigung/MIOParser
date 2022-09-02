@@ -31,17 +31,21 @@ type CMRU5CurrentChildHistory =
     | "162214009"
     | "162339002";
 
-const CMRU5CurrentChildHistory: t.Type<CMRU5CurrentChildHistory> = t.union(
-    [
-        t.literal("715949008"),
-        t.literal("248124006"),
-        t.literal("271840007"),
-        t.literal("162214009"),
-        t.literal("162339002")
-    ],
-    "CMRU5CurrentChildHistory"
-);
+type CMRU5CurrentChildHistoryType = t.KeyofC<{
+    "715949008": null;
+    "248124006": null;
+    "271840007": null;
+    "162214009": null;
+    "162339002": null;
+}>;
 
+const CMRU5CurrentChildHistory: CMRU5CurrentChildHistoryType = t.keyof({
+    "715949008": null,
+    "248124006": null,
+    "271840007": null,
+    "162214009": null,
+    "162339002": null
+});
 export const CMRU5CurrentChildHistoryArray: string[] = [
     "715949008",
     "248124006",

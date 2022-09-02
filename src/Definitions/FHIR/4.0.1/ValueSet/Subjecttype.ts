@@ -25,17 +25,21 @@ import { ValueSet } from "../../../Interfaces";
 
 type Subjecttype = "Patient" | "Practitioner" | "Organization" | "Location" | "Device";
 
-const Subjecttype: t.Type<Subjecttype> = t.union(
-    [
-        t.literal("Patient"),
-        t.literal("Practitioner"),
-        t.literal("Organization"),
-        t.literal("Location"),
-        t.literal("Device")
-    ],
-    "Subjecttype"
-);
+type SubjecttypeType = t.KeyofC<{
+    Patient: null;
+    Practitioner: null;
+    Organization: null;
+    Location: null;
+    Device: null;
+}>;
 
+const Subjecttype: SubjecttypeType = t.keyof({
+    Patient: null,
+    Practitioner: null,
+    Organization: null,
+    Location: null,
+    Device: null
+});
 export const SubjecttypeArray: string[] = [
     "Patient",
     "Practitioner",

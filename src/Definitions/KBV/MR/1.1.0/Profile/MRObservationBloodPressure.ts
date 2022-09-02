@@ -467,9 +467,9 @@ export interface MRObservationBloodPressureSystolicBPCodeLoinc {
     system: "http://loinc.org";
     version: "2.69";
     code: "8480-6";
+    display: "Systolic blood pressure";
     id?: string;
     _display?: MRObservationBloodPressureSystolicBPCodeLoincDisplay;
-    display?: "Systolic blood pressure";
 }
 
 export const MRObservationBloodPressureSystolicBPCodeLoinc: t.Type<MRObservationBloodPressureSystolicBPCodeLoinc> =
@@ -479,12 +479,12 @@ export const MRObservationBloodPressureSystolicBPCodeLoinc: t.Type<MRObservation
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: Literal("2.69"),
-                    code: Literal("8480-6")
+                    code: Literal("8480-6"),
+                    display: Literal("Systolic blood pressure")
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodPressureSystolicBPCodeLoincDisplay,
-                    display: Literal("Systolic blood pressure")
+                    _display: MRObservationBloodPressureSystolicBPCodeLoincDisplay
                 })
             ])
         )
@@ -497,9 +497,9 @@ export interface MRObservationBloodPressureSystolicBPCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20200131";
     code: "271649006";
+    display: "Systolic blood pressure (observable entity)";
     id?: string;
     _display?: MRObservationBloodPressureSystolicBPCodeCodeSnomedDisplay;
-    display?: "Systolic blood pressure (observable entity)";
     userSelected?: boolean;
 }
 
@@ -512,12 +512,12 @@ export const MRObservationBloodPressureSystolicBPCodeCodeSnomed: t.Type<MRObserv
                     version: Literal(
                         "http://snomed.info/sct/900000000000207008/version/20200131"
                     ),
-                    code: Literal("271649006")
+                    code: Literal("271649006"),
+                    display: Literal("Systolic blood pressure (observable entity)")
                 }),
                 t.partial({
                     id: SCALARString,
                     _display: MRObservationBloodPressureSystolicBPCodeCodeSnomedDisplay,
-                    display: Literal("Systolic blood pressure (observable entity)"),
                     userSelected: SCALARBoolean
                 })
             ])
@@ -531,9 +531,9 @@ export interface MRObservationBloodPressureDiastolicBPCodeLoinc {
     system: "http://loinc.org";
     version: "2.69";
     code: "8462-4";
+    display: "Diastolic blood pressure";
     id?: string;
     _display?: MRObservationBloodPressureDiastolicBPCodeLoincDisplay;
-    display?: "Diastolic blood pressure";
 }
 
 export const MRObservationBloodPressureDiastolicBPCodeLoinc: t.Type<MRObservationBloodPressureDiastolicBPCodeLoinc> =
@@ -543,12 +543,12 @@ export const MRObservationBloodPressureDiastolicBPCodeLoinc: t.Type<MRObservatio
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: Literal("2.69"),
-                    code: Literal("8462-4")
+                    code: Literal("8462-4"),
+                    display: Literal("Diastolic blood pressure")
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodPressureDiastolicBPCodeLoincDisplay,
-                    display: Literal("Diastolic blood pressure")
+                    _display: MRObservationBloodPressureDiastolicBPCodeLoincDisplay
                 })
             ])
         )
@@ -561,9 +561,9 @@ export interface MRObservationBloodPressureDiastolicBPCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20200131";
     code: "271650006";
+    display: "Diastolic blood pressure (observable entity)";
     id?: string;
     _display?: MRObservationBloodPressureDiastolicBPCodeCodeSnomedDisplay;
-    display?: "Diastolic blood pressure (observable entity)";
 }
 
 export const MRObservationBloodPressureDiastolicBPCodeCodeSnomed: t.Type<MRObservationBloodPressureDiastolicBPCodeCodeSnomed> =
@@ -575,12 +575,12 @@ export const MRObservationBloodPressureDiastolicBPCodeCodeSnomed: t.Type<MRObser
                     version: Literal(
                         "http://snomed.info/sct/900000000000207008/version/20200131"
                     ),
-                    code: Literal("271650006")
+                    code: Literal("271650006"),
+                    display: Literal("Diastolic blood pressure (observable entity)")
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodPressureDiastolicBPCodeCodeSnomedDisplay,
-                    display: Literal("Diastolic blood pressure (observable entity)")
+                    _display: MRObservationBloodPressureDiastolicBPCodeCodeSnomedDisplay
                 })
             ])
         )
@@ -693,9 +693,9 @@ export interface MRObservationBloodPressureCodeCodeSnomed {
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20200131";
     code: "75367002";
+    display: "Blood pressure (observable entity)";
     id?: string;
     _display?: MRObservationBloodPressureCodeCodeSnomedDisplay;
-    display?: "Blood pressure (observable entity)";
 }
 
 export const MRObservationBloodPressureCodeCodeSnomed: t.Type<MRObservationBloodPressureCodeCodeSnomed> =
@@ -707,12 +707,12 @@ export const MRObservationBloodPressureCodeCodeSnomed: t.Type<MRObservationBlood
                     version: Literal(
                         "http://snomed.info/sct/900000000000207008/version/20200131"
                     ),
-                    code: Literal("75367002")
+                    code: Literal("75367002"),
+                    display: Literal("Blood pressure (observable entity)")
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodPressureCodeCodeSnomedDisplay,
-                    display: Literal("Blood pressure (observable entity)")
+                    _display: MRObservationBloodPressureCodeCodeSnomedDisplay
                 })
             ])
         )
@@ -725,9 +725,9 @@ export interface MRObservationBloodPressureCodeLoinc {
     system: "http://loinc.org";
     version: "2.69";
     code: "85354-9";
+    display: "Blood pressure panel with all children optional";
     id?: string;
     _display?: MRObservationBloodPressureCodeLoincDisplay;
-    display?: "Blood pressure panel with all children optional";
 }
 
 export const MRObservationBloodPressureCodeLoinc: t.Type<MRObservationBloodPressureCodeLoinc> =
@@ -737,12 +737,12 @@ export const MRObservationBloodPressureCodeLoinc: t.Type<MRObservationBloodPress
                 t.type({
                     system: Literal("http://loinc.org"),
                     version: Literal("2.69"),
-                    code: Literal("85354-9")
+                    code: Literal("85354-9"),
+                    display: Literal("Blood pressure panel with all children optional")
                 }),
                 t.partial({
                     id: SCALARString,
-                    _display: MRObservationBloodPressureCodeLoincDisplay,
-                    display: Literal("Blood pressure panel with all children optional")
+                    _display: MRObservationBloodPressureCodeLoincDisplay
                 })
             ])
         )
@@ -783,7 +783,8 @@ export const MRObservationBloodPressureSystolicBPCode: t.Type<MRObservationBlood
                                 codec: MRObservationBloodPressureSystolicBPCodeLoinc,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         version: "2.69",
                                         display: "Systolic blood pressure"
                                     }
@@ -793,7 +794,8 @@ export const MRObservationBloodPressureSystolicBPCode: t.Type<MRObservationBlood
                                 codec: MRObservationBloodPressureSystolicBPCodeCodeSnomed,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         system: "http://snomed.info/sct",
                                         version:
                                             "http://snomed.info/sct/900000000000207008/version/20200131",
@@ -850,7 +852,8 @@ export const MRObservationBloodPressureDiastolicBPCode: t.Type<MRObservationBloo
                                 codec: MRObservationBloodPressureDiastolicBPCodeLoinc,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         version: "2.69",
                                         display: "Diastolic blood pressure"
                                     }
@@ -860,7 +863,8 @@ export const MRObservationBloodPressureDiastolicBPCode: t.Type<MRObservationBloo
                                 codec: MRObservationBloodPressureDiastolicBPCodeCodeSnomed,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         system: "http://snomed.info/sct",
                                         version:
                                             "http://snomed.info/sct/900000000000207008/version/20200131",
@@ -991,7 +995,8 @@ export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCo
                                 codec: MRObservationBloodPressureCodeCodeSnomed,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         system: "http://snomed.info/sct",
                                         version:
                                             "http://snomed.info/sct/900000000000207008/version/20200131",
@@ -1004,7 +1009,8 @@ export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCo
                                 codec: MRObservationBloodPressureCodeLoinc,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
-                                    pattern: {
+                                    pattern: "$this",
+                                    value: {
                                         system: "http://loinc.org",
                                         version: "2.69",
                                         code: "85354-9",
@@ -1027,13 +1033,13 @@ export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBloodPressureSubject {
+export interface MRObservationBloodPressureSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressureSubject> =
-    t.recursion("MRObservationBloodPressureSubject", () =>
+export const MRObservationBloodPressureSubjectReference: t.Type<MRObservationBloodPressureSubjectReference> =
+    t.recursion("MRObservationBloodPressureSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1051,13 +1057,13 @@ export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressur
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBloodPressureEncounter {
+export interface MRObservationBloodPressureEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPressureEncounter> =
-    t.recursion("MRObservationBloodPressureEncounter", () =>
+export const MRObservationBloodPressureEncounterReference: t.Type<MRObservationBloodPressureEncounterReference> =
+    t.recursion("MRObservationBloodPressureEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1075,13 +1081,13 @@ export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPress
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBloodPressurePerformer {
+export interface MRObservationBloodPressurePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressurePerformer: t.Type<MRObservationBloodPressurePerformer> =
-    t.recursion("MRObservationBloodPressurePerformer", () =>
+export const MRObservationBloodPressurePerformerReference: t.Type<MRObservationBloodPressurePerformerReference> =
+    t.recursion("MRObservationBloodPressurePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1102,15 +1108,15 @@ interface MRObservationBloodPressure {
     meta: MRObservationBloodPressureMeta;
     status: "final";
     code: MRObservationBloodPressureCode;
-    subject: MRObservationBloodPressureSubject;
-    encounter: MRObservationBloodPressureEncounter;
+    subject: MRObservationBloodPressureSubjectReference;
+    encounter: MRObservationBloodPressureEncounterReference;
     effectiveDateTime: string;
     component: Array<
         MRObservationBloodPressureSystolicBP | MRObservationBloodPressureDiastolicBP
     >;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBloodPressurePerformer>;
+    performer?: Array<MRObservationBloodPressurePerformerReference>;
 }
 
 const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursion(
@@ -1123,8 +1129,8 @@ const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursi
                     meta: MRObservationBloodPressureMeta,
                     status: Literal("final"),
                     code: MRObservationBloodPressureCode,
-                    subject: MRObservationBloodPressureSubject,
-                    encounter: MRObservationBloodPressureEncounter,
+                    subject: MRObservationBloodPressureSubjectReference,
+                    encounter: MRObservationBloodPressureEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     component: ReqArray<
                         t.UnionC<
@@ -1157,7 +1163,7 @@ const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursi
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBloodPressurePerformer)
+                    performer: MaxArray(1, MRObservationBloodPressurePerformerReference)
                 })
             ])
         )

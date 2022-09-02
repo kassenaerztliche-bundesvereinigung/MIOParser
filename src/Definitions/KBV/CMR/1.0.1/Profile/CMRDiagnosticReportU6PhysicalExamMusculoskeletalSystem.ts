@@ -265,97 +265,105 @@ export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemCode: t.Type<
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject {
+export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject> =
-    t.recursion("CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference> =
+    t.recursion(
+        "CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter {
+export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter> =
-    t.recursion("CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference> =
+    t.recursion(
+        "CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer {
+export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer> =
-    t.recursion("CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference> =
+    t.recursion(
+        "CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult {
+export interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult> =
-    t.recursion("CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U6_Physical_Exam_Musculoskeletal_System|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference> =
+    t.recursion(
+        "CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U6_Physical_Exam_Musculoskeletal_System|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem {
@@ -363,13 +371,13 @@ interface CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem {
     meta: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemMeta;
     status: "final";
     code: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemCode;
-    subject: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject;
-    encounter: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter;
+    subject: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference;
+    encounter: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer>;
-    result?: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult[];
+    performer?: Array<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference>;
+    result?: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference[];
 }
 
 const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem: t.Type<CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem> =
@@ -382,9 +390,9 @@ const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem: t.Type<CMRDiagnost
                     status: Literal("final"),
                     code: CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemCode,
                     subject:
-                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubject,
+                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounter,
+                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -392,10 +400,10 @@ const CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystem: t.Type<CMRDiagnost
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformer
+                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResult
+                        CMRDiagnosticReportU6PhysicalExamMusculoskeletalSystemResultReference
                     )
                 })
             ])

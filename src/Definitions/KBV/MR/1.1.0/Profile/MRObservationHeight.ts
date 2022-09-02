@@ -362,14 +362,13 @@ export const MRObservationHeightCode: t.Type<MRObservationHeightCode> = t.recurs
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationHeightSubject {
+export interface MRObservationHeightSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeightSubject: t.Type<MRObservationHeightSubject> = t.recursion(
-    "MRObservationHeightSubject",
-    () =>
+export const MRObservationHeightSubjectReference: t.Type<MRObservationHeightSubjectReference> =
+    t.recursion("MRObservationHeightSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -382,18 +381,18 @@ export const MRObservationHeightSubject: t.Type<MRObservationHeightSubject> = t.
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationHeightEncounter {
+export interface MRObservationHeightEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeightEncounter: t.Type<MRObservationHeightEncounter> =
-    t.recursion("MRObservationHeightEncounter", () =>
+export const MRObservationHeightEncounterReference: t.Type<MRObservationHeightEncounterReference> =
+    t.recursion("MRObservationHeightEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -411,13 +410,13 @@ export const MRObservationHeightEncounter: t.Type<MRObservationHeightEncounter> 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationHeightPerformer {
+export interface MRObservationHeightPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeightPerformer: t.Type<MRObservationHeightPerformer> =
-    t.recursion("MRObservationHeightPerformer", () =>
+export const MRObservationHeightPerformerReference: t.Type<MRObservationHeightPerformerReference> =
+    t.recursion("MRObservationHeightPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -438,13 +437,13 @@ interface MRObservationHeight {
     meta: MRObservationHeightMeta;
     status: "final";
     code: MRObservationHeightCode;
-    subject: MRObservationHeightSubject;
-    encounter: MRObservationHeightEncounter;
+    subject: MRObservationHeightSubjectReference;
+    encounter: MRObservationHeightEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationHeightValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationHeightPerformer>;
+    performer?: Array<MRObservationHeightPerformerReference>;
 }
 
 const MRObservationHeight: t.Type<MRObservationHeight> = t.recursion(
@@ -457,15 +456,15 @@ const MRObservationHeight: t.Type<MRObservationHeight> = t.recursion(
                     meta: MRObservationHeightMeta,
                     status: Literal("final"),
                     code: MRObservationHeightCode,
-                    subject: MRObservationHeightSubject,
-                    encounter: MRObservationHeightEncounter,
+                    subject: MRObservationHeightSubjectReference,
+                    encounter: MRObservationHeightEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationHeightValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationHeightPerformer)
+                    performer: MaxArray(1, MRObservationHeightPerformerReference)
                 })
             ])
         )

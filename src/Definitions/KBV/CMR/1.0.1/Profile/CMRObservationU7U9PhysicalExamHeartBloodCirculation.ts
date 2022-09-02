@@ -262,73 +262,79 @@ export const CMRObservationU7U9PhysicalExamHeartBloodCirculationCode: t.Type<CMR
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject {
+export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject> =
-    t.recursion("CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference> =
+    t.recursion(
+        "CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter {
+export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter> =
-    t.recursion("CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference> =
+    t.recursion(
+        "CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer {
+export interface CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer> =
-    t.recursion("CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference> =
+    t.recursion(
+        "CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRObservationU7U9PhysicalExamHeartBloodCirculation {
@@ -336,13 +342,13 @@ interface CMRObservationU7U9PhysicalExamHeartBloodCirculation {
     meta: CMRObservationU7U9PhysicalExamHeartBloodCirculationMeta;
     status: "final";
     code: CMRObservationU7U9PhysicalExamHeartBloodCirculationCode;
-    subject: CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject;
-    encounter: CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter;
+    subject: CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference;
+    encounter: CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer>;
+    performer?: Array<CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference>;
 }
 
 const CMRObservationU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRObservationU7U9PhysicalExamHeartBloodCirculation> =
@@ -354,9 +360,10 @@ const CMRObservationU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRObservation
                     meta: CMRObservationU7U9PhysicalExamHeartBloodCirculationMeta,
                     status: Literal("final"),
                     code: CMRObservationU7U9PhysicalExamHeartBloodCirculationCode,
-                    subject: CMRObservationU7U9PhysicalExamHeartBloodCirculationSubject,
+                    subject:
+                        CMRObservationU7U9PhysicalExamHeartBloodCirculationSubjectReference,
                     encounter:
-                        CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounter,
+                        CMRObservationU7U9PhysicalExamHeartBloodCirculationEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -365,7 +372,7 @@ const CMRObservationU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRObservation
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformer
+                        CMRObservationU7U9PhysicalExamHeartBloodCirculationPerformerReference
                     )
                 })
             ])

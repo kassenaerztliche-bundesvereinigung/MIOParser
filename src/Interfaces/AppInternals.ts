@@ -19,7 +19,7 @@
  */
 
 import { KBVResource } from "..";
-import Reference from "./Reference";
+import Reference from "../Definitions/CustomTypes/Reference";
 import * as t from "io-ts";
 import { Meta } from "../Definitions/FHIR/4.0.1/Profile";
 

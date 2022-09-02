@@ -629,13 +629,13 @@ export const CMRCarePlanU2U9ResultMeta: t.Type<CMRCarePlanU2U9ResultMeta> = t.re
 /**
  * Identifies the patient or group whose intended care is described by the plan.
  */
-export interface CMRCarePlanU2U9ResultSubject {
+export interface CMRCarePlanU2U9ResultSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU2U9ResultSubject: t.Type<CMRCarePlanU2U9ResultSubject> =
-    t.recursion("CMRCarePlanU2U9ResultSubject", () =>
+export const CMRCarePlanU2U9ResultSubjectReference: t.Type<CMRCarePlanU2U9ResultSubjectReference> =
+    t.recursion("CMRCarePlanU2U9ResultSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -653,13 +653,13 @@ export const CMRCarePlanU2U9ResultSubject: t.Type<CMRCarePlanU2U9ResultSubject> 
 /**
  * The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated.
  */
-export interface CMRCarePlanU2U9ResultEncounter {
+export interface CMRCarePlanU2U9ResultEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU2U9ResultEncounter: t.Type<CMRCarePlanU2U9ResultEncounter> =
-    t.recursion("CMRCarePlanU2U9ResultEncounter", () =>
+export const CMRCarePlanU2U9ResultEncounterReference: t.Type<CMRCarePlanU2U9ResultEncounterReference> =
+    t.recursion("CMRCarePlanU2U9ResultEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -677,13 +677,13 @@ export const CMRCarePlanU2U9ResultEncounter: t.Type<CMRCarePlanU2U9ResultEncount
 /**
  * When populated, the author is responsible for the care plan.  The care plan is attributed to the author.
  */
-export interface CMRCarePlanU2U9ResultAuthor {
+export interface CMRCarePlanU2U9ResultAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCarePlanU2U9ResultAuthor: t.Type<CMRCarePlanU2U9ResultAuthor> =
-    t.recursion("CMRCarePlanU2U9ResultAuthor", () =>
+export const CMRCarePlanU2U9ResultAuthorReference: t.Type<CMRCarePlanU2U9ResultAuthorReference> =
+    t.recursion("CMRCarePlanU2U9ResultAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -703,8 +703,8 @@ interface CMRCarePlanU2U9Result {
     meta: CMRCarePlanU2U9ResultMeta;
     status: "completed";
     intent: "proposal";
-    subject: CMRCarePlanU2U9ResultSubject;
-    encounter: CMRCarePlanU2U9ResultEncounter;
+    subject: CMRCarePlanU2U9ResultSubjectReference;
+    encounter: CMRCarePlanU2U9ResultEncounterReference;
     created: string;
     activity: Array<
         | CMRCarePlanU2U9ResultWeitereMassnahmenVereinbart
@@ -712,7 +712,7 @@ interface CMRCarePlanU2U9Result {
     >;
     id?: string;
     text?: Narrative;
-    author?: CMRCarePlanU2U9ResultAuthor;
+    author?: CMRCarePlanU2U9ResultAuthorReference;
 }
 
 const CMRCarePlanU2U9Result: t.Type<CMRCarePlanU2U9Result> = t.recursion(
@@ -725,8 +725,8 @@ const CMRCarePlanU2U9Result: t.Type<CMRCarePlanU2U9Result> = t.recursion(
                     meta: CMRCarePlanU2U9ResultMeta,
                     status: Literal("completed"),
                     intent: Literal("proposal"),
-                    subject: CMRCarePlanU2U9ResultSubject,
-                    encounter: CMRCarePlanU2U9ResultEncounter,
+                    subject: CMRCarePlanU2U9ResultSubjectReference,
+                    encounter: CMRCarePlanU2U9ResultEncounterReference,
                     created: SCALARDateTime,
                     activity: ReqArray<
                         t.UnionC<
@@ -765,7 +765,7 @@ const CMRCarePlanU2U9Result: t.Type<CMRCarePlanU2U9Result> = t.recursion(
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    author: CMRCarePlanU2U9ResultAuthor
+                    author: CMRCarePlanU2U9ResultAuthorReference
                 })
             ])
         )

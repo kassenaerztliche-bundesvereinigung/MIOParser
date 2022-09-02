@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type Operationparameteruse = "in" | "out";
 
-const Operationparameteruse: t.Type<Operationparameteruse> = t.union(
-    [t.literal("in"), t.literal("out")],
-    "Operationparameteruse"
-);
+type OperationparameteruseType = t.KeyofC<{ in: null; out: null }>;
 
+const Operationparameteruse: OperationparameteruseType = t.keyof({
+    in: null,
+    out: null
+});
 export const OperationparameteruseArray: string[] = ["in", "out"];
 
 export const OperationparameteruseValueSet: ValueSet = [

@@ -24,13 +24,16 @@ import * as Vaccination from "./Definitions/KBV/IM";
 import * as ZAEB from "./Definitions/KBV/ZB";
 import * as MR from "./Definitions/KBV/MR";
 import * as CMR from "./Definitions/KBV/CMR";
+import * as PKA from "./Definitions/KBV/PKA";
+import * as PS from "./Definitions/KBV/PS";
 import * as KBVBase from "./Definitions/KBVBase";
 import * as FHIR from "./Definitions/FHIR";
 import * as HL7DE from "./Definitions/HL7DE";
+import * as ST from "./Definitions/ST";
 
-import Reference from "./Interfaces/Reference";
+import Reference from "./Definitions/CustomTypes/Reference";
 
-export { Vaccination, ZAEB, MR, CMR, KBVBase, FHIR, HL7DE, Reference };
+export { Vaccination, ZAEB, MR, CMR, PKA, KBVBase, FHIR, HL7DE, ST, PS, Reference };
 
 export {
     KBVBundleResource,
@@ -51,6 +54,12 @@ export { CMRResource } from "./Definitions/ProfileMaps/CMRResource";
 export { PCResource } from "./Definitions/ProfileMaps/PCResource";
 
 export { PNResource } from "./Definitions/ProfileMaps/PNResource";
+
+export { DPEResource } from "./Definitions/ProfileMaps/DPEResource";
+
+export { NFDResource } from "./Definitions/ProfileMaps/NFDResource";
+
+export { NFDxDPEResource } from "./Definitions/ProfileMaps/NFDxDPEResource";
 
 export * as ParserUtil from "./Interfaces/Util";
 

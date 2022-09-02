@@ -265,38 +265,40 @@ export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractCode: t.T
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject {
+export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject> =
-    t.recursion("CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference> =
+    t.recursion(
+        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter {
+export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter> =
+export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference> =
     t.recursion(
-        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter",
+        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference",
         () =>
             Excess(
                 t.intersection([
@@ -315,14 +317,14 @@ export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer {
+export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer> =
+export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference> =
     t.recursion(
-        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer",
+        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference",
         () =>
             Excess(
                 t.intersection([
@@ -341,25 +343,27 @@ export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult {
+export interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult> =
-    t.recursion("CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U8_Physical_Exam_Chest_Lung_Respiratory_Tract|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference> =
+    t.recursion(
+        "CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U8_Physical_Exam_Chest_Lung_Respiratory_Tract|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract {
@@ -367,13 +371,13 @@ interface CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract {
     meta: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractMeta;
     status: "final";
     code: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractCode;
-    subject: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject;
-    encounter: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter;
+    subject: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference;
+    encounter: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer>;
-    result?: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult[];
+    performer?: Array<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference>;
+    result?: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference[];
 }
 
 const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract: t.Type<CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract> =
@@ -386,9 +390,9 @@ const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract: t.Type<CMRDiag
                     status: Literal("final"),
                     code: CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractCode,
                     subject:
-                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubject,
+                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounter,
+                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -396,10 +400,10 @@ const CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTract: t.Type<CMRDiag
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformer
+                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResult
+                        CMRDiagnosticReportU8PhysicalExamChestLungRespiratoryTractResultReference
                     )
                 })
             ])

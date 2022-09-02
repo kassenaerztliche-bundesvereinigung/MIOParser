@@ -31,17 +31,21 @@ type CMRU7aPhysicalExamMouthNose =
     | "367381002"
     | "232209000";
 
-const CMRU7aPhysicalExamMouthNose: t.Type<CMRU7aPhysicalExamMouthNose> = t.union(
-    [
-        t.literal("300255008"),
-        t.literal("125593007"),
-        t.literal("449790007"),
-        t.literal("367381002"),
-        t.literal("232209000")
-    ],
-    "CMRU7aPhysicalExamMouthNose"
-);
+type CMRU7aPhysicalExamMouthNoseType = t.KeyofC<{
+    "300255008": null;
+    "125593007": null;
+    "449790007": null;
+    "367381002": null;
+    "232209000": null;
+}>;
 
+const CMRU7aPhysicalExamMouthNose: CMRU7aPhysicalExamMouthNoseType = t.keyof({
+    "300255008": null,
+    "125593007": null,
+    "449790007": null,
+    "367381002": null,
+    "232209000": null
+});
 export const CMRU7aPhysicalExamMouthNoseArray: string[] = [
     "300255008",
     "125593007",

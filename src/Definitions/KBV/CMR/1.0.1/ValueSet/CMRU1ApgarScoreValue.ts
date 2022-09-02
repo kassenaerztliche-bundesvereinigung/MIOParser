@@ -37,23 +37,33 @@ type CMRU1ApgarScoreValue =
     | "64198003"
     | "49544001";
 
-const CMRU1ApgarScoreValue: t.Type<CMRU1ApgarScoreValue> = t.union(
-    [
-        t.literal("77714001"),
-        t.literal("43610007"),
-        t.literal("39910003"),
-        t.literal("26635001"),
-        t.literal("38107004"),
-        t.literal("24388001"),
-        t.literal("10318004"),
-        t.literal("13323003"),
-        t.literal("12431004"),
-        t.literal("64198003"),
-        t.literal("49544001")
-    ],
-    "CMRU1ApgarScoreValue"
-);
+type CMRU1ApgarScoreValueType = t.KeyofC<{
+    "77714001": null;
+    "43610007": null;
+    "39910003": null;
+    "26635001": null;
+    "38107004": null;
+    "24388001": null;
+    "10318004": null;
+    "13323003": null;
+    "12431004": null;
+    "64198003": null;
+    "49544001": null;
+}>;
 
+const CMRU1ApgarScoreValue: CMRU1ApgarScoreValueType = t.keyof({
+    "77714001": null,
+    "43610007": null,
+    "39910003": null,
+    "26635001": null,
+    "38107004": null,
+    "24388001": null,
+    "10318004": null,
+    "13323003": null,
+    "12431004": null,
+    "64198003": null,
+    "49544001": null
+});
 export const CMRU1ApgarScoreValueArray: string[] = [
     "77714001",
     "43610007",

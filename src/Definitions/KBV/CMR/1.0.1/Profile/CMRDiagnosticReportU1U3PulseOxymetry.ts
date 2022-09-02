@@ -260,13 +260,13 @@ export const CMRDiagnosticReportU1U3PulseOxymetryCode: t.Type<CMRDiagnosticRepor
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1U3PulseOxymetrySubject {
+export interface CMRDiagnosticReportU1U3PulseOxymetrySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U3PulseOxymetrySubject: t.Type<CMRDiagnosticReportU1U3PulseOxymetrySubject> =
-    t.recursion("CMRDiagnosticReportU1U3PulseOxymetrySubject", () =>
+export const CMRDiagnosticReportU1U3PulseOxymetrySubjectReference: t.Type<CMRDiagnosticReportU1U3PulseOxymetrySubjectReference> =
+    t.recursion("CMRDiagnosticReportU1U3PulseOxymetrySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportU1U3PulseOxymetrySubject: t.Type<CMRDiagnosticRe
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1U3PulseOxymetryEncounter {
+export interface CMRDiagnosticReportU1U3PulseOxymetryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U3PulseOxymetryEncounter: t.Type<CMRDiagnosticReportU1U3PulseOxymetryEncounter> =
-    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryEncounter", () =>
+export const CMRDiagnosticReportU1U3PulseOxymetryEncounterReference: t.Type<CMRDiagnosticReportU1U3PulseOxymetryEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportU1U3PulseOxymetryEncounter: t.Type<CMRDiagnostic
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1U3PulseOxymetryPerformer {
+export interface CMRDiagnosticReportU1U3PulseOxymetryPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U3PulseOxymetryPerformer: t.Type<CMRDiagnosticReportU1U3PulseOxymetryPerformer> =
-    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryPerformer", () =>
+export const CMRDiagnosticReportU1U3PulseOxymetryPerformerReference: t.Type<CMRDiagnosticReportU1U3PulseOxymetryPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportU1U3PulseOxymetryPerformer: t.Type<CMRDiagnostic
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1U3PulseOxymetryResult {
+export interface CMRDiagnosticReportU1U3PulseOxymetryResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U3PulseOxymetryResult: t.Type<CMRDiagnosticReportU1U3PulseOxymetryResult> =
-    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryResult", () =>
+export const CMRDiagnosticReportU1U3PulseOxymetryResultReference: t.Type<CMRDiagnosticReportU1U3PulseOxymetryResultReference> =
+    t.recursion("CMRDiagnosticReportU1U3PulseOxymetryResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportU1U3PulseOxymetry {
     meta: CMRDiagnosticReportU1U3PulseOxymetryMeta;
     status: "final";
     code: CMRDiagnosticReportU1U3PulseOxymetryCode;
-    subject: CMRDiagnosticReportU1U3PulseOxymetrySubject;
-    encounter: CMRDiagnosticReportU1U3PulseOxymetryEncounter;
+    subject: CMRDiagnosticReportU1U3PulseOxymetrySubjectReference;
+    encounter: CMRDiagnosticReportU1U3PulseOxymetryEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1U3PulseOxymetryPerformer>;
-    result?: CMRDiagnosticReportU1U3PulseOxymetryResult[];
+    performer?: Array<CMRDiagnosticReportU1U3PulseOxymetryPerformerReference>;
+    result?: CMRDiagnosticReportU1U3PulseOxymetryResultReference[];
 }
 
 const CMRDiagnosticReportU1U3PulseOxymetry: t.Type<CMRDiagnosticReportU1U3PulseOxymetry> =
@@ -376,15 +376,18 @@ const CMRDiagnosticReportU1U3PulseOxymetry: t.Type<CMRDiagnosticReportU1U3PulseO
                     meta: CMRDiagnosticReportU1U3PulseOxymetryMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1U3PulseOxymetryCode,
-                    subject: CMRDiagnosticReportU1U3PulseOxymetrySubject,
-                    encounter: CMRDiagnosticReportU1U3PulseOxymetryEncounter,
+                    subject: CMRDiagnosticReportU1U3PulseOxymetrySubjectReference,
+                    encounter: CMRDiagnosticReportU1U3PulseOxymetryEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU1U3PulseOxymetryPerformer),
-                    result: t.array(CMRDiagnosticReportU1U3PulseOxymetryResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU1U3PulseOxymetryPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportU1U3PulseOxymetryResultReference)
                 })
             ])
         )

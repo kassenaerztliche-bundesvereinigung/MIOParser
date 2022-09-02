@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal, ExtensibleCheck } from "../../../CustomTypes";
+import { ExtensibleCheck } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import Identifier from "../../../../Definitions/FHIR/4.0.1/Profile/Identifier";
@@ -28,7 +28,6 @@ import ResourcetypesVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Resourc
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/Reference"
 
 interface Reference {
-    resourceType?: "Reference";
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
@@ -38,7 +37,6 @@ interface Reference {
 
 const Reference: t.Type<Reference> = t.recursion("Reference", () =>
     t.partial({
-        resourceType: Literal("Reference"),
         id: SCALARString,
         reference: SCALARString,
         type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),

@@ -175,14 +175,14 @@ export const VaccinationProvenanceAgentRoleCodingDisplay: t.Type<VaccinationProv
 /**
  * Provides a reason why the expected value or elements in the element that is extended are missing.
  */
-export interface VaccinationProvenanceAgentWhoDataabsentreason {
+export interface VaccinationProvenanceAgentWhoReferenceDataabsentreason {
     url: "http://hl7.org/fhir/StructureDefinition/data-absent-reason";
     valueCode: "unknown";
     id?: string;
 }
 
-export const VaccinationProvenanceAgentWhoDataabsentreason: t.Type<VaccinationProvenanceAgentWhoDataabsentreason> =
-    t.recursion("VaccinationProvenanceAgentWhoDataabsentreason", () =>
+export const VaccinationProvenanceAgentWhoReferenceDataabsentreason: t.Type<VaccinationProvenanceAgentWhoReferenceDataabsentreason> =
+    t.recursion("VaccinationProvenanceAgentWhoReferenceDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -255,14 +255,14 @@ export const VaccinationProvenanceAgentRole: t.Type<VaccinationProvenanceAgentRo
 /**
  * The individual, device or organization that participated in the event.
  */
-export interface VaccinationProvenanceAgentWho {
+export interface VaccinationProvenanceAgentWhoReference {
     display: "unknown";
     id?: string;
-    extension?: (Extension | VaccinationProvenanceAgentWhoDataabsentreason)[];
+    extension?: (Extension | VaccinationProvenanceAgentWhoReferenceDataabsentreason)[];
 }
 
-export const VaccinationProvenanceAgentWho: t.Type<VaccinationProvenanceAgentWho> =
-    t.recursion("VaccinationProvenanceAgentWho", () =>
+export const VaccinationProvenanceAgentWhoReference: t.Type<VaccinationProvenanceAgentWhoReference> =
+    t.recursion("VaccinationProvenanceAgentWhoReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -274,14 +274,14 @@ export const VaccinationProvenanceAgentWho: t.Type<VaccinationProvenanceAgentWho
                         t.UnionC<
                             [
                                 t.Type<Extension>,
-                                t.Type<VaccinationProvenanceAgentWhoDataabsentreason>
+                                t.Type<VaccinationProvenanceAgentWhoReferenceDataabsentreason>
                             ]
                         >,
                         t.Any
                     >(
                         t.union([
                             Extension,
-                            VaccinationProvenanceAgentWhoDataabsentreason
+                            VaccinationProvenanceAgentWhoReferenceDataabsentreason
                         ]),
                         [
                             {
@@ -290,7 +290,7 @@ export const VaccinationProvenanceAgentWho: t.Type<VaccinationProvenanceAgentWho
                                 sliceBy: { path: "url" }
                             },
                             {
-                                codec: VaccinationProvenanceAgentWhoDataabsentreason,
+                                codec: VaccinationProvenanceAgentWhoReferenceDataabsentreason,
                                 occurrence: ["1", "1"],
                                 sliceBy: {
                                     path: "url",
@@ -337,13 +337,13 @@ export const VaccinationProvenanceMeta: t.Type<VaccinationProvenanceMeta> = t.re
 /**
  * The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.
  */
-export interface VaccinationProvenanceTarget {
+export interface VaccinationProvenanceTargetReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationProvenanceTarget: t.Type<VaccinationProvenanceTarget> =
-    t.recursion("VaccinationProvenanceTarget", () =>
+export const VaccinationProvenanceTargetReference: t.Type<VaccinationProvenanceTargetReference> =
+    t.recursion("VaccinationProvenanceTargetReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -363,7 +363,7 @@ export const VaccinationProvenanceTarget: t.Type<VaccinationProvenanceTarget> =
  */
 export interface VaccinationProvenanceAgent {
     role: Array<VaccinationProvenanceAgentRole>;
-    who: VaccinationProvenanceAgentWho;
+    who: VaccinationProvenanceAgentWhoReference;
     id?: string;
 }
 
@@ -374,7 +374,7 @@ export const VaccinationProvenanceAgent: t.Type<VaccinationProvenanceAgent> = t.
             t.intersection([
                 t.type({
                     role: MinMaxArray(1, 1, VaccinationProvenanceAgentRole),
-                    who: VaccinationProvenanceAgentWho
+                    who: VaccinationProvenanceAgentWhoReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -386,7 +386,7 @@ export const VaccinationProvenanceAgent: t.Type<VaccinationProvenanceAgent> = t.
 interface VaccinationProvenance {
     resourceType: "Provenance";
     meta: VaccinationProvenanceMeta;
-    target: Array<VaccinationProvenanceTarget>;
+    target: Array<VaccinationProvenanceTargetReference>;
     recorded: string;
     agent: Array<VaccinationProvenanceAgent>;
     id?: string;
@@ -401,7 +401,7 @@ const VaccinationProvenance: t.Type<VaccinationProvenance> = t.recursion(
                 t.type({
                     resourceType: Literal("Provenance"),
                     meta: VaccinationProvenanceMeta,
-                    target: MinArray(1, VaccinationProvenanceTarget),
+                    target: MinArray(1, VaccinationProvenanceTargetReference),
                     recorded: SCALARInstant,
                     agent: MinMaxArray(1, 1, VaccinationProvenanceAgent)
                 }),

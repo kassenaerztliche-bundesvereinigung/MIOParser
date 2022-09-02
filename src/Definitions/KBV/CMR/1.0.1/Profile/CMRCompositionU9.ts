@@ -526,13 +526,13 @@ export const CMRCompositionU9ErgebnisseSectionCode: t.Type<CMRCompositionU9Ergeb
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9ErgebnisseSectionEntry {
+export interface CMRCompositionU9ErgebnisseSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9ErgebnisseSectionEntry: t.Type<CMRCompositionU9ErgebnisseSectionEntry> =
-    t.recursion("CMRCompositionU9ErgebnisseSectionEntry", () =>
+export const CMRCompositionU9ErgebnisseSectionEntryReference: t.Type<CMRCompositionU9ErgebnisseSectionEntryReference> =
+    t.recursion("CMRCompositionU9ErgebnisseSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -754,13 +754,13 @@ export const CMRCompositionU9AktuelleAnamneseDesKindesText: t.Type<CMRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9AktuelleAnamneseDesKindesEntry {
+export interface CMRCompositionU9AktuelleAnamneseDesKindesEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9AktuelleAnamneseDesKindesEntry: t.Type<CMRCompositionU9AktuelleAnamneseDesKindesEntry> =
-    t.recursion("CMRCompositionU9AktuelleAnamneseDesKindesEntry", () =>
+export const CMRCompositionU9AktuelleAnamneseDesKindesEntryReference: t.Type<CMRCompositionU9AktuelleAnamneseDesKindesEntryReference> =
+    t.recursion("CMRCompositionU9AktuelleAnamneseDesKindesEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -850,13 +850,13 @@ export const CMRCompositionU9SozialanamneseText: t.Type<CMRCompositionU9Sozialan
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9SozialanamneseEntry {
+export interface CMRCompositionU9SozialanamneseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9SozialanamneseEntry: t.Type<CMRCompositionU9SozialanamneseEntry> =
-    t.recursion("CMRCompositionU9SozialanamneseEntry", () =>
+export const CMRCompositionU9SozialanamneseEntryReference: t.Type<CMRCompositionU9SozialanamneseEntryReference> =
+    t.recursion("CMRCompositionU9SozialanamneseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -946,13 +946,13 @@ export const CMRCompositionU9UntersuchungText: t.Type<CMRCompositionU9Untersuchu
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9UntersuchungEntry {
+export interface CMRCompositionU9UntersuchungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9UntersuchungEntry: t.Type<CMRCompositionU9UntersuchungEntry> =
-    t.recursion("CMRCompositionU9UntersuchungEntry", () =>
+export const CMRCompositionU9UntersuchungEntryReference: t.Type<CMRCompositionU9UntersuchungEntryReference> =
+    t.recursion("CMRCompositionU9UntersuchungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1049,13 +1049,13 @@ export const CMRCompositionU9BeratungText: t.Type<CMRCompositionU9BeratungText> 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9BeratungEntry {
+export interface CMRCompositionU9BeratungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9BeratungEntry: t.Type<CMRCompositionU9BeratungEntry> =
-    t.recursion("CMRCompositionU9BeratungEntry", () =>
+export const CMRCompositionU9BeratungEntryReference: t.Type<CMRCompositionU9BeratungEntryReference> =
+    t.recursion("CMRCompositionU9BeratungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1142,13 +1142,13 @@ export const CMRCompositionU9ErgebnisseText: t.Type<CMRCompositionU9ErgebnisseTe
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9ErgebnisseEntry {
+export interface CMRCompositionU9ErgebnisseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9ErgebnisseEntry: t.Type<CMRCompositionU9ErgebnisseEntry> =
-    t.recursion("CMRCompositionU9ErgebnisseEntry", () =>
+export const CMRCompositionU9ErgebnisseEntryReference: t.Type<CMRCompositionU9ErgebnisseEntryReference> =
+    t.recursion("CMRCompositionU9ErgebnisseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1200,7 +1200,7 @@ export interface CMRCompositionU9ErgebnisseSection {
     title: "Prüfung, Aufklärung und ggf. Veranlassung der Durchführung von:";
     code: CMRCompositionU9ErgebnisseSectionCode;
     id?: string;
-    entry?: Array<CMRCompositionU9ErgebnisseSectionEntry>;
+    entry?: Array<CMRCompositionU9ErgebnisseSectionEntryReference>;
 }
 
 export const CMRCompositionU9ErgebnisseSection: t.Type<CMRCompositionU9ErgebnisseSection> =
@@ -1215,7 +1215,7 @@ export const CMRCompositionU9ErgebnisseSection: t.Type<CMRCompositionU9Ergebniss
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(1, CMRCompositionU9ErgebnisseSectionEntry)
+                    entry: MaxArray(1, CMRCompositionU9ErgebnisseSectionEntryReference)
                 })
             ])
         )
@@ -1274,25 +1274,27 @@ export const CMRCompositionU9OrientierendeBeurteilungDerEntwicklungText: t.Type<
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry {
+export interface CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry: t.Type<CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry> =
-    t.recursion("CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U9_Development_Assessment|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference: t.Type<CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference> =
+    t.recursion(
+        "CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U9_Development_Assessment|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -1370,13 +1372,13 @@ export const CMRCompositionU9PerzentilkurvenText: t.Type<CMRCompositionU9Perzent
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU9PerzentilkurvenEntry {
+export interface CMRCompositionU9PerzentilkurvenEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9PerzentilkurvenEntry: t.Type<CMRCompositionU9PerzentilkurvenEntry> =
-    t.recursion("CMRCompositionU9PerzentilkurvenEntry", () =>
+export const CMRCompositionU9PerzentilkurvenEntryReference: t.Type<CMRCompositionU9PerzentilkurvenEntryReference> =
+    t.recursion("CMRCompositionU9PerzentilkurvenEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1520,7 +1522,7 @@ export interface CMRCompositionU9AktuelleAnamneseDesKindes {
         | Extension
         | CMRCompositionU9AktuelleAnamneseDesKindesAnamneseAnweisung
     )[];
-    entry?: CMRCompositionU9AktuelleAnamneseDesKindesEntry[];
+    entry?: CMRCompositionU9AktuelleAnamneseDesKindesEntryReference[];
     emptyReason?: CMRCompositionU9AktuelleAnamneseDesKindesEmptyReason;
 }
 
@@ -1565,7 +1567,9 @@ export const CMRCompositionU9AktuelleAnamneseDesKindes: t.Type<CMRCompositionU9A
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU9AktuelleAnamneseDesKindesEntry),
+                    entry: t.array(
+                        CMRCompositionU9AktuelleAnamneseDesKindesEntryReference
+                    ),
                     emptyReason: CMRCompositionU9AktuelleAnamneseDesKindesEmptyReason
                 })
             ])
@@ -1581,7 +1585,7 @@ export interface CMRCompositionU9Sozialanamnese {
     text: CMRCompositionU9SozialanamneseText;
     id?: string;
     extension?: (Extension | CMRCompositionU9SozialanamneseAnamneseAnweisung)[];
-    entry?: CMRCompositionU9SozialanamneseEntry[];
+    entry?: CMRCompositionU9SozialanamneseEntryReference[];
     emptyReason?: CMRCompositionU9SozialanamneseEmptyReason;
 }
 
@@ -1626,7 +1630,7 @@ export const CMRCompositionU9Sozialanamnese: t.Type<CMRCompositionU9Sozialanamne
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU9SozialanamneseEntry),
+                    entry: t.array(CMRCompositionU9SozialanamneseEntryReference),
                     emptyReason: CMRCompositionU9SozialanamneseEmptyReason
                 })
             ])
@@ -1642,7 +1646,7 @@ export interface CMRCompositionU9Untersuchung {
     text: CMRCompositionU9UntersuchungText;
     id?: string;
     extension?: (Extension | CMRCompositionU9UntersuchungUntersuchungAnweisung)[];
-    entry?: CMRCompositionU9UntersuchungEntry[];
+    entry?: CMRCompositionU9UntersuchungEntryReference[];
     emptyReason?: CMRCompositionU9UntersuchungEmptyReason;
 }
 
@@ -1687,7 +1691,7 @@ export const CMRCompositionU9Untersuchung: t.Type<CMRCompositionU9Untersuchung> 
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU9UntersuchungEntry),
+                    entry: t.array(CMRCompositionU9UntersuchungEntryReference),
                     emptyReason: CMRCompositionU9UntersuchungEmptyReason
                 })
             ])
@@ -1707,7 +1711,7 @@ export interface CMRCompositionU9Beratung {
         | CMRCompositionU9BeratungBeratungAnweisung
         | CMRCompositionU9BeratungBeratungHinweis
     )[];
-    entry?: CMRCompositionU9BeratungEntry[];
+    entry?: CMRCompositionU9BeratungEntryReference[];
     emptyReason?: CMRCompositionU9BeratungEmptyReason;
 }
 
@@ -1763,7 +1767,7 @@ export const CMRCompositionU9Beratung: t.Type<CMRCompositionU9Beratung> = t.recu
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU9BeratungEntry),
+                    entry: t.array(CMRCompositionU9BeratungEntryReference),
                     emptyReason: CMRCompositionU9BeratungEmptyReason
                 })
             ])
@@ -1779,7 +1783,7 @@ export interface CMRCompositionU9Ergebnisse {
     text: CMRCompositionU9ErgebnisseText;
     section: Array<CMRCompositionU9ErgebnisseSection>;
     id?: string;
-    entry?: CMRCompositionU9ErgebnisseEntry[];
+    entry?: CMRCompositionU9ErgebnisseEntryReference[];
     emptyReason?: CMRCompositionU9ErgebnisseEmptyReason;
 }
 
@@ -1796,7 +1800,7 @@ export const CMRCompositionU9Ergebnisse: t.Type<CMRCompositionU9Ergebnisse> = t.
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU9ErgebnisseEntry),
+                    entry: t.array(CMRCompositionU9ErgebnisseEntryReference),
                     emptyReason: CMRCompositionU9ErgebnisseEmptyReason
                 })
             ])
@@ -1815,7 +1819,7 @@ export interface CMRCompositionU9OrientierendeBeurteilungDerEntwicklung {
         | Extension
         | CMRCompositionU9OrientierendeBeurteilungDerEntwicklungBeurteilungAnweisung
     )[];
-    entry?: CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry[];
+    entry?: CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference[];
     emptyReason?: CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEmptyReason;
 }
 
@@ -1861,7 +1865,7 @@ export const CMRCompositionU9OrientierendeBeurteilungDerEntwicklung: t.Type<CMRC
                         ["0", "*"]
                     ),
                     entry: t.array(
-                        CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntry
+                        CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEntryReference
                     ),
                     emptyReason:
                         CMRCompositionU9OrientierendeBeurteilungDerEntwicklungEmptyReason
@@ -1878,7 +1882,7 @@ export interface CMRCompositionU9Perzentilkurven {
     code: CMRCompositionU9PerzentilkurvenCode;
     text: CMRCompositionU9PerzentilkurvenText;
     id?: string;
-    entry?: Array<CMRCompositionU9PerzentilkurvenEntry>;
+    entry?: Array<CMRCompositionU9PerzentilkurvenEntryReference>;
     emptyReason?: CMRCompositionU9PerzentilkurvenEmptyReason;
 }
 
@@ -1893,7 +1897,7 @@ export const CMRCompositionU9Perzentilkurven: t.Type<CMRCompositionU9Perzentilku
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(1, CMRCompositionU9PerzentilkurvenEntry),
+                    entry: MaxArray(1, CMRCompositionU9PerzentilkurvenEntryReference),
                     emptyReason: CMRCompositionU9PerzentilkurvenEmptyReason
                 })
             ])
@@ -1978,14 +1982,13 @@ export const CMRCompositionU9Category: t.Type<CMRCompositionU9Category> = t.recu
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionU9Subject {
+export interface CMRCompositionU9SubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9Subject: t.Type<CMRCompositionU9Subject> = t.recursion(
-    "CMRCompositionU9Subject",
-    () =>
+export const CMRCompositionU9SubjectReference: t.Type<CMRCompositionU9SubjectReference> =
+    t.recursion("CMRCompositionU9SubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1998,19 +2001,18 @@ export const CMRCompositionU9Subject: t.Type<CMRCompositionU9Subject> = t.recurs
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionU9Encounter {
+export interface CMRCompositionU9EncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9Encounter: t.Type<CMRCompositionU9Encounter> = t.recursion(
-    "CMRCompositionU9Encounter",
-    () =>
+export const CMRCompositionU9EncounterReference: t.Type<CMRCompositionU9EncounterReference> =
+    t.recursion("CMRCompositionU9EncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2023,19 +2025,18 @@ export const CMRCompositionU9Encounter: t.Type<CMRCompositionU9Encounter> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionU9Author {
+export interface CMRCompositionU9AuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU9Author: t.Type<CMRCompositionU9Author> = t.recursion(
-    "CMRCompositionU9Author",
-    () =>
+export const CMRCompositionU9AuthorReference: t.Type<CMRCompositionU9AuthorReference> =
+    t.recursion("CMRCompositionU9AuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2049,7 +2050,7 @@ export const CMRCompositionU9Author: t.Type<CMRCompositionU9Author> = t.recursio
                 })
             ])
         )
-);
+    );
 
 interface CMRCompositionU9 {
     resourceType: "Composition";
@@ -2057,10 +2058,10 @@ interface CMRCompositionU9 {
     status: "final";
     type: CMRCompositionU9Type;
     category: Array<CMRCompositionU9Category>;
-    subject: CMRCompositionU9Subject;
-    encounter: CMRCompositionU9Encounter;
+    subject: CMRCompositionU9SubjectReference;
+    encounter: CMRCompositionU9EncounterReference;
     date: string;
-    author: Array<CMRCompositionU9Author>;
+    author: Array<CMRCompositionU9AuthorReference>;
     title: "U9";
     id?: string;
     text?: Narrative;
@@ -2085,10 +2086,10 @@ const CMRCompositionU9: t.Type<CMRCompositionU9> = t.recursion("CMRCompositionU9
                 status: Literal("final"),
                 type: CMRCompositionU9Type,
                 category: MinMaxArray(1, 1, CMRCompositionU9Category),
-                subject: CMRCompositionU9Subject,
-                encounter: CMRCompositionU9Encounter,
+                subject: CMRCompositionU9SubjectReference,
+                encounter: CMRCompositionU9EncounterReference,
                 date: SCALARDateTime,
-                author: MinMaxArray(1, 2, CMRCompositionU9Author),
+                author: MinMaxArray(1, 2, CMRCompositionU9AuthorReference),
                 title: Literal("U9")
             }),
             t.partial({

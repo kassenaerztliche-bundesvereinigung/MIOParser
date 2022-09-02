@@ -261,13 +261,13 @@ export const CMRDiagnosticReportU1U5NeonatalHearscreeningCode: t.Type<CMRDiagnos
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1U5NeonatalHearscreeningSubject {
+export interface CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5NeonatalHearscreeningSubject: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningSubject> =
-    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningSubject", () =>
+export const CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,13 +285,13 @@ export const CMRDiagnosticReportU1U5NeonatalHearscreeningSubject: t.Type<CMRDiag
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter {
+export interface CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter> =
-    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter", () =>
+export const CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -309,13 +309,13 @@ export const CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter: t.Type<CMRDi
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer {
+export interface CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer> =
-    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer", () =>
+export const CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ export const CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer: t.Type<CMRDi
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1U5NeonatalHearscreeningResult {
+export interface CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5NeonatalHearscreeningResult: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningResult> =
-    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningResult", () =>
+export const CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference> =
+    t.recursion("CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -360,13 +360,13 @@ interface CMRDiagnosticReportU1U5NeonatalHearscreening {
     meta: CMRDiagnosticReportU1U5NeonatalHearscreeningMeta;
     status: "final";
     code: CMRDiagnosticReportU1U5NeonatalHearscreeningCode;
-    subject: CMRDiagnosticReportU1U5NeonatalHearscreeningSubject;
-    encounter: CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter;
+    subject: CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference;
+    encounter: CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer>;
-    result?: CMRDiagnosticReportU1U5NeonatalHearscreeningResult[];
+    performer?: Array<CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference>;
+    result?: CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference[];
 }
 
 const CMRDiagnosticReportU1U5NeonatalHearscreening: t.Type<CMRDiagnosticReportU1U5NeonatalHearscreening> =
@@ -378,8 +378,9 @@ const CMRDiagnosticReportU1U5NeonatalHearscreening: t.Type<CMRDiagnosticReportU1
                     meta: CMRDiagnosticReportU1U5NeonatalHearscreeningMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1U5NeonatalHearscreeningCode,
-                    subject: CMRDiagnosticReportU1U5NeonatalHearscreeningSubject,
-                    encounter: CMRDiagnosticReportU1U5NeonatalHearscreeningEncounter,
+                    subject: CMRDiagnosticReportU1U5NeonatalHearscreeningSubjectReference,
+                    encounter:
+                        CMRDiagnosticReportU1U5NeonatalHearscreeningEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -387,9 +388,11 @@ const CMRDiagnosticReportU1U5NeonatalHearscreening: t.Type<CMRDiagnosticReportU1
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU1U5NeonatalHearscreeningPerformer
+                        CMRDiagnosticReportU1U5NeonatalHearscreeningPerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU1U5NeonatalHearscreeningResult)
+                    result: t.array(
+                        CMRDiagnosticReportU1U5NeonatalHearscreeningResultReference
+                    )
                 })
             ])
         )

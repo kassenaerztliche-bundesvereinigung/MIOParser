@@ -43,30 +43,47 @@ type Identifiertype =
     | "FILL"
     | "JHN";
 
-const Identifiertype: t.Type<Identifiertype> = t.union(
-    [
-        t.literal("DL"),
-        t.literal("PPN"),
-        t.literal("BRN"),
-        t.literal("MR"),
-        t.literal("MCN"),
-        t.literal("EN"),
-        t.literal("TAX"),
-        t.literal("NIIP"),
-        t.literal("PRN"),
-        t.literal("MD"),
-        t.literal("DR"),
-        t.literal("ACSN"),
-        t.literal("UDI"),
-        t.literal("SNO"),
-        t.literal("SB"),
-        t.literal("PLAC"),
-        t.literal("FILL"),
-        t.literal("JHN")
-    ],
-    "Identifiertype"
-);
+type IdentifiertypeType = t.KeyofC<{
+    DL: null;
+    PPN: null;
+    BRN: null;
+    MR: null;
+    MCN: null;
+    EN: null;
+    TAX: null;
+    NIIP: null;
+    PRN: null;
+    MD: null;
+    DR: null;
+    ACSN: null;
+    UDI: null;
+    SNO: null;
+    SB: null;
+    PLAC: null;
+    FILL: null;
+    JHN: null;
+}>;
 
+const Identifiertype: IdentifiertypeType = t.keyof({
+    DL: null,
+    PPN: null,
+    BRN: null,
+    MR: null,
+    MCN: null,
+    EN: null,
+    TAX: null,
+    NIIP: null,
+    PRN: null,
+    MD: null,
+    DR: null,
+    ACSN: null,
+    UDI: null,
+    SNO: null,
+    SB: null,
+    PLAC: null,
+    FILL: null,
+    JHN: null
+});
 export const IdentifiertypeArray: string[] = [
     "DL",
     "PPN",

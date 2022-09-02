@@ -447,13 +447,13 @@ export const MRObservationChildPositionCode: t.Type<MRObservationChildPositionCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationChildPositionSubject {
+export interface MRObservationChildPositionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionSubject: t.Type<MRObservationChildPositionSubject> =
-    t.recursion("MRObservationChildPositionSubject", () =>
+export const MRObservationChildPositionSubjectReference: t.Type<MRObservationChildPositionSubjectReference> =
+    t.recursion("MRObservationChildPositionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -472,13 +472,13 @@ export const MRObservationChildPositionSubject: t.Type<MRObservationChildPositio
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationChildPositionEncounter {
+export interface MRObservationChildPositionEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionEncounter: t.Type<MRObservationChildPositionEncounter> =
-    t.recursion("MRObservationChildPositionEncounter", () =>
+export const MRObservationChildPositionEncounterReference: t.Type<MRObservationChildPositionEncounterReference> =
+    t.recursion("MRObservationChildPositionEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -496,13 +496,13 @@ export const MRObservationChildPositionEncounter: t.Type<MRObservationChildPosit
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationChildPositionPerformer {
+export interface MRObservationChildPositionPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionPerformer: t.Type<MRObservationChildPositionPerformer> =
-    t.recursion("MRObservationChildPositionPerformer", () =>
+export const MRObservationChildPositionPerformerReference: t.Type<MRObservationChildPositionPerformerReference> =
+    t.recursion("MRObservationChildPositionPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -578,13 +578,13 @@ interface MRObservationChildPosition {
     meta: MRObservationChildPositionMeta;
     status: "final";
     code: MRObservationChildPositionCode;
-    subject: MRObservationChildPositionSubject;
-    encounter: MRObservationChildPositionEncounter;
+    subject: MRObservationChildPositionSubjectReference;
+    encounter: MRObservationChildPositionEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationChildPositionPerformer>;
+    performer?: Array<MRObservationChildPositionPerformerReference>;
     bodySite?: MRObservationChildPositionBodySite;
 }
 
@@ -598,15 +598,15 @@ const MRObservationChildPosition: t.Type<MRObservationChildPosition> = t.recursi
                     meta: MRObservationChildPositionMeta,
                     status: Literal("final"),
                     code: MRObservationChildPositionCode,
-                    subject: MRObservationChildPositionSubject,
-                    encounter: MRObservationChildPositionEncounter,
+                    subject: MRObservationChildPositionSubjectReference,
+                    encounter: MRObservationChildPositionEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationChildPositionPerformer),
+                    performer: MaxArray(1, MRObservationChildPositionPerformerReference),
                     bodySite: MRObservationChildPositionBodySite
                 })
             ])

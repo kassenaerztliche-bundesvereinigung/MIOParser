@@ -26,11 +26,12 @@ import CMRMedicationStatementStatusGerman from "../../../../../Definitions/KBV/C
 
 type CMRMedicationStatementStatus = "completed" | "not-taken";
 
-const CMRMedicationStatementStatus: t.Type<CMRMedicationStatementStatus> = t.union(
-    [t.literal("completed"), t.literal("not-taken")],
-    "CMRMedicationStatementStatus"
-);
+type CMRMedicationStatementStatusType = t.KeyofC<{ completed: null; "not-taken": null }>;
 
+const CMRMedicationStatementStatus: CMRMedicationStatementStatusType = t.keyof({
+    completed: null,
+    "not-taken": null
+});
 export const CMRMedicationStatementStatusArray: string[] = ["completed", "not-taken"];
 
 export const CMRMedicationStatementStatusValueSet: ValueSet = [

@@ -196,13 +196,13 @@ export const MRObservationExternalBirthCode: t.Type<MRObservationExternalBirthCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationExternalBirthSubject {
+export interface MRObservationExternalBirthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExternalBirthSubject: t.Type<MRObservationExternalBirthSubject> =
-    t.recursion("MRObservationExternalBirthSubject", () =>
+export const MRObservationExternalBirthSubjectReference: t.Type<MRObservationExternalBirthSubjectReference> =
+    t.recursion("MRObservationExternalBirthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -220,13 +220,13 @@ export const MRObservationExternalBirthSubject: t.Type<MRObservationExternalBirt
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationExternalBirthEncounter {
+export interface MRObservationExternalBirthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExternalBirthEncounter: t.Type<MRObservationExternalBirthEncounter> =
-    t.recursion("MRObservationExternalBirthEncounter", () =>
+export const MRObservationExternalBirthEncounterReference: t.Type<MRObservationExternalBirthEncounterReference> =
+    t.recursion("MRObservationExternalBirthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -244,13 +244,13 @@ export const MRObservationExternalBirthEncounter: t.Type<MRObservationExternalBi
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationExternalBirthPerformer {
+export interface MRObservationExternalBirthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExternalBirthPerformer: t.Type<MRObservationExternalBirthPerformer> =
-    t.recursion("MRObservationExternalBirthPerformer", () =>
+export const MRObservationExternalBirthPerformerReference: t.Type<MRObservationExternalBirthPerformerReference> =
+    t.recursion("MRObservationExternalBirthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,13 +271,13 @@ interface MRObservationExternalBirth {
     meta: MRObservationExternalBirthMeta;
     status: "final";
     code: MRObservationExternalBirthCode;
-    subject: MRObservationExternalBirthSubject;
-    encounter: MRObservationExternalBirthEncounter;
+    subject: MRObservationExternalBirthSubjectReference;
+    encounter: MRObservationExternalBirthEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationExternalBirthPerformer>;
+    performer?: Array<MRObservationExternalBirthPerformerReference>;
 }
 
 const MRObservationExternalBirth: t.Type<MRObservationExternalBirth> = t.recursion(
@@ -290,15 +290,15 @@ const MRObservationExternalBirth: t.Type<MRObservationExternalBirth> = t.recursi
                     meta: MRObservationExternalBirthMeta,
                     status: Literal("final"),
                     code: MRObservationExternalBirthCode,
-                    subject: MRObservationExternalBirthSubject,
-                    encounter: MRObservationExternalBirthEncounter,
+                    subject: MRObservationExternalBirthSubjectReference,
+                    encounter: MRObservationExternalBirthEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationExternalBirthPerformer)
+                    performer: MaxArray(1, MRObservationExternalBirthPerformerReference)
                 })
             ])
         )

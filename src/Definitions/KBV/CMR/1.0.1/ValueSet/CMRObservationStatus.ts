@@ -25,11 +25,12 @@ import { ValueSet } from "../../../../Interfaces";
 
 type CMRObservationStatus = "final" | "cancelled";
 
-const CMRObservationStatus: t.Type<CMRObservationStatus> = t.union(
-    [t.literal("final"), t.literal("cancelled")],
-    "CMRObservationStatus"
-);
+type CMRObservationStatusType = t.KeyofC<{ final: null; cancelled: null }>;
 
+const CMRObservationStatus: CMRObservationStatusType = t.keyof({
+    final: null,
+    cancelled: null
+});
 export const CMRObservationStatusArray: string[] = ["final", "cancelled"];
 
 export const CMRObservationStatusValueSet: ValueSet = [

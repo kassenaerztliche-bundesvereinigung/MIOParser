@@ -260,13 +260,13 @@ export const CMRObservationU4PhysicalExamAbdomenGenitalsCode: t.Type<CMRObservat
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU4PhysicalExamAbdomenGenitalsSubject {
+export interface CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamAbdomenGenitalsSubject: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsSubject> =
-    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsSubject", () =>
+export const CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference> =
+    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRObservationU4PhysicalExamAbdomenGenitalsSubject: t.Type<CMRObser
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU4PhysicalExamAbdomenGenitalsEncounter {
+export interface CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamAbdomenGenitalsEncounter: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsEncounter> =
-    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsEncounter", () =>
+export const CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference> =
+    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRObservationU4PhysicalExamAbdomenGenitalsEncounter: t.Type<CMRObs
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU4PhysicalExamAbdomenGenitalsPerformer {
+export interface CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4PhysicalExamAbdomenGenitalsPerformer: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsPerformer> =
-    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsPerformer", () =>
+export const CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference: t.Type<CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference> =
+    t.recursion("CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -334,13 +334,13 @@ interface CMRObservationU4PhysicalExamAbdomenGenitals {
     meta: CMRObservationU4PhysicalExamAbdomenGenitalsMeta;
     status: "final";
     code: CMRObservationU4PhysicalExamAbdomenGenitalsCode;
-    subject: CMRObservationU4PhysicalExamAbdomenGenitalsSubject;
-    encounter: CMRObservationU4PhysicalExamAbdomenGenitalsEncounter;
+    subject: CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference;
+    encounter: CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU4PhysicalExamAbdomenGenitalsPerformer>;
+    performer?: Array<CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference>;
 }
 
 const CMRObservationU4PhysicalExamAbdomenGenitals: t.Type<CMRObservationU4PhysicalExamAbdomenGenitals> =
@@ -352,8 +352,9 @@ const CMRObservationU4PhysicalExamAbdomenGenitals: t.Type<CMRObservationU4Physic
                     meta: CMRObservationU4PhysicalExamAbdomenGenitalsMeta,
                     status: Literal("final"),
                     code: CMRObservationU4PhysicalExamAbdomenGenitalsCode,
-                    subject: CMRObservationU4PhysicalExamAbdomenGenitalsSubject,
-                    encounter: CMRObservationU4PhysicalExamAbdomenGenitalsEncounter,
+                    subject: CMRObservationU4PhysicalExamAbdomenGenitalsSubjectReference,
+                    encounter:
+                        CMRObservationU4PhysicalExamAbdomenGenitalsEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -362,7 +363,7 @@ const CMRObservationU4PhysicalExamAbdomenGenitals: t.Type<CMRObservationU4Physic
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU4PhysicalExamAbdomenGenitalsPerformer
+                        CMRObservationU4PhysicalExamAbdomenGenitalsPerformerReference
                     )
                 })
             ])

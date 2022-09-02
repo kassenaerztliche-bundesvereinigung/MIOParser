@@ -25,16 +25,19 @@ import { ValueSet } from "../../../Interfaces";
 
 type Contributortype = "author" | "editor" | "reviewer" | "endorser";
 
-const Contributortype: t.Type<Contributortype> = t.union(
-    [
-        t.literal("author"),
-        t.literal("editor"),
-        t.literal("reviewer"),
-        t.literal("endorser")
-    ],
-    "Contributortype"
-);
+type ContributortypeType = t.KeyofC<{
+    author: null;
+    editor: null;
+    reviewer: null;
+    endorser: null;
+}>;
 
+const Contributortype: ContributortypeType = t.keyof({
+    author: null,
+    editor: null,
+    reviewer: null,
+    endorser: null
+});
 export const ContributortypeArray: string[] = [
     "author",
     "editor",

@@ -473,13 +473,13 @@ export const MRObservationLocalisationPlacentaCode: t.Type<MRObservationLocalisa
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationLocalisationPlacentaSubject {
+export interface MRObservationLocalisationPlacentaSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocalisationPlacentaSubject> =
-    t.recursion("MRObservationLocalisationPlacentaSubject", () =>
+export const MRObservationLocalisationPlacentaSubjectReference: t.Type<MRObservationLocalisationPlacentaSubjectReference> =
+    t.recursion("MRObservationLocalisationPlacentaSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -497,13 +497,13 @@ export const MRObservationLocalisationPlacentaSubject: t.Type<MRObservationLocal
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationLocalisationPlacentaEncounter {
+export interface MRObservationLocalisationPlacentaEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLocalisationPlacentaEncounter> =
-    t.recursion("MRObservationLocalisationPlacentaEncounter", () =>
+export const MRObservationLocalisationPlacentaEncounterReference: t.Type<MRObservationLocalisationPlacentaEncounterReference> =
+    t.recursion("MRObservationLocalisationPlacentaEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -521,13 +521,13 @@ export const MRObservationLocalisationPlacentaEncounter: t.Type<MRObservationLoc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationLocalisationPlacentaPerformer {
+export interface MRObservationLocalisationPlacentaPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLocalisationPlacentaPerformer: t.Type<MRObservationLocalisationPlacentaPerformer> =
-    t.recursion("MRObservationLocalisationPlacentaPerformer", () =>
+export const MRObservationLocalisationPlacentaPerformerReference: t.Type<MRObservationLocalisationPlacentaPerformerReference> =
+    t.recursion("MRObservationLocalisationPlacentaPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -580,13 +580,13 @@ interface MRObservationLocalisationPlacenta {
     meta: MRObservationLocalisationPlacentaMeta;
     status: "final";
     code: MRObservationLocalisationPlacentaCode;
-    subject: MRObservationLocalisationPlacentaSubject;
-    encounter: MRObservationLocalisationPlacentaEncounter;
+    subject: MRObservationLocalisationPlacentaSubjectReference;
+    encounter: MRObservationLocalisationPlacentaEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationLocalisationPlacentaValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationLocalisationPlacentaPerformer>;
+    performer?: Array<MRObservationLocalisationPlacentaPerformerReference>;
     note?: Array<Annotation>;
     bodySite?: MRObservationLocalisationPlacentaBodySite;
 }
@@ -600,8 +600,8 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
                     meta: MRObservationLocalisationPlacentaMeta,
                     status: Literal("final"),
                     code: MRObservationLocalisationPlacentaCode,
-                    subject: MRObservationLocalisationPlacentaSubject,
-                    encounter: MRObservationLocalisationPlacentaEncounter,
+                    subject: MRObservationLocalisationPlacentaSubjectReference,
+                    encounter: MRObservationLocalisationPlacentaEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         MRObservationLocalisationPlacentaValueCodeableConcept
@@ -609,7 +609,10 @@ const MRObservationLocalisationPlacenta: t.Type<MRObservationLocalisationPlacent
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationLocalisationPlacentaPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationLocalisationPlacentaPerformerReference
+                    ),
                     note: MaxArray(1, Annotation),
                     bodySite: MRObservationLocalisationPlacentaBodySite
                 })

@@ -259,246 +259,479 @@ type GemRSAnlage8 =
     | "RCA"
     | "CY";
 
-const GemRSAnlage8: t.Type<GemRSAnlage8> = t.union(
-    [
-        t.literal("D"),
-        t.literal("AFG"),
-        t.literal("ET"),
-        t.literal("AL"),
-        t.literal("DZ"),
-        t.literal("AJ"),
-        t.literal("AS"),
-        t.literal("AND"),
-        t.literal("AGO"),
-        t.literal("ANG"),
-        t.literal("ANT"),
-        t.literal("AQU"),
-        t.literal("RA"),
-        t.literal("ARM"),
-        t.literal("ASE"),
-        t.literal("ETH"),
-        t.literal("AUS"),
-        t.literal("BS"),
-        t.literal("BRN"),
-        t.literal("BD"),
-        t.literal("BDS"),
-        t.literal("B"),
-        t.literal("BH"),
-        t.literal("DY"),
-        t.literal("BER"),
-        t.literal("BHT"),
-        t.literal("BOL"),
-        t.literal("BIH"),
-        t.literal("RB"),
-        t.literal("BR"),
-        t.literal("BJ"),
-        t.literal("BRU"),
-        t.literal("BG"),
-        t.literal("HV"),
-        t.literal("RU"),
-        t.literal("RCH"),
-        t.literal("TJ"),
-        t.literal("COI"),
-        t.literal("CR"),
-        t.literal("CI"),
-        t.literal("DK"),
-        t.literal("WD"),
-        t.literal("DOM"),
-        t.literal("DSC"),
-        t.literal("EC"),
-        t.literal("ES"),
-        t.literal("ERI"),
-        t.literal("EST"),
-        t.literal("FAL"),
-        t.literal("FR"),
-        t.literal("FJI"),
-        t.literal("FIN"),
-        t.literal("F"),
-        t.literal("FG"),
-        t.literal("FP"),
-        t.literal("GAB"),
-        t.literal("WAG"),
-        t.literal("GEO"),
-        t.literal("GH"),
-        t.literal("GIB"),
-        t.literal("WG"),
-        t.literal("GR"),
-        t.literal("GRO"),
-        t.literal("GB"),
-        t.literal("GUA"),
-        t.literal("GUM"),
-        t.literal("GCA"),
-        t.literal("RG"),
-        t.literal("GUB"),
-        t.literal("GUY"),
-        t.literal("RH"),
-        t.literal("HCA"),
-        t.literal("HKG"),
-        t.literal("IND"),
-        t.literal("RI"),
-        t.literal("MAN"),
-        t.literal("IRQ"),
-        t.literal("IR"),
-        t.literal("IRL"),
-        t.literal("IS"),
-        t.literal("IL"),
-        t.literal("I"),
-        t.literal("JA"),
-        t.literal("J"),
-        t.literal("YEM"),
-        t.literal("JOR"),
-        t.literal("YU"),
-        t.literal("KAI"),
-        t.literal("K"),
-        t.literal("CAM"),
-        t.literal("CDN"),
-        t.literal("KAN"),
-        t.literal("CV"),
-        t.literal("KAS"),
-        t.literal("QAT"),
-        t.literal("EAK"),
-        t.literal("KIS"),
-        t.literal("KIB"),
-        t.literal("CO"),
-        t.literal("KOM"),
-        t.literal("RCB"),
-        t.literal("ZRE"),
-        t.literal("KOR"),
-        t.literal("ROK"),
-        t.literal("KOS"),
-        t.literal("HR"),
-        t.literal("C"),
-        t.literal("KWT"),
-        t.literal("LAO"),
-        t.literal("LS"),
-        t.literal("LV"),
-        t.literal("RL"),
-        t.literal("LB"),
-        t.literal("LAR"),
-        t.literal("FL"),
-        t.literal("LT"),
-        t.literal("L"),
-        t.literal("MAC"),
-        t.literal("RM"),
-        t.literal("MK"),
-        t.literal("MW"),
-        t.literal("MAL"),
-        t.literal("BIO"),
-        t.literal("RMM"),
-        t.literal("M"),
-        t.literal("MA"),
-        t.literal("MAR"),
-        t.literal("MAT"),
-        t.literal("RIM"),
-        t.literal("MS"),
-        t.literal("MAY"),
-        t.literal("MEX"),
-        t.literal("MIK"),
-        t.literal("MD"),
-        t.literal("MC"),
-        t.literal("MON"),
-        t.literal("MNE"),
-        t.literal("MOT"),
-        t.literal("MOZ"),
-        t.literal("MYA"),
-        t.literal("SWA"),
-        t.literal("NAU"),
-        t.literal("NEP"),
-        t.literal("NKA"),
-        t.literal("NZ"),
-        t.literal("NIC"),
-        t.literal("NL"),
-        t.literal("NLA"),
-        t.literal("RN"),
-        t.literal("WAN"),
-        t.literal("NIU"),
-        t.literal("NMA"),
-        t.literal("N"),
-        t.literal("MAO"),
-        t.literal("A"),
-        t.literal("PK"),
-        t.literal("PSE"),
-        t.literal("PAL"),
-        t.literal("PA"),
-        t.literal("PNG"),
-        t.literal("PY"),
-        t.literal("PIN"),
-        t.literal("PE"),
-        t.literal("RP"),
-        t.literal("PIT"),
-        t.literal("PL"),
-        t.literal("P"),
-        t.literal("PRI"),
-        t.literal("REU"),
-        t.literal("RWA"),
-        t.literal("RO"),
-        t.literal("RUS"),
-        t.literal("PIE"),
-        t.literal("SOL"),
-        t.literal("Z"),
-        t.literal("WS"),
-        t.literal("RSM"),
-        t.literal("STP"),
-        t.literal("SAU"),
-        t.literal("S"),
-        t.literal("CH"),
-        t.literal("SN"),
-        t.literal("SRB"),
-        t.literal("SCG"),
-        t.literal("SY"),
-        t.literal("WAL"),
-        t.literal("ZW"),
-        t.literal("SGP"),
-        t.literal("SK"),
-        t.literal("SLO"),
-        t.literal("SP"),
-        t.literal("E"),
-        t.literal("CL"),
-        t.literal("HEL"),
-        t.literal("SCN"),
-        t.literal("WL"),
-        t.literal("WV"),
-        t.literal("ZA"),
-        t.literal("SUD"),
-        t.literal("SDN"),
-        t.literal("SSD"),
-        t.literal("SME"),
-        t.literal("SD"),
-        t.literal("SYR"),
-        t.literal("TAD"),
-        t.literal("TWN"),
-        t.literal("EAT"),
-        t.literal("T"),
-        t.literal("OTI"),
-        t.literal("TG"),
-        t.literal("TOK"),
-        t.literal("TON"),
-        t.literal("TT"),
-        t.literal("CHD"),
-        t.literal("CZ"),
-        t.literal("TN"),
-        t.literal("TR"),
-        t.literal("TUR"),
-        t.literal("TUC"),
-        t.literal("TUV"),
-        t.literal("EAU"),
-        t.literal("UA"),
-        t.literal("H"),
-        t.literal("ROU"),
-        t.literal("USB"),
-        t.literal("VAN"),
-        t.literal("V"),
-        t.literal("YV"),
-        t.literal("UAE"),
-        t.literal("USA"),
-        t.literal("VN"),
-        t.literal("BY"),
-        t.literal("RCA"),
-        t.literal("CY")
-    ],
-    "GemRSAnlage8"
-);
+type GemRSAnlage8Type = t.KeyofC<{
+    D: null;
+    AFG: null;
+    ET: null;
+    AL: null;
+    DZ: null;
+    AJ: null;
+    AS: null;
+    AND: null;
+    AGO: null;
+    ANG: null;
+    ANT: null;
+    AQU: null;
+    RA: null;
+    ARM: null;
+    ASE: null;
+    ETH: null;
+    AUS: null;
+    BS: null;
+    BRN: null;
+    BD: null;
+    BDS: null;
+    B: null;
+    BH: null;
+    DY: null;
+    BER: null;
+    BHT: null;
+    BOL: null;
+    BIH: null;
+    RB: null;
+    BR: null;
+    BJ: null;
+    BRU: null;
+    BG: null;
+    HV: null;
+    RU: null;
+    RCH: null;
+    TJ: null;
+    COI: null;
+    CR: null;
+    CI: null;
+    DK: null;
+    WD: null;
+    DOM: null;
+    DSC: null;
+    EC: null;
+    ES: null;
+    ERI: null;
+    EST: null;
+    FAL: null;
+    FR: null;
+    FJI: null;
+    FIN: null;
+    F: null;
+    FG: null;
+    FP: null;
+    GAB: null;
+    WAG: null;
+    GEO: null;
+    GH: null;
+    GIB: null;
+    WG: null;
+    GR: null;
+    GRO: null;
+    GB: null;
+    GUA: null;
+    GUM: null;
+    GCA: null;
+    RG: null;
+    GUB: null;
+    GUY: null;
+    RH: null;
+    HCA: null;
+    HKG: null;
+    IND: null;
+    RI: null;
+    MAN: null;
+    IRQ: null;
+    IR: null;
+    IRL: null;
+    IS: null;
+    IL: null;
+    I: null;
+    JA: null;
+    J: null;
+    YEM: null;
+    JOR: null;
+    YU: null;
+    KAI: null;
+    K: null;
+    CAM: null;
+    CDN: null;
+    KAN: null;
+    CV: null;
+    KAS: null;
+    QAT: null;
+    EAK: null;
+    KIS: null;
+    KIB: null;
+    CO: null;
+    KOM: null;
+    RCB: null;
+    ZRE: null;
+    KOR: null;
+    ROK: null;
+    KOS: null;
+    HR: null;
+    C: null;
+    KWT: null;
+    LAO: null;
+    LS: null;
+    LV: null;
+    RL: null;
+    LB: null;
+    LAR: null;
+    FL: null;
+    LT: null;
+    L: null;
+    MAC: null;
+    RM: null;
+    MK: null;
+    MW: null;
+    MAL: null;
+    BIO: null;
+    RMM: null;
+    M: null;
+    MA: null;
+    MAR: null;
+    MAT: null;
+    RIM: null;
+    MS: null;
+    MAY: null;
+    MEX: null;
+    MIK: null;
+    MD: null;
+    MC: null;
+    MON: null;
+    MNE: null;
+    MOT: null;
+    MOZ: null;
+    MYA: null;
+    SWA: null;
+    NAU: null;
+    NEP: null;
+    NKA: null;
+    NZ: null;
+    NIC: null;
+    NL: null;
+    NLA: null;
+    RN: null;
+    WAN: null;
+    NIU: null;
+    NMA: null;
+    N: null;
+    MAO: null;
+    A: null;
+    PK: null;
+    PSE: null;
+    PAL: null;
+    PA: null;
+    PNG: null;
+    PY: null;
+    PIN: null;
+    PE: null;
+    RP: null;
+    PIT: null;
+    PL: null;
+    P: null;
+    PRI: null;
+    REU: null;
+    RWA: null;
+    RO: null;
+    RUS: null;
+    PIE: null;
+    SOL: null;
+    Z: null;
+    WS: null;
+    RSM: null;
+    STP: null;
+    SAU: null;
+    S: null;
+    CH: null;
+    SN: null;
+    SRB: null;
+    SCG: null;
+    SY: null;
+    WAL: null;
+    ZW: null;
+    SGP: null;
+    SK: null;
+    SLO: null;
+    SP: null;
+    E: null;
+    CL: null;
+    HEL: null;
+    SCN: null;
+    WL: null;
+    WV: null;
+    ZA: null;
+    SUD: null;
+    SDN: null;
+    SSD: null;
+    SME: null;
+    SD: null;
+    SYR: null;
+    TAD: null;
+    TWN: null;
+    EAT: null;
+    T: null;
+    OTI: null;
+    TG: null;
+    TOK: null;
+    TON: null;
+    TT: null;
+    CHD: null;
+    CZ: null;
+    TN: null;
+    TR: null;
+    TUR: null;
+    TUC: null;
+    TUV: null;
+    EAU: null;
+    UA: null;
+    H: null;
+    ROU: null;
+    USB: null;
+    VAN: null;
+    V: null;
+    YV: null;
+    UAE: null;
+    USA: null;
+    VN: null;
+    BY: null;
+    RCA: null;
+    CY: null;
+}>;
 
+const GemRSAnlage8: GemRSAnlage8Type = t.keyof({
+    D: null,
+    AFG: null,
+    ET: null,
+    AL: null,
+    DZ: null,
+    AJ: null,
+    AS: null,
+    AND: null,
+    AGO: null,
+    ANG: null,
+    ANT: null,
+    AQU: null,
+    RA: null,
+    ARM: null,
+    ASE: null,
+    ETH: null,
+    AUS: null,
+    BS: null,
+    BRN: null,
+    BD: null,
+    BDS: null,
+    B: null,
+    BH: null,
+    DY: null,
+    BER: null,
+    BHT: null,
+    BOL: null,
+    BIH: null,
+    RB: null,
+    BR: null,
+    BJ: null,
+    BRU: null,
+    BG: null,
+    HV: null,
+    RU: null,
+    RCH: null,
+    TJ: null,
+    COI: null,
+    CR: null,
+    CI: null,
+    DK: null,
+    WD: null,
+    DOM: null,
+    DSC: null,
+    EC: null,
+    ES: null,
+    ERI: null,
+    EST: null,
+    FAL: null,
+    FR: null,
+    FJI: null,
+    FIN: null,
+    F: null,
+    FG: null,
+    FP: null,
+    GAB: null,
+    WAG: null,
+    GEO: null,
+    GH: null,
+    GIB: null,
+    WG: null,
+    GR: null,
+    GRO: null,
+    GB: null,
+    GUA: null,
+    GUM: null,
+    GCA: null,
+    RG: null,
+    GUB: null,
+    GUY: null,
+    RH: null,
+    HCA: null,
+    HKG: null,
+    IND: null,
+    RI: null,
+    MAN: null,
+    IRQ: null,
+    IR: null,
+    IRL: null,
+    IS: null,
+    IL: null,
+    I: null,
+    JA: null,
+    J: null,
+    YEM: null,
+    JOR: null,
+    YU: null,
+    KAI: null,
+    K: null,
+    CAM: null,
+    CDN: null,
+    KAN: null,
+    CV: null,
+    KAS: null,
+    QAT: null,
+    EAK: null,
+    KIS: null,
+    KIB: null,
+    CO: null,
+    KOM: null,
+    RCB: null,
+    ZRE: null,
+    KOR: null,
+    ROK: null,
+    KOS: null,
+    HR: null,
+    C: null,
+    KWT: null,
+    LAO: null,
+    LS: null,
+    LV: null,
+    RL: null,
+    LB: null,
+    LAR: null,
+    FL: null,
+    LT: null,
+    L: null,
+    MAC: null,
+    RM: null,
+    MK: null,
+    MW: null,
+    MAL: null,
+    BIO: null,
+    RMM: null,
+    M: null,
+    MA: null,
+    MAR: null,
+    MAT: null,
+    RIM: null,
+    MS: null,
+    MAY: null,
+    MEX: null,
+    MIK: null,
+    MD: null,
+    MC: null,
+    MON: null,
+    MNE: null,
+    MOT: null,
+    MOZ: null,
+    MYA: null,
+    SWA: null,
+    NAU: null,
+    NEP: null,
+    NKA: null,
+    NZ: null,
+    NIC: null,
+    NL: null,
+    NLA: null,
+    RN: null,
+    WAN: null,
+    NIU: null,
+    NMA: null,
+    N: null,
+    MAO: null,
+    A: null,
+    PK: null,
+    PSE: null,
+    PAL: null,
+    PA: null,
+    PNG: null,
+    PY: null,
+    PIN: null,
+    PE: null,
+    RP: null,
+    PIT: null,
+    PL: null,
+    P: null,
+    PRI: null,
+    REU: null,
+    RWA: null,
+    RO: null,
+    RUS: null,
+    PIE: null,
+    SOL: null,
+    Z: null,
+    WS: null,
+    RSM: null,
+    STP: null,
+    SAU: null,
+    S: null,
+    CH: null,
+    SN: null,
+    SRB: null,
+    SCG: null,
+    SY: null,
+    WAL: null,
+    ZW: null,
+    SGP: null,
+    SK: null,
+    SLO: null,
+    SP: null,
+    E: null,
+    CL: null,
+    HEL: null,
+    SCN: null,
+    WL: null,
+    WV: null,
+    ZA: null,
+    SUD: null,
+    SDN: null,
+    SSD: null,
+    SME: null,
+    SD: null,
+    SYR: null,
+    TAD: null,
+    TWN: null,
+    EAT: null,
+    T: null,
+    OTI: null,
+    TG: null,
+    TOK: null,
+    TON: null,
+    TT: null,
+    CHD: null,
+    CZ: null,
+    TN: null,
+    TR: null,
+    TUR: null,
+    TUC: null,
+    TUV: null,
+    EAU: null,
+    UA: null,
+    H: null,
+    ROU: null,
+    USB: null,
+    VAN: null,
+    V: null,
+    YV: null,
+    UAE: null,
+    USA: null,
+    VN: null,
+    BY: null,
+    RCA: null,
+    CY: null
+});
 export const GemRSAnlage8Array: string[] = [
     "D",
     "AFG",
@@ -1050,7 +1283,7 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "IR",
-                display: ",Iran, Islamische Republik,"
+                display: "Iran, Islamische Republik"
             },
             {
                 code: "IRL",
@@ -1146,15 +1379,15 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "ZRE",
-                display: ",Kongo, Dem. Republik,"
+                display: "Kongo, Dem. Republik"
             },
             {
                 code: "KOR",
-                display: ",Korea, Dem. Volksrepublik,"
+                display: "Korea, Dem. Volksrepublik"
             },
             {
                 code: "ROK",
-                display: ",Korea, Republik,"
+                display: "Korea, Republik"
             },
             {
                 code: "KOS",
@@ -1174,7 +1407,7 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "LAO",
-                display: ",Laos, Dem. Volksrepublik,"
+                display: "Laos, Dem. Volksrepublik"
             },
             {
                 code: "LS",
@@ -1270,7 +1503,7 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "MIK",
-                display: ",Mikronesien, Föderierte Staaten von,"
+                display: "Mikronesien, Föderierte Staaten von"
             },
             {
                 code: "MD",
@@ -1554,7 +1787,7 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "SYR",
-                display: ",Syrien, Arabische Republik,"
+                display: "Syrien, Arabische Republik"
             },
             {
                 code: "TAD",
@@ -1566,7 +1799,7 @@ export const GemRSAnlage8ValueSet: ValueSet = [
             },
             {
                 code: "EAT",
-                display: ",Tansania, Vereinigte Republik,"
+                display: "Tansania, Vereinigte Republik"
             },
             {
                 code: "T",

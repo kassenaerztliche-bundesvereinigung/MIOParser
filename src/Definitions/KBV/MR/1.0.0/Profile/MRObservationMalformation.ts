@@ -255,13 +255,13 @@ export const MRObservationMalformationCode: t.Type<MRObservationMalformationCode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationMalformationSubject {
+export interface MRObservationMalformationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMalformationSubject: t.Type<MRObservationMalformationSubject> =
-    t.recursion("MRObservationMalformationSubject", () =>
+export const MRObservationMalformationSubjectReference: t.Type<MRObservationMalformationSubjectReference> =
+    t.recursion("MRObservationMalformationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,13 +279,13 @@ export const MRObservationMalformationSubject: t.Type<MRObservationMalformationS
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationMalformationEncounter {
+export interface MRObservationMalformationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMalformationEncounter: t.Type<MRObservationMalformationEncounter> =
-    t.recursion("MRObservationMalformationEncounter", () =>
+export const MRObservationMalformationEncounterReference: t.Type<MRObservationMalformationEncounterReference> =
+    t.recursion("MRObservationMalformationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,13 +303,13 @@ export const MRObservationMalformationEncounter: t.Type<MRObservationMalformatio
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationMalformationPerformer {
+export interface MRObservationMalformationPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMalformationPerformer: t.Type<MRObservationMalformationPerformer> =
-    t.recursion("MRObservationMalformationPerformer", () =>
+export const MRObservationMalformationPerformerReference: t.Type<MRObservationMalformationPerformerReference> =
+    t.recursion("MRObservationMalformationPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface MRObservationMalformation {
     meta: MRObservationMalformationMeta;
     status: "final";
     code: MRObservationMalformationCode;
-    subject: MRObservationMalformationSubject;
-    encounter: MRObservationMalformationEncounter;
+    subject: MRObservationMalformationSubjectReference;
+    encounter: MRObservationMalformationEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationMalformationPerformer>;
+    performer?: Array<MRObservationMalformationPerformerReference>;
 }
 
 const MRObservationMalformation: t.Type<MRObservationMalformation> = t.recursion(
@@ -349,15 +349,15 @@ const MRObservationMalformation: t.Type<MRObservationMalformation> = t.recursion
                     meta: MRObservationMalformationMeta,
                     status: Literal("final"),
                     code: MRObservationMalformationCode,
-                    subject: MRObservationMalformationSubject,
-                    encounter: MRObservationMalformationEncounter,
+                    subject: MRObservationMalformationSubjectReference,
+                    encounter: MRObservationMalformationEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationMalformationPerformer)
+                    performer: MaxArray(1, MRObservationMalformationPerformerReference)
                 })
             ])
         )

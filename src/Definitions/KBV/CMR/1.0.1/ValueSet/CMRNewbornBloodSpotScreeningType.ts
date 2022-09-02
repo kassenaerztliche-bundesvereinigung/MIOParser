@@ -29,16 +29,17 @@ type CMRNewbornBloodSpotScreeningType =
     | "425758004:246513007=261426004"
     | "425758004:246513007=261429006";
 
-const CMRNewbornBloodSpotScreeningType: t.Type<CMRNewbornBloodSpotScreeningType> =
-    t.union(
-        [
-            t.literal("425758004:246513007=261422002"),
-            t.literal("425758004:246513007=261426004"),
-            t.literal("425758004:246513007=261429006")
-        ],
-        "CMRNewbornBloodSpotScreeningType"
-    );
+type CMRNewbornBloodSpotScreeningTypeType = t.KeyofC<{
+    "425758004:246513007=261422002": null;
+    "425758004:246513007=261426004": null;
+    "425758004:246513007=261429006": null;
+}>;
 
+const CMRNewbornBloodSpotScreeningType: CMRNewbornBloodSpotScreeningTypeType = t.keyof({
+    "425758004:246513007=261422002": null,
+    "425758004:246513007=261426004": null,
+    "425758004:246513007=261429006": null
+});
 export const CMRNewbornBloodSpotScreeningTypeArray: string[] = [
     "425758004:246513007=261422002",
     "425758004:246513007=261426004",

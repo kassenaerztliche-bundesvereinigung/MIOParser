@@ -25,11 +25,19 @@ import { ValueSet } from "../../../Interfaces";
 
 type Administrativegender = "male" | "female" | "other" | "unknown";
 
-const Administrativegender: t.Type<Administrativegender> = t.union(
-    [t.literal("male"), t.literal("female"), t.literal("other"), t.literal("unknown")],
-    "Administrativegender"
-);
+type AdministrativegenderType = t.KeyofC<{
+    male: null;
+    female: null;
+    other: null;
+    unknown: null;
+}>;
 
+const Administrativegender: AdministrativegenderType = t.keyof({
+    male: null,
+    female: null,
+    other: null,
+    unknown: null
+});
 export const AdministrativegenderArray: string[] = ["male", "female", "other", "unknown"];
 
 export const AdministrativegenderValueSet: ValueSet = [

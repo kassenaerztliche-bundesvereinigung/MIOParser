@@ -197,13 +197,13 @@ export const MRObservationUltrasoundCode: t.Type<MRObservationUltrasoundCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUltrasoundSubject {
+export interface MRObservationUltrasoundSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUltrasoundSubject: t.Type<MRObservationUltrasoundSubject> =
-    t.recursion("MRObservationUltrasoundSubject", () =>
+export const MRObservationUltrasoundSubjectReference: t.Type<MRObservationUltrasoundSubjectReference> =
+    t.recursion("MRObservationUltrasoundSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -221,13 +221,13 @@ export const MRObservationUltrasoundSubject: t.Type<MRObservationUltrasoundSubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUltrasoundEncounter {
+export interface MRObservationUltrasoundEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUltrasoundEncounter: t.Type<MRObservationUltrasoundEncounter> =
-    t.recursion("MRObservationUltrasoundEncounter", () =>
+export const MRObservationUltrasoundEncounterReference: t.Type<MRObservationUltrasoundEncounterReference> =
+    t.recursion("MRObservationUltrasoundEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -245,13 +245,13 @@ export const MRObservationUltrasoundEncounter: t.Type<MRObservationUltrasoundEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUltrasoundPerformer {
+export interface MRObservationUltrasoundPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUltrasoundPerformer: t.Type<MRObservationUltrasoundPerformer> =
-    t.recursion("MRObservationUltrasoundPerformer", () =>
+export const MRObservationUltrasoundPerformerReference: t.Type<MRObservationUltrasoundPerformerReference> =
+    t.recursion("MRObservationUltrasoundPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,12 +272,12 @@ interface MRObservationUltrasound {
     meta: MRObservationUltrasoundMeta;
     status: "final";
     code: MRObservationUltrasoundCode;
-    subject: MRObservationUltrasoundSubject;
-    encounter: MRObservationUltrasoundEncounter;
+    subject: MRObservationUltrasoundSubjectReference;
+    encounter: MRObservationUltrasoundEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUltrasoundPerformer>;
+    performer?: Array<MRObservationUltrasoundPerformerReference>;
     note?: Array<Annotation>;
 }
 
@@ -291,14 +291,14 @@ const MRObservationUltrasound: t.Type<MRObservationUltrasound> = t.recursion(
                     meta: MRObservationUltrasoundMeta,
                     status: Literal("final"),
                     code: MRObservationUltrasoundCode,
-                    subject: MRObservationUltrasoundSubject,
-                    encounter: MRObservationUltrasoundEncounter,
+                    subject: MRObservationUltrasoundSubjectReference,
+                    encounter: MRObservationUltrasoundEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUltrasoundPerformer),
+                    performer: MaxArray(1, MRObservationUltrasoundPerformerReference),
                     note: MaxArray(1, Annotation)
                 })
             ])

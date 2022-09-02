@@ -25,18 +25,23 @@ import { ValueSet } from "../../../Interfaces";
 
 type Contactentitytype = "BILL" | "ADMIN" | "HR" | "PAYOR" | "PATINF" | "PRESS";
 
-const Contactentitytype: t.Type<Contactentitytype> = t.union(
-    [
-        t.literal("BILL"),
-        t.literal("ADMIN"),
-        t.literal("HR"),
-        t.literal("PAYOR"),
-        t.literal("PATINF"),
-        t.literal("PRESS")
-    ],
-    "Contactentitytype"
-);
+type ContactentitytypeType = t.KeyofC<{
+    BILL: null;
+    ADMIN: null;
+    HR: null;
+    PAYOR: null;
+    PATINF: null;
+    PRESS: null;
+}>;
 
+const Contactentitytype: ContactentitytypeType = t.keyof({
+    BILL: null,
+    ADMIN: null,
+    HR: null,
+    PAYOR: null,
+    PATINF: null,
+    PRESS: null
+});
 export const ContactentitytypeArray: string[] = [
     "BILL",
     "ADMIN",

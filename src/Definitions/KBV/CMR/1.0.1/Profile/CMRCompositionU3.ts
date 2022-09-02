@@ -413,13 +413,13 @@ export const CMRCompositionU3GeburtsanamneseGeschlechtCode: t.Type<CMRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseGeschlechtEntry {
+export interface CMRCompositionU3GeburtsanamneseGeschlechtEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseGeschlechtEntry: t.Type<CMRCompositionU3GeburtsanamneseGeschlechtEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseGeschlechtEntry", () =>
+export const CMRCompositionU3GeburtsanamneseGeschlechtEntryReference: t.Type<CMRCompositionU3GeburtsanamneseGeschlechtEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamneseGeschlechtEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -491,25 +491,27 @@ export const CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikCode: t.
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry {
+export interface CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry: t.Type<CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Prenatal_Finding|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference: t.Type<CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference> =
+    t.recursion(
+        "CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Prenatal_Finding|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -569,13 +571,13 @@ export const CMRCompositionU3GeburtsanamneseBaseExcessCode: t.Type<CMRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseBaseExcessEntry {
+export interface CMRCompositionU3GeburtsanamneseBaseExcessEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseBaseExcessEntry: t.Type<CMRCompositionU3GeburtsanamneseBaseExcessEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseBaseExcessEntry", () =>
+export const CMRCompositionU3GeburtsanamneseBaseExcessEntryReference: t.Type<CMRCompositionU3GeburtsanamneseBaseExcessEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamneseBaseExcessEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -647,13 +649,13 @@ export const CMRCompositionU3GeburtsanamnesePhWertCode: t.Type<CMRCompositionU3G
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamnesePhWertEntry {
+export interface CMRCompositionU3GeburtsanamnesePhWertEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamnesePhWertEntry: t.Type<CMRCompositionU3GeburtsanamnesePhWertEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamnesePhWertEntry", () =>
+export const CMRCompositionU3GeburtsanamnesePhWertEntryReference: t.Type<CMRCompositionU3GeburtsanamnesePhWertEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamnesePhWertEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -697,13 +699,13 @@ export const CMRCompositionU3GeburtsanamneseKindslageCode: t.Type<CMRComposition
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseKindslageEntry {
+export interface CMRCompositionU3GeburtsanamneseKindslageEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseKindslageEntry: t.Type<CMRCompositionU3GeburtsanamneseKindslageEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseKindslageEntry", () =>
+export const CMRCompositionU3GeburtsanamneseKindslageEntryReference: t.Type<CMRCompositionU3GeburtsanamneseKindslageEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamneseKindslageEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -748,13 +750,13 @@ export const CMRCompositionU3GeburtsanamneseGeburtsmodusCode: t.Type<CMRComposit
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseGeburtsmodusEntry {
+export interface CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseGeburtsmodusEntry: t.Type<CMRCompositionU3GeburtsanamneseGeburtsmodusEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseGeburtsmodusEntry", () =>
+export const CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference: t.Type<CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -798,13 +800,13 @@ export const CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitCode: t.Type<CMRC
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry {
+export interface CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry: t.Type<CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry", () =>
+export const CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference: t.Type<CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference> =
+    t.recursion("CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -848,25 +850,27 @@ export const CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageCode: t.Typ
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry {
+export interface CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry: t.Type<CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry> =
-    t.recursion("CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Length_Gestation_At_Birth|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference: t.Type<CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference> =
+    t.recursion(
+        "CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Length_Gestation_At_Birth|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -1197,7 +1201,7 @@ export const CMRCompositionU3GeburtsanamneseEmptyReasonCoding: t.Type<CMRComposi
 export interface CMRCompositionU3GeburtsanamneseGeschlecht {
     title: "Geschlecht";
     code: CMRCompositionU3GeburtsanamneseGeschlechtCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseGeschlechtEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseGeschlechtEntryReference>;
     id?: string;
 }
 
@@ -1211,7 +1215,7 @@ export const CMRCompositionU3GeburtsanamneseGeschlecht: t.Type<CMRCompositionU3G
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseGeschlechtEntry
+                        CMRCompositionU3GeburtsanamneseGeschlechtEntryReference
                     )
                 }),
                 t.partial({
@@ -1227,7 +1231,7 @@ export const CMRCompositionU3GeburtsanamneseGeschlecht: t.Type<CMRCompositionU3G
 export interface CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostik {
     title: "Soweit vorhanden, Befunde einer pränatalen Diagnostik:";
     code: CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference>;
     id?: string;
 }
 
@@ -1243,7 +1247,7 @@ export const CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostik: t.Type
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntry
+                        CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostikEntryReference
                     )
                 }),
                 t.partial({
@@ -1259,7 +1263,7 @@ export const CMRCompositionU3GeburtsanamneseBefundePraenatalerDiagnostik: t.Type
 export interface CMRCompositionU3GeburtsanamneseBaseExcess {
     title: "Base excess";
     code: CMRCompositionU3GeburtsanamneseBaseExcessCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseBaseExcessEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseBaseExcessEntryReference>;
     id?: string;
 }
 
@@ -1273,7 +1277,7 @@ export const CMRCompositionU3GeburtsanamneseBaseExcess: t.Type<CMRCompositionU3G
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseBaseExcessEntry
+                        CMRCompositionU3GeburtsanamneseBaseExcessEntryReference
                     )
                 }),
                 t.partial({
@@ -1289,7 +1293,7 @@ export const CMRCompositionU3GeburtsanamneseBaseExcess: t.Type<CMRCompositionU3G
 export interface CMRCompositionU3GeburtsanamnesePhWert {
     title: "pH-Wert (Nabelarterie)";
     code: CMRCompositionU3GeburtsanamnesePhWertCode;
-    entry: Array<CMRCompositionU3GeburtsanamnesePhWertEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamnesePhWertEntryReference>;
     id?: string;
 }
 
@@ -1300,7 +1304,11 @@ export const CMRCompositionU3GeburtsanamnesePhWert: t.Type<CMRCompositionU3Gebur
                 t.type({
                     title: Literal("pH-Wert (Nabelarterie)"),
                     code: CMRCompositionU3GeburtsanamnesePhWertCode,
-                    entry: MinMaxArray(1, 1, CMRCompositionU3GeburtsanamnesePhWertEntry)
+                    entry: MinMaxArray(
+                        1,
+                        1,
+                        CMRCompositionU3GeburtsanamnesePhWertEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -1315,7 +1323,7 @@ export const CMRCompositionU3GeburtsanamnesePhWert: t.Type<CMRCompositionU3Gebur
 export interface CMRCompositionU3GeburtsanamneseKindslage {
     title: "Kindslage";
     code: CMRCompositionU3GeburtsanamneseKindslageCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseKindslageEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseKindslageEntryReference>;
     id?: string;
 }
 
@@ -1329,7 +1337,7 @@ export const CMRCompositionU3GeburtsanamneseKindslage: t.Type<CMRCompositionU3Ge
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseKindslageEntry
+                        CMRCompositionU3GeburtsanamneseKindslageEntryReference
                     )
                 }),
                 t.partial({
@@ -1345,7 +1353,7 @@ export const CMRCompositionU3GeburtsanamneseKindslage: t.Type<CMRCompositionU3Ge
 export interface CMRCompositionU3GeburtsanamneseGeburtsmodus {
     title: "Geburtsmodus";
     code: CMRCompositionU3GeburtsanamneseGeburtsmodusCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseGeburtsmodusEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference>;
     id?: string;
 }
 
@@ -1359,7 +1367,7 @@ export const CMRCompositionU3GeburtsanamneseGeburtsmodus: t.Type<CMRCompositionU
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseGeburtsmodusEntry
+                        CMRCompositionU3GeburtsanamneseGeburtsmodusEntryReference
                     )
                 }),
                 t.partial({
@@ -1375,7 +1383,7 @@ export const CMRCompositionU3GeburtsanamneseGeburtsmodus: t.Type<CMRCompositionU
 export interface CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeit {
     title: "Geburtsdatum";
     code: CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference>;
     id?: string;
 }
 
@@ -1389,7 +1397,7 @@ export const CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeit: t.Type<CMRCompo
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntry
+                        CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeitEntryReference
                     )
                 }),
                 t.partial({
@@ -1405,7 +1413,7 @@ export const CMRCompositionU3GeburtsanamneseGeburtsdatumUhrzeit: t.Type<CMRCompo
 export interface CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTage {
     title: "SSW (Wochen+Tage)";
     code: CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageCode;
-    entry: Array<CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry>;
+    entry: Array<CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference>;
     id?: string;
 }
 
@@ -1419,7 +1427,7 @@ export const CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTage: t.Type<CM
                     entry: MinMaxArray(
                         1,
                         1,
-                        CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntry
+                        CMRCompositionU3GeburtsanamneseSchwangerschaftswocheTageEntryReference
                     )
                 }),
                 t.partial({
@@ -2034,13 +2042,13 @@ export const CMRCompositionU3ErgebnisseEmptyReasonCoding: t.Type<CMRCompositionU
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3ErgebnisseSectionEntry {
+export interface CMRCompositionU3ErgebnisseSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3ErgebnisseSectionEntry: t.Type<CMRCompositionU3ErgebnisseSectionEntry> =
-    t.recursion("CMRCompositionU3ErgebnisseSectionEntry", () =>
+export const CMRCompositionU3ErgebnisseSectionEntryReference: t.Type<CMRCompositionU3ErgebnisseSectionEntryReference> =
+    t.recursion("CMRCompositionU3ErgebnisseSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2476,14 +2484,14 @@ export const CMRCompositionU3SchwangerschaftsanamneseText: t.Type<CMRComposition
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3SchwangerschaftsanamneseEntry {
+export interface CMRCompositionU3SchwangerschaftsanamneseEntryReference {
     reference: string;
     id?: string;
     type?: ResourcetypesVS;
 }
 
-export const CMRCompositionU3SchwangerschaftsanamneseEntry: t.Type<CMRCompositionU3SchwangerschaftsanamneseEntry> =
-    t.recursion("CMRCompositionU3SchwangerschaftsanamneseEntry", () =>
+export const CMRCompositionU3SchwangerschaftsanamneseEntryReference: t.Type<CMRCompositionU3SchwangerschaftsanamneseEntryReference> =
+    t.recursion("CMRCompositionU3SchwangerschaftsanamneseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2650,13 +2658,13 @@ export const CMRCompositionU3AktuelleAnamneseDesKindesText: t.Type<CMRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3AktuelleAnamneseDesKindesEntry {
+export interface CMRCompositionU3AktuelleAnamneseDesKindesEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3AktuelleAnamneseDesKindesEntry: t.Type<CMRCompositionU3AktuelleAnamneseDesKindesEntry> =
-    t.recursion("CMRCompositionU3AktuelleAnamneseDesKindesEntry", () =>
+export const CMRCompositionU3AktuelleAnamneseDesKindesEntryReference: t.Type<CMRCompositionU3AktuelleAnamneseDesKindesEntryReference> =
+    t.recursion("CMRCompositionU3AktuelleAnamneseDesKindesEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2746,13 +2754,13 @@ export const CMRCompositionU3FamilienanamneseText: t.Type<CMRCompositionU3Famili
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3FamilienanamneseEntry {
+export interface CMRCompositionU3FamilienanamneseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3FamilienanamneseEntry: t.Type<CMRCompositionU3FamilienanamneseEntry> =
-    t.recursion("CMRCompositionU3FamilienanamneseEntry", () =>
+export const CMRCompositionU3FamilienanamneseEntryReference: t.Type<CMRCompositionU3FamilienanamneseEntryReference> =
+    t.recursion("CMRCompositionU3FamilienanamneseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2842,13 +2850,13 @@ export const CMRCompositionU3SozialanamneseText: t.Type<CMRCompositionU3Sozialan
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3SozialanamneseEntry {
+export interface CMRCompositionU3SozialanamneseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3SozialanamneseEntry: t.Type<CMRCompositionU3SozialanamneseEntry> =
-    t.recursion("CMRCompositionU3SozialanamneseEntry", () =>
+export const CMRCompositionU3SozialanamneseEntryReference: t.Type<CMRCompositionU3SozialanamneseEntryReference> =
+    t.recursion("CMRCompositionU3SozialanamneseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2938,13 +2946,13 @@ export const CMRCompositionU3UntersuchungText: t.Type<CMRCompositionU3Untersuchu
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3UntersuchungEntry {
+export interface CMRCompositionU3UntersuchungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3UntersuchungEntry: t.Type<CMRCompositionU3UntersuchungEntry> =
-    t.recursion("CMRCompositionU3UntersuchungEntry", () =>
+export const CMRCompositionU3UntersuchungEntryReference: t.Type<CMRCompositionU3UntersuchungEntryReference> =
+    t.recursion("CMRCompositionU3UntersuchungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3043,13 +3051,13 @@ export const CMRCompositionU3BeratungText: t.Type<CMRCompositionU3BeratungText> 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3BeratungEntry {
+export interface CMRCompositionU3BeratungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3BeratungEntry: t.Type<CMRCompositionU3BeratungEntry> =
-    t.recursion("CMRCompositionU3BeratungEntry", () =>
+export const CMRCompositionU3BeratungEntryReference: t.Type<CMRCompositionU3BeratungEntryReference> =
+    t.recursion("CMRCompositionU3BeratungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3136,13 +3144,13 @@ export const CMRCompositionU3ErgebnisseText: t.Type<CMRCompositionU3ErgebnisseTe
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3ErgebnisseEntry {
+export interface CMRCompositionU3ErgebnisseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3ErgebnisseEntry: t.Type<CMRCompositionU3ErgebnisseEntry> =
-    t.recursion("CMRCompositionU3ErgebnisseEntry", () =>
+export const CMRCompositionU3ErgebnisseEntryReference: t.Type<CMRCompositionU3ErgebnisseEntryReference> =
+    t.recursion("CMRCompositionU3ErgebnisseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3196,7 +3204,7 @@ export interface CMRCompositionU3ErgebnisseSection {
         | Extension
         | CMRCompositionU3ErgebnisseSectionPruefungAufklaerungHinweis
     )[];
-    entry?: Array<CMRCompositionU3ErgebnisseSectionEntry>;
+    entry?: Array<CMRCompositionU3ErgebnisseSectionEntryReference>;
 }
 
 export const CMRCompositionU3ErgebnisseSection: t.Type<CMRCompositionU3ErgebnisseSection> =
@@ -3240,7 +3248,7 @@ export const CMRCompositionU3ErgebnisseSection: t.Type<CMRCompositionU3Ergebniss
                         ],
                         ["0", "*"]
                     ),
-                    entry: MaxArray(1, CMRCompositionU3ErgebnisseSectionEntry)
+                    entry: MaxArray(1, CMRCompositionU3ErgebnisseSectionEntryReference)
                 })
             ])
         )
@@ -3327,13 +3335,13 @@ export const CMRCompositionU3HoerscreeningText: t.Type<CMRCompositionU3Hoerscree
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3HoerscreeningEntry {
+export interface CMRCompositionU3HoerscreeningEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3HoerscreeningEntry: t.Type<CMRCompositionU3HoerscreeningEntry> =
-    t.recursion("CMRCompositionU3HoerscreeningEntry", () =>
+export const CMRCompositionU3HoerscreeningEntryReference: t.Type<CMRCompositionU3HoerscreeningEntryReference> =
+    t.recursion("CMRCompositionU3HoerscreeningEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3429,13 +3437,13 @@ export const CMRCompositionU3ErweitertesNeugeborenenscreeningText: t.Type<CMRCom
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3ErweitertesNeugeborenenscreeningEntry {
+export interface CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3ErweitertesNeugeborenenscreeningEntry: t.Type<CMRCompositionU3ErweitertesNeugeborenenscreeningEntry> =
-    t.recursion("CMRCompositionU3ErweitertesNeugeborenenscreeningEntry", () =>
+export const CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference: t.Type<CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference> =
+    t.recursion("CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3529,13 +3537,13 @@ export const CMRCompositionU3MukoviszidoseScreeningText: t.Type<CMRCompositionU3
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3MukoviszidoseScreeningEntry {
+export interface CMRCompositionU3MukoviszidoseScreeningEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3MukoviszidoseScreeningEntry: t.Type<CMRCompositionU3MukoviszidoseScreeningEntry> =
-    t.recursion("CMRCompositionU3MukoviszidoseScreeningEntry", () =>
+export const CMRCompositionU3MukoviszidoseScreeningEntryReference: t.Type<CMRCompositionU3MukoviszidoseScreeningEntryReference> =
+    t.recursion("CMRCompositionU3MukoviszidoseScreeningEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3629,26 +3637,28 @@ export const CMRCompositionU3OrientierendeBeurteilungDerEntwicklungText: t.Type<
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry {
+export interface CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry: t.Type<CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry> =
-    t.recursion("CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_Development_Assessment|1.0.1",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_U6_Indication_for_Abnormality|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference: t.Type<CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference> =
+    t.recursion(
+        "CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_Development_Assessment|1.0.1",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_U6_Indication_for_Abnormality|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -3734,13 +3744,13 @@ export const CMRCompositionU3ScreeningHueftgelenksdysplasieCode: t.Type<CMRCompo
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3ScreeningHueftgelenksdysplasieEntry {
+export interface CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3ScreeningHueftgelenksdysplasieEntry: t.Type<CMRCompositionU3ScreeningHueftgelenksdysplasieEntry> =
-    t.recursion("CMRCompositionU3ScreeningHueftgelenksdysplasieEntry", () =>
+export const CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference: t.Type<CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference> =
+    t.recursion("CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3832,13 +3842,13 @@ export const CMRCompositionU3PerzentilkurvenText: t.Type<CMRCompositionU3Perzent
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU3PerzentilkurvenEntry {
+export interface CMRCompositionU3PerzentilkurvenEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3PerzentilkurvenEntry: t.Type<CMRCompositionU3PerzentilkurvenEntry> =
-    t.recursion("CMRCompositionU3PerzentilkurvenEntry", () =>
+export const CMRCompositionU3PerzentilkurvenEntryReference: t.Type<CMRCompositionU3PerzentilkurvenEntryReference> =
+    t.recursion("CMRCompositionU3PerzentilkurvenEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3979,7 +3989,7 @@ export interface CMRCompositionU3Schwangerschaftsanamnese {
     text: CMRCompositionU3SchwangerschaftsanamneseText;
     id?: string;
     extension?: (Extension | CMRCompositionU3SchwangerschaftsanamneseAnamneseAnweisung)[];
-    entry?: CMRCompositionU3SchwangerschaftsanamneseEntry[];
+    entry?: CMRCompositionU3SchwangerschaftsanamneseEntryReference[];
     emptyReason?: CMRCompositionU3SchwangerschaftsanamneseEmptyReason;
 }
 
@@ -4024,7 +4034,9 @@ export const CMRCompositionU3Schwangerschaftsanamnese: t.Type<CMRCompositionU3Sc
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU3SchwangerschaftsanamneseEntry),
+                    entry: t.array(
+                        CMRCompositionU3SchwangerschaftsanamneseEntryReference
+                    ),
                     emptyReason: CMRCompositionU3SchwangerschaftsanamneseEmptyReason
                 })
             ])
@@ -4188,7 +4200,7 @@ export interface CMRCompositionU3AktuelleAnamneseDesKindes {
         | CMRCompositionU3AktuelleAnamneseDesKindesAnamneseAnweisung
         | CMRCompositionU3AktuelleAnamneseDesKindesHinweisNachtragen
     )[];
-    entry?: CMRCompositionU3AktuelleAnamneseDesKindesEntry[];
+    entry?: CMRCompositionU3AktuelleAnamneseDesKindesEntryReference[];
     emptyReason?: CMRCompositionU3AktuelleAnamneseDesKindesEmptyReason;
 }
 
@@ -4243,7 +4255,9 @@ export const CMRCompositionU3AktuelleAnamneseDesKindes: t.Type<CMRCompositionU3A
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU3AktuelleAnamneseDesKindesEntry),
+                    entry: t.array(
+                        CMRCompositionU3AktuelleAnamneseDesKindesEntryReference
+                    ),
                     emptyReason: CMRCompositionU3AktuelleAnamneseDesKindesEmptyReason
                 })
             ])
@@ -4263,7 +4277,7 @@ export interface CMRCompositionU3Familienanamnese {
         | CMRCompositionU3FamilienanamneseAnamneseAnweisung
         | CMRCompositionU3FamilienanamneseHinweisNachtragen
     )[];
-    entry?: Array<CMRCompositionU3FamilienanamneseEntry>;
+    entry?: Array<CMRCompositionU3FamilienanamneseEntryReference>;
     emptyReason?: CMRCompositionU3FamilienanamneseEmptyReason;
 }
 
@@ -4318,7 +4332,7 @@ export const CMRCompositionU3Familienanamnese: t.Type<CMRCompositionU3Familienan
                         ],
                         ["0", "*"]
                     ),
-                    entry: MaxArray(1, CMRCompositionU3FamilienanamneseEntry),
+                    entry: MaxArray(1, CMRCompositionU3FamilienanamneseEntryReference),
                     emptyReason: CMRCompositionU3FamilienanamneseEmptyReason
                 })
             ])
@@ -4338,7 +4352,7 @@ export interface CMRCompositionU3Sozialanamnese {
         | CMRCompositionU3SozialanamneseAnamneseAnweisung
         | CMRCompositionU3SozialanamneseHinweisNachtragen
     )[];
-    entry?: CMRCompositionU3SozialanamneseEntry[];
+    entry?: CMRCompositionU3SozialanamneseEntryReference[];
     emptyReason?: CMRCompositionU3SozialanamneseEmptyReason;
 }
 
@@ -4393,7 +4407,7 @@ export const CMRCompositionU3Sozialanamnese: t.Type<CMRCompositionU3Sozialanamne
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU3SozialanamneseEntry),
+                    entry: t.array(CMRCompositionU3SozialanamneseEntryReference),
                     emptyReason: CMRCompositionU3SozialanamneseEmptyReason
                 })
             ])
@@ -4409,7 +4423,7 @@ export interface CMRCompositionU3Untersuchung {
     text: CMRCompositionU3UntersuchungText;
     id?: string;
     extension?: (Extension | CMRCompositionU3UntersuchungUntersuchungAnweisung)[];
-    entry?: CMRCompositionU3UntersuchungEntry[];
+    entry?: CMRCompositionU3UntersuchungEntryReference[];
     emptyReason?: CMRCompositionU3UntersuchungEmptyReason;
 }
 
@@ -4454,7 +4468,7 @@ export const CMRCompositionU3Untersuchung: t.Type<CMRCompositionU3Untersuchung> 
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU3UntersuchungEntry),
+                    entry: t.array(CMRCompositionU3UntersuchungEntryReference),
                     emptyReason: CMRCompositionU3UntersuchungEmptyReason
                 })
             ])
@@ -4474,7 +4488,7 @@ export interface CMRCompositionU3Beratung {
         | CMRCompositionU3BeratungBeratungAnweisung
         | CMRCompositionU3BeratungBeratungHinweis
     )[];
-    entry?: CMRCompositionU3BeratungEntry[];
+    entry?: CMRCompositionU3BeratungEntryReference[];
     emptyReason?: CMRCompositionU3BeratungEmptyReason;
 }
 
@@ -4530,7 +4544,7 @@ export const CMRCompositionU3Beratung: t.Type<CMRCompositionU3Beratung> = t.recu
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU3BeratungEntry),
+                    entry: t.array(CMRCompositionU3BeratungEntryReference),
                     emptyReason: CMRCompositionU3BeratungEmptyReason
                 })
             ])
@@ -4546,7 +4560,7 @@ export interface CMRCompositionU3Ergebnisse {
     text: CMRCompositionU3ErgebnisseText;
     section: Array<CMRCompositionU3ErgebnisseSection>;
     id?: string;
-    entry?: CMRCompositionU3ErgebnisseEntry[];
+    entry?: CMRCompositionU3ErgebnisseEntryReference[];
     emptyReason?: CMRCompositionU3ErgebnisseEmptyReason;
 }
 
@@ -4563,7 +4577,7 @@ export const CMRCompositionU3Ergebnisse: t.Type<CMRCompositionU3Ergebnisse> = t.
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU3ErgebnisseEntry),
+                    entry: t.array(CMRCompositionU3ErgebnisseEntryReference),
                     emptyReason: CMRCompositionU3ErgebnisseEmptyReason
                 })
             ])
@@ -4578,7 +4592,7 @@ export interface CMRCompositionU3Hoerscreening {
     code: CMRCompositionU3HoerscreeningCode;
     text: CMRCompositionU3HoerscreeningText;
     id?: string;
-    entry?: CMRCompositionU3HoerscreeningEntry[];
+    entry?: CMRCompositionU3HoerscreeningEntryReference[];
     emptyReason?: CMRCompositionU3HoerscreeningEmptyReason;
 }
 
@@ -4593,7 +4607,7 @@ export const CMRCompositionU3Hoerscreening: t.Type<CMRCompositionU3Hoerscreening
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU3HoerscreeningEntry),
+                    entry: t.array(CMRCompositionU3HoerscreeningEntryReference),
                     emptyReason: CMRCompositionU3HoerscreeningEmptyReason
                 })
             ])
@@ -4608,7 +4622,7 @@ export interface CMRCompositionU3ErweitertesNeugeborenenscreening {
     code: CMRCompositionU3ErweitertesNeugeborenenscreeningCode;
     text: CMRCompositionU3ErweitertesNeugeborenenscreeningText;
     id?: string;
-    entry?: Array<CMRCompositionU3ErweitertesNeugeborenenscreeningEntry>;
+    entry?: Array<CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference>;
     emptyReason?: CMRCompositionU3ErweitertesNeugeborenenscreeningEmptyReason;
 }
 
@@ -4625,7 +4639,7 @@ export const CMRCompositionU3ErweitertesNeugeborenenscreening: t.Type<CMRComposi
                     id: SCALARString,
                     entry: MaxArray(
                         1,
-                        CMRCompositionU3ErweitertesNeugeborenenscreeningEntry
+                        CMRCompositionU3ErweitertesNeugeborenenscreeningEntryReference
                     ),
                     emptyReason:
                         CMRCompositionU3ErweitertesNeugeborenenscreeningEmptyReason
@@ -4642,7 +4656,7 @@ export interface CMRCompositionU3MukoviszidoseScreening {
     code: CMRCompositionU3MukoviszidoseScreeningCode;
     text: CMRCompositionU3MukoviszidoseScreeningText;
     id?: string;
-    entry?: CMRCompositionU3MukoviszidoseScreeningEntry[];
+    entry?: CMRCompositionU3MukoviszidoseScreeningEntryReference[];
     emptyReason?: CMRCompositionU3MukoviszidoseScreeningEmptyReason;
 }
 
@@ -4657,7 +4671,7 @@ export const CMRCompositionU3MukoviszidoseScreening: t.Type<CMRCompositionU3Muko
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU3MukoviszidoseScreeningEntry),
+                    entry: t.array(CMRCompositionU3MukoviszidoseScreeningEntryReference),
                     emptyReason: CMRCompositionU3MukoviszidoseScreeningEmptyReason
                 })
             ])
@@ -4677,7 +4691,7 @@ export interface CMRCompositionU3OrientierendeBeurteilungDerEntwicklung {
         | CMRCompositionU3OrientierendeBeurteilungDerEntwicklungBeurteilungAnweisung
         | CMRCompositionU3OrientierendeBeurteilungDerEntwicklungInteraktionHinweis
     )[];
-    entry?: CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry[];
+    entry?: CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference[];
     emptyReason?: CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEmptyReason;
 }
 
@@ -4733,7 +4747,7 @@ export const CMRCompositionU3OrientierendeBeurteilungDerEntwicklung: t.Type<CMRC
                         ["0", "*"]
                     ),
                     entry: t.array(
-                        CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntry
+                        CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEntryReference
                     ),
                     emptyReason:
                         CMRCompositionU3OrientierendeBeurteilungDerEntwicklungEmptyReason
@@ -4750,7 +4764,7 @@ export interface CMRCompositionU3ScreeningHueftgelenksdysplasie {
     code: CMRCompositionU3ScreeningHueftgelenksdysplasieCode;
     text: Narrative;
     id?: string;
-    entry?: CMRCompositionU3ScreeningHueftgelenksdysplasieEntry[];
+    entry?: CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference[];
     emptyReason?: CMRCompositionU3ScreeningHueftgelenksdysplasieEmptyReason;
 }
 
@@ -4765,7 +4779,9 @@ export const CMRCompositionU3ScreeningHueftgelenksdysplasie: t.Type<CMRCompositi
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU3ScreeningHueftgelenksdysplasieEntry),
+                    entry: t.array(
+                        CMRCompositionU3ScreeningHueftgelenksdysplasieEntryReference
+                    ),
                     emptyReason: CMRCompositionU3ScreeningHueftgelenksdysplasieEmptyReason
                 })
             ])
@@ -4780,7 +4796,7 @@ export interface CMRCompositionU3Perzentilkurven {
     code: CMRCompositionU3PerzentilkurvenCode;
     text: CMRCompositionU3PerzentilkurvenText;
     id?: string;
-    entry?: Array<CMRCompositionU3PerzentilkurvenEntry>;
+    entry?: Array<CMRCompositionU3PerzentilkurvenEntryReference>;
     emptyReason?: CMRCompositionU3PerzentilkurvenEmptyReason;
 }
 
@@ -4795,7 +4811,7 @@ export const CMRCompositionU3Perzentilkurven: t.Type<CMRCompositionU3Perzentilku
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(1, CMRCompositionU3PerzentilkurvenEntry),
+                    entry: MaxArray(1, CMRCompositionU3PerzentilkurvenEntryReference),
                     emptyReason: CMRCompositionU3PerzentilkurvenEmptyReason
                 })
             ])
@@ -4880,14 +4896,13 @@ export const CMRCompositionU3Category: t.Type<CMRCompositionU3Category> = t.recu
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionU3Subject {
+export interface CMRCompositionU3SubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3Subject: t.Type<CMRCompositionU3Subject> = t.recursion(
-    "CMRCompositionU3Subject",
-    () =>
+export const CMRCompositionU3SubjectReference: t.Type<CMRCompositionU3SubjectReference> =
+    t.recursion("CMRCompositionU3SubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4900,19 +4915,18 @@ export const CMRCompositionU3Subject: t.Type<CMRCompositionU3Subject> = t.recurs
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionU3Encounter {
+export interface CMRCompositionU3EncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3Encounter: t.Type<CMRCompositionU3Encounter> = t.recursion(
-    "CMRCompositionU3Encounter",
-    () =>
+export const CMRCompositionU3EncounterReference: t.Type<CMRCompositionU3EncounterReference> =
+    t.recursion("CMRCompositionU3EncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4925,19 +4939,18 @@ export const CMRCompositionU3Encounter: t.Type<CMRCompositionU3Encounter> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionU3Author {
+export interface CMRCompositionU3AuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU3Author: t.Type<CMRCompositionU3Author> = t.recursion(
-    "CMRCompositionU3Author",
-    () =>
+export const CMRCompositionU3AuthorReference: t.Type<CMRCompositionU3AuthorReference> =
+    t.recursion("CMRCompositionU3AuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4951,7 +4964,7 @@ export const CMRCompositionU3Author: t.Type<CMRCompositionU3Author> = t.recursio
                 })
             ])
         )
-);
+    );
 
 interface CMRCompositionU3 {
     resourceType: "Composition";
@@ -4959,10 +4972,10 @@ interface CMRCompositionU3 {
     status: "final";
     type: CMRCompositionU3Type;
     category: Array<CMRCompositionU3Category>;
-    subject: CMRCompositionU3Subject;
-    encounter: CMRCompositionU3Encounter;
+    subject: CMRCompositionU3SubjectReference;
+    encounter: CMRCompositionU3EncounterReference;
     date: string;
-    author: Array<CMRCompositionU3Author>;
+    author: Array<CMRCompositionU3AuthorReference>;
     title: "U3";
     id?: string;
     text?: Narrative;
@@ -4994,10 +5007,10 @@ const CMRCompositionU3: t.Type<CMRCompositionU3> = t.recursion("CMRCompositionU3
                 status: Literal("final"),
                 type: CMRCompositionU3Type,
                 category: MinMaxArray(1, 1, CMRCompositionU3Category),
-                subject: CMRCompositionU3Subject,
-                encounter: CMRCompositionU3Encounter,
+                subject: CMRCompositionU3SubjectReference,
+                encounter: CMRCompositionU3EncounterReference,
                 date: SCALARDateTime,
-                author: MinMaxArray(1, 2, CMRCompositionU3Author),
+                author: MinMaxArray(1, 2, CMRCompositionU3AuthorReference),
                 title: Literal("U3")
             }),
             t.partial({

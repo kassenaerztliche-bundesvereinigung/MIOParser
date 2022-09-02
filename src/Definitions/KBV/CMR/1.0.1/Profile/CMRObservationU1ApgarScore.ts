@@ -644,13 +644,13 @@ export const CMRObservationU1ApgarScoreCode: t.Type<CMRObservationU1ApgarScoreCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1ApgarScoreSubject {
+export interface CMRObservationU1ApgarScoreSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1ApgarScoreSubject: t.Type<CMRObservationU1ApgarScoreSubject> =
-    t.recursion("CMRObservationU1ApgarScoreSubject", () =>
+export const CMRObservationU1ApgarScoreSubjectReference: t.Type<CMRObservationU1ApgarScoreSubjectReference> =
+    t.recursion("CMRObservationU1ApgarScoreSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -668,13 +668,13 @@ export const CMRObservationU1ApgarScoreSubject: t.Type<CMRObservationU1ApgarScor
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1ApgarScoreEncounter {
+export interface CMRObservationU1ApgarScoreEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1ApgarScoreEncounter: t.Type<CMRObservationU1ApgarScoreEncounter> =
-    t.recursion("CMRObservationU1ApgarScoreEncounter", () =>
+export const CMRObservationU1ApgarScoreEncounterReference: t.Type<CMRObservationU1ApgarScoreEncounterReference> =
+    t.recursion("CMRObservationU1ApgarScoreEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -692,13 +692,13 @@ export const CMRObservationU1ApgarScoreEncounter: t.Type<CMRObservationU1ApgarSc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1ApgarScorePerformer {
+export interface CMRObservationU1ApgarScorePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1ApgarScorePerformer: t.Type<CMRObservationU1ApgarScorePerformer> =
-    t.recursion("CMRObservationU1ApgarScorePerformer", () =>
+export const CMRObservationU1ApgarScorePerformerReference: t.Type<CMRObservationU1ApgarScorePerformerReference> =
+    t.recursion("CMRObservationU1ApgarScorePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -718,13 +718,13 @@ interface CMRObservationU1ApgarScore {
     meta: CMRObservationU1ApgarScoreMeta;
     status: "final";
     code: CMRObservationU1ApgarScoreCode;
-    subject: CMRObservationU1ApgarScoreSubject;
-    encounter: CMRObservationU1ApgarScoreEncounter;
+    subject: CMRObservationU1ApgarScoreSubjectReference;
+    encounter: CMRObservationU1ApgarScoreEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: CMRObservationU1ApgarScoreValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1ApgarScorePerformer>;
+    performer?: Array<CMRObservationU1ApgarScorePerformerReference>;
 }
 
 const CMRObservationU1ApgarScore: t.Type<CMRObservationU1ApgarScore> = t.recursion(
@@ -737,15 +737,15 @@ const CMRObservationU1ApgarScore: t.Type<CMRObservationU1ApgarScore> = t.recursi
                     meta: CMRObservationU1ApgarScoreMeta,
                     status: Literal("final"),
                     code: CMRObservationU1ApgarScoreCode,
-                    subject: CMRObservationU1ApgarScoreSubject,
-                    encounter: CMRObservationU1ApgarScoreEncounter,
+                    subject: CMRObservationU1ApgarScoreSubjectReference,
+                    encounter: CMRObservationU1ApgarScoreEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept: CMRObservationU1ApgarScoreValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1ApgarScorePerformer)
+                    performer: MaxArray(1, CMRObservationU1ApgarScorePerformerReference)
                 })
             ])
         )

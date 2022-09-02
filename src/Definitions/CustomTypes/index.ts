@@ -23,6 +23,7 @@ import resolvePath from "./ResolvePath";
 import ReqArray, { Req, ReqArrayType } from "./ReqArray";
 import Literal, { CustomLiteralType } from "./Literal";
 import ExtensibleCheck, { ExtensibleCheckType } from "./ExtensibleCheck";
+import ValueSetCheck, { ValueSetCheckType } from "./ValueSetCheck";
 import MinMaxArray, {
     MinArray,
     MaxArray,
@@ -32,27 +33,31 @@ import MinMaxArray, {
 } from "./MinMaxArray";
 import Excess, { ExcessType } from "./Excess";
 import CustomReference, { CustomReferenceType } from "./CustomReference";
+import PatternOverwriteCheck from "./PatternOverwriteCheck";
 
 export {
-    WarningEmitter,
-    EXTENSIBLE_WARNING,
-    warningEmitter,
-    resolvePath,
-    ReqArray,
-    ReqArrayType,
-    Req,
-    Literal,
     CustomLiteralType,
-    ExtensibleCheck,
-    ExtensibleCheckType,
-    MinMaxArray,
-    MinArray,
-    MaxArray,
-    MaxArrayType,
-    MinArrayType,
-    MinMaxArrayType,
+    CustomReference,
+    CustomReferenceType,
     Excess,
     ExcessType,
-    CustomReference,
-    CustomReferenceType
+    EXTENSIBLE_WARNING,
+    ExtensibleCheck,
+    ExtensibleCheckType,
+    Literal,
+    MaxArray,
+    MaxArrayType,
+    MinArray,
+    MinArrayType,
+    MinMaxArray,
+    MinMaxArrayType,
+    PatternOverwriteCheck,
+    Req,
+    ReqArray,
+    ReqArrayType,
+    resolvePath,
+    ValueSetCheck,
+    ValueSetCheckType,
+    WarningEmitter,
+    warningEmitter
 };

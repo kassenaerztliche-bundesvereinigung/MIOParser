@@ -35,3 +35,15 @@ export {
     UcumVitalsCommonDEArray as UcumVitalsCommonDEArray,
     UcumVitalsCommonDEValueSet as UcumVitalsCommonDEValueSet
 } from "./UcumVitalsCommonDE";
+
+export {
+    default as VitalSignDEBodyHeightLoinc,
+    VitalSignDEBodyHeightLoincArray as VitalSignDEBodyHeightLoincArray,
+    VitalSignDEBodyHeightLoincValueSet as VitalSignDEBodyHeightLoincValueSet
+} from "./VitalSignDEBodyHeightLoinc";
+
+export {
+    default as VitalSignDEBodyWeightLoinc,
+    VitalSignDEBodyWeightLoincArray as VitalSignDEBodyWeightLoincArray,
+    VitalSignDEBodyWeightLoincValueSet as VitalSignDEBodyWeightLoincValueSet
+} from "./VitalSignDEBodyWeightLoinc";

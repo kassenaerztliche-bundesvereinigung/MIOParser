@@ -26,11 +26,15 @@ import MRFindingsRequiredControlGerman from "../../../../../Definitions/KBV/MR/1
 
 type MRFindingsRequiredControl = "107651007:47429007=168083008" | "714656007";
 
-const MRFindingsRequiredControl: t.Type<MRFindingsRequiredControl> = t.union(
-    [t.literal("107651007:47429007=168083008"), t.literal("714656007")],
-    "MRFindingsRequiredControl"
-);
+type MRFindingsRequiredControlType = t.KeyofC<{
+    "107651007:47429007=168083008": null;
+    "714656007": null;
+}>;
 
+const MRFindingsRequiredControl: MRFindingsRequiredControlType = t.keyof({
+    "107651007:47429007=168083008": null,
+    "714656007": null
+});
 export const MRFindingsRequiredControlArray: string[] = [
     "107651007:47429007=168083008",
     "714656007"

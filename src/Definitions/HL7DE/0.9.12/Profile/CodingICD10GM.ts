@@ -30,7 +30,6 @@ interface CodingICD10GM {
     system: "http://fhir.de/CodeSystem/dimdi/icd-10-gm";
     version: string;
     code: string;
-    resourceType?: "Coding";
     id?: string;
     display?: string;
     userSelected?: boolean;
@@ -44,7 +43,6 @@ const CodingICD10GM: t.Type<CodingICD10GM> = t.recursion("CodingICD10GM", () =>
             code: SCALARCode
         }),
         t.partial({
-            resourceType: Literal("Coding"),
             id: SCALARString,
             display: SCALARString,
             userSelected: SCALARBoolean

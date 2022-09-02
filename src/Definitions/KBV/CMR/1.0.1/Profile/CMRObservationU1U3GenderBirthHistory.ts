@@ -455,13 +455,13 @@ export const CMRObservationU1U3GenderBirthHistoryCode: t.Type<CMRObservationU1U3
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3GenderBirthHistorySubject {
+export interface CMRObservationU1U3GenderBirthHistorySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3GenderBirthHistorySubject: t.Type<CMRObservationU1U3GenderBirthHistorySubject> =
-    t.recursion("CMRObservationU1U3GenderBirthHistorySubject", () =>
+export const CMRObservationU1U3GenderBirthHistorySubjectReference: t.Type<CMRObservationU1U3GenderBirthHistorySubjectReference> =
+    t.recursion("CMRObservationU1U3GenderBirthHistorySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -479,13 +479,13 @@ export const CMRObservationU1U3GenderBirthHistorySubject: t.Type<CMRObservationU
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3GenderBirthHistoryEncounter {
+export interface CMRObservationU1U3GenderBirthHistoryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3GenderBirthHistoryEncounter: t.Type<CMRObservationU1U3GenderBirthHistoryEncounter> =
-    t.recursion("CMRObservationU1U3GenderBirthHistoryEncounter", () =>
+export const CMRObservationU1U3GenderBirthHistoryEncounterReference: t.Type<CMRObservationU1U3GenderBirthHistoryEncounterReference> =
+    t.recursion("CMRObservationU1U3GenderBirthHistoryEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -503,13 +503,13 @@ export const CMRObservationU1U3GenderBirthHistoryEncounter: t.Type<CMRObservatio
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3GenderBirthHistoryPerformer {
+export interface CMRObservationU1U3GenderBirthHistoryPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3GenderBirthHistoryPerformer: t.Type<CMRObservationU1U3GenderBirthHistoryPerformer> =
-    t.recursion("CMRObservationU1U3GenderBirthHistoryPerformer", () =>
+export const CMRObservationU1U3GenderBirthHistoryPerformerReference: t.Type<CMRObservationU1U3GenderBirthHistoryPerformerReference> =
+    t.recursion("CMRObservationU1U3GenderBirthHistoryPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -529,13 +529,13 @@ interface CMRObservationU1U3GenderBirthHistory {
     meta: CMRObservationU1U3GenderBirthHistoryMeta;
     status: "final";
     code: CMRObservationU1U3GenderBirthHistoryCode;
-    subject: CMRObservationU1U3GenderBirthHistorySubject;
-    encounter: CMRObservationU1U3GenderBirthHistoryEncounter;
+    subject: CMRObservationU1U3GenderBirthHistorySubjectReference;
+    encounter: CMRObservationU1U3GenderBirthHistoryEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: CMRObservationU1U3GenderBirthHistoryValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3GenderBirthHistoryPerformer>;
+    performer?: Array<CMRObservationU1U3GenderBirthHistoryPerformerReference>;
 }
 
 const CMRObservationU1U3GenderBirthHistory: t.Type<CMRObservationU1U3GenderBirthHistory> =
@@ -547,8 +547,8 @@ const CMRObservationU1U3GenderBirthHistory: t.Type<CMRObservationU1U3GenderBirth
                     meta: CMRObservationU1U3GenderBirthHistoryMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3GenderBirthHistoryCode,
-                    subject: CMRObservationU1U3GenderBirthHistorySubject,
-                    encounter: CMRObservationU1U3GenderBirthHistoryEncounter,
+                    subject: CMRObservationU1U3GenderBirthHistorySubjectReference,
+                    encounter: CMRObservationU1U3GenderBirthHistoryEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         CMRObservationU1U3GenderBirthHistoryValueCodeableConcept
@@ -556,7 +556,10 @@ const CMRObservationU1U3GenderBirthHistory: t.Type<CMRObservationU1U3GenderBirth
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1U3GenderBirthHistoryPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU1U3GenderBirthHistoryPerformerReference
+                    )
                 })
             ])
         )

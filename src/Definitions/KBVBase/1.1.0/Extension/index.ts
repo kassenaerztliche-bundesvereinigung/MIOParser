@@ -28,3 +28,8 @@ export {
     StageLifeValueCodeableConceptCoding as StageLifeValueCodeableConceptCoding,
     StageLifeValueCodeableConcept as StageLifeValueCodeableConcept
 } from "./StageLife";
+
+export {
+    default as TerminologyGerman,
+    TerminologyGermanContent as TerminologyGermanContent
+} from "./TerminologyGerman";

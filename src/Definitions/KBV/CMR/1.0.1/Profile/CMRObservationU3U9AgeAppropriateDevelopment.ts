@@ -460,13 +460,13 @@ export const CMRObservationU3U9AgeAppropriateDevelopmentCode: t.Type<CMRObservat
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU3U9AgeAppropriateDevelopmentSubject {
+export interface CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9AgeAppropriateDevelopmentSubject: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentSubject> =
-    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentSubject", () =>
+export const CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference> =
+    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -484,13 +484,13 @@ export const CMRObservationU3U9AgeAppropriateDevelopmentSubject: t.Type<CMRObser
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU3U9AgeAppropriateDevelopmentEncounter {
+export interface CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9AgeAppropriateDevelopmentEncounter: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentEncounter> =
-    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentEncounter", () =>
+export const CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference> =
+    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -508,13 +508,13 @@ export const CMRObservationU3U9AgeAppropriateDevelopmentEncounter: t.Type<CMRObs
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU3U9AgeAppropriateDevelopmentPerformer {
+export interface CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9AgeAppropriateDevelopmentPerformer: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentPerformer> =
-    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentPerformer", () =>
+export const CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference: t.Type<CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference> =
+    t.recursion("CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -534,13 +534,13 @@ interface CMRObservationU3U9AgeAppropriateDevelopment {
     meta: CMRObservationU3U9AgeAppropriateDevelopmentMeta;
     status: "final";
     code: CMRObservationU3U9AgeAppropriateDevelopmentCode;
-    subject: CMRObservationU3U9AgeAppropriateDevelopmentSubject;
-    encounter: CMRObservationU3U9AgeAppropriateDevelopmentEncounter;
+    subject: CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference;
+    encounter: CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: CMRObservationU3U9AgeAppropriateDevelopmentValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU3U9AgeAppropriateDevelopmentPerformer>;
+    performer?: Array<CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference>;
 }
 
 const CMRObservationU3U9AgeAppropriateDevelopment: t.Type<CMRObservationU3U9AgeAppropriateDevelopment> =
@@ -552,8 +552,9 @@ const CMRObservationU3U9AgeAppropriateDevelopment: t.Type<CMRObservationU3U9AgeA
                     meta: CMRObservationU3U9AgeAppropriateDevelopmentMeta,
                     status: Literal("final"),
                     code: CMRObservationU3U9AgeAppropriateDevelopmentCode,
-                    subject: CMRObservationU3U9AgeAppropriateDevelopmentSubject,
-                    encounter: CMRObservationU3U9AgeAppropriateDevelopmentEncounter,
+                    subject: CMRObservationU3U9AgeAppropriateDevelopmentSubjectReference,
+                    encounter:
+                        CMRObservationU3U9AgeAppropriateDevelopmentEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         CMRObservationU3U9AgeAppropriateDevelopmentValueCodeableConcept
@@ -563,7 +564,7 @@ const CMRObservationU3U9AgeAppropriateDevelopment: t.Type<CMRObservationU3U9AgeA
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU3U9AgeAppropriateDevelopmentPerformer
+                        CMRObservationU3U9AgeAppropriateDevelopmentPerformerReference
                     )
                 })
             ])

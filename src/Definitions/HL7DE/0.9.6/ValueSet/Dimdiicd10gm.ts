@@ -25,7 +25,9 @@ import { ValueSet } from "../../../Interfaces";
 
 type Dimdiicd10gm = string;
 
-const Dimdiicd10gm: t.Type<Dimdiicd10gm> = t.string;
+type Dimdiicd10gmType = string;
+
+const Dimdiicd10gm: t.Type<Dimdiicd10gmType> = t.string;
 
 export const Dimdiicd10gmArray: string[] = [];
 

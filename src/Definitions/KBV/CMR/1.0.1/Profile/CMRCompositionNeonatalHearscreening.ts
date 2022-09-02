@@ -126,13 +126,13 @@ export const CMRCompositionNeonatalHearscreeningCategoryCoding: t.Type<CMRCompos
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionNeonatalHearscreeningSectionEntry {
+export interface CMRCompositionNeonatalHearscreeningSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionNeonatalHearscreeningSectionEntry: t.Type<CMRCompositionNeonatalHearscreeningSectionEntry> =
-    t.recursion("CMRCompositionNeonatalHearscreeningSectionEntry", () =>
+export const CMRCompositionNeonatalHearscreeningSectionEntryReference: t.Type<CMRCompositionNeonatalHearscreeningSectionEntryReference> =
+    t.recursion("CMRCompositionNeonatalHearscreeningSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -260,13 +260,13 @@ export const CMRCompositionNeonatalHearscreeningCategory: t.Type<CMRCompositionN
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionNeonatalHearscreeningSubject {
+export interface CMRCompositionNeonatalHearscreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionNeonatalHearscreeningSubject: t.Type<CMRCompositionNeonatalHearscreeningSubject> =
-    t.recursion("CMRCompositionNeonatalHearscreeningSubject", () =>
+export const CMRCompositionNeonatalHearscreeningSubjectReference: t.Type<CMRCompositionNeonatalHearscreeningSubjectReference> =
+    t.recursion("CMRCompositionNeonatalHearscreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRCompositionNeonatalHearscreeningSubject: t.Type<CMRCompositionNe
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionNeonatalHearscreeningEncounter {
+export interface CMRCompositionNeonatalHearscreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionNeonatalHearscreeningEncounter: t.Type<CMRCompositionNeonatalHearscreeningEncounter> =
-    t.recursion("CMRCompositionNeonatalHearscreeningEncounter", () =>
+export const CMRCompositionNeonatalHearscreeningEncounterReference: t.Type<CMRCompositionNeonatalHearscreeningEncounterReference> =
+    t.recursion("CMRCompositionNeonatalHearscreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRCompositionNeonatalHearscreeningEncounter: t.Type<CMRComposition
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionNeonatalHearscreeningAuthor {
+export interface CMRCompositionNeonatalHearscreeningAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionNeonatalHearscreeningAuthor: t.Type<CMRCompositionNeonatalHearscreeningAuthor> =
-    t.recursion("CMRCompositionNeonatalHearscreeningAuthor", () =>
+export const CMRCompositionNeonatalHearscreeningAuthorReference: t.Type<CMRCompositionNeonatalHearscreeningAuthorReference> =
+    t.recursion("CMRCompositionNeonatalHearscreeningAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -335,7 +335,7 @@ export const CMRCompositionNeonatalHearscreeningAuthor: t.Type<CMRCompositionNeo
  */
 export interface CMRCompositionNeonatalHearscreeningSection {
     title: "Neugeborenen-Hörscreening";
-    entry: Array<CMRCompositionNeonatalHearscreeningSectionEntry>;
+    entry: Array<CMRCompositionNeonatalHearscreeningSectionEntryReference>;
     id?: string;
 }
 
@@ -345,7 +345,10 @@ export const CMRCompositionNeonatalHearscreeningSection: t.Type<CMRCompositionNe
             t.intersection([
                 t.type({
                     title: Literal("Neugeborenen-Hörscreening"),
-                    entry: MinArray(1, CMRCompositionNeonatalHearscreeningSectionEntry)
+                    entry: MinArray(
+                        1,
+                        CMRCompositionNeonatalHearscreeningSectionEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -360,10 +363,10 @@ interface CMRCompositionNeonatalHearscreening {
     status: "final";
     type: CMRCompositionNeonatalHearscreeningType;
     category: Array<CMRCompositionNeonatalHearscreeningCategory>;
-    subject: CMRCompositionNeonatalHearscreeningSubject;
-    encounter: CMRCompositionNeonatalHearscreeningEncounter;
+    subject: CMRCompositionNeonatalHearscreeningSubjectReference;
+    encounter: CMRCompositionNeonatalHearscreeningEncounterReference;
     date: string;
-    author: Array<CMRCompositionNeonatalHearscreeningAuthor>;
+    author: Array<CMRCompositionNeonatalHearscreeningAuthorReference>;
     title: "Spezielle Früherkennungsuntersuchungen";
     section: Array<CMRCompositionNeonatalHearscreeningSection>;
     id?: string;
@@ -384,10 +387,14 @@ const CMRCompositionNeonatalHearscreening: t.Type<CMRCompositionNeonatalHearscre
                         1,
                         CMRCompositionNeonatalHearscreeningCategory
                     ),
-                    subject: CMRCompositionNeonatalHearscreeningSubject,
-                    encounter: CMRCompositionNeonatalHearscreeningEncounter,
+                    subject: CMRCompositionNeonatalHearscreeningSubjectReference,
+                    encounter: CMRCompositionNeonatalHearscreeningEncounterReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 2, CMRCompositionNeonatalHearscreeningAuthor),
+                    author: MinMaxArray(
+                        1,
+                        2,
+                        CMRCompositionNeonatalHearscreeningAuthorReference
+                    ),
                     title: Literal("Spezielle Früherkennungsuntersuchungen"),
                     section: MinMaxArray(1, 1, CMRCompositionNeonatalHearscreeningSection)
                 }),

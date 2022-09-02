@@ -25,19 +25,25 @@ import { ValueSet } from "../../../Interfaces";
 
 type Unitsoftime = "s" | "min" | "h" | "d" | "wk" | "mo" | "a";
 
-const Unitsoftime: t.Type<Unitsoftime> = t.union(
-    [
-        t.literal("s"),
-        t.literal("min"),
-        t.literal("h"),
-        t.literal("d"),
-        t.literal("wk"),
-        t.literal("mo"),
-        t.literal("a")
-    ],
-    "Unitsoftime"
-);
+type UnitsoftimeType = t.KeyofC<{
+    s: null;
+    min: null;
+    h: null;
+    d: null;
+    wk: null;
+    mo: null;
+    a: null;
+}>;
 
+const Unitsoftime: UnitsoftimeType = t.keyof({
+    s: null,
+    min: null,
+    h: null,
+    d: null,
+    wk: null,
+    mo: null,
+    a: null
+});
 export const UnitsoftimeArray: string[] = ["s", "min", "h", "d", "wk", "mo", "a"];
 
 export const UnitsoftimeValueSet: ValueSet = [

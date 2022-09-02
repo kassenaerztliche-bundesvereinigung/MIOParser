@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type BodyWeightLoinc = "29463-7" | "8339-4";
 
-const BodyWeightLoinc: t.Type<BodyWeightLoinc> = t.union(
-    [t.literal("29463-7"), t.literal("8339-4")],
-    "BodyWeightLoinc"
-);
+type BodyWeightLoincType = t.KeyofC<{ "29463-7": null; "8339-4": null }>;
 
+const BodyWeightLoinc: BodyWeightLoincType = t.keyof({
+    "29463-7": null,
+    "8339-4": null
+});
 export const BodyWeightLoincArray: string[] = ["29463-7", "8339-4"];
 
 export const BodyWeightLoincValueSet: ValueSet = [

@@ -332,13 +332,13 @@ export const MRObservationBirthModeCode: t.Type<MRObservationBirthModeCode> = t.
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBirthModeSubject {
+export interface MRObservationBirthModeSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject> =
-    t.recursion("MRObservationBirthModeSubject", () =>
+export const MRObservationBirthModeSubjectReference: t.Type<MRObservationBirthModeSubjectReference> =
+    t.recursion("MRObservationBirthModeSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -356,13 +356,13 @@ export const MRObservationBirthModeSubject: t.Type<MRObservationBirthModeSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBirthModeEncounter {
+export interface MRObservationBirthModeEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncounter> =
-    t.recursion("MRObservationBirthModeEncounter", () =>
+export const MRObservationBirthModeEncounterReference: t.Type<MRObservationBirthModeEncounterReference> =
+    t.recursion("MRObservationBirthModeEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -380,13 +380,13 @@ export const MRObservationBirthModeEncounter: t.Type<MRObservationBirthModeEncou
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBirthModePerformer {
+export interface MRObservationBirthModePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthModePerformer: t.Type<MRObservationBirthModePerformer> =
-    t.recursion("MRObservationBirthModePerformer", () =>
+export const MRObservationBirthModePerformerReference: t.Type<MRObservationBirthModePerformerReference> =
+    t.recursion("MRObservationBirthModePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -407,13 +407,13 @@ interface MRObservationBirthMode {
     meta: MRObservationBirthModeMeta;
     status: "final";
     code: MRObservationBirthModeCode;
-    subject: MRObservationBirthModeSubject;
-    encounter: MRObservationBirthModeEncounter;
+    subject: MRObservationBirthModeSubjectReference;
+    encounter: MRObservationBirthModeEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationBirthModeValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBirthModePerformer>;
+    performer?: Array<MRObservationBirthModePerformerReference>;
 }
 
 const MRObservationBirthMode: t.Type<MRObservationBirthMode> = t.recursion(
@@ -426,15 +426,15 @@ const MRObservationBirthMode: t.Type<MRObservationBirthMode> = t.recursion(
                     meta: MRObservationBirthModeMeta,
                     status: Literal("final"),
                     code: MRObservationBirthModeCode,
-                    subject: MRObservationBirthModeSubject,
-                    encounter: MRObservationBirthModeEncounter,
+                    subject: MRObservationBirthModeSubjectReference,
+                    encounter: MRObservationBirthModeEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept: MRObservationBirthModeValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBirthModePerformer)
+                    performer: MaxArray(1, MRObservationBirthModePerformerReference)
                 })
             ])
         )

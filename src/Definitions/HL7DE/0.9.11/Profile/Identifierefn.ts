@@ -69,7 +69,7 @@ export const IdentifierefnTypeDNType: t.Type<IdentifierefnTypeDNType> = t.recurs
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface IdentifierefnAssignerIdentifier {
+export interface IdentifierefnAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -79,8 +79,8 @@ export interface IdentifierefnAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const IdentifierefnAssignerIdentifier: t.Type<IdentifierefnAssignerIdentifier> =
-    t.recursion("IdentifierefnAssignerIdentifier", () =>
+export const IdentifierefnAssignerReferenceIdentifier: t.Type<IdentifierefnAssignerReferenceIdentifier> =
+    t.recursion("IdentifierefnAssignerReferenceIdentifier", () =>
         t.intersection([
             t.type({
                 system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
@@ -122,17 +122,16 @@ export const IdentifierefnType: t.Type<IdentifierefnType> = t.recursion(
 /**
  * Organization that issued/manages the identifier.
  */
-export interface IdentifierefnAssigner {
+export interface IdentifierefnAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: IdentifierefnAssignerIdentifier;
+    identifier?: IdentifierefnAssignerReferenceIdentifier;
 }
 
-export const IdentifierefnAssigner: t.Type<IdentifierefnAssigner> = t.recursion(
-    "IdentifierefnAssigner",
-    () =>
+export const IdentifierefnAssignerReference: t.Type<IdentifierefnAssignerReference> =
+    t.recursion("IdentifierefnAssignerReference", () =>
         t.intersection([
             t.type({
                 display: SCALARString
@@ -143,20 +142,19 @@ export const IdentifierefnAssigner: t.Type<IdentifierefnAssigner> = t.recursion(
                     "http://hl7.org/fhir/StructureDefinition/Organization"
                 ]),
                 type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                identifier: IdentifierefnAssignerIdentifier
+                identifier: IdentifierefnAssignerReferenceIdentifier
             })
         ])
-);
+    );
 
 interface Identifierefn {
     system: "http://fhir.de/NamingSystem/bundesaerztekammer/efn";
     value: string;
-    resourceType?: "Identifier";
     id?: string;
     use?: "official";
     type?: IdentifierefnType;
     period?: Period;
-    assigner?: IdentifierefnAssigner;
+    assigner?: IdentifierefnAssignerReference;
 }
 
 const Identifierefn: t.Type<Identifierefn> = t.recursion("Identifierefn", () =>
@@ -166,12 +164,11 @@ const Identifierefn: t.Type<Identifierefn> = t.recursion("Identifierefn", () =>
             value: SCALARString
         }),
         t.partial({
-            resourceType: Literal("Identifier"),
             id: SCALARString,
             use: Literal("official"),
             type: IdentifierefnType,
             period: Period,
-            assigner: IdentifierefnAssigner
+            assigner: IdentifierefnAssignerReference
         })
     ])
 );

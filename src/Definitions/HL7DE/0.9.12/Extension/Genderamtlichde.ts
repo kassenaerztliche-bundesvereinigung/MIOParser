@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
+import { Literal, ValueSetCheck } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import GenderamtlichdeVS from "../../../../Definitions/HL7DE/0.9.12/ValueSet/Genderamtlichde";
@@ -46,7 +46,7 @@ const Genderamtlichde: t.Type<Genderamtlichde> = t.recursion("Genderamtlichde", 
                 t.partial({
                     system: t.string,
                     version: t.string,
-                    code: GenderamtlichdeVS,
+                    code: ValueSetCheck<t.Type<GenderamtlichdeVS>>(GenderamtlichdeVS),
                     display: t.string,
                     userSelected: t.boolean
                 })

@@ -19,3 +19,5 @@
  */
 
 export { default as CodingICD10GM } from "./CodingICD10GM";
+
+export { default as Identifieriknr } from "./Identifieriknr";

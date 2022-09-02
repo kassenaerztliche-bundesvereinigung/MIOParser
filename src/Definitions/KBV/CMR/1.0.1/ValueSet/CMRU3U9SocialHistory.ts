@@ -26,11 +26,12 @@ import CMRU3U9SocialHistoryGerman from "../../../../../Definitions/KBV/CMR/1.0.1
 
 type CMRU3U9SocialHistory = "105485001" | "276104006";
 
-const CMRU3U9SocialHistory: t.Type<CMRU3U9SocialHistory> = t.union(
-    [t.literal("105485001"), t.literal("276104006")],
-    "CMRU3U9SocialHistory"
-);
+type CMRU3U9SocialHistoryType = t.KeyofC<{ "105485001": null; "276104006": null }>;
 
+const CMRU3U9SocialHistory: CMRU3U9SocialHistoryType = t.keyof({
+    "105485001": null,
+    "276104006": null
+});
 export const CMRU3U9SocialHistoryArray: string[] = ["105485001", "276104006"];
 
 export const CMRU3U9SocialHistoryValueSet: ValueSet = [

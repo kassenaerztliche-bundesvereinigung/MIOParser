@@ -33,19 +33,25 @@ type MRCounselling =
     | "1156102003"
     | "243085009";
 
-const MRCounselling: t.Type<MRCounselling> = t.union(
-    [
-        t.literal("171054004+440670004+313071005"),
-        t.literal("313080005+171056002+439816006"),
-        t.literal("370995009"),
-        t.literal("409013000"),
-        t.literal("1156103008"),
-        t.literal("1156102003"),
-        t.literal("243085009")
-    ],
-    "MRCounselling"
-);
+type MRCounsellingType = t.KeyofC<{
+    "171054004+440670004+313071005": null;
+    "313080005+171056002+439816006": null;
+    "370995009": null;
+    "409013000": null;
+    "1156103008": null;
+    "1156102003": null;
+    "243085009": null;
+}>;
 
+const MRCounselling: MRCounsellingType = t.keyof({
+    "171054004+440670004+313071005": null,
+    "313080005+171056002+439816006": null,
+    "370995009": null,
+    "409013000": null,
+    "1156103008": null,
+    "1156102003": null,
+    "243085009": null
+});
 export const MRCounsellingArray: string[] = [
     "171054004+440670004+313071005",
     "313080005+171056002+439816006",

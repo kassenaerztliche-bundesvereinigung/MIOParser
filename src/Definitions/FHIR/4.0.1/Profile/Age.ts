@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
+
 import SCALARCode from "../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARDecimal from "../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
@@ -29,7 +29,6 @@ import QuantitycomparatorVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Qu
 // Definition for URL: "http://hl7.org/fhir/StructureDefinition/Age"
 
 interface Age {
-    resourceType?: "Age";
     id?: string;
     value?: number;
     comparator?: QuantitycomparatorVS;
@@ -40,7 +39,6 @@ interface Age {
 
 const Age: t.Type<Age> = t.recursion("Age", () =>
     t.partial({
-        resourceType: Literal("Age"),
         id: SCALARString,
         value: SCALARDecimal,
         comparator: QuantitycomparatorVS,

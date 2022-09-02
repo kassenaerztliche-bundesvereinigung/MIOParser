@@ -1,0 +1,510 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
+export {
+    default as AllergyIntolerance,
+    AllergyIntoleranceReactionManifestationCodeSnomedDisplayAnzeigenameManifestationContent as AllergyIntoleranceReactionManifestationCodeSnomedDisplayAnzeigenameManifestationContent,
+    AllergyIntoleranceReactionExposureRouteCodeSnomedDisplayAnzeigenameSnomedContent as AllergyIntoleranceReactionExposureRouteCodeSnomedDisplayAnzeigenameSnomedContent,
+    AllergyIntoleranceClinicalStatusCodingDisplayAnzeigenameClinicalStatusContent as AllergyIntoleranceClinicalStatusCodingDisplayAnzeigenameClinicalStatusContent,
+    AllergyIntoleranceVerificationStatusCodingDisplayAnzeigenameVerificationStatusContent as AllergyIntoleranceVerificationStatusCodingDisplayAnzeigenameVerificationStatusContent,
+    AllergyIntoleranceReactionManifestationCodeSnomedDisplayAnzeigenameManifestation as AllergyIntoleranceReactionManifestationCodeSnomedDisplayAnzeigenameManifestation,
+    AllergyIntoleranceReactionExposureRouteCodeSnomedDisplayAnzeigenameSnomed as AllergyIntoleranceReactionExposureRouteCodeSnomedDisplayAnzeigenameSnomed,
+    AllergyIntoleranceReactionSeverityAnzeigenameSeverityContent as AllergyIntoleranceReactionSeverityAnzeigenameSeverityContent,
+    AllergyIntoleranceClinicalStatusCodingDisplayAnzeigenameClinicalStatus as AllergyIntoleranceClinicalStatusCodingDisplayAnzeigenameClinicalStatus,
+    AllergyIntoleranceVerificationStatusCodingDisplayAnzeigenameVerificationStatus as AllergyIntoleranceVerificationStatusCodingDisplayAnzeigenameVerificationStatus,
+    AllergyIntoleranceTypeAnzeigenameTypeContent as AllergyIntoleranceTypeAnzeigenameTypeContent,
+    AllergyIntoleranceCategoryAnzeigenameCategoryContent as AllergyIntoleranceCategoryAnzeigenameCategoryContent,
+    AllergyIntoleranceCriticalityAnzeigenameCriticalityContent as AllergyIntoleranceCriticalityAnzeigenameCriticalityContent,
+    AllergyIntoleranceReactionManifestationCodeSnomedDisplay as AllergyIntoleranceReactionManifestationCodeSnomedDisplay,
+    AllergyIntoleranceReactionExposureRouteCodeSnomedDisplay as AllergyIntoleranceReactionExposureRouteCodeSnomedDisplay,
+    AllergyIntoleranceCodeCodeSnomedDisplay as AllergyIntoleranceCodeCodeSnomedDisplay,
+    AllergyIntoleranceCodeCodeASKDisplay as AllergyIntoleranceCodeCodeASKDisplay,
+    AllergyIntoleranceReactionManifestationCodeSnomed as AllergyIntoleranceReactionManifestationCodeSnomed,
+    AllergyIntoleranceReactionSeverityAnzeigenameSeverity as AllergyIntoleranceReactionSeverityAnzeigenameSeverity,
+    AllergyIntoleranceReactionExposureRouteCodeSnomed as AllergyIntoleranceReactionExposureRouteCodeSnomed,
+    AllergyIntoleranceClinicalStatusCodingDisplay as AllergyIntoleranceClinicalStatusCodingDisplay,
+    AllergyIntoleranceVerificationStatusCodingDisplay as AllergyIntoleranceVerificationStatusCodingDisplay,
+    AllergyIntoleranceTypeAnzeigenameType as AllergyIntoleranceTypeAnzeigenameType,
+    AllergyIntoleranceCategoryAnzeigenameCategory as AllergyIntoleranceCategoryAnzeigenameCategory,
+    AllergyIntoleranceCriticalityAnzeigenameCriticality as AllergyIntoleranceCriticalityAnzeigenameCriticality,
+    AllergyIntoleranceCodeCodeSnomed as AllergyIntoleranceCodeCodeSnomed,
+    AllergyIntoleranceCodeCodeASK as AllergyIntoleranceCodeCodeASK,
+    AllergyIntoleranceClinicalStatusCoding as AllergyIntoleranceClinicalStatusCoding,
+    AllergyIntoleranceVerificationStatusCoding as AllergyIntoleranceVerificationStatusCoding,
+    AllergyIntoleranceOnsetAge as AllergyIntoleranceOnsetAge,
+    AllergyIntoleranceReactionManifestation as AllergyIntoleranceReactionManifestation,
+    AllergyIntoleranceReactionSeverity as AllergyIntoleranceReactionSeverity,
+    AllergyIntoleranceReactionExposureRoute as AllergyIntoleranceReactionExposureRoute,
+    AllergyIntoleranceClinicalStatus as AllergyIntoleranceClinicalStatus,
+    AllergyIntoleranceVerificationStatus as AllergyIntoleranceVerificationStatus,
+    AllergyIntoleranceType as AllergyIntoleranceType,
+    AllergyIntoleranceCategory as AllergyIntoleranceCategory,
+    AllergyIntoleranceCriticality as AllergyIntoleranceCriticality,
+    AllergyIntoleranceCode as AllergyIntoleranceCode,
+    AllergyIntoleranceNote as AllergyIntoleranceNote,
+    AllergyIntoleranceReaction as AllergyIntoleranceReaction
+} from "./AllergyIntolerance";
+
+export {
+    default as DatatypeContactpoint,
+    DatatypeContactpointSystemAnzeigenameCodeContent as DatatypeContactpointSystemAnzeigenameCodeContent,
+    DatatypeContactpointSystemAnzeigenameCode as DatatypeContactpointSystemAnzeigenameCode,
+    DatatypeContactpointSystem as DatatypeContactpointSystem
+} from "./DatatypeContactpoint";
+
+export {
+    default as DatatypeMaidenName,
+    DatatypeMaidenNameFamilyNamenszusatz as DatatypeMaidenNameFamilyNamenszusatz,
+    DatatypeMaidenNameFamilyNachname as DatatypeMaidenNameFamilyNachname,
+    DatatypeMaidenNameFamilyVorsatzwort as DatatypeMaidenNameFamilyVorsatzwort,
+    DatatypeMaidenNameFamily as DatatypeMaidenNameFamily
+} from "./DatatypeMaidenName";
+
+export {
+    default as DatatypeName,
+    DatatypeNameFamilyNamenszusatz as DatatypeNameFamilyNamenszusatz,
+    DatatypeNameFamilyNachname as DatatypeNameFamilyNachname,
+    DatatypeNameFamilyVorsatzwort as DatatypeNameFamilyVorsatzwort,
+    DatatypeNamePrefixPrefixqualifier as DatatypeNamePrefixPrefixqualifier,
+    DatatypeNameFamily as DatatypeNameFamily,
+    DatatypeNamePrefix as DatatypeNamePrefix
+} from "./DatatypeName";
+
+export {
+    default as DatatypePostOfficeBox,
+    DatatypePostOfficeBoxLinePostfach as DatatypePostOfficeBoxLinePostfach,
+    DatatypePostOfficeBoxLine as DatatypePostOfficeBoxLine,
+    DatatypePostOfficeBoxPeriod as DatatypePostOfficeBoxPeriod
+} from "./DatatypePostOfficeBox";
+
+export {
+    default as DatatypeStreetAddress,
+    DatatypeStreetAddressLineStrasse as DatatypeStreetAddressLineStrasse,
+    DatatypeStreetAddressLineHausnummer as DatatypeStreetAddressLineHausnummer,
+    DatatypeStreetAddressLineAdresszusatz as DatatypeStreetAddressLineAdresszusatz,
+    DatatypeStreetAddressLine as DatatypeStreetAddressLine,
+    DatatypeStreetAddressPeriod as DatatypeStreetAddressPeriod
+} from "./DatatypeStreetAddress";
+
+export {
+    default as Device,
+    DeviceStatusReasonCodingDisplayAnzeigenameCodeContent as DeviceStatusReasonCodingDisplayAnzeigenameCodeContent,
+    DeviceStatusReasonCodingDisplayAnzeigenameCode as DeviceStatusReasonCodingDisplayAnzeigenameCode,
+    DeviceTypeCodeSnomedDisplay as DeviceTypeCodeSnomedDisplay,
+    DeviceStatusReasonCodingDisplay as DeviceStatusReasonCodingDisplay,
+    DeviceTypeCodeSnomed as DeviceTypeCodeSnomed,
+    DeviceStatusReasonCoding as DeviceStatusReasonCoding,
+    DeviceDefinitionReference as DeviceDefinitionReference,
+    DeviceUdiCarrier as DeviceUdiCarrier,
+    DeviceStatusReason as DeviceStatusReason,
+    DeviceDeviceName as DeviceDeviceName,
+    DeviceType as DeviceType,
+    DeviceSpecialization as DeviceSpecialization,
+    DeviceVersion as DeviceVersion,
+    DeviceProperty as DeviceProperty
+} from "./Device";
+
+export {
+    default as DeviceDefinition,
+    DeviceDefinitionUdiDeviceIdentifier as DeviceDefinitionUdiDeviceIdentifier,
+    DeviceDefinitionDeviceName as DeviceDefinitionDeviceName,
+    DeviceDefinitionSpecialization as DeviceDefinitionSpecialization,
+    DeviceDefinitionCapability as DeviceDefinitionCapability,
+    DeviceDefinitionProperty as DeviceDefinitionProperty,
+    DeviceDefinitionMaterial as DeviceDefinitionMaterial
+} from "./DeviceDefinition";
+
+export {
+    default as Diagnosis,
+    DiagnosisSeveritySnomedctDisplayAnzeigenameCodeContent as DiagnosisSeveritySnomedctDisplayAnzeigenameCodeContent,
+    DiagnosisCodeSnomedctDisplayAnzeigenameCodeContent as DiagnosisCodeSnomedctDisplayAnzeigenameCodeContent,
+    DiagnosisClinicalStatusCodingDisplayAnzeigenameCodeContent as DiagnosisClinicalStatusCodingDisplayAnzeigenameCodeContent,
+    DiagnosisSeveritySnomedctDisplayAnzeigenameCode as DiagnosisSeveritySnomedctDisplayAnzeigenameCode,
+    DiagnosisCodeSnomedctDisplayAnzeigenameCode as DiagnosisCodeSnomedctDisplayAnzeigenameCode,
+    DiagnosisClinicalStatusCodingDisplayAnzeigenameCode as DiagnosisClinicalStatusCodingDisplayAnzeigenameCode,
+    DiagnosisSeveritySnomedctDisplay as DiagnosisSeveritySnomedctDisplay,
+    DiagnosisCodeSnomedctDisplay as DiagnosisCodeSnomedctDisplay,
+    DiagnosisBodySiteSnomedctDisplay as DiagnosisBodySiteSnomedctDisplay,
+    DiagnosisClinicalStatusCodingDisplay as DiagnosisClinicalStatusCodingDisplay,
+    DiagnosisSeveritySnomedct as DiagnosisSeveritySnomedct,
+    DiagnosisCodeICD10GM as DiagnosisCodeICD10GM,
+    DiagnosisCodeAlphaid as DiagnosisCodeAlphaid,
+    DiagnosisCodeSnomedct as DiagnosisCodeSnomedct,
+    DiagnosisCodeOrphanet as DiagnosisCodeOrphanet,
+    DiagnosisBodySiteSnomedct as DiagnosisBodySiteSnomedct,
+    DiagnosisClinicalStatusCoding as DiagnosisClinicalStatusCoding,
+    DiagnosisOnsetAge as DiagnosisOnsetAge,
+    DiagnosisAbatementAge as DiagnosisAbatementAge,
+    DiagnosisClinicalStatus as DiagnosisClinicalStatus,
+    DiagnosisSeverity as DiagnosisSeverity,
+    DiagnosisCode as DiagnosisCode,
+    DiagnosisBodySite as DiagnosisBodySite,
+    DiagnosisStage as DiagnosisStage,
+    DiagnosisEvidence as DiagnosisEvidence
+} from "./Diagnosis";
+
+export {
+    default as Medication,
+    MedicationKategorieValueCodeableConceptCodingDisplayAnzeigenameFachterminusGermanContent as MedicationKategorieValueCodeableConceptCodingDisplayAnzeigenameFachterminusGermanContent,
+    MedicationKategorieValueCodeableConceptCodingDisplayAnzeigenameFachterminusGerman as MedicationKategorieValueCodeableConceptCodingDisplayAnzeigenameFachterminusGerman,
+    MedicationKategorieValueCodeableConceptCodingDisplay as MedicationKategorieValueCodeableConceptCodingDisplay,
+    MedicationKategorieValueCodeableConceptCoding as MedicationKategorieValueCodeableConceptCoding,
+    MedicationIngredientItemCodeableConceptAskCode as MedicationIngredientItemCodeableConceptAskCode,
+    MedicationIngredientItemCodeableConceptSnomedCode as MedicationIngredientItemCodeableConceptSnomedCode,
+    MedicationKategorieValueCodeableConcept as MedicationKategorieValueCodeableConcept,
+    MedicationCodePznCode as MedicationCodePznCode,
+    MedicationCodeSnomedCode as MedicationCodeSnomedCode,
+    MedicationCodeAtcCode as MedicationCodeAtcCode,
+    MedicationFormSnomedCode as MedicationFormSnomedCode,
+    MedicationFormEdqmCode as MedicationFormEdqmCode,
+    MedicationFormKbvDarreichungsform as MedicationFormKbvDarreichungsform,
+    MedicationIngredientItemCodeableConcept as MedicationIngredientItemCodeableConcept,
+    MedicationIngredientItemReference as MedicationIngredientItemReference,
+    MedicationIngredientStrengthNumerator as MedicationIngredientStrengthNumerator,
+    MedicationIngredientStrengthDenominator as MedicationIngredientStrengthDenominator,
+    MedicationKategorie as MedicationKategorie,
+    MedicationIngredientStrength as MedicationIngredientStrength,
+    MedicationCode as MedicationCode,
+    MedicationForm as MedicationForm,
+    MedicationIngredient as MedicationIngredient,
+    MedicationBatch as MedicationBatch
+} from "./Medication";
+
+export {
+    default as ObservationApgarScore,
+    ObservationApgarScoreCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationApgarScoreCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationApgarScoreCodeCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationApgarScoreCodeCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationApgarScoreValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent as ObservationApgarScoreValueCodeableConceptCodingDisplayAnzeigenameValueSnomedContent,
+    ObservationApgarScoreCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationApgarScoreCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationApgarScoreCodeCodeLoincDisplayAnzeigenameCodeLoinc as ObservationApgarScoreCodeCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationApgarScoreValueCodeableConceptCodingDisplayAnzeigenameValueSnomed as ObservationApgarScoreValueCodeableConceptCodingDisplayAnzeigenameValueSnomed,
+    ObservationApgarScoreCodeCodeSnomedDisplay as ObservationApgarScoreCodeCodeSnomedDisplay,
+    ObservationApgarScoreCodeCodeLoincDisplay as ObservationApgarScoreCodeCodeLoincDisplay,
+    ObservationApgarScoreValueCodeableConceptCodingDisplay as ObservationApgarScoreValueCodeableConceptCodingDisplay,
+    ObservationApgarScoreCodeCodeSnomed as ObservationApgarScoreCodeCodeSnomed,
+    ObservationApgarScoreCodeCodeLoinc as ObservationApgarScoreCodeCodeLoinc,
+    ObservationApgarScoreValueCodeableConceptCoding as ObservationApgarScoreValueCodeableConceptCoding,
+    ObservationApgarScoreValueCodeableConcept as ObservationApgarScoreValueCodeableConcept,
+    ObservationApgarScoreCode as ObservationApgarScoreCode,
+    ObservationApgarScoreReferenceRange as ObservationApgarScoreReferenceRange
+} from "./ObservationApgarScore";
+
+export {
+    default as ObservationBloodPressure,
+    ObservationBloodPressureComponentSystolicBPCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBloodPressureComponentSystolicBPCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBloodPressureComponentDiastolicBPCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBloodPressureComponentDiastolicBPCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBloodPressureCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBloodPressureCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBloodPressureComponentSystolicBPCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBloodPressureComponentSystolicBPCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBloodPressureComponentDiastolicBPCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBloodPressureComponentDiastolicBPCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBloodPressureCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBloodPressureCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBloodPressureCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBloodPressureComponentSystolicBPCodeLoincDisplay as ObservationBloodPressureComponentSystolicBPCodeLoincDisplay,
+    ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplay as ObservationBloodPressureComponentSystolicBPCodeCodeSnomedDisplay,
+    ObservationBloodPressureComponentDiastolicBPCodeLoincDisplay as ObservationBloodPressureComponentDiastolicBPCodeLoincDisplay,
+    ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplay as ObservationBloodPressureComponentDiastolicBPCodeCodeSnomedDisplay,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplay as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoincDisplay,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplay as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomedDisplay,
+    ObservationBloodPressureComponentSystolicBPCodeLoinc as ObservationBloodPressureComponentSystolicBPCodeLoinc,
+    ObservationBloodPressureComponentSystolicBPCodeCodeSnomed as ObservationBloodPressureComponentSystolicBPCodeCodeSnomed,
+    ObservationBloodPressureComponentDiastolicBPCodeLoinc as ObservationBloodPressureComponentDiastolicBPCodeLoinc,
+    ObservationBloodPressureComponentDiastolicBPCodeCodeSnomed as ObservationBloodPressureComponentDiastolicBPCodeCodeSnomed,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoinc as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeLoinc,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomed as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCodeCodeSnomed,
+    ObservationBloodPressureCodeLoincDisplay as ObservationBloodPressureCodeLoincDisplay,
+    ObservationBloodPressureCodeCodeSnomedDisplay as ObservationBloodPressureCodeCodeSnomedDisplay,
+    ObservationBloodPressureComponentSystolicBPValueQuantity as ObservationBloodPressureComponentSystolicBPValueQuantity,
+    ObservationBloodPressureComponentDiastolicBPValueQuantity as ObservationBloodPressureComponentDiastolicBPValueQuantity,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckValueQuantity as ObservationBloodPressureComponentMittlererArteriellerBlutdruckValueQuantity,
+    ObservationBloodPressureCodeLoinc as ObservationBloodPressureCodeLoinc,
+    ObservationBloodPressureCodeCodeSnomed as ObservationBloodPressureCodeCodeSnomed,
+    ObservationBloodPressureComponentValueQuantity as ObservationBloodPressureComponentValueQuantity,
+    ObservationBloodPressureComponentSystolicBPCode as ObservationBloodPressureComponentSystolicBPCode,
+    ObservationBloodPressureComponentDiastolicBPCode as ObservationBloodPressureComponentDiastolicBPCode,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruckCode as ObservationBloodPressureComponentMittlererArteriellerBlutdruckCode,
+    ObservationBloodPressureComponentSystolicBP as ObservationBloodPressureComponentSystolicBP,
+    ObservationBloodPressureComponentDiastolicBP as ObservationBloodPressureComponentDiastolicBP,
+    ObservationBloodPressureComponentMittlererArteriellerBlutdruck as ObservationBloodPressureComponentMittlererArteriellerBlutdruck,
+    ObservationBloodPressureCode as ObservationBloodPressureCode,
+    ObservationBloodPressureReferenceRange as ObservationBloodPressureReferenceRange,
+    ObservationBloodPressureComponent as ObservationBloodPressureComponent
+} from "./ObservationBloodPressure";
+
+export {
+    default as ObservationBodyHeight,
+    ObservationBodyHeightCodeLoincDisplayAnzeigenameloincContent as ObservationBodyHeightCodeLoincDisplayAnzeigenameloincContent,
+    ObservationBodyHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBodyHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBodyHeightBodySiteCodingDisplayAnzeigenameCodeSnomedContent as ObservationBodyHeightBodySiteCodingDisplayAnzeigenameCodeSnomedContent,
+    ObservationBodyHeightCodeLoincDisplayAnzeigenameloinc as ObservationBodyHeightCodeLoincDisplayAnzeigenameloinc,
+    ObservationBodyHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBodyHeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBodyHeightBodySiteCodingDisplayAnzeigenameCodeSnomed as ObservationBodyHeightBodySiteCodingDisplayAnzeigenameCodeSnomed,
+    ObservationBodyHeightCodeLoincDisplay as ObservationBodyHeightCodeLoincDisplay,
+    ObservationBodyHeightCodeCodeSnomedDisplay as ObservationBodyHeightCodeCodeSnomedDisplay,
+    ObservationBodyHeightCodeLoinc as ObservationBodyHeightCodeLoinc,
+    ObservationBodyHeightCodeCodeSnomed as ObservationBodyHeightCodeCodeSnomed,
+    ObservationBodyHeightBodySiteCodingDisplay as ObservationBodyHeightBodySiteCodingDisplay,
+    ObservationBodyHeightValueQuantity as ObservationBodyHeightValueQuantity,
+    ObservationBodyHeightBodySiteCoding as ObservationBodyHeightBodySiteCoding,
+    ObservationBodyHeightCode as ObservationBodyHeightCode,
+    ObservationBodyHeightBodySite as ObservationBodyHeightBodySite,
+    ObservationBodyHeightReferenceRange as ObservationBodyHeightReferenceRange
+} from "./ObservationBodyHeight";
+
+export {
+    default as ObservationBodyTemperature,
+    ObservationBodyTemperatureCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBodyTemperatureCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBodyTemperatureCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBodyTemperatureCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBodyTemperatureCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBodyTemperatureCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBodyTemperatureCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBodyTemperatureCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBodyTemperatureCodeLoincDisplay as ObservationBodyTemperatureCodeLoincDisplay,
+    ObservationBodyTemperatureCodeCodeSnomedDisplay as ObservationBodyTemperatureCodeCodeSnomedDisplay,
+    ObservationBodyTemperatureCodeLoinc as ObservationBodyTemperatureCodeLoinc,
+    ObservationBodyTemperatureCodeCodeSnomed as ObservationBodyTemperatureCodeCodeSnomed,
+    ObservationBodyTemperatureValueQuantity as ObservationBodyTemperatureValueQuantity,
+    ObservationBodyTemperatureCode as ObservationBodyTemperatureCode,
+    ObservationBodyTemperatureReferenceRange as ObservationBodyTemperatureReferenceRange
+} from "./ObservationBodyTemperature";
+
+export {
+    default as ObservationBodyWeight,
+    ObservationBodyWeightCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationBodyWeightCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationBodyWeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationBodyWeightCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationBodyWeightBodySiteCodingDisplayAnzeigenameCodeSnomedContent as ObservationBodyWeightBodySiteCodingDisplayAnzeigenameCodeSnomedContent,
+    ObservationBodyWeightMethodCodingDisplayAnzeigenameMethodSnomedContent as ObservationBodyWeightMethodCodingDisplayAnzeigenameMethodSnomedContent,
+    ObservationBodyWeightCodeLoincDisplayAnzeigenameCodeLoinc as ObservationBodyWeightCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationBodyWeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationBodyWeightCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationBodyWeightBodySiteCodingDisplayAnzeigenameCodeSnomed as ObservationBodyWeightBodySiteCodingDisplayAnzeigenameCodeSnomed,
+    ObservationBodyWeightMethodCodingDisplayAnzeigenameMethodSnomed as ObservationBodyWeightMethodCodingDisplayAnzeigenameMethodSnomed,
+    ObservationBodyWeightCodeLoincDisplay as ObservationBodyWeightCodeLoincDisplay,
+    ObservationBodyWeightCodeCodeSnomedDisplay as ObservationBodyWeightCodeCodeSnomedDisplay,
+    ObservationBodyWeightCodeLoinc as ObservationBodyWeightCodeLoinc,
+    ObservationBodyWeightCodeCodeSnomed as ObservationBodyWeightCodeCodeSnomed,
+    ObservationBodyWeightBodySiteCodingDisplay as ObservationBodyWeightBodySiteCodingDisplay,
+    ObservationBodyWeightMethodCodingDisplay as ObservationBodyWeightMethodCodingDisplay,
+    ObservationBodyWeightValueQuantity as ObservationBodyWeightValueQuantity,
+    ObservationBodyWeightBodySiteCoding as ObservationBodyWeightBodySiteCoding,
+    ObservationBodyWeightMethodCoding as ObservationBodyWeightMethodCoding,
+    ObservationBodyWeightCode as ObservationBodyWeightCode,
+    ObservationBodyWeightBodySite as ObservationBodyWeightBodySite,
+    ObservationBodyWeightMethod as ObservationBodyWeightMethod,
+    ObservationBodyWeightReferenceRange as ObservationBodyWeightReferenceRange
+} from "./ObservationBodyWeight";
+
+export {
+    default as ObservationGlucoseConcentration,
+    ObservationGlucoseConcentrationCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationGlucoseConcentrationCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationGlucoseConcentrationCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationGlucoseConcentrationCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationGlucoseConcentrationInterpretationCodingDisplayAnzeigenameCodeSnomedContent as ObservationGlucoseConcentrationInterpretationCodingDisplayAnzeigenameCodeSnomedContent,
+    ObservationGlucoseConcentrationCodeLoincDisplayAnzeigenameCodeLoinc as ObservationGlucoseConcentrationCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationGlucoseConcentrationCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationGlucoseConcentrationCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationGlucoseConcentrationInterpretationCodingDisplayAnzeigenameCodeSnomed as ObservationGlucoseConcentrationInterpretationCodingDisplayAnzeigenameCodeSnomed,
+    ObservationGlucoseConcentrationCodeLoincDisplay as ObservationGlucoseConcentrationCodeLoincDisplay,
+    ObservationGlucoseConcentrationCodeCodeSnomedDisplay as ObservationGlucoseConcentrationCodeCodeSnomedDisplay,
+    ObservationGlucoseConcentrationCodeLoinc as ObservationGlucoseConcentrationCodeLoinc,
+    ObservationGlucoseConcentrationCodeCodeSnomed as ObservationGlucoseConcentrationCodeCodeSnomed,
+    ObservationGlucoseConcentrationInterpretationCodingDisplay as ObservationGlucoseConcentrationInterpretationCodingDisplay,
+    ObservationGlucoseConcentrationValueQuantity as ObservationGlucoseConcentrationValueQuantity,
+    ObservationGlucoseConcentrationInterpretationCoding as ObservationGlucoseConcentrationInterpretationCoding,
+    ObservationGlucoseConcentrationReferenceRangeLow as ObservationGlucoseConcentrationReferenceRangeLow,
+    ObservationGlucoseConcentrationReferenceRangeHigh as ObservationGlucoseConcentrationReferenceRangeHigh,
+    ObservationGlucoseConcentrationCode as ObservationGlucoseConcentrationCode,
+    ObservationGlucoseConcentrationInterpretation as ObservationGlucoseConcentrationInterpretation,
+    ObservationGlucoseConcentrationReferenceRange as ObservationGlucoseConcentrationReferenceRange
+} from "./ObservationGlucoseConcentration";
+
+export {
+    default as ObservationHeadCircumference,
+    ObservationHeadCircumferenceCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationHeadCircumferenceCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationHeadCircumferenceBodySiteCodingDisplayAnzeigenameCodeSnomedContent as ObservationHeadCircumferenceBodySiteCodingDisplayAnzeigenameCodeSnomedContent,
+    ObservationHeadCircumferenceCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationHeadCircumferenceCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationHeadCircumferenceBodySiteCodingDisplayAnzeigenameCodeSnomed as ObservationHeadCircumferenceBodySiteCodingDisplayAnzeigenameCodeSnomed,
+    ObservationHeadCircumferenceCodeLoincDisplay as ObservationHeadCircumferenceCodeLoincDisplay,
+    ObservationHeadCircumferenceCodeCodeSnomedDisplay as ObservationHeadCircumferenceCodeCodeSnomedDisplay,
+    ObservationHeadCircumferenceCodeLoinc as ObservationHeadCircumferenceCodeLoinc,
+    ObservationHeadCircumferenceCodeCodeSnomed as ObservationHeadCircumferenceCodeCodeSnomed,
+    ObservationHeadCircumferenceBodySiteCodingDisplay as ObservationHeadCircumferenceBodySiteCodingDisplay,
+    ObservationHeadCircumferenceValueQuantity as ObservationHeadCircumferenceValueQuantity,
+    ObservationHeadCircumferenceBodySiteCoding as ObservationHeadCircumferenceBodySiteCoding,
+    ObservationHeadCircumferenceCode as ObservationHeadCircumferenceCode,
+    ObservationHeadCircumferenceBodySite as ObservationHeadCircumferenceBodySite,
+    ObservationHeadCircumferenceReferenceRange as ObservationHeadCircumferenceReferenceRange
+} from "./ObservationHeadCircumference";
+
+export {
+    default as ObservationHeartRate,
+    ObservationHeartRateCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationHeartRateCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationHeartRateCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationHeartRateCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationHeartRateCodeLoincDisplayAnzeigenameCodeLoinc as ObservationHeartRateCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationHeartRateCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationHeartRateCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationHeartRateCodeLoincDisplay as ObservationHeartRateCodeLoincDisplay,
+    ObservationHeartRateCodeCodeSnomedDisplay as ObservationHeartRateCodeCodeSnomedDisplay,
+    ObservationHeartRateCodeLoinc as ObservationHeartRateCodeLoinc,
+    ObservationHeartRateCodeCodeSnomed as ObservationHeartRateCodeCodeSnomed,
+    ObservationHeartRateValueQuantity as ObservationHeartRateValueQuantity,
+    ObservationHeartRateCode as ObservationHeartRateCode,
+    ObservationHeartRateReferenceRange as ObservationHeartRateReferenceRange
+} from "./ObservationHeartRate";
+
+export {
+    default as ObservationPeripheralOxygenSaturation,
+    ObservationPeripheralOxygenSaturationCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationPeripheralOxygenSaturationCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationPeripheralOxygenSaturationMethodCodingDisplayAnzeigenameMethodSnomedContent as ObservationPeripheralOxygenSaturationMethodCodingDisplayAnzeigenameMethodSnomedContent,
+    ObservationPeripheralOxygenSaturationCodeLoincDisplayAnzeigenameCodeLoinc as ObservationPeripheralOxygenSaturationCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationPeripheralOxygenSaturationMethodCodingDisplayAnzeigenameMethodSnomed as ObservationPeripheralOxygenSaturationMethodCodingDisplayAnzeigenameMethodSnomed,
+    ObservationPeripheralOxygenSaturationCodeLoincDisplay as ObservationPeripheralOxygenSaturationCodeLoincDisplay,
+    ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplay as ObservationPeripheralOxygenSaturationCodeCodeSnomedDisplay,
+    ObservationPeripheralOxygenSaturationCodeLoinc as ObservationPeripheralOxygenSaturationCodeLoinc,
+    ObservationPeripheralOxygenSaturationCodeCodeSnomed as ObservationPeripheralOxygenSaturationCodeCodeSnomed,
+    ObservationPeripheralOxygenSaturationMethodCodingDisplay as ObservationPeripheralOxygenSaturationMethodCodingDisplay,
+    ObservationPeripheralOxygenSaturationComponentValueQuantity as ObservationPeripheralOxygenSaturationComponentValueQuantity,
+    ObservationPeripheralOxygenSaturationValueQuantity as ObservationPeripheralOxygenSaturationValueQuantity,
+    ObservationPeripheralOxygenSaturationMethodCoding as ObservationPeripheralOxygenSaturationMethodCoding,
+    ObservationPeripheralOxygenSaturationCode as ObservationPeripheralOxygenSaturationCode,
+    ObservationPeripheralOxygenSaturationMethod as ObservationPeripheralOxygenSaturationMethod,
+    ObservationPeripheralOxygenSaturationReferenceRange as ObservationPeripheralOxygenSaturationReferenceRange,
+    ObservationPeripheralOxygenSaturationComponent as ObservationPeripheralOxygenSaturationComponent
+} from "./ObservationPeripheralOxygenSaturation";
+
+export {
+    default as ObservationRespiratoryRate,
+    ObservationRespiratoryRateCodeLoincDisplayAnzeigenameCodeLoincContent as ObservationRespiratoryRateCodeLoincDisplayAnzeigenameCodeLoincContent,
+    ObservationRespiratoryRateCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent as ObservationRespiratoryRateCodeCodeSnomedDisplayAnzeigenameCodeSnomedContent,
+    ObservationRespiratoryRateCodeLoincDisplayAnzeigenameCodeLoinc as ObservationRespiratoryRateCodeLoincDisplayAnzeigenameCodeLoinc,
+    ObservationRespiratoryRateCodeCodeSnomedDisplayAnzeigenameCodeSnomed as ObservationRespiratoryRateCodeCodeSnomedDisplayAnzeigenameCodeSnomed,
+    ObservationRespiratoryRateCodeLoincDisplay as ObservationRespiratoryRateCodeLoincDisplay,
+    ObservationRespiratoryRateCodeCodeSnomedDisplay as ObservationRespiratoryRateCodeCodeSnomedDisplay,
+    ObservationRespiratoryRateCodeLoinc as ObservationRespiratoryRateCodeLoinc,
+    ObservationRespiratoryRateCodeCodeSnomed as ObservationRespiratoryRateCodeCodeSnomed,
+    ObservationRespiratoryRateValueQuantity as ObservationRespiratoryRateValueQuantity,
+    ObservationRespiratoryRateCode as ObservationRespiratoryRateCode,
+    ObservationRespiratoryRateReferenceRange as ObservationRespiratoryRateReferenceRange
+} from "./ObservationRespiratoryRate";
+
+export {
+    default as Organization,
+    OrganizationInstitutionskennzeichenTypeCoding as OrganizationInstitutionskennzeichenTypeCoding,
+    OrganizationBetriebsstaettennummerTypeCoding as OrganizationBetriebsstaettennummerTypeCoding,
+    OrganizationBetriebsstaettennummerAssignerReferenceIdentifier as OrganizationBetriebsstaettennummerAssignerReferenceIdentifier,
+    OrganizationVKNRTypeCoding as OrganizationVKNRTypeCoding,
+    OrganizationVKNRAssignerReferenceIdentifier as OrganizationVKNRAssignerReferenceIdentifier,
+    OrganizationKZVAbrechnungsnummerTypeCoding as OrganizationKZVAbrechnungsnummerTypeCoding,
+    OrganizationKZVAbrechnungsnummerAssignerReferenceIdentifier as OrganizationKZVAbrechnungsnummerAssignerReferenceIdentifier,
+    OrganizationInstitutionskennzeichenType as OrganizationInstitutionskennzeichenType,
+    OrganizationBetriebsstaettennummerType as OrganizationBetriebsstaettennummerType,
+    OrganizationBetriebsstaettennummerAssignerReference as OrganizationBetriebsstaettennummerAssignerReference,
+    OrganizationVKNRType as OrganizationVKNRType,
+    OrganizationVKNRAssignerReference as OrganizationVKNRAssignerReference,
+    OrganizationKZVAbrechnungsnummerType as OrganizationKZVAbrechnungsnummerType,
+    OrganizationKZVAbrechnungsnummerAssignerReference as OrganizationKZVAbrechnungsnummerAssignerReference,
+    OrganizationInstitutionskennzeichen as OrganizationInstitutionskennzeichen,
+    OrganizationBetriebsstaettennummer as OrganizationBetriebsstaettennummer,
+    OrganizationVKNR as OrganizationVKNR,
+    OrganizationKZVAbrechnungsnummer as OrganizationKZVAbrechnungsnummer,
+    OrganizationContactAddress as OrganizationContactAddress,
+    OrganizationContact as OrganizationContact
+} from "./Organization";
+
+export {
+    default as Patient,
+    PatientNameFamilyNamenszusatz as PatientNameFamilyNamenszusatz,
+    PatientNameFamilyNachname as PatientNameFamilyNachname,
+    PatientNameFamilyVorsatzwort as PatientNameFamilyVorsatzwort,
+    PatientNamePrefixPrefixqualifier as PatientNamePrefixPrefixqualifier,
+    PatientGenderAnzeigenameCodeContent as PatientGenderAnzeigenameCodeContent,
+    PatientPidTypeCoding as PatientPidTypeCoding,
+    PatientVersichertenIdGKVTypeCoding as PatientVersichertenIdGKVTypeCoding,
+    PatientVersichertennummerpkvTypeCoding as PatientVersichertennummerpkvTypeCoding,
+    PatientReisepassnummerTypeCoding as PatientReisepassnummerTypeCoding,
+    PatientVersichertennummerkvkTypeCoding as PatientVersichertennummerkvkTypeCoding,
+    PatientPidType as PatientPidType,
+    PatientVersichertenIdGKVType as PatientVersichertenIdGKVType,
+    PatientVersichertennummerpkvType as PatientVersichertennummerpkvType,
+    PatientVersichertennummerpkvAssignerReference as PatientVersichertennummerpkvAssignerReference,
+    PatientReisepassnummerType as PatientReisepassnummerType,
+    PatientVersichertennummerkvkType as PatientVersichertennummerkvkType,
+    PatientNameFamily as PatientNameFamily,
+    PatientNamePrefix as PatientNamePrefix,
+    PatientGenderAnzeigenameCode as PatientGenderAnzeigenameCode,
+    PatientBirthDateDataabsentreason as PatientBirthDateDataabsentreason,
+    PatientPid as PatientPid,
+    PatientVersichertenIdGKV as PatientVersichertenIdGKV,
+    PatientVersichertennummerpkv as PatientVersichertennummerpkv,
+    PatientReisepassnummer as PatientReisepassnummer,
+    PatientVersichertennummerkvk as PatientVersichertennummerkvk,
+    PatientName as PatientName,
+    PatientContactAddress as PatientContactAddress,
+    PatientGender as PatientGender,
+    PatientBirthDate as PatientBirthDate,
+    PatientContact as PatientContact,
+    PatientCommunication as PatientCommunication,
+    PatientLink as PatientLink
+} from "./Patient";
+
+export {
+    default as Practitioner,
+    PractitionerQualificationCodeCodingDisplayAnzeigenameQualifikationContent as PractitionerQualificationCodeCodingDisplayAnzeigenameQualifikationContent,
+    PractitionerQualificationCodeCodingDisplayAnzeigenameQualifikation as PractitionerQualificationCodeCodingDisplayAnzeigenameQualifikation,
+    PractitionerNameFamilyNamenszusatz as PractitionerNameFamilyNamenszusatz,
+    PractitionerNameFamilyNachname as PractitionerNameFamilyNachname,
+    PractitionerNameFamilyVorsatzwort as PractitionerNameFamilyVorsatzwort,
+    PractitionerNamePrefixPrefixqualifier as PractitionerNamePrefixPrefixqualifier,
+    PractitionerGeburtsnameFamilyNamenszusatz as PractitionerGeburtsnameFamilyNamenszusatz,
+    PractitionerGeburtsnameFamilyNachname as PractitionerGeburtsnameFamilyNachname,
+    PractitionerGeburtsnameFamilyVorsatzwort as PractitionerGeburtsnameFamilyVorsatzwort,
+    PractitionerGenderAnzeigenameCodeContent as PractitionerGenderAnzeigenameCodeContent,
+    PractitionerANRTypeCoding as PractitionerANRTypeCoding,
+    PractitionerANRAssignerReferenceIdentifier as PractitionerANRAssignerReferenceIdentifier,
+    PractitionerEFNTypeCoding as PractitionerEFNTypeCoding,
+    PractitionerEFNAssignerReferenceIdentifier as PractitionerEFNAssignerReferenceIdentifier,
+    PractitionerZANRTypeCoding as PractitionerZANRTypeCoding,
+    PractitionerZANRAssignerReferenceIdentifier as PractitionerZANRAssignerReferenceIdentifier,
+    PractitionerQualificationCodeCodingDisplay as PractitionerQualificationCodeCodingDisplay,
+    PractitionerANRType as PractitionerANRType,
+    PractitionerANRAssignerReference as PractitionerANRAssignerReference,
+    PractitionerEFNType as PractitionerEFNType,
+    PractitionerEFNAssignerReference as PractitionerEFNAssignerReference,
+    PractitionerZANRType as PractitionerZANRType,
+    PractitionerZANRAssignerReference as PractitionerZANRAssignerReference,
+    PractitionerNameFamily as PractitionerNameFamily,
+    PractitionerNamePrefix as PractitionerNamePrefix,
+    PractitionerGeburtsnameFamily as PractitionerGeburtsnameFamily,
+    PractitionerGenderAnzeigenameCode as PractitionerGenderAnzeigenameCode,
+    PractitionerBirthDateDataabsentreason as PractitionerBirthDateDataabsentreason,
+    PractitionerQualificationCodeCoding as PractitionerQualificationCodeCoding,
+    PractitionerANR as PractitionerANR,
+    PractitionerEFN as PractitionerEFN,
+    PractitionerZANR as PractitionerZANR,
+    PractitionerName as PractitionerName,
+    PractitionerGeburtsname as PractitionerGeburtsname,
+    PractitionerQualificationCode as PractitionerQualificationCode,
+    PractitionerGender as PractitionerGender,
+    PractitionerBirthDate as PractitionerBirthDate,
+    PractitionerQualification as PractitionerQualification
+} from "./Practitioner";

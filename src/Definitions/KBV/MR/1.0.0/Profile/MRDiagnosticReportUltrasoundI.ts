@@ -1307,13 +1307,13 @@ export const MRDiagnosticReportUltrasoundICode: t.Type<MRDiagnosticReportUltraso
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface MRDiagnosticReportUltrasoundISubject {
+export interface MRDiagnosticReportUltrasoundISubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltrasoundISubject> =
-    t.recursion("MRDiagnosticReportUltrasoundISubject", () =>
+export const MRDiagnosticReportUltrasoundISubjectReference: t.Type<MRDiagnosticReportUltrasoundISubjectReference> =
+    t.recursion("MRDiagnosticReportUltrasoundISubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1331,13 +1331,13 @@ export const MRDiagnosticReportUltrasoundISubject: t.Type<MRDiagnosticReportUltr
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface MRDiagnosticReportUltrasoundIEncounter {
+export interface MRDiagnosticReportUltrasoundIEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUltrasoundIEncounter> =
-    t.recursion("MRDiagnosticReportUltrasoundIEncounter", () =>
+export const MRDiagnosticReportUltrasoundIEncounterReference: t.Type<MRDiagnosticReportUltrasoundIEncounterReference> =
+    t.recursion("MRDiagnosticReportUltrasoundIEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1355,13 +1355,13 @@ export const MRDiagnosticReportUltrasoundIEncounter: t.Type<MRDiagnosticReportUl
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface MRDiagnosticReportUltrasoundIPerformer {
+export interface MRDiagnosticReportUltrasoundIPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUltrasoundIPerformer> =
-    t.recursion("MRDiagnosticReportUltrasoundIPerformer", () =>
+export const MRDiagnosticReportUltrasoundIPerformerReference: t.Type<MRDiagnosticReportUltrasoundIPerformerReference> =
+    t.recursion("MRDiagnosticReportUltrasoundIPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1380,13 +1380,13 @@ export const MRDiagnosticReportUltrasoundIPerformer: t.Type<MRDiagnosticReportUl
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface MRDiagnosticReportUltrasoundIResult {
+export interface MRDiagnosticReportUltrasoundIResultReference {
     reference: string;
     id?: string;
 }
 
-export const MRDiagnosticReportUltrasoundIResult: t.Type<MRDiagnosticReportUltrasoundIResult> =
-    t.recursion("MRDiagnosticReportUltrasoundIResult", () =>
+export const MRDiagnosticReportUltrasoundIResultReference: t.Type<MRDiagnosticReportUltrasoundIResultReference> =
+    t.recursion("MRDiagnosticReportUltrasoundIResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1412,15 +1412,15 @@ interface MRDiagnosticReportUltrasoundI {
     meta: MRDiagnosticReportUltrasoundIMeta;
     status: "final";
     code: MRDiagnosticReportUltrasoundICode;
-    subject: MRDiagnosticReportUltrasoundISubject;
-    encounter: MRDiagnosticReportUltrasoundIEncounter;
+    subject: MRDiagnosticReportUltrasoundISubjectReference;
+    encounter: MRDiagnosticReportUltrasoundIEncounterReference;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRDiagnosticReportUltrasoundIErgaenzendeAngaben)[];
     _effectiveDateTime?: MRDiagnosticReportUltrasoundIEffectiveDateTime;
     effectiveDateTime?: string;
-    performer?: Array<MRDiagnosticReportUltrasoundIPerformer>;
-    result?: MRDiagnosticReportUltrasoundIResult[];
+    performer?: Array<MRDiagnosticReportUltrasoundIPerformerReference>;
+    result?: MRDiagnosticReportUltrasoundIResultReference[];
 }
 
 const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.recursion(
@@ -1433,8 +1433,8 @@ const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.r
                     meta: MRDiagnosticReportUltrasoundIMeta,
                     status: Literal("final"),
                     code: MRDiagnosticReportUltrasoundICode,
-                    subject: MRDiagnosticReportUltrasoundISubject,
-                    encounter: MRDiagnosticReportUltrasoundIEncounter
+                    subject: MRDiagnosticReportUltrasoundISubjectReference,
+                    encounter: MRDiagnosticReportUltrasoundIEncounterReference
                 }),
                 t.partial({
                     id: SCALARString,
@@ -1471,8 +1471,11 @@ const MRDiagnosticReportUltrasoundI: t.Type<MRDiagnosticReportUltrasoundI> = t.r
                     ),
                     _effectiveDateTime: MRDiagnosticReportUltrasoundIEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
-                    performer: MaxArray(1, MRDiagnosticReportUltrasoundIPerformer),
-                    result: t.array(MRDiagnosticReportUltrasoundIResult)
+                    performer: MaxArray(
+                        1,
+                        MRDiagnosticReportUltrasoundIPerformerReference
+                    ),
+                    result: t.array(MRDiagnosticReportUltrasoundIResultReference)
                 })
             ])
         )

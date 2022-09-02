@@ -5,6 +5,8 @@ coverage/
 reports/
 .scannerwork
 
+bom.xml
+
 .DS_Store
 .vscode
 .idea/

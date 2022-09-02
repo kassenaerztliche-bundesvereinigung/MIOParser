@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type BodyWeightMethodSnomed = "363808001" | "786458005";
 
-const BodyWeightMethodSnomed: t.Type<BodyWeightMethodSnomed> = t.union(
-    [t.literal("363808001"), t.literal("786458005")],
-    "BodyWeightMethodSnomed"
-);
+type BodyWeightMethodSnomedType = t.KeyofC<{ "363808001": null; "786458005": null }>;
 
+const BodyWeightMethodSnomed: BodyWeightMethodSnomedType = t.keyof({
+    "363808001": null,
+    "786458005": null
+});
 export const BodyWeightMethodSnomedArray: string[] = ["363808001", "786458005"];
 
 export const BodyWeightMethodSnomedValueSet: ValueSet = [

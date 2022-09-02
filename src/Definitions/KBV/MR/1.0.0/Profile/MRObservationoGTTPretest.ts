@@ -670,13 +670,13 @@ export const MRObservationoGTTPretestCode: t.Type<MRObservationoGTTPretestCode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationoGTTPretestSubject {
+export interface MRObservationoGTTPretestSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTPretestSubject: t.Type<MRObservationoGTTPretestSubject> =
-    t.recursion("MRObservationoGTTPretestSubject", () =>
+export const MRObservationoGTTPretestSubjectReference: t.Type<MRObservationoGTTPretestSubjectReference> =
+    t.recursion("MRObservationoGTTPretestSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -694,13 +694,13 @@ export const MRObservationoGTTPretestSubject: t.Type<MRObservationoGTTPretestSub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationoGTTPretestEncounter {
+export interface MRObservationoGTTPretestEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTPretestEncounter: t.Type<MRObservationoGTTPretestEncounter> =
-    t.recursion("MRObservationoGTTPretestEncounter", () =>
+export const MRObservationoGTTPretestEncounterReference: t.Type<MRObservationoGTTPretestEncounterReference> =
+    t.recursion("MRObservationoGTTPretestEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -718,13 +718,13 @@ export const MRObservationoGTTPretestEncounter: t.Type<MRObservationoGTTPretestE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationoGTTPretestPerformer {
+export interface MRObservationoGTTPretestPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationoGTTPretestPerformer: t.Type<MRObservationoGTTPretestPerformer> =
-    t.recursion("MRObservationoGTTPretestPerformer", () =>
+export const MRObservationoGTTPretestPerformerReference: t.Type<MRObservationoGTTPretestPerformerReference> =
+    t.recursion("MRObservationoGTTPretestPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -771,12 +771,12 @@ interface MRObservationoGTTPretest {
     meta: MRObservationoGTTPretestMeta;
     status: "final";
     code: MRObservationoGTTPretestCode;
-    subject: MRObservationoGTTPretestSubject;
-    encounter: MRObservationoGTTPretestEncounter;
+    subject: MRObservationoGTTPretestSubjectReference;
+    encounter: MRObservationoGTTPretestEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationoGTTPretestPerformer>;
+    performer?: Array<MRObservationoGTTPretestPerformerReference>;
     valueCodeableConcept?: MRObservationoGTTPretestValueCodeableConcept;
     dataAbsentReason?: MRObservationoGTTPretestDataAbsentReason;
 }
@@ -791,14 +791,14 @@ const MRObservationoGTTPretest: t.Type<MRObservationoGTTPretest> = t.recursion(
                     meta: MRObservationoGTTPretestMeta,
                     status: Literal("final"),
                     code: MRObservationoGTTPretestCode,
-                    subject: MRObservationoGTTPretestSubject,
-                    encounter: MRObservationoGTTPretestEncounter,
+                    subject: MRObservationoGTTPretestSubjectReference,
+                    encounter: MRObservationoGTTPretestEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationoGTTPretestPerformer),
+                    performer: MaxArray(1, MRObservationoGTTPretestPerformerReference),
                     valueCodeableConcept: MRObservationoGTTPretestValueCodeableConcept,
                     dataAbsentReason: MRObservationoGTTPretestDataAbsentReason
                 })

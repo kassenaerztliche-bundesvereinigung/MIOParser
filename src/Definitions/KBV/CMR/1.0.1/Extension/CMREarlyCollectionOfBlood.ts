@@ -171,9 +171,9 @@ export interface CMREarlyCollectionOfBloodValueCodeableConceptCoding {
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20210131";
     code: "738796001:363702006=395507008";
+    display: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
     id?: string;
     _display?: CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay;
-    display?: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
 }
 
 export const CMREarlyCollectionOfBloodValueCodeableConceptCoding: t.Type<CMREarlyCollectionOfBloodValueCodeableConceptCoding> =
@@ -185,14 +185,14 @@ export const CMREarlyCollectionOfBloodValueCodeableConceptCoding: t.Type<CMREarl
                     version: Literal(
                         "http://snomed.info/sct/900000000000207008/version/20210131"
                     ),
-                    code: Literal("738796001:363702006=395507008")
-                }),
-                t.partial({
-                    id: SCALARString,
-                    _display: CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay,
+                    code: Literal("738796001:363702006=395507008"),
                     display: Literal(
                         "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)"
                     )
+                }),
+                t.partial({
+                    id: SCALARString,
+                    _display: CMREarlyCollectionOfBloodValueCodeableConceptCodingDisplay
                 })
             ])
         )

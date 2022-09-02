@@ -26,11 +26,17 @@ import HeartRateSnomedGerman from "../../../../Definitions/KBVBase/1.1.3/Concept
 
 type HeartRateSnomed = "364075005" | "78564009" | "249043002";
 
-const HeartRateSnomed: t.Type<HeartRateSnomed> = t.union(
-    [t.literal("364075005"), t.literal("78564009"), t.literal("249043002")],
-    "HeartRateSnomed"
-);
+type HeartRateSnomedType = t.KeyofC<{
+    "364075005": null;
+    "78564009": null;
+    "249043002": null;
+}>;
 
+const HeartRateSnomed: HeartRateSnomedType = t.keyof({
+    "364075005": null,
+    "78564009": null,
+    "249043002": null
+});
 export const HeartRateSnomedArray: string[] = ["364075005", "78564009", "249043002"];
 
 export const HeartRateSnomedValueSet: ValueSet = [

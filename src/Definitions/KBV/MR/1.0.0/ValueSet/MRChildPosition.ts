@@ -26,11 +26,17 @@ import MRChildPositionGerman from "../../../../../Definitions/KBV/MR/1.0.0/Conce
 
 type MRChildPosition = "73161006" | "6096002" | "70028003";
 
-const MRChildPosition: t.Type<MRChildPosition> = t.union(
-    [t.literal("73161006"), t.literal("6096002"), t.literal("70028003")],
-    "MRChildPosition"
-);
+type MRChildPositionType = t.KeyofC<{
+    "73161006": null;
+    "6096002": null;
+    "70028003": null;
+}>;
 
+const MRChildPosition: MRChildPositionType = t.keyof({
+    "73161006": null,
+    "6096002": null,
+    "70028003": null
+});
 export const MRChildPositionArray: string[] = ["73161006", "6096002", "70028003"];
 
 export const MRChildPositionValueSet: ValueSet = [

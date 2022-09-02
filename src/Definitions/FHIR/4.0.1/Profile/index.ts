@@ -67,6 +67,10 @@ export { default as ParameterDefinition } from "./ParameterDefinition";
 
 export { default as Period } from "./Period";
 
+export { default as ProdCharacteristic } from "./ProdCharacteristic";
+
+export { default as ProductShelfLife } from "./ProductShelfLife";
+
 export { default as Range } from "./Range";
 
 export { default as Ratio } from "./Ratio";

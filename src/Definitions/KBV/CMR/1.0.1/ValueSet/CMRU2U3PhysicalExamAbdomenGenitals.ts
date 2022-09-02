@@ -30,17 +30,20 @@ type CMRU2U3PhysicalExamAbdomenGenitals =
     | "65476007:{363698007=10200004,363698007=78961009}"
     | "128545000";
 
-const CMRU2U3PhysicalExamAbdomenGenitals: t.Type<CMRU2U3PhysicalExamAbdomenGenitals> =
-    t.union(
-        [
-            t.literal("822987005:{116676008=49755003,363698007=818987002}"),
-            t.literal("249537008"),
-            t.literal("65476007:{363698007=10200004,363698007=78961009}"),
-            t.literal("128545000")
-        ],
-        "CMRU2U3PhysicalExamAbdomenGenitals"
-    );
+type CMRU2U3PhysicalExamAbdomenGenitalsType = t.KeyofC<{
+    "822987005:{116676008=49755003,363698007=818987002}": null;
+    "249537008": null;
+    "65476007:{363698007=10200004,363698007=78961009}": null;
+    "128545000": null;
+}>;
 
+const CMRU2U3PhysicalExamAbdomenGenitals: CMRU2U3PhysicalExamAbdomenGenitalsType =
+    t.keyof({
+        "822987005:{116676008=49755003,363698007=818987002}": null,
+        "249537008": null,
+        "65476007:{363698007=10200004,363698007=78961009}": null,
+        "128545000": null
+    });
 export const CMRU2U3PhysicalExamAbdomenGenitalsArray: string[] = [
     "822987005:{116676008=49755003,363698007=818987002}",
     "249537008",

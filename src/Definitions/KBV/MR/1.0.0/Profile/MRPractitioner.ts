@@ -468,7 +468,7 @@ export const MRPractitionerPractitionerspecialityCodeCodingDisplay: t.Type<MRPra
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface MRPractitionerANRAssignerIdentifier {
+export interface MRPractitionerANRAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -478,8 +478,8 @@ export interface MRPractitionerANRAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MRPractitionerANRAssignerIdentifier: t.Type<MRPractitionerANRAssignerIdentifier> =
-    t.recursion("MRPractitionerANRAssignerIdentifier", () =>
+export const MRPractitionerANRAssignerReferenceIdentifier: t.Type<MRPractitionerANRAssignerReferenceIdentifier> =
+    t.recursion("MRPractitionerANRAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -500,7 +500,7 @@ export const MRPractitionerANRAssignerIdentifier: t.Type<MRPractitionerANRAssign
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface MRPractitionerEFNAssignerIdentifier {
+export interface MRPractitionerEFNAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -510,8 +510,8 @@ export interface MRPractitionerEFNAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MRPractitionerEFNAssignerIdentifier: t.Type<MRPractitionerEFNAssignerIdentifier> =
-    t.recursion("MRPractitionerEFNAssignerIdentifier", () =>
+export const MRPractitionerEFNAssignerReferenceIdentifier: t.Type<MRPractitionerEFNAssignerReferenceIdentifier> =
+    t.recursion("MRPractitionerEFNAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -609,17 +609,16 @@ export const MRPractitionerANRType: t.Type<MRPractitionerANRType> = t.recursion(
 /**
  * Organization that issued/manages the identifier.
  */
-export interface MRPractitionerANRAssigner {
+export interface MRPractitionerANRAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: MRPractitionerANRAssignerIdentifier;
+    identifier?: MRPractitionerANRAssignerReferenceIdentifier;
 }
 
-export const MRPractitionerANRAssigner: t.Type<MRPractitionerANRAssigner> = t.recursion(
-    "MRPractitionerANRAssigner",
-    () =>
+export const MRPractitionerANRAssignerReference: t.Type<MRPractitionerANRAssignerReference> =
+    t.recursion("MRPractitionerANRAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -631,11 +630,11 @@ export const MRPractitionerANRAssigner: t.Type<MRPractitionerANRAssigner> = t.re
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: MRPractitionerANRAssignerIdentifier
+                    identifier: MRPractitionerANRAssignerReferenceIdentifier
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -665,17 +664,16 @@ export const MRPractitionerEFNType: t.Type<MRPractitionerEFNType> = t.recursion(
 /**
  * Organization that issued/manages the identifier.
  */
-export interface MRPractitionerEFNAssigner {
+export interface MRPractitionerEFNAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: MRPractitionerEFNAssignerIdentifier;
+    identifier?: MRPractitionerEFNAssignerReferenceIdentifier;
 }
 
-export const MRPractitionerEFNAssigner: t.Type<MRPractitionerEFNAssigner> = t.recursion(
-    "MRPractitionerEFNAssigner",
-    () =>
+export const MRPractitionerEFNAssignerReference: t.Type<MRPractitionerEFNAssignerReference> =
+    t.recursion("MRPractitionerEFNAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -687,11 +685,11 @@ export const MRPractitionerEFNAssigner: t.Type<MRPractitionerEFNAssigner> = t.re
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: MRPractitionerEFNAssignerIdentifier
+                    identifier: MRPractitionerEFNAssignerReferenceIdentifier
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -976,7 +974,7 @@ export interface MRPractitionerANR {
     use?: "official";
     type?: MRPractitionerANRType;
     period?: Period;
-    assigner?: MRPractitionerANRAssigner;
+    assigner?: MRPractitionerANRAssignerReference;
 }
 
 export const MRPractitionerANR: t.Type<MRPractitionerANR> = t.recursion(
@@ -993,7 +991,7 @@ export const MRPractitionerANR: t.Type<MRPractitionerANR> = t.recursion(
                     use: Literal("official"),
                     type: MRPractitionerANRType,
                     period: Period,
-                    assigner: MRPractitionerANRAssigner
+                    assigner: MRPractitionerANRAssignerReference
                 })
             ])
         )
@@ -1009,7 +1007,7 @@ export interface MRPractitionerEFN {
     use?: "official";
     type?: MRPractitionerEFNType;
     period?: Period;
-    assigner?: MRPractitionerEFNAssigner;
+    assigner?: MRPractitionerEFNAssignerReference;
 }
 
 export const MRPractitionerEFN: t.Type<MRPractitionerEFN> = t.recursion(
@@ -1026,7 +1024,7 @@ export const MRPractitionerEFN: t.Type<MRPractitionerEFN> = t.recursion(
                     use: Literal("official"),
                     type: MRPractitionerEFNType,
                     period: Period,
-                    assigner: MRPractitionerEFNAssigner
+                    assigner: MRPractitionerEFNAssignerReference
                 })
             ])
         )

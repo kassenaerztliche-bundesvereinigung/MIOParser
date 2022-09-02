@@ -25,19 +25,25 @@ import { ValueSet } from "../../../Interfaces";
 
 type Daysofweek = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
 
-const Daysofweek: t.Type<Daysofweek> = t.union(
-    [
-        t.literal("mon"),
-        t.literal("tue"),
-        t.literal("wed"),
-        t.literal("thu"),
-        t.literal("fri"),
-        t.literal("sat"),
-        t.literal("sun")
-    ],
-    "Daysofweek"
-);
+type DaysofweekType = t.KeyofC<{
+    mon: null;
+    tue: null;
+    wed: null;
+    thu: null;
+    fri: null;
+    sat: null;
+    sun: null;
+}>;
 
+const Daysofweek: DaysofweekType = t.keyof({
+    mon: null,
+    tue: null,
+    wed: null,
+    thu: null,
+    fri: null,
+    sat: null,
+    sun: null
+});
 export const DaysofweekArray: string[] = [
     "mon",
     "tue",

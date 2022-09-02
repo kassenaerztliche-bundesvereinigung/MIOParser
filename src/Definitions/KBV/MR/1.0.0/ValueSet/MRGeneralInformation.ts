@@ -28,16 +28,15 @@ type MRGeneralInformation =
     | "404684003:{418775008=446522006,363698007=609524001,363713009=52101004}"
     | "277766008";
 
-const MRGeneralInformation: t.Type<MRGeneralInformation> = t.union(
-    [
-        t.literal(
-            "404684003:{418775008=446522006,363698007=609524001,363713009=52101004}"
-        ),
-        t.literal("277766008")
-    ],
-    "MRGeneralInformation"
-);
+type MRGeneralInformationType = t.KeyofC<{
+    "404684003:{418775008=446522006,363698007=609524001,363713009=52101004}": null;
+    "277766008": null;
+}>;
 
+const MRGeneralInformation: MRGeneralInformationType = t.keyof({
+    "404684003:{418775008=446522006,363698007=609524001,363713009=52101004}": null,
+    "277766008": null
+});
 export const MRGeneralInformationArray: string[] = [
     "404684003:{418775008=446522006,363698007=609524001,363713009=52101004}",
     "277766008"

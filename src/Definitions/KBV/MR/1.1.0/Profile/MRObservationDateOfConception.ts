@@ -197,13 +197,13 @@ export const MRObservationDateOfConceptionCode: t.Type<MRObservationDateOfConcep
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationDateOfConceptionSubject {
+export interface MRObservationDateOfConceptionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateOfConceptionSubject: t.Type<MRObservationDateOfConceptionSubject> =
-    t.recursion("MRObservationDateOfConceptionSubject", () =>
+export const MRObservationDateOfConceptionSubjectReference: t.Type<MRObservationDateOfConceptionSubjectReference> =
+    t.recursion("MRObservationDateOfConceptionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -221,13 +221,13 @@ export const MRObservationDateOfConceptionSubject: t.Type<MRObservationDateOfCon
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationDateOfConceptionEncounter {
+export interface MRObservationDateOfConceptionEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateOfConceptionEncounter: t.Type<MRObservationDateOfConceptionEncounter> =
-    t.recursion("MRObservationDateOfConceptionEncounter", () =>
+export const MRObservationDateOfConceptionEncounterReference: t.Type<MRObservationDateOfConceptionEncounterReference> =
+    t.recursion("MRObservationDateOfConceptionEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -245,13 +245,13 @@ export const MRObservationDateOfConceptionEncounter: t.Type<MRObservationDateOfC
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationDateOfConceptionPerformer {
+export interface MRObservationDateOfConceptionPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateOfConceptionPerformer: t.Type<MRObservationDateOfConceptionPerformer> =
-    t.recursion("MRObservationDateOfConceptionPerformer", () =>
+export const MRObservationDateOfConceptionPerformerReference: t.Type<MRObservationDateOfConceptionPerformerReference> =
+    t.recursion("MRObservationDateOfConceptionPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,13 +272,13 @@ interface MRObservationDateOfConception {
     meta: MRObservationDateOfConceptionMeta;
     status: "final";
     code: MRObservationDateOfConceptionCode;
-    subject: MRObservationDateOfConceptionSubject;
-    encounter: MRObservationDateOfConceptionEncounter;
+    subject: MRObservationDateOfConceptionSubjectReference;
+    encounter: MRObservationDateOfConceptionEncounterReference;
     effectiveDateTime: string;
     valueDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationDateOfConceptionPerformer>;
+    performer?: Array<MRObservationDateOfConceptionPerformerReference>;
 }
 
 const MRObservationDateOfConception: t.Type<MRObservationDateOfConception> = t.recursion(
@@ -291,15 +291,18 @@ const MRObservationDateOfConception: t.Type<MRObservationDateOfConception> = t.r
                     meta: MRObservationDateOfConceptionMeta,
                     status: Literal("final"),
                     code: MRObservationDateOfConceptionCode,
-                    subject: MRObservationDateOfConceptionSubject,
-                    encounter: MRObservationDateOfConceptionEncounter,
+                    subject: MRObservationDateOfConceptionSubjectReference,
+                    encounter: MRObservationDateOfConceptionEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationDateOfConceptionPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationDateOfConceptionPerformerReference
+                    )
                 })
             ])
         )

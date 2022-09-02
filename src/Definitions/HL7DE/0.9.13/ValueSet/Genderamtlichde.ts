@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type Genderamtlichde = "X" | "D";
 
-const Genderamtlichde: t.Type<Genderamtlichde> = t.union(
-    [t.literal("X"), t.literal("D")],
-    "Genderamtlichde"
-);
+type GenderamtlichdeType = t.KeyofC<{ X: null; D: null }>;
 
+const Genderamtlichde: GenderamtlichdeType = t.keyof({
+    X: null,
+    D: null
+});
 export const GenderamtlichdeArray: string[] = ["X", "D"];
 
 export const GenderamtlichdeValueSet: ValueSet = [

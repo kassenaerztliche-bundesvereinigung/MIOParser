@@ -267,14 +267,14 @@ export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemCode: t
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject {
+export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject> =
+export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference> =
     t.recursion(
-        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject",
+        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference",
         () =>
             Excess(
                 t.intersection([
@@ -293,14 +293,14 @@ export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter {
+export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter> =
+export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference> =
     t.recursion(
-        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter",
+        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference",
         () =>
             Excess(
                 t.intersection([
@@ -319,14 +319,14 @@ export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncount
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer {
+export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer> =
+export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference> =
     t.recursion(
-        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer",
+        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference",
         () =>
             Excess(
                 t.intersection([
@@ -345,14 +345,14 @@ export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerform
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult {
+export interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult> =
+export const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference> =
     t.recursion(
-        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult",
+        "CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference",
         () =>
             Excess(
                 t.intersection([
@@ -373,13 +373,13 @@ interface CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystem {
     meta: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemMeta;
     status: "final";
     code: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemCode;
-    subject: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject;
-    encounter: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter;
+    subject: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference;
+    encounter: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer>;
-    result?: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult[];
+    performer?: Array<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference>;
+    result?: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference[];
 }
 
 const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystem: t.Type<CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystem> =
@@ -392,9 +392,9 @@ const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystem: t.Type<CMRDi
                     status: Literal("final"),
                     code: CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemCode,
                     subject:
-                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubject,
+                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounter,
+                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -402,10 +402,10 @@ const CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystem: t.Type<CMRDi
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformer
+                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResult
+                        CMRDiagnosticReportU7aandU9PhysicalExamMusculoskeletalSystemResultReference
                     )
                 })
             ])

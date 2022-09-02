@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
+
 import SCALARCanonical from "../../../../Definitions/FHIR/4.0.1/Scalar/Canonical";
 
 import SCALARMarkdown from "../../../../Definitions/FHIR/4.0.1/Scalar/Markdown";
@@ -32,7 +32,6 @@ import RelatedartifacttypeVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/R
 
 interface RelatedArtifact {
     type: RelatedartifacttypeVS;
-    resourceType?: "RelatedArtifact";
     id?: string;
     label?: string;
     display?: string;
@@ -48,7 +47,6 @@ const RelatedArtifact: t.Type<RelatedArtifact> = t.recursion("RelatedArtifact", 
             type: RelatedartifacttypeVS
         }),
         t.partial({
-            resourceType: Literal("RelatedArtifact"),
             id: SCALARString,
             label: SCALARString,
             display: SCALARString,

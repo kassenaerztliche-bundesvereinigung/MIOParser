@@ -25,11 +25,15 @@ import { ValueSet } from "../../../Interfaces";
 
 type HeadCircumferenceBodySiteSnomed = "302548004" | "362865009";
 
-const HeadCircumferenceBodySiteSnomed: t.Type<HeadCircumferenceBodySiteSnomed> = t.union(
-    [t.literal("302548004"), t.literal("362865009")],
-    "HeadCircumferenceBodySiteSnomed"
-);
+type HeadCircumferenceBodySiteSnomedType = t.KeyofC<{
+    "302548004": null;
+    "362865009": null;
+}>;
 
+const HeadCircumferenceBodySiteSnomed: HeadCircumferenceBodySiteSnomedType = t.keyof({
+    "302548004": null,
+    "362865009": null
+});
 export const HeadCircumferenceBodySiteSnomedArray: string[] = ["302548004", "362865009"];
 
 export const HeadCircumferenceBodySiteSnomedValueSet: ValueSet = [

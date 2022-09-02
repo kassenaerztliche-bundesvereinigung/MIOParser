@@ -25,9 +25,11 @@ import { ValueSet } from "../../../../Interfaces";
 
 type VaccinationVaccineBrucella = "7230005";
 
-const VaccinationVaccineBrucella: t.Type<VaccinationVaccineBrucella> =
-    t.literal("7230005");
+type VaccinationVaccineBrucellaType = t.KeyofC<{ "7230005": null }>;
 
+const VaccinationVaccineBrucella: VaccinationVaccineBrucellaType = t.keyof({
+    "7230005": null
+});
 export const VaccinationVaccineBrucellaArray: string[] = ["7230005"];
 
 export const VaccinationVaccineBrucellaValueSet: ValueSet = [

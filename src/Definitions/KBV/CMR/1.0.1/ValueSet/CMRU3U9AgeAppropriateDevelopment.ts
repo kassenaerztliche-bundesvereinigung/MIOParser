@@ -26,12 +26,15 @@ import CMRU3U9AgeAppropriateDevelopmentGerman from "../../../../../Definitions/K
 
 type CMRU3U9AgeAppropriateDevelopment = "23397005" | "409033001";
 
-const CMRU3U9AgeAppropriateDevelopment: t.Type<CMRU3U9AgeAppropriateDevelopment> =
-    t.union(
-        [t.literal("23397005"), t.literal("409033001")],
-        "CMRU3U9AgeAppropriateDevelopment"
-    );
+type CMRU3U9AgeAppropriateDevelopmentType = t.KeyofC<{
+    "23397005": null;
+    "409033001": null;
+}>;
 
+const CMRU3U9AgeAppropriateDevelopment: CMRU3U9AgeAppropriateDevelopmentType = t.keyof({
+    "23397005": null,
+    "409033001": null
+});
 export const CMRU3U9AgeAppropriateDevelopmentArray: string[] = ["23397005", "409033001"];
 
 export const CMRU3U9AgeAppropriateDevelopmentValueSet: ValueSet = [

@@ -25,23 +25,33 @@ import { ValueSet } from "../../../Interfaces";
 
 type Maritalstatus = "A" | "D" | "I" | "L" | "M" | "P" | "S" | "T" | "U" | "W" | "UNK";
 
-const Maritalstatus: t.Type<Maritalstatus> = t.union(
-    [
-        t.literal("A"),
-        t.literal("D"),
-        t.literal("I"),
-        t.literal("L"),
-        t.literal("M"),
-        t.literal("P"),
-        t.literal("S"),
-        t.literal("T"),
-        t.literal("U"),
-        t.literal("W"),
-        t.literal("UNK")
-    ],
-    "Maritalstatus"
-);
+type MaritalstatusType = t.KeyofC<{
+    A: null;
+    D: null;
+    I: null;
+    L: null;
+    M: null;
+    P: null;
+    S: null;
+    T: null;
+    U: null;
+    W: null;
+    UNK: null;
+}>;
 
+const Maritalstatus: MaritalstatusType = t.keyof({
+    A: null,
+    D: null,
+    I: null,
+    L: null,
+    M: null,
+    P: null,
+    S: null,
+    T: null,
+    U: null,
+    W: null,
+    UNK: null
+});
 export const MaritalstatusArray: string[] = [
     "A",
     "D",

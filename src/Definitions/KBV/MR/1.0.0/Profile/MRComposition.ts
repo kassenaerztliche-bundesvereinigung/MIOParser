@@ -1322,38 +1322,40 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode: t.Type
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry {
+export interface MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Apgar_Score|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Apgar_Score|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry {
+export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry> =
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry",
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -1402,40 +1404,42 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode: t.
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry {
+export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology_Child|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Direct_Coombstest|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference> =
+    t.recursion(
+        "MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Blood_Group_Serology_Child|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Direct_Coombstest|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry {
+export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry> =
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry",
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -1488,14 +1492,14 @@ export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry {
+export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry> =
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry",
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -1735,13 +1739,13 @@ export const MRCompositionUntersuchungenEpikriseGeburtCodeCoding: t.Type<MRCompo
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseGeburtSectionEntry {
+export interface MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtSectionEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionEntry", () =>
+export const MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1772,7 +1776,7 @@ export interface MRCompositionUntersuchungenEpikriseGeburtSectionSection {
     title: "Apgar-Score";
     code: MRCompositionUntersuchungenEpikriseGeburtSectionSectionCode;
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference[];
 }
 
 export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRCompositionUntersuchungenEpikriseGeburtSectionSection> =
@@ -1786,7 +1790,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRC
                 t.partial({
                     id: SCALARString,
                     entry: t.array(
-                        MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntry
+                        MRCompositionUntersuchungenEpikriseGeburtSectionSectionEntryReference
                     )
                 })
             ])
@@ -1799,7 +1803,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtSectionSection: t.Type<MRC
 export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter {
     title: "Angaben zur Mutter";
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference[];
 }
 
 export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter> =
@@ -1812,7 +1816,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter: t.Ty
                 t.partial({
                     id: SCALARString,
                     entry: t.array(
-                        MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntry
+                        MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutterEntryReference
                     )
                 })
             ])
@@ -1826,7 +1830,7 @@ export interface MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind {
     title: "Angaben zum Kind";
     code: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindCode;
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference[];
 }
 
 export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind> =
@@ -1840,7 +1844,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type
                 t.partial({
                     id: SCALARString,
                     entry: t.array(
-                        MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntry
+                        MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKindEntryReference
                     )
                 })
             ])
@@ -1853,7 +1857,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind: t.Type
 export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter {
     title: "Angaben zur Mutter";
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference[];
 }
 
 export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter> =
@@ -1868,7 +1872,7 @@ export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung
                     t.partial({
                         id: SCALARString,
                         entry: t.array(
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntry
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutterEntryReference
                         )
                     })
                 ])
@@ -1882,7 +1886,7 @@ export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbin
     title: "Angaben zum Kind";
     code: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindCode;
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference[];
 }
 
 export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind> =
@@ -1898,7 +1902,7 @@ export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung
                     t.partial({
                         id: SCALARString,
                         entry: t.array(
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntry
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKindEntryReference
                         )
                     })
                 ])
@@ -2040,14 +2044,14 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry {
+export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry> =
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry",
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -2094,14 +2098,14 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry {
+export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry> =
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry",
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -2120,13 +2124,13 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenUltraschallUltraschallIEntry {
+export interface MRCompositionUntersuchungenUltraschallUltraschallIEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIEntry> =
-    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIEntry", () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIEntryReference: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIEntryReference> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2151,13 +2155,13 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIEntry: t.Type<MRC
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenUltraschallUltraschallIIEntry {
+export interface MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIEntry> =
-    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIIEntry", () =>
+export const MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference> =
+    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2184,34 +2188,36 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIIEntry: t.Type<MR
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenUltraschallUltraschallIIIEntry {
+export interface MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallUltraschallIIIEntry: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIIEntry> =
-    t.recursion("MRCompositionUntersuchungenUltraschallUltraschallIIIEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_DiagnosticReport_Ultrasound_III|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Singleton_Pregnancy|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Heart_Action|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Localisation_Placenta|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Position|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_III|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Percentile|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Timely_Development|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Findings_Required_Control|1.0.0",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Consultation_Initiated|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference: t.Type<MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference> =
+    t.recursion(
+        "MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_DiagnosticReport_Ultrasound_III|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Singleton_Pregnancy|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Heart_Action|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Localisation_Placenta|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Child_Position|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Biometrics_III|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Percentile|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Timely_Development|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Findings_Required_Control|1.0.0",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Consultation_Initiated|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -2245,14 +2251,14 @@ export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchun
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry {
+export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry> =
+export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference: t.Type<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry",
+        "MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -2271,13 +2277,13 @@ export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchun
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseSchwangerschaftEntry {
+export interface MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseSchwangerschaftEntry: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaftEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseSchwangerschaftEntry", () =>
+export const MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference: t.Type<MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference> =
+    t.recursion("MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2327,13 +2333,13 @@ export const MRCompositionUntersuchungenEpikriseGeburtCode: t.Type<MRComposition
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseGeburtEntry {
+export interface MRCompositionUntersuchungenEpikriseGeburtEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseGeburtEntry: t.Type<MRCompositionUntersuchungenEpikriseGeburtEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseGeburtEntry", () =>
+export const MRCompositionUntersuchungenEpikriseGeburtEntryReference: t.Type<MRCompositionUntersuchungenEpikriseGeburtEntryReference> =
+    t.recursion("MRCompositionUntersuchungenEpikriseGeburtEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2355,7 +2361,7 @@ export const MRCompositionUntersuchungenEpikriseGeburtEntry: t.Type<MRCompositio
 export interface MRCompositionUntersuchungenEpikriseGeburtSection {
     title: "Angaben zum Kind";
     id?: string;
-    entry?: MRCompositionUntersuchungenEpikriseGeburtSectionEntry[];
+    entry?: MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference[];
     section?: Array<MRCompositionUntersuchungenEpikriseGeburtSectionSection>;
 }
 
@@ -2368,7 +2374,9 @@ export const MRCompositionUntersuchungenEpikriseGeburtSection: t.Type<MRComposit
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(MRCompositionUntersuchungenEpikriseGeburtSectionEntry),
+                    entry: t.array(
+                        MRCompositionUntersuchungenEpikriseGeburtSectionEntryReference
+                    ),
                     section: MaxArray(
                         1,
                         MRCompositionUntersuchungenEpikriseGeburtSectionSection
@@ -2381,13 +2389,13 @@ export const MRCompositionUntersuchungenEpikriseGeburtSection: t.Type<MRComposit
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseWochenbettEntry {
+export interface MRCompositionUntersuchungenEpikriseWochenbettEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseWochenbettEntry: t.Type<MRCompositionUntersuchungenEpikriseWochenbettEntry> =
-    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettEntry", () =>
+export const MRCompositionUntersuchungenEpikriseWochenbettEntryReference: t.Type<MRCompositionUntersuchungenEpikriseWochenbettEntryReference> =
+    t.recursion("MRCompositionUntersuchungenEpikriseWochenbettEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2405,14 +2413,14 @@ export const MRCompositionUntersuchungenEpikriseWochenbettEntry: t.Type<MRCompos
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry {
+export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry> =
+export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference: t.Type<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry",
+        "MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -2603,7 +2611,7 @@ export const MRCompositionBesondereBefundeSectionCodeLoinc: t.Type<MRComposition
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung {
     title: "Laboruntersuchung";
     code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode;
-    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry>;
+    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference>;
     id?: string;
 }
 
@@ -2618,7 +2626,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
                         code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungCode,
                         entry: MinArray(
                             1,
-                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntry
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungEntryReference
                         )
                     }),
                     t.partial({
@@ -2634,7 +2642,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert {
     title: "Laboruntersuchung, Ergebnis maskiert";
     code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode;
-    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry>;
+    entry: Array<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference>;
     id?: string;
 }
 
@@ -2649,7 +2657,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
                         code: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertCode,
                         entry: MinArray(
                             1,
-                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntry
+                            MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiertEntryReference
                         )
                     }),
                     t.partial({
@@ -2664,7 +2672,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLabor
  */
 export interface MRCompositionUntersuchungenUltraschallUltraschallI {
     title: "I. Screening";
-    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIEntry>;
+    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIEntryReference>;
     id?: string;
 }
 
@@ -2676,7 +2684,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallI: t.Type<MRCompos
                     title: Literal("I. Screening"),
                     entry: MinArray(
                         1,
-                        MRCompositionUntersuchungenUltraschallUltraschallIEntry
+                        MRCompositionUntersuchungenUltraschallUltraschallIEntryReference
                     )
                 }),
                 t.partial({
@@ -2691,7 +2699,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallI: t.Type<MRCompos
  */
 export interface MRCompositionUntersuchungenUltraschallUltraschallII {
     title: "II. Screening";
-    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIIEntry>;
+    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference>;
     id?: string;
 }
 
@@ -2703,7 +2711,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallII: t.Type<MRCompo
                     title: Literal("II. Screening"),
                     entry: MinArray(
                         1,
-                        MRCompositionUntersuchungenUltraschallUltraschallIIEntry
+                        MRCompositionUntersuchungenUltraschallUltraschallIIEntryReference
                     )
                 }),
                 t.partial({
@@ -2718,7 +2726,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallII: t.Type<MRCompo
  */
 export interface MRCompositionUntersuchungenUltraschallUltraschallIII {
     title: "III. Screening";
-    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIIIEntry>;
+    entry: Array<MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference>;
     id?: string;
 }
 
@@ -2730,7 +2738,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRComp
                     title: Literal("III. Screening"),
                     entry: MinArray(
                         1,
-                        MRCompositionUntersuchungenUltraschallUltraschallIIIEntry
+                        MRCompositionUntersuchungenUltraschallUltraschallIIIEntryReference
                     )
                 }),
                 t.partial({
@@ -2746,7 +2754,7 @@ export const MRCompositionUntersuchungenUltraschallUltraschallIII: t.Type<MRComp
 export interface MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungen {
     title: "Weitere Ultraschall-Untersuchungen";
     code: MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenCode;
-    entry: Array<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry>;
+    entry: Array<MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference>;
     id?: string;
 }
 
@@ -2762,7 +2770,7 @@ export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchun
                         entry: MinMaxArray(
                             1,
                             1,
-                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntry
+                            MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchungenEntryReference
                         )
                     }),
                     t.partial({
@@ -2777,7 +2785,7 @@ export const MRCompositionUntersuchungenUltraschallWeitereUltraschallUntersuchun
  */
 export interface MRCompositionUntersuchungenEpikriseSchwangerschaft {
     title: "Schwangerschaft";
-    entry: Array<MRCompositionUntersuchungenEpikriseSchwangerschaftEntry>;
+    entry: Array<MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference>;
     id?: string;
 }
 
@@ -2789,7 +2797,7 @@ export const MRCompositionUntersuchungenEpikriseSchwangerschaft: t.Type<MRCompos
                     title: Literal("Schwangerschaft"),
                     entry: MinArray(
                         1,
-                        MRCompositionUntersuchungenEpikriseSchwangerschaftEntry
+                        MRCompositionUntersuchungenEpikriseSchwangerschaftEntryReference
                     )
                 }),
                 t.partial({
@@ -2806,7 +2814,7 @@ export interface MRCompositionUntersuchungenEpikriseGeburt {
     title: "Geburt";
     code: MRCompositionUntersuchungenEpikriseGeburtCode;
     id?: string;
-    entry?: Array<MRCompositionUntersuchungenEpikriseGeburtEntry>;
+    entry?: Array<MRCompositionUntersuchungenEpikriseGeburtEntryReference>;
     section?: Array<MRCompositionUntersuchungenEpikriseGeburtSection>;
 }
 
@@ -2820,7 +2828,10 @@ export const MRCompositionUntersuchungenEpikriseGeburt: t.Type<MRCompositionUnte
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(2, MRCompositionUntersuchungenEpikriseGeburtEntry),
+                    entry: MaxArray(
+                        2,
+                        MRCompositionUntersuchungenEpikriseGeburtEntryReference
+                    ),
                     section: MaxArray(1, MRCompositionUntersuchungenEpikriseGeburtSection)
                 })
             ])
@@ -2833,7 +2844,7 @@ export const MRCompositionUntersuchungenEpikriseGeburt: t.Type<MRCompositionUnte
 export interface MRCompositionUntersuchungenEpikriseWochenbett {
     title: "Erste Untersuchung nach Entbindung (Wochenbett)";
     id?: string;
-    entry?: Array<MRCompositionUntersuchungenEpikriseWochenbettEntry>;
+    entry?: Array<MRCompositionUntersuchungenEpikriseWochenbettEntryReference>;
     section?: Array<
         | MRCompositionUntersuchungenEpikriseWochenbettAngabenZurMutter
         | MRCompositionUntersuchungenEpikriseWochenbettAngabenZumKind
@@ -2851,7 +2862,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRComposition
                     id: SCALARString,
                     entry: MaxArray(
                         1,
-                        MRCompositionUntersuchungenEpikriseWochenbettEntry
+                        MRCompositionUntersuchungenEpikriseWochenbettEntryReference
                     ),
                     section: ReqArray<
                         t.UnionC<
@@ -2891,7 +2902,7 @@ export const MRCompositionUntersuchungenEpikriseWochenbett: t.Type<MRComposition
 export interface MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung {
     title: "Zweite Untersuchung nach Entbindung";
     id?: string;
-    entry?: Array<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry>;
+    entry?: Array<MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference>;
     section?: Array<
         | MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZurMutter
         | MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungAngabenZumKind
@@ -2911,7 +2922,7 @@ export const MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindung
                         id: SCALARString,
                         entry: MaxArray(
                             1,
-                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntry
+                            MRCompositionUntersuchungenEpikriseZweiteUntersuchungNachEntbindungEntryReference
                         ),
                         section: ReqArray<
                             t.UnionC<
@@ -2983,14 +2994,14 @@ export const MRCompositionTermineSectionCodeCoding: t.Type<MRCompositionTermineS
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry {
+export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry> =
+export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference: t.Type<MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference> =
     t.recursion(
-        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry",
+        "MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference",
         () =>
             Excess(
                 t.intersection([
@@ -3011,13 +3022,13 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenGravidogrammEntry {
+export interface MRCompositionUntersuchungenGravidogrammEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenGravidogrammEntry: t.Type<MRCompositionUntersuchungenGravidogrammEntry> =
-    t.recursion("MRCompositionUntersuchungenGravidogrammEntry", () =>
+export const MRCompositionUntersuchungenGravidogrammEntryReference: t.Type<MRCompositionUntersuchungenGravidogrammEntryReference> =
+    t.recursion("MRCompositionUntersuchungenGravidogrammEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3049,13 +3060,13 @@ export const MRCompositionUntersuchungenGravidogrammEntry: t.Type<MRCompositionU
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenUltraschallEntry {
+export interface MRCompositionUntersuchungenUltraschallEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenUltraschallEntry: t.Type<MRCompositionUntersuchungenUltraschallEntry> =
-    t.recursion("MRCompositionUntersuchungenUltraschallEntry", () =>
+export const MRCompositionUntersuchungenUltraschallEntryReference: t.Type<MRCompositionUntersuchungenUltraschallEntryReference> =
+    t.recursion("MRCompositionUntersuchungenUltraschallEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3073,13 +3084,13 @@ export const MRCompositionUntersuchungenUltraschallEntry: t.Type<MRCompositionUn
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionUntersuchungenCardiotokographieEntry {
+export interface MRCompositionUntersuchungenCardiotokographieEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionUntersuchungenCardiotokographieEntry: t.Type<MRCompositionUntersuchungenCardiotokographieEntry> =
-    t.recursion("MRCompositionUntersuchungenCardiotokographieEntry", () =>
+export const MRCompositionUntersuchungenCardiotokographieEntryReference: t.Type<MRCompositionUntersuchungenCardiotokographieEntryReference> =
+    t.recursion("MRCompositionUntersuchungenCardiotokographieEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3287,13 +3298,13 @@ export const MRCompositionTermineSectionCode: t.Type<MRCompositionTermineSection
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionTermineSectionEntry {
+export interface MRCompositionTermineSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionTermineSectionEntry: t.Type<MRCompositionTermineSectionEntry> =
-    t.recursion("MRCompositionTermineSectionEntry", () =>
+export const MRCompositionTermineSectionEntryReference: t.Type<MRCompositionTermineSectionEntryReference> =
+    t.recursion("MRCompositionTermineSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3365,13 +3376,13 @@ export const MRCompositionBesondereBefundeSectionCode: t.Type<MRCompositionBeson
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionBesondereBefundeSectionEntry {
+export interface MRCompositionBesondereBefundeSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeSectionEntry: t.Type<MRCompositionBesondereBefundeSectionEntry> =
-    t.recursion("MRCompositionBesondereBefundeSectionEntry", () =>
+export const MRCompositionBesondereBefundeSectionEntryReference: t.Type<MRCompositionBesondereBefundeSectionEntryReference> =
+    t.recursion("MRCompositionBesondereBefundeSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3393,7 +3404,7 @@ export const MRCompositionBesondereBefundeSectionEntry: t.Type<MRCompositionBeso
 export interface MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz {
     title: "Laboruntersuchungen und Rötelnschutz";
     id?: string;
-    entry?: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry[];
+    entry?: MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference[];
     section?: (
         | MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchung
         | MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzLaboruntersuchungMaskiert
@@ -3410,7 +3421,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.T
                 t.partial({
                     id: SCALARString,
                     entry: t.array(
-                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntry
+                        MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutzEntryReference
                     ),
                     section: ReqArray<
                         t.UnionC<
@@ -3452,7 +3463,7 @@ export const MRCompositionUntersuchungenLaboruntersuchungenUndRoetelnschutz: t.T
  */
 export interface MRCompositionUntersuchungenGravidogramm {
     title: "Gravidogramm";
-    entry: Array<MRCompositionUntersuchungenGravidogrammEntry>;
+    entry: Array<MRCompositionUntersuchungenGravidogrammEntryReference>;
     id?: string;
 }
 
@@ -3462,7 +3473,10 @@ export const MRCompositionUntersuchungenGravidogramm: t.Type<MRCompositionUnters
             t.intersection([
                 t.type({
                     title: Literal("Gravidogramm"),
-                    entry: MinArray(1, MRCompositionUntersuchungenGravidogrammEntry)
+                    entry: MinArray(
+                        1,
+                        MRCompositionUntersuchungenGravidogrammEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -3477,7 +3491,7 @@ export const MRCompositionUntersuchungenGravidogramm: t.Type<MRCompositionUnters
 export interface MRCompositionUntersuchungenUltraschall {
     title: "Ultraschall";
     id?: string;
-    entry?: Array<MRCompositionUntersuchungenUltraschallEntry>;
+    entry?: Array<MRCompositionUntersuchungenUltraschallEntryReference>;
     section?: (
         | MRCompositionUntersuchungenUltraschallUltraschallI
         | MRCompositionUntersuchungenUltraschallUltraschallII
@@ -3495,7 +3509,10 @@ export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersu
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(1, MRCompositionUntersuchungenUltraschallEntry),
+                    entry: MaxArray(
+                        1,
+                        MRCompositionUntersuchungenUltraschallEntryReference
+                    ),
                     section: ReqArray<
                         t.UnionC<
                             [
@@ -3550,7 +3567,7 @@ export const MRCompositionUntersuchungenUltraschall: t.Type<MRCompositionUntersu
  */
 export interface MRCompositionUntersuchungenCardiotokographie {
     title: "Cardiotokographie";
-    entry: Array<MRCompositionUntersuchungenCardiotokographieEntry>;
+    entry: Array<MRCompositionUntersuchungenCardiotokographieEntryReference>;
     id?: string;
 }
 
@@ -3560,7 +3577,10 @@ export const MRCompositionUntersuchungenCardiotokographie: t.Type<MRCompositionU
             t.intersection([
                 t.type({
                     title: Literal("Cardiotokographie"),
-                    entry: MinArray(1, MRCompositionUntersuchungenCardiotokographieEntry)
+                    entry: MinArray(
+                        1,
+                        MRCompositionUntersuchungenCardiotokographieEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -3711,13 +3731,13 @@ export const MRCompositionTypeLoinc: t.Type<MRCompositionTypeLoinc> = t.recursio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionStempelinformationenEntry {
+export interface MRCompositionStempelinformationenEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionStempelinformationenEntry: t.Type<MRCompositionStempelinformationenEntry> =
-    t.recursion("MRCompositionStempelinformationenEntry", () =>
+export const MRCompositionStempelinformationenEntryReference: t.Type<MRCompositionStempelinformationenEntryReference> =
+    t.recursion("MRCompositionStempelinformationenEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3736,14 +3756,13 @@ export const MRCompositionStempelinformationenEntry: t.Type<MRCompositionStempel
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionTermineEntry {
+export interface MRCompositionTermineEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionTermineEntry: t.Type<MRCompositionTermineEntry> = t.recursion(
-    "MRCompositionTermineEntry",
-    () =>
+export const MRCompositionTermineEntryReference: t.Type<MRCompositionTermineEntryReference> =
+    t.recursion("MRCompositionTermineEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3756,7 +3775,7 @@ export const MRCompositionTermineEntry: t.Type<MRCompositionTermineEntry> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * A nested sub-section within this section.
@@ -3764,7 +3783,7 @@ export const MRCompositionTermineEntry: t.Type<MRCompositionTermineEntry> = t.re
 export interface MRCompositionTermineSection {
     title: "Nächster Untersuchungstermin";
     code: MRCompositionTermineSectionCode;
-    entry: Array<MRCompositionTermineSectionEntry>;
+    entry: Array<MRCompositionTermineSectionEntryReference>;
     id?: string;
 }
 
@@ -3775,7 +3794,7 @@ export const MRCompositionTermineSection: t.Type<MRCompositionTermineSection> =
                 t.type({
                     title: Literal("Nächster Untersuchungstermin"),
                     code: MRCompositionTermineSectionCode,
-                    entry: MinArray(1, MRCompositionTermineSectionEntry)
+                    entry: MinArray(1, MRCompositionTermineSectionEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -3787,13 +3806,13 @@ export const MRCompositionTermineSection: t.Type<MRCompositionTermineSection> =
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionTerminbestimmungEntry {
+export interface MRCompositionTerminbestimmungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionTerminbestimmungEntry: t.Type<MRCompositionTerminbestimmungEntry> =
-    t.recursion("MRCompositionTerminbestimmungEntry", () =>
+export const MRCompositionTerminbestimmungEntryReference: t.Type<MRCompositionTerminbestimmungEntryReference> =
+    t.recursion("MRCompositionTerminbestimmungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3815,13 +3834,13 @@ export const MRCompositionTerminbestimmungEntry: t.Type<MRCompositionTerminbesti
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionAnamneseUndAllgemeineBefundeEntry {
+export interface MRCompositionAnamneseUndAllgemeineBefundeEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionAnamneseUndAllgemeineBefundeEntry: t.Type<MRCompositionAnamneseUndAllgemeineBefundeEntry> =
-    t.recursion("MRCompositionAnamneseUndAllgemeineBefundeEntry", () =>
+export const MRCompositionAnamneseUndAllgemeineBefundeEntryReference: t.Type<MRCompositionAnamneseUndAllgemeineBefundeEntryReference> =
+    t.recursion("MRCompositionAnamneseUndAllgemeineBefundeEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3847,13 +3866,13 @@ export const MRCompositionAnamneseUndAllgemeineBefundeEntry: t.Type<MRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionBesondereBefundeEntry {
+export interface MRCompositionBesondereBefundeEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionBesondereBefundeEntry: t.Type<MRCompositionBesondereBefundeEntry> =
-    t.recursion("MRCompositionBesondereBefundeEntry", () =>
+export const MRCompositionBesondereBefundeEntryReference: t.Type<MRCompositionBesondereBefundeEntryReference> =
+    t.recursion("MRCompositionBesondereBefundeEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3875,7 +3894,7 @@ export interface MRCompositionBesondereBefundeSection {
     title: "Gestationsdiabetes";
     code: MRCompositionBesondereBefundeSectionCode;
     id?: string;
-    entry?: Array<MRCompositionBesondereBefundeSectionEntry>;
+    entry?: Array<MRCompositionBesondereBefundeSectionEntryReference>;
 }
 
 export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondereBefundeSection> =
@@ -3888,7 +3907,7 @@ export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondere
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(2, MRCompositionBesondereBefundeSectionEntry)
+                    entry: MaxArray(2, MRCompositionBesondereBefundeSectionEntryReference)
                 })
             ])
         )
@@ -3897,14 +3916,13 @@ export const MRCompositionBesondereBefundeSection: t.Type<MRCompositionBesondere
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionBeratungEntry {
+export interface MRCompositionBeratungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionBeratungEntry: t.Type<MRCompositionBeratungEntry> = t.recursion(
-    "MRCompositionBeratungEntry",
-    () =>
+export const MRCompositionBeratungEntryReference: t.Type<MRCompositionBeratungEntryReference> =
+    t.recursion("MRCompositionBeratungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3918,18 +3936,18 @@ export const MRCompositionBeratungEntry: t.Type<MRCompositionBeratungEntry> = t.
                 })
             ])
         )
-);
+    );
 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionAntiDProphylaxeEntry {
+export interface MRCompositionAntiDProphylaxeEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionAntiDProphylaxeEntry: t.Type<MRCompositionAntiDProphylaxeEntry> =
-    t.recursion("MRCompositionAntiDProphylaxeEntry", () =>
+export const MRCompositionAntiDProphylaxeEntryReference: t.Type<MRCompositionAntiDProphylaxeEntryReference> =
+    t.recursion("MRCompositionAntiDProphylaxeEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -3947,13 +3965,13 @@ export const MRCompositionAntiDProphylaxeEntry: t.Type<MRCompositionAntiDProphyl
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface MRCompositionStationaereBehandlungEntry {
+export interface MRCompositionStationaereBehandlungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionStationaereBehandlungEntry: t.Type<MRCompositionStationaereBehandlungEntry> =
-    t.recursion("MRCompositionStationaereBehandlungEntry", () =>
+export const MRCompositionStationaereBehandlungEntryReference: t.Type<MRCompositionStationaereBehandlungEntryReference> =
+    t.recursion("MRCompositionStationaereBehandlungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4046,7 +4064,7 @@ export const MRCompositionHinweise: t.Type<MRCompositionHinweise> = t.recursion(
  */
 export interface MRCompositionStempelinformationen {
     title: "Stempelinformationen des Arztes/der Klinik/der mitbetreuenden Hebamme";
-    entry: Array<MRCompositionStempelinformationenEntry>;
+    entry: Array<MRCompositionStempelinformationenEntryReference>;
     id?: string;
 }
 
@@ -4058,7 +4076,7 @@ export const MRCompositionStempelinformationen: t.Type<MRCompositionStempelinfor
                     title: Literal(
                         "Stempelinformationen des Arztes/der Klinik/der mitbetreuenden Hebamme"
                     ),
-                    entry: MinArray(1, MRCompositionStempelinformationenEntry)
+                    entry: MinArray(1, MRCompositionStempelinformationenEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -4073,7 +4091,7 @@ export const MRCompositionStempelinformationen: t.Type<MRCompositionStempelinfor
 export interface MRCompositionTermine {
     title: "Termine";
     id?: string;
-    entry?: MRCompositionTermineEntry[];
+    entry?: MRCompositionTermineEntryReference[];
     section?: Array<MRCompositionTermineSection>;
 }
 
@@ -4087,7 +4105,7 @@ export const MRCompositionTermine: t.Type<MRCompositionTermine> = t.recursion(
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(MRCompositionTermineEntry),
+                    entry: t.array(MRCompositionTermineEntryReference),
                     section: MaxArray(1, MRCompositionTermineSection)
                 })
             ])
@@ -4099,7 +4117,7 @@ export const MRCompositionTermine: t.Type<MRCompositionTermine> = t.recursion(
  */
 export interface MRCompositionTerminbestimmung {
     title: "Terminbestimmung";
-    entry: Array<MRCompositionTerminbestimmungEntry>;
+    entry: Array<MRCompositionTerminbestimmungEntryReference>;
     id?: string;
 }
 
@@ -4109,7 +4127,7 @@ export const MRCompositionTerminbestimmung: t.Type<MRCompositionTerminbestimmung
             t.intersection([
                 t.type({
                     title: Literal("Terminbestimmung"),
-                    entry: MinArray(1, MRCompositionTerminbestimmungEntry)
+                    entry: MinArray(1, MRCompositionTerminbestimmungEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -4123,7 +4141,7 @@ export const MRCompositionTerminbestimmung: t.Type<MRCompositionTerminbestimmung
  */
 export interface MRCompositionAnamneseUndAllgemeineBefunde {
     title: "Anamnese und allgemeine Befunde";
-    entry: Array<MRCompositionAnamneseUndAllgemeineBefundeEntry>;
+    entry: Array<MRCompositionAnamneseUndAllgemeineBefundeEntryReference>;
     id?: string;
 }
 
@@ -4133,7 +4151,10 @@ export const MRCompositionAnamneseUndAllgemeineBefunde: t.Type<MRCompositionAnam
             t.intersection([
                 t.type({
                     title: Literal("Anamnese und allgemeine Befunde"),
-                    entry: MinArray(1, MRCompositionAnamneseUndAllgemeineBefundeEntry)
+                    entry: MinArray(
+                        1,
+                        MRCompositionAnamneseUndAllgemeineBefundeEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -4148,7 +4169,7 @@ export const MRCompositionAnamneseUndAllgemeineBefunde: t.Type<MRCompositionAnam
 export interface MRCompositionBesondereBefunde {
     title: "Besondere Befunde";
     id?: string;
-    entry?: MRCompositionBesondereBefundeEntry[];
+    entry?: MRCompositionBesondereBefundeEntryReference[];
     section?: Array<MRCompositionBesondereBefundeSection>;
 }
 
@@ -4161,7 +4182,7 @@ export const MRCompositionBesondereBefunde: t.Type<MRCompositionBesondereBefunde
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(MRCompositionBesondereBefundeEntry),
+                    entry: t.array(MRCompositionBesondereBefundeEntryReference),
                     section: MaxArray(1, MRCompositionBesondereBefundeSection)
                 })
             ])
@@ -4173,7 +4194,7 @@ export const MRCompositionBesondereBefunde: t.Type<MRCompositionBesondereBefunde
  */
 export interface MRCompositionBeratung {
     title: "Beratung der Schwangeren";
-    entry: Array<MRCompositionBeratungEntry>;
+    entry: Array<MRCompositionBeratungEntryReference>;
     id?: string;
 }
 
@@ -4184,7 +4205,7 @@ export const MRCompositionBeratung: t.Type<MRCompositionBeratung> = t.recursion(
             t.intersection([
                 t.type({
                     title: Literal("Beratung der Schwangeren"),
-                    entry: MinArray(1, MRCompositionBeratungEntry)
+                    entry: MinArray(1, MRCompositionBeratungEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -4198,7 +4219,7 @@ export const MRCompositionBeratung: t.Type<MRCompositionBeratung> = t.recursion(
  */
 export interface MRCompositionAntiDProphylaxe {
     title: "Anti-D-Prophylaxe";
-    entry: Array<MRCompositionAntiDProphylaxeEntry>;
+    entry: Array<MRCompositionAntiDProphylaxeEntryReference>;
     id?: string;
 }
 
@@ -4208,7 +4229,7 @@ export const MRCompositionAntiDProphylaxe: t.Type<MRCompositionAntiDProphylaxe> 
             t.intersection([
                 t.type({
                     title: Literal("Anti-D-Prophylaxe"),
-                    entry: MinArray(1, MRCompositionAntiDProphylaxeEntry)
+                    entry: MinArray(1, MRCompositionAntiDProphylaxeEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -4305,7 +4326,7 @@ export const MRCompositionUntersuchungen: t.Type<MRCompositionUntersuchungen> =
  */
 export interface MRCompositionStationaereBehandlung {
     title: "Stationäre Behandlung";
-    entry: Array<MRCompositionStationaereBehandlungEntry>;
+    entry: Array<MRCompositionStationaereBehandlungEntryReference>;
     id?: string;
 }
 
@@ -4315,7 +4336,7 @@ export const MRCompositionStationaereBehandlung: t.Type<MRCompositionStationaere
             t.intersection([
                 t.type({
                     title: Literal("Stationäre Behandlung"),
-                    entry: MinArray(1, MRCompositionStationaereBehandlungEntry)
+                    entry: MinArray(1, MRCompositionStationaereBehandlungEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -4405,14 +4426,13 @@ export const MRCompositionType: t.Type<MRCompositionType> = t.recursion(
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface MRCompositionSubject {
+export interface MRCompositionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionSubject: t.Type<MRCompositionSubject> = t.recursion(
-    "MRCompositionSubject",
-    () =>
+export const MRCompositionSubjectReference: t.Type<MRCompositionSubjectReference> =
+    t.recursion("MRCompositionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4425,19 +4445,18 @@ export const MRCompositionSubject: t.Type<MRCompositionSubject> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface MRCompositionEncounter {
+export interface MRCompositionEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionEncounter: t.Type<MRCompositionEncounter> = t.recursion(
-    "MRCompositionEncounter",
-    () =>
+export const MRCompositionEncounterReference: t.Type<MRCompositionEncounterReference> =
+    t.recursion("MRCompositionEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4450,19 +4469,18 @@ export const MRCompositionEncounter: t.Type<MRCompositionEncounter> = t.recursio
                 })
             ])
         )
-);
+    );
 
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface MRCompositionAuthor {
+export interface MRCompositionAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const MRCompositionAuthor: t.Type<MRCompositionAuthor> = t.recursion(
-    "MRCompositionAuthor",
-    () =>
+export const MRCompositionAuthorReference: t.Type<MRCompositionAuthorReference> =
+    t.recursion("MRCompositionAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -4476,17 +4494,17 @@ export const MRCompositionAuthor: t.Type<MRCompositionAuthor> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 interface MRComposition {
     resourceType: "Composition";
     meta: MRCompositionMeta;
     status: "final";
     type: MRCompositionType;
-    subject: MRCompositionSubject;
-    encounter: MRCompositionEncounter;
+    subject: MRCompositionSubjectReference;
+    encounter: MRCompositionEncounterReference;
     date: string;
-    author: Array<MRCompositionAuthor>;
+    author: Array<MRCompositionAuthorReference>;
     title: "Mutterpasseintrag";
     section: Array<
         | MRCompositionStempelinformationen
@@ -4512,10 +4530,10 @@ const MRComposition: t.Type<MRComposition> = t.recursion("MRComposition", () =>
                 meta: MRCompositionMeta,
                 status: Literal("final"),
                 type: MRCompositionType,
-                subject: MRCompositionSubject,
-                encounter: MRCompositionEncounter,
+                subject: MRCompositionSubjectReference,
+                encounter: MRCompositionEncounterReference,
                 date: SCALARDateTime,
-                author: MinMaxArray(1, 2, MRCompositionAuthor),
+                author: MinMaxArray(1, 2, MRCompositionAuthorReference),
                 title: Literal("Mutterpasseintrag"),
                 section: ReqArray<
                     t.UnionC<

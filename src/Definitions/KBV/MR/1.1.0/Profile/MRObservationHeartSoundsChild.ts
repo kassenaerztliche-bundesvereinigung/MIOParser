@@ -333,13 +333,13 @@ export const MRObservationHeartSoundsChildCode: t.Type<MRObservationHeartSoundsC
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationHeartSoundsChildSubject {
+export interface MRObservationHeartSoundsChildSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartSoundsChildSubject: t.Type<MRObservationHeartSoundsChildSubject> =
-    t.recursion("MRObservationHeartSoundsChildSubject", () =>
+export const MRObservationHeartSoundsChildSubjectReference: t.Type<MRObservationHeartSoundsChildSubjectReference> =
+    t.recursion("MRObservationHeartSoundsChildSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -357,13 +357,13 @@ export const MRObservationHeartSoundsChildSubject: t.Type<MRObservationHeartSoun
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationHeartSoundsChildEncounter {
+export interface MRObservationHeartSoundsChildEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartSoundsChildEncounter: t.Type<MRObservationHeartSoundsChildEncounter> =
-    t.recursion("MRObservationHeartSoundsChildEncounter", () =>
+export const MRObservationHeartSoundsChildEncounterReference: t.Type<MRObservationHeartSoundsChildEncounterReference> =
+    t.recursion("MRObservationHeartSoundsChildEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -381,13 +381,13 @@ export const MRObservationHeartSoundsChildEncounter: t.Type<MRObservationHeartSo
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationHeartSoundsChildPerformer {
+export interface MRObservationHeartSoundsChildPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartSoundsChildPerformer: t.Type<MRObservationHeartSoundsChildPerformer> =
-    t.recursion("MRObservationHeartSoundsChildPerformer", () =>
+export const MRObservationHeartSoundsChildPerformerReference: t.Type<MRObservationHeartSoundsChildPerformerReference> =
+    t.recursion("MRObservationHeartSoundsChildPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -434,13 +434,13 @@ interface MRObservationHeartSoundsChild {
     meta: MRObservationHeartSoundsChildMeta;
     status: "final";
     code: MRObservationHeartSoundsChildCode;
-    subject: MRObservationHeartSoundsChildSubject;
-    encounter: MRObservationHeartSoundsChildEncounter;
+    subject: MRObservationHeartSoundsChildSubjectReference;
+    encounter: MRObservationHeartSoundsChildEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationHeartSoundsChildPerformer>;
+    performer?: Array<MRObservationHeartSoundsChildPerformerReference>;
     bodySite?: MRObservationHeartSoundsChildBodySite;
 }
 
@@ -454,15 +454,18 @@ const MRObservationHeartSoundsChild: t.Type<MRObservationHeartSoundsChild> = t.r
                     meta: MRObservationHeartSoundsChildMeta,
                     status: Literal("final"),
                     code: MRObservationHeartSoundsChildCode,
-                    subject: MRObservationHeartSoundsChildSubject,
-                    encounter: MRObservationHeartSoundsChildEncounter,
+                    subject: MRObservationHeartSoundsChildSubjectReference,
+                    encounter: MRObservationHeartSoundsChildEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationHeartSoundsChildPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationHeartSoundsChildPerformerReference
+                    ),
                     bodySite: MRObservationHeartSoundsChildBodySite
                 })
             ])

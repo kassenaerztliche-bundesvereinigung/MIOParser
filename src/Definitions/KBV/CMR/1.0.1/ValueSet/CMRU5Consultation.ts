@@ -37,23 +37,33 @@ type CMRU5Consultation =
     | "408935001"
     | "410310007";
 
-const CMRU5Consultation: t.Type<CMRU5Consultation> = t.union(
-    [
-        t.literal("438650006"),
-        t.literal("408433001"),
-        t.literal("409066002:{363702006=444069008,363702006=426482000}"),
-        t.literal("424673000"),
-        t.literal("409059003"),
-        t.literal("702971000"),
-        t.literal("243085009"),
-        t.literal("424308004"),
-        t.literal("274410002"),
-        t.literal("408935001"),
-        t.literal("410310007")
-    ],
-    "CMRU5Consultation"
-);
+type CMRU5ConsultationType = t.KeyofC<{
+    "438650006": null;
+    "408433001": null;
+    "409066002:{363702006=444069008,363702006=426482000}": null;
+    "424673000": null;
+    "409059003": null;
+    "702971000": null;
+    "243085009": null;
+    "424308004": null;
+    "274410002": null;
+    "408935001": null;
+    "410310007": null;
+}>;
 
+const CMRU5Consultation: CMRU5ConsultationType = t.keyof({
+    "438650006": null,
+    "408433001": null,
+    "409066002:{363702006=444069008,363702006=426482000}": null,
+    "424673000": null,
+    "409059003": null,
+    "702971000": null,
+    "243085009": null,
+    "424308004": null,
+    "274410002": null,
+    "408935001": null,
+    "410310007": null
+});
 export const CMRU5ConsultationArray: string[] = [
     "438650006",
     "408433001",

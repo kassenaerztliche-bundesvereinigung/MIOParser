@@ -34,22 +34,30 @@ type VaccinationVaccineImmunoglobulinList =
     | "108725001"
     | "763703008";
 
-const VaccinationVaccineImmunoglobulinList: t.Type<VaccinationVaccineImmunoglobulinList> =
-    t.union(
-        [
-            t.literal("714569001"),
-            t.literal("786224004"),
-            t.literal("384706007"),
-            t.literal("62294009"),
-            t.literal("9542007"),
-            t.literal("80834004"),
-            t.literal("9778000"),
-            t.literal("108725001"),
-            t.literal("763703008")
-        ],
-        "VaccinationVaccineImmunoglobulinList"
-    );
+type VaccinationVaccineImmunoglobulinListType = t.KeyofC<{
+    "714569001": null;
+    "786224004": null;
+    "384706007": null;
+    "62294009": null;
+    "9542007": null;
+    "80834004": null;
+    "9778000": null;
+    "108725001": null;
+    "763703008": null;
+}>;
 
+const VaccinationVaccineImmunoglobulinList: VaccinationVaccineImmunoglobulinListType =
+    t.keyof({
+        "714569001": null,
+        "786224004": null,
+        "384706007": null,
+        "62294009": null,
+        "9542007": null,
+        "80834004": null,
+        "9778000": null,
+        "108725001": null,
+        "763703008": null
+    });
 export const VaccinationVaccineImmunoglobulinListArray: string[] = [
     "714569001",
     "786224004",

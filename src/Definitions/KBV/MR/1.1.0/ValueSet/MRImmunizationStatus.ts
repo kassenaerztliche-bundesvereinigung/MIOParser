@@ -29,17 +29,18 @@ type MRImmunizationStatus =
     | "73701000119109"
     | "132751000119107";
 
-const MRImmunizationStatus: t.Type<MRImmunizationStatus> = t.union(
-    [
-        t.literal(
-            "425457005:{363589002=170433008,408730004=385658003,408731000=410513005,408732007=410604004}"
-        ),
-        t.literal("73701000119109"),
-        t.literal("132751000119107")
-    ],
-    "MRImmunizationStatus"
-);
+type MRImmunizationStatusType = t.KeyofC<{
+    "425457005:{363589002=170433008,408730004=385658003,408731000=410513005,408732007=410604004}": null;
+    "73701000119109": null;
+    "132751000119107": null;
+}>;
 
+const MRImmunizationStatus: MRImmunizationStatusType = t.keyof({
+    "425457005:{363589002=170433008,408730004=385658003,408731000=410513005,408732007=410604004}":
+        null,
+    "73701000119109": null,
+    "132751000119107": null
+});
 export const MRImmunizationStatusArray: string[] = [
     "425457005:{363589002=170433008,408730004=385658003,408731000=410513005,408732007=410604004}",
     "73701000119109",

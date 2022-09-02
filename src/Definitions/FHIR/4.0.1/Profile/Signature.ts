@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal, MinArray } from "../../../CustomTypes";
+import { MinArray } from "../../../CustomTypes";
 import SCALARBase64Binary from "../../../../Definitions/FHIR/4.0.1/Scalar/Base64Binary";
 
 import SCALARInstant from "../../../../Definitions/FHIR/4.0.1/Scalar/Instant";
@@ -34,7 +34,6 @@ interface Signature {
     type: Array<Coding>;
     when: string;
     who: Reference;
-    resourceType?: "Signature";
     id?: string;
     onBehalfOf?: Reference;
     targetFormat?: MimetypesVS;
@@ -50,7 +49,6 @@ const Signature: t.Type<Signature> = t.recursion("Signature", () =>
             who: Reference
         }),
         t.partial({
-            resourceType: Literal("Signature"),
             id: SCALARString,
             onBehalfOf: Reference,
             targetFormat: MimetypesVS,

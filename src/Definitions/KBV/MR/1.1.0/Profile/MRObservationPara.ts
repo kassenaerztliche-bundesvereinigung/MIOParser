@@ -224,14 +224,13 @@ export const MRObservationParaCode: t.Type<MRObservationParaCode> = t.recursion(
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationParaSubject {
+export interface MRObservationParaSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationParaSubject: t.Type<MRObservationParaSubject> = t.recursion(
-    "MRObservationParaSubject",
-    () =>
+export const MRObservationParaSubjectReference: t.Type<MRObservationParaSubjectReference> =
+    t.recursion("MRObservationParaSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -244,19 +243,18 @@ export const MRObservationParaSubject: t.Type<MRObservationParaSubject> = t.recu
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationParaEncounter {
+export interface MRObservationParaEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationParaEncounter: t.Type<MRObservationParaEncounter> = t.recursion(
-    "MRObservationParaEncounter",
-    () =>
+export const MRObservationParaEncounterReference: t.Type<MRObservationParaEncounterReference> =
+    t.recursion("MRObservationParaEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -269,19 +267,18 @@ export const MRObservationParaEncounter: t.Type<MRObservationParaEncounter> = t.
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationParaPerformer {
+export interface MRObservationParaPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationParaPerformer: t.Type<MRObservationParaPerformer> = t.recursion(
-    "MRObservationParaPerformer",
-    () =>
+export const MRObservationParaPerformerReference: t.Type<MRObservationParaPerformerReference> =
+    t.recursion("MRObservationParaPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -295,20 +292,20 @@ export const MRObservationParaPerformer: t.Type<MRObservationParaPerformer> = t.
                 })
             ])
         )
-);
+    );
 
 interface MRObservationPara {
     resourceType: "Observation";
     meta: MRObservationParaMeta;
     status: "final";
     code: MRObservationParaCode;
-    subject: MRObservationParaSubject;
-    encounter: MRObservationParaEncounter;
+    subject: MRObservationParaSubjectReference;
+    encounter: MRObservationParaEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationParaValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationParaPerformer>;
+    performer?: Array<MRObservationParaPerformerReference>;
 }
 
 const MRObservationPara: t.Type<MRObservationPara> = t.recursion(
@@ -321,15 +318,15 @@ const MRObservationPara: t.Type<MRObservationPara> = t.recursion(
                     meta: MRObservationParaMeta,
                     status: Literal("final"),
                     code: MRObservationParaCode,
-                    subject: MRObservationParaSubject,
-                    encounter: MRObservationParaEncounter,
+                    subject: MRObservationParaSubjectReference,
+                    encounter: MRObservationParaEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationParaValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationParaPerformer)
+                    performer: MaxArray(1, MRObservationParaPerformerReference)
                 })
             ])
         )

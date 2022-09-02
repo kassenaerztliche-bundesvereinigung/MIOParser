@@ -971,14 +971,14 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigati
 /**
  * A record of a specific investigation that was undertaken.
  */
-export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem {
+export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem> =
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference> =
     t.recursion(
-        "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem",
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference",
         () =>
             Excess(
                 t.intersection([
@@ -1084,73 +1084,79 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryCode: t.Typ
 /**
  * The patient or group of individuals assessed as part of this record.
  */
-export interface MRClinicalImpressionPregnancyExaminationDischargeSummarySubject {
+export interface MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubject: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummarySubject> =
-    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummarySubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Mother|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
  */
-export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter {
+export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter> =
-    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The clinician performing the assessment.
  */
-export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor {
+export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor> =
-    t.recursion("MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference> =
+    t.recursion(
+        "MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.0.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -1159,7 +1165,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor: t
 export interface MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation {
     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationCode;
     id?: string;
-    item?: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem[];
+    item?: MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference[];
 }
 
 export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation: t.Type<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation> =
@@ -1174,7 +1180,7 @@ export const MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigati
                     t.partial({
                         id: SCALARString,
                         item: t.array(
-                            MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItem
+                            MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigationItemReference
                         )
                     })
                 ])
@@ -1209,13 +1215,13 @@ interface MRClinicalImpressionPregnancyExaminationDischargeSummary {
     meta: MRClinicalImpressionPregnancyExaminationDischargeSummaryMeta;
     status: "completed";
     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryCode;
-    subject: MRClinicalImpressionPregnancyExaminationDischargeSummarySubject;
-    encounter: MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter;
+    subject: MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference;
+    encounter: MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference;
     id?: string;
     text?: Narrative;
     _effectiveDateTime?: MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime;
     effectiveDateTime?: string;
-    assessor?: MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor;
+    assessor?: MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference;
     investigation?: Array<MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation>;
     finding?: MRClinicalImpressionPregnancyExaminationDischargeSummaryFinding[];
 }
@@ -1230,9 +1236,9 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
                     status: Literal("completed"),
                     code: MRClinicalImpressionPregnancyExaminationDischargeSummaryCode,
                     subject:
-                        MRClinicalImpressionPregnancyExaminationDischargeSummarySubject,
+                        MRClinicalImpressionPregnancyExaminationDischargeSummarySubjectReference,
                     encounter:
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounter
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryEncounterReference
                 }),
                 t.partial({
                     id: SCALARString,
@@ -1241,7 +1247,7 @@ const MRClinicalImpressionPregnancyExaminationDischargeSummary: t.Type<MRClinica
                         MRClinicalImpressionPregnancyExaminationDischargeSummaryEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
                     assessor:
-                        MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessor,
+                        MRClinicalImpressionPregnancyExaminationDischargeSummaryAssessorReference,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionPregnancyExaminationDischargeSummaryInvestigation

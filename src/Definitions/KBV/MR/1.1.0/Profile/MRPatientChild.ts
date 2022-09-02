@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal, Excess, MinMaxArray } from "../../../../CustomTypes";
+import { Literal, Excess, MinMaxArray, ValueSetCheck } from "../../../../CustomTypes";
 import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
 
 import SCALARCode from "../../../../../Definitions/FHIR/4.0.1/Scalar/Code";
@@ -139,7 +139,9 @@ export const MRPatientChildGenderOtheramtlich: t.Type<MRPatientChildGenderOthera
                         t.partial({
                             system: t.string,
                             version: t.string,
-                            code: MRGenderExtensionVS,
+                            code: ValueSetCheck<t.Type<MRGenderExtensionVS>>(
+                                MRGenderExtensionVS
+                            ),
                             display: t.string,
                             userSelected: t.boolean
                         })

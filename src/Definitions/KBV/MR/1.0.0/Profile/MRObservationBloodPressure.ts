@@ -1332,13 +1332,13 @@ export const MRObservationBloodPressureCode: t.Type<MRObservationBloodPressureCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBloodPressureSubject {
+export interface MRObservationBloodPressureSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressureSubject> =
-    t.recursion("MRObservationBloodPressureSubject", () =>
+export const MRObservationBloodPressureSubjectReference: t.Type<MRObservationBloodPressureSubjectReference> =
+    t.recursion("MRObservationBloodPressureSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1356,13 +1356,13 @@ export const MRObservationBloodPressureSubject: t.Type<MRObservationBloodPressur
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBloodPressureEncounter {
+export interface MRObservationBloodPressureEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPressureEncounter> =
-    t.recursion("MRObservationBloodPressureEncounter", () =>
+export const MRObservationBloodPressureEncounterReference: t.Type<MRObservationBloodPressureEncounterReference> =
+    t.recursion("MRObservationBloodPressureEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1380,13 +1380,13 @@ export const MRObservationBloodPressureEncounter: t.Type<MRObservationBloodPress
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBloodPressurePerformer {
+export interface MRObservationBloodPressurePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodPressurePerformer: t.Type<MRObservationBloodPressurePerformer> =
-    t.recursion("MRObservationBloodPressurePerformer", () =>
+export const MRObservationBloodPressurePerformerReference: t.Type<MRObservationBloodPressurePerformerReference> =
+    t.recursion("MRObservationBloodPressurePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1407,15 +1407,15 @@ interface MRObservationBloodPressure {
     meta: MRObservationBloodPressureMeta;
     status: "final";
     code: MRObservationBloodPressureCode;
-    subject: MRObservationBloodPressureSubject;
-    encounter: MRObservationBloodPressureEncounter;
+    subject: MRObservationBloodPressureSubjectReference;
+    encounter: MRObservationBloodPressureEncounterReference;
     effectiveDateTime: string;
     component: Array<
         MRObservationBloodPressureSystolic | MRObservationBloodPressureDiastolic
     >;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBloodPressurePerformer>;
+    performer?: Array<MRObservationBloodPressurePerformerReference>;
 }
 
 const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursion(
@@ -1428,8 +1428,8 @@ const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursi
                     meta: MRObservationBloodPressureMeta,
                     status: Literal("final"),
                     code: MRObservationBloodPressureCode,
-                    subject: MRObservationBloodPressureSubject,
-                    encounter: MRObservationBloodPressureEncounter,
+                    subject: MRObservationBloodPressureSubjectReference,
+                    encounter: MRObservationBloodPressureEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     component: ReqArray<
                         t.UnionC<
@@ -1468,7 +1468,7 @@ const MRObservationBloodPressure: t.Type<MRObservationBloodPressure> = t.recursi
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBloodPressurePerformer)
+                    performer: MaxArray(1, MRObservationBloodPressurePerformerReference)
                 })
             ])
         )

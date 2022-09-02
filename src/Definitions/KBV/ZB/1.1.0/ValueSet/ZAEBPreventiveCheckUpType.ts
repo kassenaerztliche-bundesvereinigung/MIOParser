@@ -25,11 +25,12 @@ import { ValueSet } from "../../../../Interfaces";
 
 type ZAEBPreventiveCheckUpType = "2115003" | "63963009";
 
-const ZAEBPreventiveCheckUpType: t.Type<ZAEBPreventiveCheckUpType> = t.union(
-    [t.literal("2115003"), t.literal("63963009")],
-    "ZAEBPreventiveCheckUpType"
-);
+type ZAEBPreventiveCheckUpTypeType = t.KeyofC<{ "2115003": null; "63963009": null }>;
 
+const ZAEBPreventiveCheckUpType: ZAEBPreventiveCheckUpTypeType = t.keyof({
+    "2115003": null,
+    "63963009": null
+});
 export const ZAEBPreventiveCheckUpTypeArray: string[] = ["2115003", "63963009"];
 
 export const ZAEBPreventiveCheckUpTypeValueSet: ValueSet = [

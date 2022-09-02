@@ -30,17 +30,20 @@ type CMRU7U9PhysicalExamHeartBloodCirculation =
     | "123824001"
     | "88610006";
 
-const CMRU7U9PhysicalExamHeartBloodCirculation: t.Type<CMRU7U9PhysicalExamHeartBloodCirculation> =
-    t.union(
-        [
-            t.literal("361135004"),
-            t.literal("698247007"),
-            t.literal("123824001"),
-            t.literal("88610006")
-        ],
-        "CMRU7U9PhysicalExamHeartBloodCirculation"
-    );
+type CMRU7U9PhysicalExamHeartBloodCirculationType = t.KeyofC<{
+    "361135004": null;
+    "698247007": null;
+    "123824001": null;
+    "88610006": null;
+}>;
 
+const CMRU7U9PhysicalExamHeartBloodCirculation: CMRU7U9PhysicalExamHeartBloodCirculationType =
+    t.keyof({
+        "361135004": null,
+        "698247007": null,
+        "123824001": null,
+        "88610006": null
+    });
 export const CMRU7U9PhysicalExamHeartBloodCirculationArray: string[] = [
     "361135004",
     "698247007",

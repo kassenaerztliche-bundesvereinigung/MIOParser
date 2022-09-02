@@ -254,13 +254,13 @@ export const CMRServiceRequestDentalReferralCode: t.Type<CMRServiceRequestDental
 /**
  * On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
  */
-export interface CMRServiceRequestDentalReferralSubject {
+export interface CMRServiceRequestDentalReferralSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestDentalReferralSubject: t.Type<CMRServiceRequestDentalReferralSubject> =
-    t.recursion("CMRServiceRequestDentalReferralSubject", () =>
+export const CMRServiceRequestDentalReferralSubjectReference: t.Type<CMRServiceRequestDentalReferralSubjectReference> =
+    t.recursion("CMRServiceRequestDentalReferralSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,13 +278,13 @@ export const CMRServiceRequestDentalReferralSubject: t.Type<CMRServiceRequestDen
 /**
  * An encounter that provides additional information about the healthcare context in which this request is made.
  */
-export interface CMRServiceRequestDentalReferralEncounter {
+export interface CMRServiceRequestDentalReferralEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestDentalReferralEncounter: t.Type<CMRServiceRequestDentalReferralEncounter> =
-    t.recursion("CMRServiceRequestDentalReferralEncounter", () =>
+export const CMRServiceRequestDentalReferralEncounterReference: t.Type<CMRServiceRequestDentalReferralEncounterReference> =
+    t.recursion("CMRServiceRequestDentalReferralEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +302,13 @@ export const CMRServiceRequestDentalReferralEncounter: t.Type<CMRServiceRequestD
 /**
  * The individual who initiated the request and has responsibility for its activation.
  */
-export interface CMRServiceRequestDentalReferralRequester {
+export interface CMRServiceRequestDentalReferralRequesterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestDentalReferralRequester: t.Type<CMRServiceRequestDentalReferralRequester> =
-    t.recursion("CMRServiceRequestDentalReferralRequester", () =>
+export const CMRServiceRequestDentalReferralRequesterReference: t.Type<CMRServiceRequestDentalReferralRequesterReference> =
+    t.recursion("CMRServiceRequestDentalReferralRequesterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -329,11 +329,11 @@ interface CMRServiceRequestDentalReferral {
     status: "active";
     intent: "order";
     code: CMRServiceRequestDentalReferralCode;
-    subject: CMRServiceRequestDentalReferralSubject;
-    encounter: CMRServiceRequestDentalReferralEncounter;
+    subject: CMRServiceRequestDentalReferralSubjectReference;
+    encounter: CMRServiceRequestDentalReferralEncounterReference;
     authoredOn: string;
     id?: string;
-    requester?: CMRServiceRequestDentalReferralRequester;
+    requester?: CMRServiceRequestDentalReferralRequesterReference;
 }
 
 const CMRServiceRequestDentalReferral: t.Type<CMRServiceRequestDentalReferral> =
@@ -346,13 +346,13 @@ const CMRServiceRequestDentalReferral: t.Type<CMRServiceRequestDentalReferral> =
                     status: Literal("active"),
                     intent: Literal("order"),
                     code: CMRServiceRequestDentalReferralCode,
-                    subject: CMRServiceRequestDentalReferralSubject,
-                    encounter: CMRServiceRequestDentalReferralEncounter,
+                    subject: CMRServiceRequestDentalReferralSubjectReference,
+                    encounter: CMRServiceRequestDentalReferralEncounterReference,
                     authoredOn: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
-                    requester: CMRServiceRequestDentalReferralRequester
+                    requester: CMRServiceRequestDentalReferralRequesterReference
                 })
             ])
         )

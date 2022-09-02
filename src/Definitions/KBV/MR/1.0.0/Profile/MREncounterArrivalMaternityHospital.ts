@@ -223,13 +223,13 @@ export const MREncounterArrivalMaternityHospitalType: t.Type<MREncounterArrivalM
 /**
  * The patient or group present at the encounter.
  */
-export interface MREncounterArrivalMaternityHospitalSubject {
+export interface MREncounterArrivalMaternityHospitalSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalSubject: t.Type<MREncounterArrivalMaternityHospitalSubject> =
-    t.recursion("MREncounterArrivalMaternityHospitalSubject", () =>
+export const MREncounterArrivalMaternityHospitalSubjectReference: t.Type<MREncounterArrivalMaternityHospitalSubjectReference> =
+    t.recursion("MREncounterArrivalMaternityHospitalSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -269,13 +269,13 @@ export const MREncounterArrivalMaternityHospitalPeriod: t.Type<MREncounterArriva
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
  */
-export interface MREncounterArrivalMaternityHospitalServiceProvider {
+export interface MREncounterArrivalMaternityHospitalServiceProviderReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterArrivalMaternityHospitalServiceProvider: t.Type<MREncounterArrivalMaternityHospitalServiceProvider> =
-    t.recursion("MREncounterArrivalMaternityHospitalServiceProvider", () =>
+export const MREncounterArrivalMaternityHospitalServiceProviderReference: t.Type<MREncounterArrivalMaternityHospitalServiceProviderReference> =
+    t.recursion("MREncounterArrivalMaternityHospitalServiceProviderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -296,9 +296,9 @@ interface MREncounterArrivalMaternityHospital {
     status: "arrived";
     class: MREncounterArrivalMaternityHospitalClass;
     type: Array<MREncounterArrivalMaternityHospitalType>;
-    subject: MREncounterArrivalMaternityHospitalSubject;
+    subject: MREncounterArrivalMaternityHospitalSubjectReference;
     period: MREncounterArrivalMaternityHospitalPeriod;
-    serviceProvider: MREncounterArrivalMaternityHospitalServiceProvider;
+    serviceProvider: MREncounterArrivalMaternityHospitalServiceProviderReference;
     id?: string;
     text?: Narrative;
 }
@@ -313,9 +313,10 @@ const MREncounterArrivalMaternityHospital: t.Type<MREncounterArrivalMaternityHos
                     status: Literal("arrived"),
                     class: MREncounterArrivalMaternityHospitalClass,
                     type: MinMaxArray(1, 1, MREncounterArrivalMaternityHospitalType),
-                    subject: MREncounterArrivalMaternityHospitalSubject,
+                    subject: MREncounterArrivalMaternityHospitalSubjectReference,
                     period: MREncounterArrivalMaternityHospitalPeriod,
-                    serviceProvider: MREncounterArrivalMaternityHospitalServiceProvider
+                    serviceProvider:
+                        MREncounterArrivalMaternityHospitalServiceProviderReference
                 }),
                 t.partial({
                     id: SCALARString,

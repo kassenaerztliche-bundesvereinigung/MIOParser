@@ -279,7 +279,7 @@ export const CMROrganizationBetriebsstaettennummerTypeCoding: t.Type<CMROrganiza
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface CMROrganizationBetriebsstaettennummerAssignerIdentifier {
+export interface CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -289,8 +289,8 @@ export interface CMROrganizationBetriebsstaettennummerAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const CMROrganizationBetriebsstaettennummerAssignerIdentifier: t.Type<CMROrganizationBetriebsstaettennummerAssignerIdentifier> =
-    t.recursion("CMROrganizationBetriebsstaettennummerAssignerIdentifier", () =>
+export const CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier: t.Type<CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier> =
+    t.recursion("CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -475,16 +475,16 @@ export const CMROrganizationBetriebsstaettennummerType: t.Type<CMROrganizationBe
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMROrganizationBetriebsstaettennummerAssigner {
+export interface CMROrganizationBetriebsstaettennummerAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: CMROrganizationBetriebsstaettennummerAssignerIdentifier;
+    identifier?: CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier;
 }
 
-export const CMROrganizationBetriebsstaettennummerAssigner: t.Type<CMROrganizationBetriebsstaettennummerAssigner> =
-    t.recursion("CMROrganizationBetriebsstaettennummerAssigner", () =>
+export const CMROrganizationBetriebsstaettennummerAssignerReference: t.Type<CMROrganizationBetriebsstaettennummerAssignerReference> =
+    t.recursion("CMROrganizationBetriebsstaettennummerAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -496,7 +496,8 @@ export const CMROrganizationBetriebsstaettennummerAssigner: t.Type<CMROrganizati
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: CMROrganizationBetriebsstaettennummerAssignerIdentifier
+                    identifier:
+                        CMROrganizationBetriebsstaettennummerAssignerReferenceIdentifier
                 })
             ])
         )
@@ -689,7 +690,7 @@ export interface CMROrganizationBetriebsstaettennummer {
     id?: string;
     use?: "official";
     period?: Period;
-    assigner?: CMROrganizationBetriebsstaettennummerAssigner;
+    assigner?: CMROrganizationBetriebsstaettennummerAssignerReference;
 }
 
 export const CMROrganizationBetriebsstaettennummer: t.Type<CMROrganizationBetriebsstaettennummer> =
@@ -705,7 +706,7 @@ export const CMROrganizationBetriebsstaettennummer: t.Type<CMROrganizationBetrie
                     id: SCALARString,
                     use: Literal("official"),
                     period: Period,
-                    assigner: CMROrganizationBetriebsstaettennummerAssigner
+                    assigner: CMROrganizationBetriebsstaettennummerAssignerReference
                 })
             ])
         )
@@ -963,12 +964,12 @@ const CMROrganization: t.Type<CMROrganization> = t.recursion("CMROrganization", 
                         {
                             codec: CMROrganizationInstitutionskennzeichen,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "XX" }
                         },
                         {
                             codec: CMROrganizationBetriebsstaettennummer,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "BSNR" }
                         }
                     ],
                     ["0", "*"]

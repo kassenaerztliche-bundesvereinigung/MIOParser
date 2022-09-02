@@ -47,34 +47,55 @@ type Securitylabels =
     | "HIPAASelfPay"
     | "Title38Section7332";
 
-const Securitylabels: t.Type<Securitylabels> = t.union(
-    [
-        t.literal("U"),
-        t.literal("L"),
-        t.literal("M"),
-        t.literal("N"),
-        t.literal("R"),
-        t.literal("V"),
-        t.literal("COVERAGE"),
-        t.literal("ETREAT"),
-        t.literal("HMARKT"),
-        t.literal("HOPERAT"),
-        t.literal("HPAYMT"),
-        t.literal("HRESCH"),
-        t.literal("PATRQT"),
-        t.literal("PUBHLTH"),
-        t.literal("TREAT"),
-        t.literal("_ActUSPrivacyLaw"),
-        t.literal("42CFRPart2"),
-        t.literal("CommonRule"),
-        t.literal("HIPAANOPP"),
-        t.literal("HIPAAPsyNotes"),
-        t.literal("HIPAASelfPay"),
-        t.literal("Title38Section7332")
-    ],
-    "Securitylabels"
-);
+type SecuritylabelsType = t.KeyofC<{
+    U: null;
+    L: null;
+    M: null;
+    N: null;
+    R: null;
+    V: null;
+    COVERAGE: null;
+    ETREAT: null;
+    HMARKT: null;
+    HOPERAT: null;
+    HPAYMT: null;
+    HRESCH: null;
+    PATRQT: null;
+    PUBHLTH: null;
+    TREAT: null;
+    _ActUSPrivacyLaw: null;
+    "42CFRPart2": null;
+    CommonRule: null;
+    HIPAANOPP: null;
+    HIPAAPsyNotes: null;
+    HIPAASelfPay: null;
+    Title38Section7332: null;
+}>;
 
+const Securitylabels: SecuritylabelsType = t.keyof({
+    U: null,
+    L: null,
+    M: null,
+    N: null,
+    R: null,
+    V: null,
+    COVERAGE: null,
+    ETREAT: null,
+    HMARKT: null,
+    HOPERAT: null,
+    HPAYMT: null,
+    HRESCH: null,
+    PATRQT: null,
+    PUBHLTH: null,
+    TREAT: null,
+    _ActUSPrivacyLaw: null,
+    "42CFRPart2": null,
+    CommonRule: null,
+    HIPAANOPP: null,
+    HIPAAPsyNotes: null,
+    HIPAASelfPay: null,
+    Title38Section7332: null
+});
 export const SecuritylabelsArray: string[] = [
     "U",
     "L",

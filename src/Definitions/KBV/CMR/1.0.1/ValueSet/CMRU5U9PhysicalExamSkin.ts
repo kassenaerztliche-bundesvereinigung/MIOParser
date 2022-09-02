@@ -29,15 +29,17 @@ type CMRU5U9PhysicalExamSkin =
     | "781645001"
     | "106076001:116676008=708039003";
 
-const CMRU5U9PhysicalExamSkin: t.Type<CMRU5U9PhysicalExamSkin> = t.union(
-    [
-        t.literal("267029006"),
-        t.literal("781645001"),
-        t.literal("106076001:116676008=708039003")
-    ],
-    "CMRU5U9PhysicalExamSkin"
-);
+type CMRU5U9PhysicalExamSkinType = t.KeyofC<{
+    "267029006": null;
+    "781645001": null;
+    "106076001:116676008=708039003": null;
+}>;
 
+const CMRU5U9PhysicalExamSkin: CMRU5U9PhysicalExamSkinType = t.keyof({
+    "267029006": null,
+    "781645001": null,
+    "106076001:116676008=708039003": null
+});
 export const CMRU5U9PhysicalExamSkinArray: string[] = [
     "267029006",
     "781645001",

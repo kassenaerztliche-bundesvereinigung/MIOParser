@@ -636,73 +636,79 @@ export const CMRObservationU1U5PediatricDiagnosticAudiologyServiceCode: t.Type<C
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject {
+export interface CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject> =
-    t.recursion("CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference> =
+    t.recursion(
+        "CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter {
+export interface CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter> =
-    t.recursion("CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference> =
+    t.recursion(
+        "CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer {
+export interface CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer> =
-    t.recursion("CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference: t.Type<CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference> =
+    t.recursion(
+        "CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -738,12 +744,12 @@ interface CMRObservationU1U5PediatricDiagnosticAudiologyService {
     meta: CMRObservationU1U5PediatricDiagnosticAudiologyServiceMeta;
     status: CMRObservationStatusVS;
     code: CMRObservationU1U5PediatricDiagnosticAudiologyServiceCode;
-    subject: CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject;
-    encounter: CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter;
+    subject: CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference;
+    encounter: CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer>;
+    performer?: Array<CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference>;
     valueCodeableConcept?: CMRObservationU1U5PediatricDiagnosticAudiologyServiceValueCodeableConcept;
     dataAbsentReason?: CMRObservationU1U5PediatricDiagnosticAudiologyServiceDataAbsentReason;
 }
@@ -757,9 +763,10 @@ const CMRObservationU1U5PediatricDiagnosticAudiologyService: t.Type<CMRObservati
                     meta: CMRObservationU1U5PediatricDiagnosticAudiologyServiceMeta,
                     status: CMRObservationStatusVS,
                     code: CMRObservationU1U5PediatricDiagnosticAudiologyServiceCode,
-                    subject: CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubject,
+                    subject:
+                        CMRObservationU1U5PediatricDiagnosticAudiologyServiceSubjectReference,
                     encounter:
-                        CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounter,
+                        CMRObservationU1U5PediatricDiagnosticAudiologyServiceEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -767,7 +774,7 @@ const CMRObservationU1U5PediatricDiagnosticAudiologyService: t.Type<CMRObservati
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformer
+                        CMRObservationU1U5PediatricDiagnosticAudiologyServicePerformerReference
                     ),
                     valueCodeableConcept:
                         CMRObservationU1U5PediatricDiagnosticAudiologyServiceValueCodeableConcept,

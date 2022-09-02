@@ -29,15 +29,17 @@ type CMRHearscreeningMethod =
     | "252616000:246513007=261422002"
     | "252616000:246513007=261426004";
 
-const CMRHearscreeningMethod: t.Type<CMRHearscreeningMethod> = t.union(
-    [
-        t.literal("446077009"),
-        t.literal("252616000:246513007=261422002"),
-        t.literal("252616000:246513007=261426004")
-    ],
-    "CMRHearscreeningMethod"
-);
+type CMRHearscreeningMethodType = t.KeyofC<{
+    "446077009": null;
+    "252616000:246513007=261422002": null;
+    "252616000:246513007=261426004": null;
+}>;
 
+const CMRHearscreeningMethod: CMRHearscreeningMethodType = t.keyof({
+    "446077009": null,
+    "252616000:246513007=261422002": null,
+    "252616000:246513007=261426004": null
+});
 export const CMRHearscreeningMethodArray: string[] = [
     "446077009",
     "252616000:246513007=261422002",

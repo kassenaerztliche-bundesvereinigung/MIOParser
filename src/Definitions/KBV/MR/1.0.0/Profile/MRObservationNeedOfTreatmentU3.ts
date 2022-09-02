@@ -257,13 +257,13 @@ export const MRObservationNeedOfTreatmentU3Code: t.Type<MRObservationNeedOfTreat
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationNeedOfTreatmentU3Subject {
+export interface MRObservationNeedOfTreatmentU3SubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNeedOfTreatmentU3Subject: t.Type<MRObservationNeedOfTreatmentU3Subject> =
-    t.recursion("MRObservationNeedOfTreatmentU3Subject", () =>
+export const MRObservationNeedOfTreatmentU3SubjectReference: t.Type<MRObservationNeedOfTreatmentU3SubjectReference> =
+    t.recursion("MRObservationNeedOfTreatmentU3SubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -281,13 +281,13 @@ export const MRObservationNeedOfTreatmentU3Subject: t.Type<MRObservationNeedOfTr
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationNeedOfTreatmentU3Encounter {
+export interface MRObservationNeedOfTreatmentU3EncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNeedOfTreatmentU3Encounter: t.Type<MRObservationNeedOfTreatmentU3Encounter> =
-    t.recursion("MRObservationNeedOfTreatmentU3Encounter", () =>
+export const MRObservationNeedOfTreatmentU3EncounterReference: t.Type<MRObservationNeedOfTreatmentU3EncounterReference> =
+    t.recursion("MRObservationNeedOfTreatmentU3EncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -305,13 +305,13 @@ export const MRObservationNeedOfTreatmentU3Encounter: t.Type<MRObservationNeedOf
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationNeedOfTreatmentU3Performer {
+export interface MRObservationNeedOfTreatmentU3PerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNeedOfTreatmentU3Performer: t.Type<MRObservationNeedOfTreatmentU3Performer> =
-    t.recursion("MRObservationNeedOfTreatmentU3Performer", () =>
+export const MRObservationNeedOfTreatmentU3PerformerReference: t.Type<MRObservationNeedOfTreatmentU3PerformerReference> =
+    t.recursion("MRObservationNeedOfTreatmentU3PerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ interface MRObservationNeedOfTreatmentU3 {
     meta: MRObservationNeedOfTreatmentU3Meta;
     status: "final";
     code: MRObservationNeedOfTreatmentU3Code;
-    subject: MRObservationNeedOfTreatmentU3Subject;
-    encounter: MRObservationNeedOfTreatmentU3Encounter;
+    subject: MRObservationNeedOfTreatmentU3SubjectReference;
+    encounter: MRObservationNeedOfTreatmentU3EncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationNeedOfTreatmentU3Performer>;
+    performer?: Array<MRObservationNeedOfTreatmentU3PerformerReference>;
 }
 
 const MRObservationNeedOfTreatmentU3: t.Type<MRObservationNeedOfTreatmentU3> =
@@ -350,15 +350,18 @@ const MRObservationNeedOfTreatmentU3: t.Type<MRObservationNeedOfTreatmentU3> =
                     meta: MRObservationNeedOfTreatmentU3Meta,
                     status: Literal("final"),
                     code: MRObservationNeedOfTreatmentU3Code,
-                    subject: MRObservationNeedOfTreatmentU3Subject,
-                    encounter: MRObservationNeedOfTreatmentU3Encounter,
+                    subject: MRObservationNeedOfTreatmentU3SubjectReference,
+                    encounter: MRObservationNeedOfTreatmentU3EncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationNeedOfTreatmentU3Performer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationNeedOfTreatmentU3PerformerReference
+                    )
                 })
             ])
         )

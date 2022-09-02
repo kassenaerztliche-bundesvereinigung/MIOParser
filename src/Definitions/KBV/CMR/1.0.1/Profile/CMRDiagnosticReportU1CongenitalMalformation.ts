@@ -261,13 +261,13 @@ export const CMRDiagnosticReportU1CongenitalMalformationCode: t.Type<CMRDiagnost
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1CongenitalMalformationSubject {
+export interface CMRDiagnosticReportU1CongenitalMalformationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1CongenitalMalformationSubject: t.Type<CMRDiagnosticReportU1CongenitalMalformationSubject> =
-    t.recursion("CMRDiagnosticReportU1CongenitalMalformationSubject", () =>
+export const CMRDiagnosticReportU1CongenitalMalformationSubjectReference: t.Type<CMRDiagnosticReportU1CongenitalMalformationSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1CongenitalMalformationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,13 +285,13 @@ export const CMRDiagnosticReportU1CongenitalMalformationSubject: t.Type<CMRDiagn
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1CongenitalMalformationEncounter {
+export interface CMRDiagnosticReportU1CongenitalMalformationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1CongenitalMalformationEncounter: t.Type<CMRDiagnosticReportU1CongenitalMalformationEncounter> =
-    t.recursion("CMRDiagnosticReportU1CongenitalMalformationEncounter", () =>
+export const CMRDiagnosticReportU1CongenitalMalformationEncounterReference: t.Type<CMRDiagnosticReportU1CongenitalMalformationEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1CongenitalMalformationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -309,13 +309,13 @@ export const CMRDiagnosticReportU1CongenitalMalformationEncounter: t.Type<CMRDia
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1CongenitalMalformationPerformer {
+export interface CMRDiagnosticReportU1CongenitalMalformationPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1CongenitalMalformationPerformer: t.Type<CMRDiagnosticReportU1CongenitalMalformationPerformer> =
-    t.recursion("CMRDiagnosticReportU1CongenitalMalformationPerformer", () =>
+export const CMRDiagnosticReportU1CongenitalMalformationPerformerReference: t.Type<CMRDiagnosticReportU1CongenitalMalformationPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1CongenitalMalformationPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ export const CMRDiagnosticReportU1CongenitalMalformationPerformer: t.Type<CMRDia
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1CongenitalMalformationResult {
+export interface CMRDiagnosticReportU1CongenitalMalformationResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1CongenitalMalformationResult: t.Type<CMRDiagnosticReportU1CongenitalMalformationResult> =
-    t.recursion("CMRDiagnosticReportU1CongenitalMalformationResult", () =>
+export const CMRDiagnosticReportU1CongenitalMalformationResultReference: t.Type<CMRDiagnosticReportU1CongenitalMalformationResultReference> =
+    t.recursion("CMRDiagnosticReportU1CongenitalMalformationResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -359,13 +359,13 @@ interface CMRDiagnosticReportU1CongenitalMalformation {
     meta: CMRDiagnosticReportU1CongenitalMalformationMeta;
     status: "final";
     code: CMRDiagnosticReportU1CongenitalMalformationCode;
-    subject: CMRDiagnosticReportU1CongenitalMalformationSubject;
-    encounter: CMRDiagnosticReportU1CongenitalMalformationEncounter;
+    subject: CMRDiagnosticReportU1CongenitalMalformationSubjectReference;
+    encounter: CMRDiagnosticReportU1CongenitalMalformationEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1CongenitalMalformationPerformer>;
-    result?: CMRDiagnosticReportU1CongenitalMalformationResult[];
+    performer?: Array<CMRDiagnosticReportU1CongenitalMalformationPerformerReference>;
+    result?: CMRDiagnosticReportU1CongenitalMalformationResultReference[];
 }
 
 const CMRDiagnosticReportU1CongenitalMalformation: t.Type<CMRDiagnosticReportU1CongenitalMalformation> =
@@ -377,8 +377,9 @@ const CMRDiagnosticReportU1CongenitalMalformation: t.Type<CMRDiagnosticReportU1C
                     meta: CMRDiagnosticReportU1CongenitalMalformationMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1CongenitalMalformationCode,
-                    subject: CMRDiagnosticReportU1CongenitalMalformationSubject,
-                    encounter: CMRDiagnosticReportU1CongenitalMalformationEncounter,
+                    subject: CMRDiagnosticReportU1CongenitalMalformationSubjectReference,
+                    encounter:
+                        CMRDiagnosticReportU1CongenitalMalformationEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -386,9 +387,11 @@ const CMRDiagnosticReportU1CongenitalMalformation: t.Type<CMRDiagnosticReportU1C
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU1CongenitalMalformationPerformer
+                        CMRDiagnosticReportU1CongenitalMalformationPerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU1CongenitalMalformationResult)
+                    result: t.array(
+                        CMRDiagnosticReportU1CongenitalMalformationResultReference
+                    )
                 })
             ])
         )

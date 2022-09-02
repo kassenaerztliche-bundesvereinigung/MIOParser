@@ -447,13 +447,13 @@ export const MRObservationMorphologyCode: t.Type<MRObservationMorphologyCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationMorphologySubject {
+export interface MRObservationMorphologySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMorphologySubject: t.Type<MRObservationMorphologySubject> =
-    t.recursion("MRObservationMorphologySubject", () =>
+export const MRObservationMorphologySubjectReference: t.Type<MRObservationMorphologySubjectReference> =
+    t.recursion("MRObservationMorphologySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -471,13 +471,13 @@ export const MRObservationMorphologySubject: t.Type<MRObservationMorphologySubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationMorphologyEncounter {
+export interface MRObservationMorphologyEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMorphologyEncounter: t.Type<MRObservationMorphologyEncounter> =
-    t.recursion("MRObservationMorphologyEncounter", () =>
+export const MRObservationMorphologyEncounterReference: t.Type<MRObservationMorphologyEncounterReference> =
+    t.recursion("MRObservationMorphologyEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -495,13 +495,13 @@ export const MRObservationMorphologyEncounter: t.Type<MRObservationMorphologyEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationMorphologyPerformer {
+export interface MRObservationMorphologyPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationMorphologyPerformer: t.Type<MRObservationMorphologyPerformer> =
-    t.recursion("MRObservationMorphologyPerformer", () =>
+export const MRObservationMorphologyPerformerReference: t.Type<MRObservationMorphologyPerformerReference> =
+    t.recursion("MRObservationMorphologyPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -577,13 +577,13 @@ interface MRObservationMorphology {
     meta: MRObservationMorphologyMeta;
     status: "final";
     code: MRObservationMorphologyCode;
-    subject: MRObservationMorphologySubject;
-    encounter: MRObservationMorphologyEncounter;
+    subject: MRObservationMorphologySubjectReference;
+    encounter: MRObservationMorphologyEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationMorphologyPerformer>;
+    performer?: Array<MRObservationMorphologyPerformerReference>;
     bodySite?: MRObservationMorphologyBodySite;
 }
 
@@ -597,15 +597,15 @@ const MRObservationMorphology: t.Type<MRObservationMorphology> = t.recursion(
                     meta: MRObservationMorphologyMeta,
                     status: Literal("final"),
                     code: MRObservationMorphologyCode,
-                    subject: MRObservationMorphologySubject,
-                    encounter: MRObservationMorphologyEncounter,
+                    subject: MRObservationMorphologySubjectReference,
+                    encounter: MRObservationMorphologyEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationMorphologyPerformer),
+                    performer: MaxArray(1, MRObservationMorphologyPerformerReference),
                     bodySite: MRObservationMorphologyBodySite
                 })
             ])

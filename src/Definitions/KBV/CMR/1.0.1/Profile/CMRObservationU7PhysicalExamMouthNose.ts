@@ -259,13 +259,13 @@ export const CMRObservationU7PhysicalExamMouthNoseCode: t.Type<CMRObservationU7P
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU7PhysicalExamMouthNoseSubject {
+export interface CMRObservationU7PhysicalExamMouthNoseSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7PhysicalExamMouthNoseSubject: t.Type<CMRObservationU7PhysicalExamMouthNoseSubject> =
-    t.recursion("CMRObservationU7PhysicalExamMouthNoseSubject", () =>
+export const CMRObservationU7PhysicalExamMouthNoseSubjectReference: t.Type<CMRObservationU7PhysicalExamMouthNoseSubjectReference> =
+    t.recursion("CMRObservationU7PhysicalExamMouthNoseSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -283,13 +283,13 @@ export const CMRObservationU7PhysicalExamMouthNoseSubject: t.Type<CMRObservation
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU7PhysicalExamMouthNoseEncounter {
+export interface CMRObservationU7PhysicalExamMouthNoseEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7PhysicalExamMouthNoseEncounter: t.Type<CMRObservationU7PhysicalExamMouthNoseEncounter> =
-    t.recursion("CMRObservationU7PhysicalExamMouthNoseEncounter", () =>
+export const CMRObservationU7PhysicalExamMouthNoseEncounterReference: t.Type<CMRObservationU7PhysicalExamMouthNoseEncounterReference> =
+    t.recursion("CMRObservationU7PhysicalExamMouthNoseEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -307,13 +307,13 @@ export const CMRObservationU7PhysicalExamMouthNoseEncounter: t.Type<CMRObservati
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU7PhysicalExamMouthNosePerformer {
+export interface CMRObservationU7PhysicalExamMouthNosePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7PhysicalExamMouthNosePerformer: t.Type<CMRObservationU7PhysicalExamMouthNosePerformer> =
-    t.recursion("CMRObservationU7PhysicalExamMouthNosePerformer", () =>
+export const CMRObservationU7PhysicalExamMouthNosePerformerReference: t.Type<CMRObservationU7PhysicalExamMouthNosePerformerReference> =
+    t.recursion("CMRObservationU7PhysicalExamMouthNosePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ interface CMRObservationU7PhysicalExamMouthNose {
     meta: CMRObservationU7PhysicalExamMouthNoseMeta;
     status: "final";
     code: CMRObservationU7PhysicalExamMouthNoseCode;
-    subject: CMRObservationU7PhysicalExamMouthNoseSubject;
-    encounter: CMRObservationU7PhysicalExamMouthNoseEncounter;
+    subject: CMRObservationU7PhysicalExamMouthNoseSubjectReference;
+    encounter: CMRObservationU7PhysicalExamMouthNoseEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU7PhysicalExamMouthNosePerformer>;
+    performer?: Array<CMRObservationU7PhysicalExamMouthNosePerformerReference>;
 }
 
 const CMRObservationU7PhysicalExamMouthNose: t.Type<CMRObservationU7PhysicalExamMouthNose> =
@@ -351,15 +351,18 @@ const CMRObservationU7PhysicalExamMouthNose: t.Type<CMRObservationU7PhysicalExam
                     meta: CMRObservationU7PhysicalExamMouthNoseMeta,
                     status: Literal("final"),
                     code: CMRObservationU7PhysicalExamMouthNoseCode,
-                    subject: CMRObservationU7PhysicalExamMouthNoseSubject,
-                    encounter: CMRObservationU7PhysicalExamMouthNoseEncounter,
+                    subject: CMRObservationU7PhysicalExamMouthNoseSubjectReference,
+                    encounter: CMRObservationU7PhysicalExamMouthNoseEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU7PhysicalExamMouthNosePerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU7PhysicalExamMouthNosePerformerReference
+                    )
                 })
             ])
         )

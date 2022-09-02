@@ -25,11 +25,13 @@ import { ValueSet } from "../../../../Interfaces";
 
 type MRGender = "male" | "female" | "other";
 
-const MRGender: t.Type<MRGender> = t.union(
-    [t.literal("male"), t.literal("female"), t.literal("other")],
-    "MRGender"
-);
+type MRGenderType = t.KeyofC<{ male: null; female: null; other: null }>;
 
+const MRGender: MRGenderType = t.keyof({
+    male: null,
+    female: null,
+    other: null
+});
 export const MRGenderArray: string[] = ["male", "female", "other"];
 
 export const MRGenderValueSet: ValueSet = [

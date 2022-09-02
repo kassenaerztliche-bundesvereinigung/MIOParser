@@ -260,13 +260,13 @@ export const CMRDiagnosticReportU7PhysicalExamMouthNoseCode: t.Type<CMRDiagnosti
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU7PhysicalExamMouthNoseSubject {
+export interface CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7PhysicalExamMouthNoseSubject: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseSubject> =
-    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseSubject", () =>
+export const CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference> =
+    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportU7PhysicalExamMouthNoseSubject: t.Type<CMRDiagno
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter {
+export interface CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter> =
-    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter", () =>
+export const CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference> =
+    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter: t.Type<CMRDiag
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU7PhysicalExamMouthNosePerformer {
+export interface CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7PhysicalExamMouthNosePerformer: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNosePerformer> =
-    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNosePerformer", () =>
+export const CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference> =
+    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportU7PhysicalExamMouthNosePerformer: t.Type<CMRDiag
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU7PhysicalExamMouthNoseResult {
+export interface CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7PhysicalExamMouthNoseResult: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseResult> =
-    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseResult", () =>
+export const CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference> =
+    t.recursion("CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportU7PhysicalExamMouthNose {
     meta: CMRDiagnosticReportU7PhysicalExamMouthNoseMeta;
     status: "final";
     code: CMRDiagnosticReportU7PhysicalExamMouthNoseCode;
-    subject: CMRDiagnosticReportU7PhysicalExamMouthNoseSubject;
-    encounter: CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter;
+    subject: CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference;
+    encounter: CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU7PhysicalExamMouthNosePerformer>;
-    result?: CMRDiagnosticReportU7PhysicalExamMouthNoseResult[];
+    performer?: Array<CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference>;
+    result?: CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference[];
 }
 
 const CMRDiagnosticReportU7PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU7PhysicalExamMouthNose> =
@@ -376,8 +376,9 @@ const CMRDiagnosticReportU7PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU7Ph
                     meta: CMRDiagnosticReportU7PhysicalExamMouthNoseMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU7PhysicalExamMouthNoseCode,
-                    subject: CMRDiagnosticReportU7PhysicalExamMouthNoseSubject,
-                    encounter: CMRDiagnosticReportU7PhysicalExamMouthNoseEncounter,
+                    subject: CMRDiagnosticReportU7PhysicalExamMouthNoseSubjectReference,
+                    encounter:
+                        CMRDiagnosticReportU7PhysicalExamMouthNoseEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -385,9 +386,11 @@ const CMRDiagnosticReportU7PhysicalExamMouthNose: t.Type<CMRDiagnosticReportU7Ph
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU7PhysicalExamMouthNosePerformer
+                        CMRDiagnosticReportU7PhysicalExamMouthNosePerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU7PhysicalExamMouthNoseResult)
+                    result: t.array(
+                        CMRDiagnosticReportU7PhysicalExamMouthNoseResultReference
+                    )
                 })
             ])
         )

@@ -25,7 +25,9 @@ import { ValueSet } from "../../../Interfaces";
 
 type Alphaid = string;
 
-const Alphaid: t.Type<Alphaid> = t.string;
+type AlphaidType = string;
+
+const Alphaid: t.Type<AlphaidType> = t.string;
 
 export const AlphaidArray: string[] = [];
 

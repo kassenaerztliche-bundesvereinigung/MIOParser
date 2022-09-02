@@ -18,7 +18,7 @@
  *
  */
 
-import Reference from "../src/Interfaces/Reference";
+import Reference from "../src/Definitions/CustomTypes/Reference";
 
 describe("Reference", () => {
     test("absolute", (done) => {

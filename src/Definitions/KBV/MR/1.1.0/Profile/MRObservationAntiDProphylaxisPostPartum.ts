@@ -202,13 +202,13 @@ export const MRObservationAntiDProphylaxisPostPartumCode: t.Type<MRObservationAn
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationAntiDProphylaxisPostPartumSubject {
+export interface MRObservationAntiDProphylaxisPostPartumSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAntiDProphylaxisPostPartumSubject: t.Type<MRObservationAntiDProphylaxisPostPartumSubject> =
-    t.recursion("MRObservationAntiDProphylaxisPostPartumSubject", () =>
+export const MRObservationAntiDProphylaxisPostPartumSubjectReference: t.Type<MRObservationAntiDProphylaxisPostPartumSubjectReference> =
+    t.recursion("MRObservationAntiDProphylaxisPostPartumSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -226,13 +226,13 @@ export const MRObservationAntiDProphylaxisPostPartumSubject: t.Type<MRObservatio
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationAntiDProphylaxisPostPartumEncounter {
+export interface MRObservationAntiDProphylaxisPostPartumEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAntiDProphylaxisPostPartumEncounter: t.Type<MRObservationAntiDProphylaxisPostPartumEncounter> =
-    t.recursion("MRObservationAntiDProphylaxisPostPartumEncounter", () =>
+export const MRObservationAntiDProphylaxisPostPartumEncounterReference: t.Type<MRObservationAntiDProphylaxisPostPartumEncounterReference> =
+    t.recursion("MRObservationAntiDProphylaxisPostPartumEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -250,13 +250,13 @@ export const MRObservationAntiDProphylaxisPostPartumEncounter: t.Type<MRObservat
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationAntiDProphylaxisPostPartumPerformer {
+export interface MRObservationAntiDProphylaxisPostPartumPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAntiDProphylaxisPostPartumPerformer: t.Type<MRObservationAntiDProphylaxisPostPartumPerformer> =
-    t.recursion("MRObservationAntiDProphylaxisPostPartumPerformer", () =>
+export const MRObservationAntiDProphylaxisPostPartumPerformerReference: t.Type<MRObservationAntiDProphylaxisPostPartumPerformerReference> =
+    t.recursion("MRObservationAntiDProphylaxisPostPartumPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -277,13 +277,13 @@ interface MRObservationAntiDProphylaxisPostPartum {
     meta: MRObservationAntiDProphylaxisPostPartumMeta;
     status: "final";
     code: MRObservationAntiDProphylaxisPostPartumCode;
-    subject: MRObservationAntiDProphylaxisPostPartumSubject;
-    encounter: MRObservationAntiDProphylaxisPostPartumEncounter;
+    subject: MRObservationAntiDProphylaxisPostPartumSubjectReference;
+    encounter: MRObservationAntiDProphylaxisPostPartumEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationAntiDProphylaxisPostPartumPerformer>;
+    performer?: Array<MRObservationAntiDProphylaxisPostPartumPerformerReference>;
 }
 
 const MRObservationAntiDProphylaxisPostPartum: t.Type<MRObservationAntiDProphylaxisPostPartum> =
@@ -295,8 +295,8 @@ const MRObservationAntiDProphylaxisPostPartum: t.Type<MRObservationAntiDProphyla
                     meta: MRObservationAntiDProphylaxisPostPartumMeta,
                     status: Literal("final"),
                     code: MRObservationAntiDProphylaxisPostPartumCode,
-                    subject: MRObservationAntiDProphylaxisPostPartumSubject,
-                    encounter: MRObservationAntiDProphylaxisPostPartumEncounter,
+                    subject: MRObservationAntiDProphylaxisPostPartumSubjectReference,
+                    encounter: MRObservationAntiDProphylaxisPostPartumEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
@@ -305,7 +305,7 @@ const MRObservationAntiDProphylaxisPostPartum: t.Type<MRObservationAntiDProphyla
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        MRObservationAntiDProphylaxisPostPartumPerformer
+                        MRObservationAntiDProphylaxisPostPartumPerformerReference
                     )
                 })
             ])

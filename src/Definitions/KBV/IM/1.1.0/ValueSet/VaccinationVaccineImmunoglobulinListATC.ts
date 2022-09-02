@@ -37,25 +37,36 @@ type VaccinationVaccineImmunoglobulinListATC =
     | "J06BB16"
     | "J06BB21";
 
-const VaccinationVaccineImmunoglobulinListATC: t.Type<VaccinationVaccineImmunoglobulinListATC> =
-    t.union(
-        [
-            t.literal("J06BA"),
-            t.literal("J06BA01"),
-            t.literal("J06BA02"),
-            t.literal("J06BB"),
-            t.literal("J06BB01"),
-            t.literal("J06BB02"),
-            t.literal("J06BB03"),
-            t.literal("J06BB04"),
-            t.literal("J06BB05"),
-            t.literal("J06BB09"),
-            t.literal("J06BB16"),
-            t.literal("J06BB21")
-        ],
-        "VaccinationVaccineImmunoglobulinListATC"
-    );
+type VaccinationVaccineImmunoglobulinListATCType = t.KeyofC<{
+    J06BA: null;
+    J06BA01: null;
+    J06BA02: null;
+    J06BB: null;
+    J06BB01: null;
+    J06BB02: null;
+    J06BB03: null;
+    J06BB04: null;
+    J06BB05: null;
+    J06BB09: null;
+    J06BB16: null;
+    J06BB21: null;
+}>;
 
+const VaccinationVaccineImmunoglobulinListATC: VaccinationVaccineImmunoglobulinListATCType =
+    t.keyof({
+        J06BA: null,
+        J06BA01: null,
+        J06BA02: null,
+        J06BB: null,
+        J06BB01: null,
+        J06BB02: null,
+        J06BB03: null,
+        J06BB04: null,
+        J06BB05: null,
+        J06BB09: null,
+        J06BB16: null,
+        J06BB21: null
+    });
 export const VaccinationVaccineImmunoglobulinListATCArray: string[] = [
     "J06BA",
     "J06BA01",

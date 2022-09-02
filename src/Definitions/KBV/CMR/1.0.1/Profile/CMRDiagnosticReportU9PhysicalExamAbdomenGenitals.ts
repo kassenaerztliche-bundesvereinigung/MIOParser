@@ -261,13 +261,13 @@ export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsCode: t.Type<CMRDia
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject {
+export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject> =
-    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject", () =>
+export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference> =
+    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,61 +285,65 @@ export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject: t.Type<CMR
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter {
+export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter> =
-    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference> =
+    t.recursion(
+        "CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer {
+export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer> =
-    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference> =
+    t.recursion(
+        "CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult {
+export interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult> =
-    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult", () =>
+export const CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference> =
+    t.recursion("CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -359,13 +363,13 @@ interface CMRDiagnosticReportU9PhysicalExamAbdomenGenitals {
     meta: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsMeta;
     status: "final";
     code: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsCode;
-    subject: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject;
-    encounter: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter;
+    subject: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference;
+    encounter: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer>;
-    result?: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult[];
+    performer?: Array<CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference>;
+    result?: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference[];
 }
 
 const CMRDiagnosticReportU9PhysicalExamAbdomenGenitals: t.Type<CMRDiagnosticReportU9PhysicalExamAbdomenGenitals> =
@@ -377,8 +381,10 @@ const CMRDiagnosticReportU9PhysicalExamAbdomenGenitals: t.Type<CMRDiagnosticRepo
                     meta: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsCode,
-                    subject: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubject,
-                    encounter: CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounter,
+                    subject:
+                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsSubjectReference,
+                    encounter:
+                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -386,10 +392,10 @@ const CMRDiagnosticReportU9PhysicalExamAbdomenGenitals: t.Type<CMRDiagnosticRepo
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformer
+                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResult
+                        CMRDiagnosticReportU9PhysicalExamAbdomenGenitalsResultReference
                     )
                 })
             ])

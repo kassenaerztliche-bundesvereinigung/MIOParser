@@ -26,16 +26,19 @@ import CMRU2FamilyHistoryGerman from "../../../../../Definitions/KBV/CMR/1.0.1/C
 
 type CMRU2FamilyHistory = "160346003" | "160352002" | "737367001" | "700191004";
 
-const CMRU2FamilyHistory: t.Type<CMRU2FamilyHistory> = t.union(
-    [
-        t.literal("160346003"),
-        t.literal("160352002"),
-        t.literal("737367001"),
-        t.literal("700191004")
-    ],
-    "CMRU2FamilyHistory"
-);
+type CMRU2FamilyHistoryType = t.KeyofC<{
+    "160346003": null;
+    "160352002": null;
+    "737367001": null;
+    "700191004": null;
+}>;
 
+const CMRU2FamilyHistory: CMRU2FamilyHistoryType = t.keyof({
+    "160346003": null,
+    "160352002": null,
+    "737367001": null,
+    "700191004": null
+});
 export const CMRU2FamilyHistoryArray: string[] = [
     "160346003",
     "160352002",

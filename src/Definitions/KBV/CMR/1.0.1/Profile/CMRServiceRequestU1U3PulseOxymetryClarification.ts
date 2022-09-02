@@ -260,13 +260,13 @@ export const CMRServiceRequestU1U3PulseOxymetryClarificationCode: t.Type<CMRServ
 /**
  * On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
  */
-export interface CMRServiceRequestU1U3PulseOxymetryClarificationSubject {
+export interface CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U3PulseOxymetryClarificationSubject: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationSubject> =
-    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationSubject", () =>
+export const CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference> =
+    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRServiceRequestU1U3PulseOxymetryClarificationSubject: t.Type<CMRS
 /**
  * An encounter that provides additional information about the healthcare context in which this request is made.
  */
-export interface CMRServiceRequestU1U3PulseOxymetryClarificationEncounter {
+export interface CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U3PulseOxymetryClarificationEncounter: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationEncounter> =
-    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationEncounter", () =>
+export const CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference> =
+    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRServiceRequestU1U3PulseOxymetryClarificationEncounter: t.Type<CM
 /**
  * The individual who initiated the request and has responsibility for its activation.
  */
-export interface CMRServiceRequestU1U3PulseOxymetryClarificationRequester {
+export interface CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U3PulseOxymetryClarificationRequester: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationRequester> =
-    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationRequester", () =>
+export const CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference> =
+    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,25 +332,27 @@ export const CMRServiceRequestU1U3PulseOxymetryClarificationRequester: t.Type<CM
 /**
  * Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.
  */
-export interface CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference {
+export interface CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference> =
-    t.recursion("CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Pulse_Oxymetry_Measurement|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference: t.Type<CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference> =
+    t.recursion(
+        "CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U3_Pulse_Oxymetry_Measurement|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRServiceRequestU1U3PulseOxymetryClarification {
@@ -359,13 +361,13 @@ interface CMRServiceRequestU1U3PulseOxymetryClarification {
     status: "active";
     intent: "order";
     code: CMRServiceRequestU1U3PulseOxymetryClarificationCode;
-    subject: CMRServiceRequestU1U3PulseOxymetryClarificationSubject;
-    encounter: CMRServiceRequestU1U3PulseOxymetryClarificationEncounter;
+    subject: CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference;
+    encounter: CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference;
     authoredOn: string;
-    reasonReference: Array<CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference>;
+    reasonReference: Array<CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference>;
     id?: string;
     text?: Narrative;
-    requester?: CMRServiceRequestU1U3PulseOxymetryClarificationRequester;
+    requester?: CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference;
 }
 
 const CMRServiceRequestU1U3PulseOxymetryClarification: t.Type<CMRServiceRequestU1U3PulseOxymetryClarification> =
@@ -378,19 +380,22 @@ const CMRServiceRequestU1U3PulseOxymetryClarification: t.Type<CMRServiceRequestU
                     status: Literal("active"),
                     intent: Literal("order"),
                     code: CMRServiceRequestU1U3PulseOxymetryClarificationCode,
-                    subject: CMRServiceRequestU1U3PulseOxymetryClarificationSubject,
-                    encounter: CMRServiceRequestU1U3PulseOxymetryClarificationEncounter,
+                    subject:
+                        CMRServiceRequestU1U3PulseOxymetryClarificationSubjectReference,
+                    encounter:
+                        CMRServiceRequestU1U3PulseOxymetryClarificationEncounterReference,
                     authoredOn: SCALARDateTime,
                     reasonReference: MinMaxArray(
                         1,
                         1,
-                        CMRServiceRequestU1U3PulseOxymetryClarificationReasonReference
+                        CMRServiceRequestU1U3PulseOxymetryClarificationReasonReferenceReference
                     )
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    requester: CMRServiceRequestU1U3PulseOxymetryClarificationRequester
+                    requester:
+                        CMRServiceRequestU1U3PulseOxymetryClarificationRequesterReference
                 })
             ])
         )

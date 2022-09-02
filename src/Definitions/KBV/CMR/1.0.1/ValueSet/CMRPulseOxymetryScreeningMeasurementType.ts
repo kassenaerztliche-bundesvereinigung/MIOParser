@@ -28,15 +28,16 @@ type CMRPulseOxymetryScreeningMeasurementType =
     | "250554003:363703001=399455000"
     | "250554003:363703001=262134003";
 
-const CMRPulseOxymetryScreeningMeasurementType: t.Type<CMRPulseOxymetryScreeningMeasurementType> =
-    t.union(
-        [
-            t.literal("250554003:363703001=399455000"),
-            t.literal("250554003:363703001=262134003")
-        ],
-        "CMRPulseOxymetryScreeningMeasurementType"
-    );
+type CMRPulseOxymetryScreeningMeasurementTypeType = t.KeyofC<{
+    "250554003:363703001=399455000": null;
+    "250554003:363703001=262134003": null;
+}>;
 
+const CMRPulseOxymetryScreeningMeasurementType: CMRPulseOxymetryScreeningMeasurementTypeType =
+    t.keyof({
+        "250554003:363703001=399455000": null,
+        "250554003:363703001=262134003": null
+    });
 export const CMRPulseOxymetryScreeningMeasurementTypeArray: string[] = [
     "250554003:363703001=399455000",
     "250554003:363703001=262134003"

@@ -1027,13 +1027,13 @@ export const VaccinationRecordAddendumVaccineCode: t.Type<VaccinationRecordAdden
 /**
  * The patient who either received or did not receive the immunization.
  */
-export interface VaccinationRecordAddendumPatient {
+export interface VaccinationRecordAddendumPatientReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationRecordAddendumPatient: t.Type<VaccinationRecordAddendumPatient> =
-    t.recursion("VaccinationRecordAddendumPatient", () =>
+export const VaccinationRecordAddendumPatientReference: t.Type<VaccinationRecordAddendumPatientReference> =
+    t.recursion("VaccinationRecordAddendumPatientReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1079,13 +1079,13 @@ export const VaccinationRecordAddendumReportOrigin: t.Type<VaccinationRecordAdde
 /**
  * Name des herstellenden bzw. des anbietenden Unternehmens. Dies bietet eine Zusatzinformation zum Fertigarzneimittel.
  */
-export interface VaccinationRecordAddendumManufacturer {
+export interface VaccinationRecordAddendumManufacturerReference {
     display: string;
     id?: string;
 }
 
-export const VaccinationRecordAddendumManufacturer: t.Type<VaccinationRecordAddendumManufacturer> =
-    t.recursion("VaccinationRecordAddendumManufacturer", () =>
+export const VaccinationRecordAddendumManufacturerReference: t.Type<VaccinationRecordAddendumManufacturerReference> =
+    t.recursion("VaccinationRecordAddendumManufacturerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1196,7 +1196,7 @@ interface VaccinationRecordAddendum {
     meta: VaccinationRecordAddendumMeta;
     status: "completed";
     vaccineCode: VaccinationRecordAddendumVaccineCode;
-    patient: VaccinationRecordAddendumPatient;
+    patient: VaccinationRecordAddendumPatientReference;
     occurrenceDateTime: string;
     primarySource: false;
     reportOrigin: VaccinationRecordAddendumReportOrigin;
@@ -1209,7 +1209,7 @@ interface VaccinationRecordAddendum {
         | VaccinationRecordAddendumVerantwortlichePerson
         | VaccinationRecordAddendumEintragendePerson
     )[];
-    manufacturer?: VaccinationRecordAddendumManufacturer;
+    manufacturer?: VaccinationRecordAddendumManufacturerReference;
     lotNumber?: string;
     note?: Array<VaccinationRecordAddendumNote>;
 }
@@ -1224,7 +1224,7 @@ const VaccinationRecordAddendum: t.Type<VaccinationRecordAddendum> = t.recursion
                     meta: VaccinationRecordAddendumMeta,
                     status: Literal("completed"),
                     vaccineCode: VaccinationRecordAddendumVaccineCode,
-                    patient: VaccinationRecordAddendumPatient,
+                    patient: VaccinationRecordAddendumPatientReference,
                     occurrenceDateTime: SCALARDateTime,
                     primarySource: Literal(false),
                     reportOrigin: VaccinationRecordAddendumReportOrigin,
@@ -1287,7 +1287,7 @@ const VaccinationRecordAddendum: t.Type<VaccinationRecordAddendum> = t.recursion
                         ],
                         ["0", "*"]
                     ),
-                    manufacturer: VaccinationRecordAddendumManufacturer,
+                    manufacturer: VaccinationRecordAddendumManufacturerReference,
                     lotNumber: SCALARString,
                     note: MaxArray(1, VaccinationRecordAddendumNote)
                 })

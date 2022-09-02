@@ -26,11 +26,12 @@ import CMRU8PhysicalExamEarsGerman from "../../../../../Definitions/KBV/CMR/1.0.
 
 type CMRU8PhysicalExamEars = "134376008" | "134375007";
 
-const CMRU8PhysicalExamEars: t.Type<CMRU8PhysicalExamEars> = t.union(
-    [t.literal("134376008"), t.literal("134375007")],
-    "CMRU8PhysicalExamEars"
-);
+type CMRU8PhysicalExamEarsType = t.KeyofC<{ "134376008": null; "134375007": null }>;
 
+const CMRU8PhysicalExamEars: CMRU8PhysicalExamEarsType = t.keyof({
+    "134376008": null,
+    "134375007": null
+});
 export const CMRU8PhysicalExamEarsArray: string[] = ["134376008", "134375007"];
 
 export const CMRU8PhysicalExamEarsValueSet: ValueSet = [

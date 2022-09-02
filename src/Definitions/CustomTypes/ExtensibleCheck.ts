@@ -45,7 +45,7 @@ export default function ExtensibleCheck<C extends t.Any>(
         name,
         (i): i is string => typeof i === "string",
         (i, c) => {
-            if (!i) return t.failure(ErrorMessage.ValueOfValueSetNotPresent(valueSet), c);
+            if (!i) return t.failure(ErrorMessage.ObjectNotPresent(), c);
             const valueSetResult = valueSet.decode(i);
             if (valueSetResult._tag === "Right") {
                 // eslint-disable-next-line  @typescript-eslint/no-explicit-any

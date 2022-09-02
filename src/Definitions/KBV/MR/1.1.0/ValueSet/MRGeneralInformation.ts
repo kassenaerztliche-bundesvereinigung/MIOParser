@@ -26,11 +26,12 @@ import MRGeneralInformationGerman from "../../../../../Definitions/KBV/MR/1.1.0/
 
 type MRGeneralInformation = "1157306001" | "249045009";
 
-const MRGeneralInformation: t.Type<MRGeneralInformation> = t.union(
-    [t.literal("1157306001"), t.literal("249045009")],
-    "MRGeneralInformation"
-);
+type MRGeneralInformationType = t.KeyofC<{ "1157306001": null; "249045009": null }>;
 
+const MRGeneralInformation: MRGeneralInformationType = t.keyof({
+    "1157306001": null,
+    "249045009": null
+});
 export const MRGeneralInformationArray: string[] = ["1157306001", "249045009"];
 
 export const MRGeneralInformationValueSet: ValueSet = [

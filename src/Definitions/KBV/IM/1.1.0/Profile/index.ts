@@ -29,14 +29,14 @@ export {
     default as CompositionAddendum,
     VaccinationCompositionAddendumRecordAddendumCodeCoding as CompositionAddendumRecordAddendumCodeCoding,
     VaccinationCompositionAddendumRecordAddendumCode as CompositionAddendumRecordAddendumCode,
-    VaccinationCompositionAddendumRecordAddendumEntry as CompositionAddendumRecordAddendumEntry,
+    VaccinationCompositionAddendumRecordAddendumEntryReference as CompositionAddendumRecordAddendumEntryReference,
     VaccinationCompositionAddendumTypeCoding as CompositionAddendumTypeCoding,
     VaccinationCompositionAddendumRecordAddendum as CompositionAddendumRecordAddendum,
     VaccinationCompositionAddendumMeta as CompositionAddendumMeta,
     VaccinationCompositionAddendumText as CompositionAddendumText,
     VaccinationCompositionAddendumType as CompositionAddendumType,
-    VaccinationCompositionAddendumSubject as CompositionAddendumSubject,
-    VaccinationCompositionAddendumAuthor as CompositionAddendumAuthor
+    VaccinationCompositionAddendumSubjectReference as CompositionAddendumSubjectReference,
+    VaccinationCompositionAddendumAuthorReference as CompositionAddendumAuthorReference
 } from "./VaccinationCompositionAddendum";
 
 export {
@@ -44,14 +44,14 @@ export {
     VaccinationCompositionPrimeRecordPrimeCodeCoding as CompositionPrimeRecordPrimeCodeCoding,
     VaccinationCompositionPrimeObservationCodeCoding as CompositionPrimeObservationCodeCoding,
     VaccinationCompositionPrimeConditionCodeCoding as CompositionPrimeConditionCodeCoding,
-    VaccinationCompositionPrimeConditionSectionEntry as CompositionPrimeConditionSectionEntry,
-    VaccinationCompositionPrimeAuthorDataabsentreason as CompositionPrimeAuthorDataabsentreason,
+    VaccinationCompositionPrimeConditionSectionEntryReference as CompositionPrimeConditionSectionEntryReference,
+    VaccinationCompositionPrimeAuthorReferenceDataabsentreason as CompositionPrimeAuthorReferenceDataabsentreason,
     VaccinationCompositionPrimeRecordPrimeCode as CompositionPrimeRecordPrimeCode,
-    VaccinationCompositionPrimeRecordPrimeEntry as CompositionPrimeRecordPrimeEntry,
+    VaccinationCompositionPrimeRecordPrimeEntryReference as CompositionPrimeRecordPrimeEntryReference,
     VaccinationCompositionPrimeObservationCode as CompositionPrimeObservationCode,
-    VaccinationCompositionPrimeObservationEntry as CompositionPrimeObservationEntry,
+    VaccinationCompositionPrimeObservationEntryReference as CompositionPrimeObservationEntryReference,
     VaccinationCompositionPrimeConditionCode as CompositionPrimeConditionCode,
-    VaccinationCompositionPrimeConditionEntry as CompositionPrimeConditionEntry,
+    VaccinationCompositionPrimeConditionEntryReference as CompositionPrimeConditionEntryReference,
     VaccinationCompositionPrimeConditionSection as CompositionPrimeConditionSection,
     VaccinationCompositionPrimeTypeCoding as CompositionPrimeTypeCoding,
     VaccinationCompositionPrimeRecordPrime as CompositionPrimeRecordPrime,
@@ -60,8 +60,8 @@ export {
     VaccinationCompositionPrimeMeta as CompositionPrimeMeta,
     VaccinationCompositionPrimeText as CompositionPrimeText,
     VaccinationCompositionPrimeType as CompositionPrimeType,
-    VaccinationCompositionPrimeSubject as CompositionPrimeSubject,
-    VaccinationCompositionPrimeAuthor as CompositionPrimeAuthor
+    VaccinationCompositionPrimeSubjectReference as CompositionPrimeSubjectReference,
+    VaccinationCompositionPrimeAuthorReference as CompositionPrimeAuthorReference
 } from "./VaccinationCompositionPrime";
 
 export {
@@ -84,8 +84,8 @@ export {
     VaccinationConditionClinicalStatus as ConditionClinicalStatus,
     VaccinationConditionVerificationStatus as ConditionVerificationStatus,
     VaccinationConditionCode as ConditionCode,
-    VaccinationConditionSubject as ConditionSubject,
-    VaccinationConditionRecorder as ConditionRecorder,
+    VaccinationConditionSubjectReference as ConditionSubjectReference,
+    VaccinationConditionRecorderReference as ConditionRecorderReference,
     VaccinationConditionNote as ConditionNote
 } from "./VaccinationCondition";
 
@@ -105,7 +105,7 @@ export {
     VaccinationObservationImmunizationStatusInterpretationCoding as ObservationImmunizationStatusInterpretationCoding,
     VaccinationObservationImmunizationStatusMeta as ObservationImmunizationStatusMeta,
     VaccinationObservationImmunizationStatusCode as ObservationImmunizationStatusCode,
-    VaccinationObservationImmunizationStatusSubject as ObservationImmunizationStatusSubject,
+    VaccinationObservationImmunizationStatusSubjectReference as ObservationImmunizationStatusSubjectReference,
     VaccinationObservationImmunizationStatusInterpretation as ObservationImmunizationStatusInterpretation,
     VaccinationObservationImmunizationStatusNote as ObservationImmunizationStatusNote
 } from "./VaccinationObservationImmunizationStatus";
@@ -152,11 +152,11 @@ export {
 
 export {
     default as Patient,
-    VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType as PatientVersichertennummerpkvAssignerIdentifierTypeXXType,
+    VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType as PatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType,
     VaccinationPatientPidTypeMRType as PatientPidTypeMRType,
     VaccinationPatientVersichertenIdGKVTypeGKVType as PatientVersichertenIdGKVTypeGKVType,
     VaccinationPatientVersichertennummerpkvTypePKVType as PatientVersichertennummerpkvTypePKVType,
-    VaccinationPatientVersichertennummerpkvAssignerIdentifierType as PatientVersichertennummerpkvAssignerIdentifierType,
+    VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType as PatientVersichertennummerpkvAssignerReferenceIdentifierType,
     VaccinationPatientNameFamilyNamenszusatz as PatientNameFamilyNamenszusatz,
     VaccinationPatientNameFamilyNachname as PatientNameFamilyNachname,
     VaccinationPatientNameFamilyVorsatzwort as PatientNameFamilyVorsatzwort,
@@ -164,13 +164,13 @@ export {
     VaccinationPatientGeburtsnameFamilyNamenszusatz as PatientGeburtsnameFamilyNamenszusatz,
     VaccinationPatientGeburtsnameFamilyNachname as PatientGeburtsnameFamilyNachname,
     VaccinationPatientGeburtsnameFamilyVorsatzwort as PatientGeburtsnameFamilyVorsatzwort,
-    VaccinationPatientVersichertennummerpkvAssignerIdentifier as PatientVersichertennummerpkvAssignerIdentifier,
+    VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier as PatientVersichertennummerpkvAssignerReferenceIdentifier,
     VaccinationPatientReisepassnummerTypeCoding as PatientReisepassnummerTypeCoding,
     VaccinationPatientVersichertennummerkvkTypeCoding as PatientVersichertennummerkvkTypeCoding,
     VaccinationPatientPidType as PatientPidType,
     VaccinationPatientVersichertenIdGKVType as PatientVersichertenIdGKVType,
     VaccinationPatientVersichertennummerpkvType as PatientVersichertennummerpkvType,
-    VaccinationPatientVersichertennummerpkvAssigner as PatientVersichertennummerpkvAssigner,
+    VaccinationPatientVersichertennummerpkvAssignerReference as PatientVersichertennummerpkvAssignerReference,
     VaccinationPatientReisepassnummerType as PatientReisepassnummerType,
     VaccinationPatientVersichertennummerkvkType as PatientVersichertennummerkvkType,
     VaccinationPatientNameFamily as PatientNameFamily,
@@ -258,15 +258,15 @@ export {
 export {
     default as Practitionerrole,
     VaccinationPractitionerroleMeta as PractitionerroleMeta,
-    VaccinationPractitionerrolePractitioner as PractitionerrolePractitioner,
-    VaccinationPractitionerroleOrganization as PractitionerroleOrganization
+    VaccinationPractitionerrolePractitionerReference as PractitionerrolePractitionerReference,
+    VaccinationPractitionerroleOrganizationReference as PractitionerroleOrganizationReference
 } from "./VaccinationPractitionerrole";
 
 export {
     default as PractitionerroleAddendum,
     VaccinationPractitionerroleAddendumMeta as PractitionerroleAddendumMeta,
-    VaccinationPractitionerroleAddendumPractitioner as PractitionerroleAddendumPractitioner,
-    VaccinationPractitionerroleAddendumOrganization as PractitionerroleAddendumOrganization
+    VaccinationPractitionerroleAddendumPractitionerReference as PractitionerroleAddendumPractitionerReference,
+    VaccinationPractitionerroleAddendumOrganizationReference as PractitionerroleAddendumOrganizationReference
 } from "./VaccinationPractitionerroleAddendum";
 
 export {
@@ -274,12 +274,12 @@ export {
     VaccinationProvenanceAgentRoleCodingDisplayAnzeigenameCodeSnomedContent as ProvenanceAgentRoleCodingDisplayAnzeigenameCodeSnomedContent,
     VaccinationProvenanceAgentRoleCodingDisplayAnzeigenameCodeSnomed as ProvenanceAgentRoleCodingDisplayAnzeigenameCodeSnomed,
     VaccinationProvenanceAgentRoleCodingDisplay as ProvenanceAgentRoleCodingDisplay,
-    VaccinationProvenanceAgentWhoDataabsentreason as ProvenanceAgentWhoDataabsentreason,
+    VaccinationProvenanceAgentWhoReferenceDataabsentreason as ProvenanceAgentWhoReferenceDataabsentreason,
     VaccinationProvenanceAgentRoleCoding as ProvenanceAgentRoleCoding,
     VaccinationProvenanceAgentRole as ProvenanceAgentRole,
-    VaccinationProvenanceAgentWho as ProvenanceAgentWho,
+    VaccinationProvenanceAgentWhoReference as ProvenanceAgentWhoReference,
     VaccinationProvenanceMeta as ProvenanceMeta,
-    VaccinationProvenanceTarget as ProvenanceTarget,
+    VaccinationProvenanceTargetReference as ProvenanceTargetReference,
     VaccinationProvenanceAgent as ProvenanceAgent
 } from "./VaccinationProvenance";
 
@@ -312,9 +312,9 @@ export {
     VaccinationRecordAddendumProtocolAppliedTargetDisease as RecordAddendumProtocolAppliedTargetDisease,
     VaccinationRecordAddendumMeta as RecordAddendumMeta,
     VaccinationRecordAddendumVaccineCode as RecordAddendumVaccineCode,
-    VaccinationRecordAddendumPatient as RecordAddendumPatient,
+    VaccinationRecordAddendumPatientReference as RecordAddendumPatientReference,
     VaccinationRecordAddendumReportOrigin as RecordAddendumReportOrigin,
-    VaccinationRecordAddendumManufacturer as RecordAddendumManufacturer,
+    VaccinationRecordAddendumManufacturerReference as RecordAddendumManufacturerReference,
     VaccinationRecordAddendumNote as RecordAddendumNote,
     VaccinationRecordAddendumProtocolApplied as RecordAddendumProtocolApplied
 } from "./VaccinationRecordAddendum";
@@ -336,8 +336,8 @@ export {
     VaccinationRecordPrimeMeta as RecordPrimeMeta,
     VaccinationRecordPrimeText as RecordPrimeText,
     VaccinationRecordPrimeVaccineCode as RecordPrimeVaccineCode,
-    VaccinationRecordPrimePatient as RecordPrimePatient,
-    VaccinationRecordPrimeManufacturer as RecordPrimeManufacturer,
+    VaccinationRecordPrimePatientReference as RecordPrimePatientReference,
+    VaccinationRecordPrimeManufacturerReference as RecordPrimeManufacturerReference,
     VaccinationRecordPrimeNote as RecordPrimeNote,
     VaccinationRecordPrimeProtocolApplied as RecordPrimeProtocolApplied
 } from "./VaccinationRecordPrime";

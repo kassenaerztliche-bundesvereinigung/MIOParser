@@ -479,13 +479,13 @@ export const CMRObservationU7U9BMICode: t.Type<CMRObservationU7U9BMICode> = t.re
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU7U9BMISubject {
+export interface CMRObservationU7U9BMISubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9BMISubject: t.Type<CMRObservationU7U9BMISubject> =
-    t.recursion("CMRObservationU7U9BMISubject", () =>
+export const CMRObservationU7U9BMISubjectReference: t.Type<CMRObservationU7U9BMISubjectReference> =
+    t.recursion("CMRObservationU7U9BMISubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -503,13 +503,13 @@ export const CMRObservationU7U9BMISubject: t.Type<CMRObservationU7U9BMISubject> 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU7U9BMIEncounter {
+export interface CMRObservationU7U9BMIEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9BMIEncounter: t.Type<CMRObservationU7U9BMIEncounter> =
-    t.recursion("CMRObservationU7U9BMIEncounter", () =>
+export const CMRObservationU7U9BMIEncounterReference: t.Type<CMRObservationU7U9BMIEncounterReference> =
+    t.recursion("CMRObservationU7U9BMIEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -527,13 +527,13 @@ export const CMRObservationU7U9BMIEncounter: t.Type<CMRObservationU7U9BMIEncount
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU7U9BMIPerformer {
+export interface CMRObservationU7U9BMIPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7U9BMIPerformer: t.Type<CMRObservationU7U9BMIPerformer> =
-    t.recursion("CMRObservationU7U9BMIPerformer", () =>
+export const CMRObservationU7U9BMIPerformerReference: t.Type<CMRObservationU7U9BMIPerformerReference> =
+    t.recursion("CMRObservationU7U9BMIPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -553,13 +553,13 @@ interface CMRObservationU7U9BMI {
     meta: CMRObservationU7U9BMIMeta;
     status: "final";
     code: CMRObservationU7U9BMICode;
-    subject: CMRObservationU7U9BMISubject;
-    encounter: CMRObservationU7U9BMIEncounter;
+    subject: CMRObservationU7U9BMISubjectReference;
+    encounter: CMRObservationU7U9BMIEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationU7U9BMIValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU7U9BMIPerformer>;
+    performer?: Array<CMRObservationU7U9BMIPerformerReference>;
 }
 
 const CMRObservationU7U9BMI: t.Type<CMRObservationU7U9BMI> = t.recursion(
@@ -572,15 +572,15 @@ const CMRObservationU7U9BMI: t.Type<CMRObservationU7U9BMI> = t.recursion(
                     meta: CMRObservationU7U9BMIMeta,
                     status: Literal("final"),
                     code: CMRObservationU7U9BMICode,
-                    subject: CMRObservationU7U9BMISubject,
-                    encounter: CMRObservationU7U9BMIEncounter,
+                    subject: CMRObservationU7U9BMISubjectReference,
+                    encounter: CMRObservationU7U9BMIEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationU7U9BMIValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU7U9BMIPerformer)
+                    performer: MaxArray(1, CMRObservationU7U9BMIPerformerReference)
                 })
             ])
         )

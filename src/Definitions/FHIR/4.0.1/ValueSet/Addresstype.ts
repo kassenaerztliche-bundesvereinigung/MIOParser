@@ -25,11 +25,13 @@ import { ValueSet } from "../../../Interfaces";
 
 type Addresstype = "postal" | "physical" | "both";
 
-const Addresstype: t.Type<Addresstype> = t.union(
-    [t.literal("postal"), t.literal("physical"), t.literal("both")],
-    "Addresstype"
-);
+type AddresstypeType = t.KeyofC<{ postal: null; physical: null; both: null }>;
 
+const Addresstype: AddresstypeType = t.keyof({
+    postal: null,
+    physical: null,
+    both: null
+});
 export const AddresstypeArray: string[] = ["postal", "physical", "both"];
 
 export const AddresstypeValueSet: ValueSet = [

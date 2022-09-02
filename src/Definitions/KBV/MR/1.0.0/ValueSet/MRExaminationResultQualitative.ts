@@ -34,20 +34,27 @@ type MRExaminationResultQualitative =
     | "165806002"
     | "406010001";
 
-const MRExaminationResultQualitative: t.Type<MRExaminationResultQualitative> = t.union(
-    [
-        t.literal("165774008"),
-        t.literal("165775009"),
-        t.literal("165791007"),
-        t.literal("365588008:{363714003=3527003,363713009=52101004}"),
-        t.literal("415798001"),
-        t.literal("415797006"),
-        t.literal("165806002"),
-        t.literal("406010001")
-    ],
-    "MRExaminationResultQualitative"
-);
+type MRExaminationResultQualitativeType = t.KeyofC<{
+    "165774008": null;
+    "165775009": null;
+    "165791007": null;
+    "365588008:{363714003=3527003,363713009=52101004}": null;
+    "415798001": null;
+    "415797006": null;
+    "165806002": null;
+    "406010001": null;
+}>;
 
+const MRExaminationResultQualitative: MRExaminationResultQualitativeType = t.keyof({
+    "165774008": null,
+    "165775009": null,
+    "165791007": null,
+    "365588008:{363714003=3527003,363713009=52101004}": null,
+    "415798001": null,
+    "415797006": null,
+    "165806002": null,
+    "406010001": null
+});
 export const MRExaminationResultQualitativeArray: string[] = [
     "165774008",
     "165775009",

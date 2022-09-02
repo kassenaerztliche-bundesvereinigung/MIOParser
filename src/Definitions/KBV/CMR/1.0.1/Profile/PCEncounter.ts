@@ -248,13 +248,13 @@ export const PCEncounterParticipantType: t.Type<PCEncounterParticipantType> = t.
 /**
  * Persons involved in the encounter other than the patient.
  */
-export interface PCEncounterParticipantIndividual {
+export interface PCEncounterParticipantIndividualReference {
     reference: string;
     id?: string;
 }
 
-export const PCEncounterParticipantIndividual: t.Type<PCEncounterParticipantIndividual> =
-    t.recursion("PCEncounterParticipantIndividual", () =>
+export const PCEncounterParticipantIndividualReference: t.Type<PCEncounterParticipantIndividualReference> =
+    t.recursion("PCEncounterParticipantIndividualReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -353,14 +353,13 @@ export const PCEncounterType: t.Type<PCEncounterType> = t.recursion(
 /**
  * The patient or group present at the encounter.
  */
-export interface PCEncounterSubject {
+export interface PCEncounterSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const PCEncounterSubject: t.Type<PCEncounterSubject> = t.recursion(
-    "PCEncounterSubject",
-    () =>
+export const PCEncounterSubjectReference: t.Type<PCEncounterSubjectReference> =
+    t.recursion("PCEncounterSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -373,14 +372,14 @@ export const PCEncounterSubject: t.Type<PCEncounterSubject> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 /**
  * The list of people responsible for providing the service.
  */
 export interface PCEncounterParticipant {
     type: Array<PCEncounterParticipantType>;
-    individual: PCEncounterParticipantIndividual;
+    individual: PCEncounterParticipantIndividualReference;
     id?: string;
 }
 
@@ -391,7 +390,7 @@ export const PCEncounterParticipant: t.Type<PCEncounterParticipant> = t.recursio
             t.intersection([
                 t.type({
                     type: MinMaxArray(1, 1, PCEncounterParticipantType),
-                    individual: PCEncounterParticipantIndividual
+                    individual: PCEncounterParticipantIndividualReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -426,14 +425,13 @@ export const PCEncounterPeriod: t.Type<PCEncounterPeriod> = t.recursion(
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
  */
-export interface PCEncounterServiceProvider {
+export interface PCEncounterServiceProviderReference {
     reference: string;
     id?: string;
 }
 
-export const PCEncounterServiceProvider: t.Type<PCEncounterServiceProvider> = t.recursion(
-    "PCEncounterServiceProvider",
-    () =>
+export const PCEncounterServiceProviderReference: t.Type<PCEncounterServiceProviderReference> =
+    t.recursion("PCEncounterServiceProviderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -446,7 +444,7 @@ export const PCEncounterServiceProvider: t.Type<PCEncounterServiceProvider> = t.
                 })
             ])
         )
-);
+    );
 
 interface PCEncounter {
     resourceType: "Encounter";
@@ -454,11 +452,11 @@ interface PCEncounter {
     status: "finished";
     class: PCEncounterClass;
     type: Array<PCEncounterType>;
-    subject: PCEncounterSubject;
+    subject: PCEncounterSubjectReference;
     participant: Array<PCEncounterParticipant>;
     period: PCEncounterPeriod;
     id?: string;
-    serviceProvider?: PCEncounterServiceProvider;
+    serviceProvider?: PCEncounterServiceProviderReference;
 }
 
 const PCEncounter: t.Type<PCEncounter> = t.recursion("PCEncounter", () =>
@@ -470,13 +468,13 @@ const PCEncounter: t.Type<PCEncounter> = t.recursion("PCEncounter", () =>
                 status: Literal("finished"),
                 class: PCEncounterClass,
                 type: MinMaxArray(1, 1, PCEncounterType),
-                subject: PCEncounterSubject,
+                subject: PCEncounterSubjectReference,
                 participant: MinMaxArray(1, 1, PCEncounterParticipant),
                 period: PCEncounterPeriod
             }),
             t.partial({
                 id: SCALARString,
-                serviceProvider: PCEncounterServiceProvider
+                serviceProvider: PCEncounterServiceProviderReference
             })
         ])
     )

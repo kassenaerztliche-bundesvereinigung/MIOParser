@@ -26,16 +26,19 @@ import CMRU1U3BirthmodeGerman from "../../../../../Definitions/KBV/CMR/1.0.1/Con
 
 type CMRU1U3Birthmode = "395683001" | "394699000" | "407614003" | "395681004";
 
-const CMRU1U3Birthmode: t.Type<CMRU1U3Birthmode> = t.union(
-    [
-        t.literal("395683001"),
-        t.literal("394699000"),
-        t.literal("407614003"),
-        t.literal("395681004")
-    ],
-    "CMRU1U3Birthmode"
-);
+type CMRU1U3BirthmodeType = t.KeyofC<{
+    "395683001": null;
+    "394699000": null;
+    "407614003": null;
+    "395681004": null;
+}>;
 
+const CMRU1U3Birthmode: CMRU1U3BirthmodeType = t.keyof({
+    "395683001": null,
+    "394699000": null,
+    "407614003": null,
+    "395681004": null
+});
 export const CMRU1U3BirthmodeArray: string[] = [
     "395683001",
     "394699000",

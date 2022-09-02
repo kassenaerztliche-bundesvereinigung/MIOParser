@@ -26,11 +26,17 @@ import CMRHipHistoryGerman from "../../../../../Definitions/KBV/CMR/1.0.1/Concep
 
 type CMRHipHistory = "407613009" | "700191004" | "73573004";
 
-const CMRHipHistory: t.Type<CMRHipHistory> = t.union(
-    [t.literal("407613009"), t.literal("700191004"), t.literal("73573004")],
-    "CMRHipHistory"
-);
+type CMRHipHistoryType = t.KeyofC<{
+    "407613009": null;
+    "700191004": null;
+    "73573004": null;
+}>;
 
+const CMRHipHistory: CMRHipHistoryType = t.keyof({
+    "407613009": null,
+    "700191004": null,
+    "73573004": null
+});
 export const CMRHipHistoryArray: string[] = ["407613009", "700191004", "73573004"];
 
 export const CMRHipHistoryValueSet: ValueSet = [

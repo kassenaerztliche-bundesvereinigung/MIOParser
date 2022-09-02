@@ -33,20 +33,27 @@ type Careplanactivitykind =
     | "ServiceRequest"
     | "VisionPrescription";
 
-const Careplanactivitykind: t.Type<Careplanactivitykind> = t.union(
-    [
-        t.literal("Appointment"),
-        t.literal("CommunicationRequest"),
-        t.literal("DeviceRequest"),
-        t.literal("MedicationRequest"),
-        t.literal("NutritionOrder"),
-        t.literal("Task"),
-        t.literal("ServiceRequest"),
-        t.literal("VisionPrescription")
-    ],
-    "Careplanactivitykind"
-);
+type CareplanactivitykindType = t.KeyofC<{
+    Appointment: null;
+    CommunicationRequest: null;
+    DeviceRequest: null;
+    MedicationRequest: null;
+    NutritionOrder: null;
+    Task: null;
+    ServiceRequest: null;
+    VisionPrescription: null;
+}>;
 
+const Careplanactivitykind: CareplanactivitykindType = t.keyof({
+    Appointment: null,
+    CommunicationRequest: null,
+    DeviceRequest: null,
+    MedicationRequest: null,
+    NutritionOrder: null,
+    Task: null,
+    ServiceRequest: null,
+    VisionPrescription: null
+});
 export const CareplanactivitykindArray: string[] = [
     "Appointment",
     "CommunicationRequest",

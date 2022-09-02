@@ -260,13 +260,13 @@ export const CMRObservationU1U3DifferentFoetalPositionCode: t.Type<CMRObservatio
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3DifferentFoetalPositionSubject {
+export interface CMRObservationU1U3DifferentFoetalPositionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3DifferentFoetalPositionSubject: t.Type<CMRObservationU1U3DifferentFoetalPositionSubject> =
-    t.recursion("CMRObservationU1U3DifferentFoetalPositionSubject", () =>
+export const CMRObservationU1U3DifferentFoetalPositionSubjectReference: t.Type<CMRObservationU1U3DifferentFoetalPositionSubjectReference> =
+    t.recursion("CMRObservationU1U3DifferentFoetalPositionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRObservationU1U3DifferentFoetalPositionSubject: t.Type<CMRObserva
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3DifferentFoetalPositionEncounter {
+export interface CMRObservationU1U3DifferentFoetalPositionEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3DifferentFoetalPositionEncounter: t.Type<CMRObservationU1U3DifferentFoetalPositionEncounter> =
-    t.recursion("CMRObservationU1U3DifferentFoetalPositionEncounter", () =>
+export const CMRObservationU1U3DifferentFoetalPositionEncounterReference: t.Type<CMRObservationU1U3DifferentFoetalPositionEncounterReference> =
+    t.recursion("CMRObservationU1U3DifferentFoetalPositionEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRObservationU1U3DifferentFoetalPositionEncounter: t.Type<CMRObser
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3DifferentFoetalPositionPerformer {
+export interface CMRObservationU1U3DifferentFoetalPositionPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3DifferentFoetalPositionPerformer: t.Type<CMRObservationU1U3DifferentFoetalPositionPerformer> =
-    t.recursion("CMRObservationU1U3DifferentFoetalPositionPerformer", () =>
+export const CMRObservationU1U3DifferentFoetalPositionPerformerReference: t.Type<CMRObservationU1U3DifferentFoetalPositionPerformerReference> =
+    t.recursion("CMRObservationU1U3DifferentFoetalPositionPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -334,13 +334,13 @@ interface CMRObservationU1U3DifferentFoetalPosition {
     meta: CMRObservationU1U3DifferentFoetalPositionMeta;
     status: "final";
     code: CMRObservationU1U3DifferentFoetalPositionCode;
-    subject: CMRObservationU1U3DifferentFoetalPositionSubject;
-    encounter: CMRObservationU1U3DifferentFoetalPositionEncounter;
+    subject: CMRObservationU1U3DifferentFoetalPositionSubjectReference;
+    encounter: CMRObservationU1U3DifferentFoetalPositionEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3DifferentFoetalPositionPerformer>;
+    performer?: Array<CMRObservationU1U3DifferentFoetalPositionPerformerReference>;
 }
 
 const CMRObservationU1U3DifferentFoetalPosition: t.Type<CMRObservationU1U3DifferentFoetalPosition> =
@@ -352,8 +352,9 @@ const CMRObservationU1U3DifferentFoetalPosition: t.Type<CMRObservationU1U3Differ
                     meta: CMRObservationU1U3DifferentFoetalPositionMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3DifferentFoetalPositionCode,
-                    subject: CMRObservationU1U3DifferentFoetalPositionSubject,
-                    encounter: CMRObservationU1U3DifferentFoetalPositionEncounter,
+                    subject: CMRObservationU1U3DifferentFoetalPositionSubjectReference,
+                    encounter:
+                        CMRObservationU1U3DifferentFoetalPositionEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
@@ -362,7 +363,7 @@ const CMRObservationU1U3DifferentFoetalPosition: t.Type<CMRObservationU1U3Differ
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U3DifferentFoetalPositionPerformer
+                        CMRObservationU1U3DifferentFoetalPositionPerformerReference
                     )
                 })
             ])

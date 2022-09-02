@@ -61,48 +61,83 @@ type VaccinationTargetDisease =
     | "64572001"
     | "40733004";
 
-const VaccinationTargetDisease: t.Type<VaccinationTargetDisease> = t.union(
-    [
-        t.literal("840539006"),
-        t.literal("67924001"),
-        t.literal("240532009"),
-        t.literal("16541001"),
-        t.literal("4740000"),
-        t.literal("38907003"),
-        t.literal("36653000"),
-        t.literal("18624000"),
-        t.literal("14168008"),
-        t.literal("398102009"),
-        t.literal("36989005"),
-        t.literal("14189004"),
-        t.literal("40468003"),
-        t.literal("66071002"),
-        t.literal("6142004"),
-        t.literal("52947006"),
-        t.literal("16901001"),
-        t.literal("4834000"),
-        t.literal("56717001"),
-        t.literal("76902006"),
-        t.literal("16814004"),
-        t.literal("58750007"),
-        t.literal("27836007"),
-        t.literal("23511006"),
-        t.literal("709410003"),
-        t.literal("397430003"),
-        t.literal("63650001"),
-        t.literal("75702008"),
-        t.literal("409498004"),
-        t.literal("39111003"),
-        t.literal("28944009"),
-        t.literal("55735004"),
-        t.literal("186431008"),
-        t.literal("307333004"),
-        t.literal("64572001"),
-        t.literal("40733004")
-    ],
-    "VaccinationTargetDisease"
-);
+type VaccinationTargetDiseaseType = t.KeyofC<{
+    "840539006": null;
+    "67924001": null;
+    "240532009": null;
+    "16541001": null;
+    "4740000": null;
+    "38907003": null;
+    "36653000": null;
+    "18624000": null;
+    "14168008": null;
+    "398102009": null;
+    "36989005": null;
+    "14189004": null;
+    "40468003": null;
+    "66071002": null;
+    "6142004": null;
+    "52947006": null;
+    "16901001": null;
+    "4834000": null;
+    "56717001": null;
+    "76902006": null;
+    "16814004": null;
+    "58750007": null;
+    "27836007": null;
+    "23511006": null;
+    "709410003": null;
+    "397430003": null;
+    "63650001": null;
+    "75702008": null;
+    "409498004": null;
+    "39111003": null;
+    "28944009": null;
+    "55735004": null;
+    "186431008": null;
+    "307333004": null;
+    "64572001": null;
+    "40733004": null;
+}>;
 
+const VaccinationTargetDisease: VaccinationTargetDiseaseType = t.keyof({
+    "840539006": null,
+    "67924001": null,
+    "240532009": null,
+    "16541001": null,
+    "4740000": null,
+    "38907003": null,
+    "36653000": null,
+    "18624000": null,
+    "14168008": null,
+    "398102009": null,
+    "36989005": null,
+    "14189004": null,
+    "40468003": null,
+    "66071002": null,
+    "6142004": null,
+    "52947006": null,
+    "16901001": null,
+    "4834000": null,
+    "56717001": null,
+    "76902006": null,
+    "16814004": null,
+    "58750007": null,
+    "27836007": null,
+    "23511006": null,
+    "709410003": null,
+    "397430003": null,
+    "63650001": null,
+    "75702008": null,
+    "409498004": null,
+    "39111003": null,
+    "28944009": null,
+    "55735004": null,
+    "186431008": null,
+    "307333004": null,
+    "64572001": null,
+    "40733004": null
+});
 export const VaccinationTargetDiseaseArray: string[] = [
     "840539006",
     "67924001",

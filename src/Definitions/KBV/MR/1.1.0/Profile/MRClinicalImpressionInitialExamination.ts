@@ -176,13 +176,13 @@ export const MRClinicalImpressionInitialExaminationInvestigationCode: t.Type<MRC
 /**
  * A record of a specific investigation that was undertaken.
  */
-export interface MRClinicalImpressionInitialExaminationInvestigationItem {
+export interface MRClinicalImpressionInitialExaminationInvestigationItemReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRClinicalImpressionInitialExaminationInvestigationItem> =
-    t.recursion("MRClinicalImpressionInitialExaminationInvestigationItem", () =>
+export const MRClinicalImpressionInitialExaminationInvestigationItemReference: t.Type<MRClinicalImpressionInitialExaminationInvestigationItemReference> =
+    t.recursion("MRClinicalImpressionInitialExaminationInvestigationItemReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -200,25 +200,27 @@ export const MRClinicalImpressionInitialExaminationInvestigationItem: t.Type<MRC
 /**
  * Specific reference for finding or diagnosis, which may include ruled-out or resolved conditions.
  */
-export interface MRClinicalImpressionInitialExaminationFindingItemReference {
+export interface MRClinicalImpressionInitialExaminationFindingItemReferenceReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationFindingItemReference: t.Type<MRClinicalImpressionInitialExaminationFindingItemReference> =
-    t.recursion("MRClinicalImpressionInitialExaminationFindingItemReference", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Risk|1.1.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionInitialExaminationFindingItemReferenceReference: t.Type<MRClinicalImpressionInitialExaminationFindingItemReferenceReference> =
+    t.recursion(
+        "MRClinicalImpressionInitialExaminationFindingItemReferenceReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Observation_Pregnancy_Risk|1.1.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -278,13 +280,13 @@ export const MRClinicalImpressionInitialExaminationCode: t.Type<MRClinicalImpres
 /**
  * The patient or group of individuals assessed as part of this record.
  */
-export interface MRClinicalImpressionInitialExaminationSubject {
+export interface MRClinicalImpressionInitialExaminationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImpressionInitialExaminationSubject> =
-    t.recursion("MRClinicalImpressionInitialExaminationSubject", () =>
+export const MRClinicalImpressionInitialExaminationSubjectReference: t.Type<MRClinicalImpressionInitialExaminationSubjectReference> =
+    t.recursion("MRClinicalImpressionInitialExaminationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +304,13 @@ export const MRClinicalImpressionInitialExaminationSubject: t.Type<MRClinicalImp
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
  */
-export interface MRClinicalImpressionInitialExaminationEncounter {
+export interface MRClinicalImpressionInitialExaminationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalImpressionInitialExaminationEncounter> =
-    t.recursion("MRClinicalImpressionInitialExaminationEncounter", () =>
+export const MRClinicalImpressionInitialExaminationEncounterReference: t.Type<MRClinicalImpressionInitialExaminationEncounterReference> =
+    t.recursion("MRClinicalImpressionInitialExaminationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -326,13 +328,13 @@ export const MRClinicalImpressionInitialExaminationEncounter: t.Type<MRClinicalI
 /**
  * The clinician performing the assessment.
  */
-export interface MRClinicalImpressionInitialExaminationAssessor {
+export interface MRClinicalImpressionInitialExaminationAssessorReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalImpressionInitialExaminationAssessor> =
-    t.recursion("MRClinicalImpressionInitialExaminationAssessor", () =>
+export const MRClinicalImpressionInitialExaminationAssessorReference: t.Type<MRClinicalImpressionInitialExaminationAssessorReference> =
+    t.recursion("MRClinicalImpressionInitialExaminationAssessorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -352,7 +354,7 @@ export const MRClinicalImpressionInitialExaminationAssessor: t.Type<MRClinicalIm
  */
 export interface MRClinicalImpressionInitialExaminationInvestigation {
     code: MRClinicalImpressionInitialExaminationInvestigationCode;
-    item: Array<MRClinicalImpressionInitialExaminationInvestigationItem>;
+    item: Array<MRClinicalImpressionInitialExaminationInvestigationItemReference>;
     id?: string;
 }
 
@@ -364,7 +366,7 @@ export const MRClinicalImpressionInitialExaminationInvestigation: t.Type<MRClini
                     code: MRClinicalImpressionInitialExaminationInvestigationCode,
                     item: MinArray(
                         1,
-                        MRClinicalImpressionInitialExaminationInvestigationItem
+                        MRClinicalImpressionInitialExaminationInvestigationItemReference
                     )
                 }),
                 t.partial({
@@ -378,7 +380,7 @@ export const MRClinicalImpressionInitialExaminationInvestigation: t.Type<MRClini
  * Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
  */
 export interface MRClinicalImpressionInitialExaminationFinding {
-    itemReference: MRClinicalImpressionInitialExaminationFindingItemReference;
+    itemReference: MRClinicalImpressionInitialExaminationFindingItemReferenceReference;
     id?: string;
 }
 
@@ -388,7 +390,7 @@ export const MRClinicalImpressionInitialExaminationFinding: t.Type<MRClinicalImp
             t.intersection([
                 t.type({
                     itemReference:
-                        MRClinicalImpressionInitialExaminationFindingItemReference
+                        MRClinicalImpressionInitialExaminationFindingItemReferenceReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -402,12 +404,12 @@ interface MRClinicalImpressionInitialExamination {
     meta: MRClinicalImpressionInitialExaminationMeta;
     status: "completed";
     code: MRClinicalImpressionInitialExaminationCode;
-    subject: MRClinicalImpressionInitialExaminationSubject;
-    encounter: MRClinicalImpressionInitialExaminationEncounter;
+    subject: MRClinicalImpressionInitialExaminationSubjectReference;
+    encounter: MRClinicalImpressionInitialExaminationEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    assessor?: MRClinicalImpressionInitialExaminationAssessor;
+    assessor?: MRClinicalImpressionInitialExaminationAssessorReference;
     investigation?: Array<MRClinicalImpressionInitialExaminationInvestigation>;
     finding?: Array<MRClinicalImpressionInitialExaminationFinding>;
     note?: Array<Annotation>;
@@ -422,14 +424,14 @@ const MRClinicalImpressionInitialExamination: t.Type<MRClinicalImpressionInitial
                     meta: MRClinicalImpressionInitialExaminationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionInitialExaminationCode,
-                    subject: MRClinicalImpressionInitialExaminationSubject,
-                    encounter: MRClinicalImpressionInitialExaminationEncounter,
+                    subject: MRClinicalImpressionInitialExaminationSubjectReference,
+                    encounter: MRClinicalImpressionInitialExaminationEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    assessor: MRClinicalImpressionInitialExaminationAssessor,
+                    assessor: MRClinicalImpressionInitialExaminationAssessorReference,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionInitialExaminationInvestigation

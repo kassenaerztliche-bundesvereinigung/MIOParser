@@ -642,13 +642,13 @@ export const MRObservationApgarScoreCode: t.Type<MRObservationApgarScoreCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationApgarScoreSubject {
+export interface MRObservationApgarScoreSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationApgarScoreSubject: t.Type<MRObservationApgarScoreSubject> =
-    t.recursion("MRObservationApgarScoreSubject", () =>
+export const MRObservationApgarScoreSubjectReference: t.Type<MRObservationApgarScoreSubjectReference> =
+    t.recursion("MRObservationApgarScoreSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -666,13 +666,13 @@ export const MRObservationApgarScoreSubject: t.Type<MRObservationApgarScoreSubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationApgarScoreEncounter {
+export interface MRObservationApgarScoreEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationApgarScoreEncounter: t.Type<MRObservationApgarScoreEncounter> =
-    t.recursion("MRObservationApgarScoreEncounter", () =>
+export const MRObservationApgarScoreEncounterReference: t.Type<MRObservationApgarScoreEncounterReference> =
+    t.recursion("MRObservationApgarScoreEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -690,13 +690,13 @@ export const MRObservationApgarScoreEncounter: t.Type<MRObservationApgarScoreEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationApgarScorePerformer {
+export interface MRObservationApgarScorePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationApgarScorePerformer: t.Type<MRObservationApgarScorePerformer> =
-    t.recursion("MRObservationApgarScorePerformer", () =>
+export const MRObservationApgarScorePerformerReference: t.Type<MRObservationApgarScorePerformerReference> =
+    t.recursion("MRObservationApgarScorePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -717,13 +717,13 @@ interface MRObservationApgarScore {
     meta: MRObservationApgarScoreMeta;
     status: "final";
     code: MRObservationApgarScoreCode;
-    subject: MRObservationApgarScoreSubject;
-    encounter: MRObservationApgarScoreEncounter;
+    subject: MRObservationApgarScoreSubjectReference;
+    encounter: MRObservationApgarScoreEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationApgarScoreValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationApgarScorePerformer>;
+    performer?: Array<MRObservationApgarScorePerformerReference>;
 }
 
 const MRObservationApgarScore: t.Type<MRObservationApgarScore> = t.recursion(
@@ -736,15 +736,15 @@ const MRObservationApgarScore: t.Type<MRObservationApgarScore> = t.recursion(
                     meta: MRObservationApgarScoreMeta,
                     status: Literal("final"),
                     code: MRObservationApgarScoreCode,
-                    subject: MRObservationApgarScoreSubject,
-                    encounter: MRObservationApgarScoreEncounter,
+                    subject: MRObservationApgarScoreSubjectReference,
+                    encounter: MRObservationApgarScoreEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept: MRObservationApgarScoreValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationApgarScorePerformer)
+                    performer: MaxArray(1, MRObservationApgarScorePerformerReference)
                 })
             ])
         )

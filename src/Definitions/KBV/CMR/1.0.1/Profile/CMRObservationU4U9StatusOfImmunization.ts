@@ -457,13 +457,13 @@ export const CMRObservationU4U9StatusOfImmunizationCode: t.Type<CMRObservationU4
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU4U9StatusOfImmunizationSubject {
+export interface CMRObservationU4U9StatusOfImmunizationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4U9StatusOfImmunizationSubject: t.Type<CMRObservationU4U9StatusOfImmunizationSubject> =
-    t.recursion("CMRObservationU4U9StatusOfImmunizationSubject", () =>
+export const CMRObservationU4U9StatusOfImmunizationSubjectReference: t.Type<CMRObservationU4U9StatusOfImmunizationSubjectReference> =
+    t.recursion("CMRObservationU4U9StatusOfImmunizationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -481,13 +481,13 @@ export const CMRObservationU4U9StatusOfImmunizationSubject: t.Type<CMRObservatio
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU4U9StatusOfImmunizationEncounter {
+export interface CMRObservationU4U9StatusOfImmunizationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4U9StatusOfImmunizationEncounter: t.Type<CMRObservationU4U9StatusOfImmunizationEncounter> =
-    t.recursion("CMRObservationU4U9StatusOfImmunizationEncounter", () =>
+export const CMRObservationU4U9StatusOfImmunizationEncounterReference: t.Type<CMRObservationU4U9StatusOfImmunizationEncounterReference> =
+    t.recursion("CMRObservationU4U9StatusOfImmunizationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -505,13 +505,13 @@ export const CMRObservationU4U9StatusOfImmunizationEncounter: t.Type<CMRObservat
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU4U9StatusOfImmunizationPerformer {
+export interface CMRObservationU4U9StatusOfImmunizationPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU4U9StatusOfImmunizationPerformer: t.Type<CMRObservationU4U9StatusOfImmunizationPerformer> =
-    t.recursion("CMRObservationU4U9StatusOfImmunizationPerformer", () =>
+export const CMRObservationU4U9StatusOfImmunizationPerformerReference: t.Type<CMRObservationU4U9StatusOfImmunizationPerformerReference> =
+    t.recursion("CMRObservationU4U9StatusOfImmunizationPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -555,13 +555,13 @@ interface CMRObservationU4U9StatusOfImmunization {
     meta: CMRObservationU4U9StatusOfImmunizationMeta;
     status: "final";
     code: CMRObservationU4U9StatusOfImmunizationCode;
-    subject: CMRObservationU4U9StatusOfImmunizationSubject;
-    encounter: CMRObservationU4U9StatusOfImmunizationEncounter;
+    subject: CMRObservationU4U9StatusOfImmunizationSubjectReference;
+    encounter: CMRObservationU4U9StatusOfImmunizationEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU4U9StatusOfImmunizationPerformer>;
+    performer?: Array<CMRObservationU4U9StatusOfImmunizationPerformerReference>;
     component?: Array<CMRObservationU4U9StatusOfImmunizationComponent>;
 }
 
@@ -574,8 +574,8 @@ const CMRObservationU4U9StatusOfImmunization: t.Type<CMRObservationU4U9StatusOfI
                     meta: CMRObservationU4U9StatusOfImmunizationMeta,
                     status: Literal("final"),
                     code: CMRObservationU4U9StatusOfImmunizationCode,
-                    subject: CMRObservationU4U9StatusOfImmunizationSubject,
-                    encounter: CMRObservationU4U9StatusOfImmunizationEncounter,
+                    subject: CMRObservationU4U9StatusOfImmunizationSubjectReference,
+                    encounter: CMRObservationU4U9StatusOfImmunizationEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
@@ -584,7 +584,7 @@ const CMRObservationU4U9StatusOfImmunization: t.Type<CMRObservationU4U9StatusOfI
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU4U9StatusOfImmunizationPerformer
+                        CMRObservationU4U9StatusOfImmunizationPerformerReference
                     ),
                     component: MaxArray(
                         1,

@@ -26,11 +26,17 @@ import MRBiometricsIGerman from "../../../../../Definitions/KBV/MR/1.1.0/Concept
 
 type MRBiometricsI = "1156895008" | "276352009" | "281688001";
 
-const MRBiometricsI: t.Type<MRBiometricsI> = t.union(
-    [t.literal("1156895008"), t.literal("276352009"), t.literal("281688001")],
-    "MRBiometricsI"
-);
+type MRBiometricsIType = t.KeyofC<{
+    "1156895008": null;
+    "276352009": null;
+    "281688001": null;
+}>;
 
+const MRBiometricsI: MRBiometricsIType = t.keyof({
+    "1156895008": null,
+    "276352009": null,
+    "281688001": null
+});
 export const MRBiometricsIArray: string[] = ["1156895008", "276352009", "281688001"];
 
 export const MRBiometricsIValueSet: ValueSet = [

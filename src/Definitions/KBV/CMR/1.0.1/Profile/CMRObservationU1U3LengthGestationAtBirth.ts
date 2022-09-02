@@ -418,13 +418,13 @@ export const CMRObservationU1U3LengthGestationAtBirthCode: t.Type<CMRObservation
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3LengthGestationAtBirthSubject {
+export interface CMRObservationU1U3LengthGestationAtBirthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3LengthGestationAtBirthSubject: t.Type<CMRObservationU1U3LengthGestationAtBirthSubject> =
-    t.recursion("CMRObservationU1U3LengthGestationAtBirthSubject", () =>
+export const CMRObservationU1U3LengthGestationAtBirthSubjectReference: t.Type<CMRObservationU1U3LengthGestationAtBirthSubjectReference> =
+    t.recursion("CMRObservationU1U3LengthGestationAtBirthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -442,13 +442,13 @@ export const CMRObservationU1U3LengthGestationAtBirthSubject: t.Type<CMRObservat
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3LengthGestationAtBirthEncounter {
+export interface CMRObservationU1U3LengthGestationAtBirthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3LengthGestationAtBirthEncounter: t.Type<CMRObservationU1U3LengthGestationAtBirthEncounter> =
-    t.recursion("CMRObservationU1U3LengthGestationAtBirthEncounter", () =>
+export const CMRObservationU1U3LengthGestationAtBirthEncounterReference: t.Type<CMRObservationU1U3LengthGestationAtBirthEncounterReference> =
+    t.recursion("CMRObservationU1U3LengthGestationAtBirthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -466,13 +466,13 @@ export const CMRObservationU1U3LengthGestationAtBirthEncounter: t.Type<CMRObserv
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3LengthGestationAtBirthPerformer {
+export interface CMRObservationU1U3LengthGestationAtBirthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3LengthGestationAtBirthPerformer: t.Type<CMRObservationU1U3LengthGestationAtBirthPerformer> =
-    t.recursion("CMRObservationU1U3LengthGestationAtBirthPerformer", () =>
+export const CMRObservationU1U3LengthGestationAtBirthPerformerReference: t.Type<CMRObservationU1U3LengthGestationAtBirthPerformerReference> =
+    t.recursion("CMRObservationU1U3LengthGestationAtBirthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -492,8 +492,8 @@ interface CMRObservationU1U3LengthGestationAtBirth {
     meta: CMRObservationU1U3LengthGestationAtBirthMeta;
     status: "final";
     code: CMRObservationU1U3LengthGestationAtBirthCode;
-    subject: CMRObservationU1U3LengthGestationAtBirthSubject;
-    encounter: CMRObservationU1U3LengthGestationAtBirthEncounter;
+    subject: CMRObservationU1U3LengthGestationAtBirthSubjectReference;
+    encounter: CMRObservationU1U3LengthGestationAtBirthEncounterReference;
     effectiveDateTime: string;
     component: Array<
         | CMRObservationU1U3LengthGestationAtBirthSchwangerschaftswochen
@@ -501,7 +501,7 @@ interface CMRObservationU1U3LengthGestationAtBirth {
     >;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3LengthGestationAtBirthPerformer>;
+    performer?: Array<CMRObservationU1U3LengthGestationAtBirthPerformerReference>;
 }
 
 const CMRObservationU1U3LengthGestationAtBirth: t.Type<CMRObservationU1U3LengthGestationAtBirth> =
@@ -513,8 +513,8 @@ const CMRObservationU1U3LengthGestationAtBirth: t.Type<CMRObservationU1U3LengthG
                     meta: CMRObservationU1U3LengthGestationAtBirthMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3LengthGestationAtBirthCode,
-                    subject: CMRObservationU1U3LengthGestationAtBirthSubject,
-                    encounter: CMRObservationU1U3LengthGestationAtBirthEncounter,
+                    subject: CMRObservationU1U3LengthGestationAtBirthSubjectReference,
+                    encounter: CMRObservationU1U3LengthGestationAtBirthEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     component: ReqArray<
                         t.UnionC<
@@ -555,7 +555,7 @@ const CMRObservationU1U3LengthGestationAtBirth: t.Type<CMRObservationU1U3LengthG
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U3LengthGestationAtBirthPerformer
+                        CMRObservationU1U3LengthGestationAtBirthPerformerReference
                     )
                 })
             ])

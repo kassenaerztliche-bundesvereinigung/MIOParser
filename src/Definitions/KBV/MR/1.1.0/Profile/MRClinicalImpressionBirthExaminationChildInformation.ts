@@ -174,14 +174,14 @@ export const MRClinicalImpressionBirthExaminationChildInformationInvestigationCo
 /**
  * A record of a specific investigation that was undertaken.
  */
-export interface MRClinicalImpressionBirthExaminationChildInformationInvestigationItem {
+export interface MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationChildInformationInvestigationItem: t.Type<MRClinicalImpressionBirthExaminationChildInformationInvestigationItem> =
+export const MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference: t.Type<MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference> =
     t.recursion(
-        "MRClinicalImpressionBirthExaminationChildInformationInvestigationItem",
+        "MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference",
         () =>
             Excess(
                 t.intersection([
@@ -262,73 +262,79 @@ export const MRClinicalImpressionBirthExaminationChildInformationCode: t.Type<MR
 /**
  * The patient or group of individuals assessed as part of this record.
  */
-export interface MRClinicalImpressionBirthExaminationChildInformationSubject {
+export interface MRClinicalImpressionBirthExaminationChildInformationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationChildInformationSubject: t.Type<MRClinicalImpressionBirthExaminationChildInformationSubject> =
-    t.recursion("MRClinicalImpressionBirthExaminationChildInformationSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.1.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionBirthExaminationChildInformationSubjectReference: t.Type<MRClinicalImpressionBirthExaminationChildInformationSubjectReference> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationChildInformationSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Patient_Child|1.1.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
  */
-export interface MRClinicalImpressionBirthExaminationChildInformationEncounter {
+export interface MRClinicalImpressionBirthExaminationChildInformationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationChildInformationEncounter: t.Type<MRClinicalImpressionBirthExaminationChildInformationEncounter> =
-    t.recursion("MRClinicalImpressionBirthExaminationChildInformationEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.1.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionBirthExaminationChildInformationEncounterReference: t.Type<MRClinicalImpressionBirthExaminationChildInformationEncounterReference> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationChildInformationEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Encounter_General|1.1.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The clinician performing the assessment.
  */
-export interface MRClinicalImpressionBirthExaminationChildInformationAssessor {
+export interface MRClinicalImpressionBirthExaminationChildInformationAssessorReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionBirthExaminationChildInformationAssessor: t.Type<MRClinicalImpressionBirthExaminationChildInformationAssessor> =
-    t.recursion("MRClinicalImpressionBirthExaminationChildInformationAssessor", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.1.0"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const MRClinicalImpressionBirthExaminationChildInformationAssessorReference: t.Type<MRClinicalImpressionBirthExaminationChildInformationAssessorReference> =
+    t.recursion(
+        "MRClinicalImpressionBirthExaminationChildInformationAssessorReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_MR_Practitioner|1.1.0"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -337,7 +343,7 @@ export const MRClinicalImpressionBirthExaminationChildInformationAssessor: t.Typ
 export interface MRClinicalImpressionBirthExaminationChildInformationInvestigation {
     code: MRClinicalImpressionBirthExaminationChildInformationInvestigationCode;
     id?: string;
-    item?: MRClinicalImpressionBirthExaminationChildInformationInvestigationItem[];
+    item?: MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference[];
 }
 
 export const MRClinicalImpressionBirthExaminationChildInformationInvestigation: t.Type<MRClinicalImpressionBirthExaminationChildInformationInvestigation> =
@@ -350,7 +356,7 @@ export const MRClinicalImpressionBirthExaminationChildInformationInvestigation: 
                 t.partial({
                     id: SCALARString,
                     item: t.array(
-                        MRClinicalImpressionBirthExaminationChildInformationInvestigationItem
+                        MRClinicalImpressionBirthExaminationChildInformationInvestigationItemReference
                     )
                 })
             ])
@@ -362,12 +368,12 @@ interface MRClinicalImpressionBirthExaminationChildInformation {
     meta: MRClinicalImpressionBirthExaminationChildInformationMeta;
     status: "completed";
     code: MRClinicalImpressionBirthExaminationChildInformationCode;
-    subject: MRClinicalImpressionBirthExaminationChildInformationSubject;
-    encounter: MRClinicalImpressionBirthExaminationChildInformationEncounter;
+    subject: MRClinicalImpressionBirthExaminationChildInformationSubjectReference;
+    encounter: MRClinicalImpressionBirthExaminationChildInformationEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    assessor?: MRClinicalImpressionBirthExaminationChildInformationAssessor;
+    assessor?: MRClinicalImpressionBirthExaminationChildInformationAssessorReference;
     investigation?: Array<MRClinicalImpressionBirthExaminationChildInformationInvestigation>;
 }
 
@@ -380,16 +386,17 @@ const MRClinicalImpressionBirthExaminationChildInformation: t.Type<MRClinicalImp
                     meta: MRClinicalImpressionBirthExaminationChildInformationMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionBirthExaminationChildInformationCode,
-                    subject: MRClinicalImpressionBirthExaminationChildInformationSubject,
+                    subject:
+                        MRClinicalImpressionBirthExaminationChildInformationSubjectReference,
                     encounter:
-                        MRClinicalImpressionBirthExaminationChildInformationEncounter,
+                        MRClinicalImpressionBirthExaminationChildInformationEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
                     assessor:
-                        MRClinicalImpressionBirthExaminationChildInformationAssessor,
+                        MRClinicalImpressionBirthExaminationChildInformationAssessorReference,
                     investigation: MaxArray(
                         1,
                         MRClinicalImpressionBirthExaminationChildInformationInvestigation

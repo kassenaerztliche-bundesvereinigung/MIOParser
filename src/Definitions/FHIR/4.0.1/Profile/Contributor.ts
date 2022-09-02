@@ -19,7 +19,6 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
 
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import ContactDetail from "../../../../Definitions/FHIR/4.0.1/Profile/ContactDetail";
@@ -30,7 +29,6 @@ import ContributortypeVS from "../../../../Definitions/FHIR/4.0.1/ValueSet/Contr
 interface Contributor {
     type: ContributortypeVS;
     name: string;
-    resourceType?: "Contributor";
     id?: string;
     contact?: ContactDetail[];
 }
@@ -42,7 +40,6 @@ const Contributor: t.Type<Contributor> = t.recursion("Contributor", () =>
             name: SCALARString
         }),
         t.partial({
-            resourceType: Literal("Contributor"),
             id: SCALARString,
             contact: t.array(ContactDetail)
         })

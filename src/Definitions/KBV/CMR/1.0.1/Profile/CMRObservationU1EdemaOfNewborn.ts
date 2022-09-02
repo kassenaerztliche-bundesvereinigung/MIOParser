@@ -256,13 +256,13 @@ export const CMRObservationU1EdemaOfNewbornCode: t.Type<CMRObservationU1EdemaOfN
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1EdemaOfNewbornSubject {
+export interface CMRObservationU1EdemaOfNewbornSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1EdemaOfNewbornSubject: t.Type<CMRObservationU1EdemaOfNewbornSubject> =
-    t.recursion("CMRObservationU1EdemaOfNewbornSubject", () =>
+export const CMRObservationU1EdemaOfNewbornSubjectReference: t.Type<CMRObservationU1EdemaOfNewbornSubjectReference> =
+    t.recursion("CMRObservationU1EdemaOfNewbornSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const CMRObservationU1EdemaOfNewbornSubject: t.Type<CMRObservationU1Edema
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1EdemaOfNewbornEncounter {
+export interface CMRObservationU1EdemaOfNewbornEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1EdemaOfNewbornEncounter: t.Type<CMRObservationU1EdemaOfNewbornEncounter> =
-    t.recursion("CMRObservationU1EdemaOfNewbornEncounter", () =>
+export const CMRObservationU1EdemaOfNewbornEncounterReference: t.Type<CMRObservationU1EdemaOfNewbornEncounterReference> =
+    t.recursion("CMRObservationU1EdemaOfNewbornEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const CMRObservationU1EdemaOfNewbornEncounter: t.Type<CMRObservationU1Ede
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1EdemaOfNewbornPerformer {
+export interface CMRObservationU1EdemaOfNewbornPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1EdemaOfNewbornPerformer: t.Type<CMRObservationU1EdemaOfNewbornPerformer> =
-    t.recursion("CMRObservationU1EdemaOfNewbornPerformer", () =>
+export const CMRObservationU1EdemaOfNewbornPerformerReference: t.Type<CMRObservationU1EdemaOfNewbornPerformerReference> =
+    t.recursion("CMRObservationU1EdemaOfNewbornPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface CMRObservationU1EdemaOfNewborn {
     meta: CMRObservationU1EdemaOfNewbornMeta;
     status: "final";
     code: CMRObservationU1EdemaOfNewbornCode;
-    subject: CMRObservationU1EdemaOfNewbornSubject;
-    encounter: CMRObservationU1EdemaOfNewbornEncounter;
+    subject: CMRObservationU1EdemaOfNewbornSubjectReference;
+    encounter: CMRObservationU1EdemaOfNewbornEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1EdemaOfNewbornPerformer>;
+    performer?: Array<CMRObservationU1EdemaOfNewbornPerformerReference>;
 }
 
 const CMRObservationU1EdemaOfNewborn: t.Type<CMRObservationU1EdemaOfNewborn> =
@@ -348,15 +348,18 @@ const CMRObservationU1EdemaOfNewborn: t.Type<CMRObservationU1EdemaOfNewborn> =
                     meta: CMRObservationU1EdemaOfNewbornMeta,
                     status: Literal("final"),
                     code: CMRObservationU1EdemaOfNewbornCode,
-                    subject: CMRObservationU1EdemaOfNewbornSubject,
-                    encounter: CMRObservationU1EdemaOfNewbornEncounter,
+                    subject: CMRObservationU1EdemaOfNewbornSubjectReference,
+                    encounter: CMRObservationU1EdemaOfNewbornEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1EdemaOfNewbornPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU1EdemaOfNewbornPerformerReference
+                    )
                 })
             ])
         )

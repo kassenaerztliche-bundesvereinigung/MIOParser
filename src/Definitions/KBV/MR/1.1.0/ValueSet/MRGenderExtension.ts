@@ -25,8 +25,11 @@ import { ValueSet } from "../../../../Interfaces";
 
 type MRGenderExtension = "X";
 
-const MRGenderExtension: t.Type<MRGenderExtension> = t.literal("X");
+type MRGenderExtensionType = t.KeyofC<{ X: null }>;
 
+const MRGenderExtension: MRGenderExtensionType = t.keyof({
+    X: null
+});
 export const MRGenderExtensionArray: string[] = ["X"];
 
 export const MRGenderExtensionValueSet: ValueSet = [

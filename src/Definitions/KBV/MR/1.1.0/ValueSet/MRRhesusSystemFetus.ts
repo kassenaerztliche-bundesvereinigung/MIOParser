@@ -26,11 +26,15 @@ import MRRhesusSystemFetusGerman from "../../../../../Definitions/KBV/MR/1.1.0/C
 
 type MRRhesusSystemFetus = "365645007+165747007" | "365645007+165746003";
 
-const MRRhesusSystemFetus: t.Type<MRRhesusSystemFetus> = t.union(
-    [t.literal("365645007+165747007"), t.literal("365645007+165746003")],
-    "MRRhesusSystemFetus"
-);
+type MRRhesusSystemFetusType = t.KeyofC<{
+    "365645007+165747007": null;
+    "365645007+165746003": null;
+}>;
 
+const MRRhesusSystemFetus: MRRhesusSystemFetusType = t.keyof({
+    "365645007+165747007": null,
+    "365645007+165746003": null
+});
 export const MRRhesusSystemFetusArray: string[] = [
     "365645007+165747007",
     "365645007+165746003"

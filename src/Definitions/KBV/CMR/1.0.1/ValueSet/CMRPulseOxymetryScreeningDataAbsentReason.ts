@@ -28,15 +28,16 @@ type CMRPulseOxymetryScreeningDataAbsentReason =
     | "428119001:{363589002=250554003,408730004=410534003}"
     | "183948000:363589002=250554003";
 
-const CMRPulseOxymetryScreeningDataAbsentReason: t.Type<CMRPulseOxymetryScreeningDataAbsentReason> =
-    t.union(
-        [
-            t.literal("428119001:{363589002=250554003,408730004=410534003}"),
-            t.literal("183948000:363589002=250554003")
-        ],
-        "CMRPulseOxymetryScreeningDataAbsentReason"
-    );
+type CMRPulseOxymetryScreeningDataAbsentReasonType = t.KeyofC<{
+    "428119001:{363589002=250554003,408730004=410534003}": null;
+    "183948000:363589002=250554003": null;
+}>;
 
+const CMRPulseOxymetryScreeningDataAbsentReason: CMRPulseOxymetryScreeningDataAbsentReasonType =
+    t.keyof({
+        "428119001:{363589002=250554003,408730004=410534003}": null,
+        "183948000:363589002=250554003": null
+    });
 export const CMRPulseOxymetryScreeningDataAbsentReasonArray: string[] = [
     "428119001:{363589002=250554003,408730004=410534003}",
     "183948000:363589002=250554003"

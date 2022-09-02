@@ -42,28 +42,43 @@ type CMRExaminationNumber =
     | "129822005"
     | "252465000:405813007=56459004";
 
-const CMRExaminationNumber: t.Type<CMRExaminationNumber> = t.union(
-    [
-        t.literal("170099002"),
-        t.literal("170107008"),
-        t.literal("243788004:370131001=133931009"),
-        t.literal("170250008"),
-        t.literal("170263002"),
-        t.literal("170254004"),
-        t.literal("401140000"),
-        t.literal("170281004"),
-        t.literal("410635005"),
-        t.literal("243788004:370131001=410602000"),
-        t.literal("738796001:363702006=171191008"),
-        t.literal("738796001:363702006=428447008"),
-        t.literal("171241003"),
-        t.literal("252957005"),
-        t.literal("129822005"),
-        t.literal("252465000:405813007=56459004")
-    ],
-    "CMRExaminationNumber"
-);
+type CMRExaminationNumberType = t.KeyofC<{
+    "170099002": null;
+    "170107008": null;
+    "243788004:370131001=133931009": null;
+    "170250008": null;
+    "170263002": null;
+    "170254004": null;
+    "401140000": null;
+    "170281004": null;
+    "410635005": null;
+    "243788004:370131001=410602000": null;
+    "738796001:363702006=171191008": null;
+    "738796001:363702006=428447008": null;
+    "171241003": null;
+    "252957005": null;
+    "129822005": null;
+    "252465000:405813007=56459004": null;
+}>;
 
+const CMRExaminationNumber: CMRExaminationNumberType = t.keyof({
+    "170099002": null,
+    "170107008": null,
+    "243788004:370131001=133931009": null,
+    "170250008": null,
+    "170263002": null,
+    "170254004": null,
+    "401140000": null,
+    "170281004": null,
+    "410635005": null,
+    "243788004:370131001=410602000": null,
+    "738796001:363702006=171191008": null,
+    "738796001:363702006=428447008": null,
+    "171241003": null,
+    "252957005": null,
+    "129822005": null,
+    "252465000:405813007=56459004": null
+});
 export const CMRExaminationNumberArray: string[] = [
     "170099002",
     "170107008",

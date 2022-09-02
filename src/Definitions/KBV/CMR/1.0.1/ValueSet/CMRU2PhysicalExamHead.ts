@@ -32,18 +32,23 @@ type CMRU2PhysicalExamHead =
     | "366372002"
     | "23149001:363698007=783207002";
 
-const CMRU2PhysicalExamHead: t.Type<CMRU2PhysicalExamHead> = t.union(
-    [
-        t.literal("111235007"),
-        t.literal("253978002"),
-        t.literal("248387005"),
-        t.literal("206200000"),
-        t.literal("366372002"),
-        t.literal("23149001:363698007=783207002")
-    ],
-    "CMRU2PhysicalExamHead"
-);
+type CMRU2PhysicalExamHeadType = t.KeyofC<{
+    "111235007": null;
+    "253978002": null;
+    "248387005": null;
+    "206200000": null;
+    "366372002": null;
+    "23149001:363698007=783207002": null;
+}>;
 
+const CMRU2PhysicalExamHead: CMRU2PhysicalExamHeadType = t.keyof({
+    "111235007": null,
+    "253978002": null,
+    "248387005": null,
+    "206200000": null,
+    "366372002": null,
+    "23149001:363698007=783207002": null
+});
 export const CMRU2PhysicalExamHeadArray: string[] = [
     "111235007",
     "253978002",

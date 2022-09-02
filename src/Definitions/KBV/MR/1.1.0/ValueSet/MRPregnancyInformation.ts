@@ -26,11 +26,17 @@ import MRPregnancyInformationGerman from "../../../../../Definitions/KBV/MR/1.1.
 
 type MRPregnancyInformation = "370383002" | "370386005" | "459167000";
 
-const MRPregnancyInformation: t.Type<MRPregnancyInformation> = t.union(
-    [t.literal("370383002"), t.literal("370386005"), t.literal("459167000")],
-    "MRPregnancyInformation"
-);
+type MRPregnancyInformationType = t.KeyofC<{
+    "370383002": null;
+    "370386005": null;
+    "459167000": null;
+}>;
 
+const MRPregnancyInformation: MRPregnancyInformationType = t.keyof({
+    "370383002": null,
+    "370386005": null,
+    "459167000": null
+});
 export const MRPregnancyInformationArray: string[] = [
     "370383002",
     "370386005",

@@ -37,25 +37,36 @@ type VaccinationPractitionerSpecialityAddendum =
     | "536"
     | "537";
 
-const VaccinationPractitionerSpecialityAddendum: t.Type<VaccinationPractitionerSpecialityAddendum> =
-    t.union(
-        [
-            t.literal("309343006"),
-            t.literal("042"),
-            t.literal("096"),
-            t.literal("097"),
-            t.literal("140"),
-            t.literal("143"),
-            t.literal("171"),
-            t.literal("192"),
-            t.literal("160"),
-            t.literal("161"),
-            t.literal("536"),
-            t.literal("537")
-        ],
-        "VaccinationPractitionerSpecialityAddendum"
-    );
+type VaccinationPractitionerSpecialityAddendumType = t.KeyofC<{
+    "309343006": null;
+    "042": null;
+    "096": null;
+    "097": null;
+    "140": null;
+    "143": null;
+    "171": null;
+    "192": null;
+    "160": null;
+    "161": null;
+    "536": null;
+    "537": null;
+}>;
 
+const VaccinationPractitionerSpecialityAddendum: VaccinationPractitionerSpecialityAddendumType =
+    t.keyof({
+        "309343006": null,
+        "042": null,
+        "096": null,
+        "097": null,
+        "140": null,
+        "143": null,
+        "171": null,
+        "192": null,
+        "160": null,
+        "161": null,
+        "536": null,
+        "537": null
+    });
 export const VaccinationPractitionerSpecialityAddendumArray: string[] = [
     "309343006",
     "042",

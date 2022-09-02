@@ -75,63 +75,112 @@ type MRRiskCharacteristicsDischargeSummary =
     | "289365005"
     | "118185001";
 
-const MRRiskCharacteristicsDischargeSummary: t.Type<MRRiskCharacteristicsDischargeSummary> =
-    t.union(
-        [
-            t.literal("416471007"),
-            t.literal("312850006"),
-            t.literal("161460007"),
-            t.literal("609328004"),
-            t.literal("161664006"),
-            t.literal("271596009"),
-            t.literal("161152002"),
-            t.literal("1156098006"),
-            t.literal("73211009"),
-            t.literal("414916001"),
-            t.literal("237837007"),
-            t.literal("8447006"),
-            t.literal("237240001"),
-            t.literal("416413003"),
-            t.literal("18656007"),
-            t.literal("134521000119104"),
-            t.literal("161765003"),
-            t.literal("726565008"),
-            t.literal("713651007"),
-            t.literal("161743003"),
-            t.literal("1156096005"),
-            t.literal("1156097001"),
-            t.literal("161805006"),
-            t.literal("1156095009"),
-            t.literal("60001007:263502005=424572001"),
-            t.literal("418138009"),
-            t.literal("27624003"),
-            t.literal("710814002"),
-            t.literal("66214007"),
-            t.literal("723665008"),
-            t.literal("427139004"),
-            t.literal("36813001"),
-            t.literal("16356006"),
-            t.literal("86203003"),
-            t.literal("59566000"),
-            t.literal("237238006"),
-            t.literal("237292005"),
-            t.literal("17382005"),
-            t.literal("6383007"),
-            t.literal("199246003"),
-            t.literal("307534009"),
-            t.literal("165775009"),
-            t.literal("47200007:418775008=312404004"),
-            t.literal("82771000119102"),
-            t.literal("29738008"),
-            t.literal("698632006:263502005=371924009"),
-            t.literal("45007003"),
-            t.literal("11687002"),
-            t.literal("289365005"),
-            t.literal("118185001")
-        ],
-        "MRRiskCharacteristicsDischargeSummary"
-    );
+type MRRiskCharacteristicsDischargeSummaryType = t.KeyofC<{
+    "416471007": null;
+    "312850006": null;
+    "161460007": null;
+    "609328004": null;
+    "161664006": null;
+    "271596009": null;
+    "161152002": null;
+    "1156098006": null;
+    "73211009": null;
+    "414916001": null;
+    "237837007": null;
+    "8447006": null;
+    "237240001": null;
+    "416413003": null;
+    "18656007": null;
+    "134521000119104": null;
+    "161765003": null;
+    "726565008": null;
+    "713651007": null;
+    "161743003": null;
+    "1156096005": null;
+    "1156097001": null;
+    "161805006": null;
+    "1156095009": null;
+    "60001007:263502005=424572001": null;
+    "418138009": null;
+    "27624003": null;
+    "710814002": null;
+    "66214007": null;
+    "723665008": null;
+    "427139004": null;
+    "36813001": null;
+    "16356006": null;
+    "86203003": null;
+    "59566000": null;
+    "237238006": null;
+    "237292005": null;
+    "17382005": null;
+    "6383007": null;
+    "199246003": null;
+    "307534009": null;
+    "165775009": null;
+    "47200007:418775008=312404004": null;
+    "82771000119102": null;
+    "29738008": null;
+    "698632006:263502005=371924009": null;
+    "45007003": null;
+    "11687002": null;
+    "289365005": null;
+    "118185001": null;
+}>;
 
+const MRRiskCharacteristicsDischargeSummary: MRRiskCharacteristicsDischargeSummaryType =
+    t.keyof({
+        "416471007": null,
+        "312850006": null,
+        "161460007": null,
+        "609328004": null,
+        "161664006": null,
+        "271596009": null,
+        "161152002": null,
+        "1156098006": null,
+        "73211009": null,
+        "414916001": null,
+        "237837007": null,
+        "8447006": null,
+        "237240001": null,
+        "416413003": null,
+        "18656007": null,
+        "134521000119104": null,
+        "161765003": null,
+        "726565008": null,
+        "713651007": null,
+        "161743003": null,
+        "1156096005": null,
+        "1156097001": null,
+        "161805006": null,
+        "1156095009": null,
+        "60001007:263502005=424572001": null,
+        "418138009": null,
+        "27624003": null,
+        "710814002": null,
+        "66214007": null,
+        "723665008": null,
+        "427139004": null,
+        "36813001": null,
+        "16356006": null,
+        "86203003": null,
+        "59566000": null,
+        "237238006": null,
+        "237292005": null,
+        "17382005": null,
+        "6383007": null,
+        "199246003": null,
+        "307534009": null,
+        "165775009": null,
+        "47200007:418775008=312404004": null,
+        "82771000119102": null,
+        "29738008": null,
+        "698632006:263502005=371924009": null,
+        "45007003": null,
+        "11687002": null,
+        "289365005": null,
+        "118185001": null
+    });
 export const MRRiskCharacteristicsDischargeSummaryArray: string[] = [
     "416471007",
     "312850006",

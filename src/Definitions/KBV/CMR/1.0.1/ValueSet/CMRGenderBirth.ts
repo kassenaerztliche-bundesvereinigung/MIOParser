@@ -26,11 +26,17 @@ import CMRGenderBirthGerman from "../../../../../Definitions/KBV/CMR/1.0.1/Conce
 
 type CMRGenderBirth = "703118005" | "703117000" | "394744001";
 
-const CMRGenderBirth: t.Type<CMRGenderBirth> = t.union(
-    [t.literal("703118005"), t.literal("703117000"), t.literal("394744001")],
-    "CMRGenderBirth"
-);
+type CMRGenderBirthType = t.KeyofC<{
+    "703118005": null;
+    "703117000": null;
+    "394744001": null;
+}>;
 
+const CMRGenderBirth: CMRGenderBirthType = t.keyof({
+    "703118005": null,
+    "703117000": null,
+    "394744001": null
+});
 export const CMRGenderBirthArray: string[] = ["703118005", "703117000", "394744001"];
 
 export const CMRGenderBirthValueSet: ValueSet = [

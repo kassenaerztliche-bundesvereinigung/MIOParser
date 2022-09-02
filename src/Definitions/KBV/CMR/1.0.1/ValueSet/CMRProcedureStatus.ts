@@ -25,11 +25,12 @@ import { ValueSet } from "../../../../Interfaces";
 
 type CMRProcedureStatus = "completed" | "not-done";
 
-const CMRProcedureStatus: t.Type<CMRProcedureStatus> = t.union(
-    [t.literal("completed"), t.literal("not-done")],
-    "CMRProcedureStatus"
-);
+type CMRProcedureStatusType = t.KeyofC<{ completed: null; "not-done": null }>;
 
+const CMRProcedureStatus: CMRProcedureStatusType = t.keyof({
+    completed: null,
+    "not-done": null
+});
 export const CMRProcedureStatusArray: string[] = ["completed", "not-done"];
 
 export const CMRProcedureStatusValueSet: ValueSet = [

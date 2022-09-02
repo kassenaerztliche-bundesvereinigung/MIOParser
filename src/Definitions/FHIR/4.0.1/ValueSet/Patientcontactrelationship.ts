@@ -25,7 +25,9 @@ import { ValueSet } from "../../../Interfaces";
 
 type Patientcontactrelationship = string;
 
-const Patientcontactrelationship: t.Type<Patientcontactrelationship> = t.string;
+type PatientcontactrelationshipType = string;
+
+const Patientcontactrelationship: t.Type<PatientcontactrelationshipType> = t.string;
 
 export const PatientcontactrelationshipArray: string[] = [];
 

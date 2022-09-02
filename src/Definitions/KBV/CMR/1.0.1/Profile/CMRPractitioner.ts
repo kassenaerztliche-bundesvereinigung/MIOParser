@@ -475,7 +475,7 @@ export const CMRPractitionerANRTypeCoding: t.Type<CMRPractitionerANRTypeCoding> 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface CMRPractitionerANRAssignerIdentifier {
+export interface CMRPractitionerANRAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -485,8 +485,8 @@ export interface CMRPractitionerANRAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const CMRPractitionerANRAssignerIdentifier: t.Type<CMRPractitionerANRAssignerIdentifier> =
-    t.recursion("CMRPractitionerANRAssignerIdentifier", () =>
+export const CMRPractitionerANRAssignerReferenceIdentifier: t.Type<CMRPractitionerANRAssignerReferenceIdentifier> =
+    t.recursion("CMRPractitionerANRAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -537,7 +537,7 @@ export const CMRPractitionerEFNTypeCoding: t.Type<CMRPractitionerEFNTypeCoding> 
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface CMRPractitionerEFNAssignerIdentifier {
+export interface CMRPractitionerEFNAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -547,8 +547,8 @@ export interface CMRPractitionerEFNAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const CMRPractitionerEFNAssignerIdentifier: t.Type<CMRPractitionerEFNAssignerIdentifier> =
-    t.recursion("CMRPractitionerEFNAssignerIdentifier", () =>
+export const CMRPractitionerEFNAssignerReferenceIdentifier: t.Type<CMRPractitionerEFNAssignerReferenceIdentifier> =
+    t.recursion("CMRPractitionerEFNAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -757,17 +757,16 @@ export const CMRPractitionerANRType: t.Type<CMRPractitionerANRType> = t.recursio
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMRPractitionerANRAssigner {
+export interface CMRPractitionerANRAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: CMRPractitionerANRAssignerIdentifier;
+    identifier?: CMRPractitionerANRAssignerReferenceIdentifier;
 }
 
-export const CMRPractitionerANRAssigner: t.Type<CMRPractitionerANRAssigner> = t.recursion(
-    "CMRPractitionerANRAssigner",
-    () =>
+export const CMRPractitionerANRAssignerReference: t.Type<CMRPractitionerANRAssignerReference> =
+    t.recursion("CMRPractitionerANRAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -779,11 +778,11 @@ export const CMRPractitionerANRAssigner: t.Type<CMRPractitionerANRAssigner> = t.
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: CMRPractitionerANRAssignerIdentifier
+                    identifier: CMRPractitionerANRAssignerReferenceIdentifier
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -842,17 +841,16 @@ export const CMRPractitionerEFNType: t.Type<CMRPractitionerEFNType> = t.recursio
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMRPractitionerEFNAssigner {
+export interface CMRPractitionerEFNAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: CMRPractitionerEFNAssignerIdentifier;
+    identifier?: CMRPractitionerEFNAssignerReferenceIdentifier;
 }
 
-export const CMRPractitionerEFNAssigner: t.Type<CMRPractitionerEFNAssigner> = t.recursion(
-    "CMRPractitionerEFNAssigner",
-    () =>
+export const CMRPractitionerEFNAssignerReference: t.Type<CMRPractitionerEFNAssignerReference> =
+    t.recursion("CMRPractitionerEFNAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -864,11 +862,11 @@ export const CMRPractitionerEFNAssigner: t.Type<CMRPractitionerEFNAssigner> = t.
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: CMRPractitionerEFNAssignerIdentifier
+                    identifier: CMRPractitionerEFNAssignerReferenceIdentifier
                 })
             ])
         )
-);
+    );
 
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
@@ -928,7 +926,7 @@ export const CMRPractitionerHebammenIKType: t.Type<CMRPractitionerHebammenIKType
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMRPractitionerHebammenIKAssigner {
+export interface CMRPractitionerHebammenIKAssignerReference {
     display: string;
     id?: string;
     reference?: string;
@@ -936,8 +934,8 @@ export interface CMRPractitionerHebammenIKAssigner {
     identifier?: Identifier;
 }
 
-export const CMRPractitionerHebammenIKAssigner: t.Type<CMRPractitionerHebammenIKAssigner> =
-    t.recursion("CMRPractitionerHebammenIKAssigner", () =>
+export const CMRPractitionerHebammenIKAssignerReference: t.Type<CMRPractitionerHebammenIKAssignerReference> =
+    t.recursion("CMRPractitionerHebammenIKAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1278,7 +1276,7 @@ export interface CMRPractitionerANR {
     use?: "official";
     type?: CMRPractitionerANRType;
     period?: Period;
-    assigner?: CMRPractitionerANRAssigner;
+    assigner?: CMRPractitionerANRAssignerReference;
 }
 
 export const CMRPractitionerANR: t.Type<CMRPractitionerANR> = t.recursion(
@@ -1295,7 +1293,7 @@ export const CMRPractitionerANR: t.Type<CMRPractitionerANR> = t.recursion(
                     use: Literal("official"),
                     type: CMRPractitionerANRType,
                     period: Period,
-                    assigner: CMRPractitionerANRAssigner
+                    assigner: CMRPractitionerANRAssignerReference
                 })
             ])
         )
@@ -1311,7 +1309,7 @@ export interface CMRPractitionerEFN {
     use?: "official";
     type?: CMRPractitionerEFNType;
     period?: Period;
-    assigner?: CMRPractitionerEFNAssigner;
+    assigner?: CMRPractitionerEFNAssignerReference;
 }
 
 export const CMRPractitionerEFN: t.Type<CMRPractitionerEFN> = t.recursion(
@@ -1328,7 +1326,7 @@ export const CMRPractitionerEFN: t.Type<CMRPractitionerEFN> = t.recursion(
                     use: Literal("official"),
                     type: CMRPractitionerEFNType,
                     period: Period,
-                    assigner: CMRPractitionerEFNAssigner
+                    assigner: CMRPractitionerEFNAssignerReference
                 })
             ])
         )
@@ -1344,7 +1342,7 @@ export interface CMRPractitionerHebammenIK {
     use?: "official";
     type?: CMRPractitionerHebammenIKType;
     period?: Period;
-    assigner?: CMRPractitionerHebammenIKAssigner;
+    assigner?: CMRPractitionerHebammenIKAssignerReference;
 }
 
 export const CMRPractitionerHebammenIK: t.Type<CMRPractitionerHebammenIK> = t.recursion(
@@ -1361,7 +1359,7 @@ export const CMRPractitionerHebammenIK: t.Type<CMRPractitionerHebammenIK> = t.re
                     use: Literal("official"),
                     type: CMRPractitionerHebammenIKType,
                     period: Period,
-                    assigner: CMRPractitionerHebammenIKAssigner
+                    assigner: CMRPractitionerHebammenIKAssignerReference
                 })
             ])
         )
@@ -1686,12 +1684,12 @@ const CMRPractitioner: t.Type<CMRPractitioner> = t.recursion("CMRPractitioner", 
                         {
                             codec: CMRPractitionerANR,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "LANR" }
                         },
                         {
                             codec: CMRPractitionerEFN,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "DN" }
                         },
                         {
                             codec: CMRPractitionerHebammenIK,

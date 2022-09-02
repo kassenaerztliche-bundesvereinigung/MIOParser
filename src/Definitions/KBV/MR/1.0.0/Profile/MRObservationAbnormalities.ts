@@ -567,13 +567,13 @@ export const MRObservationAbnormalitiesCode: t.Type<MRObservationAbnormalitiesCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationAbnormalitiesSubject {
+export interface MRObservationAbnormalitiesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAbnormalitiesSubject: t.Type<MRObservationAbnormalitiesSubject> =
-    t.recursion("MRObservationAbnormalitiesSubject", () =>
+export const MRObservationAbnormalitiesSubjectReference: t.Type<MRObservationAbnormalitiesSubjectReference> =
+    t.recursion("MRObservationAbnormalitiesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -591,13 +591,13 @@ export const MRObservationAbnormalitiesSubject: t.Type<MRObservationAbnormalitie
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationAbnormalitiesEncounter {
+export interface MRObservationAbnormalitiesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAbnormalitiesEncounter: t.Type<MRObservationAbnormalitiesEncounter> =
-    t.recursion("MRObservationAbnormalitiesEncounter", () =>
+export const MRObservationAbnormalitiesEncounterReference: t.Type<MRObservationAbnormalitiesEncounterReference> =
+    t.recursion("MRObservationAbnormalitiesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -615,13 +615,13 @@ export const MRObservationAbnormalitiesEncounter: t.Type<MRObservationAbnormalit
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationAbnormalitiesPerformer {
+export interface MRObservationAbnormalitiesPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAbnormalitiesPerformer: t.Type<MRObservationAbnormalitiesPerformer> =
-    t.recursion("MRObservationAbnormalitiesPerformer", () =>
+export const MRObservationAbnormalitiesPerformerReference: t.Type<MRObservationAbnormalitiesPerformerReference> =
+    t.recursion("MRObservationAbnormalitiesPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -642,14 +642,14 @@ interface MRObservationAbnormalities {
     meta: MRObservationAbnormalitiesMeta;
     status: "final";
     code: MRObservationAbnormalitiesCode;
-    subject: MRObservationAbnormalitiesSubject;
-    encounter: MRObservationAbnormalitiesEncounter;
+    subject: MRObservationAbnormalitiesSubjectReference;
+    encounter: MRObservationAbnormalitiesEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MRObservationAbnormalitiesKontrollbeduerftig)[];
-    performer?: Array<MRObservationAbnormalitiesPerformer>;
+    performer?: Array<MRObservationAbnormalitiesPerformerReference>;
 }
 
 const MRObservationAbnormalities: t.Type<MRObservationAbnormalities> = t.recursion(
@@ -662,8 +662,8 @@ const MRObservationAbnormalities: t.Type<MRObservationAbnormalities> = t.recursi
                     meta: MRObservationAbnormalitiesMeta,
                     status: Literal("final"),
                     code: MRObservationAbnormalitiesCode,
-                    subject: MRObservationAbnormalitiesSubject,
-                    encounter: MRObservationAbnormalitiesEncounter,
+                    subject: MRObservationAbnormalitiesSubjectReference,
+                    encounter: MRObservationAbnormalitiesEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
@@ -700,7 +700,7 @@ const MRObservationAbnormalities: t.Type<MRObservationAbnormalities> = t.recursi
                         ],
                         ["0", "*"]
                     ),
-                    performer: MaxArray(1, MRObservationAbnormalitiesPerformer)
+                    performer: MaxArray(1, MRObservationAbnormalitiesPerformerReference)
                 })
             ])
         )

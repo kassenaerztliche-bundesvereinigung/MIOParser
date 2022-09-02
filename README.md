@@ -22,7 +22,7 @@ in den MIO-Dokumenten sichtbar werden.
 
 ## Hintergrund 
 
-Ab dem Jahr 2022 werden in der elektronische Patientenakte MIOs für alle Versicherten in Deutschland eingeführt. 
+Seit 2022 werden in der elektronische Patientenakte MIOs für alle Versicherten in Deutschland eingeführt. 
 Die KBV hat den gesetzlichen Auftrag, die semantische und syntaktische Interoperabilität für Inhalte der elektronischen Patientenakte festzulegen. 
 Zu diesem Zweck entwickelt die KBV die medizinischen Informationsobjekte, mit dem Ziel einen einheitlichen Standard zur Übertragung und Verarbeitung von medizinischen Daten zu definieren.
 Die MIOs werden in HL7® FHIR® profiliert. 
@@ -114,7 +114,7 @@ if (ZAEB.V1_1_0.Profile.Patient.is(mio)) {
 Welche MIOs verarbeitet werden können kann dem [Changelog](https://github.com/kassenaerztliche-bundesvereinigung/MIOParser/blob/master/CHANGELOG.md) entnommen werden.
 
 ```typescript
-import { Vaccination, ZAEB, MR } from "mioparser";
+import { Vaccination, ZAEB, MR } from "@kbv/mioparser";
 ```
 
 Für weiterführende Informationen zu den medizinischen Informationsobjekten besuche die <a href="https://mio.kbv.de/">MIO-Plattform</a> oder die <a href="https://simplifier.net/organization/kassenrztlichebundesvereinigungkbv/~projects">KBV auf Simplifier.net</a>.
@@ -126,7 +126,7 @@ Bespiele der Nutzung der Hilfsfunktionen des MIO Parsers
 Ein Eintrag nach Profil
 
 ```typescript
-import { ParserUtil, ZAEB } from "mioparser";
+import { ParserUtil, ZAEB } from "@kbv/mioparser";
 
 // ...
 

@@ -253,13 +253,13 @@ export const CMRProcedureU7ConsultationCode: t.Type<CMRProcedureU7ConsultationCo
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface CMRProcedureU7ConsultationSubject {
+export interface CMRProcedureU7ConsultationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU7ConsultationSubject: t.Type<CMRProcedureU7ConsultationSubject> =
-    t.recursion("CMRProcedureU7ConsultationSubject", () =>
+export const CMRProcedureU7ConsultationSubjectReference: t.Type<CMRProcedureU7ConsultationSubjectReference> =
+    t.recursion("CMRProcedureU7ConsultationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -277,13 +277,13 @@ export const CMRProcedureU7ConsultationSubject: t.Type<CMRProcedureU7Consultatio
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface CMRProcedureU7ConsultationEncounter {
+export interface CMRProcedureU7ConsultationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU7ConsultationEncounter: t.Type<CMRProcedureU7ConsultationEncounter> =
-    t.recursion("CMRProcedureU7ConsultationEncounter", () =>
+export const CMRProcedureU7ConsultationEncounterReference: t.Type<CMRProcedureU7ConsultationEncounterReference> =
+    t.recursion("CMRProcedureU7ConsultationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -301,13 +301,13 @@ export const CMRProcedureU7ConsultationEncounter: t.Type<CMRProcedureU7Consultat
 /**
  * Individual who is making the procedure statement.
  */
-export interface CMRProcedureU7ConsultationAsserter {
+export interface CMRProcedureU7ConsultationAsserterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU7ConsultationAsserter: t.Type<CMRProcedureU7ConsultationAsserter> =
-    t.recursion("CMRProcedureU7ConsultationAsserter", () =>
+export const CMRProcedureU7ConsultationAsserterReference: t.Type<CMRProcedureU7ConsultationAsserterReference> =
+    t.recursion("CMRProcedureU7ConsultationAsserterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -327,12 +327,12 @@ interface CMRProcedureU7Consultation {
     meta: CMRProcedureU7ConsultationMeta;
     status: "completed";
     code: CMRProcedureU7ConsultationCode;
-    subject: CMRProcedureU7ConsultationSubject;
-    encounter: CMRProcedureU7ConsultationEncounter;
+    subject: CMRProcedureU7ConsultationSubjectReference;
+    encounter: CMRProcedureU7ConsultationEncounterReference;
     performedDateTime: string;
     id?: string;
     text?: Narrative;
-    asserter?: CMRProcedureU7ConsultationAsserter;
+    asserter?: CMRProcedureU7ConsultationAsserterReference;
 }
 
 const CMRProcedureU7Consultation: t.Type<CMRProcedureU7Consultation> = t.recursion(
@@ -345,14 +345,14 @@ const CMRProcedureU7Consultation: t.Type<CMRProcedureU7Consultation> = t.recursi
                     meta: CMRProcedureU7ConsultationMeta,
                     status: Literal("completed"),
                     code: CMRProcedureU7ConsultationCode,
-                    subject: CMRProcedureU7ConsultationSubject,
-                    encounter: CMRProcedureU7ConsultationEncounter,
+                    subject: CMRProcedureU7ConsultationSubjectReference,
+                    encounter: CMRProcedureU7ConsultationEncounterReference,
                     performedDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    asserter: CMRProcedureU7ConsultationAsserter
+                    asserter: CMRProcedureU7ConsultationAsserterReference
                 })
             ])
         )

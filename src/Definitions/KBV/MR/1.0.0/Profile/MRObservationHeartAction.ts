@@ -448,13 +448,13 @@ export const MRObservationHeartActionCode: t.Type<MRObservationHeartActionCode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationHeartActionSubject {
+export interface MRObservationHeartActionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartActionSubject: t.Type<MRObservationHeartActionSubject> =
-    t.recursion("MRObservationHeartActionSubject", () =>
+export const MRObservationHeartActionSubjectReference: t.Type<MRObservationHeartActionSubjectReference> =
+    t.recursion("MRObservationHeartActionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -472,13 +472,13 @@ export const MRObservationHeartActionSubject: t.Type<MRObservationHeartActionSub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationHeartActionEncounter {
+export interface MRObservationHeartActionEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartActionEncounter: t.Type<MRObservationHeartActionEncounter> =
-    t.recursion("MRObservationHeartActionEncounter", () =>
+export const MRObservationHeartActionEncounterReference: t.Type<MRObservationHeartActionEncounterReference> =
+    t.recursion("MRObservationHeartActionEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -496,13 +496,13 @@ export const MRObservationHeartActionEncounter: t.Type<MRObservationHeartActionE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationHeartActionPerformer {
+export interface MRObservationHeartActionPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationHeartActionPerformer: t.Type<MRObservationHeartActionPerformer> =
-    t.recursion("MRObservationHeartActionPerformer", () =>
+export const MRObservationHeartActionPerformerReference: t.Type<MRObservationHeartActionPerformerReference> =
+    t.recursion("MRObservationHeartActionPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -576,13 +576,13 @@ interface MRObservationHeartAction {
     meta: MRObservationHeartActionMeta;
     status: "final";
     code: MRObservationHeartActionCode;
-    subject: MRObservationHeartActionSubject;
-    encounter: MRObservationHeartActionEncounter;
+    subject: MRObservationHeartActionSubjectReference;
+    encounter: MRObservationHeartActionEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationHeartActionPerformer>;
+    performer?: Array<MRObservationHeartActionPerformerReference>;
     bodySite?: MRObservationHeartActionBodySite;
 }
 
@@ -596,15 +596,15 @@ const MRObservationHeartAction: t.Type<MRObservationHeartAction> = t.recursion(
                     meta: MRObservationHeartActionMeta,
                     status: Literal("final"),
                     code: MRObservationHeartActionCode,
-                    subject: MRObservationHeartActionSubject,
-                    encounter: MRObservationHeartActionEncounter,
+                    subject: MRObservationHeartActionSubjectReference,
+                    encounter: MRObservationHeartActionEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationHeartActionPerformer),
+                    performer: MaxArray(1, MRObservationHeartActionPerformerReference),
                     bodySite: MRObservationHeartActionBodySite
                 })
             ])

@@ -256,13 +256,13 @@ export const CMRObservationCommentsCode: t.Type<CMRObservationCommentsCode> = t.
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationCommentsSubject {
+export interface CMRObservationCommentsSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationCommentsSubject: t.Type<CMRObservationCommentsSubject> =
-    t.recursion("CMRObservationCommentsSubject", () =>
+export const CMRObservationCommentsSubjectReference: t.Type<CMRObservationCommentsSubjectReference> =
+    t.recursion("CMRObservationCommentsSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const CMRObservationCommentsSubject: t.Type<CMRObservationCommentsSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationCommentsEncounter {
+export interface CMRObservationCommentsEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationCommentsEncounter: t.Type<CMRObservationCommentsEncounter> =
-    t.recursion("CMRObservationCommentsEncounter", () =>
+export const CMRObservationCommentsEncounterReference: t.Type<CMRObservationCommentsEncounterReference> =
+    t.recursion("CMRObservationCommentsEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const CMRObservationCommentsEncounter: t.Type<CMRObservationCommentsEncou
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationCommentsPerformer {
+export interface CMRObservationCommentsPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationCommentsPerformer: t.Type<CMRObservationCommentsPerformer> =
-    t.recursion("CMRObservationCommentsPerformer", () =>
+export const CMRObservationCommentsPerformerReference: t.Type<CMRObservationCommentsPerformerReference> =
+    t.recursion("CMRObservationCommentsPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface CMRObservationComments {
     meta: CMRObservationCommentsMeta;
     status: "final";
     code: CMRObservationCommentsCode;
-    subject: CMRObservationCommentsSubject;
-    encounter: CMRObservationCommentsEncounter;
+    subject: CMRObservationCommentsSubjectReference;
+    encounter: CMRObservationCommentsEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationCommentsPerformer>;
+    performer?: Array<CMRObservationCommentsPerformerReference>;
 }
 
 const CMRObservationComments: t.Type<CMRObservationComments> = t.recursion(
@@ -349,15 +349,15 @@ const CMRObservationComments: t.Type<CMRObservationComments> = t.recursion(
                     meta: CMRObservationCommentsMeta,
                     status: Literal("final"),
                     code: CMRObservationCommentsCode,
-                    subject: CMRObservationCommentsSubject,
-                    encounter: CMRObservationCommentsEncounter,
+                    subject: CMRObservationCommentsSubjectReference,
+                    encounter: CMRObservationCommentsEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationCommentsPerformer)
+                    performer: MaxArray(1, CMRObservationCommentsPerformerReference)
                 })
             ])
         )

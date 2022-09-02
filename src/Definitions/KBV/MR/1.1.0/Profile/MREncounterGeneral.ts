@@ -31,13 +31,13 @@ import Narrative from "../../../../../Definitions/FHIR/4.0.1/Profile/Narrative";
 /**
  * Persons involved in the encounter other than the patient.
  */
-export interface MREncounterGeneralParticipantIndividual {
+export interface MREncounterGeneralParticipantIndividualReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterGeneralParticipantIndividual: t.Type<MREncounterGeneralParticipantIndividual> =
-    t.recursion("MREncounterGeneralParticipantIndividual", () =>
+export const MREncounterGeneralParticipantIndividualReference: t.Type<MREncounterGeneralParticipantIndividualReference> =
+    t.recursion("MREncounterGeneralParticipantIndividualReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -113,14 +113,13 @@ export const MREncounterGeneralClass: t.Type<MREncounterGeneralClass> = t.recurs
 /**
  * The patient or group present at the encounter.
  */
-export interface MREncounterGeneralSubject {
+export interface MREncounterGeneralSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterGeneralSubject: t.Type<MREncounterGeneralSubject> = t.recursion(
-    "MREncounterGeneralSubject",
-    () =>
+export const MREncounterGeneralSubjectReference: t.Type<MREncounterGeneralSubjectReference> =
+    t.recursion("MREncounterGeneralSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -133,13 +132,13 @@ export const MREncounterGeneralSubject: t.Type<MREncounterGeneralSubject> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * The list of people responsible for providing the service.
  */
 export interface MREncounterGeneralParticipant {
-    individual: MREncounterGeneralParticipantIndividual;
+    individual: MREncounterGeneralParticipantIndividualReference;
     id?: string;
 }
 
@@ -148,7 +147,7 @@ export const MREncounterGeneralParticipant: t.Type<MREncounterGeneralParticipant
         Excess(
             t.intersection([
                 t.type({
-                    individual: MREncounterGeneralParticipantIndividual
+                    individual: MREncounterGeneralParticipantIndividualReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -185,13 +184,13 @@ export const MREncounterGeneralPeriod: t.Type<MREncounterGeneralPeriod> = t.recu
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
  */
-export interface MREncounterGeneralServiceProvider {
+export interface MREncounterGeneralServiceProviderReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterGeneralServiceProvider: t.Type<MREncounterGeneralServiceProvider> =
-    t.recursion("MREncounterGeneralServiceProvider", () =>
+export const MREncounterGeneralServiceProviderReference: t.Type<MREncounterGeneralServiceProviderReference> =
+    t.recursion("MREncounterGeneralServiceProviderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -211,12 +210,12 @@ interface MREncounterGeneral {
     meta: MREncounterGeneralMeta;
     status: "finished";
     class: MREncounterGeneralClass;
-    subject: MREncounterGeneralSubject;
+    subject: MREncounterGeneralSubjectReference;
     period: MREncounterGeneralPeriod;
     id?: string;
     text?: Narrative;
     participant?: MREncounterGeneralParticipant[];
-    serviceProvider?: MREncounterGeneralServiceProvider;
+    serviceProvider?: MREncounterGeneralServiceProviderReference;
 }
 
 const MREncounterGeneral: t.Type<MREncounterGeneral> = t.recursion(
@@ -229,14 +228,14 @@ const MREncounterGeneral: t.Type<MREncounterGeneral> = t.recursion(
                     meta: MREncounterGeneralMeta,
                     status: Literal("finished"),
                     class: MREncounterGeneralClass,
-                    subject: MREncounterGeneralSubject,
+                    subject: MREncounterGeneralSubjectReference,
                     period: MREncounterGeneralPeriod
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
                     participant: t.array(MREncounterGeneralParticipant),
-                    serviceProvider: MREncounterGeneralServiceProvider
+                    serviceProvider: MREncounterGeneralServiceProviderReference
                 })
             ])
         )

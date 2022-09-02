@@ -198,13 +198,13 @@ export const MRObservationLiveBirthCode: t.Type<MRObservationLiveBirthCode> = t.
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationLiveBirthSubject {
+export interface MRObservationLiveBirthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLiveBirthSubject: t.Type<MRObservationLiveBirthSubject> =
-    t.recursion("MRObservationLiveBirthSubject", () =>
+export const MRObservationLiveBirthSubjectReference: t.Type<MRObservationLiveBirthSubjectReference> =
+    t.recursion("MRObservationLiveBirthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -222,13 +222,13 @@ export const MRObservationLiveBirthSubject: t.Type<MRObservationLiveBirthSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationLiveBirthEncounter {
+export interface MRObservationLiveBirthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLiveBirthEncounter: t.Type<MRObservationLiveBirthEncounter> =
-    t.recursion("MRObservationLiveBirthEncounter", () =>
+export const MRObservationLiveBirthEncounterReference: t.Type<MRObservationLiveBirthEncounterReference> =
+    t.recursion("MRObservationLiveBirthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -246,13 +246,13 @@ export const MRObservationLiveBirthEncounter: t.Type<MRObservationLiveBirthEncou
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationLiveBirthPerformer {
+export interface MRObservationLiveBirthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationLiveBirthPerformer: t.Type<MRObservationLiveBirthPerformer> =
-    t.recursion("MRObservationLiveBirthPerformer", () =>
+export const MRObservationLiveBirthPerformerReference: t.Type<MRObservationLiveBirthPerformerReference> =
+    t.recursion("MRObservationLiveBirthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -273,13 +273,13 @@ interface MRObservationLiveBirth {
     meta: MRObservationLiveBirthMeta;
     status: "final";
     code: MRObservationLiveBirthCode;
-    subject: MRObservationLiveBirthSubject;
-    encounter: MRObservationLiveBirthEncounter;
+    subject: MRObservationLiveBirthSubjectReference;
+    encounter: MRObservationLiveBirthEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationLiveBirthPerformer>;
+    performer?: Array<MRObservationLiveBirthPerformerReference>;
 }
 
 const MRObservationLiveBirth: t.Type<MRObservationLiveBirth> = t.recursion(
@@ -292,15 +292,15 @@ const MRObservationLiveBirth: t.Type<MRObservationLiveBirth> = t.recursion(
                     meta: MRObservationLiveBirthMeta,
                     status: Literal("final"),
                     code: MRObservationLiveBirthCode,
-                    subject: MRObservationLiveBirthSubject,
-                    encounter: MRObservationLiveBirthEncounter,
+                    subject: MRObservationLiveBirthSubjectReference,
+                    encounter: MRObservationLiveBirthEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationLiveBirthPerformer)
+                    performer: MaxArray(1, MRObservationLiveBirthPerformerReference)
                 })
             ])
         )

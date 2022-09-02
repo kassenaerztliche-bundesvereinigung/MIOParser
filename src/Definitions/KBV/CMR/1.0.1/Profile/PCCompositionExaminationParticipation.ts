@@ -178,13 +178,13 @@ export const PCCompositionExaminationParticipationType: t.Type<PCCompositionExam
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface PCCompositionExaminationParticipationSubject {
+export interface PCCompositionExaminationParticipationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const PCCompositionExaminationParticipationSubject: t.Type<PCCompositionExaminationParticipationSubject> =
-    t.recursion("PCCompositionExaminationParticipationSubject", () =>
+export const PCCompositionExaminationParticipationSubjectReference: t.Type<PCCompositionExaminationParticipationSubjectReference> =
+    t.recursion("PCCompositionExaminationParticipationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -202,13 +202,13 @@ export const PCCompositionExaminationParticipationSubject: t.Type<PCCompositionE
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface PCCompositionExaminationParticipationEncounter {
+export interface PCCompositionExaminationParticipationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const PCCompositionExaminationParticipationEncounter: t.Type<PCCompositionExaminationParticipationEncounter> =
-    t.recursion("PCCompositionExaminationParticipationEncounter", () =>
+export const PCCompositionExaminationParticipationEncounterReference: t.Type<PCCompositionExaminationParticipationEncounterReference> =
+    t.recursion("PCCompositionExaminationParticipationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -226,13 +226,13 @@ export const PCCompositionExaminationParticipationEncounter: t.Type<PCCompositio
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface PCCompositionExaminationParticipationAuthor {
+export interface PCCompositionExaminationParticipationAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const PCCompositionExaminationParticipationAuthor: t.Type<PCCompositionExaminationParticipationAuthor> =
-    t.recursion("PCCompositionExaminationParticipationAuthor", () =>
+export const PCCompositionExaminationParticipationAuthorReference: t.Type<PCCompositionExaminationParticipationAuthorReference> =
+    t.recursion("PCCompositionExaminationParticipationAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -253,10 +253,10 @@ interface PCCompositionExaminationParticipation {
     meta: PCCompositionExaminationParticipationMeta;
     status: "final";
     type: PCCompositionExaminationParticipationType;
-    subject: PCCompositionExaminationParticipationSubject;
-    encounter: PCCompositionExaminationParticipationEncounter;
+    subject: PCCompositionExaminationParticipationSubjectReference;
+    encounter: PCCompositionExaminationParticipationEncounterReference;
     date: string;
-    author: Array<PCCompositionExaminationParticipationAuthor>;
+    author: Array<PCCompositionExaminationParticipationAuthorReference>;
     title: "Teilnahmekarte";
     id?: string;
     text?: Narrative;
@@ -276,13 +276,13 @@ const PCCompositionExaminationParticipation: t.Type<PCCompositionExaminationPart
                     meta: PCCompositionExaminationParticipationMeta,
                     status: Literal("final"),
                     type: PCCompositionExaminationParticipationType,
-                    subject: PCCompositionExaminationParticipationSubject,
-                    encounter: PCCompositionExaminationParticipationEncounter,
+                    subject: PCCompositionExaminationParticipationSubjectReference,
+                    encounter: PCCompositionExaminationParticipationEncounterReference,
                     date: SCALARDateTime,
                     author: MinMaxArray(
                         1,
                         2,
-                        PCCompositionExaminationParticipationAuthor
+                        PCCompositionExaminationParticipationAuthorReference
                     ),
                     title: Literal("Teilnahmekarte")
                 }),

@@ -35,21 +35,29 @@ type PCPNExaminationNumber =
     | "410635005"
     | "243788004:370131001=410602000";
 
-const PCPNExaminationNumber: t.Type<PCPNExaminationNumber> = t.union(
-    [
-        t.literal("170107008"),
-        t.literal("243788004:370131001=133931009"),
-        t.literal("170250008"),
-        t.literal("170263002"),
-        t.literal("170254004"),
-        t.literal("401140000"),
-        t.literal("170281004"),
-        t.literal("410635005"),
-        t.literal("243788004:370131001=410602000")
-    ],
-    "PCPNExaminationNumber"
-);
+type PCPNExaminationNumberType = t.KeyofC<{
+    "170107008": null;
+    "243788004:370131001=133931009": null;
+    "170250008": null;
+    "170263002": null;
+    "170254004": null;
+    "401140000": null;
+    "170281004": null;
+    "410635005": null;
+    "243788004:370131001=410602000": null;
+}>;
 
+const PCPNExaminationNumber: PCPNExaminationNumberType = t.keyof({
+    "170107008": null,
+    "243788004:370131001=133931009": null,
+    "170250008": null,
+    "170263002": null,
+    "170254004": null,
+    "401140000": null,
+    "170281004": null,
+    "410635005": null,
+    "243788004:370131001=410602000": null
+});
 export const PCPNExaminationNumberArray: string[] = [
     "170107008",
     "243788004:370131001=133931009",

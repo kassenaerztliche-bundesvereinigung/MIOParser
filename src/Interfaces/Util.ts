@@ -24,7 +24,7 @@ import { MIOEntry, MIOError, ReferencePath } from "./AppInternals";
 import { KBVBundleResource, KBVResource } from "..";
 import { Concept, ConceptMap, Include, ValueSet } from "../Definitions/Interfaces";
 import ErrorMessage from "../Definitions/ErrorMessage";
-import Reference from "./Reference";
+import Reference from "../Definitions/CustomTypes/Reference";
 
 export type { Concept, ConceptMap, Include, ValueSet };
 
@@ -219,7 +219,9 @@ export function findEntryByProfile(
                 ? e.resource.meta.profile[0] === profile
                 : false
         );
-        if (result.length > 0) return result[0].resource as KBVResource;
+        if (result.length > 0) {
+            return result[0].resource as KBVResource;
+        }
     }
     return undefined;
 }

@@ -25,16 +25,19 @@ import { ValueSet } from "../../../Interfaces";
 
 type Linktype = "replaced-by" | "replaces" | "refer" | "seealso";
 
-const Linktype: t.Type<Linktype> = t.union(
-    [
-        t.literal("replaced-by"),
-        t.literal("replaces"),
-        t.literal("refer"),
-        t.literal("seealso")
-    ],
-    "Linktype"
-);
+type LinktypeType = t.KeyofC<{
+    "replaced-by": null;
+    replaces: null;
+    refer: null;
+    seealso: null;
+}>;
 
+const Linktype: LinktypeType = t.keyof({
+    "replaced-by": null,
+    replaces: null,
+    refer: null,
+    seealso: null
+});
 export const LinktypeArray: string[] = ["replaced-by", "replaces", "refer", "seealso"];
 
 export const LinktypeValueSet: ValueSet = [

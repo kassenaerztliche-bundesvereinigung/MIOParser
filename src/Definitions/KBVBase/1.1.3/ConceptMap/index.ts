@@ -22,8 +22,26 @@ export { default as ApgarScoreIdentifierGerman } from "./ApgarScoreIdentifierGer
 
 export { default as ApgarScoreValueGerman } from "./ApgarScoreValueGerman";
 
+export { default as BodyHeightSnomedGerman } from "./BodyHeightSnomedGerman";
+
+export { default as BodyTempSnomedGerman } from "./BodyTempSnomedGerman";
+
 export { default as BodyTempUnitGerman } from "./BodyTempUnitGerman";
 
+export { default as BodyWeightLoincGerman } from "./BodyWeightLoincGerman";
+
+export { default as BodyWeightMethodSnomedGerman } from "./BodyWeightMethodSnomedGerman";
+
+export { default as BodyWeightSnomedGerman } from "./BodyWeightSnomedGerman";
+
+export { default as DiagnosisSeverityGerman } from "./DiagnosisSeverityGerman";
+
+export { default as HeadCircumferenceBodySiteSnomedGerman } from "./HeadCircumferenceBodySiteSnomedGerman";
+
+export { default as HeadCircumferenceSnomedGerman } from "./HeadCircumferenceSnomedGerman";
+
 export { default as HeartRateGerman } from "./HeartRateGerman";
+
+export { default as PractitionerFunctionGerman } from "./PractitionerFunctionGerman";
 
 export { default as StageLifeGerman } from "./StageLifeGerman";

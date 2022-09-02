@@ -32,19 +32,24 @@ type CMRU2U4PhysicalExamChestLungRespiratoryTract =
     | "298706004"
     | "298761006";
 
-const CMRU2U4PhysicalExamChestLungRespiratoryTract: t.Type<CMRU2U4PhysicalExamChestLungRespiratoryTract> =
-    t.union(
-        [
-            t.literal("301272007"),
-            t.literal("301273002"),
-            t.literal("17077006"),
-            t.literal("67909005"),
-            t.literal("298706004"),
-            t.literal("298761006")
-        ],
-        "CMRU2U4PhysicalExamChestLungRespiratoryTract"
-    );
+type CMRU2U4PhysicalExamChestLungRespiratoryTractType = t.KeyofC<{
+    "301272007": null;
+    "301273002": null;
+    "17077006": null;
+    "67909005": null;
+    "298706004": null;
+    "298761006": null;
+}>;
 
+const CMRU2U4PhysicalExamChestLungRespiratoryTract: CMRU2U4PhysicalExamChestLungRespiratoryTractType =
+    t.keyof({
+        "301272007": null,
+        "301273002": null,
+        "17077006": null,
+        "67909005": null,
+        "298706004": null,
+        "298761006": null
+    });
 export const CMRU2U4PhysicalExamChestLungRespiratoryTractArray: string[] = [
     "301272007",
     "301273002",

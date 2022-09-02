@@ -260,13 +260,13 @@ export const CMRProcedureConsultationAnnotationCode: t.Type<CMRProcedureConsulta
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface CMRProcedureConsultationAnnotationSubject {
+export interface CMRProcedureConsultationAnnotationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureConsultationAnnotationSubject: t.Type<CMRProcedureConsultationAnnotationSubject> =
-    t.recursion("CMRProcedureConsultationAnnotationSubject", () =>
+export const CMRProcedureConsultationAnnotationSubjectReference: t.Type<CMRProcedureConsultationAnnotationSubjectReference> =
+    t.recursion("CMRProcedureConsultationAnnotationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRProcedureConsultationAnnotationSubject: t.Type<CMRProcedureConsu
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface CMRProcedureConsultationAnnotationEncounter {
+export interface CMRProcedureConsultationAnnotationEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureConsultationAnnotationEncounter: t.Type<CMRProcedureConsultationAnnotationEncounter> =
-    t.recursion("CMRProcedureConsultationAnnotationEncounter", () =>
+export const CMRProcedureConsultationAnnotationEncounterReference: t.Type<CMRProcedureConsultationAnnotationEncounterReference> =
+    t.recursion("CMRProcedureConsultationAnnotationEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRProcedureConsultationAnnotationEncounter: t.Type<CMRProcedureCon
 /**
  * Individual who is making the procedure statement.
  */
-export interface CMRProcedureConsultationAnnotationAsserter {
+export interface CMRProcedureConsultationAnnotationAsserterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureConsultationAnnotationAsserter: t.Type<CMRProcedureConsultationAnnotationAsserter> =
-    t.recursion("CMRProcedureConsultationAnnotationAsserter", () =>
+export const CMRProcedureConsultationAnnotationAsserterReference: t.Type<CMRProcedureConsultationAnnotationAsserterReference> =
+    t.recursion("CMRProcedureConsultationAnnotationAsserterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -356,13 +356,13 @@ interface CMRProcedureConsultationAnnotation {
     meta: CMRProcedureConsultationAnnotationMeta;
     status: "completed";
     code: CMRProcedureConsultationAnnotationCode;
-    subject: CMRProcedureConsultationAnnotationSubject;
-    encounter: CMRProcedureConsultationAnnotationEncounter;
+    subject: CMRProcedureConsultationAnnotationSubjectReference;
+    encounter: CMRProcedureConsultationAnnotationEncounterReference;
     performedDateTime: string;
     note: Array<CMRProcedureConsultationAnnotationNote>;
     id?: string;
     text?: Narrative;
-    asserter?: CMRProcedureConsultationAnnotationAsserter;
+    asserter?: CMRProcedureConsultationAnnotationAsserterReference;
 }
 
 const CMRProcedureConsultationAnnotation: t.Type<CMRProcedureConsultationAnnotation> =
@@ -374,15 +374,15 @@ const CMRProcedureConsultationAnnotation: t.Type<CMRProcedureConsultationAnnotat
                     meta: CMRProcedureConsultationAnnotationMeta,
                     status: Literal("completed"),
                     code: CMRProcedureConsultationAnnotationCode,
-                    subject: CMRProcedureConsultationAnnotationSubject,
-                    encounter: CMRProcedureConsultationAnnotationEncounter,
+                    subject: CMRProcedureConsultationAnnotationSubjectReference,
+                    encounter: CMRProcedureConsultationAnnotationEncounterReference,
                     performedDateTime: SCALARDateTime,
                     note: MinMaxArray(1, 1, CMRProcedureConsultationAnnotationNote)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    asserter: CMRProcedureConsultationAnnotationAsserter
+                    asserter: CMRProcedureConsultationAnnotationAsserterReference
                 })
             ])
         )

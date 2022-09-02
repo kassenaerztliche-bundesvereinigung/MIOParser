@@ -253,13 +253,13 @@ export const CMRObservationU1U3BirthmodeCode: t.Type<CMRObservationU1U3Birthmode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3BirthmodeSubject {
+export interface CMRObservationU1U3BirthmodeSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BirthmodeSubject: t.Type<CMRObservationU1U3BirthmodeSubject> =
-    t.recursion("CMRObservationU1U3BirthmodeSubject", () =>
+export const CMRObservationU1U3BirthmodeSubjectReference: t.Type<CMRObservationU1U3BirthmodeSubjectReference> =
+    t.recursion("CMRObservationU1U3BirthmodeSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -277,13 +277,13 @@ export const CMRObservationU1U3BirthmodeSubject: t.Type<CMRObservationU1U3Birthm
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3BirthmodeEncounter {
+export interface CMRObservationU1U3BirthmodeEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BirthmodeEncounter: t.Type<CMRObservationU1U3BirthmodeEncounter> =
-    t.recursion("CMRObservationU1U3BirthmodeEncounter", () =>
+export const CMRObservationU1U3BirthmodeEncounterReference: t.Type<CMRObservationU1U3BirthmodeEncounterReference> =
+    t.recursion("CMRObservationU1U3BirthmodeEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -301,13 +301,13 @@ export const CMRObservationU1U3BirthmodeEncounter: t.Type<CMRObservationU1U3Birt
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3BirthmodePerformer {
+export interface CMRObservationU1U3BirthmodePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BirthmodePerformer: t.Type<CMRObservationU1U3BirthmodePerformer> =
-    t.recursion("CMRObservationU1U3BirthmodePerformer", () =>
+export const CMRObservationU1U3BirthmodePerformerReference: t.Type<CMRObservationU1U3BirthmodePerformerReference> =
+    t.recursion("CMRObservationU1U3BirthmodePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -327,13 +327,13 @@ interface CMRObservationU1U3Birthmode {
     meta: CMRObservationU1U3BirthmodeMeta;
     status: "final";
     code: CMRObservationU1U3BirthmodeCode;
-    subject: CMRObservationU1U3BirthmodeSubject;
-    encounter: CMRObservationU1U3BirthmodeEncounter;
+    subject: CMRObservationU1U3BirthmodeSubjectReference;
+    encounter: CMRObservationU1U3BirthmodeEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3BirthmodePerformer>;
+    performer?: Array<CMRObservationU1U3BirthmodePerformerReference>;
 }
 
 const CMRObservationU1U3Birthmode: t.Type<CMRObservationU1U3Birthmode> = t.recursion(
@@ -346,15 +346,15 @@ const CMRObservationU1U3Birthmode: t.Type<CMRObservationU1U3Birthmode> = t.recur
                     meta: CMRObservationU1U3BirthmodeMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3BirthmodeCode,
-                    subject: CMRObservationU1U3BirthmodeSubject,
-                    encounter: CMRObservationU1U3BirthmodeEncounter,
+                    subject: CMRObservationU1U3BirthmodeSubjectReference,
+                    encounter: CMRObservationU1U3BirthmodeEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1U3BirthmodePerformer)
+                    performer: MaxArray(1, CMRObservationU1U3BirthmodePerformerReference)
                 })
             ])
         )

@@ -257,13 +257,13 @@ export const MRObservationPuerperiumNormalCode: t.Type<MRObservationPuerperiumNo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationPuerperiumNormalSubject {
+export interface MRObservationPuerperiumNormalSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPuerperiumNormalSubject: t.Type<MRObservationPuerperiumNormalSubject> =
-    t.recursion("MRObservationPuerperiumNormalSubject", () =>
+export const MRObservationPuerperiumNormalSubjectReference: t.Type<MRObservationPuerperiumNormalSubjectReference> =
+    t.recursion("MRObservationPuerperiumNormalSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -281,13 +281,13 @@ export const MRObservationPuerperiumNormalSubject: t.Type<MRObservationPuerperiu
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationPuerperiumNormalEncounter {
+export interface MRObservationPuerperiumNormalEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPuerperiumNormalEncounter: t.Type<MRObservationPuerperiumNormalEncounter> =
-    t.recursion("MRObservationPuerperiumNormalEncounter", () =>
+export const MRObservationPuerperiumNormalEncounterReference: t.Type<MRObservationPuerperiumNormalEncounterReference> =
+    t.recursion("MRObservationPuerperiumNormalEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -305,13 +305,13 @@ export const MRObservationPuerperiumNormalEncounter: t.Type<MRObservationPuerper
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationPuerperiumNormalPerformer {
+export interface MRObservationPuerperiumNormalPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPuerperiumNormalPerformer: t.Type<MRObservationPuerperiumNormalPerformer> =
-    t.recursion("MRObservationPuerperiumNormalPerformer", () =>
+export const MRObservationPuerperiumNormalPerformerReference: t.Type<MRObservationPuerperiumNormalPerformerReference> =
+    t.recursion("MRObservationPuerperiumNormalPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ interface MRObservationPuerperiumNormal {
     meta: MRObservationPuerperiumNormalMeta;
     status: "final";
     code: MRObservationPuerperiumNormalCode;
-    subject: MRObservationPuerperiumNormalSubject;
-    encounter: MRObservationPuerperiumNormalEncounter;
+    subject: MRObservationPuerperiumNormalSubjectReference;
+    encounter: MRObservationPuerperiumNormalEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationPuerperiumNormalPerformer>;
+    performer?: Array<MRObservationPuerperiumNormalPerformerReference>;
 }
 
 const MRObservationPuerperiumNormal: t.Type<MRObservationPuerperiumNormal> = t.recursion(
@@ -351,15 +351,18 @@ const MRObservationPuerperiumNormal: t.Type<MRObservationPuerperiumNormal> = t.r
                     meta: MRObservationPuerperiumNormalMeta,
                     status: Literal("final"),
                     code: MRObservationPuerperiumNormalCode,
-                    subject: MRObservationPuerperiumNormalSubject,
-                    encounter: MRObservationPuerperiumNormalEncounter,
+                    subject: MRObservationPuerperiumNormalSubjectReference,
+                    encounter: MRObservationPuerperiumNormalEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationPuerperiumNormalPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationPuerperiumNormalPerformerReference
+                    )
                 })
             ])
         )

@@ -38,24 +38,35 @@ type VaccinationPriorDisease =
     | "38907003"
     | "27836007";
 
-const VaccinationPriorDisease: t.Type<VaccinationPriorDisease> = t.union(
-    [
-        t.literal("40733004"),
-        t.literal("16541001"),
-        t.literal("16901001"),
-        t.literal("76795007"),
-        t.literal("235869004"),
-        t.literal("186639003"),
-        t.literal("25102003"),
-        t.literal("36653000"),
-        t.literal("36989005"),
-        t.literal("14189004"),
-        t.literal("38907003"),
-        t.literal("27836007")
-    ],
-    "VaccinationPriorDisease"
-);
+type VaccinationPriorDiseaseType = t.KeyofC<{
+    "40733004": null;
+    "16541001": null;
+    "16901001": null;
+    "76795007": null;
+    "235869004": null;
+    "186639003": null;
+    "25102003": null;
+    "36653000": null;
+    "36989005": null;
+    "14189004": null;
+    "38907003": null;
+    "27836007": null;
+}>;
 
+const VaccinationPriorDisease: VaccinationPriorDiseaseType = t.keyof({
+    "40733004": null,
+    "16541001": null,
+    "16901001": null,
+    "76795007": null,
+    "235869004": null,
+    "186639003": null,
+    "25102003": null,
+    "36653000": null,
+    "36989005": null,
+    "14189004": null,
+    "38907003": null,
+    "27836007": null
+});
 export const VaccinationPriorDiseaseArray: string[] = [
     "40733004",
     "16541001",

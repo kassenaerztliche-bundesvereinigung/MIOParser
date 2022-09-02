@@ -265,38 +265,40 @@ export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceCode: t.T
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject {
+export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject> =
-    t.recursion("CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference> =
+    t.recursion(
+        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter {
+export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter> =
+export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference> =
     t.recursion(
-        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter",
+        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference",
         () =>
             Excess(
                 t.intersection([
@@ -315,14 +317,14 @@ export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer {
+export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer> =
+export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference> =
     t.recursion(
-        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer",
+        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference",
         () =>
             Excess(
                 t.intersection([
@@ -341,26 +343,28 @@ export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult {
+export interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult> =
-    t.recursion("CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U5_Pediatric_Diagnostic_Audiology_Service|1.0.1",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U5_Counseling_About_Hearscreening|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference> =
+    t.recursion(
+        "CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U5_Pediatric_Diagnostic_Audiology_Service|1.0.1",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U1_U5_Counseling_About_Hearscreening|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService {
@@ -368,13 +372,13 @@ interface CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService {
     meta: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceMeta;
     status: "final";
     code: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceCode;
-    subject: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject;
-    encounter: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter;
+    subject: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference;
+    encounter: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer>;
-    result?: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult[];
+    performer?: Array<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference>;
+    result?: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference[];
 }
 
 const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService: t.Type<CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService> =
@@ -387,9 +391,9 @@ const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService: t.Type<CMRDiag
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceCode,
                     subject:
-                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubject,
+                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounter,
+                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -397,10 +401,10 @@ const CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyService: t.Type<CMRDiag
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformer
+                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServicePerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResult
+                        CMRDiagnosticReportU1U5PediatricDiagnosticAudiologyServiceResultReference
                     )
                 })
             ])

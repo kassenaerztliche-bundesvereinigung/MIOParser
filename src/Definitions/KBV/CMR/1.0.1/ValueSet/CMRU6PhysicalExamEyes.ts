@@ -32,18 +32,23 @@ type CMRU6PhysicalExamEyes =
     | "34241000119104"
     | "301937002";
 
-const CMRU6PhysicalExamEyes: t.Type<CMRU6PhysicalExamEyes> = t.union(
-    [
-        t.literal("737269000"),
-        t.literal("307699005"),
-        t.literal("400964006"),
-        t.literal("870705000"),
-        t.literal("34241000119104"),
-        t.literal("301937002")
-    ],
-    "CMRU6PhysicalExamEyes"
-);
+type CMRU6PhysicalExamEyesType = t.KeyofC<{
+    "737269000": null;
+    "307699005": null;
+    "400964006": null;
+    "870705000": null;
+    "34241000119104": null;
+    "301937002": null;
+}>;
 
+const CMRU6PhysicalExamEyes: CMRU6PhysicalExamEyesType = t.keyof({
+    "737269000": null,
+    "307699005": null,
+    "400964006": null,
+    "870705000": null,
+    "34241000119104": null,
+    "301937002": null
+});
 export const CMRU6PhysicalExamEyesArray: string[] = [
     "737269000",
     "307699005",

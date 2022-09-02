@@ -453,13 +453,13 @@ export const CMRDiagnosticReportU7U9BodyMeasuresCode: t.Type<CMRDiagnosticReport
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU7U9BodyMeasuresSubject {
+export interface CMRDiagnosticReportU7U9BodyMeasuresSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9BodyMeasuresSubject: t.Type<CMRDiagnosticReportU7U9BodyMeasuresSubject> =
-    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresSubject", () =>
+export const CMRDiagnosticReportU7U9BodyMeasuresSubjectReference: t.Type<CMRDiagnosticReportU7U9BodyMeasuresSubjectReference> =
+    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -477,13 +477,13 @@ export const CMRDiagnosticReportU7U9BodyMeasuresSubject: t.Type<CMRDiagnosticRep
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU7U9BodyMeasuresEncounter {
+export interface CMRDiagnosticReportU7U9BodyMeasuresEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9BodyMeasuresEncounter: t.Type<CMRDiagnosticReportU7U9BodyMeasuresEncounter> =
-    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresEncounter", () =>
+export const CMRDiagnosticReportU7U9BodyMeasuresEncounterReference: t.Type<CMRDiagnosticReportU7U9BodyMeasuresEncounterReference> =
+    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const CMRDiagnosticReportU7U9BodyMeasuresEncounter: t.Type<CMRDiagnosticR
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU7U9BodyMeasuresPerformer {
+export interface CMRDiagnosticReportU7U9BodyMeasuresPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9BodyMeasuresPerformer: t.Type<CMRDiagnosticReportU7U9BodyMeasuresPerformer> =
-    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresPerformer", () =>
+export const CMRDiagnosticReportU7U9BodyMeasuresPerformerReference: t.Type<CMRDiagnosticReportU7U9BodyMeasuresPerformerReference> =
+    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -525,13 +525,13 @@ export const CMRDiagnosticReportU7U9BodyMeasuresPerformer: t.Type<CMRDiagnosticR
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU7U9BodyMeasuresResult {
+export interface CMRDiagnosticReportU7U9BodyMeasuresResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU7U9BodyMeasuresResult: t.Type<CMRDiagnosticReportU7U9BodyMeasuresResult> =
-    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresResult", () =>
+export const CMRDiagnosticReportU7U9BodyMeasuresResultReference: t.Type<CMRDiagnosticReportU7U9BodyMeasuresResultReference> =
+    t.recursion("CMRDiagnosticReportU7U9BodyMeasuresResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -553,13 +553,13 @@ interface CMRDiagnosticReportU7U9BodyMeasures {
     meta: CMRDiagnosticReportU7U9BodyMeasuresMeta;
     status: "final";
     code: CMRDiagnosticReportU7U9BodyMeasuresCode;
-    subject: CMRDiagnosticReportU7U9BodyMeasuresSubject;
-    encounter: CMRDiagnosticReportU7U9BodyMeasuresEncounter;
+    subject: CMRDiagnosticReportU7U9BodyMeasuresSubjectReference;
+    encounter: CMRDiagnosticReportU7U9BodyMeasuresEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU7U9BodyMeasuresPerformer>;
-    result?: CMRDiagnosticReportU7U9BodyMeasuresResult[];
+    performer?: Array<CMRDiagnosticReportU7U9BodyMeasuresPerformerReference>;
+    result?: CMRDiagnosticReportU7U9BodyMeasuresResultReference[];
 }
 
 const CMRDiagnosticReportU7U9BodyMeasures: t.Type<CMRDiagnosticReportU7U9BodyMeasures> =
@@ -571,15 +571,18 @@ const CMRDiagnosticReportU7U9BodyMeasures: t.Type<CMRDiagnosticReportU7U9BodyMea
                     meta: CMRDiagnosticReportU7U9BodyMeasuresMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU7U9BodyMeasuresCode,
-                    subject: CMRDiagnosticReportU7U9BodyMeasuresSubject,
-                    encounter: CMRDiagnosticReportU7U9BodyMeasuresEncounter,
+                    subject: CMRDiagnosticReportU7U9BodyMeasuresSubjectReference,
+                    encounter: CMRDiagnosticReportU7U9BodyMeasuresEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU7U9BodyMeasuresPerformer),
-                    result: t.array(CMRDiagnosticReportU7U9BodyMeasuresResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU7U9BodyMeasuresPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportU7U9BodyMeasuresResultReference)
                 })
             ])
         )

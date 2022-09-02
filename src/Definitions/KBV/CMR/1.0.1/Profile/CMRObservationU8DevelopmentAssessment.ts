@@ -259,13 +259,13 @@ export const CMRObservationU8DevelopmentAssessmentCode: t.Type<CMRObservationU8D
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU8DevelopmentAssessmentSubject {
+export interface CMRObservationU8DevelopmentAssessmentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU8DevelopmentAssessmentSubject: t.Type<CMRObservationU8DevelopmentAssessmentSubject> =
-    t.recursion("CMRObservationU8DevelopmentAssessmentSubject", () =>
+export const CMRObservationU8DevelopmentAssessmentSubjectReference: t.Type<CMRObservationU8DevelopmentAssessmentSubjectReference> =
+    t.recursion("CMRObservationU8DevelopmentAssessmentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -283,13 +283,13 @@ export const CMRObservationU8DevelopmentAssessmentSubject: t.Type<CMRObservation
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU8DevelopmentAssessmentEncounter {
+export interface CMRObservationU8DevelopmentAssessmentEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU8DevelopmentAssessmentEncounter: t.Type<CMRObservationU8DevelopmentAssessmentEncounter> =
-    t.recursion("CMRObservationU8DevelopmentAssessmentEncounter", () =>
+export const CMRObservationU8DevelopmentAssessmentEncounterReference: t.Type<CMRObservationU8DevelopmentAssessmentEncounterReference> =
+    t.recursion("CMRObservationU8DevelopmentAssessmentEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -307,13 +307,13 @@ export const CMRObservationU8DevelopmentAssessmentEncounter: t.Type<CMRObservati
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU8DevelopmentAssessmentPerformer {
+export interface CMRObservationU8DevelopmentAssessmentPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU8DevelopmentAssessmentPerformer: t.Type<CMRObservationU8DevelopmentAssessmentPerformer> =
-    t.recursion("CMRObservationU8DevelopmentAssessmentPerformer", () =>
+export const CMRObservationU8DevelopmentAssessmentPerformerReference: t.Type<CMRObservationU8DevelopmentAssessmentPerformerReference> =
+    t.recursion("CMRObservationU8DevelopmentAssessmentPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ interface CMRObservationU8DevelopmentAssessment {
     meta: CMRObservationU8DevelopmentAssessmentMeta;
     status: "final";
     code: CMRObservationU8DevelopmentAssessmentCode;
-    subject: CMRObservationU8DevelopmentAssessmentSubject;
-    encounter: CMRObservationU8DevelopmentAssessmentEncounter;
+    subject: CMRObservationU8DevelopmentAssessmentSubjectReference;
+    encounter: CMRObservationU8DevelopmentAssessmentEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU8DevelopmentAssessmentPerformer>;
+    performer?: Array<CMRObservationU8DevelopmentAssessmentPerformerReference>;
 }
 
 const CMRObservationU8DevelopmentAssessment: t.Type<CMRObservationU8DevelopmentAssessment> =
@@ -351,15 +351,18 @@ const CMRObservationU8DevelopmentAssessment: t.Type<CMRObservationU8DevelopmentA
                     meta: CMRObservationU8DevelopmentAssessmentMeta,
                     status: Literal("final"),
                     code: CMRObservationU8DevelopmentAssessmentCode,
-                    subject: CMRObservationU8DevelopmentAssessmentSubject,
-                    encounter: CMRObservationU8DevelopmentAssessmentEncounter,
+                    subject: CMRObservationU8DevelopmentAssessmentSubjectReference,
+                    encounter: CMRObservationU8DevelopmentAssessmentEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU8DevelopmentAssessmentPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU8DevelopmentAssessmentPerformerReference
+                    )
                 })
             ])
         )

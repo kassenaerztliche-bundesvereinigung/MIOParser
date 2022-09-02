@@ -25,19 +25,25 @@ import { ValueSet } from "../../../Interfaces";
 
 type Contactpointsystem = "phone" | "fax" | "email" | "pager" | "url" | "sms" | "other";
 
-const Contactpointsystem: t.Type<Contactpointsystem> = t.union(
-    [
-        t.literal("phone"),
-        t.literal("fax"),
-        t.literal("email"),
-        t.literal("pager"),
-        t.literal("url"),
-        t.literal("sms"),
-        t.literal("other")
-    ],
-    "Contactpointsystem"
-);
+type ContactpointsystemType = t.KeyofC<{
+    phone: null;
+    fax: null;
+    email: null;
+    pager: null;
+    url: null;
+    sms: null;
+    other: null;
+}>;
 
+const Contactpointsystem: ContactpointsystemType = t.keyof({
+    phone: null,
+    fax: null,
+    email: null,
+    pager: null,
+    url: null,
+    sms: null,
+    other: null
+});
 export const ContactpointsystemArray: string[] = [
     "phone",
     "fax",

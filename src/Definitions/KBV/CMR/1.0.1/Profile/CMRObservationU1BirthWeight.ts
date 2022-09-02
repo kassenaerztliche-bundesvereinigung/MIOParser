@@ -482,13 +482,13 @@ export const CMRObservationU1BirthWeightCode: t.Type<CMRObservationU1BirthWeight
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1BirthWeightSubject {
+export interface CMRObservationU1BirthWeightSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthWeightSubject: t.Type<CMRObservationU1BirthWeightSubject> =
-    t.recursion("CMRObservationU1BirthWeightSubject", () =>
+export const CMRObservationU1BirthWeightSubjectReference: t.Type<CMRObservationU1BirthWeightSubjectReference> =
+    t.recursion("CMRObservationU1BirthWeightSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -506,13 +506,13 @@ export const CMRObservationU1BirthWeightSubject: t.Type<CMRObservationU1BirthWei
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1BirthWeightEncounter {
+export interface CMRObservationU1BirthWeightEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthWeightEncounter: t.Type<CMRObservationU1BirthWeightEncounter> =
-    t.recursion("CMRObservationU1BirthWeightEncounter", () =>
+export const CMRObservationU1BirthWeightEncounterReference: t.Type<CMRObservationU1BirthWeightEncounterReference> =
+    t.recursion("CMRObservationU1BirthWeightEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -530,13 +530,13 @@ export const CMRObservationU1BirthWeightEncounter: t.Type<CMRObservationU1BirthW
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1BirthWeightPerformer {
+export interface CMRObservationU1BirthWeightPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthWeightPerformer: t.Type<CMRObservationU1BirthWeightPerformer> =
-    t.recursion("CMRObservationU1BirthWeightPerformer", () =>
+export const CMRObservationU1BirthWeightPerformerReference: t.Type<CMRObservationU1BirthWeightPerformerReference> =
+    t.recursion("CMRObservationU1BirthWeightPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -556,13 +556,13 @@ interface CMRObservationU1BirthWeight {
     meta: CMRObservationU1BirthWeightMeta;
     status: "final";
     code: CMRObservationU1BirthWeightCode;
-    subject: CMRObservationU1BirthWeightSubject;
-    encounter: CMRObservationU1BirthWeightEncounter;
+    subject: CMRObservationU1BirthWeightSubjectReference;
+    encounter: CMRObservationU1BirthWeightEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationU1BirthWeightValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1BirthWeightPerformer>;
+    performer?: Array<CMRObservationU1BirthWeightPerformerReference>;
 }
 
 const CMRObservationU1BirthWeight: t.Type<CMRObservationU1BirthWeight> = t.recursion(
@@ -575,15 +575,15 @@ const CMRObservationU1BirthWeight: t.Type<CMRObservationU1BirthWeight> = t.recur
                     meta: CMRObservationU1BirthWeightMeta,
                     status: Literal("final"),
                     code: CMRObservationU1BirthWeightCode,
-                    subject: CMRObservationU1BirthWeightSubject,
-                    encounter: CMRObservationU1BirthWeightEncounter,
+                    subject: CMRObservationU1BirthWeightSubjectReference,
+                    encounter: CMRObservationU1BirthWeightEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationU1BirthWeightValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1BirthWeightPerformer)
+                    performer: MaxArray(1, CMRObservationU1BirthWeightPerformerReference)
                 })
             ])
         )

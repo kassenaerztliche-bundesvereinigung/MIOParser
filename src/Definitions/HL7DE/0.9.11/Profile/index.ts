@@ -23,15 +23,15 @@ export { default as CodingICD10GM } from "./CodingICD10GM";
 export {
     default as Identifierefn,
     IdentifierefnTypeDNType as IdentifierefnTypeDNType,
-    IdentifierefnAssignerIdentifier as IdentifierefnAssignerIdentifier,
+    IdentifierefnAssignerReferenceIdentifier as IdentifierefnAssignerReferenceIdentifier,
     IdentifierefnType as IdentifierefnType,
-    IdentifierefnAssigner as IdentifierefnAssigner
+    IdentifierefnAssignerReference as IdentifierefnAssignerReference
 } from "./Identifierefn";
 
 export {
     default as Identifierlanr,
     IdentifierlanrTypeLANRType as IdentifierlanrTypeLANRType,
-    IdentifierlanrAssignerIdentifier as IdentifierlanrAssignerIdentifier,
+    IdentifierlanrAssignerReferenceIdentifier as IdentifierlanrAssignerReferenceIdentifier,
     IdentifierlanrType as IdentifierlanrType,
-    IdentifierlanrAssigner as IdentifierlanrAssigner
+    IdentifierlanrAssignerReference as IdentifierlanrAssignerReference
 } from "./Identifierlanr";

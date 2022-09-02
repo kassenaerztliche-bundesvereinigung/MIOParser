@@ -584,13 +584,13 @@ export const MRObservationTimelyDevelopmentCode: t.Type<MRObservationTimelyDevel
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationTimelyDevelopmentSubject {
+export interface MRObservationTimelyDevelopmentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationTimelyDevelopmentSubject: t.Type<MRObservationTimelyDevelopmentSubject> =
-    t.recursion("MRObservationTimelyDevelopmentSubject", () =>
+export const MRObservationTimelyDevelopmentSubjectReference: t.Type<MRObservationTimelyDevelopmentSubjectReference> =
+    t.recursion("MRObservationTimelyDevelopmentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -608,13 +608,13 @@ export const MRObservationTimelyDevelopmentSubject: t.Type<MRObservationTimelyDe
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationTimelyDevelopmentEncounter {
+export interface MRObservationTimelyDevelopmentEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationTimelyDevelopmentEncounter: t.Type<MRObservationTimelyDevelopmentEncounter> =
-    t.recursion("MRObservationTimelyDevelopmentEncounter", () =>
+export const MRObservationTimelyDevelopmentEncounterReference: t.Type<MRObservationTimelyDevelopmentEncounterReference> =
+    t.recursion("MRObservationTimelyDevelopmentEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -632,13 +632,13 @@ export const MRObservationTimelyDevelopmentEncounter: t.Type<MRObservationTimely
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationTimelyDevelopmentPerformer {
+export interface MRObservationTimelyDevelopmentPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationTimelyDevelopmentPerformer: t.Type<MRObservationTimelyDevelopmentPerformer> =
-    t.recursion("MRObservationTimelyDevelopmentPerformer", () =>
+export const MRObservationTimelyDevelopmentPerformerReference: t.Type<MRObservationTimelyDevelopmentPerformerReference> =
+    t.recursion("MRObservationTimelyDevelopmentPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -691,14 +691,14 @@ interface MRObservationTimelyDevelopment {
     meta: MRObservationTimelyDevelopmentMeta;
     status: "final";
     code: MRObservationTimelyDevelopmentCode;
-    subject: MRObservationTimelyDevelopmentSubject;
-    encounter: MRObservationTimelyDevelopmentEncounter;
+    subject: MRObservationTimelyDevelopmentSubjectReference;
+    encounter: MRObservationTimelyDevelopmentEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
     extension?: MRObservationTimelyDevelopmentKontrollbeduerftig[];
-    performer?: Array<MRObservationTimelyDevelopmentPerformer>;
+    performer?: Array<MRObservationTimelyDevelopmentPerformerReference>;
     bodySite?: MRObservationTimelyDevelopmentBodySite;
 }
 
@@ -711,8 +711,8 @@ const MRObservationTimelyDevelopment: t.Type<MRObservationTimelyDevelopment> =
                     meta: MRObservationTimelyDevelopmentMeta,
                     status: Literal("final"),
                     code: MRObservationTimelyDevelopmentCode,
-                    subject: MRObservationTimelyDevelopmentSubject,
-                    encounter: MRObservationTimelyDevelopmentEncounter,
+                    subject: MRObservationTimelyDevelopmentSubjectReference,
+                    encounter: MRObservationTimelyDevelopmentEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
@@ -720,7 +720,10 @@ const MRObservationTimelyDevelopment: t.Type<MRObservationTimelyDevelopment> =
                     id: SCALARString,
                     text: Narrative,
                     extension: t.array(MRObservationTimelyDevelopmentKontrollbeduerftig),
-                    performer: MaxArray(1, MRObservationTimelyDevelopmentPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationTimelyDevelopmentPerformerReference
+                    ),
                     bodySite: MRObservationTimelyDevelopmentBodySite
                 })
             ])

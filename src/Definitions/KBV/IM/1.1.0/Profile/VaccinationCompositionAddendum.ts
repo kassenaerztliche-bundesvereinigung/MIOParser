@@ -93,13 +93,13 @@ export const VaccinationCompositionAddendumRecordAddendumCode: t.Type<Vaccinatio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface VaccinationCompositionAddendumRecordAddendumEntry {
+export interface VaccinationCompositionAddendumRecordAddendumEntryReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionAddendumRecordAddendumEntry: t.Type<VaccinationCompositionAddendumRecordAddendumEntry> =
-    t.recursion("VaccinationCompositionAddendumRecordAddendumEntry", () =>
+export const VaccinationCompositionAddendumRecordAddendumEntryReference: t.Type<VaccinationCompositionAddendumRecordAddendumEntryReference> =
+    t.recursion("VaccinationCompositionAddendumRecordAddendumEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -147,7 +147,7 @@ export const VaccinationCompositionAddendumTypeCoding: t.Type<VaccinationComposi
  */
 export interface VaccinationCompositionAddendumRecordAddendum {
     code: VaccinationCompositionAddendumRecordAddendumCode;
-    entry: Array<VaccinationCompositionAddendumRecordAddendumEntry>;
+    entry: Array<VaccinationCompositionAddendumRecordAddendumEntryReference>;
     id?: string;
 }
 
@@ -157,7 +157,10 @@ export const VaccinationCompositionAddendumRecordAddendum: t.Type<VaccinationCom
             t.intersection([
                 t.type({
                     code: VaccinationCompositionAddendumRecordAddendumCode,
-                    entry: MinArray(1, VaccinationCompositionAddendumRecordAddendumEntry)
+                    entry: MinArray(
+                        1,
+                        VaccinationCompositionAddendumRecordAddendumEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -243,13 +246,13 @@ export const VaccinationCompositionAddendumType: t.Type<VaccinationCompositionAd
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface VaccinationCompositionAddendumSubject {
+export interface VaccinationCompositionAddendumSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionAddendumSubject: t.Type<VaccinationCompositionAddendumSubject> =
-    t.recursion("VaccinationCompositionAddendumSubject", () =>
+export const VaccinationCompositionAddendumSubjectReference: t.Type<VaccinationCompositionAddendumSubjectReference> =
+    t.recursion("VaccinationCompositionAddendumSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -267,13 +270,13 @@ export const VaccinationCompositionAddendumSubject: t.Type<VaccinationCompositio
 /**
  * Die Person, die den Eintrag der Impfung erstellt hat.
  */
-export interface VaccinationCompositionAddendumAuthor {
+export interface VaccinationCompositionAddendumAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionAddendumAuthor: t.Type<VaccinationCompositionAddendumAuthor> =
-    t.recursion("VaccinationCompositionAddendumAuthor", () =>
+export const VaccinationCompositionAddendumAuthorReference: t.Type<VaccinationCompositionAddendumAuthorReference> =
+    t.recursion("VaccinationCompositionAddendumAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -293,9 +296,9 @@ interface VaccinationCompositionAddendum {
     meta: VaccinationCompositionAddendumMeta;
     status: "final";
     type: VaccinationCompositionAddendumType;
-    subject: VaccinationCompositionAddendumSubject;
+    subject: VaccinationCompositionAddendumSubjectReference;
     date: string;
-    author: Array<VaccinationCompositionAddendumAuthor>;
+    author: Array<VaccinationCompositionAddendumAuthorReference>;
     title: string;
     section: Array<VaccinationCompositionAddendumRecordAddendum>;
     id?: string;
@@ -311,9 +314,13 @@ const VaccinationCompositionAddendum: t.Type<VaccinationCompositionAddendum> =
                     meta: VaccinationCompositionAddendumMeta,
                     status: Literal("final"),
                     type: VaccinationCompositionAddendumType,
-                    subject: VaccinationCompositionAddendumSubject,
+                    subject: VaccinationCompositionAddendumSubjectReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 1, VaccinationCompositionAddendumAuthor),
+                    author: MinMaxArray(
+                        1,
+                        1,
+                        VaccinationCompositionAddendumAuthorReference
+                    ),
                     title: SCALARString,
                     section: MinMaxArray(
                         1,

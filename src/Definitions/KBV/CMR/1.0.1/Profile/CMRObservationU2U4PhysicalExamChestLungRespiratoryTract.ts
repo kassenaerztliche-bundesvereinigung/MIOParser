@@ -262,73 +262,79 @@ export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractCode: t.Type
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject {
+export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject> =
-    t.recursion("CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference> =
+    t.recursion(
+        "CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter {
+export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter> =
-    t.recursion("CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference> =
+    t.recursion(
+        "CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer {
+export interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer> =
-    t.recursion("CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference> =
+    t.recursion(
+        "CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTract {
@@ -336,13 +342,13 @@ interface CMRObservationU2U4PhysicalExamChestLungRespiratoryTract {
     meta: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractMeta;
     status: "final";
     code: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractCode;
-    subject: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject;
-    encounter: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter;
+    subject: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference;
+    encounter: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer>;
+    performer?: Array<CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference>;
 }
 
 const CMRObservationU2U4PhysicalExamChestLungRespiratoryTract: t.Type<CMRObservationU2U4PhysicalExamChestLungRespiratoryTract> =
@@ -355,9 +361,9 @@ const CMRObservationU2U4PhysicalExamChestLungRespiratoryTract: t.Type<CMRObserva
                     status: Literal("final"),
                     code: CMRObservationU2U4PhysicalExamChestLungRespiratoryTractCode,
                     subject:
-                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubject,
+                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractSubjectReference,
                     encounter:
-                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounter,
+                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -366,7 +372,7 @@ const CMRObservationU2U4PhysicalExamChestLungRespiratoryTract: t.Type<CMRObserva
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformer
+                        CMRObservationU2U4PhysicalExamChestLungRespiratoryTractPerformerReference
                     )
                 })
             ])

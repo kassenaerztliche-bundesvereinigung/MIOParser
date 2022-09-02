@@ -485,13 +485,13 @@ export const CMRObservationU1U3BaseExcessCode: t.Type<CMRObservationU1U3BaseExce
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3BaseExcessSubject {
+export interface CMRObservationU1U3BaseExcessSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BaseExcessSubject: t.Type<CMRObservationU1U3BaseExcessSubject> =
-    t.recursion("CMRObservationU1U3BaseExcessSubject", () =>
+export const CMRObservationU1U3BaseExcessSubjectReference: t.Type<CMRObservationU1U3BaseExcessSubjectReference> =
+    t.recursion("CMRObservationU1U3BaseExcessSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -509,13 +509,13 @@ export const CMRObservationU1U3BaseExcessSubject: t.Type<CMRObservationU1U3BaseE
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3BaseExcessEncounter {
+export interface CMRObservationU1U3BaseExcessEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BaseExcessEncounter: t.Type<CMRObservationU1U3BaseExcessEncounter> =
-    t.recursion("CMRObservationU1U3BaseExcessEncounter", () =>
+export const CMRObservationU1U3BaseExcessEncounterReference: t.Type<CMRObservationU1U3BaseExcessEncounterReference> =
+    t.recursion("CMRObservationU1U3BaseExcessEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -533,13 +533,13 @@ export const CMRObservationU1U3BaseExcessEncounter: t.Type<CMRObservationU1U3Bas
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3BaseExcessPerformer {
+export interface CMRObservationU1U3BaseExcessPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3BaseExcessPerformer: t.Type<CMRObservationU1U3BaseExcessPerformer> =
-    t.recursion("CMRObservationU1U3BaseExcessPerformer", () =>
+export const CMRObservationU1U3BaseExcessPerformerReference: t.Type<CMRObservationU1U3BaseExcessPerformerReference> =
+    t.recursion("CMRObservationU1U3BaseExcessPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -558,14 +558,14 @@ interface CMRObservationU1U3BaseExcess {
     meta: CMRObservationU1U3BaseExcessMeta;
     status: "final";
     code: CMRObservationU1U3BaseExcessCode;
-    subject: CMRObservationU1U3BaseExcessSubject;
-    encounter: CMRObservationU1U3BaseExcessEncounter;
+    subject: CMRObservationU1U3BaseExcessSubjectReference;
+    encounter: CMRObservationU1U3BaseExcessEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationU1U3BaseExcessValueQuantity;
     resourceType?: "Observation";
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3BaseExcessPerformer>;
+    performer?: Array<CMRObservationU1U3BaseExcessPerformerReference>;
 }
 
 const CMRObservationU1U3BaseExcess: t.Type<CMRObservationU1U3BaseExcess> = t.recursion(
@@ -577,8 +577,8 @@ const CMRObservationU1U3BaseExcess: t.Type<CMRObservationU1U3BaseExcess> = t.rec
                     meta: CMRObservationU1U3BaseExcessMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U3BaseExcessCode,
-                    subject: CMRObservationU1U3BaseExcessSubject,
-                    encounter: CMRObservationU1U3BaseExcessEncounter,
+                    subject: CMRObservationU1U3BaseExcessSubjectReference,
+                    encounter: CMRObservationU1U3BaseExcessEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationU1U3BaseExcessValueQuantity
                 }),
@@ -586,7 +586,7 @@ const CMRObservationU1U3BaseExcess: t.Type<CMRObservationU1U3BaseExcess> = t.rec
                     resourceType: Literal("Observation"),
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1U3BaseExcessPerformer)
+                    performer: MaxArray(1, CMRObservationU1U3BaseExcessPerformerReference)
                 })
             ])
         )

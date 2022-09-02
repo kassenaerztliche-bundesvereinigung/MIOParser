@@ -31,18 +31,23 @@ type Conditionclinical =
     | "remission"
     | "resolved";
 
-const Conditionclinical: t.Type<Conditionclinical> = t.union(
-    [
-        t.literal("active"),
-        t.literal("recurrence"),
-        t.literal("relapse"),
-        t.literal("inactive"),
-        t.literal("remission"),
-        t.literal("resolved")
-    ],
-    "Conditionclinical"
-);
+type ConditionclinicalType = t.KeyofC<{
+    active: null;
+    recurrence: null;
+    relapse: null;
+    inactive: null;
+    remission: null;
+    resolved: null;
+}>;
 
+const Conditionclinical: ConditionclinicalType = t.keyof({
+    active: null,
+    recurrence: null,
+    relapse: null,
+    inactive: null,
+    remission: null,
+    resolved: null
+});
 export const ConditionclinicalArray: string[] = [
     "active",
     "recurrence",

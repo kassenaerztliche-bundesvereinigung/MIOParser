@@ -25,11 +25,12 @@ import { ValueSet } from "../../../../Interfaces";
 
 type CMRBaseExcessUnit = "meq/L" | "mmol/L";
 
-const CMRBaseExcessUnit: t.Type<CMRBaseExcessUnit> = t.union(
-    [t.literal("meq/L"), t.literal("mmol/L")],
-    "CMRBaseExcessUnit"
-);
+type CMRBaseExcessUnitType = t.KeyofC<{ "meq/L": null; "mmol/L": null }>;
 
+const CMRBaseExcessUnit: CMRBaseExcessUnitType = t.keyof({
+    "meq/L": null,
+    "mmol/L": null
+});
 export const CMRBaseExcessUnitArray: string[] = ["meq/L", "mmol/L"];
 
 export const CMRBaseExcessUnitValueSet: ValueSet = [

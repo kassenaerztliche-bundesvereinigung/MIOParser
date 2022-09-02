@@ -699,13 +699,13 @@ export const VaccinationConditionCode: t.Type<VaccinationConditionCode> = t.recu
 /**
  * Indicates the patient or group who the condition record is associated with.
  */
-export interface VaccinationConditionSubject {
+export interface VaccinationConditionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationConditionSubject: t.Type<VaccinationConditionSubject> =
-    t.recursion("VaccinationConditionSubject", () =>
+export const VaccinationConditionSubjectReference: t.Type<VaccinationConditionSubjectReference> =
+    t.recursion("VaccinationConditionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -723,13 +723,13 @@ export const VaccinationConditionSubject: t.Type<VaccinationConditionSubject> =
 /**
  * Diese Person hat den Eintrag im digitalen Impfpass getätigt.
  */
-export interface VaccinationConditionRecorder {
+export interface VaccinationConditionRecorderReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationConditionRecorder: t.Type<VaccinationConditionRecorder> =
-    t.recursion("VaccinationConditionRecorder", () =>
+export const VaccinationConditionRecorderReference: t.Type<VaccinationConditionRecorderReference> =
+    t.recursion("VaccinationConditionRecorderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -773,13 +773,13 @@ interface VaccinationCondition {
     clinicalStatus: VaccinationConditionClinicalStatus;
     verificationStatus: VaccinationConditionVerificationStatus;
     code: VaccinationConditionCode;
-    subject: VaccinationConditionSubject;
+    subject: VaccinationConditionSubjectReference;
     recordedDate: string;
     id?: string;
     text?: Narrative;
     _onsetString?: VaccinationConditionOnsetString;
     onsetString?: string;
-    recorder?: VaccinationConditionRecorder;
+    recorder?: VaccinationConditionRecorderReference;
     note?: Array<VaccinationConditionNote>;
 }
 
@@ -794,7 +794,7 @@ const VaccinationCondition: t.Type<VaccinationCondition> = t.recursion(
                     clinicalStatus: VaccinationConditionClinicalStatus,
                     verificationStatus: VaccinationConditionVerificationStatus,
                     code: VaccinationConditionCode,
-                    subject: VaccinationConditionSubject,
+                    subject: VaccinationConditionSubjectReference,
                     recordedDate: SCALARDateTime
                 }),
                 t.partial({
@@ -802,7 +802,7 @@ const VaccinationCondition: t.Type<VaccinationCondition> = t.recursion(
                     text: Narrative,
                     _onsetString: VaccinationConditionOnsetString,
                     onsetString: SCALARString,
-                    recorder: VaccinationConditionRecorder,
+                    recorder: VaccinationConditionRecorderReference,
                     note: MaxArray(1, VaccinationConditionNote)
                 })
             ])

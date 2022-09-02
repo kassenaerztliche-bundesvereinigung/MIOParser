@@ -26,11 +26,15 @@ import MRLocalisationPlacentaGerman from "../../../../../Definitions/KBV/MR/1.1.
 
 type MRLocalisationPlacenta = "169952004:260245000=17621005" | "1157303009";
 
-const MRLocalisationPlacenta: t.Type<MRLocalisationPlacenta> = t.union(
-    [t.literal("169952004:260245000=17621005"), t.literal("1157303009")],
-    "MRLocalisationPlacenta"
-);
+type MRLocalisationPlacentaType = t.KeyofC<{
+    "169952004:260245000=17621005": null;
+    "1157303009": null;
+}>;
 
+const MRLocalisationPlacenta: MRLocalisationPlacentaType = t.keyof({
+    "169952004:260245000=17621005": null,
+    "1157303009": null
+});
 export const MRLocalisationPlacentaArray: string[] = [
     "169952004:260245000=17621005",
     "1157303009"

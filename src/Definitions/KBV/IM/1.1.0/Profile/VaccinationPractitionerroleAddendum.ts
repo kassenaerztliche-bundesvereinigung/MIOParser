@@ -57,13 +57,13 @@ export const VaccinationPractitionerroleAddendumMeta: t.Type<VaccinationPractiti
 /**
  * Practitioner that is able to provide the defined services for the organization.
  */
-export interface VaccinationPractitionerroleAddendumPractitioner {
+export interface VaccinationPractitionerroleAddendumPractitionerReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationPractitionerroleAddendumPractitioner: t.Type<VaccinationPractitionerroleAddendumPractitioner> =
-    t.recursion("VaccinationPractitionerroleAddendumPractitioner", () =>
+export const VaccinationPractitionerroleAddendumPractitionerReference: t.Type<VaccinationPractitionerroleAddendumPractitionerReference> =
+    t.recursion("VaccinationPractitionerroleAddendumPractitionerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -81,13 +81,13 @@ export const VaccinationPractitionerroleAddendumPractitioner: t.Type<Vaccination
 /**
  * The organization where the Practitioner performs the roles associated.
  */
-export interface VaccinationPractitionerroleAddendumOrganization {
+export interface VaccinationPractitionerroleAddendumOrganizationReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationPractitionerroleAddendumOrganization: t.Type<VaccinationPractitionerroleAddendumOrganization> =
-    t.recursion("VaccinationPractitionerroleAddendumOrganization", () =>
+export const VaccinationPractitionerroleAddendumOrganizationReference: t.Type<VaccinationPractitionerroleAddendumOrganizationReference> =
+    t.recursion("VaccinationPractitionerroleAddendumOrganizationReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -105,10 +105,10 @@ export const VaccinationPractitionerroleAddendumOrganization: t.Type<Vaccination
 interface VaccinationPractitionerroleAddendum {
     resourceType: "PractitionerRole";
     meta: VaccinationPractitionerroleAddendumMeta;
-    practitioner: VaccinationPractitionerroleAddendumPractitioner;
+    practitioner: VaccinationPractitionerroleAddendumPractitionerReference;
     id?: string;
     text?: Narrative;
-    organization?: VaccinationPractitionerroleAddendumOrganization;
+    organization?: VaccinationPractitionerroleAddendumOrganizationReference;
 }
 
 const VaccinationPractitionerroleAddendum: t.Type<VaccinationPractitionerroleAddendum> =
@@ -118,12 +118,12 @@ const VaccinationPractitionerroleAddendum: t.Type<VaccinationPractitionerroleAdd
                 t.type({
                     resourceType: Literal("PractitionerRole"),
                     meta: VaccinationPractitionerroleAddendumMeta,
-                    practitioner: VaccinationPractitionerroleAddendumPractitioner
+                    practitioner: VaccinationPractitionerroleAddendumPractitionerReference
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    organization: VaccinationPractitionerroleAddendumOrganization
+                    organization: VaccinationPractitionerroleAddendumOrganizationReference
                 })
             ])
         )

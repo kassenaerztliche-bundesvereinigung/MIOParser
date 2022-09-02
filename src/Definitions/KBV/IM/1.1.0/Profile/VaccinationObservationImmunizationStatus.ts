@@ -629,13 +629,13 @@ export const VaccinationObservationImmunizationStatusCode: t.Type<VaccinationObs
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface VaccinationObservationImmunizationStatusSubject {
+export interface VaccinationObservationImmunizationStatusSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationObservationImmunizationStatusSubject: t.Type<VaccinationObservationImmunizationStatusSubject> =
-    t.recursion("VaccinationObservationImmunizationStatusSubject", () =>
+export const VaccinationObservationImmunizationStatusSubjectReference: t.Type<VaccinationObservationImmunizationStatusSubjectReference> =
+    t.recursion("VaccinationObservationImmunizationStatusSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -703,7 +703,7 @@ interface VaccinationObservationImmunizationStatus {
     meta: VaccinationObservationImmunizationStatusMeta;
     status: "final";
     code: VaccinationObservationImmunizationStatusCode;
-    subject: VaccinationObservationImmunizationStatusSubject;
+    subject: VaccinationObservationImmunizationStatusSubjectReference;
     issued: string;
     id?: string;
     text?: Narrative;
@@ -720,7 +720,7 @@ const VaccinationObservationImmunizationStatus: t.Type<VaccinationObservationImm
                     meta: VaccinationObservationImmunizationStatusMeta,
                     status: Literal("final"),
                     code: VaccinationObservationImmunizationStatusCode,
-                    subject: VaccinationObservationImmunizationStatusSubject,
+                    subject: VaccinationObservationImmunizationStatusSubjectReference,
                     issued: SCALARInstant
                 }),
                 t.partial({

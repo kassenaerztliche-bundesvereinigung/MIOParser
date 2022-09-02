@@ -260,13 +260,13 @@ export const CMRDiagnosticReportU1NeonatalJaundiceCode: t.Type<CMRDiagnosticRepo
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1NeonatalJaundiceSubject {
+export interface CMRDiagnosticReportU1NeonatalJaundiceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1NeonatalJaundiceSubject: t.Type<CMRDiagnosticReportU1NeonatalJaundiceSubject> =
-    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceSubject", () =>
+export const CMRDiagnosticReportU1NeonatalJaundiceSubjectReference: t.Type<CMRDiagnosticReportU1NeonatalJaundiceSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportU1NeonatalJaundiceSubject: t.Type<CMRDiagnosticR
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1NeonatalJaundiceEncounter {
+export interface CMRDiagnosticReportU1NeonatalJaundiceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1NeonatalJaundiceEncounter: t.Type<CMRDiagnosticReportU1NeonatalJaundiceEncounter> =
-    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceEncounter", () =>
+export const CMRDiagnosticReportU1NeonatalJaundiceEncounterReference: t.Type<CMRDiagnosticReportU1NeonatalJaundiceEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportU1NeonatalJaundiceEncounter: t.Type<CMRDiagnosti
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1NeonatalJaundicePerformer {
+export interface CMRDiagnosticReportU1NeonatalJaundicePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1NeonatalJaundicePerformer: t.Type<CMRDiagnosticReportU1NeonatalJaundicePerformer> =
-    t.recursion("CMRDiagnosticReportU1NeonatalJaundicePerformer", () =>
+export const CMRDiagnosticReportU1NeonatalJaundicePerformerReference: t.Type<CMRDiagnosticReportU1NeonatalJaundicePerformerReference> =
+    t.recursion("CMRDiagnosticReportU1NeonatalJaundicePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportU1NeonatalJaundicePerformer: t.Type<CMRDiagnosti
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1NeonatalJaundiceResult {
+export interface CMRDiagnosticReportU1NeonatalJaundiceResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1NeonatalJaundiceResult: t.Type<CMRDiagnosticReportU1NeonatalJaundiceResult> =
-    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceResult", () =>
+export const CMRDiagnosticReportU1NeonatalJaundiceResultReference: t.Type<CMRDiagnosticReportU1NeonatalJaundiceResultReference> =
+    t.recursion("CMRDiagnosticReportU1NeonatalJaundiceResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportU1NeonatalJaundice {
     meta: CMRDiagnosticReportU1NeonatalJaundiceMeta;
     status: "final";
     code: CMRDiagnosticReportU1NeonatalJaundiceCode;
-    subject: CMRDiagnosticReportU1NeonatalJaundiceSubject;
-    encounter: CMRDiagnosticReportU1NeonatalJaundiceEncounter;
+    subject: CMRDiagnosticReportU1NeonatalJaundiceSubjectReference;
+    encounter: CMRDiagnosticReportU1NeonatalJaundiceEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1NeonatalJaundicePerformer>;
-    result?: CMRDiagnosticReportU1NeonatalJaundiceResult[];
+    performer?: Array<CMRDiagnosticReportU1NeonatalJaundicePerformerReference>;
+    result?: CMRDiagnosticReportU1NeonatalJaundiceResultReference[];
 }
 
 const CMRDiagnosticReportU1NeonatalJaundice: t.Type<CMRDiagnosticReportU1NeonatalJaundice> =
@@ -376,8 +376,8 @@ const CMRDiagnosticReportU1NeonatalJaundice: t.Type<CMRDiagnosticReportU1Neonata
                     meta: CMRDiagnosticReportU1NeonatalJaundiceMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1NeonatalJaundiceCode,
-                    subject: CMRDiagnosticReportU1NeonatalJaundiceSubject,
-                    encounter: CMRDiagnosticReportU1NeonatalJaundiceEncounter,
+                    subject: CMRDiagnosticReportU1NeonatalJaundiceSubjectReference,
+                    encounter: CMRDiagnosticReportU1NeonatalJaundiceEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -385,9 +385,9 @@ const CMRDiagnosticReportU1NeonatalJaundice: t.Type<CMRDiagnosticReportU1Neonata
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU1NeonatalJaundicePerformer
+                        CMRDiagnosticReportU1NeonatalJaundicePerformerReference
                     ),
-                    result: t.array(CMRDiagnosticReportU1NeonatalJaundiceResult)
+                    result: t.array(CMRDiagnosticReportU1NeonatalJaundiceResultReference)
                 })
             ])
         )

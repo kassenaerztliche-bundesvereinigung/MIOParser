@@ -93,13 +93,13 @@ export const CMRCompositionPercentileCurveCategoryCoding: t.Type<CMRCompositionP
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionPercentileCurveSectionEntry {
+export interface CMRCompositionPercentileCurveSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPercentileCurveSectionEntry: t.Type<CMRCompositionPercentileCurveSectionEntry> =
-    t.recursion("CMRCompositionPercentileCurveSectionEntry", () =>
+export const CMRCompositionPercentileCurveSectionEntryReference: t.Type<CMRCompositionPercentileCurveSectionEntryReference> =
+    t.recursion("CMRCompositionPercentileCurveSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -190,13 +190,13 @@ export const CMRCompositionPercentileCurveCategory: t.Type<CMRCompositionPercent
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionPercentileCurveSubject {
+export interface CMRCompositionPercentileCurveSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPercentileCurveSubject: t.Type<CMRCompositionPercentileCurveSubject> =
-    t.recursion("CMRCompositionPercentileCurveSubject", () =>
+export const CMRCompositionPercentileCurveSubjectReference: t.Type<CMRCompositionPercentileCurveSubjectReference> =
+    t.recursion("CMRCompositionPercentileCurveSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -214,13 +214,13 @@ export const CMRCompositionPercentileCurveSubject: t.Type<CMRCompositionPercenti
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionPercentileCurveEncounter {
+export interface CMRCompositionPercentileCurveEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPercentileCurveEncounter: t.Type<CMRCompositionPercentileCurveEncounter> =
-    t.recursion("CMRCompositionPercentileCurveEncounter", () =>
+export const CMRCompositionPercentileCurveEncounterReference: t.Type<CMRCompositionPercentileCurveEncounterReference> =
+    t.recursion("CMRCompositionPercentileCurveEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -238,13 +238,13 @@ export const CMRCompositionPercentileCurveEncounter: t.Type<CMRCompositionPercen
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionPercentileCurveAuthor {
+export interface CMRCompositionPercentileCurveAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPercentileCurveAuthor: t.Type<CMRCompositionPercentileCurveAuthor> =
-    t.recursion("CMRCompositionPercentileCurveAuthor", () =>
+export const CMRCompositionPercentileCurveAuthorReference: t.Type<CMRCompositionPercentileCurveAuthorReference> =
+    t.recursion("CMRCompositionPercentileCurveAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -265,7 +265,7 @@ export const CMRCompositionPercentileCurveAuthor: t.Type<CMRCompositionPercentil
  */
 export interface CMRCompositionPercentileCurveSection {
     title: "Körpermaße";
-    entry: Array<CMRCompositionPercentileCurveSectionEntry>;
+    entry: Array<CMRCompositionPercentileCurveSectionEntryReference>;
     id?: string;
 }
 
@@ -275,7 +275,11 @@ export const CMRCompositionPercentileCurveSection: t.Type<CMRCompositionPercenti
             t.intersection([
                 t.type({
                     title: Literal("Körpermaße"),
-                    entry: MinMaxArray(2, 2, CMRCompositionPercentileCurveSectionEntry)
+                    entry: MinMaxArray(
+                        2,
+                        2,
+                        CMRCompositionPercentileCurveSectionEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -290,10 +294,10 @@ interface CMRCompositionPercentileCurve {
     status: "final";
     type: CMRCompositionPercentileCurveType;
     category: Array<CMRCompositionPercentileCurveCategory>;
-    subject: CMRCompositionPercentileCurveSubject;
-    encounter: CMRCompositionPercentileCurveEncounter;
+    subject: CMRCompositionPercentileCurveSubjectReference;
+    encounter: CMRCompositionPercentileCurveEncounterReference;
     date: string;
-    author: Array<CMRCompositionPercentileCurveAuthor>;
+    author: Array<CMRCompositionPercentileCurveAuthorReference>;
     title: "Perzentilkurven";
     section: Array<CMRCompositionPercentileCurveSection>;
     id?: string;
@@ -311,10 +315,14 @@ const CMRCompositionPercentileCurve: t.Type<CMRCompositionPercentileCurve> = t.r
                     status: Literal("final"),
                     type: CMRCompositionPercentileCurveType,
                     category: MinMaxArray(1, 1, CMRCompositionPercentileCurveCategory),
-                    subject: CMRCompositionPercentileCurveSubject,
-                    encounter: CMRCompositionPercentileCurveEncounter,
+                    subject: CMRCompositionPercentileCurveSubjectReference,
+                    encounter: CMRCompositionPercentileCurveEncounterReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 2, CMRCompositionPercentileCurveAuthor),
+                    author: MinMaxArray(
+                        1,
+                        2,
+                        CMRCompositionPercentileCurveAuthorReference
+                    ),
                     title: Literal("Perzentilkurven"),
                     section: MinMaxArray(1, 1, CMRCompositionPercentileCurveSection)
                 }),

@@ -99,13 +99,13 @@ export const CMRCompositionPulseOxymetryScreeningCategoryCoding: t.Type<CMRCompo
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionPulseOxymetryScreeningSectionEntry {
+export interface CMRCompositionPulseOxymetryScreeningSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPulseOxymetryScreeningSectionEntry: t.Type<CMRCompositionPulseOxymetryScreeningSectionEntry> =
-    t.recursion("CMRCompositionPulseOxymetryScreeningSectionEntry", () =>
+export const CMRCompositionPulseOxymetryScreeningSectionEntryReference: t.Type<CMRCompositionPulseOxymetryScreeningSectionEntryReference> =
+    t.recursion("CMRCompositionPulseOxymetryScreeningSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -204,13 +204,13 @@ export const CMRCompositionPulseOxymetryScreeningCategory: t.Type<CMRComposition
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionPulseOxymetryScreeningSubject {
+export interface CMRCompositionPulseOxymetryScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPulseOxymetryScreeningSubject: t.Type<CMRCompositionPulseOxymetryScreeningSubject> =
-    t.recursion("CMRCompositionPulseOxymetryScreeningSubject", () =>
+export const CMRCompositionPulseOxymetryScreeningSubjectReference: t.Type<CMRCompositionPulseOxymetryScreeningSubjectReference> =
+    t.recursion("CMRCompositionPulseOxymetryScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -228,13 +228,13 @@ export const CMRCompositionPulseOxymetryScreeningSubject: t.Type<CMRCompositionP
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionPulseOxymetryScreeningEncounter {
+export interface CMRCompositionPulseOxymetryScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPulseOxymetryScreeningEncounter: t.Type<CMRCompositionPulseOxymetryScreeningEncounter> =
-    t.recursion("CMRCompositionPulseOxymetryScreeningEncounter", () =>
+export const CMRCompositionPulseOxymetryScreeningEncounterReference: t.Type<CMRCompositionPulseOxymetryScreeningEncounterReference> =
+    t.recursion("CMRCompositionPulseOxymetryScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -252,13 +252,13 @@ export const CMRCompositionPulseOxymetryScreeningEncounter: t.Type<CMRCompositio
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionPulseOxymetryScreeningAuthor {
+export interface CMRCompositionPulseOxymetryScreeningAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionPulseOxymetryScreeningAuthor: t.Type<CMRCompositionPulseOxymetryScreeningAuthor> =
-    t.recursion("CMRCompositionPulseOxymetryScreeningAuthor", () =>
+export const CMRCompositionPulseOxymetryScreeningAuthorReference: t.Type<CMRCompositionPulseOxymetryScreeningAuthorReference> =
+    t.recursion("CMRCompositionPulseOxymetryScreeningAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,7 +279,7 @@ export const CMRCompositionPulseOxymetryScreeningAuthor: t.Type<CMRCompositionPu
  */
 export interface CMRCompositionPulseOxymetryScreeningSection {
     title: "Pulsoxymetrie-Screening";
-    entry: Array<CMRCompositionPulseOxymetryScreeningSectionEntry>;
+    entry: Array<CMRCompositionPulseOxymetryScreeningSectionEntryReference>;
     id?: string;
 }
 
@@ -289,7 +289,10 @@ export const CMRCompositionPulseOxymetryScreeningSection: t.Type<CMRCompositionP
             t.intersection([
                 t.type({
                     title: Literal("Pulsoxymetrie-Screening"),
-                    entry: MinArray(1, CMRCompositionPulseOxymetryScreeningSectionEntry)
+                    entry: MinArray(
+                        1,
+                        CMRCompositionPulseOxymetryScreeningSectionEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -304,10 +307,10 @@ interface CMRCompositionPulseOxymetryScreening {
     status: "final";
     type: CMRCompositionPulseOxymetryScreeningType;
     category: Array<CMRCompositionPulseOxymetryScreeningCategory>;
-    subject: CMRCompositionPulseOxymetryScreeningSubject;
-    encounter: CMRCompositionPulseOxymetryScreeningEncounter;
+    subject: CMRCompositionPulseOxymetryScreeningSubjectReference;
+    encounter: CMRCompositionPulseOxymetryScreeningEncounterReference;
     date: string;
-    author: Array<CMRCompositionPulseOxymetryScreeningAuthor>;
+    author: Array<CMRCompositionPulseOxymetryScreeningAuthorReference>;
     title: "Spezielle Früherkennungsuntersuchungen";
     section: Array<CMRCompositionPulseOxymetryScreeningSection>;
     id?: string;
@@ -328,10 +331,14 @@ const CMRCompositionPulseOxymetryScreening: t.Type<CMRCompositionPulseOxymetrySc
                         1,
                         CMRCompositionPulseOxymetryScreeningCategory
                     ),
-                    subject: CMRCompositionPulseOxymetryScreeningSubject,
-                    encounter: CMRCompositionPulseOxymetryScreeningEncounter,
+                    subject: CMRCompositionPulseOxymetryScreeningSubjectReference,
+                    encounter: CMRCompositionPulseOxymetryScreeningEncounterReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 2, CMRCompositionPulseOxymetryScreeningAuthor),
+                    author: MinMaxArray(
+                        1,
+                        2,
+                        CMRCompositionPulseOxymetryScreeningAuthorReference
+                    ),
                     title: Literal("Spezielle Früherkennungsuntersuchungen"),
                     section: MinMaxArray(
                         1,

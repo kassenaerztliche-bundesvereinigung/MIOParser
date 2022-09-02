@@ -254,13 +254,13 @@ export const MRObservationUrineProteinCode: t.Type<MRObservationUrineProteinCode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUrineProteinSubject {
+export interface MRObservationUrineProteinSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineProteinSubject: t.Type<MRObservationUrineProteinSubject> =
-    t.recursion("MRObservationUrineProteinSubject", () =>
+export const MRObservationUrineProteinSubjectReference: t.Type<MRObservationUrineProteinSubjectReference> =
+    t.recursion("MRObservationUrineProteinSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,13 +278,13 @@ export const MRObservationUrineProteinSubject: t.Type<MRObservationUrineProteinS
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUrineProteinEncounter {
+export interface MRObservationUrineProteinEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineProteinEncounter: t.Type<MRObservationUrineProteinEncounter> =
-    t.recursion("MRObservationUrineProteinEncounter", () =>
+export const MRObservationUrineProteinEncounterReference: t.Type<MRObservationUrineProteinEncounterReference> =
+    t.recursion("MRObservationUrineProteinEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +302,13 @@ export const MRObservationUrineProteinEncounter: t.Type<MRObservationUrineProtei
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUrineProteinPerformer {
+export interface MRObservationUrineProteinPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineProteinPerformer: t.Type<MRObservationUrineProteinPerformer> =
-    t.recursion("MRObservationUrineProteinPerformer", () =>
+export const MRObservationUrineProteinPerformerReference: t.Type<MRObservationUrineProteinPerformerReference> =
+    t.recursion("MRObservationUrineProteinPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -329,13 +329,13 @@ interface MRObservationUrineProtein {
     meta: MRObservationUrineProteinMeta;
     status: "final";
     code: MRObservationUrineProteinCode;
-    subject: MRObservationUrineProteinSubject;
-    encounter: MRObservationUrineProteinEncounter;
+    subject: MRObservationUrineProteinSubjectReference;
+    encounter: MRObservationUrineProteinEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUrineProteinPerformer>;
+    performer?: Array<MRObservationUrineProteinPerformerReference>;
 }
 
 const MRObservationUrineProtein: t.Type<MRObservationUrineProtein> = t.recursion(
@@ -348,15 +348,15 @@ const MRObservationUrineProtein: t.Type<MRObservationUrineProtein> = t.recursion
                     meta: MRObservationUrineProteinMeta,
                     status: Literal("final"),
                     code: MRObservationUrineProteinCode,
-                    subject: MRObservationUrineProteinSubject,
-                    encounter: MRObservationUrineProteinEncounter,
+                    subject: MRObservationUrineProteinSubjectReference,
+                    encounter: MRObservationUrineProteinEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUrineProteinPerformer)
+                    performer: MaxArray(1, MRObservationUrineProteinPerformerReference)
                 })
             ])
         )

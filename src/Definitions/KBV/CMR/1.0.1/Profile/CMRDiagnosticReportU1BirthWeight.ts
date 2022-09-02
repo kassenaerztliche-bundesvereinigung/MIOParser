@@ -453,13 +453,13 @@ export const CMRDiagnosticReportU1BirthWeightCode: t.Type<CMRDiagnosticReportU1B
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1BirthWeightSubject {
+export interface CMRDiagnosticReportU1BirthWeightSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthWeightSubject: t.Type<CMRDiagnosticReportU1BirthWeightSubject> =
-    t.recursion("CMRDiagnosticReportU1BirthWeightSubject", () =>
+export const CMRDiagnosticReportU1BirthWeightSubjectReference: t.Type<CMRDiagnosticReportU1BirthWeightSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1BirthWeightSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -477,13 +477,13 @@ export const CMRDiagnosticReportU1BirthWeightSubject: t.Type<CMRDiagnosticReport
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1BirthWeightEncounter {
+export interface CMRDiagnosticReportU1BirthWeightEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthWeightEncounter: t.Type<CMRDiagnosticReportU1BirthWeightEncounter> =
-    t.recursion("CMRDiagnosticReportU1BirthWeightEncounter", () =>
+export const CMRDiagnosticReportU1BirthWeightEncounterReference: t.Type<CMRDiagnosticReportU1BirthWeightEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1BirthWeightEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const CMRDiagnosticReportU1BirthWeightEncounter: t.Type<CMRDiagnosticRepo
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1BirthWeightPerformer {
+export interface CMRDiagnosticReportU1BirthWeightPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthWeightPerformer: t.Type<CMRDiagnosticReportU1BirthWeightPerformer> =
-    t.recursion("CMRDiagnosticReportU1BirthWeightPerformer", () =>
+export const CMRDiagnosticReportU1BirthWeightPerformerReference: t.Type<CMRDiagnosticReportU1BirthWeightPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1BirthWeightPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -525,13 +525,13 @@ export const CMRDiagnosticReportU1BirthWeightPerformer: t.Type<CMRDiagnosticRepo
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1BirthWeightResult {
+export interface CMRDiagnosticReportU1BirthWeightResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthWeightResult: t.Type<CMRDiagnosticReportU1BirthWeightResult> =
-    t.recursion("CMRDiagnosticReportU1BirthWeightResult", () =>
+export const CMRDiagnosticReportU1BirthWeightResultReference: t.Type<CMRDiagnosticReportU1BirthWeightResultReference> =
+    t.recursion("CMRDiagnosticReportU1BirthWeightResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -551,13 +551,13 @@ interface CMRDiagnosticReportU1BirthWeight {
     meta: CMRDiagnosticReportU1BirthWeightMeta;
     status: "final";
     code: CMRDiagnosticReportU1BirthWeightCode;
-    subject: CMRDiagnosticReportU1BirthWeightSubject;
-    encounter: CMRDiagnosticReportU1BirthWeightEncounter;
+    subject: CMRDiagnosticReportU1BirthWeightSubjectReference;
+    encounter: CMRDiagnosticReportU1BirthWeightEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1BirthWeightPerformer>;
-    result?: Array<CMRDiagnosticReportU1BirthWeightResult>;
+    performer?: Array<CMRDiagnosticReportU1BirthWeightPerformerReference>;
+    result?: Array<CMRDiagnosticReportU1BirthWeightResultReference>;
 }
 
 const CMRDiagnosticReportU1BirthWeight: t.Type<CMRDiagnosticReportU1BirthWeight> =
@@ -569,15 +569,18 @@ const CMRDiagnosticReportU1BirthWeight: t.Type<CMRDiagnosticReportU1BirthWeight>
                     meta: CMRDiagnosticReportU1BirthWeightMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1BirthWeightCode,
-                    subject: CMRDiagnosticReportU1BirthWeightSubject,
-                    encounter: CMRDiagnosticReportU1BirthWeightEncounter,
+                    subject: CMRDiagnosticReportU1BirthWeightSubjectReference,
+                    encounter: CMRDiagnosticReportU1BirthWeightEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU1BirthWeightPerformer),
-                    result: MaxArray(1, CMRDiagnosticReportU1BirthWeightResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU1BirthWeightPerformerReference
+                    ),
+                    result: MaxArray(1, CMRDiagnosticReportU1BirthWeightResultReference)
                 })
             ])
         )

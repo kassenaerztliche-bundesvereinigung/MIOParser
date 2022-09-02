@@ -33,19 +33,25 @@ type StageLife =
     | "255407002"
     | "271872005";
 
-const StageLife: t.Type<StageLife> = t.union(
-    [
-        t.literal("41847000"),
-        t.literal("263659003"),
-        t.literal("255398004"),
-        t.literal("713153009"),
-        t.literal("3658006"),
-        t.literal("255407002"),
-        t.literal("271872005")
-    ],
-    "StageLife"
-);
+type StageLifeType = t.KeyofC<{
+    "41847000": null;
+    "263659003": null;
+    "255398004": null;
+    "713153009": null;
+    "3658006": null;
+    "255407002": null;
+    "271872005": null;
+}>;
 
+const StageLife: StageLifeType = t.keyof({
+    "41847000": null,
+    "263659003": null,
+    "255398004": null,
+    "713153009": null,
+    "3658006": null,
+    "255407002": null,
+    "271872005": null
+});
 export const StageLifeArray: string[] = [
     "41847000",
     "263659003",

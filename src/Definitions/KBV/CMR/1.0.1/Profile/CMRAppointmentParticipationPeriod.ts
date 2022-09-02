@@ -234,13 +234,13 @@ export const CMRAppointmentParticipationPeriodServiceTypeCoding: t.Type<CMRAppoi
 /**
  * A Person, Location/HealthcareService or Device that is participating in the appointment.
  */
-export interface CMRAppointmentParticipationPeriodParticipantActor {
+export interface CMRAppointmentParticipationPeriodParticipantActorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRAppointmentParticipationPeriodParticipantActor: t.Type<CMRAppointmentParticipationPeriodParticipantActor> =
-    t.recursion("CMRAppointmentParticipationPeriodParticipantActor", () =>
+export const CMRAppointmentParticipationPeriodParticipantActorReference: t.Type<CMRAppointmentParticipationPeriodParticipantActorReference> =
+    t.recursion("CMRAppointmentParticipationPeriodParticipantActorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -339,7 +339,7 @@ export const CMRAppointmentParticipationPeriodServiceType: t.Type<CMRAppointment
  * List of participants involved in the appointment.
  */
 export interface CMRAppointmentParticipationPeriodParticipant {
-    actor: CMRAppointmentParticipationPeriodParticipantActor;
+    actor: CMRAppointmentParticipationPeriodParticipantActorReference;
     status: "accepted";
     id?: string;
 }
@@ -349,7 +349,7 @@ export const CMRAppointmentParticipationPeriodParticipant: t.Type<CMRAppointment
         Excess(
             t.intersection([
                 t.type({
-                    actor: CMRAppointmentParticipationPeriodParticipantActor,
+                    actor: CMRAppointmentParticipationPeriodParticipantActorReference,
                     status: Literal("accepted")
                 }),
                 t.partial({

@@ -395,13 +395,13 @@ export const MRObservationExaminationMaskedCode: t.Type<MRObservationExamination
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationExaminationMaskedSubject {
+export interface MRObservationExaminationMaskedSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExaminationMaskedSubject: t.Type<MRObservationExaminationMaskedSubject> =
-    t.recursion("MRObservationExaminationMaskedSubject", () =>
+export const MRObservationExaminationMaskedSubjectReference: t.Type<MRObservationExaminationMaskedSubjectReference> =
+    t.recursion("MRObservationExaminationMaskedSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -419,13 +419,13 @@ export const MRObservationExaminationMaskedSubject: t.Type<MRObservationExaminat
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationExaminationMaskedEncounter {
+export interface MRObservationExaminationMaskedEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExaminationMaskedEncounter: t.Type<MRObservationExaminationMaskedEncounter> =
-    t.recursion("MRObservationExaminationMaskedEncounter", () =>
+export const MRObservationExaminationMaskedEncounterReference: t.Type<MRObservationExaminationMaskedEncounterReference> =
+    t.recursion("MRObservationExaminationMaskedEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -443,13 +443,13 @@ export const MRObservationExaminationMaskedEncounter: t.Type<MRObservationExamin
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationExaminationMaskedPerformer {
+export interface MRObservationExaminationMaskedPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationExaminationMaskedPerformer: t.Type<MRObservationExaminationMaskedPerformer> =
-    t.recursion("MRObservationExaminationMaskedPerformer", () =>
+export const MRObservationExaminationMaskedPerformerReference: t.Type<MRObservationExaminationMaskedPerformerReference> =
+    t.recursion("MRObservationExaminationMaskedPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -496,14 +496,14 @@ interface MRObservationExaminationMasked {
     meta: MRObservationExaminationMaskedMeta;
     status: "final";
     code: MRObservationExaminationMaskedCode;
-    subject: MRObservationExaminationMaskedSubject;
-    encounter: MRObservationExaminationMaskedEncounter;
+    subject: MRObservationExaminationMaskedSubjectReference;
+    encounter: MRObservationExaminationMaskedEncounterReference;
     effectiveDateTime: string;
     dataAbsentReason: MRObservationExaminationMaskedDataAbsentReason;
     id?: string;
     text?: Narrative;
     identifier?: Array<MRObservationExaminationMaskedIdentifier>;
-    performer?: Array<MRObservationExaminationMaskedPerformer>;
+    performer?: Array<MRObservationExaminationMaskedPerformerReference>;
 }
 
 const MRObservationExaminationMasked: t.Type<MRObservationExaminationMasked> =
@@ -515,8 +515,8 @@ const MRObservationExaminationMasked: t.Type<MRObservationExaminationMasked> =
                     meta: MRObservationExaminationMaskedMeta,
                     status: Literal("final"),
                     code: MRObservationExaminationMaskedCode,
-                    subject: MRObservationExaminationMaskedSubject,
-                    encounter: MRObservationExaminationMaskedEncounter,
+                    subject: MRObservationExaminationMaskedSubjectReference,
+                    encounter: MRObservationExaminationMaskedEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     dataAbsentReason: MRObservationExaminationMaskedDataAbsentReason
                 }),
@@ -524,7 +524,10 @@ const MRObservationExaminationMasked: t.Type<MRObservationExaminationMasked> =
                     id: SCALARString,
                     text: Narrative,
                     identifier: MaxArray(1, MRObservationExaminationMaskedIdentifier),
-                    performer: MaxArray(1, MRObservationExaminationMaskedPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationExaminationMaskedPerformerReference
+                    )
                 })
             ])
         )

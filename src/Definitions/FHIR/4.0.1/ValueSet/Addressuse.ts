@@ -25,17 +25,21 @@ import { ValueSet } from "../../../Interfaces";
 
 type Addressuse = "home" | "work" | "temp" | "old" | "billing";
 
-const Addressuse: t.Type<Addressuse> = t.union(
-    [
-        t.literal("home"),
-        t.literal("work"),
-        t.literal("temp"),
-        t.literal("old"),
-        t.literal("billing")
-    ],
-    "Addressuse"
-);
+type AddressuseType = t.KeyofC<{
+    home: null;
+    work: null;
+    temp: null;
+    old: null;
+    billing: null;
+}>;
 
+const Addressuse: AddressuseType = t.keyof({
+    home: null,
+    work: null,
+    temp: null,
+    old: null,
+    billing: null
+});
 export const AddressuseArray: string[] = ["home", "work", "temp", "old", "billing"];
 
 export const AddressuseValueSet: ValueSet = [

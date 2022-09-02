@@ -134,121 +134,229 @@ type PractitionerSpeciality =
     | "146"
     | "148";
 
-const PractitionerSpeciality: t.Type<PractitionerSpeciality> = t.union(
-    [
-        t.literal("112247003"),
-        t.literal("1"),
-        t.literal("3"),
-        t.literal("010"),
-        t.literal("020"),
-        t.literal("030"),
-        t.literal("050"),
-        t.literal("060"),
-        t.literal("070"),
-        t.literal("080"),
-        t.literal("091"),
-        t.literal("093"),
-        t.literal("102"),
-        t.literal("110"),
-        t.literal("130"),
-        t.literal("142"),
-        t.literal("147"),
-        t.literal("150"),
-        t.literal("170"),
-        t.literal("180"),
-        t.literal("196"),
-        t.literal("197"),
-        t.literal("200"),
-        t.literal("210"),
-        t.literal("220"),
-        t.literal("230"),
-        t.literal("240"),
-        t.literal("250"),
-        t.literal("271"),
-        t.literal("281"),
-        t.literal("291"),
-        t.literal("301"),
-        t.literal("302"),
-        t.literal("303"),
-        t.literal("304"),
-        t.literal("308"),
-        t.literal("313"),
-        t.literal("314"),
-        t.literal("330"),
-        t.literal("341"),
-        t.literal("359"),
-        t.literal("360"),
-        t.literal("361"),
-        t.literal("511"),
-        t.literal("512"),
-        t.literal("513"),
-        t.literal("514"),
-        t.literal("515"),
-        t.literal("516"),
-        t.literal("517"),
-        t.literal("518"),
-        t.literal("521"),
-        t.literal("522"),
-        t.literal("523"),
-        t.literal("524"),
-        t.literal("525"),
-        t.literal("526"),
-        t.literal("527"),
-        t.literal("528"),
-        t.literal("530"),
-        t.literal("531"),
-        t.literal("532"),
-        t.literal("533"),
-        t.literal("534"),
-        t.literal("535"),
-        t.literal("542"),
-        t.literal("544"),
-        t.literal("2"),
-        t.literal("4"),
-        t.literal("5"),
-        t.literal("6"),
-        t.literal("179"),
-        t.literal("33"),
-        t.literal("34"),
-        t.literal("35"),
-        t.literal("37"),
-        t.literal("38"),
-        t.literal("39"),
-        t.literal("41"),
-        t.literal("47"),
-        t.literal("48"),
-        t.literal("50"),
-        t.literal("53"),
-        t.literal("55"),
-        t.literal("60"),
-        t.literal("69"),
-        t.literal("70"),
-        t.literal("71"),
-        t.literal("72"),
-        t.literal("73"),
-        t.literal("181"),
-        t.literal("182"),
-        t.literal("74"),
-        t.literal("75"),
-        t.literal("76"),
-        t.literal("77"),
-        t.literal("78"),
-        t.literal("79"),
-        t.literal("80"),
-        t.literal("81"),
-        t.literal("82"),
-        t.literal("86"),
-        t.literal("88"),
-        t.literal("89"),
-        t.literal("91"),
-        t.literal("144"),
-        t.literal("145"),
-        t.literal("146"),
-        t.literal("148")
-    ],
-    "PractitionerSpeciality"
-);
+type PractitionerSpecialityType = t.KeyofC<{
+    "112247003": null;
+    "1": null;
+    "3": null;
+    "010": null;
+    "020": null;
+    "030": null;
+    "050": null;
+    "060": null;
+    "070": null;
+    "080": null;
+    "091": null;
+    "093": null;
+    "102": null;
+    "110": null;
+    "130": null;
+    "142": null;
+    "147": null;
+    "150": null;
+    "170": null;
+    "180": null;
+    "196": null;
+    "197": null;
+    "200": null;
+    "210": null;
+    "220": null;
+    "230": null;
+    "240": null;
+    "250": null;
+    "271": null;
+    "281": null;
+    "291": null;
+    "301": null;
+    "302": null;
+    "303": null;
+    "304": null;
+    "308": null;
+    "313": null;
+    "314": null;
+    "330": null;
+    "341": null;
+    "359": null;
+    "360": null;
+    "361": null;
+    "511": null;
+    "512": null;
+    "513": null;
+    "514": null;
+    "515": null;
+    "516": null;
+    "517": null;
+    "518": null;
+    "521": null;
+    "522": null;
+    "523": null;
+    "524": null;
+    "525": null;
+    "526": null;
+    "527": null;
+    "528": null;
+    "530": null;
+    "531": null;
+    "532": null;
+    "533": null;
+    "534": null;
+    "535": null;
+    "542": null;
+    "544": null;
+    "2": null;
+    "4": null;
+    "5": null;
+    "6": null;
+    "179": null;
+    "33": null;
+    "34": null;
+    "35": null;
+    "37": null;
+    "38": null;
+    "39": null;
+    "41": null;
+    "47": null;
+    "48": null;
+    "50": null;
+    "53": null;
+    "55": null;
+    "60": null;
+    "69": null;
+    "70": null;
+    "71": null;
+    "72": null;
+    "73": null;
+    "181": null;
+    "182": null;
+    "74": null;
+    "75": null;
+    "76": null;
+    "77": null;
+    "78": null;
+    "79": null;
+    "80": null;
+    "81": null;
+    "82": null;
+    "86": null;
+    "88": null;
+    "89": null;
+    "91": null;
+    "144": null;
+    "145": null;
+    "146": null;
+    "148": null;
+}>;
 
+const PractitionerSpeciality: PractitionerSpecialityType = t.keyof({
+    "112247003": null,
+    "1": null,
+    "3": null,
+    "010": null,
+    "020": null,
+    "030": null,
+    "050": null,
+    "060": null,
+    "070": null,
+    "080": null,
+    "091": null,
+    "093": null,
+    "102": null,
+    "110": null,
+    "130": null,
+    "142": null,
+    "147": null,
+    "150": null,
+    "170": null,
+    "180": null,
+    "196": null,
+    "197": null,
+    "200": null,
+    "210": null,
+    "220": null,
+    "230": null,
+    "240": null,
+    "250": null,
+    "271": null,
+    "281": null,
+    "291": null,
+    "301": null,
+    "302": null,
+    "303": null,
+    "304": null,
+    "308": null,
+    "313": null,
+    "314": null,
+    "330": null,
+    "341": null,
+    "359": null,
+    "360": null,
+    "361": null,
+    "511": null,
+    "512": null,
+    "513": null,
+    "514": null,
+    "515": null,
+    "516": null,
+    "517": null,
+    "518": null,
+    "521": null,
+    "522": null,
+    "523": null,
+    "524": null,
+    "525": null,
+    "526": null,
+    "527": null,
+    "528": null,
+    "530": null,
+    "531": null,
+    "532": null,
+    "533": null,
+    "534": null,
+    "535": null,
+    "542": null,
+    "544": null,
+    "2": null,
+    "4": null,
+    "5": null,
+    "6": null,
+    "179": null,
+    "33": null,
+    "34": null,
+    "35": null,
+    "37": null,
+    "38": null,
+    "39": null,
+    "41": null,
+    "47": null,
+    "48": null,
+    "50": null,
+    "53": null,
+    "55": null,
+    "60": null,
+    "69": null,
+    "70": null,
+    "71": null,
+    "72": null,
+    "73": null,
+    "181": null,
+    "182": null,
+    "74": null,
+    "75": null,
+    "76": null,
+    "77": null,
+    "78": null,
+    "79": null,
+    "80": null,
+    "81": null,
+    "82": null,
+    "86": null,
+    "88": null,
+    "89": null,
+    "91": null,
+    "144": null,
+    "145": null,
+    "146": null,
+    "148": null
+});
 export const PractitionerSpecialityArray: string[] = [
     "112247003",
     "1",

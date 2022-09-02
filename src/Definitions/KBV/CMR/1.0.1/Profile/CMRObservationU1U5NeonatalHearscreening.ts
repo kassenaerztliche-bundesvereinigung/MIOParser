@@ -626,13 +626,13 @@ export const CMRObservationU1U5NeonatalHearscreeningCode: t.Type<CMRObservationU
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U5NeonatalHearscreeningSubject {
+export interface CMRObservationU1U5NeonatalHearscreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5NeonatalHearscreeningSubject: t.Type<CMRObservationU1U5NeonatalHearscreeningSubject> =
-    t.recursion("CMRObservationU1U5NeonatalHearscreeningSubject", () =>
+export const CMRObservationU1U5NeonatalHearscreeningSubjectReference: t.Type<CMRObservationU1U5NeonatalHearscreeningSubjectReference> =
+    t.recursion("CMRObservationU1U5NeonatalHearscreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -650,13 +650,13 @@ export const CMRObservationU1U5NeonatalHearscreeningSubject: t.Type<CMRObservati
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U5NeonatalHearscreeningEncounter {
+export interface CMRObservationU1U5NeonatalHearscreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5NeonatalHearscreeningEncounter: t.Type<CMRObservationU1U5NeonatalHearscreeningEncounter> =
-    t.recursion("CMRObservationU1U5NeonatalHearscreeningEncounter", () =>
+export const CMRObservationU1U5NeonatalHearscreeningEncounterReference: t.Type<CMRObservationU1U5NeonatalHearscreeningEncounterReference> =
+    t.recursion("CMRObservationU1U5NeonatalHearscreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -674,13 +674,13 @@ export const CMRObservationU1U5NeonatalHearscreeningEncounter: t.Type<CMRObserva
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U5NeonatalHearscreeningPerformer {
+export interface CMRObservationU1U5NeonatalHearscreeningPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5NeonatalHearscreeningPerformer: t.Type<CMRObservationU1U5NeonatalHearscreeningPerformer> =
-    t.recursion("CMRObservationU1U5NeonatalHearscreeningPerformer", () =>
+export const CMRObservationU1U5NeonatalHearscreeningPerformerReference: t.Type<CMRObservationU1U5NeonatalHearscreeningPerformerReference> =
+    t.recursion("CMRObservationU1U5NeonatalHearscreeningPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -726,12 +726,12 @@ interface CMRObservationU1U5NeonatalHearscreening {
     meta: CMRObservationU1U5NeonatalHearscreeningMeta;
     status: CMRObservationStatusVS;
     code: CMRObservationU1U5NeonatalHearscreeningCode;
-    subject: CMRObservationU1U5NeonatalHearscreeningSubject;
-    encounter: CMRObservationU1U5NeonatalHearscreeningEncounter;
+    subject: CMRObservationU1U5NeonatalHearscreeningSubjectReference;
+    encounter: CMRObservationU1U5NeonatalHearscreeningEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U5NeonatalHearscreeningPerformer>;
+    performer?: Array<CMRObservationU1U5NeonatalHearscreeningPerformerReference>;
     valueCodeableConcept?: CMRObservationU1U5NeonatalHearscreeningValueCodeableConcept;
     dataAbsentReason?: CMRObservationU1U5NeonatalHearscreeningDataAbsentReason;
 }
@@ -745,8 +745,8 @@ const CMRObservationU1U5NeonatalHearscreening: t.Type<CMRObservationU1U5Neonatal
                     meta: CMRObservationU1U5NeonatalHearscreeningMeta,
                     status: CMRObservationStatusVS,
                     code: CMRObservationU1U5NeonatalHearscreeningCode,
-                    subject: CMRObservationU1U5NeonatalHearscreeningSubject,
-                    encounter: CMRObservationU1U5NeonatalHearscreeningEncounter,
+                    subject: CMRObservationU1U5NeonatalHearscreeningSubjectReference,
+                    encounter: CMRObservationU1U5NeonatalHearscreeningEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -754,7 +754,7 @@ const CMRObservationU1U5NeonatalHearscreening: t.Type<CMRObservationU1U5Neonatal
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U5NeonatalHearscreeningPerformer
+                        CMRObservationU1U5NeonatalHearscreeningPerformerReference
                     ),
                     valueCodeableConcept:
                         CMRObservationU1U5NeonatalHearscreeningValueCodeableConcept,

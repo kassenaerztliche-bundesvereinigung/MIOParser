@@ -29,17 +29,17 @@ type CMRU1U3PulseOxymetryMeasurement =
     | "448225001"
     | "129125009:{363589002=250554003,408730004=385643006,408732007=410604004}";
 
-const CMRU1U3PulseOxymetryMeasurement: t.Type<CMRU1U3PulseOxymetryMeasurement> = t.union(
-    [
-        t.literal("449171008"),
-        t.literal("448225001"),
-        t.literal(
-            "129125009:{363589002=250554003,408730004=385643006,408732007=410604004}"
-        )
-    ],
-    "CMRU1U3PulseOxymetryMeasurement"
-);
+type CMRU1U3PulseOxymetryMeasurementType = t.KeyofC<{
+    "449171008": null;
+    "448225001": null;
+    "129125009:{363589002=250554003,408730004=385643006,408732007=410604004}": null;
+}>;
 
+const CMRU1U3PulseOxymetryMeasurement: CMRU1U3PulseOxymetryMeasurementType = t.keyof({
+    "449171008": null,
+    "448225001": null,
+    "129125009:{363589002=250554003,408730004=385643006,408732007=410604004}": null
+});
 export const CMRU1U3PulseOxymetryMeasurementArray: string[] = [
     "449171008",
     "448225001",

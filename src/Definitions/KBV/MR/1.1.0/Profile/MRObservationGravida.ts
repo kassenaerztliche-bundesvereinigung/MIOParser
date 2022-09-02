@@ -224,13 +224,13 @@ export const MRObservationGravidaCode: t.Type<MRObservationGravidaCode> = t.recu
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationGravidaSubject {
+export interface MRObservationGravidaSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> =
-    t.recursion("MRObservationGravidaSubject", () =>
+export const MRObservationGravidaSubjectReference: t.Type<MRObservationGravidaSubjectReference> =
+    t.recursion("MRObservationGravidaSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,13 +248,13 @@ export const MRObservationGravidaSubject: t.Type<MRObservationGravidaSubject> =
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationGravidaEncounter {
+export interface MRObservationGravidaEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter> =
-    t.recursion("MRObservationGravidaEncounter", () =>
+export const MRObservationGravidaEncounterReference: t.Type<MRObservationGravidaEncounterReference> =
+    t.recursion("MRObservationGravidaEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,13 +272,13 @@ export const MRObservationGravidaEncounter: t.Type<MRObservationGravidaEncounter
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationGravidaPerformer {
+export interface MRObservationGravidaPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGravidaPerformer: t.Type<MRObservationGravidaPerformer> =
-    t.recursion("MRObservationGravidaPerformer", () =>
+export const MRObservationGravidaPerformerReference: t.Type<MRObservationGravidaPerformerReference> =
+    t.recursion("MRObservationGravidaPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -299,13 +299,13 @@ interface MRObservationGravida {
     meta: MRObservationGravidaMeta;
     status: "final";
     code: MRObservationGravidaCode;
-    subject: MRObservationGravidaSubject;
-    encounter: MRObservationGravidaEncounter;
+    subject: MRObservationGravidaSubjectReference;
+    encounter: MRObservationGravidaEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationGravidaValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationGravidaPerformer>;
+    performer?: Array<MRObservationGravidaPerformerReference>;
 }
 
 const MRObservationGravida: t.Type<MRObservationGravida> = t.recursion(
@@ -318,15 +318,15 @@ const MRObservationGravida: t.Type<MRObservationGravida> = t.recursion(
                     meta: MRObservationGravidaMeta,
                     status: Literal("final"),
                     code: MRObservationGravidaCode,
-                    subject: MRObservationGravidaSubject,
-                    encounter: MRObservationGravidaEncounter,
+                    subject: MRObservationGravidaSubjectReference,
+                    encounter: MRObservationGravidaEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationGravidaValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationGravidaPerformer)
+                    performer: MaxArray(1, MRObservationGravidaPerformerReference)
                 })
             ])
         )

@@ -260,13 +260,13 @@ export const CMRObservationU3U6IndicationforAbnormalityCode: t.Type<CMRObservati
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU3U6IndicationforAbnormalitySubject {
+export interface CMRObservationU3U6IndicationforAbnormalitySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U6IndicationforAbnormalitySubject: t.Type<CMRObservationU3U6IndicationforAbnormalitySubject> =
-    t.recursion("CMRObservationU3U6IndicationforAbnormalitySubject", () =>
+export const CMRObservationU3U6IndicationforAbnormalitySubjectReference: t.Type<CMRObservationU3U6IndicationforAbnormalitySubjectReference> =
+    t.recursion("CMRObservationU3U6IndicationforAbnormalitySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRObservationU3U6IndicationforAbnormalitySubject: t.Type<CMRObserv
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU3U6IndicationforAbnormalityEncounter {
+export interface CMRObservationU3U6IndicationforAbnormalityEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U6IndicationforAbnormalityEncounter: t.Type<CMRObservationU3U6IndicationforAbnormalityEncounter> =
-    t.recursion("CMRObservationU3U6IndicationforAbnormalityEncounter", () =>
+export const CMRObservationU3U6IndicationforAbnormalityEncounterReference: t.Type<CMRObservationU3U6IndicationforAbnormalityEncounterReference> =
+    t.recursion("CMRObservationU3U6IndicationforAbnormalityEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRObservationU3U6IndicationforAbnormalityEncounter: t.Type<CMRObse
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU3U6IndicationforAbnormalityPerformer {
+export interface CMRObservationU3U6IndicationforAbnormalityPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U6IndicationforAbnormalityPerformer: t.Type<CMRObservationU3U6IndicationforAbnormalityPerformer> =
-    t.recursion("CMRObservationU3U6IndicationforAbnormalityPerformer", () =>
+export const CMRObservationU3U6IndicationforAbnormalityPerformerReference: t.Type<CMRObservationU3U6IndicationforAbnormalityPerformerReference> =
+    t.recursion("CMRObservationU3U6IndicationforAbnormalityPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -334,13 +334,13 @@ interface CMRObservationU3U6IndicationforAbnormality {
     meta: CMRObservationU3U6IndicationforAbnormalityMeta;
     status: "final";
     code: CMRObservationU3U6IndicationforAbnormalityCode;
-    subject: CMRObservationU3U6IndicationforAbnormalitySubject;
-    encounter: CMRObservationU3U6IndicationforAbnormalityEncounter;
+    subject: CMRObservationU3U6IndicationforAbnormalitySubjectReference;
+    encounter: CMRObservationU3U6IndicationforAbnormalityEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU3U6IndicationforAbnormalityPerformer>;
+    performer?: Array<CMRObservationU3U6IndicationforAbnormalityPerformerReference>;
 }
 
 const CMRObservationU3U6IndicationforAbnormality: t.Type<CMRObservationU3U6IndicationforAbnormality> =
@@ -352,8 +352,9 @@ const CMRObservationU3U6IndicationforAbnormality: t.Type<CMRObservationU3U6Indic
                     meta: CMRObservationU3U6IndicationforAbnormalityMeta,
                     status: Literal("final"),
                     code: CMRObservationU3U6IndicationforAbnormalityCode,
-                    subject: CMRObservationU3U6IndicationforAbnormalitySubject,
-                    encounter: CMRObservationU3U6IndicationforAbnormalityEncounter,
+                    subject: CMRObservationU3U6IndicationforAbnormalitySubjectReference,
+                    encounter:
+                        CMRObservationU3U6IndicationforAbnormalityEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
@@ -362,7 +363,7 @@ const CMRObservationU3U6IndicationforAbnormality: t.Type<CMRObservationU3U6Indic
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU3U6IndicationforAbnormalityPerformer
+                        CMRObservationU3U6IndicationforAbnormalityPerformerReference
                     )
                 })
             ])

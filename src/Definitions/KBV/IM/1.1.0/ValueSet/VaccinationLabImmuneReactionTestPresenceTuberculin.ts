@@ -29,17 +29,20 @@ type VaccinationLabImmuneReactionTestPresenceTuberculin =
     | "440662009"
     | "440661002";
 
-const VaccinationLabImmuneReactionTestPresenceTuberculin: t.Type<VaccinationLabImmuneReactionTestPresenceTuberculin> =
-    t.union(
-        [
-            t.literal("268376005"),
-            t.literal("268375009"),
-            t.literal("440662009"),
-            t.literal("440661002")
-        ],
-        "VaccinationLabImmuneReactionTestPresenceTuberculin"
-    );
+type VaccinationLabImmuneReactionTestPresenceTuberculinType = t.KeyofC<{
+    "268376005": null;
+    "268375009": null;
+    "440662009": null;
+    "440661002": null;
+}>;
 
+const VaccinationLabImmuneReactionTestPresenceTuberculin: VaccinationLabImmuneReactionTestPresenceTuberculinType =
+    t.keyof({
+        "268376005": null,
+        "268375009": null,
+        "440662009": null,
+        "440661002": null
+    });
 export const VaccinationLabImmuneReactionTestPresenceTuberculinArray: string[] = [
     "268376005",
     "268375009",

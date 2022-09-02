@@ -29,15 +29,17 @@ type MRBirthMode =
     | "200144004"
     | "169961004";
 
-const MRBirthMode: t.Type<MRBirthMode> = t.union(
-    [
-        t.literal("129125009:{363589002=236974004,408730004=398166005}"),
-        t.literal("200144004"),
-        t.literal("169961004")
-    ],
-    "MRBirthMode"
-);
+type MRBirthModeType = t.KeyofC<{
+    "129125009:{363589002=236974004,408730004=398166005}": null;
+    "200144004": null;
+    "169961004": null;
+}>;
 
+const MRBirthMode: MRBirthModeType = t.keyof({
+    "129125009:{363589002=236974004,408730004=398166005}": null,
+    "200144004": null,
+    "169961004": null
+});
 export const MRBirthModeArray: string[] = [
     "129125009:{363589002=236974004,408730004=398166005}",
     "200144004",

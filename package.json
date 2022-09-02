@@ -1,7 +1,7 @@
 {
     "author": "KBV",
     "name": "@kbv/mioparser",
-    "version": "1.7.1",
+    "version": "1.8.0",
     "license": "Apache-2.0",
     "description": "Typescript Package to parse KBV MIO-Objects into Typescript objects",
     "repository": "github:kassenaerztliche-bundesvereinigung/mioparser",
@@ -20,7 +20,8 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "test": "jest --silent --testPathIgnorePatterns=test/Benchmark",
-        "test:benchmark": "npm run pretest && jest --silent --testPathPattern=test/Benchmark",
+        "test:benchmark": "jest --silent --testPathPattern=test/Benchmark",
+        "test:coverage": "jest --silent --collectCoverage --testPathIgnorePatterns=test/Benchmark --coveragePathIgnorePatterns=src/Definitions --testResultsProcessor jest-sonar-reporter",
         "lint": "eslint src/*.ts src/Interfaces/*.ts test/**/*.ts",
         "lint-errors-only": "eslint src/** test/** --quiet",
         "prettier": "prettier --write src/**/*.ts test/**/*.ts",
@@ -55,7 +56,7 @@
         "io-ts": "^2.2.16"
     },
     "devDependencies": {
-        "@kbv/miotestdata": "^1.7.1",
+        "@kbv/miotestdata": "^1.8.0",
         "@types/jest": "^25.2.1",
         "@types/node": "^16.11.6",
         "@typescript-eslint/eslint-plugin": "^5.2.0",

@@ -255,13 +255,13 @@ export const MRObservationU3PerformedCode: t.Type<MRObservationU3PerformedCode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationU3PerformedSubject {
+export interface MRObservationU3PerformedSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationU3PerformedSubject: t.Type<MRObservationU3PerformedSubject> =
-    t.recursion("MRObservationU3PerformedSubject", () =>
+export const MRObservationU3PerformedSubjectReference: t.Type<MRObservationU3PerformedSubjectReference> =
+    t.recursion("MRObservationU3PerformedSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,13 +279,13 @@ export const MRObservationU3PerformedSubject: t.Type<MRObservationU3PerformedSub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationU3PerformedEncounter {
+export interface MRObservationU3PerformedEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationU3PerformedEncounter: t.Type<MRObservationU3PerformedEncounter> =
-    t.recursion("MRObservationU3PerformedEncounter", () =>
+export const MRObservationU3PerformedEncounterReference: t.Type<MRObservationU3PerformedEncounterReference> =
+    t.recursion("MRObservationU3PerformedEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,13 +303,13 @@ export const MRObservationU3PerformedEncounter: t.Type<MRObservationU3PerformedE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationU3PerformedPerformer {
+export interface MRObservationU3PerformedPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationU3PerformedPerformer: t.Type<MRObservationU3PerformedPerformer> =
-    t.recursion("MRObservationU3PerformedPerformer", () =>
+export const MRObservationU3PerformedPerformerReference: t.Type<MRObservationU3PerformedPerformerReference> =
+    t.recursion("MRObservationU3PerformedPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface MRObservationU3Performed {
     meta: MRObservationU3PerformedMeta;
     status: "final";
     code: MRObservationU3PerformedCode;
-    subject: MRObservationU3PerformedSubject;
-    encounter: MRObservationU3PerformedEncounter;
+    subject: MRObservationU3PerformedSubjectReference;
+    encounter: MRObservationU3PerformedEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationU3PerformedPerformer>;
+    performer?: Array<MRObservationU3PerformedPerformerReference>;
 }
 
 const MRObservationU3Performed: t.Type<MRObservationU3Performed> = t.recursion(
@@ -349,15 +349,15 @@ const MRObservationU3Performed: t.Type<MRObservationU3Performed> = t.recursion(
                     meta: MRObservationU3PerformedMeta,
                     status: Literal("final"),
                     code: MRObservationU3PerformedCode,
-                    subject: MRObservationU3PerformedSubject,
-                    encounter: MRObservationU3PerformedEncounter,
+                    subject: MRObservationU3PerformedSubjectReference,
+                    encounter: MRObservationU3PerformedEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationU3PerformedPerformer)
+                    performer: MaxArray(1, MRObservationU3PerformedPerformerReference)
                 })
             ])
         )

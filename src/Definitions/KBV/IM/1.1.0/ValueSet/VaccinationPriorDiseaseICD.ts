@@ -36,23 +36,33 @@ type VaccinationPriorDiseaseICD =
     | "A95.-"
     | "A37.-";
 
-const VaccinationPriorDiseaseICD: t.Type<VaccinationPriorDiseaseICD> = t.union(
-    [
-        t.literal("B26.-"),
-        t.literal("B05.-"),
-        t.literal("B01.-"),
-        t.literal("B06.-"),
-        t.literal("B15.-"),
-        t.literal("B16.-"),
-        t.literal("B18.0"),
-        t.literal("B18.1-"),
-        t.literal("A84.1"),
-        t.literal("A95.-"),
-        t.literal("A37.-")
-    ],
-    "VaccinationPriorDiseaseICD"
-);
+type VaccinationPriorDiseaseICDType = t.KeyofC<{
+    "B26.-": null;
+    "B05.-": null;
+    "B01.-": null;
+    "B06.-": null;
+    "B15.-": null;
+    "B16.-": null;
+    "B18.0": null;
+    "B18.1-": null;
+    "A84.1": null;
+    "A95.-": null;
+    "A37.-": null;
+}>;
 
+const VaccinationPriorDiseaseICD: VaccinationPriorDiseaseICDType = t.keyof({
+    "B26.-": null,
+    "B05.-": null,
+    "B01.-": null,
+    "B06.-": null,
+    "B15.-": null,
+    "B16.-": null,
+    "B18.0": null,
+    "B18.1-": null,
+    "A84.1": null,
+    "A95.-": null,
+    "A37.-": null
+});
 export const VaccinationPriorDiseaseICDArray: string[] = [
     "B26.-",
     "B05.-",

@@ -31,17 +31,21 @@ type VaccinationSourceofInformation =
     | "158965000"
     | "116154003";
 
-const VaccinationSourceofInformation: t.Type<VaccinationSourceofInformation> = t.union(
-    [
-        t.literal("261665006"),
-        t.literal("394863008"),
-        t.literal("125677006"),
-        t.literal("158965000"),
-        t.literal("116154003")
-    ],
-    "VaccinationSourceofInformation"
-);
+type VaccinationSourceofInformationType = t.KeyofC<{
+    "261665006": null;
+    "394863008": null;
+    "125677006": null;
+    "158965000": null;
+    "116154003": null;
+}>;
 
+const VaccinationSourceofInformation: VaccinationSourceofInformationType = t.keyof({
+    "261665006": null,
+    "394863008": null,
+    "125677006": null,
+    "158965000": null,
+    "116154003": null
+});
 export const VaccinationSourceofInformationArray: string[] = [
     "261665006",
     "394863008",

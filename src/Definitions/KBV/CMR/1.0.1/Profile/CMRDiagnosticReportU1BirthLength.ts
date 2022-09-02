@@ -453,13 +453,13 @@ export const CMRDiagnosticReportU1BirthLengthCode: t.Type<CMRDiagnosticReportU1B
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1BirthLengthSubject {
+export interface CMRDiagnosticReportU1BirthLengthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthLengthSubject: t.Type<CMRDiagnosticReportU1BirthLengthSubject> =
-    t.recursion("CMRDiagnosticReportU1BirthLengthSubject", () =>
+export const CMRDiagnosticReportU1BirthLengthSubjectReference: t.Type<CMRDiagnosticReportU1BirthLengthSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1BirthLengthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -477,13 +477,13 @@ export const CMRDiagnosticReportU1BirthLengthSubject: t.Type<CMRDiagnosticReport
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1BirthLengthEncounter {
+export interface CMRDiagnosticReportU1BirthLengthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthLengthEncounter: t.Type<CMRDiagnosticReportU1BirthLengthEncounter> =
-    t.recursion("CMRDiagnosticReportU1BirthLengthEncounter", () =>
+export const CMRDiagnosticReportU1BirthLengthEncounterReference: t.Type<CMRDiagnosticReportU1BirthLengthEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1BirthLengthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const CMRDiagnosticReportU1BirthLengthEncounter: t.Type<CMRDiagnosticRepo
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1BirthLengthPerformer {
+export interface CMRDiagnosticReportU1BirthLengthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthLengthPerformer: t.Type<CMRDiagnosticReportU1BirthLengthPerformer> =
-    t.recursion("CMRDiagnosticReportU1BirthLengthPerformer", () =>
+export const CMRDiagnosticReportU1BirthLengthPerformerReference: t.Type<CMRDiagnosticReportU1BirthLengthPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1BirthLengthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -525,13 +525,13 @@ export const CMRDiagnosticReportU1BirthLengthPerformer: t.Type<CMRDiagnosticRepo
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1BirthLengthResult {
+export interface CMRDiagnosticReportU1BirthLengthResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1BirthLengthResult: t.Type<CMRDiagnosticReportU1BirthLengthResult> =
-    t.recursion("CMRDiagnosticReportU1BirthLengthResult", () =>
+export const CMRDiagnosticReportU1BirthLengthResultReference: t.Type<CMRDiagnosticReportU1BirthLengthResultReference> =
+    t.recursion("CMRDiagnosticReportU1BirthLengthResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -551,13 +551,13 @@ interface CMRDiagnosticReportU1BirthLength {
     meta: CMRDiagnosticReportU1BirthLengthMeta;
     status: "final";
     code: CMRDiagnosticReportU1BirthLengthCode;
-    subject: CMRDiagnosticReportU1BirthLengthSubject;
-    encounter: CMRDiagnosticReportU1BirthLengthEncounter;
+    subject: CMRDiagnosticReportU1BirthLengthSubjectReference;
+    encounter: CMRDiagnosticReportU1BirthLengthEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1BirthLengthPerformer>;
-    result?: CMRDiagnosticReportU1BirthLengthResult[];
+    performer?: Array<CMRDiagnosticReportU1BirthLengthPerformerReference>;
+    result?: CMRDiagnosticReportU1BirthLengthResultReference[];
 }
 
 const CMRDiagnosticReportU1BirthLength: t.Type<CMRDiagnosticReportU1BirthLength> =
@@ -569,15 +569,18 @@ const CMRDiagnosticReportU1BirthLength: t.Type<CMRDiagnosticReportU1BirthLength>
                     meta: CMRDiagnosticReportU1BirthLengthMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1BirthLengthCode,
-                    subject: CMRDiagnosticReportU1BirthLengthSubject,
-                    encounter: CMRDiagnosticReportU1BirthLengthEncounter,
+                    subject: CMRDiagnosticReportU1BirthLengthSubjectReference,
+                    encounter: CMRDiagnosticReportU1BirthLengthEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU1BirthLengthPerformer),
-                    result: t.array(CMRDiagnosticReportU1BirthLengthResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU1BirthLengthPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportU1BirthLengthResultReference)
                 })
             ])
         )

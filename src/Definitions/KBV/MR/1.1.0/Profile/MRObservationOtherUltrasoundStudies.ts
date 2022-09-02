@@ -200,13 +200,13 @@ export const MRObservationOtherUltrasoundStudiesCode: t.Type<MRObservationOtherU
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationOtherUltrasoundStudiesSubject {
+export interface MRObservationOtherUltrasoundStudiesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOtherUltrasoundStudiesSubject> =
-    t.recursion("MRObservationOtherUltrasoundStudiesSubject", () =>
+export const MRObservationOtherUltrasoundStudiesSubjectReference: t.Type<MRObservationOtherUltrasoundStudiesSubjectReference> =
+    t.recursion("MRObservationOtherUltrasoundStudiesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -224,13 +224,13 @@ export const MRObservationOtherUltrasoundStudiesSubject: t.Type<MRObservationOth
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationOtherUltrasoundStudiesEncounter {
+export interface MRObservationOtherUltrasoundStudiesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationOtherUltrasoundStudiesEncounter> =
-    t.recursion("MRObservationOtherUltrasoundStudiesEncounter", () =>
+export const MRObservationOtherUltrasoundStudiesEncounterReference: t.Type<MRObservationOtherUltrasoundStudiesEncounterReference> =
+    t.recursion("MRObservationOtherUltrasoundStudiesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,13 +248,13 @@ export const MRObservationOtherUltrasoundStudiesEncounter: t.Type<MRObservationO
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationOtherUltrasoundStudiesPerformer {
+export interface MRObservationOtherUltrasoundStudiesPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationOtherUltrasoundStudiesPerformer: t.Type<MRObservationOtherUltrasoundStudiesPerformer> =
-    t.recursion("MRObservationOtherUltrasoundStudiesPerformer", () =>
+export const MRObservationOtherUltrasoundStudiesPerformerReference: t.Type<MRObservationOtherUltrasoundStudiesPerformerReference> =
+    t.recursion("MRObservationOtherUltrasoundStudiesPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -275,13 +275,13 @@ interface MRObservationOtherUltrasoundStudies {
     meta: MRObservationOtherUltrasoundStudiesMeta;
     status: "final";
     code: MRObservationOtherUltrasoundStudiesCode;
-    subject: MRObservationOtherUltrasoundStudiesSubject;
-    encounter: MRObservationOtherUltrasoundStudiesEncounter;
+    subject: MRObservationOtherUltrasoundStudiesSubjectReference;
+    encounter: MRObservationOtherUltrasoundStudiesEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationOtherUltrasoundStudiesPerformer>;
+    performer?: Array<MRObservationOtherUltrasoundStudiesPerformerReference>;
 }
 
 const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundStudies> =
@@ -293,15 +293,18 @@ const MRObservationOtherUltrasoundStudies: t.Type<MRObservationOtherUltrasoundSt
                     meta: MRObservationOtherUltrasoundStudiesMeta,
                     status: Literal("final"),
                     code: MRObservationOtherUltrasoundStudiesCode,
-                    subject: MRObservationOtherUltrasoundStudiesSubject,
-                    encounter: MRObservationOtherUltrasoundStudiesEncounter,
+                    subject: MRObservationOtherUltrasoundStudiesSubjectReference,
+                    encounter: MRObservationOtherUltrasoundStudiesEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationOtherUltrasoundStudiesPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationOtherUltrasoundStudiesPerformerReference
+                    )
                 })
             ])
         )

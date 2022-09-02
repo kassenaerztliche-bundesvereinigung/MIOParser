@@ -26,11 +26,17 @@ import MROtherUltrasoundStudiesGerman from "../../../../../Definitions/KBV/MR/1.
 
 type MROtherUltrasoundStudies = "89343007" | "373671009" | "418090003";
 
-const MROtherUltrasoundStudies: t.Type<MROtherUltrasoundStudies> = t.union(
-    [t.literal("89343007"), t.literal("373671009"), t.literal("418090003")],
-    "MROtherUltrasoundStudies"
-);
+type MROtherUltrasoundStudiesType = t.KeyofC<{
+    "89343007": null;
+    "373671009": null;
+    "418090003": null;
+}>;
 
+const MROtherUltrasoundStudies: MROtherUltrasoundStudiesType = t.keyof({
+    "89343007": null,
+    "373671009": null,
+    "418090003": null
+});
 export const MROtherUltrasoundStudiesArray: string[] = [
     "89343007",
     "373671009",

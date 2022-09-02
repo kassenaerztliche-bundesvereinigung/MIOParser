@@ -458,14 +458,14 @@ export const CMRProcedureU1U3CysticFibrosisScreeningMeta: t.Type<CMRProcedureU1U
 /**
  * A larger event of which this particular procedure is a component or step.
  */
-export interface CMRProcedureU1U3CysticFibrosisScreeningPartOf {
+export interface CMRProcedureU1U3CysticFibrosisScreeningPartOfReference {
     id?: string;
     reference?: string;
     display?: "Blutabnahme für das  Mukoviszidose-Screening gemeinsam mit dem Erweiterten Neugeborenen-Screening erfolgt:";
 }
 
-export const CMRProcedureU1U3CysticFibrosisScreeningPartOf: t.Type<CMRProcedureU1U3CysticFibrosisScreeningPartOf> =
-    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningPartOf", () =>
+export const CMRProcedureU1U3CysticFibrosisScreeningPartOfReference: t.Type<CMRProcedureU1U3CysticFibrosisScreeningPartOfReference> =
+    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningPartOfReference", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -534,13 +534,13 @@ export const CMRProcedureU1U3CysticFibrosisScreeningCode: t.Type<CMRProcedureU1U
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface CMRProcedureU1U3CysticFibrosisScreeningSubject {
+export interface CMRProcedureU1U3CysticFibrosisScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3CysticFibrosisScreeningSubject: t.Type<CMRProcedureU1U3CysticFibrosisScreeningSubject> =
-    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningSubject", () =>
+export const CMRProcedureU1U3CysticFibrosisScreeningSubjectReference: t.Type<CMRProcedureU1U3CysticFibrosisScreeningSubjectReference> =
+    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -558,13 +558,13 @@ export const CMRProcedureU1U3CysticFibrosisScreeningSubject: t.Type<CMRProcedure
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface CMRProcedureU1U3CysticFibrosisScreeningEncounter {
+export interface CMRProcedureU1U3CysticFibrosisScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3CysticFibrosisScreeningEncounter: t.Type<CMRProcedureU1U3CysticFibrosisScreeningEncounter> =
-    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningEncounter", () =>
+export const CMRProcedureU1U3CysticFibrosisScreeningEncounterReference: t.Type<CMRProcedureU1U3CysticFibrosisScreeningEncounterReference> =
+    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -582,13 +582,13 @@ export const CMRProcedureU1U3CysticFibrosisScreeningEncounter: t.Type<CMRProcedu
 /**
  * Individual who is making the procedure statement.
  */
-export interface CMRProcedureU1U3CysticFibrosisScreeningAsserter {
+export interface CMRProcedureU1U3CysticFibrosisScreeningAsserterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3CysticFibrosisScreeningAsserter: t.Type<CMRProcedureU1U3CysticFibrosisScreeningAsserter> =
-    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningAsserter", () =>
+export const CMRProcedureU1U3CysticFibrosisScreeningAsserterReference: t.Type<CMRProcedureU1U3CysticFibrosisScreeningAsserterReference> =
+    t.recursion("CMRProcedureU1U3CysticFibrosisScreeningAsserterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -608,13 +608,13 @@ interface CMRProcedureU1U3CysticFibrosisScreening {
     meta: CMRProcedureU1U3CysticFibrosisScreeningMeta;
     status: CMRProcedureStatusVS;
     code: CMRProcedureU1U3CysticFibrosisScreeningCode;
-    subject: CMRProcedureU1U3CysticFibrosisScreeningSubject;
-    encounter: CMRProcedureU1U3CysticFibrosisScreeningEncounter;
-    asserter: CMRProcedureU1U3CysticFibrosisScreeningAsserter;
+    subject: CMRProcedureU1U3CysticFibrosisScreeningSubjectReference;
+    encounter: CMRProcedureU1U3CysticFibrosisScreeningEncounterReference;
+    asserter: CMRProcedureU1U3CysticFibrosisScreeningAsserterReference;
     id?: string;
     text?: Narrative;
     extension?: (Extension | CMRProcedureU1U3CysticFibrosisScreeningScreeninglabor)[];
-    partOf?: Array<CMRProcedureU1U3CysticFibrosisScreeningPartOf>;
+    partOf?: Array<CMRProcedureU1U3CysticFibrosisScreeningPartOfReference>;
     statusReason?: CMRProcedureU1U3CysticFibrosisScreeningStatusReason;
     performedDateTime?: string;
 }
@@ -628,9 +628,9 @@ const CMRProcedureU1U3CysticFibrosisScreening: t.Type<CMRProcedureU1U3CysticFibr
                     meta: CMRProcedureU1U3CysticFibrosisScreeningMeta,
                     status: CMRProcedureStatusVS,
                     code: CMRProcedureU1U3CysticFibrosisScreeningCode,
-                    subject: CMRProcedureU1U3CysticFibrosisScreeningSubject,
-                    encounter: CMRProcedureU1U3CysticFibrosisScreeningEncounter,
-                    asserter: CMRProcedureU1U3CysticFibrosisScreeningAsserter
+                    subject: CMRProcedureU1U3CysticFibrosisScreeningSubjectReference,
+                    encounter: CMRProcedureU1U3CysticFibrosisScreeningEncounterReference,
+                    asserter: CMRProcedureU1U3CysticFibrosisScreeningAsserterReference
                 }),
                 t.partial({
                     id: SCALARString,
@@ -665,7 +665,10 @@ const CMRProcedureU1U3CysticFibrosisScreening: t.Type<CMRProcedureU1U3CysticFibr
                         ],
                         ["0", "*"]
                     ),
-                    partOf: MaxArray(1, CMRProcedureU1U3CysticFibrosisScreeningPartOf),
+                    partOf: MaxArray(
+                        1,
+                        CMRProcedureU1U3CysticFibrosisScreeningPartOfReference
+                    ),
                     statusReason: CMRProcedureU1U3CysticFibrosisScreeningStatusReason,
                     performedDateTime: SCALARDateTime
                 })

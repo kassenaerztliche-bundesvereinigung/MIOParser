@@ -482,13 +482,13 @@ export const CMRObservationU2U9BodyHeightMeasureCode: t.Type<CMRObservationU2U9B
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU2U9BodyHeightMeasureSubject {
+export interface CMRObservationU2U9BodyHeightMeasureSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U9BodyHeightMeasureSubject: t.Type<CMRObservationU2U9BodyHeightMeasureSubject> =
-    t.recursion("CMRObservationU2U9BodyHeightMeasureSubject", () =>
+export const CMRObservationU2U9BodyHeightMeasureSubjectReference: t.Type<CMRObservationU2U9BodyHeightMeasureSubjectReference> =
+    t.recursion("CMRObservationU2U9BodyHeightMeasureSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -506,13 +506,13 @@ export const CMRObservationU2U9BodyHeightMeasureSubject: t.Type<CMRObservationU2
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU2U9BodyHeightMeasureEncounter {
+export interface CMRObservationU2U9BodyHeightMeasureEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U9BodyHeightMeasureEncounter: t.Type<CMRObservationU2U9BodyHeightMeasureEncounter> =
-    t.recursion("CMRObservationU2U9BodyHeightMeasureEncounter", () =>
+export const CMRObservationU2U9BodyHeightMeasureEncounterReference: t.Type<CMRObservationU2U9BodyHeightMeasureEncounterReference> =
+    t.recursion("CMRObservationU2U9BodyHeightMeasureEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -530,13 +530,13 @@ export const CMRObservationU2U9BodyHeightMeasureEncounter: t.Type<CMRObservation
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU2U9BodyHeightMeasurePerformer {
+export interface CMRObservationU2U9BodyHeightMeasurePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU2U9BodyHeightMeasurePerformer: t.Type<CMRObservationU2U9BodyHeightMeasurePerformer> =
-    t.recursion("CMRObservationU2U9BodyHeightMeasurePerformer", () =>
+export const CMRObservationU2U9BodyHeightMeasurePerformerReference: t.Type<CMRObservationU2U9BodyHeightMeasurePerformerReference> =
+    t.recursion("CMRObservationU2U9BodyHeightMeasurePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -556,13 +556,13 @@ interface CMRObservationU2U9BodyHeightMeasure {
     meta: CMRObservationU2U9BodyHeightMeasureMeta;
     status: "final";
     code: CMRObservationU2U9BodyHeightMeasureCode;
-    subject: CMRObservationU2U9BodyHeightMeasureSubject;
-    encounter: CMRObservationU2U9BodyHeightMeasureEncounter;
+    subject: CMRObservationU2U9BodyHeightMeasureSubjectReference;
+    encounter: CMRObservationU2U9BodyHeightMeasureEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationU2U9BodyHeightMeasureValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU2U9BodyHeightMeasurePerformer>;
+    performer?: Array<CMRObservationU2U9BodyHeightMeasurePerformerReference>;
 }
 
 const CMRObservationU2U9BodyHeightMeasure: t.Type<CMRObservationU2U9BodyHeightMeasure> =
@@ -574,15 +574,18 @@ const CMRObservationU2U9BodyHeightMeasure: t.Type<CMRObservationU2U9BodyHeightMe
                     meta: CMRObservationU2U9BodyHeightMeasureMeta,
                     status: Literal("final"),
                     code: CMRObservationU2U9BodyHeightMeasureCode,
-                    subject: CMRObservationU2U9BodyHeightMeasureSubject,
-                    encounter: CMRObservationU2U9BodyHeightMeasureEncounter,
+                    subject: CMRObservationU2U9BodyHeightMeasureSubjectReference,
+                    encounter: CMRObservationU2U9BodyHeightMeasureEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationU2U9BodyHeightMeasureValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU2U9BodyHeightMeasurePerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU2U9BodyHeightMeasurePerformerReference
+                    )
                 })
             ])
         )

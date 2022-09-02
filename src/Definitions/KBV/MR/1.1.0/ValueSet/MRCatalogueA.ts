@@ -52,38 +52,63 @@ type MRCatalogueA =
     | "60001007:263502005=424572001"
     | "418138009";
 
-const MRCatalogueA: t.Type<MRCatalogueA> = t.union(
-    [
-        t.literal("416471007"),
-        t.literal("312850006"),
-        t.literal("161460007"),
-        t.literal("609328004"),
-        t.literal("161664006"),
-        t.literal("271596009"),
-        t.literal("161152002"),
-        t.literal("1156098006"),
-        t.literal("73211009"),
-        t.literal("414916001"),
-        t.literal("237837007"),
-        t.literal("8447006"),
-        t.literal("237240001"),
-        t.literal("416413003"),
-        t.literal("18656007"),
-        t.literal("134521000119104"),
-        t.literal("161765003"),
-        t.literal("726565008"),
-        t.literal("713651007"),
-        t.literal("161743003"),
-        t.literal("1156096005"),
-        t.literal("1156097001"),
-        t.literal("161805006"),
-        t.literal("1156095009"),
-        t.literal("60001007:263502005=424572001"),
-        t.literal("418138009")
-    ],
-    "MRCatalogueA"
-);
+type MRCatalogueAType = t.KeyofC<{
+    "416471007": null;
+    "312850006": null;
+    "161460007": null;
+    "609328004": null;
+    "161664006": null;
+    "271596009": null;
+    "161152002": null;
+    "1156098006": null;
+    "73211009": null;
+    "414916001": null;
+    "237837007": null;
+    "8447006": null;
+    "237240001": null;
+    "416413003": null;
+    "18656007": null;
+    "134521000119104": null;
+    "161765003": null;
+    "726565008": null;
+    "713651007": null;
+    "161743003": null;
+    "1156096005": null;
+    "1156097001": null;
+    "161805006": null;
+    "1156095009": null;
+    "60001007:263502005=424572001": null;
+    "418138009": null;
+}>;
 
+const MRCatalogueA: MRCatalogueAType = t.keyof({
+    "416471007": null,
+    "312850006": null,
+    "161460007": null,
+    "609328004": null,
+    "161664006": null,
+    "271596009": null,
+    "161152002": null,
+    "1156098006": null,
+    "73211009": null,
+    "414916001": null,
+    "237837007": null,
+    "8447006": null,
+    "237240001": null,
+    "416413003": null,
+    "18656007": null,
+    "134521000119104": null,
+    "161765003": null,
+    "726565008": null,
+    "713651007": null,
+    "161743003": null,
+    "1156096005": null,
+    "1156097001": null,
+    "161805006": null,
+    "1156095009": null,
+    "60001007:263502005=424572001": null,
+    "418138009": null
+});
 export const MRCatalogueAArray: string[] = [
     "416471007",
     "312850006",

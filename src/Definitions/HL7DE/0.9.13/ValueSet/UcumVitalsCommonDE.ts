@@ -38,25 +38,37 @@ type UcumVitalsCommonDE =
     | "m2"
     | "L/min";
 
-const UcumVitalsCommonDE: t.Type<UcumVitalsCommonDE> = t.union(
-    [
-        t.literal("%"),
-        t.literal("cm"),
-        t.literal("m"),
-        t.literal("kg"),
-        t.literal("g"),
-        t.literal("Cel"),
-        t.literal("mm[Hg]"),
-        t.literal("/min"),
-        t.literal("/h"),
-        t.literal("/d"),
-        t.literal("kg/m2"),
-        t.literal("m2"),
-        t.literal("L/min")
-    ],
-    "UcumVitalsCommonDE"
-);
+type UcumVitalsCommonDEType = t.KeyofC<{
+    "%": null;
+    cm: null;
+    m: null;
+    kg: null;
+    g: null;
+    Cel: null;
+    "mm[Hg]": null;
+    "/min": null;
+    "/h": null;
+    "/d": null;
+    "kg/m2": null;
+    m2: null;
+    "L/min": null;
+}>;
 
+const UcumVitalsCommonDE: UcumVitalsCommonDEType = t.keyof({
+    "%": null,
+    cm: null,
+    m: null,
+    kg: null,
+    g: null,
+    Cel: null,
+    "mm[Hg]": null,
+    "/min": null,
+    "/h": null,
+    "/d": null,
+    "kg/m2": null,
+    m2: null,
+    "L/min": null
+});
 export const UcumVitalsCommonDEArray: string[] = [
     "%",
     "cm",

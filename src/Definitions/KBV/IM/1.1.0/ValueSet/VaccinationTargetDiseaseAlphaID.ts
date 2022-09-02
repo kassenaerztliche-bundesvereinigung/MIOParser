@@ -59,46 +59,79 @@ type VaccinationTargetDiseaseAlphaID =
     | "I22454"
     | "I15579";
 
-const VaccinationTargetDiseaseAlphaID: t.Type<VaccinationTargetDiseaseAlphaID> = t.union(
-    [
-        t.literal("I130800"),
-        t.literal("I13550"),
-        t.literal("I13965"),
-        t.literal("I109141"),
-        t.literal("I130677"),
-        t.literal("I130678"),
-        t.literal("I130668"),
-        t.literal("I130674"),
-        t.literal("I13614"),
-        t.literal("I130676"),
-        t.literal("I130671"),
-        t.literal("I15008"),
-        t.literal("I14609"),
-        t.literal("I23502"),
-        t.literal("I23483"),
-        t.literal("I14036"),
-        t.literal("I15771"),
-        t.literal("I15777"),
-        t.literal("I23144"),
-        t.literal("I14083"),
-        t.literal("I1064"),
-        t.literal("I14685"),
-        t.literal("I14707"),
-        t.literal("I14368"),
-        t.literal("I130672"),
-        t.literal("I15064"),
-        t.literal("I14372"),
-        t.literal("I130669"),
-        t.literal("I15222"),
-        t.literal("I15432"),
-        t.literal("I22407"),
-        t.literal("I22433"),
-        t.literal("I22454"),
-        t.literal("I15579")
-    ],
-    "VaccinationTargetDiseaseAlphaID"
-);
+type VaccinationTargetDiseaseAlphaIDType = t.KeyofC<{
+    I130800: null;
+    I13550: null;
+    I13965: null;
+    I109141: null;
+    I130677: null;
+    I130678: null;
+    I130668: null;
+    I130674: null;
+    I13614: null;
+    I130676: null;
+    I130671: null;
+    I15008: null;
+    I14609: null;
+    I23502: null;
+    I23483: null;
+    I14036: null;
+    I15771: null;
+    I15777: null;
+    I23144: null;
+    I14083: null;
+    I1064: null;
+    I14685: null;
+    I14707: null;
+    I14368: null;
+    I130672: null;
+    I15064: null;
+    I14372: null;
+    I130669: null;
+    I15222: null;
+    I15432: null;
+    I22407: null;
+    I22433: null;
+    I22454: null;
+    I15579: null;
+}>;
 
+const VaccinationTargetDiseaseAlphaID: VaccinationTargetDiseaseAlphaIDType = t.keyof({
+    I130800: null,
+    I13550: null,
+    I13965: null,
+    I109141: null,
+    I130677: null,
+    I130678: null,
+    I130668: null,
+    I130674: null,
+    I13614: null,
+    I130676: null,
+    I130671: null,
+    I15008: null,
+    I14609: null,
+    I23502: null,
+    I23483: null,
+    I14036: null,
+    I15771: null,
+    I15777: null,
+    I23144: null,
+    I14083: null,
+    I1064: null,
+    I14685: null,
+    I14707: null,
+    I14368: null,
+    I130672: null,
+    I15064: null,
+    I14372: null,
+    I130669: null,
+    I15222: null,
+    I15432: null,
+    I22407: null,
+    I22433: null,
+    I22454: null,
+    I15579: null
+});
 export const VaccinationTargetDiseaseAlphaIDArray: string[] = [
     "I130800",
     "I13550",

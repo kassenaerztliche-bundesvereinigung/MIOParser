@@ -479,13 +479,13 @@ export const MRObservationBirthHeightCode: t.Type<MRObservationBirthHeightCode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBirthHeightSubject {
+export interface MRObservationBirthHeightSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthHeightSubject: t.Type<MRObservationBirthHeightSubject> =
-    t.recursion("MRObservationBirthHeightSubject", () =>
+export const MRObservationBirthHeightSubjectReference: t.Type<MRObservationBirthHeightSubjectReference> =
+    t.recursion("MRObservationBirthHeightSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -503,13 +503,13 @@ export const MRObservationBirthHeightSubject: t.Type<MRObservationBirthHeightSub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBirthHeightEncounter {
+export interface MRObservationBirthHeightEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthHeightEncounter: t.Type<MRObservationBirthHeightEncounter> =
-    t.recursion("MRObservationBirthHeightEncounter", () =>
+export const MRObservationBirthHeightEncounterReference: t.Type<MRObservationBirthHeightEncounterReference> =
+    t.recursion("MRObservationBirthHeightEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -527,13 +527,13 @@ export const MRObservationBirthHeightEncounter: t.Type<MRObservationBirthHeightE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBirthHeightPerformer {
+export interface MRObservationBirthHeightPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBirthHeightPerformer: t.Type<MRObservationBirthHeightPerformer> =
-    t.recursion("MRObservationBirthHeightPerformer", () =>
+export const MRObservationBirthHeightPerformerReference: t.Type<MRObservationBirthHeightPerformerReference> =
+    t.recursion("MRObservationBirthHeightPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -554,13 +554,13 @@ interface MRObservationBirthHeight {
     meta: MRObservationBirthHeightMeta;
     status: "final";
     code: MRObservationBirthHeightCode;
-    subject: MRObservationBirthHeightSubject;
-    encounter: MRObservationBirthHeightEncounter;
+    subject: MRObservationBirthHeightSubjectReference;
+    encounter: MRObservationBirthHeightEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationBirthHeightValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBirthHeightPerformer>;
+    performer?: Array<MRObservationBirthHeightPerformerReference>;
 }
 
 const MRObservationBirthHeight: t.Type<MRObservationBirthHeight> = t.recursion(
@@ -573,15 +573,15 @@ const MRObservationBirthHeight: t.Type<MRObservationBirthHeight> = t.recursion(
                     meta: MRObservationBirthHeightMeta,
                     status: Literal("final"),
                     code: MRObservationBirthHeightCode,
-                    subject: MRObservationBirthHeightSubject,
-                    encounter: MRObservationBirthHeightEncounter,
+                    subject: MRObservationBirthHeightSubjectReference,
+                    encounter: MRObservationBirthHeightEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationBirthHeightValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBirthHeightPerformer)
+                    performer: MaxArray(1, MRObservationBirthHeightPerformerReference)
                 })
             ])
         )

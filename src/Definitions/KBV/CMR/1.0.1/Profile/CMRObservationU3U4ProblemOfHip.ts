@@ -256,13 +256,13 @@ export const CMRObservationU3U4ProblemOfHipCode: t.Type<CMRObservationU3U4Proble
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU3U4ProblemOfHipSubject {
+export interface CMRObservationU3U4ProblemOfHipSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4ProblemOfHipSubject: t.Type<CMRObservationU3U4ProblemOfHipSubject> =
-    t.recursion("CMRObservationU3U4ProblemOfHipSubject", () =>
+export const CMRObservationU3U4ProblemOfHipSubjectReference: t.Type<CMRObservationU3U4ProblemOfHipSubjectReference> =
+    t.recursion("CMRObservationU3U4ProblemOfHipSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const CMRObservationU3U4ProblemOfHipSubject: t.Type<CMRObservationU3U4Pro
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU3U4ProblemOfHipEncounter {
+export interface CMRObservationU3U4ProblemOfHipEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4ProblemOfHipEncounter: t.Type<CMRObservationU3U4ProblemOfHipEncounter> =
-    t.recursion("CMRObservationU3U4ProblemOfHipEncounter", () =>
+export const CMRObservationU3U4ProblemOfHipEncounterReference: t.Type<CMRObservationU3U4ProblemOfHipEncounterReference> =
+    t.recursion("CMRObservationU3U4ProblemOfHipEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const CMRObservationU3U4ProblemOfHipEncounter: t.Type<CMRObservationU3U4P
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU3U4ProblemOfHipPerformer {
+export interface CMRObservationU3U4ProblemOfHipPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4ProblemOfHipPerformer: t.Type<CMRObservationU3U4ProblemOfHipPerformer> =
-    t.recursion("CMRObservationU3U4ProblemOfHipPerformer", () =>
+export const CMRObservationU3U4ProblemOfHipPerformerReference: t.Type<CMRObservationU3U4ProblemOfHipPerformerReference> =
+    t.recursion("CMRObservationU3U4ProblemOfHipPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface CMRObservationU3U4ProblemOfHip {
     meta: CMRObservationU3U4ProblemOfHipMeta;
     status: "final";
     code: CMRObservationU3U4ProblemOfHipCode;
-    subject: CMRObservationU3U4ProblemOfHipSubject;
-    encounter: CMRObservationU3U4ProblemOfHipEncounter;
+    subject: CMRObservationU3U4ProblemOfHipSubjectReference;
+    encounter: CMRObservationU3U4ProblemOfHipEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU3U4ProblemOfHipPerformer>;
+    performer?: Array<CMRObservationU3U4ProblemOfHipPerformerReference>;
 }
 
 const CMRObservationU3U4ProblemOfHip: t.Type<CMRObservationU3U4ProblemOfHip> =
@@ -348,15 +348,18 @@ const CMRObservationU3U4ProblemOfHip: t.Type<CMRObservationU3U4ProblemOfHip> =
                     meta: CMRObservationU3U4ProblemOfHipMeta,
                     status: Literal("final"),
                     code: CMRObservationU3U4ProblemOfHipCode,
-                    subject: CMRObservationU3U4ProblemOfHipSubject,
-                    encounter: CMRObservationU3U4ProblemOfHipEncounter,
+                    subject: CMRObservationU3U4ProblemOfHipSubjectReference,
+                    encounter: CMRObservationU3U4ProblemOfHipEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU3U4ProblemOfHipPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU3U4ProblemOfHipPerformerReference
+                    )
                 })
             ])
         )

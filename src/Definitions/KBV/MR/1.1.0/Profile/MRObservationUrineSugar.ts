@@ -195,13 +195,13 @@ export const MRObservationUrineSugarCode: t.Type<MRObservationUrineSugarCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUrineSugarSubject {
+export interface MRObservationUrineSugarSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSugarSubject: t.Type<MRObservationUrineSugarSubject> =
-    t.recursion("MRObservationUrineSugarSubject", () =>
+export const MRObservationUrineSugarSubjectReference: t.Type<MRObservationUrineSugarSubjectReference> =
+    t.recursion("MRObservationUrineSugarSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -219,13 +219,13 @@ export const MRObservationUrineSugarSubject: t.Type<MRObservationUrineSugarSubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUrineSugarEncounter {
+export interface MRObservationUrineSugarEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSugarEncounter: t.Type<MRObservationUrineSugarEncounter> =
-    t.recursion("MRObservationUrineSugarEncounter", () =>
+export const MRObservationUrineSugarEncounterReference: t.Type<MRObservationUrineSugarEncounterReference> =
+    t.recursion("MRObservationUrineSugarEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -243,13 +243,13 @@ export const MRObservationUrineSugarEncounter: t.Type<MRObservationUrineSugarEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUrineSugarPerformer {
+export interface MRObservationUrineSugarPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSugarPerformer: t.Type<MRObservationUrineSugarPerformer> =
-    t.recursion("MRObservationUrineSugarPerformer", () =>
+export const MRObservationUrineSugarPerformerReference: t.Type<MRObservationUrineSugarPerformerReference> =
+    t.recursion("MRObservationUrineSugarPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -270,13 +270,13 @@ interface MRObservationUrineSugar {
     meta: MRObservationUrineSugarMeta;
     status: "final";
     code: MRObservationUrineSugarCode;
-    subject: MRObservationUrineSugarSubject;
-    encounter: MRObservationUrineSugarEncounter;
+    subject: MRObservationUrineSugarSubjectReference;
+    encounter: MRObservationUrineSugarEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUrineSugarPerformer>;
+    performer?: Array<MRObservationUrineSugarPerformerReference>;
 }
 
 const MRObservationUrineSugar: t.Type<MRObservationUrineSugar> = t.recursion(
@@ -289,15 +289,15 @@ const MRObservationUrineSugar: t.Type<MRObservationUrineSugar> = t.recursion(
                     meta: MRObservationUrineSugarMeta,
                     status: Literal("final"),
                     code: MRObservationUrineSugarCode,
-                    subject: MRObservationUrineSugarSubject,
-                    encounter: MRObservationUrineSugarEncounter,
+                    subject: MRObservationUrineSugarSubjectReference,
+                    encounter: MRObservationUrineSugarEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUrineSugarPerformer)
+                    performer: MaxArray(1, MRObservationUrineSugarPerformerReference)
                 })
             ])
         )

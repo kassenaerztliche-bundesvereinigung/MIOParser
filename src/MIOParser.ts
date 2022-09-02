@@ -351,7 +351,9 @@ export default class MIOParser {
                         e.path === mioWarning.path && e.resource === mioWarning.resource
                 );
 
-                if (!alreadyContained) warnings.push(mioWarning);
+                if (!alreadyContained) {
+                    warnings.push(mioWarning);
+                }
             }
         );
     };

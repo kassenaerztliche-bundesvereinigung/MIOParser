@@ -28,11 +28,11 @@ export {
 export {
     default as Composition,
     ZAEBCompositionTypeCoding as CompositionTypeCoding,
-    ZAEBCompositionSectionEntry as CompositionSectionEntry,
+    ZAEBCompositionSectionEntryReference as CompositionSectionEntryReference,
     ZAEBCompositionMeta as CompositionMeta,
     ZAEBCompositionType as CompositionType,
-    ZAEBCompositionSubject as CompositionSubject,
-    ZAEBCompositionAuthor as CompositionAuthor,
+    ZAEBCompositionSubjectReference as CompositionSubjectReference,
+    ZAEBCompositionAuthorReference as CompositionAuthorReference,
     ZAEBCompositionSection as CompositionSection
 } from "./ZAEBComposition";
 
@@ -44,7 +44,7 @@ export {
     ZAEBObservationDentalCheckUpCodeCoding as ObservationDentalCheckUpCodeCoding,
     ZAEBObservationDentalCheckUpMeta as ObservationDentalCheckUpMeta,
     ZAEBObservationDentalCheckUpCode as ObservationDentalCheckUpCode,
-    ZAEBObservationDentalCheckUpSubject as ObservationDentalCheckUpSubject
+    ZAEBObservationDentalCheckUpSubjectReference as ObservationDentalCheckUpSubjectReference
 } from "./ZAEBObservationDentalCheckUp";
 
 export {
@@ -52,7 +52,7 @@ export {
     ZAEBObservationGaplessDocumentationDisclaimer as ObservationGaplessDocumentationDisclaimer,
     ZAEBObservationGaplessDocumentationMeta as ObservationGaplessDocumentationMeta,
     ZAEBObservationGaplessDocumentationCode as ObservationGaplessDocumentationCode,
-    ZAEBObservationGaplessDocumentationSubject as ObservationGaplessDocumentationSubject
+    ZAEBObservationGaplessDocumentationSubjectReference as ObservationGaplessDocumentationSubjectReference
 } from "./ZAEBObservationGaplessDocumentation";
 
 export {

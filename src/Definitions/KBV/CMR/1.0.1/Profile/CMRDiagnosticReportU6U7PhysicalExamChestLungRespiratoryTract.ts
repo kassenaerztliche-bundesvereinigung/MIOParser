@@ -265,14 +265,14 @@ export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractCode: t
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject {
+export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject> =
+export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference> =
     t.recursion(
-        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject",
+        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference",
         () =>
             Excess(
                 t.intersection([
@@ -291,14 +291,14 @@ export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter {
+export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter> =
+export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference> =
     t.recursion(
-        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter",
+        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference",
         () =>
             Excess(
                 t.intersection([
@@ -317,14 +317,14 @@ export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncount
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer {
+export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer> =
+export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference> =
     t.recursion(
-        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer",
+        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference",
         () =>
             Excess(
                 t.intersection([
@@ -343,14 +343,14 @@ export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerform
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult {
+export interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult> =
+export const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference> =
     t.recursion(
-        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult",
+        "CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference",
         () =>
             Excess(
                 t.intersection([
@@ -371,13 +371,13 @@ interface CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTract {
     meta: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractMeta;
     status: "final";
     code: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractCode;
-    subject: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject;
-    encounter: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter;
+    subject: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference;
+    encounter: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer>;
-    result?: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult[];
+    performer?: Array<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference>;
+    result?: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference[];
 }
 
 const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTract: t.Type<CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTract> =
@@ -390,9 +390,9 @@ const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTract: t.Type<CMRDi
                     status: Literal("final"),
                     code: CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractCode,
                     subject:
-                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubject,
+                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractSubjectReference,
                     encounter:
-                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounter,
+                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -400,10 +400,10 @@ const CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTract: t.Type<CMRDi
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformer
+                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractPerformerReference
                     ),
                     result: t.array(
-                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResult
+                        CMRDiagnosticReportU6U7PhysicalExamChestLungRespiratoryTractResultReference
                     )
                 })
             ])

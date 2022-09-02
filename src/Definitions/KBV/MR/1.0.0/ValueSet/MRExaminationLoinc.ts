@@ -37,24 +37,35 @@ type MRExaminationLoinc =
     | "22587-0"
     | "6357-8";
 
-const MRExaminationLoinc: t.Type<MRExaminationLoinc> = t.union(
-    [
-        t.literal("30954-2"),
-        t.literal("890-4"),
-        t.literal("15343-7"),
-        t.literal("22496-4"),
-        t.literal("8013-5"),
-        t.literal("22497-2"),
-        t.literal("5195-3"),
-        t.literal("718-7"),
-        t.literal("59260-0"),
-        t.literal("26453-1"),
-        t.literal("22587-0"),
-        t.literal("6357-8")
-    ],
-    "MRExaminationLoinc"
-);
+type MRExaminationLoincType = t.KeyofC<{
+    "30954-2": null;
+    "890-4": null;
+    "15343-7": null;
+    "22496-4": null;
+    "8013-5": null;
+    "22497-2": null;
+    "5195-3": null;
+    "718-7": null;
+    "59260-0": null;
+    "26453-1": null;
+    "22587-0": null;
+    "6357-8": null;
+}>;
 
+const MRExaminationLoinc: MRExaminationLoincType = t.keyof({
+    "30954-2": null,
+    "890-4": null,
+    "15343-7": null,
+    "22496-4": null,
+    "8013-5": null,
+    "22497-2": null,
+    "5195-3": null,
+    "718-7": null,
+    "59260-0": null,
+    "26453-1": null,
+    "22587-0": null,
+    "6357-8": null
+});
 export const MRExaminationLoincArray: string[] = [
     "30954-2",
     "890-4",

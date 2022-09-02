@@ -65,13 +65,13 @@ export const ZAEBCompositionTypeCoding: t.Type<ZAEBCompositionTypeCoding> = t.re
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface ZAEBCompositionSectionEntry {
+export interface ZAEBCompositionSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const ZAEBCompositionSectionEntry: t.Type<ZAEBCompositionSectionEntry> =
-    t.recursion("ZAEBCompositionSectionEntry", () =>
+export const ZAEBCompositionSectionEntryReference: t.Type<ZAEBCompositionSectionEntryReference> =
+    t.recursion("ZAEBCompositionSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -142,14 +142,13 @@ export const ZAEBCompositionType: t.Type<ZAEBCompositionType> = t.recursion(
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface ZAEBCompositionSubject {
+export interface ZAEBCompositionSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const ZAEBCompositionSubject: t.Type<ZAEBCompositionSubject> = t.recursion(
-    "ZAEBCompositionSubject",
-    () =>
+export const ZAEBCompositionSubjectReference: t.Type<ZAEBCompositionSubjectReference> =
+    t.recursion("ZAEBCompositionSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -162,19 +161,18 @@ export const ZAEBCompositionSubject: t.Type<ZAEBCompositionSubject> = t.recursio
                 })
             ])
         )
-);
+    );
 
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface ZAEBCompositionAuthor {
+export interface ZAEBCompositionAuthorReference {
     reference: string;
     id?: string;
 }
 
-export const ZAEBCompositionAuthor: t.Type<ZAEBCompositionAuthor> = t.recursion(
-    "ZAEBCompositionAuthor",
-    () =>
+export const ZAEBCompositionAuthorReference: t.Type<ZAEBCompositionAuthorReference> =
+    t.recursion("ZAEBCompositionAuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -187,13 +185,13 @@ export const ZAEBCompositionAuthor: t.Type<ZAEBCompositionAuthor> = t.recursion(
                 })
             ])
         )
-);
+    );
 
 /**
  * The root of the sections that make up the composition.
  */
 export interface ZAEBCompositionSection {
-    entry: Array<ZAEBCompositionSectionEntry>;
+    entry: Array<ZAEBCompositionSectionEntryReference>;
     id?: string;
 }
 
@@ -203,7 +201,7 @@ export const ZAEBCompositionSection: t.Type<ZAEBCompositionSection> = t.recursio
         Excess(
             t.intersection([
                 t.type({
-                    entry: MinMaxArray(1, 2, ZAEBCompositionSectionEntry)
+                    entry: MinMaxArray(1, 2, ZAEBCompositionSectionEntryReference)
                 }),
                 t.partial({
                     id: SCALARString
@@ -217,9 +215,9 @@ interface ZAEBComposition {
     meta: ZAEBCompositionMeta;
     status: "final";
     type: ZAEBCompositionType;
-    subject: ZAEBCompositionSubject;
+    subject: ZAEBCompositionSubjectReference;
     date: string;
-    author: Array<ZAEBCompositionAuthor>;
+    author: Array<ZAEBCompositionAuthorReference>;
     title: "Bonushefteintrag";
     section: Array<ZAEBCompositionSection>;
     id?: string;
@@ -234,9 +232,9 @@ const ZAEBComposition: t.Type<ZAEBComposition> = t.recursion("ZAEBComposition", 
                 meta: ZAEBCompositionMeta,
                 status: Literal("final"),
                 type: ZAEBCompositionType,
-                subject: ZAEBCompositionSubject,
+                subject: ZAEBCompositionSubjectReference,
                 date: SCALARDateTime,
-                author: MinMaxArray(1, 1, ZAEBCompositionAuthor),
+                author: MinMaxArray(1, 1, ZAEBCompositionAuthorReference),
                 title: Literal("Bonushefteintrag"),
                 section: MinMaxArray(1, 1, ZAEBCompositionSection)
             }),

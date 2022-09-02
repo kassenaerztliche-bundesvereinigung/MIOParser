@@ -25,11 +25,13 @@ import { ValueSet } from "../../../../Interfaces";
 
 type VaccinationEntryType = "End" | "Eduai" | "Eduii";
 
-const VaccinationEntryType: t.Type<VaccinationEntryType> = t.union(
-    [t.literal("End"), t.literal("Eduai"), t.literal("Eduii")],
-    "VaccinationEntryType"
-);
+type VaccinationEntryTypeType = t.KeyofC<{ End: null; Eduai: null; Eduii: null }>;
 
+const VaccinationEntryType: VaccinationEntryTypeType = t.keyof({
+    End: null,
+    Eduai: null,
+    Eduii: null
+});
 export const VaccinationEntryTypeArray: string[] = ["End", "Eduai", "Eduii"];
 
 export const VaccinationEntryTypeValueSet: ValueSet = [

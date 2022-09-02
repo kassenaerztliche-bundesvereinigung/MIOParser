@@ -219,7 +219,7 @@ export const MROrganizationPostfachLinePostfach: t.Type<MROrganizationPostfachLi
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface MROrganizationBetriebsstaettennummerAssignerIdentifier {
+export interface MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -229,8 +229,8 @@ export interface MROrganizationBetriebsstaettennummerAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const MROrganizationBetriebsstaettennummerAssignerIdentifier: t.Type<MROrganizationBetriebsstaettennummerAssignerIdentifier> =
-    t.recursion("MROrganizationBetriebsstaettennummerAssignerIdentifier", () =>
+export const MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier: t.Type<MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier> =
+    t.recursion("MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -351,16 +351,16 @@ export const MROrganizationBetriebsstaettennummerType: t.Type<MROrganizationBetr
 /**
  * Organization that issued/manages the identifier.
  */
-export interface MROrganizationBetriebsstaettennummerAssigner {
+export interface MROrganizationBetriebsstaettennummerAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: MROrganizationBetriebsstaettennummerAssignerIdentifier;
+    identifier?: MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier;
 }
 
-export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganizationBetriebsstaettennummerAssigner> =
-    t.recursion("MROrganizationBetriebsstaettennummerAssigner", () =>
+export const MROrganizationBetriebsstaettennummerAssignerReference: t.Type<MROrganizationBetriebsstaettennummerAssignerReference> =
+    t.recursion("MROrganizationBetriebsstaettennummerAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -372,7 +372,8 @@ export const MROrganizationBetriebsstaettennummerAssigner: t.Type<MROrganization
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: MROrganizationBetriebsstaettennummerAssignerIdentifier
+                    identifier:
+                        MROrganizationBetriebsstaettennummerAssignerReferenceIdentifier
                 })
             ])
         )
@@ -566,7 +567,7 @@ export interface MROrganizationBetriebsstaettennummer {
     id?: string;
     use?: "official";
     period?: Period;
-    assigner?: MROrganizationBetriebsstaettennummerAssigner;
+    assigner?: MROrganizationBetriebsstaettennummerAssignerReference;
 }
 
 export const MROrganizationBetriebsstaettennummer: t.Type<MROrganizationBetriebsstaettennummer> =
@@ -582,7 +583,7 @@ export const MROrganizationBetriebsstaettennummer: t.Type<MROrganizationBetriebs
                     id: SCALARString,
                     use: Literal("official"),
                     period: Period,
-                    assigner: MROrganizationBetriebsstaettennummerAssigner
+                    assigner: MROrganizationBetriebsstaettennummerAssignerReference
                 })
             ])
         )

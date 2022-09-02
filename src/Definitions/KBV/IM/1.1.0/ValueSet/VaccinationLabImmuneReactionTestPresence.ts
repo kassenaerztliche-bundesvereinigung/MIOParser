@@ -38,25 +38,36 @@ type VaccinationLabImmuneReactionTestPresence =
     | "22496-4"
     | "30553-2";
 
-const VaccinationLabImmuneReactionTestPresence: t.Type<VaccinationLabImmuneReactionTestPresence> =
-    t.union(
-        [
-            t.literal("22600-1"),
-            t.literal("26643-7"),
-            t.literal("30546-6"),
-            t.literal("31998-8"),
-            t.literal("31503-6"),
-            t.literal("17322-9"),
-            t.literal("46197-0"),
-            t.literal("22322-2"),
-            t.literal("20575-7"),
-            t.literal("26630-4"),
-            t.literal("22496-4"),
-            t.literal("30553-2")
-        ],
-        "VaccinationLabImmuneReactionTestPresence"
-    );
+type VaccinationLabImmuneReactionTestPresenceType = t.KeyofC<{
+    "22600-1": null;
+    "26643-7": null;
+    "30546-6": null;
+    "31998-8": null;
+    "31503-6": null;
+    "17322-9": null;
+    "46197-0": null;
+    "22322-2": null;
+    "20575-7": null;
+    "26630-4": null;
+    "22496-4": null;
+    "30553-2": null;
+}>;
 
+const VaccinationLabImmuneReactionTestPresence: VaccinationLabImmuneReactionTestPresenceType =
+    t.keyof({
+        "22600-1": null,
+        "26643-7": null,
+        "30546-6": null,
+        "31998-8": null,
+        "31503-6": null,
+        "17322-9": null,
+        "46197-0": null,
+        "22322-2": null,
+        "20575-7": null,
+        "26630-4": null,
+        "22496-4": null,
+        "30553-2": null
+    });
 export const VaccinationLabImmuneReactionTestPresenceArray: string[] = [
     "22600-1",
     "26643-7",

@@ -84,7 +84,6 @@ export const IdentifieriknrType: t.Type<IdentifieriknrType> = t.recursion(
 interface Identifieriknr {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
-    resourceType?: "Identifier";
     id?: string;
     use?: "official";
     type?: IdentifieriknrType;
@@ -99,7 +98,6 @@ const Identifieriknr: t.Type<Identifieriknr> = t.recursion("Identifieriknr", () 
             value: SCALARString
         }),
         t.partial({
-            resourceType: Literal("Identifier"),
             id: SCALARString,
             use: Literal("official"),
             type: IdentifieriknrType,

@@ -19,7 +19,6 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
 
 import SCALARDateTime from "../../../../Definitions/FHIR/4.0.1/Scalar/DateTime";
 import SCALARDecimal from "../../../../Definitions/FHIR/4.0.1/Scalar/Decimal";
@@ -85,7 +84,6 @@ export const TimingRepeat: t.Type<TimingRepeat> = t.recursion("TimingRepeat", ()
 );
 
 interface Timing {
-    resourceType?: "Timing";
     id?: string;
     event?: string[];
     repeat?: TimingRepeat;
@@ -94,7 +92,6 @@ interface Timing {
 
 const Timing: t.Type<Timing> = t.recursion("Timing", () =>
     t.partial({
-        resourceType: Literal("Timing"),
         id: SCALARString,
         event: t.array(SCALARDateTime),
         repeat: TimingRepeat,

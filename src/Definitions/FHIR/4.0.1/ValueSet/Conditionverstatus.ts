@@ -31,18 +31,23 @@ type Conditionverstatus =
     | "refuted"
     | "entered-in-error";
 
-const Conditionverstatus: t.Type<Conditionverstatus> = t.union(
-    [
-        t.literal("unconfirmed"),
-        t.literal("provisional"),
-        t.literal("differential"),
-        t.literal("confirmed"),
-        t.literal("refuted"),
-        t.literal("entered-in-error")
-    ],
-    "Conditionverstatus"
-);
+type ConditionverstatusType = t.KeyofC<{
+    unconfirmed: null;
+    provisional: null;
+    differential: null;
+    confirmed: null;
+    refuted: null;
+    "entered-in-error": null;
+}>;
 
+const Conditionverstatus: ConditionverstatusType = t.keyof({
+    unconfirmed: null,
+    provisional: null,
+    differential: null,
+    confirmed: null,
+    refuted: null,
+    "entered-in-error": null
+});
 export const ConditionverstatusArray: string[] = [
     "unconfirmed",
     "provisional",

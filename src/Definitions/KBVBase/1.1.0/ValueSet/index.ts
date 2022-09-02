@@ -97,6 +97,24 @@ export {
 } from "./HeadCircumferenceSnomed";
 
 export {
+    default as IHEXDSAuthorSpecialityRestricted,
+    IHEXDSAuthorSpecialityRestrictedArray as IHEXDSAuthorSpecialityRestrictedArray,
+    IHEXDSAuthorSpecialityRestrictedValueSet as IHEXDSAuthorSpecialityRestrictedValueSet
+} from "./IHEXDSAuthorSpecialityRestricted";
+
+export {
+    default as PractitionerSpeciality,
+    PractitionerSpecialityArray as PractitionerSpecialityArray,
+    PractitionerSpecialityValueSet as PractitionerSpecialityValueSet
+} from "./PractitionerSpeciality";
+
+export {
+    default as PractitionerSpecialityAddendum,
+    PractitionerSpecialityAddendumArray as PractitionerSpecialityAddendumArray,
+    PractitionerSpecialityAddendumValueSet as PractitionerSpecialityAddendumValueSet
+} from "./PractitionerSpecialityAddendum";
+
+export {
     default as StageLife,
     StageLifeArray as StageLifeArray,
     StageLifeValueSet as StageLifeValueSet

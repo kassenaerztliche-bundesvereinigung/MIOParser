@@ -32,19 +32,25 @@ type Nameuse =
     | "old"
     | "maiden";
 
-const Nameuse: t.Type<Nameuse> = t.union(
-    [
-        t.literal("usual"),
-        t.literal("official"),
-        t.literal("temp"),
-        t.literal("nickname"),
-        t.literal("anonymous"),
-        t.literal("old"),
-        t.literal("maiden")
-    ],
-    "Nameuse"
-);
+type NameuseType = t.KeyofC<{
+    usual: null;
+    official: null;
+    temp: null;
+    nickname: null;
+    anonymous: null;
+    old: null;
+    maiden: null;
+}>;
 
+const Nameuse: NameuseType = t.keyof({
+    usual: null,
+    official: null,
+    temp: null,
+    nickname: null,
+    anonymous: null,
+    old: null,
+    maiden: null
+});
 export const NameuseArray: string[] = [
     "usual",
     "official",

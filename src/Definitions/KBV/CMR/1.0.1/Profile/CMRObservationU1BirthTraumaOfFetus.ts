@@ -260,13 +260,13 @@ export const CMRObservationU1BirthTraumaOfFetusCode: t.Type<CMRObservationU1Birt
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1BirthTraumaOfFetusSubject {
+export interface CMRObservationU1BirthTraumaOfFetusSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthTraumaOfFetusSubject: t.Type<CMRObservationU1BirthTraumaOfFetusSubject> =
-    t.recursion("CMRObservationU1BirthTraumaOfFetusSubject", () =>
+export const CMRObservationU1BirthTraumaOfFetusSubjectReference: t.Type<CMRObservationU1BirthTraumaOfFetusSubjectReference> =
+    t.recursion("CMRObservationU1BirthTraumaOfFetusSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRObservationU1BirthTraumaOfFetusSubject: t.Type<CMRObservationU1B
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1BirthTraumaOfFetusEncounter {
+export interface CMRObservationU1BirthTraumaOfFetusEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthTraumaOfFetusEncounter: t.Type<CMRObservationU1BirthTraumaOfFetusEncounter> =
-    t.recursion("CMRObservationU1BirthTraumaOfFetusEncounter", () =>
+export const CMRObservationU1BirthTraumaOfFetusEncounterReference: t.Type<CMRObservationU1BirthTraumaOfFetusEncounterReference> =
+    t.recursion("CMRObservationU1BirthTraumaOfFetusEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRObservationU1BirthTraumaOfFetusEncounter: t.Type<CMRObservationU
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1BirthTraumaOfFetusPerformer {
+export interface CMRObservationU1BirthTraumaOfFetusPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1BirthTraumaOfFetusPerformer: t.Type<CMRObservationU1BirthTraumaOfFetusPerformer> =
-    t.recursion("CMRObservationU1BirthTraumaOfFetusPerformer", () =>
+export const CMRObservationU1BirthTraumaOfFetusPerformerReference: t.Type<CMRObservationU1BirthTraumaOfFetusPerformerReference> =
+    t.recursion("CMRObservationU1BirthTraumaOfFetusPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -334,13 +334,13 @@ interface CMRObservationU1BirthTraumaOfFetus {
     meta: CMRObservationU1BirthTraumaOfFetusMeta;
     status: "final";
     code: CMRObservationU1BirthTraumaOfFetusCode;
-    subject: CMRObservationU1BirthTraumaOfFetusSubject;
-    encounter: CMRObservationU1BirthTraumaOfFetusEncounter;
+    subject: CMRObservationU1BirthTraumaOfFetusSubjectReference;
+    encounter: CMRObservationU1BirthTraumaOfFetusEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1BirthTraumaOfFetusPerformer>;
+    performer?: Array<CMRObservationU1BirthTraumaOfFetusPerformerReference>;
 }
 
 const CMRObservationU1BirthTraumaOfFetus: t.Type<CMRObservationU1BirthTraumaOfFetus> =
@@ -352,15 +352,18 @@ const CMRObservationU1BirthTraumaOfFetus: t.Type<CMRObservationU1BirthTraumaOfFe
                     meta: CMRObservationU1BirthTraumaOfFetusMeta,
                     status: Literal("final"),
                     code: CMRObservationU1BirthTraumaOfFetusCode,
-                    subject: CMRObservationU1BirthTraumaOfFetusSubject,
-                    encounter: CMRObservationU1BirthTraumaOfFetusEncounter,
+                    subject: CMRObservationU1BirthTraumaOfFetusSubjectReference,
+                    encounter: CMRObservationU1BirthTraumaOfFetusEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1BirthTraumaOfFetusPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU1BirthTraumaOfFetusPerformerReference
+                    )
                 })
             ])
         )

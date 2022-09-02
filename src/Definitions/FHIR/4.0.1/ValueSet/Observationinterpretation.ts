@@ -82,69 +82,125 @@ type Observationinterpretation =
     | "RR"
     | "WR";
 
-const Observationinterpretation: t.Type<Observationinterpretation> = t.union(
-    [
-        t.literal("_GeneticObservationInterpretation"),
-        t.literal("CAR"),
-        t.literal("Carrier"),
-        t.literal("_ObservationInterpretationChange"),
-        t.literal("B"),
-        t.literal("D"),
-        t.literal("U"),
-        t.literal("W"),
-        t.literal("_ObservationInterpretationExceptions"),
-        t.literal("<"),
-        t.literal(">"),
-        t.literal("AC"),
-        t.literal("IE"),
-        t.literal("QCF"),
-        t.literal("TOX"),
-        t.literal("_ObservationInterpretationNormality"),
-        t.literal("A"),
-        t.literal("AA"),
-        t.literal("HH"),
-        t.literal("LL"),
-        t.literal("H"),
-        t.literal("H>"),
-        t.literal("HU"),
-        t.literal("L"),
-        t.literal("L<"),
-        t.literal("LU"),
-        t.literal("N"),
-        t.literal("_ObservationInterpretationSusceptibility"),
-        t.literal("I"),
-        t.literal("MS"),
-        t.literal("NCL"),
-        t.literal("NS"),
-        t.literal("R"),
-        t.literal("SYN-R"),
-        t.literal("S"),
-        t.literal("SDD"),
-        t.literal("SYN-S"),
-        t.literal("VS"),
-        t.literal("EX"),
-        t.literal("HX"),
-        t.literal("LX"),
-        t.literal("HM"),
-        t.literal("ObservationInterpretationDetection"),
-        t.literal("IND"),
-        t.literal("E"),
-        t.literal("NEG"),
-        t.literal("ND"),
-        t.literal("POS"),
-        t.literal("DET"),
-        t.literal("ObservationInterpretationExpectation"),
-        t.literal("EXP"),
-        t.literal("UNE"),
-        t.literal("OBX"),
-        t.literal("ReactivityObservationInterpretation"),
-        t.literal("NR"),
-        t.literal("RR"),
-        t.literal("WR")
-    ],
-    "Observationinterpretation"
-);
+type ObservationinterpretationType = t.KeyofC<{
+    _GeneticObservationInterpretation: null;
+    CAR: null;
+    Carrier: null;
+    _ObservationInterpretationChange: null;
+    B: null;
+    D: null;
+    U: null;
+    W: null;
+    _ObservationInterpretationExceptions: null;
+    "<": null;
+    ">": null;
+    AC: null;
+    IE: null;
+    QCF: null;
+    TOX: null;
+    _ObservationInterpretationNormality: null;
+    A: null;
+    AA: null;
+    HH: null;
+    LL: null;
+    H: null;
+    "H>": null;
+    HU: null;
+    L: null;
+    "L<": null;
+    LU: null;
+    N: null;
+    _ObservationInterpretationSusceptibility: null;
+    I: null;
+    MS: null;
+    NCL: null;
+    NS: null;
+    R: null;
+    "SYN-R": null;
+    S: null;
+    SDD: null;
+    "SYN-S": null;
+    VS: null;
+    EX: null;
+    HX: null;
+    LX: null;
+    HM: null;
+    ObservationInterpretationDetection: null;
+    IND: null;
+    E: null;
+    NEG: null;
+    ND: null;
+    POS: null;
+    DET: null;
+    ObservationInterpretationExpectation: null;
+    EXP: null;
+    UNE: null;
+    OBX: null;
+    ReactivityObservationInterpretation: null;
+    NR: null;
+    RR: null;
+    WR: null;
+}>;
 
+const Observationinterpretation: ObservationinterpretationType = t.keyof({
+    _GeneticObservationInterpretation: null,
+    CAR: null,
+    Carrier: null,
+    _ObservationInterpretationChange: null,
+    B: null,
+    D: null,
+    U: null,
+    W: null,
+    _ObservationInterpretationExceptions: null,
+    "<": null,
+    ">": null,
+    AC: null,
+    IE: null,
+    QCF: null,
+    TOX: null,
+    _ObservationInterpretationNormality: null,
+    A: null,
+    AA: null,
+    HH: null,
+    LL: null,
+    H: null,
+    "H>": null,
+    HU: null,
+    L: null,
+    "L<": null,
+    LU: null,
+    N: null,
+    _ObservationInterpretationSusceptibility: null,
+    I: null,
+    MS: null,
+    NCL: null,
+    NS: null,
+    R: null,
+    "SYN-R": null,
+    S: null,
+    SDD: null,
+    "SYN-S": null,
+    VS: null,
+    EX: null,
+    HX: null,
+    LX: null,
+    HM: null,
+    ObservationInterpretationDetection: null,
+    IND: null,
+    E: null,
+    NEG: null,
+    ND: null,
+    POS: null,
+    DET: null,
+    ObservationInterpretationExpectation: null,
+    EXP: null,
+    UNE: null,
+    OBX: null,
+    ReactivityObservationInterpretation: null,
+    NR: null,
+    RR: null,
+    WR: null
+});
 export const ObservationinterpretationArray: string[] = [
     "_GeneticObservationInterpretation",
     "CAR",

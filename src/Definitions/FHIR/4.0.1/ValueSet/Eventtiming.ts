@@ -51,38 +51,63 @@ type Eventtiming =
     | "PCD"
     | "PCV";
 
-const Eventtiming: t.Type<Eventtiming> = t.union(
-    [
-        t.literal("MORN"),
-        t.literal("MORN.early"),
-        t.literal("MORN.late"),
-        t.literal("NOON"),
-        t.literal("AFT"),
-        t.literal("AFT.early"),
-        t.literal("AFT.late"),
-        t.literal("EVE"),
-        t.literal("EVE.early"),
-        t.literal("EVE.late"),
-        t.literal("NIGHT"),
-        t.literal("PHS"),
-        t.literal("HS"),
-        t.literal("WAKE"),
-        t.literal("C"),
-        t.literal("CM"),
-        t.literal("CD"),
-        t.literal("CV"),
-        t.literal("AC"),
-        t.literal("ACM"),
-        t.literal("ACD"),
-        t.literal("ACV"),
-        t.literal("PC"),
-        t.literal("PCM"),
-        t.literal("PCD"),
-        t.literal("PCV")
-    ],
-    "Eventtiming"
-);
+type EventtimingType = t.KeyofC<{
+    MORN: null;
+    "MORN.early": null;
+    "MORN.late": null;
+    NOON: null;
+    AFT: null;
+    "AFT.early": null;
+    "AFT.late": null;
+    EVE: null;
+    "EVE.early": null;
+    "EVE.late": null;
+    NIGHT: null;
+    PHS: null;
+    HS: null;
+    WAKE: null;
+    C: null;
+    CM: null;
+    CD: null;
+    CV: null;
+    AC: null;
+    ACM: null;
+    ACD: null;
+    ACV: null;
+    PC: null;
+    PCM: null;
+    PCD: null;
+    PCV: null;
+}>;
 
+const Eventtiming: EventtimingType = t.keyof({
+    MORN: null,
+    "MORN.early": null,
+    "MORN.late": null,
+    NOON: null,
+    AFT: null,
+    "AFT.early": null,
+    "AFT.late": null,
+    EVE: null,
+    "EVE.early": null,
+    "EVE.late": null,
+    NIGHT: null,
+    PHS: null,
+    HS: null,
+    WAKE: null,
+    C: null,
+    CM: null,
+    CD: null,
+    CV: null,
+    AC: null,
+    ACM: null,
+    ACD: null,
+    ACV: null,
+    PC: null,
+    PCM: null,
+    PCD: null,
+    PCV: null
+});
 export const EventtimingArray: string[] = [
     "MORN",
     "MORN.early",

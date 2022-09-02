@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
+
 import SCALARCanonical from "../../../../Definitions/FHIR/4.0.1/Scalar/Canonical";
 import SCALARCode from "../../../../Definitions/FHIR/4.0.1/Scalar/Code";
 import SCALARInteger from "../../../../Definitions/FHIR/4.0.1/Scalar/Integer";
@@ -32,7 +32,6 @@ import OperationparameteruseVS from "../../../../Definitions/FHIR/4.0.1/ValueSet
 interface ParameterDefinition {
     use: OperationparameteruseVS;
     type: AlltypesVS;
-    resourceType?: "ParameterDefinition";
     id?: string;
     name?: string;
     min?: number;
@@ -50,7 +49,6 @@ const ParameterDefinition: t.Type<ParameterDefinition> = t.recursion(
                 type: AlltypesVS
             }),
             t.partial({
-                resourceType: Literal("ParameterDefinition"),
                 id: SCALARString,
                 name: SCALARCode,
                 min: SCALARInteger,

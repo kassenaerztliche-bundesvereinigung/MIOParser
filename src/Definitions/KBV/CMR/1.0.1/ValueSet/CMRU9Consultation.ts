@@ -35,21 +35,29 @@ type CMRU9Consultation =
     | "702971000"
     | "274410002";
 
-const CMRU9Consultation: t.Type<CMRU9Consultation> = t.union(
-    [
-        t.literal("409066002:{363702006=426482000,260686004=360160009}"),
-        t.literal("409059003"),
-        t.literal("424308004"),
-        t.literal("284352003+304507003"),
-        t.literal("11816003"),
-        t.literal("709135003"),
-        t.literal("408935001"),
-        t.literal("702971000"),
-        t.literal("274410002")
-    ],
-    "CMRU9Consultation"
-);
+type CMRU9ConsultationType = t.KeyofC<{
+    "409066002:{363702006=426482000,260686004=360160009}": null;
+    "409059003": null;
+    "424308004": null;
+    "284352003+304507003": null;
+    "11816003": null;
+    "709135003": null;
+    "408935001": null;
+    "702971000": null;
+    "274410002": null;
+}>;
 
+const CMRU9Consultation: CMRU9ConsultationType = t.keyof({
+    "409066002:{363702006=426482000,260686004=360160009}": null,
+    "409059003": null,
+    "424308004": null,
+    "284352003+304507003": null,
+    "11816003": null,
+    "709135003": null,
+    "408935001": null,
+    "702971000": null,
+    "274410002": null
+});
 export const CMRU9ConsultationArray: string[] = [
     "409066002:{363702006=426482000,260686004=360160009}",
     "409059003",

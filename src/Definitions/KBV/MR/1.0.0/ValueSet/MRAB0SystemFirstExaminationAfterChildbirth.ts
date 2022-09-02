@@ -30,17 +30,20 @@ type MRAB0SystemFirstExaminationAfterChildbirth =
     | "165743006"
     | "58460004";
 
-const MRAB0SystemFirstExaminationAfterChildbirth: t.Type<MRAB0SystemFirstExaminationAfterChildbirth> =
-    t.union(
-        [
-            t.literal("112144000"),
-            t.literal("112149005"),
-            t.literal("165743006"),
-            t.literal("58460004")
-        ],
-        "MRAB0SystemFirstExaminationAfterChildbirth"
-    );
+type MRAB0SystemFirstExaminationAfterChildbirthType = t.KeyofC<{
+    "112144000": null;
+    "112149005": null;
+    "165743006": null;
+    "58460004": null;
+}>;
 
+const MRAB0SystemFirstExaminationAfterChildbirth: MRAB0SystemFirstExaminationAfterChildbirthType =
+    t.keyof({
+        "112144000": null,
+        "112149005": null,
+        "165743006": null,
+        "58460004": null
+    });
 export const MRAB0SystemFirstExaminationAfterChildbirthArray: string[] = [
     "112144000",
     "112149005",

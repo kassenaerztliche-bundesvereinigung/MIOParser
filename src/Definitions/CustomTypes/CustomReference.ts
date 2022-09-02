@@ -21,7 +21,7 @@
 import * as t from "io-ts";
 import ErrorMessage from "../ErrorMessage";
 import { AnyType } from "../Interfaces";
-import Reference from "../../Interfaces/Reference";
+import Reference from "./Reference";
 
 export class CustomReferenceType extends t.Type<AnyType> {
     readonly _tag = "CustomReferenceType";

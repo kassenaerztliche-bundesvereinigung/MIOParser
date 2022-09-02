@@ -26,11 +26,12 @@ import CMRBodysiteHipGerman from "../../../../../Definitions/KBV/CMR/1.0.1/Conce
 
 type CMRBodysiteHip = "362906008" | "362905007";
 
-const CMRBodysiteHip: t.Type<CMRBodysiteHip> = t.union(
-    [t.literal("362906008"), t.literal("362905007")],
-    "CMRBodysiteHip"
-);
+type CMRBodysiteHipType = t.KeyofC<{ "362906008": null; "362905007": null }>;
 
+const CMRBodysiteHip: CMRBodysiteHipType = t.keyof({
+    "362906008": null,
+    "362905007": null
+});
 export const CMRBodysiteHipArray: string[] = ["362906008", "362905007"];
 
 export const CMRBodysiteHipValueSet: ValueSet = [

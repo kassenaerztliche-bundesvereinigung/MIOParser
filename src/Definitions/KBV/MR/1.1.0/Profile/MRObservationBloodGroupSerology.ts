@@ -1136,13 +1136,13 @@ export const MRObservationBloodGroupSerologyCode: t.Type<MRObservationBloodGroup
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBloodGroupSerologySubject {
+export interface MRObservationBloodGroupSerologySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologySubject: t.Type<MRObservationBloodGroupSerologySubject> =
-    t.recursion("MRObservationBloodGroupSerologySubject", () =>
+export const MRObservationBloodGroupSerologySubjectReference: t.Type<MRObservationBloodGroupSerologySubjectReference> =
+    t.recursion("MRObservationBloodGroupSerologySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1160,13 +1160,13 @@ export const MRObservationBloodGroupSerologySubject: t.Type<MRObservationBloodGr
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBloodGroupSerologyEncounter {
+export interface MRObservationBloodGroupSerologyEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyEncounter: t.Type<MRObservationBloodGroupSerologyEncounter> =
-    t.recursion("MRObservationBloodGroupSerologyEncounter", () =>
+export const MRObservationBloodGroupSerologyEncounterReference: t.Type<MRObservationBloodGroupSerologyEncounterReference> =
+    t.recursion("MRObservationBloodGroupSerologyEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1184,13 +1184,13 @@ export const MRObservationBloodGroupSerologyEncounter: t.Type<MRObservationBlood
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBloodGroupSerologyPerformer {
+export interface MRObservationBloodGroupSerologyPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBloodGroupSerologyPerformer: t.Type<MRObservationBloodGroupSerologyPerformer> =
-    t.recursion("MRObservationBloodGroupSerologyPerformer", () =>
+export const MRObservationBloodGroupSerologyPerformerReference: t.Type<MRObservationBloodGroupSerologyPerformerReference> =
+    t.recursion("MRObservationBloodGroupSerologyPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1211,14 +1211,14 @@ interface MRObservationBloodGroupSerology {
     meta: MRObservationBloodGroupSerologyMeta;
     status: "final";
     code: MRObservationBloodGroupSerologyCode;
-    subject: MRObservationBloodGroupSerologySubject;
-    encounter: MRObservationBloodGroupSerologyEncounter;
+    subject: MRObservationBloodGroupSerologySubjectReference;
+    encounter: MRObservationBloodGroupSerologyEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
     extension?: MRObservationBloodGroupSerologyHinweisBehandelndePerson[];
     identifier?: Array<MRObservationBloodGroupSerologyIdentifier>;
-    performer?: Array<MRObservationBloodGroupSerologyPerformer>;
+    performer?: Array<MRObservationBloodGroupSerologyPerformerReference>;
     note?: Array<Annotation>;
     component?: Array<
         MRObservationBloodGroupSerologyAB0 | MRObservationBloodGroupSerologyRhesus
@@ -1234,8 +1234,8 @@ const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
                     meta: MRObservationBloodGroupSerologyMeta,
                     status: Literal("final"),
                     code: MRObservationBloodGroupSerologyCode,
-                    subject: MRObservationBloodGroupSerologySubject,
-                    encounter: MRObservationBloodGroupSerologyEncounter,
+                    subject: MRObservationBloodGroupSerologySubjectReference,
+                    encounter: MRObservationBloodGroupSerologyEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -1245,7 +1245,10 @@ const MRObservationBloodGroupSerology: t.Type<MRObservationBloodGroupSerology> =
                         MRObservationBloodGroupSerologyHinweisBehandelndePerson
                     ),
                     identifier: MaxArray(1, MRObservationBloodGroupSerologyIdentifier),
-                    performer: MaxArray(1, MRObservationBloodGroupSerologyPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationBloodGroupSerologyPerformerReference
+                    ),
                     note: MaxArray(1, Annotation),
                     component: ReqArray<
                         t.UnionC<

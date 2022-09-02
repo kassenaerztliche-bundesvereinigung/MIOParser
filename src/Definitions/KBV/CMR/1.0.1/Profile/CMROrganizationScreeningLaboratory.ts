@@ -227,7 +227,7 @@ export const CMROrganizationScreeningLaboratoryPostfachLinePostfach: t.Type<CMRO
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier {
+export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -237,9 +237,9 @@ export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigne
     assigner?: Reference;
 }
 
-export const CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier: t.Type<CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier> =
+export const CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier: t.Type<CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier> =
     t.recursion(
-        "CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier",
+        "CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier",
         () =>
             Excess(
                 t.intersection([
@@ -341,32 +341,34 @@ export const CMROrganizationScreeningLaboratoryBetriebsstaettennummerType: t.Typ
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner {
+export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier;
+    identifier?: CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier;
 }
 
-export const CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner: t.Type<CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner> =
-    t.recursion("CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    display: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString,
-                    reference: CustomReference(SCALARString, [
-                        "http://hl7.org/fhir/StructureDefinition/Organization"
-                    ]),
-                    type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier:
-                        CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerIdentifier
-                })
-            ])
-        )
+export const CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference: t.Type<CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference> =
+    t.recursion(
+        "CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        display: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        reference: CustomReference(SCALARString, [
+                            "http://hl7.org/fhir/StructureDefinition/Organization"
+                        ]),
+                        type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
+                        identifier:
+                            CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReferenceIdentifier
+                    })
+                ])
+            )
     );
 
 /**
@@ -568,7 +570,7 @@ export interface CMROrganizationScreeningLaboratoryBetriebsstaettennummer {
     id?: string;
     use?: "official";
     period?: Period;
-    assigner?: CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner;
+    assigner?: CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference;
 }
 
 export const CMROrganizationScreeningLaboratoryBetriebsstaettennummer: t.Type<CMROrganizationScreeningLaboratoryBetriebsstaettennummer> =
@@ -585,7 +587,7 @@ export const CMROrganizationScreeningLaboratoryBetriebsstaettennummer: t.Type<CM
                     use: Literal("official"),
                     period: Period,
                     assigner:
-                        CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssigner
+                        CMROrganizationScreeningLaboratoryBetriebsstaettennummerAssignerReference
                 })
             ])
         )

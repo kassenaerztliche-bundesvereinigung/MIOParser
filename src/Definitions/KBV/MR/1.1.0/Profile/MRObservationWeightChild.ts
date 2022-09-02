@@ -364,13 +364,13 @@ export const MRObservationWeightChildCode: t.Type<MRObservationWeightChildCode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationWeightChildSubject {
+export interface MRObservationWeightChildSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightChildSubject: t.Type<MRObservationWeightChildSubject> =
-    t.recursion("MRObservationWeightChildSubject", () =>
+export const MRObservationWeightChildSubjectReference: t.Type<MRObservationWeightChildSubjectReference> =
+    t.recursion("MRObservationWeightChildSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -388,13 +388,13 @@ export const MRObservationWeightChildSubject: t.Type<MRObservationWeightChildSub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationWeightChildEncounter {
+export interface MRObservationWeightChildEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightChildEncounter: t.Type<MRObservationWeightChildEncounter> =
-    t.recursion("MRObservationWeightChildEncounter", () =>
+export const MRObservationWeightChildEncounterReference: t.Type<MRObservationWeightChildEncounterReference> =
+    t.recursion("MRObservationWeightChildEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -412,13 +412,13 @@ export const MRObservationWeightChildEncounter: t.Type<MRObservationWeightChildE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationWeightChildPerformer {
+export interface MRObservationWeightChildPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightChildPerformer: t.Type<MRObservationWeightChildPerformer> =
-    t.recursion("MRObservationWeightChildPerformer", () =>
+export const MRObservationWeightChildPerformerReference: t.Type<MRObservationWeightChildPerformerReference> =
+    t.recursion("MRObservationWeightChildPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -439,13 +439,13 @@ interface MRObservationWeightChild {
     meta: MRObservationWeightChildMeta;
     status: "final";
     code: MRObservationWeightChildCode;
-    subject: MRObservationWeightChildSubject;
-    encounter: MRObservationWeightChildEncounter;
+    subject: MRObservationWeightChildSubjectReference;
+    encounter: MRObservationWeightChildEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationWeightChildValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationWeightChildPerformer>;
+    performer?: Array<MRObservationWeightChildPerformerReference>;
 }
 
 const MRObservationWeightChild: t.Type<MRObservationWeightChild> = t.recursion(
@@ -458,15 +458,15 @@ const MRObservationWeightChild: t.Type<MRObservationWeightChild> = t.recursion(
                     meta: MRObservationWeightChildMeta,
                     status: Literal("final"),
                     code: MRObservationWeightChildCode,
-                    subject: MRObservationWeightChildSubject,
-                    encounter: MRObservationWeightChildEncounter,
+                    subject: MRObservationWeightChildSubjectReference,
+                    encounter: MRObservationWeightChildEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationWeightChildValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationWeightChildPerformer)
+                    performer: MaxArray(1, MRObservationWeightChildPerformerReference)
                 })
             ])
         )

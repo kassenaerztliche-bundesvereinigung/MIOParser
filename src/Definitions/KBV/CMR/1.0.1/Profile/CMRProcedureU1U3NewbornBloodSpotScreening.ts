@@ -235,9 +235,9 @@ export interface CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollende
     system: "http://snomed.info/sct";
     version: "http://snomed.info/sct/900000000000207008/version/20210131";
     code: "738796001:363702006=395507008";
+    display: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
     id?: string;
     _display?: CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCodingDisplay;
-    display?: "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)";
 }
 
 export const CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCoding: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCoding> =
@@ -251,15 +251,15 @@ export const CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter3
                         version: Literal(
                             "http://snomed.info/sct/900000000000207008/version/20210131"
                         ),
-                        code: Literal("738796001:363702006=395507008")
+                        code: Literal("738796001:363702006=395507008"),
+                        display: Literal(
+                            "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)"
+                        )
                     }),
                     t.partial({
                         id: SCALARString,
                         _display:
-                            CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCodingDisplay,
-                        display: Literal(
-                            "Collection of dried blood spot specimen (procedure) : Has focus (attribute) = Premature infant (finding)"
-                        )
+                            CMRProcedureU1U3NewbornBloodSpotScreeningErstabnahmeVorVollendeter36LebensstundeValueCodeableConceptCodingDisplay
                     })
                 ])
             )
@@ -743,13 +743,13 @@ export const CMRProcedureU1U3NewbornBloodSpotScreeningCode: t.Type<CMRProcedureU
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface CMRProcedureU1U3NewbornBloodSpotScreeningSubject {
+export interface CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3NewbornBloodSpotScreeningSubject: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningSubject> =
-    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningSubject", () =>
+export const CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference> =
+    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -767,13 +767,13 @@ export const CMRProcedureU1U3NewbornBloodSpotScreeningSubject: t.Type<CMRProcedu
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface CMRProcedureU1U3NewbornBloodSpotScreeningEncounter {
+export interface CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3NewbornBloodSpotScreeningEncounter: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningEncounter> =
-    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningEncounter", () =>
+export const CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference> =
+    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -791,13 +791,13 @@ export const CMRProcedureU1U3NewbornBloodSpotScreeningEncounter: t.Type<CMRProce
 /**
  * Individual who is making the procedure statement.
  */
-export interface CMRProcedureU1U3NewbornBloodSpotScreeningAsserter {
+export interface CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRProcedureU1U3NewbornBloodSpotScreeningAsserter: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningAsserter> =
-    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningAsserter", () =>
+export const CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference: t.Type<CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference> =
+    t.recursion("CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -817,8 +817,8 @@ interface CMRProcedureU1U3NewbornBloodSpotScreening {
     meta: CMRProcedureU1U3NewbornBloodSpotScreeningMeta;
     status: CMRProcedureStatusVS;
     code: CMRProcedureU1U3NewbornBloodSpotScreeningCode;
-    subject: CMRProcedureU1U3NewbornBloodSpotScreeningSubject;
-    encounter: CMRProcedureU1U3NewbornBloodSpotScreeningEncounter;
+    subject: CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference;
+    encounter: CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference;
     id?: string;
     text?: Narrative;
     extension?: (
@@ -828,7 +828,7 @@ interface CMRProcedureU1U3NewbornBloodSpotScreening {
     )[];
     statusReason?: CMRProcedureU1U3NewbornBloodSpotScreeningStatusReason;
     performedDateTime?: string;
-    asserter?: CMRProcedureU1U3NewbornBloodSpotScreeningAsserter;
+    asserter?: CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference;
 }
 
 const CMRProcedureU1U3NewbornBloodSpotScreening: t.Type<CMRProcedureU1U3NewbornBloodSpotScreening> =
@@ -840,8 +840,8 @@ const CMRProcedureU1U3NewbornBloodSpotScreening: t.Type<CMRProcedureU1U3NewbornB
                     meta: CMRProcedureU1U3NewbornBloodSpotScreeningMeta,
                     status: CMRProcedureStatusVS,
                     code: CMRProcedureU1U3NewbornBloodSpotScreeningCode,
-                    subject: CMRProcedureU1U3NewbornBloodSpotScreeningSubject,
-                    encounter: CMRProcedureU1U3NewbornBloodSpotScreeningEncounter
+                    subject: CMRProcedureU1U3NewbornBloodSpotScreeningSubjectReference,
+                    encounter: CMRProcedureU1U3NewbornBloodSpotScreeningEncounterReference
                 }),
                 t.partial({
                     id: SCALARString,
@@ -888,7 +888,7 @@ const CMRProcedureU1U3NewbornBloodSpotScreening: t.Type<CMRProcedureU1U3NewbornB
                     ),
                     statusReason: CMRProcedureU1U3NewbornBloodSpotScreeningStatusReason,
                     performedDateTime: SCALARDateTime,
-                    asserter: CMRProcedureU1U3NewbornBloodSpotScreeningAsserter
+                    asserter: CMRProcedureU1U3NewbornBloodSpotScreeningAsserterReference
                 })
             ])
         )

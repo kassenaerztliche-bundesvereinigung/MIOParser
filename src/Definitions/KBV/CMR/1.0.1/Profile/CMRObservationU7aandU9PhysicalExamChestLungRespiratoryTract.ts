@@ -264,14 +264,14 @@ export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractCode: t.
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject {
+export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject> =
+export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference> =
     t.recursion(
-        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject",
+        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference",
         () =>
             Excess(
                 t.intersection([
@@ -290,14 +290,14 @@ export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject:
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter {
+export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter> =
+export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference> =
     t.recursion(
-        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter",
+        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference",
         () =>
             Excess(
                 t.intersection([
@@ -316,14 +316,14 @@ export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounte
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer {
+export interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer> =
+export const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference> =
     t.recursion(
-        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer",
+        "CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference",
         () =>
             Excess(
                 t.intersection([
@@ -344,13 +344,13 @@ interface CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTract {
     meta: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractMeta;
     status: "final";
     code: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractCode;
-    subject: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject;
-    encounter: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter;
+    subject: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference;
+    encounter: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer>;
+    performer?: Array<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference>;
 }
 
 const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTract: t.Type<CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTract> =
@@ -363,9 +363,9 @@ const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTract: t.Type<CMRObs
                     status: Literal("final"),
                     code: CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractCode,
                     subject:
-                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubject,
+                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractSubjectReference,
                     encounter:
-                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounter,
+                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -374,7 +374,7 @@ const CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTract: t.Type<CMRObs
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformer
+                        CMRObservationU7aandU9PhysicalExamChestLungRespiratoryTractPerformerReference
                     )
                 })
             ])

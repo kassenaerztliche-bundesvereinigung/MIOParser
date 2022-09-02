@@ -25,7 +25,9 @@ import { ValueSet } from "../../../Interfaces";
 
 type Mimetypes = string;
 
-const Mimetypes: t.Type<Mimetypes> = t.string;
+type MimetypesType = string;
+
+const Mimetypes: t.Type<MimetypesType> = t.string;
 
 export const MimetypesArray: string[] = [];
 

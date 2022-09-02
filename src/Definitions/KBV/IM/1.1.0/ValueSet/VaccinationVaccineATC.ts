@@ -148,135 +148,257 @@ type VaccinationVaccineATC =
     | "J06BB16"
     | "J06BB21";
 
-const VaccinationVaccineATC: t.Type<VaccinationVaccineATC> = t.union(
-    [
-        t.literal("J07AR"),
-        t.literal("J07AR01"),
-        t.literal("J07AC"),
-        t.literal("J07AC01"),
-        t.literal("J07AD"),
-        t.literal("J07AD01"),
-        t.literal("J07AE"),
-        t.literal("J07AE01"),
-        t.literal("J07AE02"),
-        t.literal("J07AE51"),
-        t.literal("J07AF"),
-        t.literal("J07AF01"),
-        t.literal("J07AG"),
-        t.literal("J07AG01"),
-        t.literal("J07AG51"),
-        t.literal("J07AG52"),
-        t.literal("J07AG53"),
-        t.literal("J07AH"),
-        t.literal("J07AH01"),
-        t.literal("J07AH02"),
-        t.literal("J07AH03"),
-        t.literal("J07AH04"),
-        t.literal("J07AH05"),
-        t.literal("J07AH06"),
-        t.literal("J07AH07"),
-        t.literal("J07AH08"),
-        t.literal("J07AH09"),
-        t.literal("J07AH10"),
-        t.literal("J07AJ"),
-        t.literal("J07AJ01"),
-        t.literal("J07AJ02"),
-        t.literal("J07AJ51"),
-        t.literal("J07AJ52"),
-        t.literal("J07AK"),
-        t.literal("J07AK01"),
-        t.literal("J07AL"),
-        t.literal("J07AL01"),
-        t.literal("J07AL02"),
-        t.literal("J07AL52"),
-        t.literal("J07AM"),
-        t.literal("J07AM01"),
-        t.literal("J07AM51"),
-        t.literal("J07AM52"),
-        t.literal("J07AN"),
-        t.literal("J07AN01"),
-        t.literal("J07AP"),
-        t.literal("J07AP01"),
-        t.literal("J07AP02"),
-        t.literal("J07AP03"),
-        t.literal("J07AP10"),
-        t.literal("J07BA"),
-        t.literal("J07BA01"),
-        t.literal("J07BA02"),
-        t.literal("J07BA03"),
-        t.literal("J07BB"),
-        t.literal("J07BB01"),
-        t.literal("J07BB02"),
-        t.literal("J07BB03"),
-        t.literal("J07BC"),
-        t.literal("J07BC01"),
-        t.literal("J07BC02"),
-        t.literal("J07BC03"),
-        t.literal("J07BC20"),
-        t.literal("J07BD"),
-        t.literal("J07BD01"),
-        t.literal("J07BD51"),
-        t.literal("J07BD52"),
-        t.literal("J07BD53"),
-        t.literal("J07BD54"),
-        t.literal("J07BE"),
-        t.literal("J07BE01"),
-        t.literal("J07BF"),
-        t.literal("J07BF01"),
-        t.literal("J07BF02"),
-        t.literal("J07BF03"),
-        t.literal("J07BF04"),
-        t.literal("J07BG"),
-        t.literal("J07BG01"),
-        t.literal("J07BH"),
-        t.literal("J07BH01"),
-        t.literal("J07BH02"),
-        t.literal("J07BJ"),
-        t.literal("J07BJ01"),
-        t.literal("J07BJ51"),
-        t.literal("J07BK"),
-        t.literal("J07BK01"),
-        t.literal("J07BK02"),
-        t.literal("J07BK03"),
-        t.literal("J07BL"),
-        t.literal("J07BL01"),
-        t.literal("J07BM"),
-        t.literal("J07BM01"),
-        t.literal("J07BM02"),
-        t.literal("J07BM03"),
-        t.literal("J07BX"),
-        t.literal("J07BX01"),
-        t.literal("J07BX03"),
-        t.literal("J07CA"),
-        t.literal("J07CA01"),
-        t.literal("J07CA02"),
-        t.literal("J07CA03"),
-        t.literal("J07CA04"),
-        t.literal("J07CA05"),
-        t.literal("J07CA06"),
-        t.literal("J07CA07"),
-        t.literal("J07CA08"),
-        t.literal("J07CA09"),
-        t.literal("J07CA10"),
-        t.literal("J07CA11"),
-        t.literal("J07CA12"),
-        t.literal("J07CA13"),
-        t.literal("J06BA"),
-        t.literal("J06BA01"),
-        t.literal("J06BA02"),
-        t.literal("J06BB"),
-        t.literal("J06BB01"),
-        t.literal("J06BB02"),
-        t.literal("J06BB03"),
-        t.literal("J06BB04"),
-        t.literal("J06BB05"),
-        t.literal("J06BB09"),
-        t.literal("J06BB16"),
-        t.literal("J06BB21")
-    ],
-    "VaccinationVaccineATC"
-);
+type VaccinationVaccineATCType = t.KeyofC<{
+    J07AR: null;
+    J07AR01: null;
+    J07AC: null;
+    J07AC01: null;
+    J07AD: null;
+    J07AD01: null;
+    J07AE: null;
+    J07AE01: null;
+    J07AE02: null;
+    J07AE51: null;
+    J07AF: null;
+    J07AF01: null;
+    J07AG: null;
+    J07AG01: null;
+    J07AG51: null;
+    J07AG52: null;
+    J07AG53: null;
+    J07AH: null;
+    J07AH01: null;
+    J07AH02: null;
+    J07AH03: null;
+    J07AH04: null;
+    J07AH05: null;
+    J07AH06: null;
+    J07AH07: null;
+    J07AH08: null;
+    J07AH09: null;
+    J07AH10: null;
+    J07AJ: null;
+    J07AJ01: null;
+    J07AJ02: null;
+    J07AJ51: null;
+    J07AJ52: null;
+    J07AK: null;
+    J07AK01: null;
+    J07AL: null;
+    J07AL01: null;
+    J07AL02: null;
+    J07AL52: null;
+    J07AM: null;
+    J07AM01: null;
+    J07AM51: null;
+    J07AM52: null;
+    J07AN: null;
+    J07AN01: null;
+    J07AP: null;
+    J07AP01: null;
+    J07AP02: null;
+    J07AP03: null;
+    J07AP10: null;
+    J07BA: null;
+    J07BA01: null;
+    J07BA02: null;
+    J07BA03: null;
+    J07BB: null;
+    J07BB01: null;
+    J07BB02: null;
+    J07BB03: null;
+    J07BC: null;
+    J07BC01: null;
+    J07BC02: null;
+    J07BC03: null;
+    J07BC20: null;
+    J07BD: null;
+    J07BD01: null;
+    J07BD51: null;
+    J07BD52: null;
+    J07BD53: null;
+    J07BD54: null;
+    J07BE: null;
+    J07BE01: null;
+    J07BF: null;
+    J07BF01: null;
+    J07BF02: null;
+    J07BF03: null;
+    J07BF04: null;
+    J07BG: null;
+    J07BG01: null;
+    J07BH: null;
+    J07BH01: null;
+    J07BH02: null;
+    J07BJ: null;
+    J07BJ01: null;
+    J07BJ51: null;
+    J07BK: null;
+    J07BK01: null;
+    J07BK02: null;
+    J07BK03: null;
+    J07BL: null;
+    J07BL01: null;
+    J07BM: null;
+    J07BM01: null;
+    J07BM02: null;
+    J07BM03: null;
+    J07BX: null;
+    J07BX01: null;
+    J07BX03: null;
+    J07CA: null;
+    J07CA01: null;
+    J07CA02: null;
+    J07CA03: null;
+    J07CA04: null;
+    J07CA05: null;
+    J07CA06: null;
+    J07CA07: null;
+    J07CA08: null;
+    J07CA09: null;
+    J07CA10: null;
+    J07CA11: null;
+    J07CA12: null;
+    J07CA13: null;
+    J06BA: null;
+    J06BA01: null;
+    J06BA02: null;
+    J06BB: null;
+    J06BB01: null;
+    J06BB02: null;
+    J06BB03: null;
+    J06BB04: null;
+    J06BB05: null;
+    J06BB09: null;
+    J06BB16: null;
+    J06BB21: null;
+}>;
 
+const VaccinationVaccineATC: VaccinationVaccineATCType = t.keyof({
+    J07AR: null,
+    J07AR01: null,
+    J07AC: null,
+    J07AC01: null,
+    J07AD: null,
+    J07AD01: null,
+    J07AE: null,
+    J07AE01: null,
+    J07AE02: null,
+    J07AE51: null,
+    J07AF: null,
+    J07AF01: null,
+    J07AG: null,
+    J07AG01: null,
+    J07AG51: null,
+    J07AG52: null,
+    J07AG53: null,
+    J07AH: null,
+    J07AH01: null,
+    J07AH02: null,
+    J07AH03: null,
+    J07AH04: null,
+    J07AH05: null,
+    J07AH06: null,
+    J07AH07: null,
+    J07AH08: null,
+    J07AH09: null,
+    J07AH10: null,
+    J07AJ: null,
+    J07AJ01: null,
+    J07AJ02: null,
+    J07AJ51: null,
+    J07AJ52: null,
+    J07AK: null,
+    J07AK01: null,
+    J07AL: null,
+    J07AL01: null,
+    J07AL02: null,
+    J07AL52: null,
+    J07AM: null,
+    J07AM01: null,
+    J07AM51: null,
+    J07AM52: null,
+    J07AN: null,
+    J07AN01: null,
+    J07AP: null,
+    J07AP01: null,
+    J07AP02: null,
+    J07AP03: null,
+    J07AP10: null,
+    J07BA: null,
+    J07BA01: null,
+    J07BA02: null,
+    J07BA03: null,
+    J07BB: null,
+    J07BB01: null,
+    J07BB02: null,
+    J07BB03: null,
+    J07BC: null,
+    J07BC01: null,
+    J07BC02: null,
+    J07BC03: null,
+    J07BC20: null,
+    J07BD: null,
+    J07BD01: null,
+    J07BD51: null,
+    J07BD52: null,
+    J07BD53: null,
+    J07BD54: null,
+    J07BE: null,
+    J07BE01: null,
+    J07BF: null,
+    J07BF01: null,
+    J07BF02: null,
+    J07BF03: null,
+    J07BF04: null,
+    J07BG: null,
+    J07BG01: null,
+    J07BH: null,
+    J07BH01: null,
+    J07BH02: null,
+    J07BJ: null,
+    J07BJ01: null,
+    J07BJ51: null,
+    J07BK: null,
+    J07BK01: null,
+    J07BK02: null,
+    J07BK03: null,
+    J07BL: null,
+    J07BL01: null,
+    J07BM: null,
+    J07BM01: null,
+    J07BM02: null,
+    J07BM03: null,
+    J07BX: null,
+    J07BX01: null,
+    J07BX03: null,
+    J07CA: null,
+    J07CA01: null,
+    J07CA02: null,
+    J07CA03: null,
+    J07CA04: null,
+    J07CA05: null,
+    J07CA06: null,
+    J07CA07: null,
+    J07CA08: null,
+    J07CA09: null,
+    J07CA10: null,
+    J07CA11: null,
+    J07CA12: null,
+    J07CA13: null,
+    J06BA: null,
+    J06BA01: null,
+    J06BA02: null,
+    J06BB: null,
+    J06BB01: null,
+    J06BB02: null,
+    J06BB03: null,
+    J06BB04: null,
+    J06BB05: null,
+    J06BB09: null,
+    J06BB16: null,
+    J06BB21: null
+});
 export const VaccinationVaccineATCArray: string[] = [
     "J07AR",
     "J07AR01",

@@ -26,12 +26,18 @@ import VaccinationImmunizationOriginCodesGerman from "../../../../../Definitions
 
 type VaccinationImmunizationOriginCodes = "recall" | "record" | "provider";
 
-const VaccinationImmunizationOriginCodes: t.Type<VaccinationImmunizationOriginCodes> =
-    t.union(
-        [t.literal("recall"), t.literal("record"), t.literal("provider")],
-        "VaccinationImmunizationOriginCodes"
-    );
+type VaccinationImmunizationOriginCodesType = t.KeyofC<{
+    recall: null;
+    record: null;
+    provider: null;
+}>;
 
+const VaccinationImmunizationOriginCodes: VaccinationImmunizationOriginCodesType =
+    t.keyof({
+        recall: null,
+        record: null,
+        provider: null
+    });
 export const VaccinationImmunizationOriginCodesArray: string[] = [
     "recall",
     "record",

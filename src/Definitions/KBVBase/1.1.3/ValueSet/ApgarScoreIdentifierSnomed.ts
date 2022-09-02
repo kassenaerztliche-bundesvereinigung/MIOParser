@@ -26,11 +26,12 @@ import ApgarScoreIdentifierSnomedGerman from "../../../../Definitions/KBVBase/1.
 
 type ApgarScoreIdentifierSnomed = "169922007" | "169909004";
 
-const ApgarScoreIdentifierSnomed: t.Type<ApgarScoreIdentifierSnomed> = t.union(
-    [t.literal("169922007"), t.literal("169909004")],
-    "ApgarScoreIdentifierSnomed"
-);
+type ApgarScoreIdentifierSnomedType = t.KeyofC<{ "169922007": null; "169909004": null }>;
 
+const ApgarScoreIdentifierSnomed: ApgarScoreIdentifierSnomedType = t.keyof({
+    "169922007": null,
+    "169909004": null
+});
 export const ApgarScoreIdentifierSnomedArray: string[] = ["169922007", "169909004"];
 
 export const ApgarScoreIdentifierSnomedValueSet: ValueSet = [

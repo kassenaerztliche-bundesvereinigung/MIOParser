@@ -26,11 +26,17 @@ import MRBirthModeGerman from "../../../../../Definitions/KBV/MR/1.1.0/ConceptMa
 
 type MRBirthMode = "236974004" | "11466000" | "177184002";
 
-const MRBirthMode: t.Type<MRBirthMode> = t.union(
-    [t.literal("236974004"), t.literal("11466000"), t.literal("177184002")],
-    "MRBirthMode"
-);
+type MRBirthModeType = t.KeyofC<{
+    "236974004": null;
+    "11466000": null;
+    "177184002": null;
+}>;
 
+const MRBirthMode: MRBirthModeType = t.keyof({
+    "236974004": null,
+    "11466000": null,
+    "177184002": null
+});
 export const MRBirthModeArray: string[] = ["236974004", "11466000", "177184002"];
 
 export const MRBirthModeValueSet: ValueSet = [

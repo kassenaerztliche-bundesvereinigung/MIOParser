@@ -135,13 +135,13 @@ export const VaccinationCompositionPrimeConditionCodeCoding: t.Type<VaccinationC
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface VaccinationCompositionPrimeConditionSectionEntry {
+export interface VaccinationCompositionPrimeConditionSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<VaccinationCompositionPrimeConditionSectionEntry> =
-    t.recursion("VaccinationCompositionPrimeConditionSectionEntry", () =>
+export const VaccinationCompositionPrimeConditionSectionEntryReference: t.Type<VaccinationCompositionPrimeConditionSectionEntryReference> =
+    t.recursion("VaccinationCompositionPrimeConditionSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -159,14 +159,14 @@ export const VaccinationCompositionPrimeConditionSectionEntry: t.Type<Vaccinatio
 /**
  * Provides a reason why the expected value or elements in the element that is extended are missing.
  */
-export interface VaccinationCompositionPrimeAuthorDataabsentreason {
+export interface VaccinationCompositionPrimeAuthorReferenceDataabsentreason {
     url: "http://hl7.org/fhir/StructureDefinition/data-absent-reason";
     valueCode: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeAuthorDataabsentreason: t.Type<VaccinationCompositionPrimeAuthorDataabsentreason> =
-    t.recursion("VaccinationCompositionPrimeAuthorDataabsentreason", () =>
+export const VaccinationCompositionPrimeAuthorReferenceDataabsentreason: t.Type<VaccinationCompositionPrimeAuthorReferenceDataabsentreason> =
+    t.recursion("VaccinationCompositionPrimeAuthorReferenceDataabsentreason", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -211,13 +211,13 @@ export const VaccinationCompositionPrimeRecordPrimeCode: t.Type<VaccinationCompo
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface VaccinationCompositionPrimeRecordPrimeEntry {
+export interface VaccinationCompositionPrimeRecordPrimeEntryReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeRecordPrimeEntry: t.Type<VaccinationCompositionPrimeRecordPrimeEntry> =
-    t.recursion("VaccinationCompositionPrimeRecordPrimeEntry", () =>
+export const VaccinationCompositionPrimeRecordPrimeEntryReference: t.Type<VaccinationCompositionPrimeRecordPrimeEntryReference> =
+    t.recursion("VaccinationCompositionPrimeRecordPrimeEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -261,13 +261,13 @@ export const VaccinationCompositionPrimeObservationCode: t.Type<VaccinationCompo
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface VaccinationCompositionPrimeObservationEntry {
+export interface VaccinationCompositionPrimeObservationEntryReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeObservationEntry: t.Type<VaccinationCompositionPrimeObservationEntry> =
-    t.recursion("VaccinationCompositionPrimeObservationEntry", () =>
+export const VaccinationCompositionPrimeObservationEntryReference: t.Type<VaccinationCompositionPrimeObservationEntryReference> =
+    t.recursion("VaccinationCompositionPrimeObservationEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -315,13 +315,13 @@ export const VaccinationCompositionPrimeConditionCode: t.Type<VaccinationComposi
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface VaccinationCompositionPrimeConditionEntry {
+export interface VaccinationCompositionPrimeConditionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompositionPrimeConditionEntry> =
-    t.recursion("VaccinationCompositionPrimeConditionEntry", () =>
+export const VaccinationCompositionPrimeConditionEntryReference: t.Type<VaccinationCompositionPrimeConditionEntryReference> =
+    t.recursion("VaccinationCompositionPrimeConditionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -340,7 +340,7 @@ export const VaccinationCompositionPrimeConditionEntry: t.Type<VaccinationCompos
  * A nested sub-section within this section.
  */
 export interface VaccinationCompositionPrimeConditionSection {
-    entry: Array<VaccinationCompositionPrimeConditionSectionEntry>;
+    entry: Array<VaccinationCompositionPrimeConditionSectionEntryReference>;
     id?: string;
 }
 
@@ -349,7 +349,10 @@ export const VaccinationCompositionPrimeConditionSection: t.Type<VaccinationComp
         Excess(
             t.intersection([
                 t.type({
-                    entry: MinArray(1, VaccinationCompositionPrimeConditionSectionEntry)
+                    entry: MinArray(
+                        1,
+                        VaccinationCompositionPrimeConditionSectionEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -391,7 +394,7 @@ export const VaccinationCompositionPrimeTypeCoding: t.Type<VaccinationCompositio
  */
 export interface VaccinationCompositionPrimeRecordPrime {
     code: VaccinationCompositionPrimeRecordPrimeCode;
-    entry: Array<VaccinationCompositionPrimeRecordPrimeEntry>;
+    entry: Array<VaccinationCompositionPrimeRecordPrimeEntryReference>;
     id?: string;
 }
 
@@ -401,7 +404,10 @@ export const VaccinationCompositionPrimeRecordPrime: t.Type<VaccinationCompositi
             t.intersection([
                 t.type({
                     code: VaccinationCompositionPrimeRecordPrimeCode,
-                    entry: MinArray(1, VaccinationCompositionPrimeRecordPrimeEntry)
+                    entry: MinArray(
+                        1,
+                        VaccinationCompositionPrimeRecordPrimeEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -415,7 +421,7 @@ export const VaccinationCompositionPrimeRecordPrime: t.Type<VaccinationCompositi
  */
 export interface VaccinationCompositionPrimeObservation {
     code: VaccinationCompositionPrimeObservationCode;
-    entry: Array<VaccinationCompositionPrimeObservationEntry>;
+    entry: Array<VaccinationCompositionPrimeObservationEntryReference>;
     id?: string;
 }
 
@@ -425,7 +431,10 @@ export const VaccinationCompositionPrimeObservation: t.Type<VaccinationCompositi
             t.intersection([
                 t.type({
                     code: VaccinationCompositionPrimeObservationCode,
-                    entry: MinArray(1, VaccinationCompositionPrimeObservationEntry)
+                    entry: MinArray(
+                        1,
+                        VaccinationCompositionPrimeObservationEntryReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString
@@ -439,7 +448,7 @@ export const VaccinationCompositionPrimeObservation: t.Type<VaccinationCompositi
  */
 export interface VaccinationCompositionPrimeCondition {
     code: VaccinationCompositionPrimeConditionCode;
-    entry: Array<VaccinationCompositionPrimeConditionEntry>;
+    entry: Array<VaccinationCompositionPrimeConditionEntryReference>;
     section: Array<VaccinationCompositionPrimeConditionSection>;
     id?: string;
 }
@@ -450,7 +459,10 @@ export const VaccinationCompositionPrimeCondition: t.Type<VaccinationComposition
             t.intersection([
                 t.type({
                     code: VaccinationCompositionPrimeConditionCode,
-                    entry: MinArray(1, VaccinationCompositionPrimeConditionEntry),
+                    entry: MinArray(
+                        1,
+                        VaccinationCompositionPrimeConditionEntryReference
+                    ),
                     section: MinArray(1, VaccinationCompositionPrimeConditionSection)
                 }),
                 t.partial({
@@ -537,13 +549,13 @@ export const VaccinationCompositionPrimeType: t.Type<VaccinationCompositionPrime
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface VaccinationCompositionPrimeSubject {
+export interface VaccinationCompositionPrimeSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPrimeSubject> =
-    t.recursion("VaccinationCompositionPrimeSubject", () =>
+export const VaccinationCompositionPrimeSubjectReference: t.Type<VaccinationCompositionPrimeSubjectReference> =
+    t.recursion("VaccinationCompositionPrimeSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -561,14 +573,17 @@ export const VaccinationCompositionPrimeSubject: t.Type<VaccinationCompositionPr
 /**
  * Die Person, die den Eintrag der Impfung erstellt hat. Sollte keine eintragende Person vorhanden sein, so kann die Nullflavor-Extension genutzt werden.
  */
-export interface VaccinationCompositionPrimeAuthor {
+export interface VaccinationCompositionPrimeAuthorReference {
     id?: string;
-    extension?: (Extension | VaccinationCompositionPrimeAuthorDataabsentreason)[];
+    extension?: (
+        | Extension
+        | VaccinationCompositionPrimeAuthorReferenceDataabsentreason
+    )[];
     reference?: string;
 }
 
-export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPrimeAuthor> =
-    t.recursion("VaccinationCompositionPrimeAuthor", () =>
+export const VaccinationCompositionPrimeAuthorReference: t.Type<VaccinationCompositionPrimeAuthorReference> =
+    t.recursion("VaccinationCompositionPrimeAuthorReference", () =>
         Excess(
             t.partial({
                 id: SCALARString,
@@ -576,14 +591,14 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
                     t.UnionC<
                         [
                             t.Type<Extension>,
-                            t.Type<VaccinationCompositionPrimeAuthorDataabsentreason>
+                            t.Type<VaccinationCompositionPrimeAuthorReferenceDataabsentreason>
                         ]
                     >,
                     t.Any
                 >(
                     t.union([
                         Extension,
-                        VaccinationCompositionPrimeAuthorDataabsentreason
+                        VaccinationCompositionPrimeAuthorReferenceDataabsentreason
                     ]),
                     [
                         {
@@ -592,7 +607,7 @@ export const VaccinationCompositionPrimeAuthor: t.Type<VaccinationCompositionPri
                             sliceBy: { path: "url" }
                         },
                         {
-                            codec: VaccinationCompositionPrimeAuthorDataabsentreason,
+                            codec: VaccinationCompositionPrimeAuthorReferenceDataabsentreason,
                             occurrence: ["0", "1"],
                             sliceBy: {
                                 path: "url",
@@ -614,9 +629,9 @@ interface VaccinationCompositionPrime {
     meta: VaccinationCompositionPrimeMeta;
     status: "final";
     type: VaccinationCompositionPrimeType;
-    subject: VaccinationCompositionPrimeSubject;
+    subject: VaccinationCompositionPrimeSubjectReference;
     date: string;
-    author: Array<VaccinationCompositionPrimeAuthor>;
+    author: Array<VaccinationCompositionPrimeAuthorReference>;
     title: string;
     section: Array<
         | VaccinationCompositionPrimeRecordPrime
@@ -637,9 +652,9 @@ const VaccinationCompositionPrime: t.Type<VaccinationCompositionPrime> = t.recur
                     meta: VaccinationCompositionPrimeMeta,
                     status: Literal("final"),
                     type: VaccinationCompositionPrimeType,
-                    subject: VaccinationCompositionPrimeSubject,
+                    subject: VaccinationCompositionPrimeSubjectReference,
                     date: SCALARDateTime,
-                    author: MinMaxArray(1, 1, VaccinationCompositionPrimeAuthor),
+                    author: MinMaxArray(1, 1, VaccinationCompositionPrimeAuthorReference),
                     title: SCALARString,
                     section: ReqArray<
                         t.UnionC<

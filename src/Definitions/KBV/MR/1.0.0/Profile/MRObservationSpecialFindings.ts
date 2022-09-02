@@ -452,13 +452,13 @@ export const MRObservationSpecialFindingsCode: t.Type<MRObservationSpecialFindin
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationSpecialFindingsSubject {
+export interface MRObservationSpecialFindingsSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationSpecialFindingsSubject: t.Type<MRObservationSpecialFindingsSubject> =
-    t.recursion("MRObservationSpecialFindingsSubject", () =>
+export const MRObservationSpecialFindingsSubjectReference: t.Type<MRObservationSpecialFindingsSubjectReference> =
+    t.recursion("MRObservationSpecialFindingsSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -476,13 +476,13 @@ export const MRObservationSpecialFindingsSubject: t.Type<MRObservationSpecialFin
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationSpecialFindingsEncounter {
+export interface MRObservationSpecialFindingsEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationSpecialFindingsEncounter: t.Type<MRObservationSpecialFindingsEncounter> =
-    t.recursion("MRObservationSpecialFindingsEncounter", () =>
+export const MRObservationSpecialFindingsEncounterReference: t.Type<MRObservationSpecialFindingsEncounterReference> =
+    t.recursion("MRObservationSpecialFindingsEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -500,13 +500,13 @@ export const MRObservationSpecialFindingsEncounter: t.Type<MRObservationSpecialF
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationSpecialFindingsPerformer {
+export interface MRObservationSpecialFindingsPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationSpecialFindingsPerformer: t.Type<MRObservationSpecialFindingsPerformer> =
-    t.recursion("MRObservationSpecialFindingsPerformer", () =>
+export const MRObservationSpecialFindingsPerformerReference: t.Type<MRObservationSpecialFindingsPerformerReference> =
+    t.recursion("MRObservationSpecialFindingsPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -527,13 +527,13 @@ interface MRObservationSpecialFindings {
     meta: MRObservationSpecialFindingsMeta;
     status: "final";
     code: MRObservationSpecialFindingsCode;
-    subject: MRObservationSpecialFindingsSubject;
-    encounter: MRObservationSpecialFindingsEncounter;
+    subject: MRObservationSpecialFindingsSubjectReference;
+    encounter: MRObservationSpecialFindingsEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationSpecialFindingsValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationSpecialFindingsPerformer>;
+    performer?: Array<MRObservationSpecialFindingsPerformerReference>;
     note?: Array<Annotation>;
 }
 
@@ -547,15 +547,18 @@ const MRObservationSpecialFindings: t.Type<MRObservationSpecialFindings> = t.rec
                     meta: MRObservationSpecialFindingsMeta,
                     status: Literal("final"),
                     code: MRObservationSpecialFindingsCode,
-                    subject: MRObservationSpecialFindingsSubject,
-                    encounter: MRObservationSpecialFindingsEncounter,
+                    subject: MRObservationSpecialFindingsSubjectReference,
+                    encounter: MRObservationSpecialFindingsEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept: MRObservationSpecialFindingsValueCodeableConcept
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationSpecialFindingsPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationSpecialFindingsPerformerReference
+                    ),
                     note: MaxArray(1, Annotation)
                 })
             ])

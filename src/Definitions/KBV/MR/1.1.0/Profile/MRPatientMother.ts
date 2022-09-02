@@ -36,7 +36,6 @@ import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import SCALARUri from "../../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
 
 import AddressuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Addressuse";
-import Coding from "../../../../../Definitions/FHIR/4.0.1/Profile/Coding";
 
 import GemRSAnlage8VS from "../../../../../Definitions/KBVBase/1.1.3/ValueSet/GemRSAnlage8";
 
@@ -52,25 +51,27 @@ import ResourcetypesVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Reso
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
  */
-export interface MRPatientMotherVersichertennummerpkvAssignerIdentifierType {
-    coding: Array<Coding>;
+export interface MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType {
+    coding: Array<"[object Object]">;
     id?: string;
     text?: string;
 }
 
-export const MRPatientMotherVersichertennummerpkvAssignerIdentifierType: t.Type<MRPatientMotherVersichertennummerpkvAssignerIdentifierType> =
-    t.recursion("MRPatientMotherVersichertennummerpkvAssignerIdentifierType", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinArray(1, Coding)
-                }),
-                t.partial({
-                    id: SCALARString,
-                    text: SCALARString
-                })
-            ])
-        )
+export const MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType: t.Type<MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType> =
+    t.recursion(
+        "MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinArray(1, Literal("[object Object]"))
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        text: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -435,18 +436,18 @@ export const MRPatientMotherVersichertennummerpkvTypeCoding: t.Type<MRPatientMot
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
-export interface MRPatientMotherVersichertennummerpkvAssignerIdentifier {
+export interface MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
     use?: "official";
-    type?: MRPatientMotherVersichertennummerpkvAssignerIdentifierType;
+    type?: MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType;
     period?: Period;
     assigner?: Reference;
 }
 
-export const MRPatientMotherVersichertennummerpkvAssignerIdentifier: t.Type<MRPatientMotherVersichertennummerpkvAssignerIdentifier> =
-    t.recursion("MRPatientMotherVersichertennummerpkvAssignerIdentifier", () =>
+export const MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier: t.Type<MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier> =
+    t.recursion("MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -456,7 +457,7 @@ export const MRPatientMotherVersichertennummerpkvAssignerIdentifier: t.Type<MRPa
                 t.partial({
                     id: SCALARString,
                     use: Literal("official"),
-                    type: MRPatientMotherVersichertennummerpkvAssignerIdentifierType,
+                    type: MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifierType,
                     period: Period,
                     assigner: Reference
                 })
@@ -602,16 +603,16 @@ export const MRPatientMotherVersichertennummerpkvType: t.Type<MRPatientMotherVer
 /**
  * Organization that issued/manages the identifier.
  */
-export interface MRPatientMotherVersichertennummerpkvAssigner {
+export interface MRPatientMotherVersichertennummerpkvAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: MRPatientMotherVersichertennummerpkvAssignerIdentifier;
+    identifier?: MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier;
 }
 
-export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMotherVersichertennummerpkvAssigner> =
-    t.recursion("MRPatientMotherVersichertennummerpkvAssigner", () =>
+export const MRPatientMotherVersichertennummerpkvAssignerReference: t.Type<MRPatientMotherVersichertennummerpkvAssignerReference> =
+    t.recursion("MRPatientMotherVersichertennummerpkvAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -623,7 +624,8 @@ export const MRPatientMotherVersichertennummerpkvAssigner: t.Type<MRPatientMothe
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: MRPatientMotherVersichertennummerpkvAssignerIdentifier
+                    identifier:
+                        MRPatientMotherVersichertennummerpkvAssignerReferenceIdentifier
                 })
             ])
         )
@@ -967,7 +969,7 @@ export const MRPatientMotherVersichertenIdGKV: t.Type<MRPatientMotherVersicherte
 export interface MRPatientMotherVersichertennummerpkv {
     type: MRPatientMotherVersichertennummerpkvType;
     value: string;
-    assigner: MRPatientMotherVersichertennummerpkvAssigner;
+    assigner: MRPatientMotherVersichertennummerpkvAssignerReference;
     id?: string;
     use?: "secondary";
     system?: string;
@@ -980,7 +982,7 @@ export const MRPatientMotherVersichertennummerpkv: t.Type<MRPatientMotherVersich
                 t.type({
                     type: MRPatientMotherVersichertennummerpkvType,
                     value: SCALARString,
-                    assigner: MRPatientMotherVersichertennummerpkvAssigner
+                    assigner: MRPatientMotherVersichertennummerpkvAssignerReference
                 }),
                 t.partial({
                     id: SCALARString,

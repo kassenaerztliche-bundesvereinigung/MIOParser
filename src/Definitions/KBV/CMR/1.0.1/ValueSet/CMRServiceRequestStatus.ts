@@ -25,11 +25,12 @@ import { ValueSet } from "../../../../Interfaces";
 
 type CMRServiceRequestStatus = "completed" | "active";
 
-const CMRServiceRequestStatus: t.Type<CMRServiceRequestStatus> = t.union(
-    [t.literal("completed"), t.literal("active")],
-    "CMRServiceRequestStatus"
-);
+type CMRServiceRequestStatusType = t.KeyofC<{ completed: null; active: null }>;
 
+const CMRServiceRequestStatus: CMRServiceRequestStatusType = t.keyof({
+    completed: null,
+    active: null
+});
 export const CMRServiceRequestStatusArray: string[] = ["completed", "active"];
 
 export const CMRServiceRequestStatusValueSet: ValueSet = [

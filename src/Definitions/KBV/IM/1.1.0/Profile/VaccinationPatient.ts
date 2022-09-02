@@ -51,7 +51,7 @@ import ResourcetypesVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Reso
 /**
  * A reference to a code defined by a terminology system.
  */
-export interface VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType {
+export interface VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType {
     system: "http://terminology.hl7.org/CodeSystem/v2-0203";
     code: "XX";
     id?: string;
@@ -60,9 +60,9 @@ export interface VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXX
     userSelected?: boolean;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType> =
+export const VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType: t.Type<VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType> =
     t.recursion(
-        "VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType",
+        "VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType",
         () =>
             Excess(
                 t.intersection([
@@ -167,28 +167,30 @@ export const VaccinationPatientVersichertennummerpkvTypePKVType: t.Type<Vaccinat
 /**
  * A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
  */
-export interface VaccinationPatientVersichertennummerpkvAssignerIdentifierType {
-    coding: Array<VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType>;
+export interface VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType {
+    coding: Array<VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType>;
     id?: string;
     text?: string;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifierType: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifierType> =
-    t.recursion("VaccinationPatientVersichertennummerpkvAssignerIdentifierType", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    coding: MinArray(
-                        1,
-                        VaccinationPatientVersichertennummerpkvAssignerIdentifierTypeXXType
-                    )
-                }),
-                t.partial({
-                    id: SCALARString,
-                    text: SCALARString
-                })
-            ])
-        )
+export const VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType: t.Type<VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType> =
+    t.recursion(
+        "VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        coding: MinArray(
+                            1,
+                            VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierTypeXXType
+                        )
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        text: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -382,33 +384,35 @@ export const VaccinationPatientGeburtsnameFamilyVorsatzwort: t.Type<VaccinationP
 /**
  * An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
  */
-export interface VaccinationPatientVersichertennummerpkvAssignerIdentifier {
+export interface VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
     use?: "official";
-    type?: VaccinationPatientVersichertennummerpkvAssignerIdentifierType;
+    type?: VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType;
     period?: Period;
     assigner?: Reference;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssignerIdentifier: t.Type<VaccinationPatientVersichertennummerpkvAssignerIdentifier> =
-    t.recursion("VaccinationPatientVersichertennummerpkvAssignerIdentifier", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
-                    value: SCALARString
-                }),
-                t.partial({
-                    id: SCALARString,
-                    use: Literal("official"),
-                    type: VaccinationPatientVersichertennummerpkvAssignerIdentifierType,
-                    period: Period,
-                    assigner: Reference
-                })
-            ])
-        )
+export const VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier: t.Type<VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier> =
+    t.recursion(
+        "VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
+                        value: SCALARString
+                    }),
+                    t.partial({
+                        id: SCALARString,
+                        use: Literal("official"),
+                        type: VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifierType,
+                        period: Period,
+                        assigner: Reference
+                    })
+                ])
+            )
     );
 
 /**
@@ -546,16 +550,16 @@ export const VaccinationPatientVersichertennummerpkvType: t.Type<VaccinationPati
 /**
  * Organization that issued/manages the identifier.
  */
-export interface VaccinationPatientVersichertennummerpkvAssigner {
+export interface VaccinationPatientVersichertennummerpkvAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: VaccinationPatientVersichertennummerpkvAssignerIdentifier;
+    identifier?: VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier;
 }
 
-export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<VaccinationPatientVersichertennummerpkvAssigner> =
-    t.recursion("VaccinationPatientVersichertennummerpkvAssigner", () =>
+export const VaccinationPatientVersichertennummerpkvAssignerReference: t.Type<VaccinationPatientVersichertennummerpkvAssignerReference> =
+    t.recursion("VaccinationPatientVersichertennummerpkvAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -567,7 +571,8 @@ export const VaccinationPatientVersichertennummerpkvAssigner: t.Type<Vaccination
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: VaccinationPatientVersichertennummerpkvAssignerIdentifier
+                    identifier:
+                        VaccinationPatientVersichertennummerpkvAssignerReferenceIdentifier
                 })
             ])
         )
@@ -904,7 +909,7 @@ export const VaccinationPatientVersichertenIdGKV: t.Type<VaccinationPatientVersi
 export interface VaccinationPatientVersichertennummerpkv {
     type: VaccinationPatientVersichertennummerpkvType;
     value: string;
-    assigner: VaccinationPatientVersichertennummerpkvAssigner;
+    assigner: VaccinationPatientVersichertennummerpkvAssignerReference;
     id?: string;
     use?: "secondary";
     system?: string;
@@ -918,7 +923,7 @@ export const VaccinationPatientVersichertennummerpkv: t.Type<VaccinationPatientV
                 t.type({
                     type: VaccinationPatientVersichertennummerpkvType,
                     value: SCALARString,
-                    assigner: VaccinationPatientVersichertennummerpkvAssigner
+                    assigner: VaccinationPatientVersichertennummerpkvAssignerReference
                 }),
                 t.partial({
                     id: SCALARString,

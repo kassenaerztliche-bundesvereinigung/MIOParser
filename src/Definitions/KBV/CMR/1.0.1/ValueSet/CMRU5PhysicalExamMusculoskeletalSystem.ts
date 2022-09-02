@@ -33,20 +33,26 @@ type CMRU5PhysicalExamMusculoskeletalSystem =
     | "366420008"
     | "404684003:116676008=72704001";
 
-const CMRU5PhysicalExamMusculoskeletalSystem: t.Type<CMRU5PhysicalExamMusculoskeletalSystem> =
-    t.union(
-        [
-            t.literal("422949007"),
-            t.literal("43029002"),
-            t.literal("225606002"),
-            t.literal("366725004"),
-            t.literal("298180004"),
-            t.literal("366420008"),
-            t.literal("404684003:116676008=72704001")
-        ],
-        "CMRU5PhysicalExamMusculoskeletalSystem"
-    );
+type CMRU5PhysicalExamMusculoskeletalSystemType = t.KeyofC<{
+    "422949007": null;
+    "43029002": null;
+    "225606002": null;
+    "366725004": null;
+    "298180004": null;
+    "366420008": null;
+    "404684003:116676008=72704001": null;
+}>;
 
+const CMRU5PhysicalExamMusculoskeletalSystem: CMRU5PhysicalExamMusculoskeletalSystemType =
+    t.keyof({
+        "422949007": null,
+        "43029002": null,
+        "225606002": null,
+        "366725004": null,
+        "298180004": null,
+        "366420008": null,
+        "404684003:116676008=72704001": null
+    });
 export const CMRU5PhysicalExamMusculoskeletalSystemArray: string[] = [
     "422949007",
     "43029002",

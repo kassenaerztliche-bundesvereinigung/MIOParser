@@ -25,11 +25,12 @@ import { ValueSet } from "../../../Interfaces";
 
 type BodyWeightUnit = "g" | "kg";
 
-const BodyWeightUnit: t.Type<BodyWeightUnit> = t.union(
-    [t.literal("g"), t.literal("kg")],
-    "BodyWeightUnit"
-);
+type BodyWeightUnitType = t.KeyofC<{ g: null; kg: null }>;
 
+const BodyWeightUnit: BodyWeightUnitType = t.keyof({
+    g: null,
+    kg: null
+});
 export const BodyWeightUnitArray: string[] = ["g", "kg"];
 
 export const BodyWeightUnitValueSet: ValueSet = [

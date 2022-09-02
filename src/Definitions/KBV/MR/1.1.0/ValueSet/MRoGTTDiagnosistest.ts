@@ -26,11 +26,12 @@ import MRoGTTDiagnosistestGerman from "../../../../../Definitions/KBV/MR/1.1.0/C
 
 type MRoGTTDiagnosistest = "372048000" | "1156100006";
 
-const MRoGTTDiagnosistest: t.Type<MRoGTTDiagnosistest> = t.union(
-    [t.literal("372048000"), t.literal("1156100006")],
-    "MRoGTTDiagnosistest"
-);
+type MRoGTTDiagnosistestType = t.KeyofC<{ "372048000": null; "1156100006": null }>;
 
+const MRoGTTDiagnosistest: MRoGTTDiagnosistestType = t.keyof({
+    "372048000": null,
+    "1156100006": null
+});
 export const MRoGTTDiagnosistestArray: string[] = ["372048000", "1156100006"];
 
 export const MRoGTTDiagnosistestValueSet: ValueSet = [

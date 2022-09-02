@@ -364,13 +364,13 @@ export const MRObservationWeightMotherCode: t.Type<MRObservationWeightMotherCode
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationWeightMotherSubject {
+export interface MRObservationWeightMotherSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightMotherSubject: t.Type<MRObservationWeightMotherSubject> =
-    t.recursion("MRObservationWeightMotherSubject", () =>
+export const MRObservationWeightMotherSubjectReference: t.Type<MRObservationWeightMotherSubjectReference> =
+    t.recursion("MRObservationWeightMotherSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -388,13 +388,13 @@ export const MRObservationWeightMotherSubject: t.Type<MRObservationWeightMotherS
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationWeightMotherEncounter {
+export interface MRObservationWeightMotherEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightMotherEncounter: t.Type<MRObservationWeightMotherEncounter> =
-    t.recursion("MRObservationWeightMotherEncounter", () =>
+export const MRObservationWeightMotherEncounterReference: t.Type<MRObservationWeightMotherEncounterReference> =
+    t.recursion("MRObservationWeightMotherEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -412,13 +412,13 @@ export const MRObservationWeightMotherEncounter: t.Type<MRObservationWeightMothe
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationWeightMotherPerformer {
+export interface MRObservationWeightMotherPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationWeightMotherPerformer: t.Type<MRObservationWeightMotherPerformer> =
-    t.recursion("MRObservationWeightMotherPerformer", () =>
+export const MRObservationWeightMotherPerformerReference: t.Type<MRObservationWeightMotherPerformerReference> =
+    t.recursion("MRObservationWeightMotherPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -439,13 +439,13 @@ interface MRObservationWeightMother {
     meta: MRObservationWeightMotherMeta;
     status: "final";
     code: MRObservationWeightMotherCode;
-    subject: MRObservationWeightMotherSubject;
-    encounter: MRObservationWeightMotherEncounter;
+    subject: MRObservationWeightMotherSubjectReference;
+    encounter: MRObservationWeightMotherEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationWeightMotherValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationWeightMotherPerformer>;
+    performer?: Array<MRObservationWeightMotherPerformerReference>;
 }
 
 const MRObservationWeightMother: t.Type<MRObservationWeightMother> = t.recursion(
@@ -458,15 +458,15 @@ const MRObservationWeightMother: t.Type<MRObservationWeightMother> = t.recursion
                     meta: MRObservationWeightMotherMeta,
                     status: Literal("final"),
                     code: MRObservationWeightMotherCode,
-                    subject: MRObservationWeightMotherSubject,
-                    encounter: MRObservationWeightMotherEncounter,
+                    subject: MRObservationWeightMotherSubjectReference,
+                    encounter: MRObservationWeightMotherEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationWeightMotherValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationWeightMotherPerformer)
+                    performer: MaxArray(1, MRObservationWeightMotherPerformerReference)
                 })
             ])
         )

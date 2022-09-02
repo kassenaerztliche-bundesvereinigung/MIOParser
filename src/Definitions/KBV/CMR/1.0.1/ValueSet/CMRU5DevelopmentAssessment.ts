@@ -34,20 +34,27 @@ type CMRU5DevelopmentAssessment =
     | "365997002"
     | "106131003";
 
-const CMRU5DevelopmentAssessment: t.Type<CMRU5DevelopmentAssessment> = t.union(
-    [
-        t.literal("364832000"),
-        t.literal("364944003"),
-        t.literal("365374008"),
-        t.literal("284490008"),
-        t.literal("268672004"),
-        t.literal("106126000"),
-        t.literal("365997002"),
-        t.literal("106131003")
-    ],
-    "CMRU5DevelopmentAssessment"
-);
+type CMRU5DevelopmentAssessmentType = t.KeyofC<{
+    "364832000": null;
+    "364944003": null;
+    "365374008": null;
+    "284490008": null;
+    "268672004": null;
+    "106126000": null;
+    "365997002": null;
+    "106131003": null;
+}>;
 
+const CMRU5DevelopmentAssessment: CMRU5DevelopmentAssessmentType = t.keyof({
+    "364832000": null,
+    "364944003": null,
+    "365374008": null,
+    "284490008": null,
+    "268672004": null,
+    "106126000": null,
+    "365997002": null,
+    "106131003": null
+});
 export const CMRU5DevelopmentAssessmentArray: string[] = [
     "364832000",
     "364944003",

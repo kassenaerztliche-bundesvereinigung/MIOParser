@@ -256,13 +256,13 @@ export const MRObservationVaricosisCode: t.Type<MRObservationVaricosisCode> = t.
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationVaricosisSubject {
+export interface MRObservationVaricosisSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationVaricosisSubject: t.Type<MRObservationVaricosisSubject> =
-    t.recursion("MRObservationVaricosisSubject", () =>
+export const MRObservationVaricosisSubjectReference: t.Type<MRObservationVaricosisSubjectReference> =
+    t.recursion("MRObservationVaricosisSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const MRObservationVaricosisSubject: t.Type<MRObservationVaricosisSubject
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationVaricosisEncounter {
+export interface MRObservationVaricosisEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationVaricosisEncounter: t.Type<MRObservationVaricosisEncounter> =
-    t.recursion("MRObservationVaricosisEncounter", () =>
+export const MRObservationVaricosisEncounterReference: t.Type<MRObservationVaricosisEncounterReference> =
+    t.recursion("MRObservationVaricosisEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const MRObservationVaricosisEncounter: t.Type<MRObservationVaricosisEncou
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationVaricosisPerformer {
+export interface MRObservationVaricosisPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationVaricosisPerformer: t.Type<MRObservationVaricosisPerformer> =
-    t.recursion("MRObservationVaricosisPerformer", () =>
+export const MRObservationVaricosisPerformerReference: t.Type<MRObservationVaricosisPerformerReference> =
+    t.recursion("MRObservationVaricosisPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -331,13 +331,13 @@ interface MRObservationVaricosis {
     meta: MRObservationVaricosisMeta;
     status: "final";
     code: MRObservationVaricosisCode;
-    subject: MRObservationVaricosisSubject;
-    encounter: MRObservationVaricosisEncounter;
+    subject: MRObservationVaricosisSubjectReference;
+    encounter: MRObservationVaricosisEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationVaricosisPerformer>;
+    performer?: Array<MRObservationVaricosisPerformerReference>;
 }
 
 const MRObservationVaricosis: t.Type<MRObservationVaricosis> = t.recursion(
@@ -350,15 +350,15 @@ const MRObservationVaricosis: t.Type<MRObservationVaricosis> = t.recursion(
                     meta: MRObservationVaricosisMeta,
                     status: Literal("final"),
                     code: MRObservationVaricosisCode,
-                    subject: MRObservationVaricosisSubject,
-                    encounter: MRObservationVaricosisEncounter,
+                    subject: MRObservationVaricosisSubjectReference,
+                    encounter: MRObservationVaricosisEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationVaricosisPerformer)
+                    performer: MaxArray(1, MRObservationVaricosisPerformerReference)
                 })
             ])
         )

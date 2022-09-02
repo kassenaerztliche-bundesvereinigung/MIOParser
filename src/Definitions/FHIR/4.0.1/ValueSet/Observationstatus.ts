@@ -33,20 +33,27 @@ type Observationstatus =
     | "entered-in-error"
     | "unknown";
 
-const Observationstatus: t.Type<Observationstatus> = t.union(
-    [
-        t.literal("registered"),
-        t.literal("preliminary"),
-        t.literal("final"),
-        t.literal("amended"),
-        t.literal("corrected"),
-        t.literal("cancelled"),
-        t.literal("entered-in-error"),
-        t.literal("unknown")
-    ],
-    "Observationstatus"
-);
+type ObservationstatusType = t.KeyofC<{
+    registered: null;
+    preliminary: null;
+    final: null;
+    amended: null;
+    corrected: null;
+    cancelled: null;
+    "entered-in-error": null;
+    unknown: null;
+}>;
 
+const Observationstatus: ObservationstatusType = t.keyof({
+    registered: null,
+    preliminary: null,
+    final: null,
+    amended: null,
+    corrected: null,
+    cancelled: null,
+    "entered-in-error": null,
+    unknown: null
+});
 export const ObservationstatusArray: string[] = [
     "registered",
     "preliminary",

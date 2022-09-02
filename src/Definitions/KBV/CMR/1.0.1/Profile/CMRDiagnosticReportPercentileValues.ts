@@ -260,13 +260,13 @@ export const CMRDiagnosticReportPercentileValuesCode: t.Type<CMRDiagnosticReport
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportPercentileValuesSubject {
+export interface CMRDiagnosticReportPercentileValuesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportPercentileValuesSubject: t.Type<CMRDiagnosticReportPercentileValuesSubject> =
-    t.recursion("CMRDiagnosticReportPercentileValuesSubject", () =>
+export const CMRDiagnosticReportPercentileValuesSubjectReference: t.Type<CMRDiagnosticReportPercentileValuesSubjectReference> =
+    t.recursion("CMRDiagnosticReportPercentileValuesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportPercentileValuesSubject: t.Type<CMRDiagnosticRep
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportPercentileValuesEncounter {
+export interface CMRDiagnosticReportPercentileValuesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportPercentileValuesEncounter: t.Type<CMRDiagnosticReportPercentileValuesEncounter> =
-    t.recursion("CMRDiagnosticReportPercentileValuesEncounter", () =>
+export const CMRDiagnosticReportPercentileValuesEncounterReference: t.Type<CMRDiagnosticReportPercentileValuesEncounterReference> =
+    t.recursion("CMRDiagnosticReportPercentileValuesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportPercentileValuesEncounter: t.Type<CMRDiagnosticR
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportPercentileValuesPerformer {
+export interface CMRDiagnosticReportPercentileValuesPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportPercentileValuesPerformer: t.Type<CMRDiagnosticReportPercentileValuesPerformer> =
-    t.recursion("CMRDiagnosticReportPercentileValuesPerformer", () =>
+export const CMRDiagnosticReportPercentileValuesPerformerReference: t.Type<CMRDiagnosticReportPercentileValuesPerformerReference> =
+    t.recursion("CMRDiagnosticReportPercentileValuesPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportPercentileValuesPerformer: t.Type<CMRDiagnosticR
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportPercentileValuesResult {
+export interface CMRDiagnosticReportPercentileValuesResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportPercentileValuesResult: t.Type<CMRDiagnosticReportPercentileValuesResult> =
-    t.recursion("CMRDiagnosticReportPercentileValuesResult", () =>
+export const CMRDiagnosticReportPercentileValuesResultReference: t.Type<CMRDiagnosticReportPercentileValuesResultReference> =
+    t.recursion("CMRDiagnosticReportPercentileValuesResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportPercentileValues {
     meta: CMRDiagnosticReportPercentileValuesMeta;
     status: "final";
     code: CMRDiagnosticReportPercentileValuesCode;
-    subject: CMRDiagnosticReportPercentileValuesSubject;
-    encounter: CMRDiagnosticReportPercentileValuesEncounter;
+    subject: CMRDiagnosticReportPercentileValuesSubjectReference;
+    encounter: CMRDiagnosticReportPercentileValuesEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportPercentileValuesPerformer>;
-    result?: CMRDiagnosticReportPercentileValuesResult[];
+    performer?: Array<CMRDiagnosticReportPercentileValuesPerformerReference>;
+    result?: CMRDiagnosticReportPercentileValuesResultReference[];
 }
 
 const CMRDiagnosticReportPercentileValues: t.Type<CMRDiagnosticReportPercentileValues> =
@@ -376,15 +376,18 @@ const CMRDiagnosticReportPercentileValues: t.Type<CMRDiagnosticReportPercentileV
                     meta: CMRDiagnosticReportPercentileValuesMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportPercentileValuesCode,
-                    subject: CMRDiagnosticReportPercentileValuesSubject,
-                    encounter: CMRDiagnosticReportPercentileValuesEncounter,
+                    subject: CMRDiagnosticReportPercentileValuesSubjectReference,
+                    encounter: CMRDiagnosticReportPercentileValuesEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportPercentileValuesPerformer),
-                    result: t.array(CMRDiagnosticReportPercentileValuesResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportPercentileValuesPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportPercentileValuesResultReference)
                 })
             ])
         )

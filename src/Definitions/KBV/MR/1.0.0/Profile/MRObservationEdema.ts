@@ -251,14 +251,13 @@ export const MRObservationEdemaCode: t.Type<MRObservationEdemaCode> = t.recursio
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationEdemaSubject {
+export interface MRObservationEdemaSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationEdemaSubject: t.Type<MRObservationEdemaSubject> = t.recursion(
-    "MRObservationEdemaSubject",
-    () =>
+export const MRObservationEdemaSubjectReference: t.Type<MRObservationEdemaSubjectReference> =
+    t.recursion("MRObservationEdemaSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,18 +270,18 @@ export const MRObservationEdemaSubject: t.Type<MRObservationEdemaSubject> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationEdemaEncounter {
+export interface MRObservationEdemaEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationEdemaEncounter: t.Type<MRObservationEdemaEncounter> =
-    t.recursion("MRObservationEdemaEncounter", () =>
+export const MRObservationEdemaEncounterReference: t.Type<MRObservationEdemaEncounterReference> =
+    t.recursion("MRObservationEdemaEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -300,13 +299,13 @@ export const MRObservationEdemaEncounter: t.Type<MRObservationEdemaEncounter> =
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationEdemaPerformer {
+export interface MRObservationEdemaPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationEdemaPerformer: t.Type<MRObservationEdemaPerformer> =
-    t.recursion("MRObservationEdemaPerformer", () =>
+export const MRObservationEdemaPerformerReference: t.Type<MRObservationEdemaPerformerReference> =
+    t.recursion("MRObservationEdemaPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -327,13 +326,13 @@ interface MRObservationEdema {
     meta: MRObservationEdemaMeta;
     status: "final";
     code: MRObservationEdemaCode;
-    subject: MRObservationEdemaSubject;
-    encounter: MRObservationEdemaEncounter;
+    subject: MRObservationEdemaSubjectReference;
+    encounter: MRObservationEdemaEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationEdemaPerformer>;
+    performer?: Array<MRObservationEdemaPerformerReference>;
 }
 
 const MRObservationEdema: t.Type<MRObservationEdema> = t.recursion(
@@ -346,15 +345,15 @@ const MRObservationEdema: t.Type<MRObservationEdema> = t.recursion(
                     meta: MRObservationEdemaMeta,
                     status: Literal("final"),
                     code: MRObservationEdemaCode,
-                    subject: MRObservationEdemaSubject,
-                    encounter: MRObservationEdemaEncounter,
+                    subject: MRObservationEdemaSubjectReference,
+                    encounter: MRObservationEdemaEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationEdemaPerformer)
+                    performer: MaxArray(1, MRObservationEdemaPerformerReference)
                 })
             ])
         )

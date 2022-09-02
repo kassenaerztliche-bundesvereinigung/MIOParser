@@ -30,17 +30,19 @@ type CMRU8PhysicalExamAbdomenGenitals =
     | "65476007:{363698007=10200004,363698007=78961009}"
     | "167222005";
 
-const CMRU8PhysicalExamAbdomenGenitals: t.Type<CMRU8PhysicalExamAbdomenGenitals> =
-    t.union(
-        [
-            t.literal("204878001"),
-            t.literal("128545000"),
-            t.literal("65476007:{363698007=10200004,363698007=78961009}"),
-            t.literal("167222005")
-        ],
-        "CMRU8PhysicalExamAbdomenGenitals"
-    );
+type CMRU8PhysicalExamAbdomenGenitalsType = t.KeyofC<{
+    "204878001": null;
+    "128545000": null;
+    "65476007:{363698007=10200004,363698007=78961009}": null;
+    "167222005": null;
+}>;
 
+const CMRU8PhysicalExamAbdomenGenitals: CMRU8PhysicalExamAbdomenGenitalsType = t.keyof({
+    "204878001": null,
+    "128545000": null,
+    "65476007:{363698007=10200004,363698007=78961009}": null,
+    "167222005": null
+});
 export const CMRU8PhysicalExamAbdomenGenitalsArray: string[] = [
     "204878001",
     "128545000",

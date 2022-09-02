@@ -25,16 +25,19 @@ import { ValueSet } from "../../../Interfaces";
 
 type BodyHeightSnomed = "248334005" | "276351002" | "276353004" | "169886007";
 
-const BodyHeightSnomed: t.Type<BodyHeightSnomed> = t.union(
-    [
-        t.literal("248334005"),
-        t.literal("276351002"),
-        t.literal("276353004"),
-        t.literal("169886007")
-    ],
-    "BodyHeightSnomed"
-);
+type BodyHeightSnomedType = t.KeyofC<{
+    "248334005": null;
+    "276351002": null;
+    "276353004": null;
+    "169886007": null;
+}>;
 
+const BodyHeightSnomed: BodyHeightSnomedType = t.keyof({
+    "248334005": null,
+    "276351002": null,
+    "276353004": null,
+    "169886007": null
+});
 export const BodyHeightSnomedArray: string[] = [
     "248334005",
     "276351002",

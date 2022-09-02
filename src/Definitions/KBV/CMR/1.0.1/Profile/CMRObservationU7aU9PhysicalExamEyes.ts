@@ -259,13 +259,13 @@ export const CMRObservationU7aU9PhysicalExamEyesCode: t.Type<CMRObservationU7aU9
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU7aU9PhysicalExamEyesSubject {
+export interface CMRObservationU7aU9PhysicalExamEyesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aU9PhysicalExamEyesSubject: t.Type<CMRObservationU7aU9PhysicalExamEyesSubject> =
-    t.recursion("CMRObservationU7aU9PhysicalExamEyesSubject", () =>
+export const CMRObservationU7aU9PhysicalExamEyesSubjectReference: t.Type<CMRObservationU7aU9PhysicalExamEyesSubjectReference> =
+    t.recursion("CMRObservationU7aU9PhysicalExamEyesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -283,13 +283,13 @@ export const CMRObservationU7aU9PhysicalExamEyesSubject: t.Type<CMRObservationU7
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU7aU9PhysicalExamEyesEncounter {
+export interface CMRObservationU7aU9PhysicalExamEyesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aU9PhysicalExamEyesEncounter: t.Type<CMRObservationU7aU9PhysicalExamEyesEncounter> =
-    t.recursion("CMRObservationU7aU9PhysicalExamEyesEncounter", () =>
+export const CMRObservationU7aU9PhysicalExamEyesEncounterReference: t.Type<CMRObservationU7aU9PhysicalExamEyesEncounterReference> =
+    t.recursion("CMRObservationU7aU9PhysicalExamEyesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -307,13 +307,13 @@ export const CMRObservationU7aU9PhysicalExamEyesEncounter: t.Type<CMRObservation
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU7aU9PhysicalExamEyesPerformer {
+export interface CMRObservationU7aU9PhysicalExamEyesPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU7aU9PhysicalExamEyesPerformer: t.Type<CMRObservationU7aU9PhysicalExamEyesPerformer> =
-    t.recursion("CMRObservationU7aU9PhysicalExamEyesPerformer", () =>
+export const CMRObservationU7aU9PhysicalExamEyesPerformerReference: t.Type<CMRObservationU7aU9PhysicalExamEyesPerformerReference> =
+    t.recursion("CMRObservationU7aU9PhysicalExamEyesPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -333,13 +333,13 @@ interface CMRObservationU7aU9PhysicalExamEyes {
     meta: CMRObservationU7aU9PhysicalExamEyesMeta;
     status: "final";
     code: CMRObservationU7aU9PhysicalExamEyesCode;
-    subject: CMRObservationU7aU9PhysicalExamEyesSubject;
-    encounter: CMRObservationU7aU9PhysicalExamEyesEncounter;
+    subject: CMRObservationU7aU9PhysicalExamEyesSubjectReference;
+    encounter: CMRObservationU7aU9PhysicalExamEyesEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU7aU9PhysicalExamEyesPerformer>;
+    performer?: Array<CMRObservationU7aU9PhysicalExamEyesPerformerReference>;
 }
 
 const CMRObservationU7aU9PhysicalExamEyes: t.Type<CMRObservationU7aU9PhysicalExamEyes> =
@@ -351,15 +351,18 @@ const CMRObservationU7aU9PhysicalExamEyes: t.Type<CMRObservationU7aU9PhysicalExa
                     meta: CMRObservationU7aU9PhysicalExamEyesMeta,
                     status: Literal("final"),
                     code: CMRObservationU7aU9PhysicalExamEyesCode,
-                    subject: CMRObservationU7aU9PhysicalExamEyesSubject,
-                    encounter: CMRObservationU7aU9PhysicalExamEyesEncounter,
+                    subject: CMRObservationU7aU9PhysicalExamEyesSubjectReference,
+                    encounter: CMRObservationU7aU9PhysicalExamEyesEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU7aU9PhysicalExamEyesPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU7aU9PhysicalExamEyesPerformerReference
+                    )
                 })
             ])
         )

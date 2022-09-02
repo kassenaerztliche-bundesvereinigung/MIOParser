@@ -1,0 +1,175 @@
+/*
+ *  Licensed to the Kassenärztliche Bundesvereinigung (KBV) (c) 2020 - 2022 under one
+ *  or more contributor license agreements. See the NOTICE file
+ *  distributed with this work for additional information
+ *  regarding copyright ownership. The KBV licenses this file
+ *  to you under the Apache License, Version 2.0 (the
+ *  "License"); you may not use this file except in compliance
+ *  with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ *
+ */
+
+export {
+    default as Diagnose,
+    DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent as DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent,
+    DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent as DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent,
+    DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplaySnomedCTGermanDisplay as DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplaySnomedCTGermanDisplay,
+    DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplaySnomedCTGermanDisplay as DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplaySnomedCTGermanDisplay,
+    DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplay as DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCodingDisplay,
+    DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplay as DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCodingDisplay,
+    DiagnoseCodeSnomedctDisplaySnomedCTGermanDisplayContent as DiagnoseCodeSnomedctDisplaySnomedCTGermanDisplayContent,
+    DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCoding as DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConceptCoding,
+    DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCoding as DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConceptCoding,
+    DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConcept as DiagnoseOnsetPeriodStartLebensphasevonValueCodeableConcept,
+    DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConcept as DiagnoseOnsetPeriodEndLebensphasebisValueCodeableConcept,
+    DiagnoseCodeSnomedctDisplaySnomedCTGermanDisplay as DiagnoseCodeSnomedctDisplaySnomedCTGermanDisplay,
+    DiagnoseOnsetPeriodStartLebensphasevon as DiagnoseOnsetPeriodStartLebensphasevon,
+    DiagnoseOnsetPeriodEndLebensphasebis as DiagnoseOnsetPeriodEndLebensphasebis,
+    DiagnoseCodeSnomedctDisplay as DiagnoseCodeSnomedctDisplay,
+    DiagnoseCodeICD10GM as DiagnoseCodeICD10GM,
+    DiagnoseCodeAlphaid as DiagnoseCodeAlphaid,
+    DiagnoseCodeSnomedct as DiagnoseCodeSnomedct,
+    DiagnoseCodeOrphanet as DiagnoseCodeOrphanet,
+    DiagnoseBodySiteSnomedct as DiagnoseBodySiteSnomedct,
+    DiagnoseOnsetPeriodStart as DiagnoseOnsetPeriodStart,
+    DiagnoseOnsetPeriodEnd as DiagnoseOnsetPeriodEnd,
+    DiagnoseOnsetPeriod as DiagnoseOnsetPeriod,
+    DiagnoseCode as DiagnoseCode,
+    DiagnoseBodySite as DiagnoseBodySite,
+    DiagnoseStage as DiagnoseStage,
+    DiagnoseEvidence as DiagnoseEvidence
+} from "./Diagnose";
+
+export {
+    default as Organization,
+    OrganizationBetriebsstaettennummerTypeBSNRType as OrganizationBetriebsstaettennummerTypeBSNRType,
+    OrganizationVKNRTypeNIIPType as OrganizationVKNRTypeNIIPType,
+    OrganizationKZVAbrechnungsnummerTypeZANRType as OrganizationKZVAbrechnungsnummerTypeZANRType,
+    OrganizationStrassenanschriftLineStrasse as OrganizationStrassenanschriftLineStrasse,
+    OrganizationStrassenanschriftLineHausnummer as OrganizationStrassenanschriftLineHausnummer,
+    OrganizationStrassenanschriftLineAdresszusatz as OrganizationStrassenanschriftLineAdresszusatz,
+    OrganizationPostfachLinePostfach as OrganizationPostfachLinePostfach,
+    OrganizationBetriebsstaettennummerAssignerReferenceIdentifier as OrganizationBetriebsstaettennummerAssignerReferenceIdentifier,
+    OrganizationVKNRAssignerReferenceIdentifier as OrganizationVKNRAssignerReferenceIdentifier,
+    OrganizationKZVAbrechnungsnummerAssignerReferenceIdentifier as OrganizationKZVAbrechnungsnummerAssignerReferenceIdentifier,
+    OrganizationBetriebsstaettennummerType as OrganizationBetriebsstaettennummerType,
+    OrganizationBetriebsstaettennummerAssignerReference as OrganizationBetriebsstaettennummerAssignerReference,
+    OrganizationVKNRType as OrganizationVKNRType,
+    OrganizationVKNRAssignerReference as OrganizationVKNRAssignerReference,
+    OrganizationKZVAbrechnungsnummerType as OrganizationKZVAbrechnungsnummerType,
+    OrganizationKZVAbrechnungsnummerAssignerReference as OrganizationKZVAbrechnungsnummerAssignerReference,
+    OrganizationStrassenanschriftLine as OrganizationStrassenanschriftLine,
+    OrganizationStrassenanschriftPeriod as OrganizationStrassenanschriftPeriod,
+    OrganizationPostfachLine as OrganizationPostfachLine,
+    OrganizationPostfachPeriod as OrganizationPostfachPeriod,
+    OrganizationBetriebsstaettennummer as OrganizationBetriebsstaettennummer,
+    OrganizationVKNR as OrganizationVKNR,
+    OrganizationKZVAbrechnungsnummer as OrganizationKZVAbrechnungsnummer,
+    OrganizationStrassenanschrift as OrganizationStrassenanschrift,
+    OrganizationPostfach as OrganizationPostfach,
+    OrganizationTelecom as OrganizationTelecom,
+    OrganizationContact as OrganizationContact
+} from "./Organization";
+
+export {
+    default as Patient,
+    PatientPidTypeMRType as PatientPidTypeMRType,
+    PatientVersichertenIdGKVTypeGKVType as PatientVersichertenIdGKVTypeGKVType,
+    PatientVersichertennummerpkvTypePKVType as PatientVersichertennummerpkvTypePKVType,
+    PatientNameFamilyNamenszusatz as PatientNameFamilyNamenszusatz,
+    PatientNameFamilyNachname as PatientNameFamilyNachname,
+    PatientNameFamilyVorsatzwort as PatientNameFamilyVorsatzwort,
+    PatientNamePrefixPrefixqualifier as PatientNamePrefixPrefixqualifier,
+    PatientGeburtsnameFamilyNamenszusatz as PatientGeburtsnameFamilyNamenszusatz,
+    PatientGeburtsnameFamilyNachname as PatientGeburtsnameFamilyNachname,
+    PatientGeburtsnameFamilyVorsatzwort as PatientGeburtsnameFamilyVorsatzwort,
+    PatientStrassenanschriftLineStrasse as PatientStrassenanschriftLineStrasse,
+    PatientStrassenanschriftLineHausnummer as PatientStrassenanschriftLineHausnummer,
+    PatientStrassenanschriftLineAdresszusatz as PatientStrassenanschriftLineAdresszusatz,
+    PatientPostfachLinePostfach as PatientPostfachLinePostfach,
+    PatientVersichertennummerpkvAssignerReferenceIdentifier as PatientVersichertennummerpkvAssignerReferenceIdentifier,
+    PatientReisepassnummerTypeCoding as PatientReisepassnummerTypeCoding,
+    PatientVersichertennummerkvkTypeCoding as PatientVersichertennummerkvkTypeCoding,
+    PatientPidType as PatientPidType,
+    PatientVersichertenIdGKVType as PatientVersichertenIdGKVType,
+    PatientVersichertennummerpkvType as PatientVersichertennummerpkvType,
+    PatientVersichertennummerpkvAssignerReference as PatientVersichertennummerpkvAssignerReference,
+    PatientReisepassnummerType as PatientReisepassnummerType,
+    PatientVersichertennummerkvkType as PatientVersichertennummerkvkType,
+    PatientNameFamily as PatientNameFamily,
+    PatientNamePrefix as PatientNamePrefix,
+    PatientGeburtsnameFamily as PatientGeburtsnameFamily,
+    PatientBirthDateDataabsentreason as PatientBirthDateDataabsentreason,
+    PatientStrassenanschriftLine as PatientStrassenanschriftLine,
+    PatientStrassenanschriftPeriod as PatientStrassenanschriftPeriod,
+    PatientPostfachLine as PatientPostfachLine,
+    PatientPostfachPeriod as PatientPostfachPeriod,
+    PatientPid as PatientPid,
+    PatientVersichertenIdGKV as PatientVersichertenIdGKV,
+    PatientVersichertennummerpkv as PatientVersichertennummerpkv,
+    PatientReisepassnummer as PatientReisepassnummer,
+    PatientVersichertennummerkvk as PatientVersichertennummerkvk,
+    PatientName as PatientName,
+    PatientGeburtsname as PatientGeburtsname,
+    PatientStrassenanschrift as PatientStrassenanschrift,
+    PatientPostfach as PatientPostfach,
+    PatientTelecom as PatientTelecom,
+    PatientGender as PatientGender,
+    PatientBirthDate as PatientBirthDate,
+    PatientContact as PatientContact,
+    PatientCommunication as PatientCommunication,
+    PatientLink as PatientLink
+} from "./Patient";
+
+export {
+    default as Practitioner,
+    PractitionerANRTypeLANRType as PractitionerANRTypeLANRType,
+    PractitionerEFNTypeDNType as PractitionerEFNTypeDNType,
+    PractitionerNameFamilyNamenszusatz as PractitionerNameFamilyNamenszusatz,
+    PractitionerNameFamilyNachname as PractitionerNameFamilyNachname,
+    PractitionerNameFamilyVorsatzwort as PractitionerNameFamilyVorsatzwort,
+    PractitionerNamePrefixPrefixqualifier as PractitionerNamePrefixPrefixqualifier,
+    PractitionerGeburtsnameFamilyNamenszusatz as PractitionerGeburtsnameFamilyNamenszusatz,
+    PractitionerGeburtsnameFamilyNachname as PractitionerGeburtsnameFamilyNachname,
+    PractitionerGeburtsnameFamilyVorsatzwort as PractitionerGeburtsnameFamilyVorsatzwort,
+    PractitionerStrassenanschriftLineStrasse as PractitionerStrassenanschriftLineStrasse,
+    PractitionerStrassenanschriftLineHausnummer as PractitionerStrassenanschriftLineHausnummer,
+    PractitionerStrassenanschriftLineAdresszusatz as PractitionerStrassenanschriftLineAdresszusatz,
+    PractitionerPostfachLinePostfach as PractitionerPostfachLinePostfach,
+    PractitionerANRAssignerReferenceIdentifier as PractitionerANRAssignerReferenceIdentifier,
+    PractitionerEFNAssignerReferenceIdentifier as PractitionerEFNAssignerReferenceIdentifier,
+    PractitionerQualificationPractitionerspecialityCodeCoding as PractitionerQualificationPractitionerspecialityCodeCoding,
+    PractitionerANRType as PractitionerANRType,
+    PractitionerANRAssignerReference as PractitionerANRAssignerReference,
+    PractitionerEFNType as PractitionerEFNType,
+    PractitionerEFNAssignerReference as PractitionerEFNAssignerReference,
+    PractitionerNameFamily as PractitionerNameFamily,
+    PractitionerNamePrefix as PractitionerNamePrefix,
+    PractitionerGeburtsnameFamily as PractitionerGeburtsnameFamily,
+    PractitionerStrassenanschriftLine as PractitionerStrassenanschriftLine,
+    PractitionerStrassenanschriftPeriod as PractitionerStrassenanschriftPeriod,
+    PractitionerPostfachLine as PractitionerPostfachLine,
+    PractitionerPostfachPeriod as PractitionerPostfachPeriod,
+    PractitionerBirthDateDataabsentreason as PractitionerBirthDateDataabsentreason,
+    PractitionerQualificationPractitionerspecialityCode as PractitionerQualificationPractitionerspecialityCode,
+    PractitionerANR as PractitionerANR,
+    PractitionerEFN as PractitionerEFN,
+    PractitionerName as PractitionerName,
+    PractitionerGeburtsname as PractitionerGeburtsname,
+    PractitionerStrassenanschrift as PractitionerStrassenanschrift,
+    PractitionerPostfach as PractitionerPostfach,
+    PractitionerQualificationPractitionerspeciality as PractitionerQualificationPractitionerspeciality,
+    PractitionerTelecom as PractitionerTelecom,
+    PractitionerGender as PractitionerGender,
+    PractitionerBirthDate as PractitionerBirthDate,
+    PractitionerQualification as PractitionerQualification
+} from "./Practitioner";

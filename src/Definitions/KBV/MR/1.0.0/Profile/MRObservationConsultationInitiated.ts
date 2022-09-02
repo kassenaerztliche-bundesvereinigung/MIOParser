@@ -261,13 +261,13 @@ export const MRObservationConsultationInitiatedCode: t.Type<MRObservationConsult
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationConsultationInitiatedSubject {
+export interface MRObservationConsultationInitiatedSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationConsultationInitiatedSubject: t.Type<MRObservationConsultationInitiatedSubject> =
-    t.recursion("MRObservationConsultationInitiatedSubject", () =>
+export const MRObservationConsultationInitiatedSubjectReference: t.Type<MRObservationConsultationInitiatedSubjectReference> =
+    t.recursion("MRObservationConsultationInitiatedSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -285,13 +285,13 @@ export const MRObservationConsultationInitiatedSubject: t.Type<MRObservationCons
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationConsultationInitiatedEncounter {
+export interface MRObservationConsultationInitiatedEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationConsultationInitiatedEncounter: t.Type<MRObservationConsultationInitiatedEncounter> =
-    t.recursion("MRObservationConsultationInitiatedEncounter", () =>
+export const MRObservationConsultationInitiatedEncounterReference: t.Type<MRObservationConsultationInitiatedEncounterReference> =
+    t.recursion("MRObservationConsultationInitiatedEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -309,13 +309,13 @@ export const MRObservationConsultationInitiatedEncounter: t.Type<MRObservationCo
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationConsultationInitiatedPerformer {
+export interface MRObservationConsultationInitiatedPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationConsultationInitiatedPerformer: t.Type<MRObservationConsultationInitiatedPerformer> =
-    t.recursion("MRObservationConsultationInitiatedPerformer", () =>
+export const MRObservationConsultationInitiatedPerformerReference: t.Type<MRObservationConsultationInitiatedPerformerReference> =
+    t.recursion("MRObservationConsultationInitiatedPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -336,13 +336,13 @@ interface MRObservationConsultationInitiated {
     meta: MRObservationConsultationInitiatedMeta;
     status: "final";
     code: MRObservationConsultationInitiatedCode;
-    subject: MRObservationConsultationInitiatedSubject;
-    encounter: MRObservationConsultationInitiatedEncounter;
+    subject: MRObservationConsultationInitiatedSubjectReference;
+    encounter: MRObservationConsultationInitiatedEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationConsultationInitiatedPerformer>;
+    performer?: Array<MRObservationConsultationInitiatedPerformerReference>;
 }
 
 const MRObservationConsultationInitiated: t.Type<MRObservationConsultationInitiated> =
@@ -354,15 +354,18 @@ const MRObservationConsultationInitiated: t.Type<MRObservationConsultationInitia
                     meta: MRObservationConsultationInitiatedMeta,
                     status: Literal("final"),
                     code: MRObservationConsultationInitiatedCode,
-                    subject: MRObservationConsultationInitiatedSubject,
-                    encounter: MRObservationConsultationInitiatedEncounter,
+                    subject: MRObservationConsultationInitiatedSubjectReference,
+                    encounter: MRObservationConsultationInitiatedEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationConsultationInitiatedPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationConsultationInitiatedPerformerReference
+                    )
                 })
             ])
         )

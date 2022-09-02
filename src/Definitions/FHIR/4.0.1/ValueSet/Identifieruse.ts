@@ -25,17 +25,21 @@ import { ValueSet } from "../../../Interfaces";
 
 type Identifieruse = "usual" | "official" | "temp" | "secondary" | "old";
 
-const Identifieruse: t.Type<Identifieruse> = t.union(
-    [
-        t.literal("usual"),
-        t.literal("official"),
-        t.literal("temp"),
-        t.literal("secondary"),
-        t.literal("old")
-    ],
-    "Identifieruse"
-);
+type IdentifieruseType = t.KeyofC<{
+    usual: null;
+    official: null;
+    temp: null;
+    secondary: null;
+    old: null;
+}>;
 
+const Identifieruse: IdentifieruseType = t.keyof({
+    usual: null,
+    official: null,
+    temp: null,
+    secondary: null,
+    old: null
+});
 export const IdentifieruseArray: string[] = [
     "usual",
     "official",

@@ -224,13 +224,13 @@ export const MRObservationNumberOfCheckupsCode: t.Type<MRObservationNumberOfChec
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationNumberOfCheckupsSubject {
+export interface MRObservationNumberOfCheckupsSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNumberOfCheckupsSubject: t.Type<MRObservationNumberOfCheckupsSubject> =
-    t.recursion("MRObservationNumberOfCheckupsSubject", () =>
+export const MRObservationNumberOfCheckupsSubjectReference: t.Type<MRObservationNumberOfCheckupsSubjectReference> =
+    t.recursion("MRObservationNumberOfCheckupsSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -248,13 +248,13 @@ export const MRObservationNumberOfCheckupsSubject: t.Type<MRObservationNumberOfC
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationNumberOfCheckupsEncounter {
+export interface MRObservationNumberOfCheckupsEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNumberOfCheckupsEncounter: t.Type<MRObservationNumberOfCheckupsEncounter> =
-    t.recursion("MRObservationNumberOfCheckupsEncounter", () =>
+export const MRObservationNumberOfCheckupsEncounterReference: t.Type<MRObservationNumberOfCheckupsEncounterReference> =
+    t.recursion("MRObservationNumberOfCheckupsEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -272,13 +272,13 @@ export const MRObservationNumberOfCheckupsEncounter: t.Type<MRObservationNumberO
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationNumberOfCheckupsPerformer {
+export interface MRObservationNumberOfCheckupsPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationNumberOfCheckupsPerformer: t.Type<MRObservationNumberOfCheckupsPerformer> =
-    t.recursion("MRObservationNumberOfCheckupsPerformer", () =>
+export const MRObservationNumberOfCheckupsPerformerReference: t.Type<MRObservationNumberOfCheckupsPerformerReference> =
+    t.recursion("MRObservationNumberOfCheckupsPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -299,13 +299,13 @@ interface MRObservationNumberOfCheckups {
     meta: MRObservationNumberOfCheckupsMeta;
     status: "final";
     code: MRObservationNumberOfCheckupsCode;
-    subject: MRObservationNumberOfCheckupsSubject;
-    encounter: MRObservationNumberOfCheckupsEncounter;
+    subject: MRObservationNumberOfCheckupsSubjectReference;
+    encounter: MRObservationNumberOfCheckupsEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationNumberOfCheckupsValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationNumberOfCheckupsPerformer>;
+    performer?: Array<MRObservationNumberOfCheckupsPerformerReference>;
 }
 
 const MRObservationNumberOfCheckups: t.Type<MRObservationNumberOfCheckups> = t.recursion(
@@ -318,15 +318,18 @@ const MRObservationNumberOfCheckups: t.Type<MRObservationNumberOfCheckups> = t.r
                     meta: MRObservationNumberOfCheckupsMeta,
                     status: Literal("final"),
                     code: MRObservationNumberOfCheckupsCode,
-                    subject: MRObservationNumberOfCheckupsSubject,
-                    encounter: MRObservationNumberOfCheckupsEncounter,
+                    subject: MRObservationNumberOfCheckupsSubjectReference,
+                    encounter: MRObservationNumberOfCheckupsEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationNumberOfCheckupsValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationNumberOfCheckupsPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationNumberOfCheckupsPerformerReference
+                    )
                 })
             ])
         )

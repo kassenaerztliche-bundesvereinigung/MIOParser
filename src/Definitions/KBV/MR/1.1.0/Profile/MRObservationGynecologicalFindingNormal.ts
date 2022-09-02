@@ -202,13 +202,13 @@ export const MRObservationGynecologicalFindingNormalCode: t.Type<MRObservationGy
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationGynecologicalFindingNormalSubject {
+export interface MRObservationGynecologicalFindingNormalSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGynecologicalFindingNormalSubject: t.Type<MRObservationGynecologicalFindingNormalSubject> =
-    t.recursion("MRObservationGynecologicalFindingNormalSubject", () =>
+export const MRObservationGynecologicalFindingNormalSubjectReference: t.Type<MRObservationGynecologicalFindingNormalSubjectReference> =
+    t.recursion("MRObservationGynecologicalFindingNormalSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -226,13 +226,13 @@ export const MRObservationGynecologicalFindingNormalSubject: t.Type<MRObservatio
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationGynecologicalFindingNormalEncounter {
+export interface MRObservationGynecologicalFindingNormalEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGynecologicalFindingNormalEncounter: t.Type<MRObservationGynecologicalFindingNormalEncounter> =
-    t.recursion("MRObservationGynecologicalFindingNormalEncounter", () =>
+export const MRObservationGynecologicalFindingNormalEncounterReference: t.Type<MRObservationGynecologicalFindingNormalEncounterReference> =
+    t.recursion("MRObservationGynecologicalFindingNormalEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -250,13 +250,13 @@ export const MRObservationGynecologicalFindingNormalEncounter: t.Type<MRObservat
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationGynecologicalFindingNormalPerformer {
+export interface MRObservationGynecologicalFindingNormalPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationGynecologicalFindingNormalPerformer: t.Type<MRObservationGynecologicalFindingNormalPerformer> =
-    t.recursion("MRObservationGynecologicalFindingNormalPerformer", () =>
+export const MRObservationGynecologicalFindingNormalPerformerReference: t.Type<MRObservationGynecologicalFindingNormalPerformerReference> =
+    t.recursion("MRObservationGynecologicalFindingNormalPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -277,13 +277,13 @@ interface MRObservationGynecologicalFindingNormal {
     meta: MRObservationGynecologicalFindingNormalMeta;
     status: "final";
     code: MRObservationGynecologicalFindingNormalCode;
-    subject: MRObservationGynecologicalFindingNormalSubject;
-    encounter: MRObservationGynecologicalFindingNormalEncounter;
+    subject: MRObservationGynecologicalFindingNormalSubjectReference;
+    encounter: MRObservationGynecologicalFindingNormalEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationGynecologicalFindingNormalPerformer>;
+    performer?: Array<MRObservationGynecologicalFindingNormalPerformerReference>;
 }
 
 const MRObservationGynecologicalFindingNormal: t.Type<MRObservationGynecologicalFindingNormal> =
@@ -295,8 +295,8 @@ const MRObservationGynecologicalFindingNormal: t.Type<MRObservationGynecological
                     meta: MRObservationGynecologicalFindingNormalMeta,
                     status: Literal("final"),
                     code: MRObservationGynecologicalFindingNormalCode,
-                    subject: MRObservationGynecologicalFindingNormalSubject,
-                    encounter: MRObservationGynecologicalFindingNormalEncounter,
+                    subject: MRObservationGynecologicalFindingNormalSubjectReference,
+                    encounter: MRObservationGynecologicalFindingNormalEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
@@ -305,7 +305,7 @@ const MRObservationGynecologicalFindingNormal: t.Type<MRObservationGynecological
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        MRObservationGynecologicalFindingNormalPerformer
+                        MRObservationGynecologicalFindingNormalPerformerReference
                     )
                 })
             ])

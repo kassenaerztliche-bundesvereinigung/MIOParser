@@ -610,13 +610,13 @@ export const CMRCompositionU5ErgebnisseSectionCode: t.Type<CMRCompositionU5Ergeb
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5ErgebnisseSectionEntry {
+export interface CMRCompositionU5ErgebnisseSectionEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5ErgebnisseSectionEntry: t.Type<CMRCompositionU5ErgebnisseSectionEntry> =
-    t.recursion("CMRCompositionU5ErgebnisseSectionEntry", () =>
+export const CMRCompositionU5ErgebnisseSectionEntryReference: t.Type<CMRCompositionU5ErgebnisseSectionEntryReference> =
+    t.recursion("CMRCompositionU5ErgebnisseSectionEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -898,13 +898,13 @@ export const CMRCompositionU5AktuelleAnamneseDesKindesText: t.Type<CMRCompositio
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5AktuelleAnamneseDesKindesEntry {
+export interface CMRCompositionU5AktuelleAnamneseDesKindesEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5AktuelleAnamneseDesKindesEntry: t.Type<CMRCompositionU5AktuelleAnamneseDesKindesEntry> =
-    t.recursion("CMRCompositionU5AktuelleAnamneseDesKindesEntry", () =>
+export const CMRCompositionU5AktuelleAnamneseDesKindesEntryReference: t.Type<CMRCompositionU5AktuelleAnamneseDesKindesEntryReference> =
+    t.recursion("CMRCompositionU5AktuelleAnamneseDesKindesEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -994,13 +994,13 @@ export const CMRCompositionU5SozialanamneseText: t.Type<CMRCompositionU5Sozialan
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5SozialanamneseEntry {
+export interface CMRCompositionU5SozialanamneseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5SozialanamneseEntry: t.Type<CMRCompositionU5SozialanamneseEntry> =
-    t.recursion("CMRCompositionU5SozialanamneseEntry", () =>
+export const CMRCompositionU5SozialanamneseEntryReference: t.Type<CMRCompositionU5SozialanamneseEntryReference> =
+    t.recursion("CMRCompositionU5SozialanamneseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1090,13 +1090,13 @@ export const CMRCompositionU5UntersuchungText: t.Type<CMRCompositionU5Untersuchu
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5UntersuchungEntry {
+export interface CMRCompositionU5UntersuchungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5UntersuchungEntry: t.Type<CMRCompositionU5UntersuchungEntry> =
-    t.recursion("CMRCompositionU5UntersuchungEntry", () =>
+export const CMRCompositionU5UntersuchungEntryReference: t.Type<CMRCompositionU5UntersuchungEntryReference> =
+    t.recursion("CMRCompositionU5UntersuchungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1194,13 +1194,13 @@ export const CMRCompositionU5BeratungText: t.Type<CMRCompositionU5BeratungText> 
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5BeratungEntry {
+export interface CMRCompositionU5BeratungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5BeratungEntry: t.Type<CMRCompositionU5BeratungEntry> =
-    t.recursion("CMRCompositionU5BeratungEntry", () =>
+export const CMRCompositionU5BeratungEntryReference: t.Type<CMRCompositionU5BeratungEntryReference> =
+    t.recursion("CMRCompositionU5BeratungEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1287,13 +1287,13 @@ export const CMRCompositionU5ErgebnisseText: t.Type<CMRCompositionU5ErgebnisseTe
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5ErgebnisseEntry {
+export interface CMRCompositionU5ErgebnisseEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5ErgebnisseEntry: t.Type<CMRCompositionU5ErgebnisseEntry> =
-    t.recursion("CMRCompositionU5ErgebnisseEntry", () =>
+export const CMRCompositionU5ErgebnisseEntryReference: t.Type<CMRCompositionU5ErgebnisseEntryReference> =
+    t.recursion("CMRCompositionU5ErgebnisseEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1349,7 +1349,7 @@ export interface CMRCompositionU5ErgebnisseSection {
         | Extension
         | CMRCompositionU5ErgebnisseSectionPruefungAufklaerungHinweis
     )[];
-    entry?: Array<CMRCompositionU5ErgebnisseSectionEntry>;
+    entry?: Array<CMRCompositionU5ErgebnisseSectionEntryReference>;
 }
 
 export const CMRCompositionU5ErgebnisseSection: t.Type<CMRCompositionU5ErgebnisseSection> =
@@ -1394,7 +1394,7 @@ export const CMRCompositionU5ErgebnisseSection: t.Type<CMRCompositionU5Ergebniss
                         ],
                         ["0", "*"]
                     ),
-                    entry: MaxArray(1, CMRCompositionU5ErgebnisseSectionEntry)
+                    entry: MaxArray(1, CMRCompositionU5ErgebnisseSectionEntryReference)
                 })
             ])
         )
@@ -1481,13 +1481,13 @@ export const CMRCompositionU5HoerscreeningText: t.Type<CMRCompositionU5Hoerscree
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5HoerscreeningEntry {
+export interface CMRCompositionU5HoerscreeningEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5HoerscreeningEntry: t.Type<CMRCompositionU5HoerscreeningEntry> =
-    t.recursion("CMRCompositionU5HoerscreeningEntry", () =>
+export const CMRCompositionU5HoerscreeningEntryReference: t.Type<CMRCompositionU5HoerscreeningEntryReference> =
+    t.recursion("CMRCompositionU5HoerscreeningEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1583,26 +1583,28 @@ export const CMRCompositionU5OrientierendeBeurteilungDerEntwicklungText: t.Type<
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry {
+export interface CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry: t.Type<CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry> =
-    t.recursion("CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U5_Development_Assessment|1.0.1",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_U6_Indication_for_Abnormality|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference: t.Type<CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference> =
+    t.recursion(
+        "CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U5_Development_Assessment|1.0.1",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Observation_U3_U6_Indication_for_Abnormality|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -1680,13 +1682,13 @@ export const CMRCompositionU5PerzentilkurvenText: t.Type<CMRCompositionU5Perzent
 /**
  * A reference to the actual resource from which the narrative in the section is derived.
  */
-export interface CMRCompositionU5PerzentilkurvenEntry {
+export interface CMRCompositionU5PerzentilkurvenEntryReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5PerzentilkurvenEntry: t.Type<CMRCompositionU5PerzentilkurvenEntry> =
-    t.recursion("CMRCompositionU5PerzentilkurvenEntry", () =>
+export const CMRCompositionU5PerzentilkurvenEntryReference: t.Type<CMRCompositionU5PerzentilkurvenEntryReference> =
+    t.recursion("CMRCompositionU5PerzentilkurvenEntryReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1828,7 +1830,7 @@ export interface CMRCompositionU5AktuelleAnamneseDesKindes {
         | Extension
         | CMRCompositionU5AktuelleAnamneseDesKindesAnamneseAnweisung
     )[];
-    entry?: CMRCompositionU5AktuelleAnamneseDesKindesEntry[];
+    entry?: CMRCompositionU5AktuelleAnamneseDesKindesEntryReference[];
     emptyReason?: CMRCompositionU5AktuelleAnamneseDesKindesEmptyReason;
 }
 
@@ -1873,7 +1875,9 @@ export const CMRCompositionU5AktuelleAnamneseDesKindes: t.Type<CMRCompositionU5A
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU5AktuelleAnamneseDesKindesEntry),
+                    entry: t.array(
+                        CMRCompositionU5AktuelleAnamneseDesKindesEntryReference
+                    ),
                     emptyReason: CMRCompositionU5AktuelleAnamneseDesKindesEmptyReason
                 })
             ])
@@ -1889,7 +1893,7 @@ export interface CMRCompositionU5Sozialanamnese {
     text: CMRCompositionU5SozialanamneseText;
     id?: string;
     extension?: (Extension | CMRCompositionU5SozialanamneseAnamneseAnweisung)[];
-    entry?: CMRCompositionU5SozialanamneseEntry[];
+    entry?: CMRCompositionU5SozialanamneseEntryReference[];
     emptyReason?: CMRCompositionU5SozialanamneseEmptyReason;
 }
 
@@ -1934,7 +1938,7 @@ export const CMRCompositionU5Sozialanamnese: t.Type<CMRCompositionU5Sozialanamne
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU5SozialanamneseEntry),
+                    entry: t.array(CMRCompositionU5SozialanamneseEntryReference),
                     emptyReason: CMRCompositionU5SozialanamneseEmptyReason
                 })
             ])
@@ -1950,7 +1954,7 @@ export interface CMRCompositionU5Untersuchung {
     text: CMRCompositionU5UntersuchungText;
     id?: string;
     extension?: (Extension | CMRCompositionU5UntersuchungUntersuchungAnweisung)[];
-    entry?: CMRCompositionU5UntersuchungEntry[];
+    entry?: CMRCompositionU5UntersuchungEntryReference[];
     emptyReason?: CMRCompositionU5UntersuchungEmptyReason;
 }
 
@@ -1995,7 +1999,7 @@ export const CMRCompositionU5Untersuchung: t.Type<CMRCompositionU5Untersuchung> 
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU5UntersuchungEntry),
+                    entry: t.array(CMRCompositionU5UntersuchungEntryReference),
                     emptyReason: CMRCompositionU5UntersuchungEmptyReason
                 })
             ])
@@ -2015,7 +2019,7 @@ export interface CMRCompositionU5Beratung {
         | CMRCompositionU5BeratungBeratungAnweisung
         | CMRCompositionU5BeratungBeratungHinweis
     )[];
-    entry?: CMRCompositionU5BeratungEntry[];
+    entry?: CMRCompositionU5BeratungEntryReference[];
     emptyReason?: CMRCompositionU5BeratungEmptyReason;
 }
 
@@ -2071,7 +2075,7 @@ export const CMRCompositionU5Beratung: t.Type<CMRCompositionU5Beratung> = t.recu
                         ],
                         ["0", "*"]
                     ),
-                    entry: t.array(CMRCompositionU5BeratungEntry),
+                    entry: t.array(CMRCompositionU5BeratungEntryReference),
                     emptyReason: CMRCompositionU5BeratungEmptyReason
                 })
             ])
@@ -2087,7 +2091,7 @@ export interface CMRCompositionU5Ergebnisse {
     text: CMRCompositionU5ErgebnisseText;
     section: Array<CMRCompositionU5ErgebnisseSection>;
     id?: string;
-    entry?: CMRCompositionU5ErgebnisseEntry[];
+    entry?: CMRCompositionU5ErgebnisseEntryReference[];
     emptyReason?: CMRCompositionU5ErgebnisseEmptyReason;
 }
 
@@ -2104,7 +2108,7 @@ export const CMRCompositionU5Ergebnisse: t.Type<CMRCompositionU5Ergebnisse> = t.
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU5ErgebnisseEntry),
+                    entry: t.array(CMRCompositionU5ErgebnisseEntryReference),
                     emptyReason: CMRCompositionU5ErgebnisseEmptyReason
                 })
             ])
@@ -2119,7 +2123,7 @@ export interface CMRCompositionU5Hoerscreening {
     code: CMRCompositionU5HoerscreeningCode;
     text: CMRCompositionU5HoerscreeningText;
     id?: string;
-    entry?: CMRCompositionU5HoerscreeningEntry[];
+    entry?: CMRCompositionU5HoerscreeningEntryReference[];
     emptyReason?: CMRCompositionU5HoerscreeningEmptyReason;
 }
 
@@ -2134,7 +2138,7 @@ export const CMRCompositionU5Hoerscreening: t.Type<CMRCompositionU5Hoerscreening
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: t.array(CMRCompositionU5HoerscreeningEntry),
+                    entry: t.array(CMRCompositionU5HoerscreeningEntryReference),
                     emptyReason: CMRCompositionU5HoerscreeningEmptyReason
                 })
             ])
@@ -2154,7 +2158,7 @@ export interface CMRCompositionU5OrientierendeBeurteilungDerEntwicklung {
         | CMRCompositionU5OrientierendeBeurteilungDerEntwicklungBeurteilungAnweisung
         | CMRCompositionU5OrientierendeBeurteilungDerEntwicklungBeurteilungHinweis
     )[];
-    entry?: CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry[];
+    entry?: CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference[];
     emptyReason?: CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEmptyReason;
 }
 
@@ -2210,7 +2214,7 @@ export const CMRCompositionU5OrientierendeBeurteilungDerEntwicklung: t.Type<CMRC
                         ["0", "*"]
                     ),
                     entry: t.array(
-                        CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntry
+                        CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEntryReference
                     ),
                     emptyReason:
                         CMRCompositionU5OrientierendeBeurteilungDerEntwicklungEmptyReason
@@ -2227,7 +2231,7 @@ export interface CMRCompositionU5Perzentilkurven {
     code: CMRCompositionU5PerzentilkurvenCode;
     text: CMRCompositionU5PerzentilkurvenText;
     id?: string;
-    entry?: Array<CMRCompositionU5PerzentilkurvenEntry>;
+    entry?: Array<CMRCompositionU5PerzentilkurvenEntryReference>;
     emptyReason?: CMRCompositionU5PerzentilkurvenEmptyReason;
 }
 
@@ -2242,7 +2246,7 @@ export const CMRCompositionU5Perzentilkurven: t.Type<CMRCompositionU5Perzentilku
                 }),
                 t.partial({
                     id: SCALARString,
-                    entry: MaxArray(1, CMRCompositionU5PerzentilkurvenEntry),
+                    entry: MaxArray(1, CMRCompositionU5PerzentilkurvenEntryReference),
                     emptyReason: CMRCompositionU5PerzentilkurvenEmptyReason
                 })
             ])
@@ -2327,14 +2331,13 @@ export const CMRCompositionU5Category: t.Type<CMRCompositionU5Category> = t.recu
 /**
  * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
  */
-export interface CMRCompositionU5Subject {
+export interface CMRCompositionU5SubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5Subject: t.Type<CMRCompositionU5Subject> = t.recursion(
-    "CMRCompositionU5Subject",
-    () =>
+export const CMRCompositionU5SubjectReference: t.Type<CMRCompositionU5SubjectReference> =
+    t.recursion("CMRCompositionU5SubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2347,19 +2350,18 @@ export const CMRCompositionU5Subject: t.Type<CMRCompositionU5Subject> = t.recurs
                 })
             ])
         )
-);
+    );
 
 /**
  * Describes the clinical encounter or type of care this documentation is associated with.
  */
-export interface CMRCompositionU5Encounter {
+export interface CMRCompositionU5EncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5Encounter: t.Type<CMRCompositionU5Encounter> = t.recursion(
-    "CMRCompositionU5Encounter",
-    () =>
+export const CMRCompositionU5EncounterReference: t.Type<CMRCompositionU5EncounterReference> =
+    t.recursion("CMRCompositionU5EncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2372,19 +2374,18 @@ export const CMRCompositionU5Encounter: t.Type<CMRCompositionU5Encounter> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
  */
-export interface CMRCompositionU5Author {
+export interface CMRCompositionU5AuthorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRCompositionU5Author: t.Type<CMRCompositionU5Author> = t.recursion(
-    "CMRCompositionU5Author",
-    () =>
+export const CMRCompositionU5AuthorReference: t.Type<CMRCompositionU5AuthorReference> =
+    t.recursion("CMRCompositionU5AuthorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -2398,7 +2399,7 @@ export const CMRCompositionU5Author: t.Type<CMRCompositionU5Author> = t.recursio
                 })
             ])
         )
-);
+    );
 
 interface CMRCompositionU5 {
     resourceType: "Composition";
@@ -2406,10 +2407,10 @@ interface CMRCompositionU5 {
     status: "final";
     type: CMRCompositionU5Type;
     category: Array<CMRCompositionU5Category>;
-    subject: CMRCompositionU5Subject;
-    encounter: CMRCompositionU5Encounter;
+    subject: CMRCompositionU5SubjectReference;
+    encounter: CMRCompositionU5EncounterReference;
     date: string;
-    author: Array<CMRCompositionU5Author>;
+    author: Array<CMRCompositionU5AuthorReference>;
     title: "U5";
     id?: string;
     text?: Narrative;
@@ -2435,10 +2436,10 @@ const CMRCompositionU5: t.Type<CMRCompositionU5> = t.recursion("CMRCompositionU5
                 status: Literal("final"),
                 type: CMRCompositionU5Type,
                 category: MinMaxArray(1, 1, CMRCompositionU5Category),
-                subject: CMRCompositionU5Subject,
-                encounter: CMRCompositionU5Encounter,
+                subject: CMRCompositionU5SubjectReference,
+                encounter: CMRCompositionU5EncounterReference,
                 date: SCALARDateTime,
-                author: MinMaxArray(1, 2, CMRCompositionU5Author),
+                author: MinMaxArray(1, 2, CMRCompositionU5AuthorReference),
                 title: Literal("U5")
             }),
             t.partial({

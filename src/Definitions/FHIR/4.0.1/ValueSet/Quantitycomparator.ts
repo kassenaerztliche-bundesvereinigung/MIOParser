@@ -25,11 +25,14 @@ import { ValueSet } from "../../../Interfaces";
 
 type Quantitycomparator = "<" | "<=" | ">=" | ">";
 
-const Quantitycomparator: t.Type<Quantitycomparator> = t.union(
-    [t.literal("<"), t.literal("<="), t.literal(">="), t.literal(">")],
-    "Quantitycomparator"
-);
+type QuantitycomparatorType = t.KeyofC<{ "<": null; "<=": null; ">=": null; ">": null }>;
 
+const Quantitycomparator: QuantitycomparatorType = t.keyof({
+    "<": null,
+    "<=": null,
+    ">=": null,
+    ">": null
+});
 export const QuantitycomparatorArray: string[] = ["<", "<=", ">=", ">"];
 
 export const QuantitycomparatorValueSet: ValueSet = [

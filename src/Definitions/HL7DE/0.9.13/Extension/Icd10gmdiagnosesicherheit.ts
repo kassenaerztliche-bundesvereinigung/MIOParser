@@ -19,7 +19,7 @@
  */
 
 import * as t from "io-ts";
-import { Literal } from "../../../CustomTypes";
+import { Literal, ValueSetCheck } from "../../../CustomTypes";
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import KBVVSSFHIRICDDIAGNOSESICHERHEITVS from "../../../../Definitions/HL7DE/0.9.13/ValueSet/KBVVSSFHIRICDDIAGNOSESICHERHEIT";
@@ -50,7 +50,9 @@ const Icd10gmdiagnosesicherheit: t.Type<Icd10gmdiagnosesicherheit> = t.recursion
                     t.partial({
                         system: t.string,
                         version: t.string,
-                        code: KBVVSSFHIRICDDIAGNOSESICHERHEITVS,
+                        code: ValueSetCheck<t.Type<KBVVSSFHIRICDDIAGNOSESICHERHEITVS>>(
+                            KBVVSSFHIRICDDIAGNOSESICHERHEITVS
+                        ),
                         display: t.string,
                         userSelected: t.boolean
                     })

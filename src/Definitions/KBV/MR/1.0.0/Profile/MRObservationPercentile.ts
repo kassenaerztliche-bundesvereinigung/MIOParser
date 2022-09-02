@@ -477,13 +477,13 @@ export const MRObservationPercentileCode: t.Type<MRObservationPercentileCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationPercentileSubject {
+export interface MRObservationPercentileSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPercentileSubject: t.Type<MRObservationPercentileSubject> =
-    t.recursion("MRObservationPercentileSubject", () =>
+export const MRObservationPercentileSubjectReference: t.Type<MRObservationPercentileSubjectReference> =
+    t.recursion("MRObservationPercentileSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const MRObservationPercentileSubject: t.Type<MRObservationPercentileSubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationPercentileEncounter {
+export interface MRObservationPercentileEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPercentileEncounter: t.Type<MRObservationPercentileEncounter> =
-    t.recursion("MRObservationPercentileEncounter", () =>
+export const MRObservationPercentileEncounterReference: t.Type<MRObservationPercentileEncounterReference> =
+    t.recursion("MRObservationPercentileEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -525,13 +525,13 @@ export const MRObservationPercentileEncounter: t.Type<MRObservationPercentileEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationPercentilePerformer {
+export interface MRObservationPercentilePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPercentilePerformer: t.Type<MRObservationPercentilePerformer> =
-    t.recursion("MRObservationPercentilePerformer", () =>
+export const MRObservationPercentilePerformerReference: t.Type<MRObservationPercentilePerformerReference> =
+    t.recursion("MRObservationPercentilePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -605,13 +605,13 @@ export const MRObservationPercentileBodySite: t.Type<MRObservationPercentileBody
 /**
  * The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.
  */
-export interface MRObservationPercentileDerivedFrom {
+export interface MRObservationPercentileDerivedFromReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationPercentileDerivedFrom: t.Type<MRObservationPercentileDerivedFrom> =
-    t.recursion("MRObservationPercentileDerivedFrom", () =>
+export const MRObservationPercentileDerivedFromReference: t.Type<MRObservationPercentileDerivedFromReference> =
+    t.recursion("MRObservationPercentileDerivedFromReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -633,14 +633,14 @@ interface MRObservationPercentile {
     meta: MRObservationPercentileMeta;
     status: ObservationstatusVS;
     code: MRObservationPercentileCode;
-    subject: MRObservationPercentileSubject;
-    encounter: MRObservationPercentileEncounter;
+    subject: MRObservationPercentileSubjectReference;
+    encounter: MRObservationPercentileEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationPercentileValueQuantity;
-    derivedFrom: Array<MRObservationPercentileDerivedFrom>;
+    derivedFrom: Array<MRObservationPercentileDerivedFromReference>;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationPercentilePerformer>;
+    performer?: Array<MRObservationPercentilePerformerReference>;
     bodySite?: MRObservationPercentileBodySite;
 }
 
@@ -654,16 +654,20 @@ const MRObservationPercentile: t.Type<MRObservationPercentile> = t.recursion(
                     meta: MRObservationPercentileMeta,
                     status: ObservationstatusVS,
                     code: MRObservationPercentileCode,
-                    subject: MRObservationPercentileSubject,
-                    encounter: MRObservationPercentileEncounter,
+                    subject: MRObservationPercentileSubjectReference,
+                    encounter: MRObservationPercentileEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationPercentileValueQuantity,
-                    derivedFrom: MinMaxArray(1, 1, MRObservationPercentileDerivedFrom)
+                    derivedFrom: MinMaxArray(
+                        1,
+                        1,
+                        MRObservationPercentileDerivedFromReference
+                    )
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationPercentilePerformer),
+                    performer: MaxArray(1, MRObservationPercentilePerformerReference),
                     bodySite: MRObservationPercentileBodySite
                 })
             ])

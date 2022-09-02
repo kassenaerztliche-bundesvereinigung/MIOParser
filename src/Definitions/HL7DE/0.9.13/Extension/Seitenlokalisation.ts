@@ -21,9 +21,10 @@
 import * as t from "io-ts";
 import { Literal } from "../../../CustomTypes";
 import SCALARBoolean from "../../../../Definitions/FHIR/4.0.1/Scalar/Boolean";
-import SCALARCode from "../../../../Definitions/FHIR/4.0.1/Scalar/Code";
+
 import SCALARString from "../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import SCALARUri from "../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
+import KBVVSSFHIRICDSEITENLOKALISATIONVS from "../../../../Definitions/ST/1.0.0/ValueSet/KBVVSSFHIRICDSEITENLOKALISATION";
 
 // Definition for URL: "http://fhir.de/StructureDefinition/seitenlokalisation"
 
@@ -32,7 +33,7 @@ import SCALARUri from "../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
  */
 export interface SeitenlokalisationValueCoding {
     system: string;
-    code: string;
+    code: KBVVSSFHIRICDSEITENLOKALISATIONVS;
     id?: string;
     version?: string;
     display?: string;
@@ -44,7 +45,7 @@ export const SeitenlokalisationValueCoding: t.Type<SeitenlokalisationValueCoding
         t.intersection([
             t.type({
                 system: SCALARUri,
-                code: SCALARCode
+                code: KBVVSSFHIRICDSEITENLOKALISATIONVS
             }),
             t.partial({
                 id: SCALARString,

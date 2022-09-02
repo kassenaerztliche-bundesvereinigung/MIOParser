@@ -265,73 +265,79 @@ export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceCode: t.Type<
 /**
  * On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
  */
-export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject {
+export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject> =
-    t.recursion("CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference> =
+    t.recursion(
+        "CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * An encounter that provides additional information about the healthcare context in which this request is made.
  */
-export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter {
+export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter> =
-    t.recursion("CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference> =
+    t.recursion(
+        "CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Encounter|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
  * The individual who initiated the request and has responsibility for its activation.
  */
-export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester {
+export interface CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester> =
-    t.recursion("CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference> =
+    t.recursion(
+        "CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 interface CMRServiceRequestU1U5ReferralPediatricAudiologyService {
@@ -340,12 +346,12 @@ interface CMRServiceRequestU1U5ReferralPediatricAudiologyService {
     status: CMRServiceRequestStatusVS;
     intent: "order";
     code: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceCode;
-    subject: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject;
-    encounter: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter;
+    subject: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference;
+    encounter: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference;
     authoredOn: string;
     id?: string;
     text?: Narrative;
-    requester?: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester;
+    requester?: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference;
 }
 
 const CMRServiceRequestU1U5ReferralPediatricAudiologyService: t.Type<CMRServiceRequestU1U5ReferralPediatricAudiologyService> =
@@ -359,16 +365,16 @@ const CMRServiceRequestU1U5ReferralPediatricAudiologyService: t.Type<CMRServiceR
                     intent: Literal("order"),
                     code: CMRServiceRequestU1U5ReferralPediatricAudiologyServiceCode,
                     subject:
-                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubject,
+                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceSubjectReference,
                     encounter:
-                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounter,
+                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceEncounterReference,
                     authoredOn: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
                     requester:
-                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequester
+                        CMRServiceRequestU1U5ReferralPediatricAudiologyServiceRequesterReference
                 })
             ])
         )

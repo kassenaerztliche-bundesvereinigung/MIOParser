@@ -26,15 +26,17 @@ import MRBiometricsIGerman from "../../../../../Definitions/KBV/MR/1.0.0/Concept
 
 type MRBiometricsI = "248326004:704325000=70847004" | "276352009" | "281688001";
 
-const MRBiometricsI: t.Type<MRBiometricsI> = t.union(
-    [
-        t.literal("248326004:704325000=70847004"),
-        t.literal("276352009"),
-        t.literal("281688001")
-    ],
-    "MRBiometricsI"
-);
+type MRBiometricsIType = t.KeyofC<{
+    "248326004:704325000=70847004": null;
+    "276352009": null;
+    "281688001": null;
+}>;
 
+const MRBiometricsI: MRBiometricsIType = t.keyof({
+    "248326004:704325000=70847004": null,
+    "276352009": null,
+    "281688001": null
+});
 export const MRBiometricsIArray: string[] = [
     "248326004:704325000=70847004",
     "276352009",

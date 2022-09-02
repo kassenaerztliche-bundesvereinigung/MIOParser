@@ -259,13 +259,13 @@ export const MREncounterInpatientTreatmentTypeCoding: t.Type<MREncounterInpatien
 /**
  * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
  */
-export interface MREncounterInpatientTreatmentDiagnosisCondition {
+export interface MREncounterInpatientTreatmentDiagnosisConditionReference {
     display: string;
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentDiagnosisCondition: t.Type<MREncounterInpatientTreatmentDiagnosisCondition> =
-    t.recursion("MREncounterInpatientTreatmentDiagnosisCondition", () =>
+export const MREncounterInpatientTreatmentDiagnosisConditionReference: t.Type<MREncounterInpatientTreatmentDiagnosisConditionReference> =
+    t.recursion("MREncounterInpatientTreatmentDiagnosisConditionReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -359,13 +359,13 @@ export const MREncounterInpatientTreatmentType: t.Type<MREncounterInpatientTreat
 /**
  * The patient or group present at the encounter.
  */
-export interface MREncounterInpatientTreatmentSubject {
+export interface MREncounterInpatientTreatmentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentSubject: t.Type<MREncounterInpatientTreatmentSubject> =
-    t.recursion("MREncounterInpatientTreatmentSubject", () =>
+export const MREncounterInpatientTreatmentSubjectReference: t.Type<MREncounterInpatientTreatmentSubjectReference> =
+    t.recursion("MREncounterInpatientTreatmentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -428,7 +428,7 @@ export const MREncounterInpatientTreatmentPeriod: t.Type<MREncounterInpatientTre
  * The list of diagnosis relevant to this encounter.
  */
 export interface MREncounterInpatientTreatmentDiagnosis {
-    condition: MREncounterInpatientTreatmentDiagnosisCondition;
+    condition: MREncounterInpatientTreatmentDiagnosisConditionReference;
     id?: string;
 }
 
@@ -437,7 +437,7 @@ export const MREncounterInpatientTreatmentDiagnosis: t.Type<MREncounterInpatient
         Excess(
             t.intersection([
                 t.type({
-                    condition: MREncounterInpatientTreatmentDiagnosisCondition
+                    condition: MREncounterInpatientTreatmentDiagnosisConditionReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -449,13 +449,13 @@ export const MREncounterInpatientTreatmentDiagnosis: t.Type<MREncounterInpatient
 /**
  * The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy.
  */
-export interface MREncounterInpatientTreatmentServiceProvider {
+export interface MREncounterInpatientTreatmentServiceProviderReference {
     reference: string;
     id?: string;
 }
 
-export const MREncounterInpatientTreatmentServiceProvider: t.Type<MREncounterInpatientTreatmentServiceProvider> =
-    t.recursion("MREncounterInpatientTreatmentServiceProvider", () =>
+export const MREncounterInpatientTreatmentServiceProviderReference: t.Type<MREncounterInpatientTreatmentServiceProviderReference> =
+    t.recursion("MREncounterInpatientTreatmentServiceProviderReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -476,9 +476,9 @@ interface MREncounterInpatientTreatment {
     status: "finished";
     class: MREncounterInpatientTreatmentClass;
     type: Array<MREncounterInpatientTreatmentType>;
-    subject: MREncounterInpatientTreatmentSubject;
+    subject: MREncounterInpatientTreatmentSubjectReference;
     period: MREncounterInpatientTreatmentPeriod;
-    serviceProvider: MREncounterInpatientTreatmentServiceProvider;
+    serviceProvider: MREncounterInpatientTreatmentServiceProviderReference;
     id?: string;
     text?: Narrative;
     extension?: (Extension | MREncounterInpatientTreatmentTherapie)[];
@@ -496,9 +496,9 @@ const MREncounterInpatientTreatment: t.Type<MREncounterInpatientTreatment> = t.r
                     status: Literal("finished"),
                     class: MREncounterInpatientTreatmentClass,
                     type: MinMaxArray(1, 1, MREncounterInpatientTreatmentType),
-                    subject: MREncounterInpatientTreatmentSubject,
+                    subject: MREncounterInpatientTreatmentSubjectReference,
                     period: MREncounterInpatientTreatmentPeriod,
-                    serviceProvider: MREncounterInpatientTreatmentServiceProvider
+                    serviceProvider: MREncounterInpatientTreatmentServiceProviderReference
                 }),
                 t.partial({
                     id: SCALARString,

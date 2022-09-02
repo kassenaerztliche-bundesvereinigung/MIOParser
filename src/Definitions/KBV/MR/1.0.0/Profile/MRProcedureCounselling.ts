@@ -341,13 +341,13 @@ export const MRProcedureCounsellingCodeCoding: t.Type<MRProcedureCounsellingCode
 /**
  * The practitioner who was involved in the procedure.
  */
-export interface MRProcedureCounsellingPerformerActor {
+export interface MRProcedureCounsellingPerformerActorReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureCounsellingPerformerActor: t.Type<MRProcedureCounsellingPerformerActor> =
-    t.recursion("MRProcedureCounsellingPerformerActor", () =>
+export const MRProcedureCounsellingPerformerActorReference: t.Type<MRProcedureCounsellingPerformerActorReference> =
+    t.recursion("MRProcedureCounsellingPerformerActorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -450,13 +450,13 @@ export const MRProcedureCounsellingCode: t.Type<MRProcedureCounsellingCode> = t.
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface MRProcedureCounsellingSubject {
+export interface MRProcedureCounsellingSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureCounsellingSubject: t.Type<MRProcedureCounsellingSubject> =
-    t.recursion("MRProcedureCounsellingSubject", () =>
+export const MRProcedureCounsellingSubjectReference: t.Type<MRProcedureCounsellingSubjectReference> =
+    t.recursion("MRProcedureCounsellingSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -474,13 +474,13 @@ export const MRProcedureCounsellingSubject: t.Type<MRProcedureCounsellingSubject
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface MRProcedureCounsellingEncounter {
+export interface MRProcedureCounsellingEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureCounsellingEncounter: t.Type<MRProcedureCounsellingEncounter> =
-    t.recursion("MRProcedureCounsellingEncounter", () =>
+export const MRProcedureCounsellingEncounterReference: t.Type<MRProcedureCounsellingEncounterReference> =
+    t.recursion("MRProcedureCounsellingEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -499,7 +499,7 @@ export const MRProcedureCounsellingEncounter: t.Type<MRProcedureCounsellingEncou
  * Limited to "real" people rather than equipment.
  */
 export interface MRProcedureCounsellingPerformer {
-    actor: MRProcedureCounsellingPerformerActor;
+    actor: MRProcedureCounsellingPerformerActorReference;
     id?: string;
 }
 
@@ -508,7 +508,7 @@ export const MRProcedureCounsellingPerformer: t.Type<MRProcedureCounsellingPerfo
         Excess(
             t.intersection([
                 t.type({
-                    actor: MRProcedureCounsellingPerformerActor
+                    actor: MRProcedureCounsellingPerformerActorReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -544,8 +544,8 @@ interface MRProcedureCounselling {
     meta: MRProcedureCounsellingMeta;
     status: EventstatusVS;
     code: MRProcedureCounsellingCode;
-    subject: MRProcedureCounsellingSubject;
-    encounter: MRProcedureCounsellingEncounter;
+    subject: MRProcedureCounsellingSubjectReference;
+    encounter: MRProcedureCounsellingEncounterReference;
     performedDateTime: string;
     id?: string;
     text?: Narrative;
@@ -563,8 +563,8 @@ const MRProcedureCounselling: t.Type<MRProcedureCounselling> = t.recursion(
                     meta: MRProcedureCounsellingMeta,
                     status: EventstatusVS,
                     code: MRProcedureCounsellingCode,
-                    subject: MRProcedureCounsellingSubject,
-                    encounter: MRProcedureCounsellingEncounter,
+                    subject: MRProcedureCounsellingSubjectReference,
+                    encounter: MRProcedureCounsellingEncounterReference,
                     performedDateTime: SCALARDateTime
                 }),
                 t.partial({

@@ -26,11 +26,12 @@ import CMRU1ApgarScoreIdentifierGerman from "../../../../../Definitions/KBV/CMR/
 
 type CMRU1ApgarScoreIdentifier = "169922007" | "169909004";
 
-const CMRU1ApgarScoreIdentifier: t.Type<CMRU1ApgarScoreIdentifier> = t.union(
-    [t.literal("169922007"), t.literal("169909004")],
-    "CMRU1ApgarScoreIdentifier"
-);
+type CMRU1ApgarScoreIdentifierType = t.KeyofC<{ "169922007": null; "169909004": null }>;
 
+const CMRU1ApgarScoreIdentifier: CMRU1ApgarScoreIdentifierType = t.keyof({
+    "169922007": null,
+    "169909004": null
+});
 export const CMRU1ApgarScoreIdentifierArray: string[] = ["169922007", "169909004"];
 
 export const CMRU1ApgarScoreIdentifierValueSet: ValueSet = [

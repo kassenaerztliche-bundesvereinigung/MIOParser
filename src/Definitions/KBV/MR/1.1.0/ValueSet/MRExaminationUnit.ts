@@ -26,17 +26,21 @@ import MRExaminationUnitGerman from "../../../../../Definitions/KBV/MR/1.1.0/Con
 
 type MRExaminationUnit = "{titer}" | "10*6/uL" | "g/dL" | "mmol/L" | "[iU]/mL";
 
-const MRExaminationUnit: t.Type<MRExaminationUnit> = t.union(
-    [
-        t.literal("{titer}"),
-        t.literal("10*6/uL"),
-        t.literal("g/dL"),
-        t.literal("mmol/L"),
-        t.literal("[iU]/mL")
-    ],
-    "MRExaminationUnit"
-);
+type MRExaminationUnitType = t.KeyofC<{
+    "{titer}": null;
+    "10*6/uL": null;
+    "g/dL": null;
+    "mmol/L": null;
+    "[iU]/mL": null;
+}>;
 
+const MRExaminationUnit: MRExaminationUnitType = t.keyof({
+    "{titer}": null,
+    "10*6/uL": null,
+    "g/dL": null,
+    "mmol/L": null,
+    "[iU]/mL": null
+});
 export const MRExaminationUnitArray: string[] = [
     "{titer}",
     "10*6/uL",

@@ -29,16 +29,19 @@ type CMRPercentileBodyMeasureSnomed =
     | "363812007:370130000=415068004"
     | "60621009:370130000=415068004";
 
-const CMRPercentileBodyMeasureSnomed: t.Type<CMRPercentileBodyMeasureSnomed> = t.union(
-    [
-        t.literal("27113001:370130000=415068004"),
-        t.literal("50373000:370130000=415068004"),
-        t.literal("363812007:370130000=415068004"),
-        t.literal("60621009:370130000=415068004")
-    ],
-    "CMRPercentileBodyMeasureSnomed"
-);
+type CMRPercentileBodyMeasureSnomedType = t.KeyofC<{
+    "27113001:370130000=415068004": null;
+    "50373000:370130000=415068004": null;
+    "363812007:370130000=415068004": null;
+    "60621009:370130000=415068004": null;
+}>;
 
+const CMRPercentileBodyMeasureSnomed: CMRPercentileBodyMeasureSnomedType = t.keyof({
+    "27113001:370130000=415068004": null,
+    "50373000:370130000=415068004": null,
+    "363812007:370130000=415068004": null,
+    "60621009:370130000=415068004": null
+});
 export const CMRPercentileBodyMeasureSnomedArray: string[] = [
     "27113001:370130000=415068004",
     "50373000:370130000=415068004",

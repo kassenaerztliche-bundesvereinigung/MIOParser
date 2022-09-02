@@ -31,6 +31,7 @@ import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean"
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 
 import AddressuseVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Addressuse";
+
 import ContactpointsystemVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Contactpointsystem";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
 import GemRSAnlage8VS from "../../../../../Definitions/KBVBase/1.1.3/ValueSet/GemRSAnlage8";

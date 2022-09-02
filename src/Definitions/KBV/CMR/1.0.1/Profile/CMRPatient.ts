@@ -392,7 +392,7 @@ export const CMRPatientVersichertennummerpkvTypeCoding: t.Type<CMRPatientVersich
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface CMRPatientVersichertennummerpkvAssignerIdentifier {
+export interface CMRPatientVersichertennummerpkvAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -402,8 +402,8 @@ export interface CMRPatientVersichertennummerpkvAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const CMRPatientVersichertennummerpkvAssignerIdentifier: t.Type<CMRPatientVersichertennummerpkvAssignerIdentifier> =
-    t.recursion("CMRPatientVersichertennummerpkvAssignerIdentifier", () =>
+export const CMRPatientVersichertennummerpkvAssignerReferenceIdentifier: t.Type<CMRPatientVersichertennummerpkvAssignerReferenceIdentifier> =
+    t.recursion("CMRPatientVersichertennummerpkvAssignerReferenceIdentifier", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -619,16 +619,16 @@ export const CMRPatientVersichertennummerpkvType: t.Type<CMRPatientVersichertenn
 /**
  * Organization that issued/manages the identifier.
  */
-export interface CMRPatientVersichertennummerpkvAssigner {
+export interface CMRPatientVersichertennummerpkvAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: CMRPatientVersichertennummerpkvAssignerIdentifier;
+    identifier?: CMRPatientVersichertennummerpkvAssignerReferenceIdentifier;
 }
 
-export const CMRPatientVersichertennummerpkvAssigner: t.Type<CMRPatientVersichertennummerpkvAssigner> =
-    t.recursion("CMRPatientVersichertennummerpkvAssigner", () =>
+export const CMRPatientVersichertennummerpkvAssignerReference: t.Type<CMRPatientVersichertennummerpkvAssignerReference> =
+    t.recursion("CMRPatientVersichertennummerpkvAssignerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -640,7 +640,7 @@ export const CMRPatientVersichertennummerpkvAssigner: t.Type<CMRPatientVersicher
                         "http://hl7.org/fhir/StructureDefinition/Organization"
                     ]),
                     type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                    identifier: CMRPatientVersichertennummerpkvAssignerIdentifier
+                    identifier: CMRPatientVersichertennummerpkvAssignerReferenceIdentifier
                 })
             ])
         )
@@ -910,7 +910,7 @@ export const CMRPatientVersichertenIdGKV: t.Type<CMRPatientVersichertenIdGKV> =
 export interface CMRPatientVersichertennummerpkv {
     type: CMRPatientVersichertennummerpkvType;
     value: string;
-    assigner: CMRPatientVersichertennummerpkvAssigner;
+    assigner: CMRPatientVersichertennummerpkvAssignerReference;
     id?: string;
     system?: string;
     period?: Period;
@@ -923,7 +923,7 @@ export const CMRPatientVersichertennummerpkv: t.Type<CMRPatientVersichertennumme
                 t.type({
                     type: CMRPatientVersichertennummerpkvType,
                     value: SCALARString,
-                    assigner: CMRPatientVersichertennummerpkvAssigner
+                    assigner: CMRPatientVersichertennummerpkvAssignerReference
                 }),
                 t.partial({
                     id: SCALARString,
@@ -1161,17 +1161,17 @@ const CMRPatient: t.Type<CMRPatient> = t.recursion("CMRPatient", () =>
                         {
                             codec: CMRPatientPid,
                             occurrence: ["0", "*"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "MR" }
                         },
                         {
                             codec: CMRPatientVersichertenIdGKV,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "GKV" }
                         },
                         {
                             codec: CMRPatientVersichertennummerpkv,
                             occurrence: ["0", "1"],
-                            sliceBy: { path: "type.coding.code" }
+                            sliceBy: { path: "type.coding.code", value: "PKV" }
                         },
                         {
                             codec: CMRPatientVersichertennummerkvk,

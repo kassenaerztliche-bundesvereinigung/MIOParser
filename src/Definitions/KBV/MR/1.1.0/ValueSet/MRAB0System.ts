@@ -26,17 +26,21 @@ import MRAB0SystemGerman from "../../../../../Definitions/KBV/MR/1.1.0/ConceptMa
 
 type MRAB0System = "112144000" | "112149005" | "165743006" | "58460004" | "115731008";
 
-const MRAB0System: t.Type<MRAB0System> = t.union(
-    [
-        t.literal("112144000"),
-        t.literal("112149005"),
-        t.literal("165743006"),
-        t.literal("58460004"),
-        t.literal("115731008")
-    ],
-    "MRAB0System"
-);
+type MRAB0SystemType = t.KeyofC<{
+    "112144000": null;
+    "112149005": null;
+    "165743006": null;
+    "58460004": null;
+    "115731008": null;
+}>;
 
+const MRAB0System: MRAB0SystemType = t.keyof({
+    "112144000": null,
+    "112149005": null,
+    "165743006": null,
+    "58460004": null,
+    "115731008": null
+});
 export const MRAB0SystemArray: string[] = [
     "112144000",
     "112149005",

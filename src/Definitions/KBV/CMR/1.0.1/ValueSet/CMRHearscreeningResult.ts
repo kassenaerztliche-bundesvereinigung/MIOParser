@@ -26,11 +26,17 @@ import CMRHearscreeningResultGerman from "../../../../../Definitions/KBV/CMR/1.0
 
 type CMRHearscreeningResult = "275727004" | "134376008" | "134375007";
 
-const CMRHearscreeningResult: t.Type<CMRHearscreeningResult> = t.union(
-    [t.literal("275727004"), t.literal("134376008"), t.literal("134375007")],
-    "CMRHearscreeningResult"
-);
+type CMRHearscreeningResultType = t.KeyofC<{
+    "275727004": null;
+    "134376008": null;
+    "134375007": null;
+}>;
 
+const CMRHearscreeningResult: CMRHearscreeningResultType = t.keyof({
+    "275727004": null,
+    "134376008": null,
+    "134375007": null
+});
 export const CMRHearscreeningResultArray: string[] = [
     "275727004",
     "134376008",

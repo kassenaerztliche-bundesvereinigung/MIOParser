@@ -483,13 +483,13 @@ export const CMRObservationHeadCircumferenceCode: t.Type<CMRObservationHeadCircu
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationHeadCircumferenceSubject {
+export interface CMRObservationHeadCircumferenceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationHeadCircumferenceSubject: t.Type<CMRObservationHeadCircumferenceSubject> =
-    t.recursion("CMRObservationHeadCircumferenceSubject", () =>
+export const CMRObservationHeadCircumferenceSubjectReference: t.Type<CMRObservationHeadCircumferenceSubjectReference> =
+    t.recursion("CMRObservationHeadCircumferenceSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -507,13 +507,13 @@ export const CMRObservationHeadCircumferenceSubject: t.Type<CMRObservationHeadCi
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationHeadCircumferenceEncounter {
+export interface CMRObservationHeadCircumferenceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationHeadCircumferenceEncounter: t.Type<CMRObservationHeadCircumferenceEncounter> =
-    t.recursion("CMRObservationHeadCircumferenceEncounter", () =>
+export const CMRObservationHeadCircumferenceEncounterReference: t.Type<CMRObservationHeadCircumferenceEncounterReference> =
+    t.recursion("CMRObservationHeadCircumferenceEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -531,13 +531,13 @@ export const CMRObservationHeadCircumferenceEncounter: t.Type<CMRObservationHead
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationHeadCircumferencePerformer {
+export interface CMRObservationHeadCircumferencePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationHeadCircumferencePerformer: t.Type<CMRObservationHeadCircumferencePerformer> =
-    t.recursion("CMRObservationHeadCircumferencePerformer", () =>
+export const CMRObservationHeadCircumferencePerformerReference: t.Type<CMRObservationHeadCircumferencePerformerReference> =
+    t.recursion("CMRObservationHeadCircumferencePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -557,13 +557,13 @@ interface CMRObservationHeadCircumference {
     meta: CMRObservationHeadCircumferenceMeta;
     status: "final";
     code: CMRObservationHeadCircumferenceCode;
-    subject: CMRObservationHeadCircumferenceSubject;
-    encounter: CMRObservationHeadCircumferenceEncounter;
+    subject: CMRObservationHeadCircumferenceSubjectReference;
+    encounter: CMRObservationHeadCircumferenceEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationHeadCircumferenceValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationHeadCircumferencePerformer>;
+    performer?: Array<CMRObservationHeadCircumferencePerformerReference>;
 }
 
 const CMRObservationHeadCircumference: t.Type<CMRObservationHeadCircumference> =
@@ -575,15 +575,18 @@ const CMRObservationHeadCircumference: t.Type<CMRObservationHeadCircumference> =
                     meta: CMRObservationHeadCircumferenceMeta,
                     status: Literal("final"),
                     code: CMRObservationHeadCircumferenceCode,
-                    subject: CMRObservationHeadCircumferenceSubject,
-                    encounter: CMRObservationHeadCircumferenceEncounter,
+                    subject: CMRObservationHeadCircumferenceSubjectReference,
+                    encounter: CMRObservationHeadCircumferenceEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationHeadCircumferenceValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationHeadCircumferencePerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationHeadCircumferencePerformerReference
+                    )
                 })
             ])
         )

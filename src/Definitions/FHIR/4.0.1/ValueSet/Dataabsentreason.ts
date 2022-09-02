@@ -40,27 +40,41 @@ type Dataabsentreason =
     | "not-performed"
     | "not-permitted";
 
-const Dataabsentreason: t.Type<Dataabsentreason> = t.union(
-    [
-        t.literal("unknown"),
-        t.literal("asked-unknown"),
-        t.literal("temp-unknown"),
-        t.literal("not-asked"),
-        t.literal("asked-declined"),
-        t.literal("masked"),
-        t.literal("not-applicable"),
-        t.literal("unsupported"),
-        t.literal("as-text"),
-        t.literal("error"),
-        t.literal("not-a-number"),
-        t.literal("negative-infinity"),
-        t.literal("positive-infinity"),
-        t.literal("not-performed"),
-        t.literal("not-permitted")
-    ],
-    "Dataabsentreason"
-);
+type DataabsentreasonType = t.KeyofC<{
+    unknown: null;
+    "asked-unknown": null;
+    "temp-unknown": null;
+    "not-asked": null;
+    "asked-declined": null;
+    masked: null;
+    "not-applicable": null;
+    unsupported: null;
+    "as-text": null;
+    error: null;
+    "not-a-number": null;
+    "negative-infinity": null;
+    "positive-infinity": null;
+    "not-performed": null;
+    "not-permitted": null;
+}>;
 
+const Dataabsentreason: DataabsentreasonType = t.keyof({
+    unknown: null,
+    "asked-unknown": null,
+    "temp-unknown": null,
+    "not-asked": null,
+    "asked-declined": null,
+    masked: null,
+    "not-applicable": null,
+    unsupported: null,
+    "as-text": null,
+    error: null,
+    "not-a-number": null,
+    "negative-infinity": null,
+    "positive-infinity": null,
+    "not-performed": null,
+    "not-permitted": null
+});
 export const DataabsentreasonArray: string[] = [
     "unknown",
     "asked-unknown",

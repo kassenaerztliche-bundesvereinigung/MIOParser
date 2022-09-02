@@ -255,13 +255,13 @@ export const MRObservationUrineSedimentCode: t.Type<MRObservationUrineSedimentCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUrineSedimentSubject {
+export interface MRObservationUrineSedimentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSedimentSubject: t.Type<MRObservationUrineSedimentSubject> =
-    t.recursion("MRObservationUrineSedimentSubject", () =>
+export const MRObservationUrineSedimentSubjectReference: t.Type<MRObservationUrineSedimentSubjectReference> =
+    t.recursion("MRObservationUrineSedimentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,13 +279,13 @@ export const MRObservationUrineSedimentSubject: t.Type<MRObservationUrineSedimen
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUrineSedimentEncounter {
+export interface MRObservationUrineSedimentEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSedimentEncounter: t.Type<MRObservationUrineSedimentEncounter> =
-    t.recursion("MRObservationUrineSedimentEncounter", () =>
+export const MRObservationUrineSedimentEncounterReference: t.Type<MRObservationUrineSedimentEncounterReference> =
+    t.recursion("MRObservationUrineSedimentEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,13 +303,13 @@ export const MRObservationUrineSedimentEncounter: t.Type<MRObservationUrineSedim
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUrineSedimentPerformer {
+export interface MRObservationUrineSedimentPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineSedimentPerformer: t.Type<MRObservationUrineSedimentPerformer> =
-    t.recursion("MRObservationUrineSedimentPerformer", () =>
+export const MRObservationUrineSedimentPerformerReference: t.Type<MRObservationUrineSedimentPerformerReference> =
+    t.recursion("MRObservationUrineSedimentPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface MRObservationUrineSediment {
     meta: MRObservationUrineSedimentMeta;
     status: "final";
     code: MRObservationUrineSedimentCode;
-    subject: MRObservationUrineSedimentSubject;
-    encounter: MRObservationUrineSedimentEncounter;
+    subject: MRObservationUrineSedimentSubjectReference;
+    encounter: MRObservationUrineSedimentEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUrineSedimentPerformer>;
+    performer?: Array<MRObservationUrineSedimentPerformerReference>;
 }
 
 const MRObservationUrineSediment: t.Type<MRObservationUrineSediment> = t.recursion(
@@ -349,15 +349,15 @@ const MRObservationUrineSediment: t.Type<MRObservationUrineSediment> = t.recursi
                     meta: MRObservationUrineSedimentMeta,
                     status: Literal("final"),
                     code: MRObservationUrineSedimentCode,
-                    subject: MRObservationUrineSedimentSubject,
-                    encounter: MRObservationUrineSedimentEncounter,
+                    subject: MRObservationUrineSedimentSubjectReference,
+                    encounter: MRObservationUrineSedimentEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUrineSedimentPerformer)
+                    performer: MaxArray(1, MRObservationUrineSedimentPerformerReference)
                 })
             ])
         )

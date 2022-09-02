@@ -256,13 +256,13 @@ export const CMRObservationU1NeonatalJaundiceCode: t.Type<CMRObservationU1Neonat
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1NeonatalJaundiceSubject {
+export interface CMRObservationU1NeonatalJaundiceSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1NeonatalJaundiceSubject: t.Type<CMRObservationU1NeonatalJaundiceSubject> =
-    t.recursion("CMRObservationU1NeonatalJaundiceSubject", () =>
+export const CMRObservationU1NeonatalJaundiceSubjectReference: t.Type<CMRObservationU1NeonatalJaundiceSubjectReference> =
+    t.recursion("CMRObservationU1NeonatalJaundiceSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const CMRObservationU1NeonatalJaundiceSubject: t.Type<CMRObservationU1Neo
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1NeonatalJaundiceEncounter {
+export interface CMRObservationU1NeonatalJaundiceEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1NeonatalJaundiceEncounter: t.Type<CMRObservationU1NeonatalJaundiceEncounter> =
-    t.recursion("CMRObservationU1NeonatalJaundiceEncounter", () =>
+export const CMRObservationU1NeonatalJaundiceEncounterReference: t.Type<CMRObservationU1NeonatalJaundiceEncounterReference> =
+    t.recursion("CMRObservationU1NeonatalJaundiceEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const CMRObservationU1NeonatalJaundiceEncounter: t.Type<CMRObservationU1N
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1NeonatalJaundicePerformer {
+export interface CMRObservationU1NeonatalJaundicePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1NeonatalJaundicePerformer: t.Type<CMRObservationU1NeonatalJaundicePerformer> =
-    t.recursion("CMRObservationU1NeonatalJaundicePerformer", () =>
+export const CMRObservationU1NeonatalJaundicePerformerReference: t.Type<CMRObservationU1NeonatalJaundicePerformerReference> =
+    t.recursion("CMRObservationU1NeonatalJaundicePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -330,13 +330,13 @@ interface CMRObservationU1NeonatalJaundice {
     meta: CMRObservationU1NeonatalJaundiceMeta;
     status: "final";
     code: CMRObservationU1NeonatalJaundiceCode;
-    subject: CMRObservationU1NeonatalJaundiceSubject;
-    encounter: CMRObservationU1NeonatalJaundiceEncounter;
+    subject: CMRObservationU1NeonatalJaundiceSubjectReference;
+    encounter: CMRObservationU1NeonatalJaundiceEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1NeonatalJaundicePerformer>;
+    performer?: Array<CMRObservationU1NeonatalJaundicePerformerReference>;
 }
 
 const CMRObservationU1NeonatalJaundice: t.Type<CMRObservationU1NeonatalJaundice> =
@@ -348,15 +348,18 @@ const CMRObservationU1NeonatalJaundice: t.Type<CMRObservationU1NeonatalJaundice>
                     meta: CMRObservationU1NeonatalJaundiceMeta,
                     status: Literal("final"),
                     code: CMRObservationU1NeonatalJaundiceCode,
-                    subject: CMRObservationU1NeonatalJaundiceSubject,
-                    encounter: CMRObservationU1NeonatalJaundiceEncounter,
+                    subject: CMRObservationU1NeonatalJaundiceSubjectReference,
+                    encounter: CMRObservationU1NeonatalJaundiceEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1NeonatalJaundicePerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU1NeonatalJaundicePerformerReference
+                    )
                 })
             ])
         )

@@ -86,7 +86,6 @@ interface Identifierpid {
     type: IdentifierpidType;
     system: string;
     value: string;
-    resourceType?: "Identifier";
     id?: string;
     use?: "usual";
     period?: Period;
@@ -101,7 +100,6 @@ const Identifierpid: t.Type<Identifierpid> = t.recursion("Identifierpid", () =>
             value: SCALARString
         }),
         t.partial({
-            resourceType: Literal("Identifier"),
             id: SCALARString,
             use: Literal("usual"),
             period: Period,

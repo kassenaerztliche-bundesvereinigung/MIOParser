@@ -69,7 +69,7 @@ export const IdentifierlanrTypeLANRType: t.Type<IdentifierlanrTypeLANRType> = t.
 /**
  * An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
  */
-export interface IdentifierlanrAssignerIdentifier {
+export interface IdentifierlanrAssignerReferenceIdentifier {
     system: "http://fhir.de/NamingSystem/arge-ik/iknr";
     value: string;
     id?: string;
@@ -79,8 +79,8 @@ export interface IdentifierlanrAssignerIdentifier {
     assigner?: Reference;
 }
 
-export const IdentifierlanrAssignerIdentifier: t.Type<IdentifierlanrAssignerIdentifier> =
-    t.recursion("IdentifierlanrAssignerIdentifier", () =>
+export const IdentifierlanrAssignerReferenceIdentifier: t.Type<IdentifierlanrAssignerReferenceIdentifier> =
+    t.recursion("IdentifierlanrAssignerReferenceIdentifier", () =>
         t.intersection([
             t.type({
                 system: Literal("http://fhir.de/NamingSystem/arge-ik/iknr"),
@@ -122,17 +122,16 @@ export const IdentifierlanrType: t.Type<IdentifierlanrType> = t.recursion(
 /**
  * Organization that issued/manages the identifier.
  */
-export interface IdentifierlanrAssigner {
+export interface IdentifierlanrAssignerReference {
     display: string;
     id?: string;
     reference?: string;
     type?: ResourcetypesVS;
-    identifier?: IdentifierlanrAssignerIdentifier;
+    identifier?: IdentifierlanrAssignerReferenceIdentifier;
 }
 
-export const IdentifierlanrAssigner: t.Type<IdentifierlanrAssigner> = t.recursion(
-    "IdentifierlanrAssigner",
-    () =>
+export const IdentifierlanrAssignerReference: t.Type<IdentifierlanrAssignerReference> =
+    t.recursion("IdentifierlanrAssignerReference", () =>
         t.intersection([
             t.type({
                 display: SCALARString
@@ -143,20 +142,19 @@ export const IdentifierlanrAssigner: t.Type<IdentifierlanrAssigner> = t.recursio
                     "http://hl7.org/fhir/StructureDefinition/Organization"
                 ]),
                 type: ExtensibleCheck<t.Type<ResourcetypesVS>>(ResourcetypesVS),
-                identifier: IdentifierlanrAssignerIdentifier
+                identifier: IdentifierlanrAssignerReferenceIdentifier
             })
         ])
-);
+    );
 
 interface Identifierlanr {
     system: "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR";
     value: string;
-    resourceType?: "Identifier";
     id?: string;
     use?: "official";
     type?: IdentifierlanrType;
     period?: Period;
-    assigner?: IdentifierlanrAssigner;
+    assigner?: IdentifierlanrAssignerReference;
 }
 
 const Identifierlanr: t.Type<Identifierlanr> = t.recursion("Identifierlanr", () =>
@@ -166,12 +164,11 @@ const Identifierlanr: t.Type<Identifierlanr> = t.recursion("Identifierlanr", () 
             value: SCALARString
         }),
         t.partial({
-            resourceType: Literal("Identifier"),
             id: SCALARString,
             use: Literal("official"),
             type: IdentifierlanrType,
             period: Period,
-            assigner: IdentifierlanrAssigner
+            assigner: IdentifierlanrAssignerReference
         })
     ])
 );

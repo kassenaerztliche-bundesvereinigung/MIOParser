@@ -450,13 +450,13 @@ export const MRObservationBiometricsICode: t.Type<MRObservationBiometricsICode> 
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBiometricsISubject {
+export interface MRObservationBiometricsISubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISubject> =
-    t.recursion("MRObservationBiometricsISubject", () =>
+export const MRObservationBiometricsISubjectReference: t.Type<MRObservationBiometricsISubjectReference> =
+    t.recursion("MRObservationBiometricsISubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -474,13 +474,13 @@ export const MRObservationBiometricsISubject: t.Type<MRObservationBiometricsISub
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBiometricsIEncounter {
+export interface MRObservationBiometricsIEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIEncounter> =
-    t.recursion("MRObservationBiometricsIEncounter", () =>
+export const MRObservationBiometricsIEncounterReference: t.Type<MRObservationBiometricsIEncounterReference> =
+    t.recursion("MRObservationBiometricsIEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -498,13 +498,13 @@ export const MRObservationBiometricsIEncounter: t.Type<MRObservationBiometricsIE
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBiometricsIPerformer {
+export interface MRObservationBiometricsIPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBiometricsIPerformer: t.Type<MRObservationBiometricsIPerformer> =
-    t.recursion("MRObservationBiometricsIPerformer", () =>
+export const MRObservationBiometricsIPerformerReference: t.Type<MRObservationBiometricsIPerformerReference> =
+    t.recursion("MRObservationBiometricsIPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -572,13 +572,13 @@ interface MRObservationBiometricsI {
     meta: MRObservationBiometricsIMeta;
     status: "final";
     code: MRObservationBiometricsICode;
-    subject: MRObservationBiometricsISubject;
-    encounter: MRObservationBiometricsIEncounter;
+    subject: MRObservationBiometricsISubjectReference;
+    encounter: MRObservationBiometricsIEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationBiometricsIValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBiometricsIPerformer>;
+    performer?: Array<MRObservationBiometricsIPerformerReference>;
     bodySite?: MRObservationBiometricsIBodySite;
 }
 
@@ -592,15 +592,15 @@ const MRObservationBiometricsI: t.Type<MRObservationBiometricsI> = t.recursion(
                     meta: MRObservationBiometricsIMeta,
                     status: Literal("final"),
                     code: MRObservationBiometricsICode,
-                    subject: MRObservationBiometricsISubject,
-                    encounter: MRObservationBiometricsIEncounter,
+                    subject: MRObservationBiometricsISubjectReference,
+                    encounter: MRObservationBiometricsIEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationBiometricsIValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBiometricsIPerformer),
+                    performer: MaxArray(1, MRObservationBiometricsIPerformerReference),
                     bodySite: MRObservationBiometricsIBodySite
                 })
             ])

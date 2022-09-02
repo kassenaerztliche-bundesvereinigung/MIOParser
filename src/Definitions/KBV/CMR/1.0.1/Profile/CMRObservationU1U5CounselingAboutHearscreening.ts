@@ -263,13 +263,13 @@ export const CMRObservationU1U5CounselingAboutHearscreeningCode: t.Type<CMRObser
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U5CounselingAboutHearscreeningSubject {
+export interface CMRObservationU1U5CounselingAboutHearscreeningSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5CounselingAboutHearscreeningSubject: t.Type<CMRObservationU1U5CounselingAboutHearscreeningSubject> =
-    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningSubject", () =>
+export const CMRObservationU1U5CounselingAboutHearscreeningSubjectReference: t.Type<CMRObservationU1U5CounselingAboutHearscreeningSubjectReference> =
+    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -287,13 +287,13 @@ export const CMRObservationU1U5CounselingAboutHearscreeningSubject: t.Type<CMROb
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U5CounselingAboutHearscreeningEncounter {
+export interface CMRObservationU1U5CounselingAboutHearscreeningEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5CounselingAboutHearscreeningEncounter: t.Type<CMRObservationU1U5CounselingAboutHearscreeningEncounter> =
-    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningEncounter", () =>
+export const CMRObservationU1U5CounselingAboutHearscreeningEncounterReference: t.Type<CMRObservationU1U5CounselingAboutHearscreeningEncounterReference> =
+    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -311,13 +311,13 @@ export const CMRObservationU1U5CounselingAboutHearscreeningEncounter: t.Type<CMR
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U5CounselingAboutHearscreeningPerformer {
+export interface CMRObservationU1U5CounselingAboutHearscreeningPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U5CounselingAboutHearscreeningPerformer: t.Type<CMRObservationU1U5CounselingAboutHearscreeningPerformer> =
-    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningPerformer", () =>
+export const CMRObservationU1U5CounselingAboutHearscreeningPerformerReference: t.Type<CMRObservationU1U5CounselingAboutHearscreeningPerformerReference> =
+    t.recursion("CMRObservationU1U5CounselingAboutHearscreeningPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,13 +337,13 @@ interface CMRObservationU1U5CounselingAboutHearscreening {
     meta: CMRObservationU1U5CounselingAboutHearscreeningMeta;
     status: "final";
     code: CMRObservationU1U5CounselingAboutHearscreeningCode;
-    subject: CMRObservationU1U5CounselingAboutHearscreeningSubject;
-    encounter: CMRObservationU1U5CounselingAboutHearscreeningEncounter;
+    subject: CMRObservationU1U5CounselingAboutHearscreeningSubjectReference;
+    encounter: CMRObservationU1U5CounselingAboutHearscreeningEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U5CounselingAboutHearscreeningPerformer>;
+    performer?: Array<CMRObservationU1U5CounselingAboutHearscreeningPerformerReference>;
 }
 
 const CMRObservationU1U5CounselingAboutHearscreening: t.Type<CMRObservationU1U5CounselingAboutHearscreening> =
@@ -355,8 +355,10 @@ const CMRObservationU1U5CounselingAboutHearscreening: t.Type<CMRObservationU1U5C
                     meta: CMRObservationU1U5CounselingAboutHearscreeningMeta,
                     status: Literal("final"),
                     code: CMRObservationU1U5CounselingAboutHearscreeningCode,
-                    subject: CMRObservationU1U5CounselingAboutHearscreeningSubject,
-                    encounter: CMRObservationU1U5CounselingAboutHearscreeningEncounter,
+                    subject:
+                        CMRObservationU1U5CounselingAboutHearscreeningSubjectReference,
+                    encounter:
+                        CMRObservationU1U5CounselingAboutHearscreeningEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
@@ -365,7 +367,7 @@ const CMRObservationU1U5CounselingAboutHearscreening: t.Type<CMRObservationU1U5C
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U5CounselingAboutHearscreeningPerformer
+                        CMRObservationU1U5CounselingAboutHearscreeningPerformerReference
                     )
                 })
             ])

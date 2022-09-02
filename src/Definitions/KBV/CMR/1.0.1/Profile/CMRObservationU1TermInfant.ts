@@ -254,13 +254,13 @@ export const CMRObservationU1TermInfantCode: t.Type<CMRObservationU1TermInfantCo
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1TermInfantSubject {
+export interface CMRObservationU1TermInfantSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1TermInfantSubject: t.Type<CMRObservationU1TermInfantSubject> =
-    t.recursion("CMRObservationU1TermInfantSubject", () =>
+export const CMRObservationU1TermInfantSubjectReference: t.Type<CMRObservationU1TermInfantSubjectReference> =
+    t.recursion("CMRObservationU1TermInfantSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,13 +278,13 @@ export const CMRObservationU1TermInfantSubject: t.Type<CMRObservationU1TermInfan
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1TermInfantEncounter {
+export interface CMRObservationU1TermInfantEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1TermInfantEncounter: t.Type<CMRObservationU1TermInfantEncounter> =
-    t.recursion("CMRObservationU1TermInfantEncounter", () =>
+export const CMRObservationU1TermInfantEncounterReference: t.Type<CMRObservationU1TermInfantEncounterReference> =
+    t.recursion("CMRObservationU1TermInfantEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +302,13 @@ export const CMRObservationU1TermInfantEncounter: t.Type<CMRObservationU1TermInf
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1TermInfantPerformer {
+export interface CMRObservationU1TermInfantPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1TermInfantPerformer: t.Type<CMRObservationU1TermInfantPerformer> =
-    t.recursion("CMRObservationU1TermInfantPerformer", () =>
+export const CMRObservationU1TermInfantPerformerReference: t.Type<CMRObservationU1TermInfantPerformerReference> =
+    t.recursion("CMRObservationU1TermInfantPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -328,13 +328,13 @@ interface CMRObservationU1TermInfant {
     meta: CMRObservationU1TermInfantMeta;
     status: "final";
     code: CMRObservationU1TermInfantCode;
-    subject: CMRObservationU1TermInfantSubject;
-    encounter: CMRObservationU1TermInfantEncounter;
+    subject: CMRObservationU1TermInfantSubjectReference;
+    encounter: CMRObservationU1TermInfantEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1TermInfantPerformer>;
+    performer?: Array<CMRObservationU1TermInfantPerformerReference>;
 }
 
 const CMRObservationU1TermInfant: t.Type<CMRObservationU1TermInfant> = t.recursion(
@@ -347,15 +347,15 @@ const CMRObservationU1TermInfant: t.Type<CMRObservationU1TermInfant> = t.recursi
                     meta: CMRObservationU1TermInfantMeta,
                     status: Literal("final"),
                     code: CMRObservationU1TermInfantCode,
-                    subject: CMRObservationU1TermInfantSubject,
-                    encounter: CMRObservationU1TermInfantEncounter,
+                    subject: CMRObservationU1TermInfantSubjectReference,
+                    encounter: CMRObservationU1TermInfantEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU1TermInfantPerformer)
+                    performer: MaxArray(1, CMRObservationU1TermInfantPerformerReference)
                 })
             ])
         )

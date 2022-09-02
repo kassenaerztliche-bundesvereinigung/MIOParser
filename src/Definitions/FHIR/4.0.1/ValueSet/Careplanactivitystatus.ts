@@ -34,21 +34,29 @@ type Careplanactivitystatus =
     | "unknown"
     | "entered-in-error";
 
-const Careplanactivitystatus: t.Type<Careplanactivitystatus> = t.union(
-    [
-        t.literal("not-started"),
-        t.literal("scheduled"),
-        t.literal("in-progress"),
-        t.literal("on-hold"),
-        t.literal("completed"),
-        t.literal("cancelled"),
-        t.literal("stopped"),
-        t.literal("unknown"),
-        t.literal("entered-in-error")
-    ],
-    "Careplanactivitystatus"
-);
+type CareplanactivitystatusType = t.KeyofC<{
+    "not-started": null;
+    scheduled: null;
+    "in-progress": null;
+    "on-hold": null;
+    completed: null;
+    cancelled: null;
+    stopped: null;
+    unknown: null;
+    "entered-in-error": null;
+}>;
 
+const Careplanactivitystatus: CareplanactivitystatusType = t.keyof({
+    "not-started": null,
+    scheduled: null,
+    "in-progress": null,
+    "on-hold": null,
+    completed: null,
+    cancelled: null,
+    stopped: null,
+    unknown: null,
+    "entered-in-error": null
+});
 export const CareplanactivitystatusArray: string[] = [
     "not-started",
     "scheduled",

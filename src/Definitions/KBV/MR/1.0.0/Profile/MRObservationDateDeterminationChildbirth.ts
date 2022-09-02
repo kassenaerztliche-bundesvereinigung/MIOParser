@@ -262,13 +262,13 @@ export const MRObservationDateDeterminationChildbirthCode: t.Type<MRObservationD
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationDateDeterminationChildbirthSubject {
+export interface MRObservationDateDeterminationChildbirthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthSubject: t.Type<MRObservationDateDeterminationChildbirthSubject> =
-    t.recursion("MRObservationDateDeterminationChildbirthSubject", () =>
+export const MRObservationDateDeterminationChildbirthSubjectReference: t.Type<MRObservationDateDeterminationChildbirthSubjectReference> =
+    t.recursion("MRObservationDateDeterminationChildbirthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -286,13 +286,13 @@ export const MRObservationDateDeterminationChildbirthSubject: t.Type<MRObservati
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationDateDeterminationChildbirthEncounter {
+export interface MRObservationDateDeterminationChildbirthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthEncounter: t.Type<MRObservationDateDeterminationChildbirthEncounter> =
-    t.recursion("MRObservationDateDeterminationChildbirthEncounter", () =>
+export const MRObservationDateDeterminationChildbirthEncounterReference: t.Type<MRObservationDateDeterminationChildbirthEncounterReference> =
+    t.recursion("MRObservationDateDeterminationChildbirthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -310,13 +310,13 @@ export const MRObservationDateDeterminationChildbirthEncounter: t.Type<MRObserva
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationDateDeterminationChildbirthPerformer {
+export interface MRObservationDateDeterminationChildbirthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDateDeterminationChildbirthPerformer: t.Type<MRObservationDateDeterminationChildbirthPerformer> =
-    t.recursion("MRObservationDateDeterminationChildbirthPerformer", () =>
+export const MRObservationDateDeterminationChildbirthPerformerReference: t.Type<MRObservationDateDeterminationChildbirthPerformerReference> =
+    t.recursion("MRObservationDateDeterminationChildbirthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,12 +337,12 @@ interface MRObservationDateDeterminationChildbirth {
     meta: MRObservationDateDeterminationChildbirthMeta;
     status: ObservationstatusVS;
     code: MRObservationDateDeterminationChildbirthCode;
-    subject: MRObservationDateDeterminationChildbirthSubject;
-    encounter: MRObservationDateDeterminationChildbirthEncounter;
+    subject: MRObservationDateDeterminationChildbirthSubjectReference;
+    encounter: MRObservationDateDeterminationChildbirthEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationDateDeterminationChildbirthPerformer>;
+    performer?: Array<MRObservationDateDeterminationChildbirthPerformerReference>;
     note?: Array<Annotation>;
 }
 
@@ -355,8 +355,8 @@ const MRObservationDateDeterminationChildbirth: t.Type<MRObservationDateDetermin
                     meta: MRObservationDateDeterminationChildbirthMeta,
                     status: ObservationstatusVS,
                     code: MRObservationDateDeterminationChildbirthCode,
-                    subject: MRObservationDateDeterminationChildbirthSubject,
-                    encounter: MRObservationDateDeterminationChildbirthEncounter,
+                    subject: MRObservationDateDeterminationChildbirthSubjectReference,
+                    encounter: MRObservationDateDeterminationChildbirthEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
@@ -364,7 +364,7 @@ const MRObservationDateDeterminationChildbirth: t.Type<MRObservationDateDetermin
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        MRObservationDateDeterminationChildbirthPerformer
+                        MRObservationDateDeterminationChildbirthPerformerReference
                     ),
                     note: MaxArray(1, Annotation)
                 })

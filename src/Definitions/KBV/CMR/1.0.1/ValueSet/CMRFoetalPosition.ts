@@ -29,15 +29,17 @@ type CMRFoetalPosition =
     | "407613009"
     | "394698008:246090004=199362007";
 
-const CMRFoetalPosition: t.Type<CMRFoetalPosition> = t.union(
-    [
-        t.literal("394698008:246090004=70028003"),
-        t.literal("407613009"),
-        t.literal("394698008:246090004=199362007")
-    ],
-    "CMRFoetalPosition"
-);
+type CMRFoetalPositionType = t.KeyofC<{
+    "394698008:246090004=70028003": null;
+    "407613009": null;
+    "394698008:246090004=199362007": null;
+}>;
 
+const CMRFoetalPosition: CMRFoetalPositionType = t.keyof({
+    "394698008:246090004=70028003": null,
+    "407613009": null,
+    "394698008:246090004=199362007": null
+});
 export const CMRFoetalPositionArray: string[] = [
     "394698008:246090004=70028003",
     "407613009",

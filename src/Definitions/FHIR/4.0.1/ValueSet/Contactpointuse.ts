@@ -25,17 +25,21 @@ import { ValueSet } from "../../../Interfaces";
 
 type Contactpointuse = "home" | "work" | "temp" | "old" | "mobile";
 
-const Contactpointuse: t.Type<Contactpointuse> = t.union(
-    [
-        t.literal("home"),
-        t.literal("work"),
-        t.literal("temp"),
-        t.literal("old"),
-        t.literal("mobile")
-    ],
-    "Contactpointuse"
-);
+type ContactpointuseType = t.KeyofC<{
+    home: null;
+    work: null;
+    temp: null;
+    old: null;
+    mobile: null;
+}>;
 
+const Contactpointuse: ContactpointuseType = t.keyof({
+    home: null,
+    work: null,
+    temp: null,
+    old: null,
+    mobile: null
+});
 export const ContactpointuseArray: string[] = ["home", "work", "temp", "old", "mobile"];
 
 export const ContactpointuseValueSet: ValueSet = [

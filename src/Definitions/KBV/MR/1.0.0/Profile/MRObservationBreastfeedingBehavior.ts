@@ -455,13 +455,13 @@ export const MRObservationBreastfeedingBehaviorCode: t.Type<MRObservationBreastf
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationBreastfeedingBehaviorSubject {
+export interface MRObservationBreastfeedingBehaviorSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBreastfeedingBehaviorSubject> =
-    t.recursion("MRObservationBreastfeedingBehaviorSubject", () =>
+export const MRObservationBreastfeedingBehaviorSubjectReference: t.Type<MRObservationBreastfeedingBehaviorSubjectReference> =
+    t.recursion("MRObservationBreastfeedingBehaviorSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -479,13 +479,13 @@ export const MRObservationBreastfeedingBehaviorSubject: t.Type<MRObservationBrea
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationBreastfeedingBehaviorEncounter {
+export interface MRObservationBreastfeedingBehaviorEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBreastfeedingBehaviorEncounter> =
-    t.recursion("MRObservationBreastfeedingBehaviorEncounter", () =>
+export const MRObservationBreastfeedingBehaviorEncounterReference: t.Type<MRObservationBreastfeedingBehaviorEncounterReference> =
+    t.recursion("MRObservationBreastfeedingBehaviorEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -503,13 +503,13 @@ export const MRObservationBreastfeedingBehaviorEncounter: t.Type<MRObservationBr
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationBreastfeedingBehaviorPerformer {
+export interface MRObservationBreastfeedingBehaviorPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationBreastfeedingBehaviorPerformer: t.Type<MRObservationBreastfeedingBehaviorPerformer> =
-    t.recursion("MRObservationBreastfeedingBehaviorPerformer", () =>
+export const MRObservationBreastfeedingBehaviorPerformerReference: t.Type<MRObservationBreastfeedingBehaviorPerformerReference> =
+    t.recursion("MRObservationBreastfeedingBehaviorPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -530,13 +530,13 @@ interface MRObservationBreastfeedingBehavior {
     meta: MRObservationBreastfeedingBehaviorMeta;
     status: "final";
     code: MRObservationBreastfeedingBehaviorCode;
-    subject: MRObservationBreastfeedingBehaviorSubject;
-    encounter: MRObservationBreastfeedingBehaviorEncounter;
+    subject: MRObservationBreastfeedingBehaviorSubjectReference;
+    encounter: MRObservationBreastfeedingBehaviorEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationBreastfeedingBehaviorValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationBreastfeedingBehaviorPerformer>;
+    performer?: Array<MRObservationBreastfeedingBehaviorPerformerReference>;
 }
 
 const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehavior> =
@@ -548,8 +548,8 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
                     meta: MRObservationBreastfeedingBehaviorMeta,
                     status: Literal("final"),
                     code: MRObservationBreastfeedingBehaviorCode,
-                    subject: MRObservationBreastfeedingBehaviorSubject,
-                    encounter: MRObservationBreastfeedingBehaviorEncounter,
+                    subject: MRObservationBreastfeedingBehaviorSubjectReference,
+                    encounter: MRObservationBreastfeedingBehaviorEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         MRObservationBreastfeedingBehaviorValueCodeableConcept
@@ -557,7 +557,10 @@ const MRObservationBreastfeedingBehavior: t.Type<MRObservationBreastfeedingBehav
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationBreastfeedingBehaviorPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationBreastfeedingBehaviorPerformerReference
+                    )
                 })
             ])
         )

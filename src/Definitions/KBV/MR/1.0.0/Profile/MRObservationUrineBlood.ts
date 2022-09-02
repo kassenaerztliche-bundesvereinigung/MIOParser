@@ -254,13 +254,13 @@ export const MRObservationUrineBloodCode: t.Type<MRObservationUrineBloodCode> =
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationUrineBloodSubject {
+export interface MRObservationUrineBloodSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineBloodSubject: t.Type<MRObservationUrineBloodSubject> =
-    t.recursion("MRObservationUrineBloodSubject", () =>
+export const MRObservationUrineBloodSubjectReference: t.Type<MRObservationUrineBloodSubjectReference> =
+    t.recursion("MRObservationUrineBloodSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -278,13 +278,13 @@ export const MRObservationUrineBloodSubject: t.Type<MRObservationUrineBloodSubje
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationUrineBloodEncounter {
+export interface MRObservationUrineBloodEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineBloodEncounter: t.Type<MRObservationUrineBloodEncounter> =
-    t.recursion("MRObservationUrineBloodEncounter", () =>
+export const MRObservationUrineBloodEncounterReference: t.Type<MRObservationUrineBloodEncounterReference> =
+    t.recursion("MRObservationUrineBloodEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -302,13 +302,13 @@ export const MRObservationUrineBloodEncounter: t.Type<MRObservationUrineBloodEnc
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationUrineBloodPerformer {
+export interface MRObservationUrineBloodPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationUrineBloodPerformer: t.Type<MRObservationUrineBloodPerformer> =
-    t.recursion("MRObservationUrineBloodPerformer", () =>
+export const MRObservationUrineBloodPerformerReference: t.Type<MRObservationUrineBloodPerformerReference> =
+    t.recursion("MRObservationUrineBloodPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -329,13 +329,13 @@ interface MRObservationUrineBlood {
     meta: MRObservationUrineBloodMeta;
     status: "final";
     code: MRObservationUrineBloodCode;
-    subject: MRObservationUrineBloodSubject;
-    encounter: MRObservationUrineBloodEncounter;
+    subject: MRObservationUrineBloodSubjectReference;
+    encounter: MRObservationUrineBloodEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationUrineBloodPerformer>;
+    performer?: Array<MRObservationUrineBloodPerformerReference>;
 }
 
 const MRObservationUrineBlood: t.Type<MRObservationUrineBlood> = t.recursion(
@@ -348,15 +348,15 @@ const MRObservationUrineBlood: t.Type<MRObservationUrineBlood> = t.recursion(
                     meta: MRObservationUrineBloodMeta,
                     status: Literal("final"),
                     code: MRObservationUrineBloodCode,
-                    subject: MRObservationUrineBloodSubject,
-                    encounter: MRObservationUrineBloodEncounter,
+                    subject: MRObservationUrineBloodSubjectReference,
+                    encounter: MRObservationUrineBloodEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationUrineBloodPerformer)
+                    performer: MaxArray(1, MRObservationUrineBloodPerformerReference)
                 })
             ])
         )

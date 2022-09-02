@@ -32,6 +32,7 @@ import SCALARBoolean from "../../../../../Definitions/FHIR/4.0.1/Scalar/Boolean"
 import SCALARString from "../../../../../Definitions/FHIR/4.0.1/Scalar/String";
 import SCALARUri from "../../../../../Definitions/FHIR/4.0.1/Scalar/Uri";
 import AdditionalComment from "../../../../../Definitions/KBVBase/1.1.1/Extension/AdditionalComment";
+
 import ContactpointsystemVS from "../../../../../Definitions/FHIR/4.0.1/ValueSet/Contactpointsystem";
 import Extension from "../../../../../Definitions/FHIR/4.0.1/Extension/Extension";
 

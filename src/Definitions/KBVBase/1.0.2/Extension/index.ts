@@ -19,3 +19,17 @@
  */
 
 export { default as AdditionalComment } from "./AdditionalComment";
+
+export {
+    default as Lebensphase,
+    LebensphaseValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent as LebensphaseValueCodeableConceptCodingDisplaySnomedCTGermanDisplayContent,
+    LebensphaseValueCodeableConceptCodingDisplaySnomedCTGermanDisplay as LebensphaseValueCodeableConceptCodingDisplaySnomedCTGermanDisplay,
+    LebensphaseValueCodeableConceptCodingDisplay as LebensphaseValueCodeableConceptCodingDisplay,
+    LebensphaseValueCodeableConceptCoding as LebensphaseValueCodeableConceptCoding,
+    LebensphaseValueCodeableConcept as LebensphaseValueCodeableConcept
+} from "./Lebensphase";
+
+export {
+    default as SnomedCTGerman,
+    SnomedCTGermanContent as SnomedCTGermanContent
+} from "./SnomedCTGerman";

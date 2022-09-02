@@ -394,13 +394,13 @@ export const MRObservationChildPositionAtBirthCode: t.Type<MRObservationChildPos
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationChildPositionAtBirthSubject {
+export interface MRObservationChildPositionAtBirthSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionAtBirthSubject: t.Type<MRObservationChildPositionAtBirthSubject> =
-    t.recursion("MRObservationChildPositionAtBirthSubject", () =>
+export const MRObservationChildPositionAtBirthSubjectReference: t.Type<MRObservationChildPositionAtBirthSubjectReference> =
+    t.recursion("MRObservationChildPositionAtBirthSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -418,13 +418,13 @@ export const MRObservationChildPositionAtBirthSubject: t.Type<MRObservationChild
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationChildPositionAtBirthEncounter {
+export interface MRObservationChildPositionAtBirthEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionAtBirthEncounter: t.Type<MRObservationChildPositionAtBirthEncounter> =
-    t.recursion("MRObservationChildPositionAtBirthEncounter", () =>
+export const MRObservationChildPositionAtBirthEncounterReference: t.Type<MRObservationChildPositionAtBirthEncounterReference> =
+    t.recursion("MRObservationChildPositionAtBirthEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -442,13 +442,13 @@ export const MRObservationChildPositionAtBirthEncounter: t.Type<MRObservationChi
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationChildPositionAtBirthPerformer {
+export interface MRObservationChildPositionAtBirthPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationChildPositionAtBirthPerformer: t.Type<MRObservationChildPositionAtBirthPerformer> =
-    t.recursion("MRObservationChildPositionAtBirthPerformer", () =>
+export const MRObservationChildPositionAtBirthPerformerReference: t.Type<MRObservationChildPositionAtBirthPerformerReference> =
+    t.recursion("MRObservationChildPositionAtBirthPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -469,13 +469,13 @@ interface MRObservationChildPositionAtBirth {
     meta: MRObservationChildPositionAtBirthMeta;
     status: "final";
     code: MRObservationChildPositionAtBirthCode;
-    subject: MRObservationChildPositionAtBirthSubject;
-    encounter: MRObservationChildPositionAtBirthEncounter;
+    subject: MRObservationChildPositionAtBirthSubjectReference;
+    encounter: MRObservationChildPositionAtBirthEncounterReference;
     effectiveDateTime: string;
     valueCodeableConcept: MRObservationChildPositionAtBirthValueCodeableConcept;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationChildPositionAtBirthPerformer>;
+    performer?: Array<MRObservationChildPositionAtBirthPerformerReference>;
 }
 
 const MRObservationChildPositionAtBirth: t.Type<MRObservationChildPositionAtBirth> =
@@ -487,8 +487,8 @@ const MRObservationChildPositionAtBirth: t.Type<MRObservationChildPositionAtBirt
                     meta: MRObservationChildPositionAtBirthMeta,
                     status: Literal("final"),
                     code: MRObservationChildPositionAtBirthCode,
-                    subject: MRObservationChildPositionAtBirthSubject,
-                    encounter: MRObservationChildPositionAtBirthEncounter,
+                    subject: MRObservationChildPositionAtBirthSubjectReference,
+                    encounter: MRObservationChildPositionAtBirthEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueCodeableConcept:
                         MRObservationChildPositionAtBirthValueCodeableConcept
@@ -496,7 +496,10 @@ const MRObservationChildPositionAtBirth: t.Type<MRObservationChildPositionAtBirt
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationChildPositionAtBirthPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationChildPositionAtBirthPerformerReference
+                    )
                 })
             ])
         )

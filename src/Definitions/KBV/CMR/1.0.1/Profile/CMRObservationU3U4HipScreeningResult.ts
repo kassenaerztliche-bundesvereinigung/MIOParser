@@ -1122,13 +1122,13 @@ export const CMRObservationU3U4HipScreeningResultCode: t.Type<CMRObservationU3U4
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU3U4HipScreeningResultSubject {
+export interface CMRObservationU3U4HipScreeningResultSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4HipScreeningResultSubject: t.Type<CMRObservationU3U4HipScreeningResultSubject> =
-    t.recursion("CMRObservationU3U4HipScreeningResultSubject", () =>
+export const CMRObservationU3U4HipScreeningResultSubjectReference: t.Type<CMRObservationU3U4HipScreeningResultSubjectReference> =
+    t.recursion("CMRObservationU3U4HipScreeningResultSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1146,13 +1146,13 @@ export const CMRObservationU3U4HipScreeningResultSubject: t.Type<CMRObservationU
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU3U4HipScreeningResultEncounter {
+export interface CMRObservationU3U4HipScreeningResultEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4HipScreeningResultEncounter: t.Type<CMRObservationU3U4HipScreeningResultEncounter> =
-    t.recursion("CMRObservationU3U4HipScreeningResultEncounter", () =>
+export const CMRObservationU3U4HipScreeningResultEncounterReference: t.Type<CMRObservationU3U4HipScreeningResultEncounterReference> =
+    t.recursion("CMRObservationU3U4HipScreeningResultEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1170,13 +1170,13 @@ export const CMRObservationU3U4HipScreeningResultEncounter: t.Type<CMRObservatio
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU3U4HipScreeningResultPerformer {
+export interface CMRObservationU3U4HipScreeningResultPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U4HipScreeningResultPerformer: t.Type<CMRObservationU3U4HipScreeningResultPerformer> =
-    t.recursion("CMRObservationU3U4HipScreeningResultPerformer", () =>
+export const CMRObservationU3U4HipScreeningResultPerformerReference: t.Type<CMRObservationU3U4HipScreeningResultPerformerReference> =
+    t.recursion("CMRObservationU3U4HipScreeningResultPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1222,10 +1222,9 @@ interface CMRObservationU3U4HipScreeningResult {
     meta: CMRObservationU3U4HipScreeningResultMeta;
     status: "final";
     code: CMRObservationU3U4HipScreeningResultCode;
-    subject: CMRObservationU3U4HipScreeningResultSubject;
-    encounter: CMRObservationU3U4HipScreeningResultEncounter;
+    subject: CMRObservationU3U4HipScreeningResultSubjectReference;
+    encounter: CMRObservationU3U4HipScreeningResultEncounterReference;
     effectiveDateTime: string;
-    valueCodeableConcept: CMRObservationU3U4HipScreeningResultValueCodeableConcept;
     bodySite: CMRObservationU3U4HipScreeningResultBodySite;
     component: Array<
         | CMRObservationU3U4HipScreeningResultBetaWinkel
@@ -1233,8 +1232,9 @@ interface CMRObservationU3U4HipScreeningResult {
     >;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU3U4HipScreeningResultPerformer>;
+    performer?: Array<CMRObservationU3U4HipScreeningResultPerformerReference>;
     valueString?: string;
+    valueCodeableConcept?: CMRObservationU3U4HipScreeningResultValueCodeableConcept;
 }
 
 const CMRObservationU3U4HipScreeningResult: t.Type<CMRObservationU3U4HipScreeningResult> =
@@ -1246,11 +1246,9 @@ const CMRObservationU3U4HipScreeningResult: t.Type<CMRObservationU3U4HipScreenin
                     meta: CMRObservationU3U4HipScreeningResultMeta,
                     status: Literal("final"),
                     code: CMRObservationU3U4HipScreeningResultCode,
-                    subject: CMRObservationU3U4HipScreeningResultSubject,
-                    encounter: CMRObservationU3U4HipScreeningResultEncounter,
+                    subject: CMRObservationU3U4HipScreeningResultSubjectReference,
+                    encounter: CMRObservationU3U4HipScreeningResultEncounterReference,
                     effectiveDateTime: SCALARDateTime,
-                    valueCodeableConcept:
-                        CMRObservationU3U4HipScreeningResultValueCodeableConcept,
                     bodySite: CMRObservationU3U4HipScreeningResultBodySite,
                     component: ReqArray<
                         t.UnionC<
@@ -1289,8 +1287,13 @@ const CMRObservationU3U4HipScreeningResult: t.Type<CMRObservationU3U4HipScreenin
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU3U4HipScreeningResultPerformer),
-                    valueString: SCALARString
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU3U4HipScreeningResultPerformerReference
+                    ),
+                    valueString: SCALARString,
+                    valueCodeableConcept:
+                        CMRObservationU3U4HipScreeningResultValueCodeableConcept
                 })
             ])
         )

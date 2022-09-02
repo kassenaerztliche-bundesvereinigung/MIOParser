@@ -26,11 +26,12 @@ import MRHeartSoundsChildGerman from "../../../../../Definitions/KBV/MR/1.1.0/Co
 
 type MRHeartSoundsChild = "249045009" | "289446001";
 
-const MRHeartSoundsChild: t.Type<MRHeartSoundsChild> = t.union(
-    [t.literal("249045009"), t.literal("289446001")],
-    "MRHeartSoundsChild"
-);
+type MRHeartSoundsChildType = t.KeyofC<{ "249045009": null; "289446001": null }>;
 
+const MRHeartSoundsChild: MRHeartSoundsChildType = t.keyof({
+    "249045009": null,
+    "289446001": null
+});
 export const MRHeartSoundsChildArray: string[] = ["249045009", "289446001"];
 
 export const MRHeartSoundsChildValueSet: ValueSet = [

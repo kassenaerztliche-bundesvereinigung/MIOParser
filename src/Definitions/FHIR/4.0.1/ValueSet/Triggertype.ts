@@ -33,20 +33,27 @@ type Triggertype =
     | "data-accessed"
     | "data-access-ended";
 
-const Triggertype: t.Type<Triggertype> = t.union(
-    [
-        t.literal("named-event"),
-        t.literal("periodic"),
-        t.literal("data-changed"),
-        t.literal("data-added"),
-        t.literal("data-modified"),
-        t.literal("data-removed"),
-        t.literal("data-accessed"),
-        t.literal("data-access-ended")
-    ],
-    "Triggertype"
-);
+type TriggertypeType = t.KeyofC<{
+    "named-event": null;
+    periodic: null;
+    "data-changed": null;
+    "data-added": null;
+    "data-modified": null;
+    "data-removed": null;
+    "data-accessed": null;
+    "data-access-ended": null;
+}>;
 
+const Triggertype: TriggertypeType = t.keyof({
+    "named-event": null,
+    periodic: null,
+    "data-changed": null,
+    "data-added": null,
+    "data-modified": null,
+    "data-removed": null,
+    "data-accessed": null,
+    "data-access-ended": null
+});
 export const TriggertypeArray: string[] = [
     "named-event",
     "periodic",

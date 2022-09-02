@@ -26,11 +26,17 @@ import MRBreastfeedingBehaviorGerman from "../../../../../Definitions/KBV/MR/1.0
 
 type MRBreastfeedingBehavior = "69840006" | "289083006" | "169746009";
 
-const MRBreastfeedingBehavior: t.Type<MRBreastfeedingBehavior> = t.union(
-    [t.literal("69840006"), t.literal("289083006"), t.literal("169746009")],
-    "MRBreastfeedingBehavior"
-);
+type MRBreastfeedingBehaviorType = t.KeyofC<{
+    "69840006": null;
+    "289083006": null;
+    "169746009": null;
+}>;
 
+const MRBreastfeedingBehavior: MRBreastfeedingBehaviorType = t.keyof({
+    "69840006": null,
+    "289083006": null,
+    "169746009": null
+});
 export const MRBreastfeedingBehaviorArray: string[] = [
     "69840006",
     "289083006",

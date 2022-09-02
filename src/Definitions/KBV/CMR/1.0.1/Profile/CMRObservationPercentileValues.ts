@@ -483,13 +483,13 @@ export const CMRObservationPercentileValuesCode: t.Type<CMRObservationPercentile
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationPercentileValuesSubject {
+export interface CMRObservationPercentileValuesSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPercentileValuesSubject: t.Type<CMRObservationPercentileValuesSubject> =
-    t.recursion("CMRObservationPercentileValuesSubject", () =>
+export const CMRObservationPercentileValuesSubjectReference: t.Type<CMRObservationPercentileValuesSubjectReference> =
+    t.recursion("CMRObservationPercentileValuesSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -507,13 +507,13 @@ export const CMRObservationPercentileValuesSubject: t.Type<CMRObservationPercent
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationPercentileValuesEncounter {
+export interface CMRObservationPercentileValuesEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPercentileValuesEncounter: t.Type<CMRObservationPercentileValuesEncounter> =
-    t.recursion("CMRObservationPercentileValuesEncounter", () =>
+export const CMRObservationPercentileValuesEncounterReference: t.Type<CMRObservationPercentileValuesEncounterReference> =
+    t.recursion("CMRObservationPercentileValuesEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -531,13 +531,13 @@ export const CMRObservationPercentileValuesEncounter: t.Type<CMRObservationPerce
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationPercentileValuesPerformer {
+export interface CMRObservationPercentileValuesPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPercentileValuesPerformer: t.Type<CMRObservationPercentileValuesPerformer> =
-    t.recursion("CMRObservationPercentileValuesPerformer", () =>
+export const CMRObservationPercentileValuesPerformerReference: t.Type<CMRObservationPercentileValuesPerformerReference> =
+    t.recursion("CMRObservationPercentileValuesPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -555,13 +555,13 @@ export const CMRObservationPercentileValuesPerformer: t.Type<CMRObservationPerce
 /**
  * The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.
  */
-export interface CMRObservationPercentileValuesDerivedFrom {
+export interface CMRObservationPercentileValuesDerivedFromReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPercentileValuesDerivedFrom: t.Type<CMRObservationPercentileValuesDerivedFrom> =
-    t.recursion("CMRObservationPercentileValuesDerivedFrom", () =>
+export const CMRObservationPercentileValuesDerivedFromReference: t.Type<CMRObservationPercentileValuesDerivedFromReference> =
+    t.recursion("CMRObservationPercentileValuesDerivedFromReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -587,15 +587,15 @@ interface CMRObservationPercentileValues {
     meta: CMRObservationPercentileValuesMeta;
     status: "final";
     code: CMRObservationPercentileValuesCode;
-    subject: CMRObservationPercentileValuesSubject;
-    encounter: CMRObservationPercentileValuesEncounter;
+    subject: CMRObservationPercentileValuesSubjectReference;
+    encounter: CMRObservationPercentileValuesEncounterReference;
     effectiveDateTime: string;
     valueQuantity: CMRObservationPercentileValuesValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationPercentileValuesPerformer>;
+    performer?: Array<CMRObservationPercentileValuesPerformerReference>;
     note?: Array<Annotation>;
-    derivedFrom?: Array<CMRObservationPercentileValuesDerivedFrom>;
+    derivedFrom?: Array<CMRObservationPercentileValuesDerivedFromReference>;
 }
 
 const CMRObservationPercentileValues: t.Type<CMRObservationPercentileValues> =
@@ -607,17 +607,23 @@ const CMRObservationPercentileValues: t.Type<CMRObservationPercentileValues> =
                     meta: CMRObservationPercentileValuesMeta,
                     status: Literal("final"),
                     code: CMRObservationPercentileValuesCode,
-                    subject: CMRObservationPercentileValuesSubject,
-                    encounter: CMRObservationPercentileValuesEncounter,
+                    subject: CMRObservationPercentileValuesSubjectReference,
+                    encounter: CMRObservationPercentileValuesEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: CMRObservationPercentileValuesValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationPercentileValuesPerformer),
+                    performer: MaxArray(
+                        1,
+                        CMRObservationPercentileValuesPerformerReference
+                    ),
                     note: MaxArray(1, Annotation),
-                    derivedFrom: MaxArray(1, CMRObservationPercentileValuesDerivedFrom)
+                    derivedFrom: MaxArray(
+                        1,
+                        CMRObservationPercentileValuesDerivedFromReference
+                    )
                 })
             ])
         )

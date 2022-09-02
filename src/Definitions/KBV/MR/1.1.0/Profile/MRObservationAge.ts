@@ -225,14 +225,13 @@ export const MRObservationAgeCode: t.Type<MRObservationAgeCode> = t.recursion(
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationAgeSubject {
+export interface MRObservationAgeSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAgeSubject: t.Type<MRObservationAgeSubject> = t.recursion(
-    "MRObservationAgeSubject",
-    () =>
+export const MRObservationAgeSubjectReference: t.Type<MRObservationAgeSubjectReference> =
+    t.recursion("MRObservationAgeSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -245,19 +244,18 @@ export const MRObservationAgeSubject: t.Type<MRObservationAgeSubject> = t.recurs
                 })
             ])
         )
-);
+    );
 
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationAgeEncounter {
+export interface MRObservationAgeEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAgeEncounter: t.Type<MRObservationAgeEncounter> = t.recursion(
-    "MRObservationAgeEncounter",
-    () =>
+export const MRObservationAgeEncounterReference: t.Type<MRObservationAgeEncounterReference> =
+    t.recursion("MRObservationAgeEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -270,19 +268,18 @@ export const MRObservationAgeEncounter: t.Type<MRObservationAgeEncounter> = t.re
                 })
             ])
         )
-);
+    );
 
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationAgePerformer {
+export interface MRObservationAgePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationAgePerformer: t.Type<MRObservationAgePerformer> = t.recursion(
-    "MRObservationAgePerformer",
-    () =>
+export const MRObservationAgePerformerReference: t.Type<MRObservationAgePerformerReference> =
+    t.recursion("MRObservationAgePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -296,20 +293,20 @@ export const MRObservationAgePerformer: t.Type<MRObservationAgePerformer> = t.re
                 })
             ])
         )
-);
+    );
 
 interface MRObservationAge {
     resourceType: "Observation";
     meta: MRObservationAgeMeta;
     status: "final";
     code: MRObservationAgeCode;
-    subject: MRObservationAgeSubject;
-    encounter: MRObservationAgeEncounter;
+    subject: MRObservationAgeSubjectReference;
+    encounter: MRObservationAgeEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationAgeValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationAgePerformer>;
+    performer?: Array<MRObservationAgePerformerReference>;
 }
 
 const MRObservationAge: t.Type<MRObservationAge> = t.recursion("MRObservationAge", () =>
@@ -320,15 +317,15 @@ const MRObservationAge: t.Type<MRObservationAge> = t.recursion("MRObservationAge
                 meta: MRObservationAgeMeta,
                 status: Literal("final"),
                 code: MRObservationAgeCode,
-                subject: MRObservationAgeSubject,
-                encounter: MRObservationAgeEncounter,
+                subject: MRObservationAgeSubjectReference,
+                encounter: MRObservationAgeEncounterReference,
                 effectiveDateTime: SCALARDateTime,
                 valueQuantity: MRObservationAgeValueQuantity
             }),
             t.partial({
                 id: SCALARString,
                 text: Narrative,
-                performer: MaxArray(1, MRObservationAgePerformer)
+                performer: MaxArray(1, MRObservationAgePerformerReference)
             })
         ])
     )

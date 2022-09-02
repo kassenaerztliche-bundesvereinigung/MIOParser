@@ -32,19 +32,25 @@ type MRPractitionerFunctionAddendum =
     | "171"
     | "192";
 
-const MRPractitionerFunctionAddendum: t.Type<MRPractitionerFunctionAddendum> = t.union(
-    [
-        t.literal("309343006"),
-        t.literal("140"),
-        t.literal("143"),
-        t.literal("160"),
-        t.literal("161"),
-        t.literal("171"),
-        t.literal("192")
-    ],
-    "MRPractitionerFunctionAddendum"
-);
+type MRPractitionerFunctionAddendumType = t.KeyofC<{
+    "309343006": null;
+    "140": null;
+    "143": null;
+    "160": null;
+    "161": null;
+    "171": null;
+    "192": null;
+}>;
 
+const MRPractitionerFunctionAddendum: MRPractitionerFunctionAddendumType = t.keyof({
+    "309343006": null,
+    "140": null,
+    "143": null,
+    "160": null,
+    "161": null,
+    "171": null,
+    "192": null
+});
 export const MRPractitionerFunctionAddendumArray: string[] = [
     "309343006",
     "140",

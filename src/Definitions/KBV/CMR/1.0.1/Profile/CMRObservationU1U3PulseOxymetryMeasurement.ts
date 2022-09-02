@@ -627,13 +627,13 @@ export const CMRObservationU1U3PulseOxymetryMeasurementCode: t.Type<CMRObservati
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU1U3PulseOxymetryMeasurementSubject {
+export interface CMRObservationU1U3PulseOxymetryMeasurementSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3PulseOxymetryMeasurementSubject: t.Type<CMRObservationU1U3PulseOxymetryMeasurementSubject> =
-    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementSubject", () =>
+export const CMRObservationU1U3PulseOxymetryMeasurementSubjectReference: t.Type<CMRObservationU1U3PulseOxymetryMeasurementSubjectReference> =
+    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -651,13 +651,13 @@ export const CMRObservationU1U3PulseOxymetryMeasurementSubject: t.Type<CMRObserv
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU1U3PulseOxymetryMeasurementEncounter {
+export interface CMRObservationU1U3PulseOxymetryMeasurementEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3PulseOxymetryMeasurementEncounter: t.Type<CMRObservationU1U3PulseOxymetryMeasurementEncounter> =
-    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementEncounter", () =>
+export const CMRObservationU1U3PulseOxymetryMeasurementEncounterReference: t.Type<CMRObservationU1U3PulseOxymetryMeasurementEncounterReference> =
+    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -675,13 +675,13 @@ export const CMRObservationU1U3PulseOxymetryMeasurementEncounter: t.Type<CMRObse
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU1U3PulseOxymetryMeasurementPerformer {
+export interface CMRObservationU1U3PulseOxymetryMeasurementPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU1U3PulseOxymetryMeasurementPerformer: t.Type<CMRObservationU1U3PulseOxymetryMeasurementPerformer> =
-    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementPerformer", () =>
+export const CMRObservationU1U3PulseOxymetryMeasurementPerformerReference: t.Type<CMRObservationU1U3PulseOxymetryMeasurementPerformerReference> =
+    t.recursion("CMRObservationU1U3PulseOxymetryMeasurementPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -753,13 +753,13 @@ interface CMRObservationU1U3PulseOxymetryMeasurement {
     meta: CMRObservationU1U3PulseOxymetryMeasurementMeta;
     status: CMRObservationStatusVS;
     code: CMRObservationU1U3PulseOxymetryMeasurementCode;
-    subject: CMRObservationU1U3PulseOxymetryMeasurementSubject;
-    encounter: CMRObservationU1U3PulseOxymetryMeasurementEncounter;
+    subject: CMRObservationU1U3PulseOxymetryMeasurementSubjectReference;
+    encounter: CMRObservationU1U3PulseOxymetryMeasurementEncounterReference;
     effectiveDateTime: string;
     interpretation: Array<CMRObservationU1U3PulseOxymetryMeasurementInterpretation>;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU1U3PulseOxymetryMeasurementPerformer>;
+    performer?: Array<CMRObservationU1U3PulseOxymetryMeasurementPerformerReference>;
     valueQuantity?: CMRObservationU1U3PulseOxymetryMeasurementValueQuantity;
     dataAbsentReason?: CMRObservationU1U3PulseOxymetryMeasurementDataAbsentReason;
 }
@@ -773,8 +773,9 @@ const CMRObservationU1U3PulseOxymetryMeasurement: t.Type<CMRObservationU1U3Pulse
                     meta: CMRObservationU1U3PulseOxymetryMeasurementMeta,
                     status: CMRObservationStatusVS,
                     code: CMRObservationU1U3PulseOxymetryMeasurementCode,
-                    subject: CMRObservationU1U3PulseOxymetryMeasurementSubject,
-                    encounter: CMRObservationU1U3PulseOxymetryMeasurementEncounter,
+                    subject: CMRObservationU1U3PulseOxymetryMeasurementSubjectReference,
+                    encounter:
+                        CMRObservationU1U3PulseOxymetryMeasurementEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     interpretation: MinMaxArray(
                         1,
@@ -787,7 +788,7 @@ const CMRObservationU1U3PulseOxymetryMeasurement: t.Type<CMRObservationU1U3Pulse
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationU1U3PulseOxymetryMeasurementPerformer
+                        CMRObservationU1U3PulseOxymetryMeasurementPerformerReference
                     ),
                     valueQuantity:
                         CMRObservationU1U3PulseOxymetryMeasurementValueQuantity,

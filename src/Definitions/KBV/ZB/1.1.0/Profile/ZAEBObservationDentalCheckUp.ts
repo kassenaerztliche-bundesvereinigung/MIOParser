@@ -255,13 +255,13 @@ export const ZAEBObservationDentalCheckUpCode: t.Type<ZAEBObservationDentalCheck
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface ZAEBObservationDentalCheckUpSubject {
+export interface ZAEBObservationDentalCheckUpSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const ZAEBObservationDentalCheckUpSubject: t.Type<ZAEBObservationDentalCheckUpSubject> =
-    t.recursion("ZAEBObservationDentalCheckUpSubject", () =>
+export const ZAEBObservationDentalCheckUpSubjectReference: t.Type<ZAEBObservationDentalCheckUpSubjectReference> =
+    t.recursion("ZAEBObservationDentalCheckUpSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -281,7 +281,7 @@ interface ZAEBObservationDentalCheckUp {
     meta: ZAEBObservationDentalCheckUpMeta;
     status: "final";
     code: ZAEBObservationDentalCheckUpCode;
-    subject: ZAEBObservationDentalCheckUpSubject;
+    subject: ZAEBObservationDentalCheckUpSubjectReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
@@ -298,7 +298,7 @@ const ZAEBObservationDentalCheckUp: t.Type<ZAEBObservationDentalCheckUp> = t.rec
                     meta: ZAEBObservationDentalCheckUpMeta,
                     status: Literal("final"),
                     code: ZAEBObservationDentalCheckUpCode,
-                    subject: ZAEBObservationDentalCheckUpSubject,
+                    subject: ZAEBObservationDentalCheckUpSubjectReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),

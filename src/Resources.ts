@@ -115,8 +115,11 @@ export function defineResourceMeta(fileName: string, resource: HasMeta): Resourc
  */
 const getErrorValue = (error: ValidationError): string => {
     const value = error.value;
-    if (typeof value === "string") return value;
-    else return JSON.stringify(value);
+    if (typeof value === "string") {
+        return value;
+    } else {
+        return JSON.stringify(value);
+    }
 };
 
 /**
@@ -138,9 +141,13 @@ export const getPaths = <A>(
                     const errorValue = getErrorValue(error);
                     const errorPath = error.context
                         .map(({ key, type }, index) => {
-                            if (key !== "" && !key.match(/^\d+$/)) return key;
-                            else if (index === 0) return type.name;
-                            else return undefined;
+                            if (key !== "" && !key.match(/^\d+$/)) {
+                                return key;
+                            } else if (index === 0) {
+                                return type.name;
+                            } else {
+                                return undefined;
+                            }
                         })
                         .filter((s) => s !== undefined)
                         .join(".");
@@ -228,9 +235,10 @@ function checkConstraints(
                 if (
                     expression ===
                     "dosage.text.empty().not() xor (dosage.route.empty().not() and dosage.doseAndRate.dose.empty().not())"
-                )
+                ) {
                     expression =
                         "dosage.text.empty().not() xor (dosage.route.empty().not() and dosage.doseAndRate.doseQuantity.empty().not())";
+                }
                 constraintResult = fhirpath.evaluate(
                     resource,
                     expression,
@@ -241,7 +249,9 @@ function checkConstraints(
                 );
             } catch (error) {
                 // hasValue is not implemented in fhirpath by now
-                if (constraint.expression.includes(".hasValue()")) return;
+                if (constraint.expression.includes(".hasValue()")) {
+                    return;
+                }
                 parserResult.warnings.push({
                     message: ErrorMessage.NotResolveConstraint(
                         constraint.expression,
@@ -275,7 +285,7 @@ function checkConstraints(
 /**
  * Evaluates an object and tries to return a MIO instance according to its profile.
  *
- * @param fileName {string} TODO
+ * @param fileName {string} Name of the File
  * @param resource {HasMetaAndId} The MIO resource to be evaluated which needs a meta and an id field
  * @param fullUrl {string} The resource identifier
  * @param list {MIOTypeList} List of MioTypes to be tested with

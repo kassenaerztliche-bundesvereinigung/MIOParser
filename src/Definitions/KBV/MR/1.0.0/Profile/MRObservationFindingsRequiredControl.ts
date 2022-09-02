@@ -453,13 +453,13 @@ export const MRObservationFindingsRequiredControlCode: t.Type<MRObservationFindi
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationFindingsRequiredControlSubject {
+export interface MRObservationFindingsRequiredControlSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationFindingsRequiredControlSubject: t.Type<MRObservationFindingsRequiredControlSubject> =
-    t.recursion("MRObservationFindingsRequiredControlSubject", () =>
+export const MRObservationFindingsRequiredControlSubjectReference: t.Type<MRObservationFindingsRequiredControlSubjectReference> =
+    t.recursion("MRObservationFindingsRequiredControlSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -477,13 +477,13 @@ export const MRObservationFindingsRequiredControlSubject: t.Type<MRObservationFi
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationFindingsRequiredControlEncounter {
+export interface MRObservationFindingsRequiredControlEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationFindingsRequiredControlEncounter: t.Type<MRObservationFindingsRequiredControlEncounter> =
-    t.recursion("MRObservationFindingsRequiredControlEncounter", () =>
+export const MRObservationFindingsRequiredControlEncounterReference: t.Type<MRObservationFindingsRequiredControlEncounterReference> =
+    t.recursion("MRObservationFindingsRequiredControlEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -501,13 +501,13 @@ export const MRObservationFindingsRequiredControlEncounter: t.Type<MRObservation
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationFindingsRequiredControlPerformer {
+export interface MRObservationFindingsRequiredControlPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationFindingsRequiredControlPerformer: t.Type<MRObservationFindingsRequiredControlPerformer> =
-    t.recursion("MRObservationFindingsRequiredControlPerformer", () =>
+export const MRObservationFindingsRequiredControlPerformerReference: t.Type<MRObservationFindingsRequiredControlPerformerReference> =
+    t.recursion("MRObservationFindingsRequiredControlPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -590,13 +590,13 @@ interface MRObservationFindingsRequiredControl {
     meta: MRObservationFindingsRequiredControlMeta;
     status: "final";
     code: MRObservationFindingsRequiredControlCode;
-    subject: MRObservationFindingsRequiredControlSubject;
-    encounter: MRObservationFindingsRequiredControlEncounter;
+    subject: MRObservationFindingsRequiredControlSubjectReference;
+    encounter: MRObservationFindingsRequiredControlEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationFindingsRequiredControlPerformer>;
+    performer?: Array<MRObservationFindingsRequiredControlPerformerReference>;
     bodySite?: MRObservationFindingsRequiredControlBodySite;
 }
 
@@ -609,15 +609,18 @@ const MRObservationFindingsRequiredControl: t.Type<MRObservationFindingsRequired
                     meta: MRObservationFindingsRequiredControlMeta,
                     status: Literal("final"),
                     code: MRObservationFindingsRequiredControlCode,
-                    subject: MRObservationFindingsRequiredControlSubject,
-                    encounter: MRObservationFindingsRequiredControlEncounter,
+                    subject: MRObservationFindingsRequiredControlSubjectReference,
+                    encounter: MRObservationFindingsRequiredControlEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationFindingsRequiredControlPerformer),
+                    performer: MaxArray(
+                        1,
+                        MRObservationFindingsRequiredControlPerformerReference
+                    ),
                     bodySite: MRObservationFindingsRequiredControlBodySite
                 })
             ])

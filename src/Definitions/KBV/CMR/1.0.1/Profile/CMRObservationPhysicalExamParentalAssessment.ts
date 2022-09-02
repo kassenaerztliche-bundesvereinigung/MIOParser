@@ -263,13 +263,13 @@ export const CMRObservationPhysicalExamParentalAssessmentCode: t.Type<CMRObserva
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationPhysicalExamParentalAssessmentSubject {
+export interface CMRObservationPhysicalExamParentalAssessmentSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPhysicalExamParentalAssessmentSubject: t.Type<CMRObservationPhysicalExamParentalAssessmentSubject> =
-    t.recursion("CMRObservationPhysicalExamParentalAssessmentSubject", () =>
+export const CMRObservationPhysicalExamParentalAssessmentSubjectReference: t.Type<CMRObservationPhysicalExamParentalAssessmentSubjectReference> =
+    t.recursion("CMRObservationPhysicalExamParentalAssessmentSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -287,13 +287,13 @@ export const CMRObservationPhysicalExamParentalAssessmentSubject: t.Type<CMRObse
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationPhysicalExamParentalAssessmentEncounter {
+export interface CMRObservationPhysicalExamParentalAssessmentEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPhysicalExamParentalAssessmentEncounter: t.Type<CMRObservationPhysicalExamParentalAssessmentEncounter> =
-    t.recursion("CMRObservationPhysicalExamParentalAssessmentEncounter", () =>
+export const CMRObservationPhysicalExamParentalAssessmentEncounterReference: t.Type<CMRObservationPhysicalExamParentalAssessmentEncounterReference> =
+    t.recursion("CMRObservationPhysicalExamParentalAssessmentEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -311,13 +311,13 @@ export const CMRObservationPhysicalExamParentalAssessmentEncounter: t.Type<CMROb
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationPhysicalExamParentalAssessmentPerformer {
+export interface CMRObservationPhysicalExamParentalAssessmentPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationPhysicalExamParentalAssessmentPerformer: t.Type<CMRObservationPhysicalExamParentalAssessmentPerformer> =
-    t.recursion("CMRObservationPhysicalExamParentalAssessmentPerformer", () =>
+export const CMRObservationPhysicalExamParentalAssessmentPerformerReference: t.Type<CMRObservationPhysicalExamParentalAssessmentPerformerReference> =
+    t.recursion("CMRObservationPhysicalExamParentalAssessmentPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -337,13 +337,13 @@ interface CMRObservationPhysicalExamParentalAssessment {
     meta: CMRObservationPhysicalExamParentalAssessmentMeta;
     status: "final";
     code: CMRObservationPhysicalExamParentalAssessmentCode;
-    subject: CMRObservationPhysicalExamParentalAssessmentSubject;
-    encounter: CMRObservationPhysicalExamParentalAssessmentEncounter;
+    subject: CMRObservationPhysicalExamParentalAssessmentSubjectReference;
+    encounter: CMRObservationPhysicalExamParentalAssessmentEncounterReference;
     effectiveDateTime: string;
     valueString: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationPhysicalExamParentalAssessmentPerformer>;
+    performer?: Array<CMRObservationPhysicalExamParentalAssessmentPerformerReference>;
 }
 
 const CMRObservationPhysicalExamParentalAssessment: t.Type<CMRObservationPhysicalExamParentalAssessment> =
@@ -355,8 +355,9 @@ const CMRObservationPhysicalExamParentalAssessment: t.Type<CMRObservationPhysica
                     meta: CMRObservationPhysicalExamParentalAssessmentMeta,
                     status: Literal("final"),
                     code: CMRObservationPhysicalExamParentalAssessmentCode,
-                    subject: CMRObservationPhysicalExamParentalAssessmentSubject,
-                    encounter: CMRObservationPhysicalExamParentalAssessmentEncounter,
+                    subject: CMRObservationPhysicalExamParentalAssessmentSubjectReference,
+                    encounter:
+                        CMRObservationPhysicalExamParentalAssessmentEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueString: SCALARString
                 }),
@@ -365,7 +366,7 @@ const CMRObservationPhysicalExamParentalAssessment: t.Type<CMRObservationPhysica
                     text: Narrative,
                     performer: MaxArray(
                         1,
-                        CMRObservationPhysicalExamParentalAssessmentPerformer
+                        CMRObservationPhysicalExamParentalAssessmentPerformerReference
                     )
                 })
             ])

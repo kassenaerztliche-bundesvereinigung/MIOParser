@@ -207,26 +207,28 @@ export const CMRAppointmentNextImmunizationAppointmentServiceTypeCoding: t.Type<
 /**
  * A Person, Location/HealthcareService or Device that is participating in the appointment.
  */
-export interface CMRAppointmentNextImmunizationAppointmentParticipantActor {
+export interface CMRAppointmentNextImmunizationAppointmentParticipantActorReference {
     reference: string;
     id?: string;
 }
 
-export const CMRAppointmentNextImmunizationAppointmentParticipantActor: t.Type<CMRAppointmentNextImmunizationAppointmentParticipantActor> =
-    t.recursion("CMRAppointmentNextImmunizationAppointmentParticipantActor", () =>
-        Excess(
-            t.intersection([
-                t.type({
-                    reference: CustomReference(SCALARString, [
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1",
-                        "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
-                    ])
-                }),
-                t.partial({
-                    id: SCALARString
-                })
-            ])
-        )
+export const CMRAppointmentNextImmunizationAppointmentParticipantActorReference: t.Type<CMRAppointmentNextImmunizationAppointmentParticipantActorReference> =
+    t.recursion(
+        "CMRAppointmentNextImmunizationAppointmentParticipantActorReference",
+        () =>
+            Excess(
+                t.intersection([
+                    t.type({
+                        reference: CustomReference(SCALARString, [
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Patient|1.0.1",
+                            "https://fhir.kbv.de/StructureDefinition/KBV_PR_MIO_CMR_Practitioner|1.0.1"
+                        ])
+                    }),
+                    t.partial({
+                        id: SCALARString
+                    })
+                ])
+            )
     );
 
 /**
@@ -287,7 +289,7 @@ export const CMRAppointmentNextImmunizationAppointmentServiceType: t.Type<CMRApp
  * List of participants involved in the appointment.
  */
 export interface CMRAppointmentNextImmunizationAppointmentParticipant {
-    actor: CMRAppointmentNextImmunizationAppointmentParticipantActor;
+    actor: CMRAppointmentNextImmunizationAppointmentParticipantActorReference;
     status: "accepted";
     id?: string;
 }
@@ -297,7 +299,7 @@ export const CMRAppointmentNextImmunizationAppointmentParticipant: t.Type<CMRApp
         Excess(
             t.intersection([
                 t.type({
-                    actor: CMRAppointmentNextImmunizationAppointmentParticipantActor,
+                    actor: CMRAppointmentNextImmunizationAppointmentParticipantActorReference,
                     status: Literal("accepted")
                 }),
                 t.partial({

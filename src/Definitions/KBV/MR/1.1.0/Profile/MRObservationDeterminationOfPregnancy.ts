@@ -637,13 +637,13 @@ export const MRObservationDeterminationOfPregnancyCode: t.Type<MRObservationDete
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationDeterminationOfPregnancySubject {
+export interface MRObservationDeterminationOfPregnancySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDeterminationOfPregnancySubject: t.Type<MRObservationDeterminationOfPregnancySubject> =
-    t.recursion("MRObservationDeterminationOfPregnancySubject", () =>
+export const MRObservationDeterminationOfPregnancySubjectReference: t.Type<MRObservationDeterminationOfPregnancySubjectReference> =
+    t.recursion("MRObservationDeterminationOfPregnancySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -661,13 +661,13 @@ export const MRObservationDeterminationOfPregnancySubject: t.Type<MRObservationD
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationDeterminationOfPregnancyEncounter {
+export interface MRObservationDeterminationOfPregnancyEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDeterminationOfPregnancyEncounter: t.Type<MRObservationDeterminationOfPregnancyEncounter> =
-    t.recursion("MRObservationDeterminationOfPregnancyEncounter", () =>
+export const MRObservationDeterminationOfPregnancyEncounterReference: t.Type<MRObservationDeterminationOfPregnancyEncounterReference> =
+    t.recursion("MRObservationDeterminationOfPregnancyEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -685,13 +685,13 @@ export const MRObservationDeterminationOfPregnancyEncounter: t.Type<MRObservatio
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationDeterminationOfPregnancyPerformer {
+export interface MRObservationDeterminationOfPregnancyPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationDeterminationOfPregnancyPerformer: t.Type<MRObservationDeterminationOfPregnancyPerformer> =
-    t.recursion("MRObservationDeterminationOfPregnancyPerformer", () =>
+export const MRObservationDeterminationOfPregnancyPerformerReference: t.Type<MRObservationDeterminationOfPregnancyPerformerReference> =
+    t.recursion("MRObservationDeterminationOfPregnancyPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -712,13 +712,13 @@ interface MRObservationDeterminationOfPregnancy {
     meta: MRObservationDeterminationOfPregnancyMeta;
     status: "final";
     code: MRObservationDeterminationOfPregnancyCode;
-    subject: MRObservationDeterminationOfPregnancySubject;
-    encounter: MRObservationDeterminationOfPregnancyEncounter;
+    subject: MRObservationDeterminationOfPregnancySubjectReference;
+    encounter: MRObservationDeterminationOfPregnancyEncounterReference;
     valueBoolean: true;
     id?: string;
     _effectiveDateTime?: MRObservationDeterminationOfPregnancyEffectiveDateTime;
     effectiveDateTime?: string;
-    performer?: Array<MRObservationDeterminationOfPregnancyPerformer>;
+    performer?: Array<MRObservationDeterminationOfPregnancyPerformerReference>;
 }
 
 const MRObservationDeterminationOfPregnancy: t.Type<MRObservationDeterminationOfPregnancy> =
@@ -730,8 +730,8 @@ const MRObservationDeterminationOfPregnancy: t.Type<MRObservationDeterminationOf
                     meta: MRObservationDeterminationOfPregnancyMeta,
                     status: Literal("final"),
                     code: MRObservationDeterminationOfPregnancyCode,
-                    subject: MRObservationDeterminationOfPregnancySubject,
-                    encounter: MRObservationDeterminationOfPregnancyEncounter,
+                    subject: MRObservationDeterminationOfPregnancySubjectReference,
+                    encounter: MRObservationDeterminationOfPregnancyEncounterReference,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
@@ -739,7 +739,10 @@ const MRObservationDeterminationOfPregnancy: t.Type<MRObservationDeterminationOf
                     _effectiveDateTime:
                         MRObservationDeterminationOfPregnancyEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
-                    performer: MaxArray(1, MRObservationDeterminationOfPregnancyPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationDeterminationOfPregnancyPerformerReference
+                    )
                 })
             ])
         )

@@ -255,13 +255,13 @@ export const CMRObservationU3U9SocialHistoryCode: t.Type<CMRObservationU3U9Socia
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface CMRObservationU3U9SocialHistorySubject {
+export interface CMRObservationU3U9SocialHistorySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9SocialHistorySubject: t.Type<CMRObservationU3U9SocialHistorySubject> =
-    t.recursion("CMRObservationU3U9SocialHistorySubject", () =>
+export const CMRObservationU3U9SocialHistorySubjectReference: t.Type<CMRObservationU3U9SocialHistorySubjectReference> =
+    t.recursion("CMRObservationU3U9SocialHistorySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -279,13 +279,13 @@ export const CMRObservationU3U9SocialHistorySubject: t.Type<CMRObservationU3U9So
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface CMRObservationU3U9SocialHistoryEncounter {
+export interface CMRObservationU3U9SocialHistoryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9SocialHistoryEncounter: t.Type<CMRObservationU3U9SocialHistoryEncounter> =
-    t.recursion("CMRObservationU3U9SocialHistoryEncounter", () =>
+export const CMRObservationU3U9SocialHistoryEncounterReference: t.Type<CMRObservationU3U9SocialHistoryEncounterReference> =
+    t.recursion("CMRObservationU3U9SocialHistoryEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -303,13 +303,13 @@ export const CMRObservationU3U9SocialHistoryEncounter: t.Type<CMRObservationU3U9
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface CMRObservationU3U9SocialHistoryPerformer {
+export interface CMRObservationU3U9SocialHistoryPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRObservationU3U9SocialHistoryPerformer: t.Type<CMRObservationU3U9SocialHistoryPerformer> =
-    t.recursion("CMRObservationU3U9SocialHistoryPerformer", () =>
+export const CMRObservationU3U9SocialHistoryPerformerReference: t.Type<CMRObservationU3U9SocialHistoryPerformerReference> =
+    t.recursion("CMRObservationU3U9SocialHistoryPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -329,13 +329,13 @@ interface CMRObservationU3U9SocialHistory {
     meta: CMRObservationU3U9SocialHistoryMeta;
     status: "final";
     code: CMRObservationU3U9SocialHistoryCode;
-    subject: CMRObservationU3U9SocialHistorySubject;
-    encounter: CMRObservationU3U9SocialHistoryEncounter;
+    subject: CMRObservationU3U9SocialHistorySubjectReference;
+    encounter: CMRObservationU3U9SocialHistoryEncounterReference;
     effectiveDateTime: string;
     valueBoolean: true;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRObservationU3U9SocialHistoryPerformer>;
+    performer?: Array<CMRObservationU3U9SocialHistoryPerformerReference>;
 }
 
 const CMRObservationU3U9SocialHistory: t.Type<CMRObservationU3U9SocialHistory> =
@@ -347,15 +347,18 @@ const CMRObservationU3U9SocialHistory: t.Type<CMRObservationU3U9SocialHistory> =
                     meta: CMRObservationU3U9SocialHistoryMeta,
                     status: Literal("final"),
                     code: CMRObservationU3U9SocialHistoryCode,
-                    subject: CMRObservationU3U9SocialHistorySubject,
-                    encounter: CMRObservationU3U9SocialHistoryEncounter,
+                    subject: CMRObservationU3U9SocialHistorySubjectReference,
+                    encounter: CMRObservationU3U9SocialHistoryEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: Literal(true)
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRObservationU3U9SocialHistoryPerformer)
+                    performer: MaxArray(
+                        1,
+                        CMRObservationU3U9SocialHistoryPerformerReference
+                    )
                 })
             ])
         )

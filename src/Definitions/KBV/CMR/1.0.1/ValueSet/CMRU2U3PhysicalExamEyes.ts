@@ -26,11 +26,17 @@ import CMRU2U3PhysicalExamEyesGerman from "../../../../../Definitions/KBV/CMR/1.
 
 type CMRU2U3PhysicalExamEyes = "737269000" | "307699005" | "400964006";
 
-const CMRU2U3PhysicalExamEyes: t.Type<CMRU2U3PhysicalExamEyes> = t.union(
-    [t.literal("737269000"), t.literal("307699005"), t.literal("400964006")],
-    "CMRU2U3PhysicalExamEyes"
-);
+type CMRU2U3PhysicalExamEyesType = t.KeyofC<{
+    "737269000": null;
+    "307699005": null;
+    "400964006": null;
+}>;
 
+const CMRU2U3PhysicalExamEyes: CMRU2U3PhysicalExamEyesType = t.keyof({
+    "737269000": null,
+    "307699005": null,
+    "400964006": null
+});
 export const CMRU2U3PhysicalExamEyesArray: string[] = [
     "737269000",
     "307699005",

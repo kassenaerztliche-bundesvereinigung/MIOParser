@@ -25,15 +25,17 @@ import { ValueSet } from "../../../Interfaces";
 
 type Expressionlanguage = "text/cql" | "text/fhirpath" | "application/x-fhir-query";
 
-const Expressionlanguage: t.Type<Expressionlanguage> = t.union(
-    [
-        t.literal("text/cql"),
-        t.literal("text/fhirpath"),
-        t.literal("application/x-fhir-query")
-    ],
-    "Expressionlanguage"
-);
+type ExpressionlanguageType = t.KeyofC<{
+    "text/cql": null;
+    "text/fhirpath": null;
+    "application/x-fhir-query": null;
+}>;
 
+const Expressionlanguage: ExpressionlanguageType = t.keyof({
+    "text/cql": null,
+    "text/fhirpath": null,
+    "application/x-fhir-query": null
+});
 export const ExpressionlanguageArray: string[] = [
     "text/cql",
     "text/fhirpath",

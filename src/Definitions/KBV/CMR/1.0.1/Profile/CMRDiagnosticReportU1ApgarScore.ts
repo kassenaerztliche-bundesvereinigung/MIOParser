@@ -256,13 +256,13 @@ export const CMRDiagnosticReportU1ApgarScoreCode: t.Type<CMRDiagnosticReportU1Ap
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1ApgarScoreSubject {
+export interface CMRDiagnosticReportU1ApgarScoreSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1ApgarScoreSubject: t.Type<CMRDiagnosticReportU1ApgarScoreSubject> =
-    t.recursion("CMRDiagnosticReportU1ApgarScoreSubject", () =>
+export const CMRDiagnosticReportU1ApgarScoreSubjectReference: t.Type<CMRDiagnosticReportU1ApgarScoreSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1ApgarScoreSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const CMRDiagnosticReportU1ApgarScoreSubject: t.Type<CMRDiagnosticReportU
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1ApgarScoreEncounter {
+export interface CMRDiagnosticReportU1ApgarScoreEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1ApgarScoreEncounter: t.Type<CMRDiagnosticReportU1ApgarScoreEncounter> =
-    t.recursion("CMRDiagnosticReportU1ApgarScoreEncounter", () =>
+export const CMRDiagnosticReportU1ApgarScoreEncounterReference: t.Type<CMRDiagnosticReportU1ApgarScoreEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1ApgarScoreEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const CMRDiagnosticReportU1ApgarScoreEncounter: t.Type<CMRDiagnosticRepor
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1ApgarScorePerformer {
+export interface CMRDiagnosticReportU1ApgarScorePerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1ApgarScorePerformer: t.Type<CMRDiagnosticReportU1ApgarScorePerformer> =
-    t.recursion("CMRDiagnosticReportU1ApgarScorePerformer", () =>
+export const CMRDiagnosticReportU1ApgarScorePerformerReference: t.Type<CMRDiagnosticReportU1ApgarScorePerformerReference> =
+    t.recursion("CMRDiagnosticReportU1ApgarScorePerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -328,13 +328,13 @@ export const CMRDiagnosticReportU1ApgarScorePerformer: t.Type<CMRDiagnosticRepor
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1ApgarScoreResult {
+export interface CMRDiagnosticReportU1ApgarScoreResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1ApgarScoreResult: t.Type<CMRDiagnosticReportU1ApgarScoreResult> =
-    t.recursion("CMRDiagnosticReportU1ApgarScoreResult", () =>
+export const CMRDiagnosticReportU1ApgarScoreResultReference: t.Type<CMRDiagnosticReportU1ApgarScoreResultReference> =
+    t.recursion("CMRDiagnosticReportU1ApgarScoreResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -354,13 +354,13 @@ interface CMRDiagnosticReportU1ApgarScore {
     meta: CMRDiagnosticReportU1ApgarScoreMeta;
     status: "final";
     code: CMRDiagnosticReportU1ApgarScoreCode;
-    subject: CMRDiagnosticReportU1ApgarScoreSubject;
-    encounter: CMRDiagnosticReportU1ApgarScoreEncounter;
+    subject: CMRDiagnosticReportU1ApgarScoreSubjectReference;
+    encounter: CMRDiagnosticReportU1ApgarScoreEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1ApgarScorePerformer>;
-    result?: Array<CMRDiagnosticReportU1ApgarScoreResult>;
+    performer?: Array<CMRDiagnosticReportU1ApgarScorePerformerReference>;
+    result?: Array<CMRDiagnosticReportU1ApgarScoreResultReference>;
 }
 
 const CMRDiagnosticReportU1ApgarScore: t.Type<CMRDiagnosticReportU1ApgarScore> =
@@ -372,15 +372,18 @@ const CMRDiagnosticReportU1ApgarScore: t.Type<CMRDiagnosticReportU1ApgarScore> =
                     meta: CMRDiagnosticReportU1ApgarScoreMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1ApgarScoreCode,
-                    subject: CMRDiagnosticReportU1ApgarScoreSubject,
-                    encounter: CMRDiagnosticReportU1ApgarScoreEncounter,
+                    subject: CMRDiagnosticReportU1ApgarScoreSubjectReference,
+                    encounter: CMRDiagnosticReportU1ApgarScoreEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU1ApgarScorePerformer),
-                    result: MaxArray(2, CMRDiagnosticReportU1ApgarScoreResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU1ApgarScorePerformerReference
+                    ),
+                    result: MaxArray(2, CMRDiagnosticReportU1ApgarScoreResultReference)
                 })
             ])
         )

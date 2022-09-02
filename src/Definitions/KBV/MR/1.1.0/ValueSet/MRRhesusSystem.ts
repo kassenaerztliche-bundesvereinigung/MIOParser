@@ -26,11 +26,12 @@ import MRRhesusSystemGerman from "../../../../../Definitions/KBV/MR/1.1.0/Concep
 
 type MRRhesusSystem = "165747007" | "165746003";
 
-const MRRhesusSystem: t.Type<MRRhesusSystem> = t.union(
-    [t.literal("165747007"), t.literal("165746003")],
-    "MRRhesusSystem"
-);
+type MRRhesusSystemType = t.KeyofC<{ "165747007": null; "165746003": null }>;
 
+const MRRhesusSystem: MRRhesusSystemType = t.keyof({
+    "165747007": null,
+    "165746003": null
+});
 export const MRRhesusSystemArray: string[] = ["165747007", "165746003"];
 
 export const MRRhesusSystemValueSet: ValueSet = [

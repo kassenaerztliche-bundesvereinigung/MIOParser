@@ -484,13 +484,13 @@ export const MRObservationpHValueUmbilicalArteryCode: t.Type<MRObservationpHValu
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationpHValueUmbilicalArterySubject {
+export interface MRObservationpHValueUmbilicalArterySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHValueUmbilicalArterySubject> =
-    t.recursion("MRObservationpHValueUmbilicalArterySubject", () =>
+export const MRObservationpHValueUmbilicalArterySubjectReference: t.Type<MRObservationpHValueUmbilicalArterySubjectReference> =
+    t.recursion("MRObservationpHValueUmbilicalArterySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -508,13 +508,13 @@ export const MRObservationpHValueUmbilicalArterySubject: t.Type<MRObservationpHV
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationpHValueUmbilicalArteryEncounter {
+export interface MRObservationpHValueUmbilicalArteryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationpHValueUmbilicalArteryEncounter> =
-    t.recursion("MRObservationpHValueUmbilicalArteryEncounter", () =>
+export const MRObservationpHValueUmbilicalArteryEncounterReference: t.Type<MRObservationpHValueUmbilicalArteryEncounterReference> =
+    t.recursion("MRObservationpHValueUmbilicalArteryEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -532,13 +532,13 @@ export const MRObservationpHValueUmbilicalArteryEncounter: t.Type<MRObservationp
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationpHValueUmbilicalArteryPerformer {
+export interface MRObservationpHValueUmbilicalArteryPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationpHValueUmbilicalArteryPerformer: t.Type<MRObservationpHValueUmbilicalArteryPerformer> =
-    t.recursion("MRObservationpHValueUmbilicalArteryPerformer", () =>
+export const MRObservationpHValueUmbilicalArteryPerformerReference: t.Type<MRObservationpHValueUmbilicalArteryPerformerReference> =
+    t.recursion("MRObservationpHValueUmbilicalArteryPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -559,13 +559,13 @@ interface MRObservationpHValueUmbilicalArtery {
     meta: MRObservationpHValueUmbilicalArteryMeta;
     status: "final";
     code: MRObservationpHValueUmbilicalArteryCode;
-    subject: MRObservationpHValueUmbilicalArterySubject;
-    encounter: MRObservationpHValueUmbilicalArteryEncounter;
+    subject: MRObservationpHValueUmbilicalArterySubjectReference;
+    encounter: MRObservationpHValueUmbilicalArteryEncounterReference;
     effectiveDateTime: string;
     valueQuantity: MRObservationpHValueUmbilicalArteryValueQuantity;
     id?: string;
     text?: Narrative;
-    performer?: Array<MRObservationpHValueUmbilicalArteryPerformer>;
+    performer?: Array<MRObservationpHValueUmbilicalArteryPerformerReference>;
 }
 
 const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalArtery> =
@@ -577,15 +577,18 @@ const MRObservationpHValueUmbilicalArtery: t.Type<MRObservationpHValueUmbilicalA
                     meta: MRObservationpHValueUmbilicalArteryMeta,
                     status: Literal("final"),
                     code: MRObservationpHValueUmbilicalArteryCode,
-                    subject: MRObservationpHValueUmbilicalArterySubject,
-                    encounter: MRObservationpHValueUmbilicalArteryEncounter,
+                    subject: MRObservationpHValueUmbilicalArterySubjectReference,
+                    encounter: MRObservationpHValueUmbilicalArteryEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueQuantity: MRObservationpHValueUmbilicalArteryValueQuantity
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationpHValueUmbilicalArteryPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationpHValueUmbilicalArteryPerformerReference
+                    )
                 })
             ])
         )

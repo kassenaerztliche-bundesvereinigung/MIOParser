@@ -26,16 +26,19 @@ import CMRU5U6PhysicalExamHeadGerman from "../../../../../Definitions/KBV/CMR/1.
 
 type CMRU5U6PhysicalExamHead = "111235007" | "253978002" | "248387005" | "366372002";
 
-const CMRU5U6PhysicalExamHead: t.Type<CMRU5U6PhysicalExamHead> = t.union(
-    [
-        t.literal("111235007"),
-        t.literal("253978002"),
-        t.literal("248387005"),
-        t.literal("366372002")
-    ],
-    "CMRU5U6PhysicalExamHead"
-);
+type CMRU5U6PhysicalExamHeadType = t.KeyofC<{
+    "111235007": null;
+    "253978002": null;
+    "248387005": null;
+    "366372002": null;
+}>;
 
+const CMRU5U6PhysicalExamHead: CMRU5U6PhysicalExamHeadType = t.keyof({
+    "111235007": null,
+    "253978002": null,
+    "248387005": null,
+    "366372002": null
+});
 export const CMRU5U6PhysicalExamHeadArray: string[] = [
     "111235007",
     "253978002",

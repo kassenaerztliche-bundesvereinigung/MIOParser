@@ -256,13 +256,13 @@ export const MRObservationImmunizationStatusCode: t.Type<MRObservationImmunizati
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface MRObservationImmunizationStatusSubject {
+export interface MRObservationImmunizationStatusSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationImmunizationStatusSubject: t.Type<MRObservationImmunizationStatusSubject> =
-    t.recursion("MRObservationImmunizationStatusSubject", () =>
+export const MRObservationImmunizationStatusSubjectReference: t.Type<MRObservationImmunizationStatusSubjectReference> =
+    t.recursion("MRObservationImmunizationStatusSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -280,13 +280,13 @@ export const MRObservationImmunizationStatusSubject: t.Type<MRObservationImmuniz
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
  */
-export interface MRObservationImmunizationStatusEncounter {
+export interface MRObservationImmunizationStatusEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationImmunizationStatusEncounter: t.Type<MRObservationImmunizationStatusEncounter> =
-    t.recursion("MRObservationImmunizationStatusEncounter", () =>
+export const MRObservationImmunizationStatusEncounterReference: t.Type<MRObservationImmunizationStatusEncounterReference> =
+    t.recursion("MRObservationImmunizationStatusEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -304,13 +304,13 @@ export const MRObservationImmunizationStatusEncounter: t.Type<MRObservationImmun
 /**
  * Who was responsible for asserting the observed value as "true".
  */
-export interface MRObservationImmunizationStatusPerformer {
+export interface MRObservationImmunizationStatusPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const MRObservationImmunizationStatusPerformer: t.Type<MRObservationImmunizationStatusPerformer> =
-    t.recursion("MRObservationImmunizationStatusPerformer", () =>
+export const MRObservationImmunizationStatusPerformerReference: t.Type<MRObservationImmunizationStatusPerformerReference> =
+    t.recursion("MRObservationImmunizationStatusPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -331,12 +331,12 @@ interface MRObservationImmunizationStatus {
     meta: MRObservationImmunizationStatusMeta;
     status: "final";
     code: MRObservationImmunizationStatusCode;
-    subject: MRObservationImmunizationStatusSubject;
-    encounter: MRObservationImmunizationStatusEncounter;
+    subject: MRObservationImmunizationStatusSubjectReference;
+    encounter: MRObservationImmunizationStatusEncounterReference;
     effectiveDateTime: string;
     valueBoolean: boolean;
     text?: Narrative;
-    performer?: Array<MRObservationImmunizationStatusPerformer>;
+    performer?: Array<MRObservationImmunizationStatusPerformerReference>;
 }
 
 const MRObservationImmunizationStatus: t.Type<MRObservationImmunizationStatus> =
@@ -349,14 +349,17 @@ const MRObservationImmunizationStatus: t.Type<MRObservationImmunizationStatus> =
                     meta: MRObservationImmunizationStatusMeta,
                     status: Literal("final"),
                     code: MRObservationImmunizationStatusCode,
-                    subject: MRObservationImmunizationStatusSubject,
-                    encounter: MRObservationImmunizationStatusEncounter,
+                    subject: MRObservationImmunizationStatusSubjectReference,
+                    encounter: MRObservationImmunizationStatusEncounterReference,
                     effectiveDateTime: SCALARDateTime,
                     valueBoolean: SCALARBoolean
                 }),
                 t.partial({
                     text: Narrative,
-                    performer: MaxArray(1, MRObservationImmunizationStatusPerformer)
+                    performer: MaxArray(
+                        1,
+                        MRObservationImmunizationStatusPerformerReference
+                    )
                 })
             ])
         )

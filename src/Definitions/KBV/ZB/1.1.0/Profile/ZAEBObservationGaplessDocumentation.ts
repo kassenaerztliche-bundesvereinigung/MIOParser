@@ -118,13 +118,13 @@ export const ZAEBObservationGaplessDocumentationCode: t.Type<ZAEBObservationGapl
 /**
  * The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.
  */
-export interface ZAEBObservationGaplessDocumentationSubject {
+export interface ZAEBObservationGaplessDocumentationSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const ZAEBObservationGaplessDocumentationSubject: t.Type<ZAEBObservationGaplessDocumentationSubject> =
-    t.recursion("ZAEBObservationGaplessDocumentationSubject", () =>
+export const ZAEBObservationGaplessDocumentationSubjectReference: t.Type<ZAEBObservationGaplessDocumentationSubjectReference> =
+    t.recursion("ZAEBObservationGaplessDocumentationSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -144,7 +144,7 @@ interface ZAEBObservationGaplessDocumentation {
     meta: ZAEBObservationGaplessDocumentationMeta;
     status: ObservationstatusVS;
     code: ZAEBObservationGaplessDocumentationCode;
-    subject: ZAEBObservationGaplessDocumentationSubject;
+    subject: ZAEBObservationGaplessDocumentationSubjectReference;
     valueDateTime: string;
     id?: string;
     text?: Narrative;
@@ -160,7 +160,7 @@ const ZAEBObservationGaplessDocumentation: t.Type<ZAEBObservationGaplessDocument
                     meta: ZAEBObservationGaplessDocumentationMeta,
                     status: ObservationstatusVS,
                     code: ZAEBObservationGaplessDocumentationCode,
-                    subject: ZAEBObservationGaplessDocumentationSubject,
+                    subject: ZAEBObservationGaplessDocumentationSubjectReference,
                     valueDateTime: SCALARDateTime
                 }),
                 t.partial({

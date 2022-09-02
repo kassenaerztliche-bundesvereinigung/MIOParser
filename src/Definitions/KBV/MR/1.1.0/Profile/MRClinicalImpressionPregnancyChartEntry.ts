@@ -1171,13 +1171,13 @@ export const MRClinicalImpressionPregnancyChartEntryInvestigationCode: t.Type<MR
 /**
  * A record of a specific investigation that was undertaken.
  */
-export interface MRClinicalImpressionPregnancyChartEntryInvestigationItem {
+export interface MRClinicalImpressionPregnancyChartEntryInvestigationItemReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyChartEntryInvestigationItem: t.Type<MRClinicalImpressionPregnancyChartEntryInvestigationItem> =
-    t.recursion("MRClinicalImpressionPregnancyChartEntryInvestigationItem", () =>
+export const MRClinicalImpressionPregnancyChartEntryInvestigationItemReference: t.Type<MRClinicalImpressionPregnancyChartEntryInvestigationItemReference> =
+    t.recursion("MRClinicalImpressionPregnancyChartEntryInvestigationItemReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1306,13 +1306,13 @@ export const MRClinicalImpressionPregnancyChartEntryCode: t.Type<MRClinicalImpre
 /**
  * The patient or group of individuals assessed as part of this record.
  */
-export interface MRClinicalImpressionPregnancyChartEntrySubject {
+export interface MRClinicalImpressionPregnancyChartEntrySubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyChartEntrySubject: t.Type<MRClinicalImpressionPregnancyChartEntrySubject> =
-    t.recursion("MRClinicalImpressionPregnancyChartEntrySubject", () =>
+export const MRClinicalImpressionPregnancyChartEntrySubjectReference: t.Type<MRClinicalImpressionPregnancyChartEntrySubjectReference> =
+    t.recursion("MRClinicalImpressionPregnancyChartEntrySubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1330,13 +1330,13 @@ export const MRClinicalImpressionPregnancyChartEntrySubject: t.Type<MRClinicalIm
 /**
  * The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated.
  */
-export interface MRClinicalImpressionPregnancyChartEntryEncounter {
+export interface MRClinicalImpressionPregnancyChartEntryEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyChartEntryEncounter: t.Type<MRClinicalImpressionPregnancyChartEntryEncounter> =
-    t.recursion("MRClinicalImpressionPregnancyChartEntryEncounter", () =>
+export const MRClinicalImpressionPregnancyChartEntryEncounterReference: t.Type<MRClinicalImpressionPregnancyChartEntryEncounterReference> =
+    t.recursion("MRClinicalImpressionPregnancyChartEntryEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1354,13 +1354,13 @@ export const MRClinicalImpressionPregnancyChartEntryEncounter: t.Type<MRClinical
 /**
  * The clinician performing the assessment.
  */
-export interface MRClinicalImpressionPregnancyChartEntryAssessor {
+export interface MRClinicalImpressionPregnancyChartEntryAssessorReference {
     reference: string;
     id?: string;
 }
 
-export const MRClinicalImpressionPregnancyChartEntryAssessor: t.Type<MRClinicalImpressionPregnancyChartEntryAssessor> =
-    t.recursion("MRClinicalImpressionPregnancyChartEntryAssessor", () =>
+export const MRClinicalImpressionPregnancyChartEntryAssessorReference: t.Type<MRClinicalImpressionPregnancyChartEntryAssessorReference> =
+    t.recursion("MRClinicalImpressionPregnancyChartEntryAssessorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -1380,7 +1380,7 @@ export const MRClinicalImpressionPregnancyChartEntryAssessor: t.Type<MRClinicalI
  */
 export interface MRClinicalImpressionPregnancyChartEntryInvestigation {
     code: MRClinicalImpressionPregnancyChartEntryInvestigationCode;
-    item: Array<MRClinicalImpressionPregnancyChartEntryInvestigationItem>;
+    item: Array<MRClinicalImpressionPregnancyChartEntryInvestigationItemReference>;
     id?: string;
 }
 
@@ -1392,7 +1392,7 @@ export const MRClinicalImpressionPregnancyChartEntryInvestigation: t.Type<MRClin
                     code: MRClinicalImpressionPregnancyChartEntryInvestigationCode,
                     item: MinArray(
                         1,
-                        MRClinicalImpressionPregnancyChartEntryInvestigationItem
+                        MRClinicalImpressionPregnancyChartEntryInvestigationItemReference
                     )
                 }),
                 t.partial({
@@ -1430,15 +1430,15 @@ interface MRClinicalImpressionPregnancyChartEntry {
     meta: MRClinicalImpressionPregnancyChartEntryMeta;
     status: "completed";
     code: MRClinicalImpressionPregnancyChartEntryCode;
-    subject: MRClinicalImpressionPregnancyChartEntrySubject;
-    encounter: MRClinicalImpressionPregnancyChartEntryEncounter;
+    subject: MRClinicalImpressionPregnancyChartEntrySubjectReference;
+    encounter: MRClinicalImpressionPregnancyChartEntryEncounterReference;
     investigation: Array<MRClinicalImpressionPregnancyChartEntryInvestigation>;
     id?: string;
     text?: Narrative;
     identifier?: Array<MRClinicalImpressionPregnancyChartEntryIdentifier>;
     _effectiveDateTime?: MRClinicalImpressionPregnancyChartEntryEffectiveDateTime;
     effectiveDateTime?: string;
-    assessor?: MRClinicalImpressionPregnancyChartEntryAssessor;
+    assessor?: MRClinicalImpressionPregnancyChartEntryAssessorReference;
     finding?: MRClinicalImpressionPregnancyChartEntryFinding[];
     note?: Array<Annotation>;
 }
@@ -1452,8 +1452,8 @@ const MRClinicalImpressionPregnancyChartEntry: t.Type<MRClinicalImpressionPregna
                     meta: MRClinicalImpressionPregnancyChartEntryMeta,
                     status: Literal("completed"),
                     code: MRClinicalImpressionPregnancyChartEntryCode,
-                    subject: MRClinicalImpressionPregnancyChartEntrySubject,
-                    encounter: MRClinicalImpressionPregnancyChartEntryEncounter,
+                    subject: MRClinicalImpressionPregnancyChartEntrySubjectReference,
+                    encounter: MRClinicalImpressionPregnancyChartEntryEncounterReference,
                     investigation: MinMaxArray(
                         1,
                         1,
@@ -1470,7 +1470,7 @@ const MRClinicalImpressionPregnancyChartEntry: t.Type<MRClinicalImpressionPregna
                     _effectiveDateTime:
                         MRClinicalImpressionPregnancyChartEntryEffectiveDateTime,
                     effectiveDateTime: SCALARDateTime,
-                    assessor: MRClinicalImpressionPregnancyChartEntryAssessor,
+                    assessor: MRClinicalImpressionPregnancyChartEntryAssessorReference,
                     finding: t.array(MRClinicalImpressionPregnancyChartEntryFinding),
                     note: MaxArray(1, Annotation)
                 })

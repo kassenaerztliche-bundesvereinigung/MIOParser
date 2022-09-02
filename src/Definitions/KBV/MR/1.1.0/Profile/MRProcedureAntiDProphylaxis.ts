@@ -147,13 +147,13 @@ export const MRProcedureAntiDProphylaxisCodeCoding: t.Type<MRProcedureAntiDProph
 /**
  * The practitioner who was involved in the procedure.
  */
-export interface MRProcedureAntiDProphylaxisPerformerActor {
+export interface MRProcedureAntiDProphylaxisPerformerActorReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisPerformerActor: t.Type<MRProcedureAntiDProphylaxisPerformerActor> =
-    t.recursion("MRProcedureAntiDProphylaxisPerformerActor", () =>
+export const MRProcedureAntiDProphylaxisPerformerActorReference: t.Type<MRProcedureAntiDProphylaxisPerformerActorReference> =
+    t.recursion("MRProcedureAntiDProphylaxisPerformerActorReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -222,13 +222,13 @@ export const MRProcedureAntiDProphylaxisCode: t.Type<MRProcedureAntiDProphylaxis
 /**
  * The person, animal or group on which the procedure was performed.
  */
-export interface MRProcedureAntiDProphylaxisSubject {
+export interface MRProcedureAntiDProphylaxisSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisSubject: t.Type<MRProcedureAntiDProphylaxisSubject> =
-    t.recursion("MRProcedureAntiDProphylaxisSubject", () =>
+export const MRProcedureAntiDProphylaxisSubjectReference: t.Type<MRProcedureAntiDProphylaxisSubjectReference> =
+    t.recursion("MRProcedureAntiDProphylaxisSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -246,13 +246,13 @@ export const MRProcedureAntiDProphylaxisSubject: t.Type<MRProcedureAntiDProphyla
 /**
  * The Encounter during which this Procedure was created or performed or to which the creation of this record is tightly associated.
  */
-export interface MRProcedureAntiDProphylaxisEncounter {
+export interface MRProcedureAntiDProphylaxisEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const MRProcedureAntiDProphylaxisEncounter: t.Type<MRProcedureAntiDProphylaxisEncounter> =
-    t.recursion("MRProcedureAntiDProphylaxisEncounter", () =>
+export const MRProcedureAntiDProphylaxisEncounterReference: t.Type<MRProcedureAntiDProphylaxisEncounterReference> =
+    t.recursion("MRProcedureAntiDProphylaxisEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -271,7 +271,7 @@ export const MRProcedureAntiDProphylaxisEncounter: t.Type<MRProcedureAntiDProphy
  * Limited to "real" people rather than equipment.
  */
 export interface MRProcedureAntiDProphylaxisPerformer {
-    actor: MRProcedureAntiDProphylaxisPerformerActor;
+    actor: MRProcedureAntiDProphylaxisPerformerActorReference;
     id?: string;
 }
 
@@ -280,7 +280,7 @@ export const MRProcedureAntiDProphylaxisPerformer: t.Type<MRProcedureAntiDProphy
         Excess(
             t.intersection([
                 t.type({
-                    actor: MRProcedureAntiDProphylaxisPerformerActor
+                    actor: MRProcedureAntiDProphylaxisPerformerActorReference
                 }),
                 t.partial({
                     id: SCALARString
@@ -294,8 +294,8 @@ interface MRProcedureAntiDProphylaxis {
     meta: MRProcedureAntiDProphylaxisMeta;
     status: "completed";
     code: MRProcedureAntiDProphylaxisCode;
-    subject: MRProcedureAntiDProphylaxisSubject;
-    encounter: MRProcedureAntiDProphylaxisEncounter;
+    subject: MRProcedureAntiDProphylaxisSubjectReference;
+    encounter: MRProcedureAntiDProphylaxisEncounterReference;
     performedDateTime: string;
     id?: string;
     text?: Narrative;
@@ -313,8 +313,8 @@ const MRProcedureAntiDProphylaxis: t.Type<MRProcedureAntiDProphylaxis> = t.recur
                     meta: MRProcedureAntiDProphylaxisMeta,
                     status: Literal("completed"),
                     code: MRProcedureAntiDProphylaxisCode,
-                    subject: MRProcedureAntiDProphylaxisSubject,
-                    encounter: MRProcedureAntiDProphylaxisEncounter,
+                    subject: MRProcedureAntiDProphylaxisSubjectReference,
+                    encounter: MRProcedureAntiDProphylaxisEncounterReference,
                     performedDateTime: SCALARDateTime
                 }),
                 t.partial({

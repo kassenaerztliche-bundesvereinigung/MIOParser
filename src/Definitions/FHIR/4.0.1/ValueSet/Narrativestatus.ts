@@ -25,16 +25,19 @@ import { ValueSet } from "../../../Interfaces";
 
 type Narrativestatus = "generated" | "extensions" | "additional" | "empty";
 
-const Narrativestatus: t.Type<Narrativestatus> = t.union(
-    [
-        t.literal("generated"),
-        t.literal("extensions"),
-        t.literal("additional"),
-        t.literal("empty")
-    ],
-    "Narrativestatus"
-);
+type NarrativestatusType = t.KeyofC<{
+    generated: null;
+    extensions: null;
+    additional: null;
+    empty: null;
+}>;
 
+const Narrativestatus: NarrativestatusType = t.keyof({
+    generated: null,
+    extensions: null,
+    additional: null,
+    empty: null
+});
 export const NarrativestatusArray: string[] = [
     "generated",
     "extensions",

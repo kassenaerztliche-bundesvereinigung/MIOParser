@@ -260,13 +260,13 @@ export const CMRDiagnosticReportU1EdemaOfNewbornCode: t.Type<CMRDiagnosticReport
 /**
  * The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
  */
-export interface CMRDiagnosticReportU1EdemaOfNewbornSubject {
+export interface CMRDiagnosticReportU1EdemaOfNewbornSubjectReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1EdemaOfNewbornSubject: t.Type<CMRDiagnosticReportU1EdemaOfNewbornSubject> =
-    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornSubject", () =>
+export const CMRDiagnosticReportU1EdemaOfNewbornSubjectReference: t.Type<CMRDiagnosticReportU1EdemaOfNewbornSubjectReference> =
+    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornSubjectReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -284,13 +284,13 @@ export const CMRDiagnosticReportU1EdemaOfNewbornSubject: t.Type<CMRDiagnosticRep
 /**
  * The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
  */
-export interface CMRDiagnosticReportU1EdemaOfNewbornEncounter {
+export interface CMRDiagnosticReportU1EdemaOfNewbornEncounterReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1EdemaOfNewbornEncounter: t.Type<CMRDiagnosticReportU1EdemaOfNewbornEncounter> =
-    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornEncounter", () =>
+export const CMRDiagnosticReportU1EdemaOfNewbornEncounterReference: t.Type<CMRDiagnosticReportU1EdemaOfNewbornEncounterReference> =
+    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornEncounterReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -308,13 +308,13 @@ export const CMRDiagnosticReportU1EdemaOfNewbornEncounter: t.Type<CMRDiagnosticR
 /**
  * The diagnostic service that is responsible for issuing the report.
  */
-export interface CMRDiagnosticReportU1EdemaOfNewbornPerformer {
+export interface CMRDiagnosticReportU1EdemaOfNewbornPerformerReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1EdemaOfNewbornPerformer: t.Type<CMRDiagnosticReportU1EdemaOfNewbornPerformer> =
-    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornPerformer", () =>
+export const CMRDiagnosticReportU1EdemaOfNewbornPerformerReference: t.Type<CMRDiagnosticReportU1EdemaOfNewbornPerformerReference> =
+    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornPerformerReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -332,13 +332,13 @@ export const CMRDiagnosticReportU1EdemaOfNewbornPerformer: t.Type<CMRDiagnosticR
 /**
  * [Observations](observation.html)  that are part of this diagnostic report.
  */
-export interface CMRDiagnosticReportU1EdemaOfNewbornResult {
+export interface CMRDiagnosticReportU1EdemaOfNewbornResultReference {
     reference: string;
     id?: string;
 }
 
-export const CMRDiagnosticReportU1EdemaOfNewbornResult: t.Type<CMRDiagnosticReportU1EdemaOfNewbornResult> =
-    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornResult", () =>
+export const CMRDiagnosticReportU1EdemaOfNewbornResultReference: t.Type<CMRDiagnosticReportU1EdemaOfNewbornResultReference> =
+    t.recursion("CMRDiagnosticReportU1EdemaOfNewbornResultReference", () =>
         Excess(
             t.intersection([
                 t.type({
@@ -358,13 +358,13 @@ interface CMRDiagnosticReportU1EdemaOfNewborn {
     meta: CMRDiagnosticReportU1EdemaOfNewbornMeta;
     status: "final";
     code: CMRDiagnosticReportU1EdemaOfNewbornCode;
-    subject: CMRDiagnosticReportU1EdemaOfNewbornSubject;
-    encounter: CMRDiagnosticReportU1EdemaOfNewbornEncounter;
+    subject: CMRDiagnosticReportU1EdemaOfNewbornSubjectReference;
+    encounter: CMRDiagnosticReportU1EdemaOfNewbornEncounterReference;
     effectiveDateTime: string;
     id?: string;
     text?: Narrative;
-    performer?: Array<CMRDiagnosticReportU1EdemaOfNewbornPerformer>;
-    result?: CMRDiagnosticReportU1EdemaOfNewbornResult[];
+    performer?: Array<CMRDiagnosticReportU1EdemaOfNewbornPerformerReference>;
+    result?: CMRDiagnosticReportU1EdemaOfNewbornResultReference[];
 }
 
 const CMRDiagnosticReportU1EdemaOfNewborn: t.Type<CMRDiagnosticReportU1EdemaOfNewborn> =
@@ -376,15 +376,18 @@ const CMRDiagnosticReportU1EdemaOfNewborn: t.Type<CMRDiagnosticReportU1EdemaOfNe
                     meta: CMRDiagnosticReportU1EdemaOfNewbornMeta,
                     status: Literal("final"),
                     code: CMRDiagnosticReportU1EdemaOfNewbornCode,
-                    subject: CMRDiagnosticReportU1EdemaOfNewbornSubject,
-                    encounter: CMRDiagnosticReportU1EdemaOfNewbornEncounter,
+                    subject: CMRDiagnosticReportU1EdemaOfNewbornSubjectReference,
+                    encounter: CMRDiagnosticReportU1EdemaOfNewbornEncounterReference,
                     effectiveDateTime: SCALARDateTime
                 }),
                 t.partial({
                     id: SCALARString,
                     text: Narrative,
-                    performer: MaxArray(1, CMRDiagnosticReportU1EdemaOfNewbornPerformer),
-                    result: t.array(CMRDiagnosticReportU1EdemaOfNewbornResult)
+                    performer: MaxArray(
+                        1,
+                        CMRDiagnosticReportU1EdemaOfNewbornPerformerReference
+                    ),
+                    result: t.array(CMRDiagnosticReportU1EdemaOfNewbornResultReference)
                 })
             ])
         )
